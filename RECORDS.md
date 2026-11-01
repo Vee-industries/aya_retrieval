@@ -28,6 +28,7 @@ carry their own provenance (command, git commit, package versions).
 | R-013 | ★ **First test with stops: the base readings return. Supervised pilot passes** |
 | R-014 | ★ Recall first test: search finds the fact and the model often ignores it; the 419 ceiling is not valid |
 | R-015 | Recall development baseline, rules written and committed before the run |
+| R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** |
 
 ---
 
@@ -473,3 +474,45 @@ at least 50% on `older`, or the ceiling is still not valid and is not reported a
 
 **Reading.** This run sets no pass or fail for the project. It sets the base numbers the adapter is
 then trained against, and the official comparison runs on held-out items with its own rules.
+
+## R-016 · 2026-11-01 · SPRINT · Pre-registration: training design, held-out test, recall threshold, coherence gate
+
+Written while the R-015 run was still going, before any of its numbers were read. Later changes get
+disclosed item by item.
+
+**Training data.** `data/recall_train.jsonl`, built by `run_build_training_set.py`: 150 rows per kind, 750
+in all, train pool only, new seed.
+- `older`, `confirm`, `never_told`: a clean call with the demonstrated query, the tool's real output, then
+  the answer. If the real search missed the fact, the demonstration says it does not know, because a
+  demonstration must stay true to what the tool returned.
+- `statement`, `in_view`: the base model's own reply with no tool in sight, kept only if it passes the
+  item's scorer. Kevin's gate is that coherence must not fall, and copying base's own replies is the
+  design choice that protects it: training teaches the tool habit and leaves ordinary talk alone.
+- This idea is a design decision by Claude, made before any recall adapter exists.
+
+**Training.** LoRA only: r=16, attention projections, batch 2, learning rate 2e-4, 3 epochs, through
+AgentTune's distillation trainer. The adapter-moved control applies. Training runs in its own process.
+
+**Held-out test.** `run_recall_eval.py --pool heldout --final`, `tool_loop` arm, greedy. Base and adapter
+run on identical conversations: 30 per kind at each of 58 and 419 messages, 300 in all. Three adapters
+on three training seeds, each compared with base on the same conversations. This test runs once for the
+result. Any further run on it is disclosed as such.
+
+**Primary measure, recall.** Correct answers on `older` and `confirm` items, 120 conversations.
+**Marked improvement** means both of these, pooled over the three adapters:
+1. at least 20 percentage points above base at each message size;
+2. a paired exact sign test on the conversations where base and adapter differ, p below 0.01.
+
+**Coherence gate, hard.** Every conversation's final reply under base and adapter, shuffled, goes to a
+judge blind to the model, marked 1 or 0 against the rubric in `coherence.py`. Each adapter's coherent
+count must be at or above base's on the same conversations. Below it is a fail, however good recall is.
+The paired disagreement counts and an exact 95% interval on the difference are reported beside it, so
+a pass on a wide interval is reported as one. The judge is a fresh Claude agent that gets only the
+sheet, the rubric and no project context. Claude does not mark any line itself.
+
+**Reported beside these, not gating.** Each item kind alone, right search decision, clean calls, runs that
+ran out of calls, context tokens per turn, facts found by the model's own queries, and `whole_chat` and
+`always_search` as references.
+
+**Project result.** Pass needs the recall rule and the coherence gate on all of this together. Otherwise
+the write-up says which failed and by how much.
