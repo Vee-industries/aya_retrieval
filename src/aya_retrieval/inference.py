@@ -26,9 +26,10 @@ def stop_token_ids(tokenizer) -> list[int]:
     return ids
 
 
-def generate_reply(model, tokenizer, system: str, user: str, options: dict, max_tokens: int) -> str:
-    """Return the model's reply to one user message."""
-    messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
+def generate_from_messages(
+    model, tokenizer, messages: list[dict], options: dict, max_tokens: int
+) -> str:
+    """Return the model's next turn after ``messages``."""
     inputs = tokenizer.apply_chat_template(
         messages, add_generation_prompt=True, return_tensors="pt", return_dict=True
     ).to(model.device)
@@ -42,3 +43,9 @@ def generate_reply(model, tokenizer, system: str, user: str, options: dict, max_
         )
     reply_tokens = output[0][inputs["input_ids"].shape[1] :]
     return tokenizer.decode(reply_tokens, skip_special_tokens=True).strip()
+
+
+def generate_reply(model, tokenizer, system: str, user: str, options: dict, max_tokens: int) -> str:
+    """Return the model's reply to one user message."""
+    messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
+    return generate_from_messages(model, tokenizer, messages, options, max_tokens)

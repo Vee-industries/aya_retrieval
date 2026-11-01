@@ -4,6 +4,7 @@ import pytest
 
 from aya_retrieval import scoring
 from aya_retrieval.scoring import (
+    answer_correct,
     check_scorer,
     clean_call,
     clean_call_count,
@@ -60,6 +61,19 @@ def test_clean_call_count_is_out_of_the_rows_that_searched():
         {"reply": "Thanks for telling me.", "searched": False},
     ]
     assert clean_call_count(rows) == {"clean": 1, "of": 2}
+
+
+@pytest.mark.parametrize(
+    ("reply", "expected"),
+    [
+        ("Her dog is called pepper.", True),
+        ("I don't know.", False),
+        ("The dog is Rusty.", False),
+        ("Passages: Pepper, Rusty.", False),
+    ],
+)
+def test_answer_correct_needs_the_answer_and_not_the_decoy(reply, expected):
+    assert answer_correct(reply, "Pepper", "Rusty") is expected
 
 
 def test_the_startup_check_passes_on_the_real_scorer():

@@ -33,6 +33,16 @@ def clean_call(reply: str) -> bool:
     )
 
 
+def answer_correct(reply: str, answer: str, decoy: str) -> bool:
+    """Return True if the reply gives the planted answer and does not also give the decoy.
+
+    The decoy rule fails a reply that dumps every passage it was handed, which a plain substring
+    check would pass.
+    """
+    text = reply.casefold()
+    return answer.casefold() in text and decoy.casefold() not in text
+
+
 def check_scorer() -> None:
     """Raise unless the scorer accepts a real call and rejects text that only looks like one."""
     call = f'[{{"tool_name": "{SEARCH_TOOL_NAME}", "parameters": {{"query": "meal allowance"}}}}]'

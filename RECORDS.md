@@ -23,6 +23,7 @@ carry their own provenance (command, git commit, package versions).
 | R-008 | Supervised pilot, rules written and committed before the run |
 | R-009 | First test from a clean commit: the same reading; LoRA only |
 | R-010 | ★ **R-005 and R-009 withdrawn: generation did not stop on the end of a turn**; the goal; panel findings |
+| R-011 | Recall first test, rules written and committed before the run |
 
 ---
 
@@ -294,3 +295,46 @@ and have not been run.
 
 **Next.** Fix stops, rerun the first test, then the recall first test: 40 older-fact items, search hit
 rate on CPU, and base in the whole-chat, three-exchange and always-search arms, with no training.
+
+## R-011 · 2026-11-01 · SPRINT · Recall first test, rules written and committed before the run
+
+**Kevin's requirement.** "i want to be able to get lle style recall out of this. well out of context."
+So the test uses long conversations, 58 and 419 messages (LLE's bench sizes), with three exchanges in
+view and older facts reachable only by searching.
+
+**Question.** With no training, how far apart are the ceiling and the floor, and does code that always
+searches already close the gap? If it does, the adapter has to earn its place on something else.
+
+**Items.** `conversations.build_item`, scripted small talk with one planted fact and one decoy of the
+same kind about another person. 20 items per size and wording, 80 in all, built from the run seed.
+"Same words" questions repeat the fact's words. "New words" questions share only the relation word,
+such as "sister", with the fact. These are pilot items and stay out of the held-out set.
+
+**Arms, base model, greedy, 60 tokens.**
+| Arm | In the prompt |
+|---|---|
+| `whole_chat` | Every exchange; the ceiling |
+| `three_exchanges` | The last three exchanges; the floor |
+| `always_search` | The last three, with code searching the user's message and handing back the results as AgentTune's fallback would |
+
+The arm that hands over only the right passage (R-010) waits for this result: search finds the fact
+often enough on a development check that it is not needed to read this test.
+
+**Scoring.** `answer_correct`: the reply holds the planted answer and not the decoy.
+
+**Development check, before this record.** On 40 items per size and wording from other seeds, OR mode
+found the fact in the top 5 on 40 of 40 and 34 of 40 at 419 messages, and AND mode found it on 0 of
+40. That was a look at the search code during the build, with no model involved. The run measures
+this again on its own items and uses OR mode for the arms.
+
+**Decision rule.**
+- Control: `whole_chat` must be at least 60% correct at 58 messages, or the task is too hard for this
+  model and gets redesigned. `three_exchanges` must be at most 10%, or the fact is leaking.
+- If `always_search` is within 10 points of `whole_chat` at both sizes, code alone recovers the fact.
+  The adapter then has to be judged on knowing when not to search, on stopping and on coherence, and
+  the claim changes to match.
+- If `always_search` falls more than 10 points short of `whole_chat`, there is a recall gap for the
+  adapter to close, and that gap is the main measure.
+
+**Limit.** One seed, base only. Coherence is not measured here; its measure comes with the held-out
+design.
