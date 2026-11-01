@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aya-retrieval"
+version = "0.1.0"
+description = "Training Tiny Aya to decide when to search and to ignore instructions inside retrieved text."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Kevin Vaillancourt" }]
+requires-python = ">=3.12"
+dependencies = [
+    "torch==2.11.*",
+    "transformers>=5.15",
+    "huggingface_hub>=1.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9", "ruff>=0.14"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "A"]
