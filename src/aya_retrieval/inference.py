@@ -21,7 +21,8 @@ def stop_token_ids(tokenizer) -> list[int]:
     ids = tokenizer.convert_tokens_to_ids(list(STOP_TOKENS))
     unknown_id = tokenizer.unk_token_id
     if any(token_id is None or token_id == unknown_id for token_id in ids):
-        raise ValueError(f"tokenizer does not know every stop token: {dict(zip(STOP_TOKENS, ids))}")
+        known = dict(zip(STOP_TOKENS, ids, strict=True))
+        raise ValueError(f"tokenizer does not know every stop token: {known}")
     return ids
 
 

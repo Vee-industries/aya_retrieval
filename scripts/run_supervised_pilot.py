@@ -122,6 +122,7 @@ def main() -> None:
     parser.add_argument("--learning-rate", type=float, default=2e-4)
     parser.add_argument("--samples", type=int, default=3, help="sampled replies per item")
     parser.add_argument("--max-new-tokens", type=int, default=80)
+    parser.add_argument("--score-only", action="store_true", help="score an adapter in --out-dir")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
@@ -139,9 +140,10 @@ def main() -> None:
     started = time.time()
     torch.manual_seed(args.seed)
 
-    train_adapter(args)
-    report["train_peak_vram_gib"] = round(torch.cuda.max_memory_allocated() / 2**30, 2)
-    report["train_seconds"] = round(time.time() - started)
+    if not args.score_only:
+        train_adapter(args)
+        report["train_peak_vram_gib"] = round(torch.cuda.max_memory_allocated() / 2**30, 2)
+        report["train_seconds"] = round(time.time() - started)
     report["adapter_moved"] = adapter_moved(args.out_dir / "adapter_model.safetensors")
     if not report["adapter_moved"]:
         raise RuntimeError("the adapter did not move, so this run cannot be reported")
@@ -149,7 +151,8 @@ def main() -> None:
     report["adapter"] = score_adapter(args.out_dir, args.samples, args.max_new_tokens)
     report["seconds"] = round(time.time() - started)
 
-    out = REPO_ROOT / "results" / "supervised_pilot" / f"seed_{args.seed}.json"
+    suffix = "_rescored" if args.score_only else ""
+    out = REPO_ROOT / "results" / "supervised_pilot" / f"seed_{args.seed}{suffix}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, indent=1, ensure_ascii=False), encoding="utf-8")
     summary = {key: report["adapter"][key] for key in report["adapter"] if "rows" not in key}
