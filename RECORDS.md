@@ -31,6 +31,7 @@ carry their own provenance (command, git commit, package versions).
 | R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** |
 | R-017 | ★ Recall development baseline: base on its own tool loop; the 419 ceiling fails again |
 | R-018 | ★ First recall adapter: 119 of 120 on development items, on training vocabulary; a third pool and a stricter coherence comparison added |
+| R-019 | Probe check, rules written and committed before the run |
 
 ---
 
@@ -613,3 +614,24 @@ three hours:
   tool in the prompt (`three_exchanges`), on `statement` and `in_view`, the kinds where the no-tool model has
   what it needs. The original comparison stays as registered. This addition is reported beside it. Whether
   it gates is settled in the record that sets it, once its development reading is in.
+
+## R-019 · 2026-11-01 · SPRINT · Probe check, rules written and committed before the run
+
+**Question.** Does the adapter's habit carry to content it never trained on, and did ordinary talk hold?
+
+**Run.** Pool `probe`, seed 58213, 12 items per kind at 58 and 419 messages, 120 conversations, greedy, on
+this commit. Base on `tool_loop` and `three_exchanges`, adapter seed 81 on `tool_loop`. The pool shares no
+people, relations, subjects, facts, values or small talk with `train` or `heldout`, enforced by a test, and
+its demonstrated query found the fact on 60 of 60 conversations checked. Claude wrote it after seeing
+the train and held-out pools, so its wording may lean the same way. Development only, not a project result.
+
+**Reading, fixed now.**
+- Habit carries: on `older` and `confirm`, the adapter is at least 20 points above base at each size, and
+  right search decisions are at or above 100 of 120. Then train the other two adapter seeds as registered.
+- Habit does not carry: either rule fails. Then the 750 rows taught templates, and the training set gets
+  broader before any more GPU goes on adapters.
+
+**Coherence, two blind sheets, one fresh Claude agent, rubric only.** Sheet A: adapter against base on
+`tool_loop`, every kind, 240 lines, as R-016 registers. Sheet B: adapter against base with no tool, on
+`statement` and `in_view`, 96 lines, as R-018 adds. Claude does not mark any line. The key is read only after
+the marks are in.

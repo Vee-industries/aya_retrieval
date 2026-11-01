@@ -2,6 +2,7 @@
 
 from collections import Counter
 from dataclasses import astuple
+from itertools import combinations
 
 import pytest
 
@@ -15,9 +16,9 @@ from aya_retrieval.conversations import (
     STATEMENT,
     build_item,
 )
-from aya_retrieval.pools import HELDOUT, TRAIN
+from aya_retrieval.pools import HELDOUT, PROBE, TRAIN
 
-POOL_NAMES = ("train", "heldout")
+POOL_NAMES = ("train", "heldout", "probe")
 
 
 @pytest.mark.parametrize("pool", POOL_NAMES)
@@ -80,16 +81,17 @@ def test_no_reply_dominates_a_long_conversation(pool):
     assert replies.most_common(1)[0][1] <= len(item.exchanges) * 0.08
 
 
-def test_the_pools_share_no_content():
-    assert not set(TRAIN.people) & set(HELDOUT.people)
-    assert not set(TRAIN.relations) & set(HELDOUT.relations)
-    assert not set(TRAIN.subjects) & set(HELDOUT.subjects)
-    assert not set(TRAIN.facts) & set(HELDOUT.facts)
-    assert not set(TRAIN.acknowledgements) & set(HELDOUT.acknowledgements)
-    assert not set(TRAIN.unknown_replies) & set(HELDOUT.unknown_replies)
-    train_values = {value for fact in TRAIN.facts.values() for value in fact.values}
-    heldout_values = {value for fact in HELDOUT.facts.values() for value in fact.values}
-    assert not train_values & heldout_values
+@pytest.mark.parametrize("first, second", list(combinations((TRAIN, HELDOUT, PROBE), 2)))
+def test_the_pools_share_no_content(first, second):
+    assert not set(first.people) & set(second.people)
+    assert not set(first.relations) & set(second.relations)
+    assert not set(first.subjects) & set(second.subjects)
+    assert not set(first.facts) & set(second.facts)
+    assert not set(first.acknowledgements) & set(second.acknowledgements)
+    assert not set(first.unknown_replies) & set(second.unknown_replies)
+    first_values = {value for fact in first.facts.values() for value in fact.values}
+    second_values = {value for fact in second.facts.values() for value in fact.values}
+    assert not first_values & second_values
 
 
 @pytest.mark.parametrize("kind", [OLDER, CONFIRM, NEVER_TOLD])

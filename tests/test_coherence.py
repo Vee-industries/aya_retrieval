@@ -5,7 +5,7 @@ import random
 
 import pytest
 
-from aya_retrieval.coherence import paired_counts, sheet_lines
+from aya_retrieval.coherence import NO_TOOL_ARM, paired_counts, sheet_lines
 
 
 def rows(reply):
@@ -40,6 +40,21 @@ def test_the_shuffle_does_not_keep_the_models_apart():
 def test_runs_on_different_conversations_are_refused():
     with pytest.raises(ValueError, match="same conversations"):
         sheet_lines(rows("x"), rows("y")[:1], random.Random(1))
+
+
+def test_the_sheet_can_compare_with_base_with_no_tool():
+    no_tool = [{**row, "arm": NO_TOOL_ARM} for row in rows("x")]
+    sheet, _ = sheet_lines(no_tool, rows("y"), random.Random(1), base_arm=NO_TOOL_ARM)
+    assert len(sheet) == 4
+    with pytest.raises(ValueError, match="same conversations"):
+        sheet_lines(no_tool, rows("y"), random.Random(1))
+
+
+def test_the_sheet_keeps_only_the_chosen_kinds():
+    mixed = [*rows("x"), {**rows("x")[0], "id": "c", "kind": "statement"}]
+    sheet, key = sheet_lines(mixed, mixed, random.Random(1), kinds=("statement",))
+    assert len(sheet) == 2
+    assert {entry["id"] for entry in key} == {"c"}
 
 
 def test_paired_counts_track_disagreement():

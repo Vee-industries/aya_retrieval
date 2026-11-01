@@ -20,16 +20,32 @@ fact you cannot see is fine if it fits.
 """
 
 SCORED_ARM = "tool_loop"
+NO_TOOL_ARM = "three_exchanges"
 
 
-def sheet_lines(base_rows: list[dict], tuned_rows: list[dict], rng: random.Random):
+def sheet_lines(
+    base_rows: list[dict],
+    tuned_rows: list[dict],
+    rng: random.Random,
+    base_arm: str = SCORED_ARM,
+    kinds: tuple[str, ...] | None = None,
+):
     """Return shuffled judging lines with no model names, and the key that restores them.
+
+    Args:
+        base_rows: Rows from the base run.
+        tuned_rows: Rows from the adapter run.
+        rng: Decides the shuffle.
+        base_arm: The base arm to compare with. ``NO_TOOL_ARM`` asks whether ordinary talk held
+            against base with no tool in its prompt, since the tool alone harms base.
+        kinds: Item kinds to keep, or None for all.
 
     Raises:
         ValueError: If the two runs did not score the same conversations.
     """
-    base = {row["id"]: row for row in base_rows if row["arm"] == SCORED_ARM}
-    tuned = {row["id"]: row for row in tuned_rows if row["arm"] == SCORED_ARM}
+    wanted = lambda row: kinds is None or row["kind"] in kinds  # noqa: E731
+    base = {row["id"]: row for row in base_rows if row["arm"] == base_arm and wanted(row)}
+    tuned = {row["id"]: row for row in tuned_rows if row["arm"] == SCORED_ARM and wanted(row)}
     if base.keys() != tuned.keys():
         raise ValueError("the two runs did not score the same conversations")
     entries = [("base", row) for row in base.values()] + [("tuned", row) for row in tuned.values()]

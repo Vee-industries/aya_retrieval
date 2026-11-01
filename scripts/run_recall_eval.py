@@ -25,6 +25,7 @@ from aya_retrieval.conversations import ITEM_KINDS, OLDER, build_item
 from aya_retrieval.harness import TurnResult, run_turn, turns_from
 from aya_retrieval.inference import GREEDY, generate_from_messages
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION, load_model
+from aya_retrieval.pools import POOLS
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.recall_tool import build_recall_tool, search_finds_fact
 from aya_retrieval.scoring import check_scorer, item_correct, right_decision
@@ -69,7 +70,7 @@ def main() -> None:
     parser.add_argument("--adapter", type=Path, help="adapter to score; omit for the base model")
     parser.add_argument("--arms", nargs="+", default=list(ARMS), choices=ARMS)
     parser.add_argument("--items-per-kind", type=int, default=12)
-    parser.add_argument("--pool", default="train", choices=("train", "heldout"))
+    parser.add_argument("--pool", default="train", choices=sorted(POOLS))
     parser.add_argument("--final", action="store_true", help="needed to read held-out items")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()

@@ -1,7 +1,9 @@
-"""The made-up words conversations are built from, in two pools that share no content.
+"""The made-up words conversations are built from, in three pools that share no content.
 
 ``train`` also serves development checks, on seeds training never used. ``heldout`` is read only by
 the final runs: its people, subjects, facts, questions and small talk appear nowhere in ``train``.
+``probe`` is development material the adapter never trained on, so a check can tell a learned habit
+from memorised templates without opening ``heldout``. It never enters a training set.
 """
 
 from __future__ import annotations
@@ -382,4 +384,189 @@ HELDOUT = Pool(
     ),
 )
 
-POOLS = {"train": TRAIN, "heldout": HELDOUT}
+PROBE = Pool(
+    people=(
+        "Ayaan",
+        "Beatriz",
+        "Chidi",
+        "Dmitri",
+        "Esme",
+        "Farah",
+        "Gustav",
+        "Hana",
+        "Kofi",
+        "Lucia",
+    ),
+    relations=(
+        "teammate",
+        "classmate",
+        "stepsister",
+        "godfather",
+        "barber",
+        "tutor",
+        "mentor",
+        "daughter",
+    ),
+    facts={
+        "tattoo": FactTemplate(
+            values=("anchor", "swallow", "compass", "lighthouse", "koi", "thistle"),
+            statement="{person}, who is my {relation}, got a {value} tattoo last week",
+            same_words="what tattoo did {person} get",
+            new_words="what's the new ink on my {relation}",
+            indirect="drawing a blank on my {relation}'s tattoo",
+            confirm="did i say anything about my {relation}'s tattoo",
+            query="{who} tattoo",
+            answer="{person} got a {value} tattoo.",
+        ),
+        "fear": FactTemplate(
+            values=("spiders", "heights", "pigeons", "thunderstorms", "deep water", "clowns"),
+            statement="{person}, who is my {relation}, is terrified of {value}",
+            same_words="what is {person} terrified of",
+            new_words="what freaks my {relation} out the most",
+            indirect="i'm blanking on what my {relation} is scared of",
+            confirm="have i ever mentioned what scares my {relation}",
+            query="{who} scared fear",
+            answer="{person} is terrified of {value}.",
+        ),
+        "club": FactTemplate(
+            values=("rowing", "handball", "lacrosse", "water polo", "badminton", "archery"),
+            statement="{person}, who is my {relation}, joined a {value} club this month",
+            same_words="which club did {person} join",
+            new_words="where does my {relation} go after work these days",
+            indirect="it's on the tip of my tongue which club my {relation} joined",
+            confirm="did i say which club my {relation} joined",
+            query="{who} club joined",
+            answer="{person} joined a {value} club.",
+        ),
+        "crop": FactTemplate(
+            values=("tomatoes", "zucchini", "pumpkins", "chillies", "strawberries", "asparagus"),
+            statement="{person}, who is my {relation}, grows prize {value} out back",
+            same_words="what does {person} grow out back",
+            new_words="what's growing behind my {relation}'s house",
+            indirect="i cannot think what my {relation} grows",
+            confirm="did i ever bring up what my {relation} grows",
+            query="{who} grows garden",
+            answer="{person} grows prize {value}.",
+        ),
+        "language": FactTemplate(
+            values=("Portuguese", "Swahili", "Korean", "Welsh", "Turkish", "Tagalog"),
+            statement="{person}, who is my {relation}, speaks fluent {value}",
+            same_words="what language does {person} speak",
+            new_words="what can my {relation} speak besides english",
+            indirect="i forget which language my {relation} knows",
+            confirm="did i mention what language my {relation} speaks",
+            query="{who} language speaks",
+            answer="{person} speaks fluent {value}.",
+        ),
+    },
+    subjects=(
+        "the tram",
+        "my ankle",
+        "the patio",
+        "that novel",
+        "the freezer",
+        "the wind",
+        "my camera",
+        "the butcher",
+        "the vacuuming",
+        "my couch",
+        "the sleet",
+        "the photocopier",
+        "the blender",
+        "my skateboard",
+        "the chimney",
+        "the modem",
+        "the garage",
+        "my smoothie",
+        "the dryer",
+        "the courier",
+        "the sauna",
+        "my neck",
+        "the basement",
+        "the radiator",
+        "the pharmacy",
+        "my keys",
+        "the library",
+        "the vet",
+        "the fence",
+        "the bins",
+        "my charger",
+        "the escalator",
+    ),  # fmt: skip
+    moods=(
+        SmallTalkMood(
+            user_lines=(
+                "{subject} is testing my patience",
+                "so fed up with {subject} right now",
+                "{subject} messed up my whole plan",
+                "another bad day thanks to {subject}",
+                "spent all evening sorting out {subject}",
+                "{subject} keeps letting me down",
+            ),
+            replies=(
+                "That's rough. What went wrong with {subject}?",
+                "Sounds like you've had enough of {subject}.",
+                "Ugh, sorry about {subject}.",
+                "Plans and {subject} clearly don't mix.",
+                "All evening? I hope {subject} is sorted now.",
+            ),
+        ),
+        SmallTalkMood(
+            user_lines=(
+                "{subject} went better than expected",
+                "happy to report {subject} is all good",
+                "{subject} cheered me up today",
+                "really enjoying {subject} at the moment",
+                "{subject} turned a corner this week",
+            ),
+            replies=(
+                "Great, {subject} deserved a good day.",
+                "That's lovely to hear.",
+                "Nice one. What changed with {subject}?",
+                "Enjoy it while it lasts.",
+                "Sounds like {subject} is on the up.",
+            ),
+        ),
+        SmallTalkMood(
+            user_lines=(
+                "was reading about {subject} at lunch",
+                "quiet day, mostly {subject}",
+                "that's all i've got on {subject}",
+                "my mom asked about {subject} again",
+                "{subject} popped into my head earlier",
+                "weird how much of my week is {subject}",
+            ),
+            replies=(
+                "Anything interesting about {subject}?",
+                "Quiet days are underrated.",
+                "No problem, what else is new?",
+                "What did she want to know about {subject}?",
+                "Funny what pops up.",
+                "Weeks can go that way.",
+            ),
+        ),
+    ),
+    acknowledgements=(
+        "Oh wow, okay.",
+        "That's cool.",
+        "Thanks for the update.",
+        "Didn't see that coming.",
+        "What do you make of that?",
+        "Sounds like quite the news.",
+    ),
+    statements=(
+        ("my {relation} texted me out of nowhere", "Oh? What did the text say?"),
+        ("{person} and i grabbed coffee this morning", "Nice. How was it?"),
+        ("i should really call my {relation}", "Any special reason?"),
+        ("i got stuck talking to {person} for an hour", "An hour! What about?"),
+        ("my {relation} has been acting strange lately", "Strange how?"),
+        ("{person} forgot my birthday again", "Oof, sorry. Does that happen a lot?"),
+    ),
+    unknown_replies=(
+        "You've never told me that.",
+        "I looked and nothing about that came up.",
+        "No idea, I don't have that from you.",
+    ),
+)
+
+POOLS = {"train": TRAIN, "heldout": HELDOUT, "probe": PROBE}

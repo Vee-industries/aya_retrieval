@@ -15,7 +15,8 @@ import json
 import random
 from pathlib import Path
 
-from aya_retrieval.coherence import sheet_lines
+from aya_retrieval.coherence import NO_TOOL_ARM, SCORED_ARM, sheet_lines
+from aya_retrieval.conversations import ITEM_KINDS
 
 
 def main() -> None:
@@ -23,10 +24,18 @@ def main() -> None:
     parser.add_argument("results", nargs=2, type=Path, help="base results, then adapter results")
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--out-dir", type=Path, required=True)
+    parser.add_argument("--base-arm", default=SCORED_ARM, choices=(SCORED_ARM, NO_TOOL_ARM))
+    parser.add_argument("--kinds", nargs="+", choices=ITEM_KINDS, help="omit for every kind")
     args = parser.parse_args()
 
     runs = [json.loads(path.read_text(encoding="utf-8")) for path in args.results]
-    sheet, key = sheet_lines(runs[0]["rows"], runs[1]["rows"], random.Random(args.seed))
+    sheet, key = sheet_lines(
+        runs[0]["rows"],
+        runs[1]["rows"],
+        random.Random(args.seed),
+        args.base_arm,
+        tuple(args.kinds) if args.kinds else None,
+    )
     args.out_dir.mkdir(parents=True, exist_ok=True)
     (args.out_dir / "sheet.json").write_text(json.dumps(sheet, indent=1), encoding="utf-8")
     (args.out_dir / "key.json").write_text(json.dumps(key, indent=1), encoding="utf-8")
