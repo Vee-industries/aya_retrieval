@@ -20,6 +20,7 @@ carry their own provenance (command, git commit, package versions).
 | R-005 | ★ First test, result: base searches everything and invents tool results |
 | R-006 | ★ Repository brought to the standard; deviation 1: the first test ran outside it |
 | R-007 | ★ Ten GRPO steps: the chain runs, nothing trained, and it does not fit the card |
+| R-008 | Supervised pilot, rules written and committed before the run |
 
 ---
 
@@ -182,3 +183,36 @@ failure on a real result, and a measure of grounding should catch it.
 2. Long GRPO runs are not practical on this card at this memory and speed. Supervised training
    from demonstrations comes first, as the panel in R-002 ordered, and it does not need the base
    model to vary.
+
+## R-008 · 2026-11-01 · SPRINT · Supervised pilot, rules written and committed before the run
+
+**Question.** Can a few demonstrations, through AgentTune's distillation trainer, teach Tiny Aya
+to search on lookups and not on statements, and to stop after a call?
+
+**Training data.** `data/pilot_train.jsonl`, 60 rows written by Claude for this pilot: 30 lookups
+answered by one search call and 30 statements answered in plain text, about a made-up freight
+company. Every call row ends at the call, so the model is shown stopping there.
+
+**Test.** The 40 items of `data/first_test_items.jsonl`, with a different company name in the
+system prompt and different subjects from the training rows. These items were read while
+writing the training rows' format, and they are pilot items, so this is a development check. They
+stay out of the held-out set.
+
+**Settings, fixed before the run.** LoRA r=16 on the attention projections, 6 epochs, learning rate
+2e-4, batch 2. No settings are tuned on this result without a new record.
+
+**Control.** The run stops and reports nothing if the adapter did not move (R-007).
+
+**New measure, defined before the run.** A clean call is a reply that parses whole as a JSON list
+holding one `search_corpus` call, with nothing written before or after it. It is counted out of the
+replies that searched. `scoring.clean_call` has tests that reject a call followed by invented text.
+
+**Decision rule, on greedy decoding.**
+- Pass: at least 16 of 20 lookups searched, at most 4 of 20 statements searched, and at least 80% of
+  searching replies are clean calls. Supervised training then becomes the main route, and the
+  held-out set and larger training set get built.
+- Partial: lookups minus statements searched is at least 8 but the pass fails. The data is the first
+  thing to change, under a new record.
+- Fail: anything else. The training route is looked at again before more data is written.
+
+**Limit.** 20 items a kind, on one seed. This decides the route and is not a claim about the model.

@@ -8,7 +8,7 @@ from safetensors.torch import load_file
 
 
 def adapter_moved(adapter_path: Path) -> bool:
-    """Return True if any LoRA update weight left its zero start, meaning training changed the model.
+    """Return True if any LoRA update weight left its zero start, so training changed the model.
 
     PEFT starts every ``lora_B`` matrix at zero, so an adapter whose ``lora_B`` weights are all zero
     behaves exactly like the base model, however cleanly the run finished.

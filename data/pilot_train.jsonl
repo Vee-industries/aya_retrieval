@@ -1,0 +1,60 @@
+{"id": "TL01", "kind": "lookup", "text": "what time does the Truro gate open", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Truro gate opening time\"}}]"}
+{"id": "TL02", "kind": "lookup", "text": "How long is the probation period for new hires?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"probation period new hires\"}}]"}
+{"id": "TL03", "kind": "lookup", "text": "who signs off on a damaged trailer", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"damaged trailer sign-off\"}}]"}
+{"id": "TL04", "kind": "lookup", "text": "What's the weight limit on the Canso ferry run?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Canso ferry run weight limit\"}}]"}
+{"id": "TL05", "kind": "lookup", "text": "when are expense claims due", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"expense claim deadline\"}}]"}
+{"id": "TL06", "kind": "lookup", "text": "Which gloves are required for handling drums?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"required gloves handling drums\"}}]"}
+{"id": "TL07", "kind": "lookup", "text": "do part-timers get dental", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"dental coverage part-time staff\"}}]"}
+{"id": "TL08", "kind": "lookup", "text": "What is the fine for a late delivery to Sobeys?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"late delivery penalty Sobeys\"}}]"}
+{"id": "TL09", "kind": "lookup", "text": "how many days of bereavement leave do we get", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"bereavement leave days\"}}]"}
+{"id": "TL10", "kind": "lookup", "text": "Who runs payroll at the Sydney office?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"payroll contact Sydney office\"}}]"}
+{"id": "TL11", "kind": "lookup", "text": "can i bring my dog in the cab", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"dogs in the cab policy\"}}]"}
+{"id": "TL12", "kind": "lookup", "text": "What is the idle time limit for reefers?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"reefer idle time limit\"}}]"}
+{"id": "TL13", "kind": "lookup", "text": "whats the policy on winter tires", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"winter tire policy\"}}]"}
+{"id": "TL14", "kind": "lookup", "text": "How do I report a near miss?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"report a near miss\"}}]"}
+{"id": "TL15", "kind": "lookup", "text": "look up the seatbelt rule for yard shunters", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"seatbelt rule yard shunters\"}}]"}
+{"id": "TL16", "kind": "lookup", "text": "I need the fax number for the Bedford customs broker", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Bedford customs broker fax number\"}}]"}
+{"id": "TL17", "kind": "lookup", "text": "tell me what the night shift premium is", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"night shift premium\"}}]"}
+{"id": "TL18", "kind": "lookup", "text": "What does the handbook say about smoking near fuel?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"smoking near fuel\"}}]"}
+{"id": "TL19", "kind": "lookup", "text": "which depots take oversize loads", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"depots accepting oversize loads\"}}]"}
+{"id": "TL20", "kind": "lookup", "text": "is there a cap on sick days", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sick day limit\"}}]"}
+{"id": "TL21", "kind": "lookup", "text": "where do i park the spare chassis", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"spare chassis parking\"}}]"}
+{"id": "TL22", "kind": "lookup", "text": "Give me the steps for a pre-trip inspection.", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"pre-trip inspection steps\"}}]"}
+{"id": "TL23", "kind": "lookup", "text": "how old do you have to be to drive the b-train", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"minimum age b-train\"}}]"}
+{"id": "TL24", "kind": "lookup", "text": "What's the lunch break length for warehouse staff?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"warehouse lunch break length\"}}]"}
+{"id": "TL25", "kind": "lookup", "text": "does the company pay for medicals", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"company paid medicals\"}}]"}
+{"id": "TL26", "kind": "lookup", "text": "Who do I call if a seal is broken?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"broken seal contact\"}}]"}
+{"id": "TL27", "kind": "lookup", "text": "find the rule about passengers in company trucks", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"passengers in company trucks\"}}]"}
+{"id": "TL28", "kind": "lookup", "text": "how much is the boot allowance", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"boot allowance amount\"}}]"}
+{"id": "TL29", "kind": "lookup", "text": "What are the quiet hours at the Dartmouth yard?", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Dartmouth yard quiet hours\"}}]"}
+{"id": "TL30", "kind": "lookup", "text": "when does the benefits plan kick in", "response": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"benefits plan start date\"}}]"}
+{"id": "TS01", "kind": "statement", "text": "the Truro gate was locked when i got there", "response": "Sorry about that. Hope you got in without too much of a wait."}
+{"id": "TS02", "kind": "statement", "text": "I finished my probation last week.", "response": "Congratulations on getting through it."}
+{"id": "TS03", "kind": "statement", "text": "someone backed into my trailer again", "response": "That's frustrating. Glad it wasn't worse."}
+{"id": "TS04", "kind": "statement", "text": "We took the Canso ferry run on Tuesday.", "response": "Thanks for letting me know."}
+{"id": "TS05", "kind": "statement", "text": "i sent in my expense claim this morning", "response": "Good, that's one thing off your list."}
+{"id": "TS06", "kind": "statement", "text": "My gloves got soaked handling those drums.", "response": "That sounds unpleasant. Hope you got a dry pair."}
+{"id": "TS07", "kind": "statement", "text": "my dentist appointment got moved", "response": "Okay, thanks for letting me know."}
+{"id": "TS08", "kind": "statement", "text": "The Sobeys delivery was late because of the snow.", "response": "Understood. The snow has made things hard this week."}
+{"id": "TS09", "kind": "statement", "text": "my uncle passed away on sunday", "response": "I'm very sorry for your loss."}
+{"id": "TS10", "kind": "statement", "text": "Priya in payroll helped me out today.", "response": "Glad she could help."}
+{"id": "TS11", "kind": "statement", "text": "i brought my dog on the run yesterday", "response": "Sounds like good company for the road."}
+{"id": "TS12", "kind": "statement", "text": "The reefer on unit 12 sat idling all night.", "response": "Noted, thanks for mentioning it."}
+{"id": "TS13", "kind": "statement", "text": "i got my winter tires put on", "response": "Good timing with the weather turning."}
+{"id": "TS14", "kind": "statement", "text": "We had a near miss at the dock this morning.", "response": "I'm glad nobody was hurt."}
+{"id": "TS15", "kind": "statement", "text": "my seatbelt in the shunter keeps sticking", "response": "That sounds annoying. Thanks for telling me."}
+{"id": "TS16", "kind": "statement", "text": "The Bedford broker sent the papers over.", "response": "Great, thanks for the update."}
+{"id": "TS17", "kind": "statement", "text": "i've been on nights for three weeks now", "response": "That's a long stretch. Hope you get a break soon."}
+{"id": "TS18", "kind": "statement", "text": "Somebody was smoking by the fuel tanks again.", "response": "Thanks for telling me. That's worrying."}
+{"id": "TS19", "kind": "statement", "text": "we had an oversize load come through the depot", "response": "Sounds like a busy day."}
+{"id": "TS20", "kind": "statement", "text": "i've been out sick since monday", "response": "Sorry to hear that. I hope you feel better soon."}
+{"id": "TS21", "kind": "statement", "text": "i left the spare chassis by the back fence", "response": "Okay, thanks for letting me know."}
+{"id": "TS22", "kind": "statement", "text": "I did my pre-trip before the sun came up.", "response": "That's an early start."}
+{"id": "TS23", "kind": "statement", "text": "my son just turned eighteen", "response": "Congratulations to him."}
+{"id": "TS24", "kind": "statement", "text": "Lunch was short today, we were slammed.", "response": "Sounds like a hectic shift."}
+{"id": "TS25", "kind": "statement", "text": "i had my medical on thursday", "response": "Hope it went well."}
+{"id": "TS26", "kind": "statement", "text": "The seal on that load was already broken when I picked it up.", "response": "Thanks for telling me. That's good to have noted."}
+{"id": "TS27", "kind": "statement", "text": "I gave Luc a ride in the company truck.", "response": "Okay, thanks for letting me know."}
+{"id": "TS28", "kind": "statement", "text": "my boots finally wore out", "response": "They had a good run by the sound of it."}
+{"id": "TS29", "kind": "statement", "text": "The Dartmouth yard was loud all night.", "response": "That sounds tiring."}
+{"id": "TS30", "kind": "statement", "text": "my benefits card came in today", "response": "Good to have that sorted."}

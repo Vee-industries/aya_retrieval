@@ -3,7 +3,13 @@
 import pytest
 
 from aya_retrieval import scoring
-from aya_retrieval.scoring import check_scorer, search_counts, searched
+from aya_retrieval.scoring import (
+    check_scorer,
+    clean_call,
+    clean_call_count,
+    search_counts,
+    searched,
+)
 
 CALL = '[{"tool_name": "search_corpus", "parameters": {"query": "meal allowance"}}]'
 
@@ -27,6 +33,33 @@ def test_a_call_followed_by_invented_text_still_counts():
 )
 def test_known_bad_replies_do_not_count(reply):
     assert not searched(reply)
+
+
+def test_a_lone_call_is_clean():
+    assert clean_call(CALL)
+
+
+@pytest.mark.parametrize(
+    "reply",
+    [
+        f"{CALL}\nTool result: the allowance is $40",
+        f"Tool result\n{CALL}",
+        '[{"tool_name": "other_tool", "parameters": {}}]',
+        f"[{CALL[1:-1]}, {CALL[1:-1]}]",
+        "Sure, I can help with that.",
+    ],
+)
+def test_anything_more_or_other_than_one_search_call_is_not_clean(reply):
+    assert not clean_call(reply)
+
+
+def test_clean_call_count_is_out_of_the_rows_that_searched():
+    rows = [
+        {"reply": CALL, "searched": True},
+        {"reply": f"{CALL}\nTool result: invented", "searched": True},
+        {"reply": "Thanks for telling me.", "searched": False},
+    ]
+    assert clean_call_count(rows) == {"clean": 1, "of": 2}
 
 
 def test_the_startup_check_passes_on_the_real_scorer():

@@ -17,6 +17,7 @@ from pathlib import Path
 
 import torch
 
+from aya_retrieval.inference import GREEDY, SAMPLING, generate_reply
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION, load_model
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.scoring import check_scorer, search_counts, searched
@@ -25,7 +26,6 @@ from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME, system_prompt_with_tools
 LOG = logging.getLogger("first_test")
 
 ITEMS_PATH = REPO_ROOT / "data" / "first_test_items.jsonl"
-SAMPLING = {"do_sample": True, "temperature": 0.7, "top_p": 0.95}
 SYSTEM_PROMPTS = {
     "neutral": (
         "You are the assistant for staff at Harbourline Logistics. "
@@ -39,27 +39,11 @@ SYSTEM_PROMPTS = {
 }
 
 
-def generate_reply(model, tokenizer, system: str, user: str, options: dict, max_tokens: int) -> str:
-    """Return the model's reply to one user message."""
-    messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
-    inputs = tokenizer.apply_chat_template(
-        messages, add_generation_prompt=True, return_tensors="pt", return_dict=True
-    ).to(model.device)
-    with torch.no_grad():
-        output = model.generate(
-            **inputs, max_new_tokens=max_tokens, pad_token_id=tokenizer.eos_token_id, **options
-        )
-    reply_tokens = output[0][inputs["input_ids"].shape[1] :]
-    return tokenizer.decode(reply_tokens, skip_special_tokens=True).strip()
-
-
 def run_arm(model, tokenizer, system: str, items: list[dict], samples: int, max_tokens: int):
     """Return the scored greedy and sampled rows for one system prompt."""
     greedy, sampled = [], []
     for item in items:
-        reply = generate_reply(
-            model, tokenizer, system, item["text"], {"do_sample": False}, max_tokens
-        )
+        reply = generate_reply(model, tokenizer, system, item["text"], GREEDY, max_tokens)
         greedy.append({**item, "reply": reply, "searched": searched(reply)})
         for _ in range(samples):
             reply = generate_reply(model, tokenizer, system, item["text"], SAMPLING, max_tokens)
