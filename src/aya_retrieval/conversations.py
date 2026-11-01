@@ -60,8 +60,21 @@ def _query(template: FactTemplate, message: str, relation: str, person: str) -> 
     return template.query.format(who=person if person in message else relation)
 
 
-def build_item(item_id: str, seed: int, messages: int, kind: str, pool_name: str) -> RecallItem:
-    """Return a conversation of about ``messages`` messages ending in a message of ``kind``."""
+def build_item(
+    item_id: str, seed: int, messages: int, kind: str, pool_name: str, decoys: int = 1
+) -> RecallItem:
+    """Return a conversation of about ``messages`` messages ending in a message of ``kind``.
+
+    Args:
+        item_id: Names the item in results.
+        seed: Rebuilds the conversation exactly.
+        messages: Rough length of the conversation.
+        kind: One of ``ITEM_KINDS``.
+        pool_name: A key of ``POOLS``.
+        decoys: Facts of the same type about other people. Training varies this, because if
+            the number of passages a search returns told found from not found, the model would
+            never have to read them. Tests keep the default.
+    """
     pool = POOLS[pool_name]
     rng = random.Random(seed)
     template = pool.facts[rng.choice(sorted(pool.facts))]
@@ -80,19 +93,42 @@ def build_item(item_id: str, seed: int, messages: int, kind: str, pool_name: str
     decoy_fact = template.statement.format(
         relation=decoy_relation, person=decoy_person, value=decoy
     )
-    exchanges[decoy_index] = (decoy_fact, rng.choice(pool.acknowledgements))
+    decoy_line = (decoy_fact, rng.choice(pool.acknowledgements))
+    if decoys:
+        exchanges[decoy_index] = decoy_line
     if kind != NEVER_TOLD:
         exchanges[fact_index] = (fact, rng.choice(pool.acknowledgements))
 
+    # A separate generator, so the default conversation is the same with or without this feature.
+    extras = random.Random(seed + 1)
+    spare_values = [value for value in template.values if value not in (answer, decoy)]
+    spare_relations = [
+        r for r in pool.relations if r not in (relation, decoy_relation, other_relation)
+    ]
+    spare_people = [p for p in pool.people if p not in (person, decoy_person, other_person)]
+    spare_slots = [slot for slot in older_slots if slot not in (fact_index, decoy_index)]
+    extra_values = extras.sample(spare_values, max(decoys - 1, 0))
+    for value in extra_values:
+        line = template.statement.format(
+            relation=spare_relations.pop(extras.randrange(len(spare_relations))),
+            person=spare_people.pop(extras.randrange(len(spare_people))),
+            value=value,
+        )
+        slot = spare_slots.pop(extras.randrange(len(spare_slots)))
+        exchanges[slot] = (line, extras.choice(pool.acknowledgements))
+
     ask_form = getattr(template, rng.choice(ASK_FORMS))
     reply = template.answer.format(relation=relation, person=person, value=answer)
-    forbidden: tuple[str, ...] = (decoy,)
+    forbidden: tuple[str, ...] = (decoy, *extra_values)
     if kind == STATEMENT:
         line, reply = rng.choice(pool.statements)
         message = line.format(relation=relation, person=person)
         answer, query = "", ""
     elif kind == NEVER_TOLD:
-        message = ask_form.format(relation=other_relation, person=other_person)
+        # Half use the confirm wording: if that wording always meant found, it would teach nothing
+        # about reading the result.
+        form = rng.choice((ask_form, template.confirm))
+        message = form.format(relation=other_relation, person=other_person)
         query = _query(template, message, other_relation, other_person)
         reply = rng.choice(pool.unknown_replies)
         forbidden, answer = tuple(template.values), ""

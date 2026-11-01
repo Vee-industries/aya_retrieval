@@ -32,6 +32,7 @@ carry their own provenance (command, git commit, package versions).
 | R-017 | ★ Recall development baseline: base on its own tool loop; the 419 ceiling fails again |
 | R-018 | ★ First recall adapter: 119 of 120 on development items, on training vocabulary; a third pool and a stricter coherence comparison added |
 | R-019 | Probe check, rules written and committed before the run |
+| R-020 | ★ **Probe fails: the habit carried and reading did not; passage count gave the answer away in training.** New training design, rules before the run |
 
 ---
 
@@ -635,3 +636,67 @@ the train and held-out pools, so its wording may lean the same way. Development 
 `tool_loop`, every kind, 240 lines, as R-016 registers. Sheet B: adapter against base with no tool, on
 `statement` and `in_view`, 96 lines, as R-018 adds. Claude does not mark any line. The key is read only after
 the marks are in.
+
+## R-020 · 2026-11-01 · SPRINT · Probe fails: the habit carried and reading did not; passage count gave the answer away in training. New training design, rules before the run
+
+**Result.** `results/recall_eval/probe_base_seed_58213.json` and `probe_tuned81_seed_58213.json`, clean trees,
+commits `6e87ea7` and `c321ab4`. Development only.
+
+| Correct, of 12 (58 / 419 messages) | `older` | `confirm` | `in_view` | `never_told` | `statement` |
+|---|---|---|---|---|---|
+| base, `tool_loop` | 9 / 3 | 2 / 0 | 9 / 8 | 9 / 10 | 8 / 7 |
+| base, no tool | 0 / 0 | 0 / 0 | 11 / 7 | 11 / 10 | 12 / 12 |
+| adapter seed 81, `tool_loop` | 4 / 3 | 9 / 10 | 8 / 4 | 9 / 10 | 12 / 12 |
+
+On `older` and `confirm` the adapter gets 13 of 24 at each size and base gets 11 and 3: +8 points at 58
+messages and +42 at 419. Right search decisions 108 of 120 (base 66). **R-019's rule fails at 58 messages**,
+so the 119 of 120 in R-018 was largely memorised training material.
+
+The search found the fact on 22 of 24 `older` and 24 of 24 `confirm`, and the adapter answered 7 and 19.
+Most misses are a training sentence, "I checked and you haven't told me that". That is a false denial the
+adapter did not have before training, and at 58 messages it does worse than base on `older`.
+
+**Coherence, blind, fresh agent given the rubric and sheets only, Sonnet.** Marks and key in the scratchpad.
+- Sheet A, adapter against base on `tool_loop`: 99 against 68 of 120. Only adapter coherent 43, only base 12.
+- Sheet B, adapter against base with no tool, ordinary talk: 34 against 39 of 48. Only adapter 2, only base 7.
+  `statement` 23 against 23 of 24. `in_view` 11 against 16 of 24, so all of the loss is `in_view`.
+- The judge reported that a false "you never told me" reads as fine when the fact is out of the shown turns,
+  so Sheet A overstates the adapter: 23 of 24 `older` count as coherent while 7 of 24 are right. Coherence
+  cannot see false denials, and the recall count must be read beside it.
+- Coherence as R-016 registered it passes easily and would have hidden this, which is why R-018 added Sheet B.
+
+**Review.** One adversarial reviewer on the plan. Findings checked by Claude where stated.
+1. *Passage count gave the answer away.* Checked by count on `data/recall_train.jsonl`, commit `0523ec4`: two
+   passages meant found on 183 of 183 rows, none meant unknown on 52 of 52, and only one passage needed
+   reading (117 found, 98 not). Reading the result was optional. Claude's first diagnosis missed this.
+2. *`never_told`'s 9 and 10 are hollow.* The scorer passes any reply that names no listed value, so an invented
+   fact outside the list passes. Example: "Your sister bought new ink for her steps' bike." Not fixed, since
+   the scorer is registered and this kind does not gate. Read `never_told` with that in mind.
+3. *Rule noise.* 24 per size is about plus or minus 10 points, and probe wording has now been seen.
+4. *Loss.* Covers every token; `segment_weights` are dropped and unused; the final answer is 1.3% of labels and
+   the call 2.9%. Contributing, not shown to be the cause, since the same setup reached 119 of 120. Unchanged.
+
+**Decisions (Claude).** Training design, replacing R-016's:
+- `train` widened from 5 to 25 fact types, with varied statement shapes. A test keeps its statement shapes
+  apart from `probe` and `heldout`. This makes R-018's numbers incomparable with later `train` runs.
+- Passage counts balanced: `older` and `confirm` take 0 to 2 decoys, `never_told` 1 to 3. Training only.
+- Answers to found facts are base's own replies through the real loop when they pass the scorer, otherwise
+  the scripted sentence. The count of each is in the provenance file.
+- 12 unknown sentences, not 3.
+- Base targets trimmed to whole sentences.
+- Rows: `older` 200, the other four 150 each. Same LoRA settings. Training seed 82, adapter kept in the work
+  folder outside git, because adapter 81 was left in a scratch folder.
+
+Changes to the sealed test, made before anyone has read it:
+- `never_told` draws on the `confirm` wording half the time, in every pool. Conversations are unchanged, since
+  the draw comes after them. Without this, a confirm question always meant found. This changes R-016's items.
+- **Sheet B now gates**, beside the registered comparison. Kevin's rule is that coherence cannot fall, and the
+  tool-damaged base is too low a floor. This is stricter than R-016.
+
+**Check, fixed now.** Pool `probe`, new seed 73157, 24 items per kind at each size, 240 conversations. Base on
+`tool_loop` and `three_exchanges`, adapter seed 82 on `tool_loop`. Passages returned are logged per row.
+- Pass: on `older` and `confirm`, at least 20 points above base at each size, at least 200 of 240 right search
+  decisions, and on `older` at least half of the items where the search found the fact are answered correctly.
+  Then Sheets A and B, same judge setup. Sheet B at or above base means train the other two seeds.
+- Fail: stop and report. Probe wording has been seen, so a pass here is weaker than it looks and the held-out
+  pool remains the only test that counts.

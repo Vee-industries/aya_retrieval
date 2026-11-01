@@ -5,7 +5,12 @@ import json
 import pytest
 
 from aya_retrieval.conversations import CONFIRM, IN_VIEW, NEVER_TOLD, OLDER, STATEMENT, build_item
-from aya_retrieval.demonstrations import as_event_log, demonstration_turns, search_call
+from aya_retrieval.demonstrations import (
+    as_event_log,
+    demonstration_turns,
+    search_call,
+    whole_sentences,
+)
 from aya_retrieval.scoring import clean_call
 
 
@@ -24,11 +29,28 @@ def test_no_search_is_shown_when_none_is_needed(kind):
 
 
 @pytest.mark.parametrize("kind", [OLDER, CONFIRM, NEVER_TOLD])
-def test_a_search_is_a_clean_call_then_an_answer_from_the_result(kind):
-    item, result = turns(kind)
+def test_a_search_is_a_clean_call_then_a_reply_to_the_result(kind):
+    _, result = turns(kind)
     assert clean_call(result[-3]["content"])
     assert "RESULT TEXT" in result[-2]["content"]
+
+
+@pytest.mark.parametrize("kind", [OLDER, CONFIRM])
+def test_a_found_fact_teaches_the_given_reply(kind):
+    _, result = turns(kind)
+    assert result[-1]["content"] == "base's own reply"
+
+
+def test_never_told_teaches_saying_so_whatever_base_wrote():
+    item, result = turns(NEVER_TOLD, found=False)
     assert result[-1]["content"] == item.reply
+
+
+def test_a_cut_off_reply_is_trimmed_to_its_last_sentence():
+    assert whole_sentences("That's nice. Did she like it? Maybe we could") == (
+        "That's nice. Did she like it?"
+    )
+    assert whole_sentences("no sentence ends here") is None
 
 
 def test_a_search_that_missed_never_shows_the_answer():

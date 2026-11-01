@@ -121,6 +121,10 @@ def main() -> None:
                             "answer": item.answer,
                             "reply": result.reply,
                             "queries": result.queries,
+                            "passages": [
+                                tool.execute(query).output.count("chunk_id=")
+                                for query in result.queries
+                            ],
                             "ran_out_of_calls": result.ran_out_of_calls,
                             "first_reply": result.transcript[0],
                             "correct": item_correct(
