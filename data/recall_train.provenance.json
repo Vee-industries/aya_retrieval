@@ -1,16 +1,14 @@
 {
  "provenance": {
-  "utc_time": "2026-11-01T19:02:14+00:00",
+  "utc_time": "2026-11-01T21:08:47+00:00",
   "command": [
    "scripts/run_build_training_set.py",
    "--seed",
-   "71003",
-   "--rows-per-kind",
-   "150",
+   "71119",
    "--index",
    "C:/Users/Gaming/scratch/train_build.sqlite"
   ],
-  "git_commit": "23e2353b52995c8aac831ff3c2a59b34ea37d57e",
+  "git_commit": "69f3ad1035829c245cde92b6bb61b4f9904533d2",
   "git_dirty": false,
   "toolkit_commits": {
    "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
@@ -29,12 +27,40 @@
    "huggingface_hub": "1.33.0"
   }
  },
- "seed": 71003,
- "rows": 750,
+ "seed": 71119,
+ "rows": 800,
  "tally": {
-  "older_found": 150,
+  "older_found": 200,
+  "older_base_answer": 142,
+  "older_scripted_answer": 58,
   "confirm_found": 150,
-  "in_view_base_reply_rejected": 30,
+  "confirm_scripted_answer": 56,
+  "confirm_base_answer": 94,
+  "in_view_base_reply_rejected": 39,
   "never_told_missed": 150
- }
+ },
+ "passages_per_kind": {
+  "older": {
+   "4": 10,
+   "2": 54,
+   "1": 75,
+   "3": 61
+  },
+  "confirm": {
+   "3": 42,
+   "1": 62,
+   "5": 4,
+   "4": 8,
+   "2": 34
+  },
+  "never_told": {
+   "3": 37,
+   "2": 49,
+   "1": 38,
+   "0": 20,
+   "5": 3,
+   "4": 3
+  }
+ },
+ "longest_row_tokens": 1010
 }
