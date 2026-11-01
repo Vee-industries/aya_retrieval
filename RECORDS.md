@@ -29,6 +29,7 @@ carry their own provenance (command, git commit, package versions).
 | R-014 | ★ Recall first test: search finds the fact and the model often ignores it; the 419 ceiling is not valid |
 | R-015 | Recall development baseline, rules written and committed before the run |
 | R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** |
+| R-017 | ★ Recall development baseline: base on its own tool loop; the 419 ceiling fails again |
 
 ---
 
@@ -516,3 +517,40 @@ ran out of calls, context tokens per turn, facts found by the model's own querie
 
 **Project result.** Pass needs the recall rule and the coherence gate on all of this together. Otherwise
 the write-up says which failed and by how much.
+
+## R-017 · 2026-11-01 · SPRINT · Recall development baseline: base on its own tool loop; the 419 ceiling fails again
+
+**Run.** `results/recall_eval/base_seed_45356.json`, commit `c662adf`, clean tree, 561 s, peak VRAM 11.62
+GiB, train pool, greedy, 12 items per kind and size. These are development items, so nothing here is a
+project result.
+
+| Correct, of 12 | `older` | `confirm` | `in_view` | `never_told` | `statement` |
+|---|---|---|---|---|---|
+| `tool_loop`, 58 messages | 8 | 0 | 8 | 6 | 7 |
+| `tool_loop`, 419 messages | 5 | 0 | 7 | 8 | 5 |
+| `three_exchanges`, 58 | 0 | 0 | 10 | 12 | 12 |
+| `three_exchanges`, 419 | 0 | 0 | 12 | 12 | 12 |
+| `always_search`, 58 | 8 | 0 | 4 | 7 | 0 |
+| `always_search`, 419 | 8 | 1 | 1 | 9 | 0 |
+| `whole_chat`, 58 | 8 | | | | |
+| `whole_chat`, 419 | 0 | | | | |
+
+**Controls.** `three_exchanges` on `older` is 0 of 24, passing. `whole_chat` at 419 is 0 of 12, failing
+the 50% control in R-015, so it is not reported as a ceiling.
+
+**Reading.**
+- The tool costs base something: `in_view` falls from 22 of 24 with no tool to 15 of 24 with it, and
+  statements from 24 of 24 to 12 of 24. Ordinary conversation gets worse as soon as a search tool is
+  in the prompt.
+- `confirm` is 0 of 24 in every arm. Base rarely calls the tool for "did i tell you about..." (2 of 24).
+- Base's own queries found the fact on 17 of 24 `older` items, and it answered 13 of 24.
+- `always_search` is no longer a strong baseline on the full mix, since it wrecks `in_view` and statements.
+
+**Open: why the whole chat fails at 419.** The varied small talk did not fix it, so repetition was not the
+only cause, and R-014's explanation was incomplete. A lead, not tested: 419-message prompts run about
+5,500 tokens, and the model's config sets `sliding_window` to 4096, with only every fourth layer full
+attention. If that is the cause, this model cannot read that far back at all, which would make `recall`
+matter more. It needs its own test before anyone says so.
+
+**Next.** Build the training set and train the first adapter under R-016. The development check uses this
+run's seed, so the conversations are identical.
