@@ -19,6 +19,7 @@ carry their own provenance (command, git commit, package versions).
 | R-004 | First test, rules written before the run |
 | R-005 | ★ First test, result: base searches everything and invents tool results |
 | R-006 | ★ Repository brought to the standard; deviation 1: the first test ran outside it |
+| R-007 | ★ Ten GRPO steps: the chain runs, nothing trained, and it does not fit the card |
 
 ---
 
@@ -149,3 +150,35 @@ yet, so it ran from uncommitted code, its file holds no provenance, and the rule
 written before the run but not committed before it. The file is kept as what it is, under the
 name `pre_repo_seed_24929.json`, and the test is rerun from a clean commit on a new seed. The
 rerun's numbers are the ones that count.
+
+## R-007 · 2026-11-01 · SPRINT · Ten GRPO steps: the chain runs, nothing trained, and it does not fit the card
+
+**Run.** Started about 11:11, before the repository's first commit, so this is a development run
+and its output was not kept. Ten GRPO steps with a LoRA adapter, 8 stand-in rows, 2 generations a
+row, batch 2, `beta=0`, gradient checkpointing, no vLLM, a stand-in reward. The script is now
+`scripts/run_grpo_smoke.py`.
+
+| Check | Result |
+|---|---|
+| Finished without error | Yes, 622 s, about 62 s a step |
+| `trajectories.jsonl` read by AuditKIT | Yes, 20 lines, 20 episodes |
+| Real retrieval reached the replies | Yes, for example "The yard speed limit is 15 km/h" |
+| Peak VRAM | 12.00 GiB on a 10 GiB card, so memory spilled out of the card |
+| Reported training loss | 0 |
+| Largest `lora_B` weight in the saved adapter | 0.0, across all 252 tensors |
+
+**Reading.** The plumbing works. Nothing was learned: the adapter behaves exactly like the base
+model. 20 of 20 rollouts called the tool, and GRPO learns from differences in reward inside a
+group of tries at one prompt. The likely cause is that with both tries searching there was no
+difference to learn from. This is a reading of the data and has not been tested on its own.
+
+**Also seen.** Replies ran on into repeated text ("o o o o"), and one reply gave the yard limit as
+"5 mph, as stated in the search result" after retrieving 15 km/h. That second one is a grounding
+failure on a real result, and a measure of grounding should catch it.
+
+**Consequences.**
+1. `training_checks.adapter_moved` is added, with tests. A training run whose adapter did not move
+   cannot be reported.
+2. Long GRPO runs are not practical on this card at this memory and speed. Supervised training
+   from demonstrations comes first, as the panel in R-002 ordered, and it does not need the base
+   model to vary.
