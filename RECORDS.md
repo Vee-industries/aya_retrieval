@@ -21,6 +21,7 @@ carry their own provenance (command, git commit, package versions).
 | R-006 | ★ Repository brought to the standard; deviation 1: the first test ran outside it |
 | R-007 | ★ Ten GRPO steps: the chain runs, nothing trained, and it does not fit the card |
 | R-008 | Supervised pilot, rules written and committed before the run |
+| R-009 | ★ First test from a clean commit: the same reading; LoRA only |
 
 ---
 
@@ -216,3 +217,21 @@ replies that searched. `scoring.clean_call` has tests that reject a call followe
 - Fail: anything else. The training route is looked at again before more data is written.
 
 **Limit.** 20 items a kind, on one seed. This decides the route and is not a claim about the model.
+
+## R-009 · 2026-11-01 · SPRINT · First test from a clean commit: the same reading; LoRA only
+
+**Decision (Kevin Vaillancourt).** LoRA adapters only. No full fine-tuning and no rented GPUs for it.
+
+**Run.** `results/first_test/seed_3144.json`, commit `dbc36a3`, clean tree, seed 3144, 520 s, peak
+VRAM 6.39 GiB. This is the rerun that R-006 called for, and these numbers replace those in R-005.
+
+| Prompt | Decoding | Lookups searched | Statements searched | Clean calls, of replies that searched |
+|---|---|---|---|---|
+| Neutral (primary) | greedy | 20 of 20 | 20 of 20 | 10 of 40 |
+| Neutral | sampled, T=0.7 | 53 of 60 | 56 of 60 | 35 of 109 |
+| AgentTune default | greedy | 20 of 20 | 17 of 20 | 0 of 37 |
+| AgentTune default | sampled, T=0.7 | 57 of 60 | 40 of 60 | 0 of 97 |
+
+**Reading.** The reading in R-005 holds on a new seed: Go on behaviour 1 under R-004. Base does not
+separate lookups from statements. The clean-call counts use the definition in R-008. They were
+computed from this file after that rule was committed, and they are the base model's "before".
