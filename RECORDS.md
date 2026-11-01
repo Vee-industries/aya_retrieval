@@ -33,6 +33,7 @@ carry their own provenance (command, git commit, package versions).
 | R-018 | ★ First recall adapter: 119 of 120 on development items, on training vocabulary; a third pool and a stricter coherence comparison added |
 | R-019 | Probe check, rules written and committed before the run |
 | R-020 | ★ **Probe fails: the habit carried and reading did not; passage count gave the answer away in training.** New training design, rules before the run |
+| R-021 | ★ **Adapter seed 82 passes the probe rule and both blind coherence sheets**; false denials remain on `confirm`. Seeds 83 and 84 next |
 
 ---
 
@@ -700,3 +701,59 @@ Changes to the sealed test, made before anyone has read it:
   Then Sheets A and B, same judge setup. Sheet B at or above base means train the other two seeds.
 - Fail: stop and report. Probe wording has been seen, so a pass here is weaker than it looks and the held-out
   pool remains the only test that counts.
+
+## R-021 · 2026-11-01 · SPRINT · Adapter seed 82 passes the probe rule and both blind coherence sheets; false denials remain on `confirm`
+
+**Result.** `results/recall_eval/probe2_base_seed_73157.json` and `probe2_tuned82_seed_73157.json`, clean trees,
+commits `b649f6c` and `e84a0f8`. Training data `1069d0f`, adapter `7c14ba2`, peak VRAM 9.82 GiB. Development
+only: probe wording has been seen, and the held-out pool remains the only test that counts.
+
+| Correct, of 24 (58 / 419 messages) | `older` | `confirm` | `in_view` | `never_told` | `statement` |
+|---|---|---|---|---|---|
+| base, `tool_loop` | 14 / 9 | 1 / 6 | 18 / 16 | 20 / 22 | 18 / 13 |
+| base, no tool | 1 / 0 | 0 / 0 | 17 / 19 | 24 / 24 | 24 / 24 |
+| adapter seed 82, `tool_loop` | 14 / 20 | 14 / 11 | 17 / 20 | 24 / 23 | 24 / 24 |
+
+R-020's rule, every part passes:
+- `older` and `confirm` together: adapter 28 of 48 and 31 of 48, base 15 and 15. That is +27.1 points at 58
+  messages and +33.3 at 419.
+- Right search decisions 237 of 240 (base 119). Searches on `statement` 0 of 48, on `in_view` 2 of 48.
+- On `older`, the search found the fact on 40 of 48 and the adapter answered 34 of those, 85%. Adapter 81 was
+  7 of 22, so the reading failure R-020 set out to fix is fixed on this kind.
+
+**Coherence, blind, fresh agent given the rubric and sheets only, Sonnet.** Sheets by
+`make_coherence_sheet.py`, shuffle seeds 90411 and 90412. Marks and key in the scratchpad.
+- Sheet A, adapter against base on `tool_loop`: 225 against 180 of 240. Only adapter coherent 55, only base 10.
+- Sheet B, adapter against base with no tool, ordinary talk: 85 against 79 of 96. Only adapter 12, only base 6.
+  `statement` 45 against 45 of 48. `in_view` 40 against 34 of 48. Adapter 81 lost this sheet, 34 against 39.
+
+Both gates pass. Sheet B is at or above base, so R-020 says to train the other two seeds.
+
+**Limits, read beside the pass.**
+1. *False denials remain on `confirm`.* The search found the fact on 46 of 48 and the adapter answered 25. Of
+   the 27 found-fact misses on `older` and `confirm`, 25 are one training sentence, "That's new to me. Tell me
+   about it?". Sheet A marks that sentence coherent, 47 of 48 on `confirm`, because the fact is out of the
+   shown turns. As R-020 reported, coherence cannot see this, and the recall count must be read beside it.
+2. *The 13 "have i ever mentioned" misses are one fact type.* All 13 found-fact items of that wording are wrong,
+   against 15 of 17 right for "did i say". Each fact type has one confirm wording, so wording and fact type
+   cannot be separated here. Training has 4 rows with that opening. Cause not established.
+3. *`older` at 58 messages did not gain*, 14 against 14. The gain on `older` is at 419; `confirm` gains at both.
+4. *Adapter queries still carry training words on unseen questions*, such as "daughter age raffle" for a fear
+   question. Some found the fact only because the relation word matched.
+5. *`never_told`'s 24 and 23 keep R-020's limit.* The scorer passes invented facts outside the list. The sampled
+   replies are unknown sentences, but that is a sample, not a measure.
+6. *The judge's method.* The judge reported using a short script only to turn its own lists of 0-marked lines
+   into the JSON files, so the marks rest on it having read every line. It took about 2 minutes for 672 lines.
+   The same judge marked both models blind, so this bears on strictness more than on the comparison.
+7. *The judge's notes.* It found these hard: replies naming a person it could not check, generic unknown
+   sentences (marked 1), and replies asking for something already said (marked 0).
+8. *One seed.* 24 per size is about plus or minus 10 points, and adapter 82 alone does not show the design holds.
+
+**Decisions (Claude).**
+- Train seeds 83 and 84 on the same data with the same settings, as R-020 says, and score each on the same
+  probe seed. This shows whether the pass depends on the seed, which is the next thing to know.
+- The held-out run does not follow automatically. It is one run, so limit 1 gets looked at first, with the three
+  adapters' results beside it. Any change to training after this is disclosed and retrains all three.
+- Context tokens per turn, listed in R-016 as reported beside the result, were not logged until `24a0fa3`.
+  Base and adapter 82 rerun on probe seed 73157 to log them. Their replies must match the first run exactly,
+  and any difference is reported.
