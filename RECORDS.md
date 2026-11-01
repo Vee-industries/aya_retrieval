@@ -27,6 +27,7 @@ carry their own provenance (command, git commit, package versions).
 | R-012 | Batched generation: greedy only, one-at-a-time stays the reference |
 | R-013 | ★ **First test with stops: the base readings return. Supervised pilot passes** |
 | R-014 | ★ Recall first test: search finds the fact and the model often ignores it; the 419 ceiling is not valid |
+| R-015 | Recall development baseline, rules written and committed before the run |
 
 ---
 
@@ -438,3 +439,37 @@ been measured.
 1. Small talk gets varied before any further recall run, and whole-chat runs at 419 stop until then.
 2. Next measure: base through the real two-step harness, calling the tool itself.
 3. What the adapter must improve: deciding when to call, what to ask, and answering from the result.
+
+## R-015 · 2026-11-01 · SPRINT · Recall development baseline, rules written and committed before the run
+
+Kevin's go-ahead on the next steps in R-014: "do it".
+
+**Built.** `pools.py` holds two word pools with no shared content, tested. `train` also serves development
+checks, and `heldout` can be read only with `--final`. Small talk now draws on 32 subjects and three
+moods, and a test caps any one reply at 8% of a 419-message chat. `conversations.py` builds five kinds
+of ending message, `harness.py` runs the real two-step loop, and `scoring.py` scores each kind.
+`scripts/run_recall_first_test.py` is retired; it stands at commit `051a8a8` to reproduce R-014.
+
+| Kind | What the message needs | Correct means |
+|---|---|---|
+| `older` | A fact outside the view | Gives the planted answer, not the decoy |
+| `confirm` | "did i tell you about..." on a fact outside the view | Gives the planted answer, not the decoy |
+| `in_view` | A fact in the last three exchanges | Gives the planted answer, not the decoy, on its own |
+| `never_told` | Something never said | Names no value of that kind |
+| `statement` | Nothing | Makes no search |
+
+Messages come in three forms: repeating the fact's words, new words, and indirect ("i can't remember
+what my sister's dog is called"). `confirm` is where denial shows: a model that says it was never told is
+scored wrong.
+
+**Question.** On development items, what does the untrained model do when it runs the loop itself? This
+is the true "before" on these items.
+
+**Run.** `run_recall_eval.py --label base`, train pool, new seed, 12 items per kind and size, greedy.
+Arms: `three_exchanges`, `always_search`, `tool_loop`, and `whole_chat` on `older` items only.
+
+**Controls.** `three_exchanges` at most 10% on `older`, or the fact is leaking. `whole_chat` at 419 messages
+at least 50% on `older`, or the ceiling is still not valid and is not reported as one.
+
+**Reading.** This run sets no pass or fail for the project. It sets the base numbers the adapter is
+then trained against, and the official comparison runs on held-out items with its own rules.

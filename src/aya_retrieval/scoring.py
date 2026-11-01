@@ -43,6 +43,29 @@ def answer_correct(reply: str, answer: str, decoy: str) -> bool:
     return answer.casefold() in text and decoy.casefold() not in text
 
 
+def item_correct(
+    kind: str, reply: str, answer: str, forbidden: tuple[str, ...], calls: int
+) -> bool:
+    """Return True if the reply does what a message of ``kind`` calls for.
+
+    A statement needs no search. A question about something never told must not name any value of
+    that kind, since any it names is made up or belongs to someone else. The rest must give the
+    planted answer and no forbidden value.
+    """
+    text = reply.casefold()
+    names_forbidden = any(value.casefold() in text for value in forbidden)
+    if kind == "statement":
+        return calls == 0
+    if kind == "never_told":
+        return not names_forbidden
+    return answer.casefold() in text and not names_forbidden
+
+
+def right_decision(kind: str, calls: int) -> bool:
+    """Return True if the model searched exactly when the answer was out of its view."""
+    return (calls > 0) == (kind in ("older", "confirm", "never_told"))
+
+
 def check_scorer() -> None:
     """Raise unless the scorer accepts a real call and rejects text that only looks like one."""
     call = f'[{{"tool_name": "{SEARCH_TOOL_NAME}", "parameters": {{"query": "meal allowance"}}}}]'

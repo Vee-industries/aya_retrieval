@@ -8,6 +8,8 @@ from aya_retrieval.scoring import (
     check_scorer,
     clean_call,
     clean_call_count,
+    item_correct,
+    right_decision,
     search_counts,
     searched,
 )
@@ -74,6 +76,39 @@ def test_clean_call_count_is_out_of_the_rows_that_searched():
 )
 def test_answer_correct_needs_the_answer_and_not_the_decoy(reply, expected):
     assert answer_correct(reply, "Pepper", "Rusty") is expected
+
+
+@pytest.mark.parametrize(
+    ("kind", "reply", "calls", "expected"),
+    [
+        ("older", "It is Pepper.", 1, True),
+        ("older", "Pepper or Rusty.", 1, False),
+        ("older", "I don't know.", 1, False),
+        ("never_told", "You haven't told me.", 1, True),
+        ("never_told", "Probably Rusty.", 1, False),
+        ("statement", "Nice.", 0, True),
+        ("statement", "Nice.", 1, False),
+    ],
+)
+def test_item_correct(kind, reply, calls, expected):
+    assert item_correct(kind, reply, "Pepper", ("Rusty",), calls) is expected
+
+
+@pytest.mark.parametrize(
+    ("kind", "calls", "expected"),
+    [
+        ("older", 1, True),
+        ("older", 0, False),
+        ("confirm", 1, True),
+        ("never_told", 2, True),
+        ("in_view", 0, True),
+        ("in_view", 1, False),
+        ("statement", 0, True),
+        ("statement", 1, False),
+    ],
+)
+def test_right_decision(kind, calls, expected):
+    assert right_decision(kind, calls) is expected
 
 
 def test_the_startup_check_passes_on_the_real_scorer():
