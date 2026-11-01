@@ -1,0 +1,3669 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-01T20:43:50+00:00",
+  "command": [
+   "scripts/run_recall_eval.py",
+   "--seed",
+   "45356",
+   "--index",
+   "C:/Users/Gaming/scratch/eval_tuned.sqlite",
+   "--label",
+   "tuned81",
+   "--arms",
+   "tool_loop",
+   "--adapter",
+   "C:/Users/Gaming/scratch/claude/C--Users-Gaming-Desktop-Claude-s-House/389594c2-8513-47d9-80f1-1a28b96837f7/scratchpad/recall_adapter_81"
+  ],
+  "git_commit": "c5e2d9cb797b8a53cf98cacbb26cb86ddb62c39f",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+ "adapter": "C:\\Users\\Gaming\\scratch\\claude\\C--Users-Gaming-Desktop-Claude-s-House\\389594c2-8513-47d9-80f1-1a28b96837f7\\scratchpad\\recall_adapter_81",
+ "seed": 45356,
+ "pool": "train",
+ "rows": [
+  {
+   "id": "58_older_00",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what job did Yusuf start",
+   "view": [
+    [
+     "i'm actually pretty happy with that show lately",
+     "That's a small win. that show sounds good."
+    ],
+    [
+     "funny how the laundry keeps coming up",
+     "What about the laundry got you thinking?"
+    ],
+    [
+     "anyway, enough about the bakery",
+     "Ha, what did they say about the bakery?"
+    ]
+   ],
+   "answer": "paramedic",
+   "reply": "Your coworker Yusuf works as a paramedic.",
+   "queries": [
+    "Yusuf new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Yusuf new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_01",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i can't remember what my aunt's dog is called",
+   "view": [
+    [
+     "i lost an hour to the groceries today",
+     "I'd be fed up with the groceries too."
+    ],
+    [
+     "the dentist turned out fine in the end",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "funny how the bakery keeps coming up",
+     "Tell me more if you feel like it."
+    ]
+   ],
+   "answer": "Rusty",
+   "reply": "Your aunt Priya's dog is called Rusty.",
+   "queries": [
+    "aunt dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"aunt dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_02",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what do they call that pup over at my sister's place",
+   "view": [
+    [
+     "i was thinking about my bike on the way home",
+     "It does seem to come up a lot."
+    ],
+    [
+     "so the printer has been a pain all week",
+     "I'd be fed up with the printer too."
+    ],
+    [
+     "no complaints about my back this week",
+     "Love that for you."
+    ]
+   ],
+   "answer": "Biscuit",
+   "reply": "Your sister Marc's dog is called Biscuit.",
+   "queries": [
+    "sister dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sister dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_03",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i can't remember what my sister's dog is called",
+   "view": [
+    [
+     "my desk was acting up again today",
+     "That sounds annoying. Hope my desk settles down soon."
+    ],
+    [
+     "the bakery let me down this morning",
+     "I'd be fed up with the bakery too."
+    ],
+    [
+     "i lost an hour to my phone today",
+     "I'd be fed up with my phone too."
+    ]
+   ],
+   "answer": "Pepper",
+   "reply": "Your sister Priya's dog is called Pepper.",
+   "queries": [
+    "sister dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sister dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_04",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what has Omar taken up on weekends",
+   "view": [
+    [
+     "i lost an hour to the parking lot today",
+     "Sorry, the parking lot sounds like a real hassle."
+    ],
+    [
+     "no complaints about the printer this week",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "good news, my desk sorted itself out",
+     "Glad my desk worked out."
+    ]
+   ],
+   "answer": "fencing",
+   "reply": "Your cousin Omar has taken up fencing.",
+   "queries": [
+    "Omar weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Omar weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_05",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i can't remember what my uncle's dog is called",
+   "view": [
+    [
+     "the furnace was the best part of my day",
+     "Love that for you."
+    ],
+    [
+     "the elevator is getting on my nerves",
+     "That's frustrating. Is the elevator usually like that?"
+    ],
+    [
+     "no complaints about my back this week",
+     "Love that for you."
+    ]
+   ],
+   "answer": "Waffles",
+   "reply": "Your uncle Priya's dog is called Waffles.",
+   "queries": [
+    "uncle dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_06",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which city is Lena moving to",
+   "view": [
+    [
+     "anyway, enough about the lawn",
+     "Ha, what did they say about the lawn?"
+    ],
+    [
+     "ugh, the snow is driving me up the wall",
+     "Oof. An hour lost to the snow is no fun."
+    ],
+    [
+     "my laptop turned out fine in the end",
+     "Love that for you."
+    ]
+   ],
+   "answer": "Quebec City",
+   "reply": "Your uncle Lena is moving to Quebec City.",
+   "queries": [
+    "Lena moving city"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Lena moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_07",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i can't remember what my coworker's dog is called",
+   "view": [
+    [
+     "good news, my knee sorted itself out",
+     "Good to hear my knee is behaving."
+    ],
+    [
+     "my knee was the best part of my day",
+     "Glad my knee worked out."
+    ],
+    [
+     "the wifi was acting up again today",
+     "That sounds annoying. Hope the wifi settles down soon."
+    ]
+   ],
+   "answer": "Pepper",
+   "reply": "Your coworker Yusuf's dog is called Pepper.",
+   "queries": [
+    "coworker dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_08",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "remind me what my brother does for work",
+   "view": [
+    [
+     "i'm actually pretty happy with the bus lately",
+     "Glad the bus worked out."
+    ],
+    [
+     "the laundry was acting up again today",
+     "That's frustrating. Is the laundry usually like that?"
+    ],
+    [
+     "the stairs is getting on my nerves",
+     "Sorry, the stairs sounds like a real hassle."
+    ]
+   ],
+   "answer": "court reporter",
+   "reply": "Your brother Lena works as a court reporter.",
+   "queries": [
+    "brother new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"brother new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_09",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what car did Greta buy at the auction",
+   "view": [
+    [
+     "the bakery was acting up again today",
+     "Sorry, the bakery sounds like a real hassle."
+    ],
+    [
+     "the stairs turned out fine in the end",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "someone at work brought up the dentist today",
+     "Fair enough, one thing at a time."
+    ]
+   ],
+   "answer": "blue Tacoma",
+   "reply": "Your cousin Greta bought a blue Tacoma.",
+   "queries": [
+    "Greta car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Greta car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_10",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which city is Tomas moving to",
+   "view": [
+    [
+     "i was thinking about the laundry on the way home",
+     "Ha, what did they say about the laundry?"
+    ],
+    [
+     "i'm actually pretty happy with the garden lately",
+     "Glad the garden worked out."
+    ],
+    [
+     "no complaints about the stairs this week",
+     "Love that for you."
+    ]
+   ],
+   "answer": "Tbilisi",
+   "reply": "Your coworker Tomas is moving to Tbilisi.",
+   "queries": [
+    "Tomas moving city"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Tomas moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_older_11",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what does my coworker do for a living these days",
+   "view": [
+    [
+     "ugh, my phone is driving me up the wall",
+     "I'd be fed up with my phone too."
+    ],
+    [
+     "funny how my coffee keeps coming up",
+     "It does seem to come up a lot."
+    ],
+    [
+     "i lost an hour to the printer today",
+     "That sounds annoying. Hope the printer settles down soon."
+    ]
+   ],
+   "answer": "beekeeper",
+   "reply": "Your coworker Ivan works as a beekeeper.",
+   "queries": [
+    "coworker new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_00",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i bring up my roommate's new hobby",
+   "view": [
+    [
+     "i'm actually pretty happy with the garden lately",
+     "Love that for you."
+    ],
+    [
+     "the kettle let me down this morning",
+     "Sorry, the kettle sounds like a real hassle."
+    ],
+    [
+     "i was thinking about my desk on the way home",
+     "It does seem to come up a lot."
+    ]
+   ],
+   "answer": "birdwatching",
+   "reply": "Your roommate Marc has taken up birdwatching.",
+   "queries": [
+    "roommate weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"roommate weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_01",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i tell you about my aunt's new job",
+   "view": [
+    [
+     "i lost an hour to the bank today",
+     "Oof. An hour lost to the bank is no fun."
+    ],
+    [
+     "not much going on, just dealing with the fridge",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "the recycling came up at dinner",
+     "What about the recycling got you thinking?"
+    ]
+   ],
+   "answer": "court reporter",
+   "reply": "Your aunt Omar works as a court reporter.",
+   "queries": [
+    "aunt new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"aunt new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_02",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i told you about my neighbour's car",
+   "view": [
+    [
+     "the garden let me down this morning",
+     "Oof. An hour lost to the garden is no fun."
+    ],
+    [
+     "good news, the parking lot sorted itself out",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "the fridge came up at dinner",
+     "It does seem to come up a lot."
+    ]
+   ],
+   "answer": "blue Tacoma",
+   "reply": "Your neighbour Greta bought a blue Tacoma.",
+   "queries": [
+    "neighbour car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"neighbour car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_03",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i tell you about my aunt's new job",
+   "view": [
+    [
+     "my laptop turned out fine in the end",
+     "Love that for you."
+    ],
+    [
+     "the dishwasher was acting up again today",
+     "Sorry, the dishwasher sounds like a real hassle."
+    ],
+    [
+     "so my knee has been a pain all week",
+     "I'd be fed up with my knee too."
+    ]
+   ],
+   "answer": "surveyor",
+   "reply": "Your aunt Greta works as a surveyor.",
+   "queries": [
+    "aunt new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"aunt new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_04",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i bring up my brother's new hobby",
+   "view": [
+    [
+     "i'm actually pretty happy with the gym lately",
+     "Love that for you."
+    ],
+    [
+     "someone at work brought up the fridge today",
+     "Ha, what did they say about the fridge?"
+    ],
+    [
+     "no complaints about that show this week",
+     "That's a small win. that show sounds good."
+    ]
+   ],
+   "answer": "pottery",
+   "reply": "Your brother Greta has taken up pottery.",
+   "queries": [
+    "brother weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"brother weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_05",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i mention my uncle's move",
+   "view": [
+    [
+     "funny how the elevator keeps coming up",
+     "Ha, what did they say about the elevator?"
+    ],
+    [
+     "anyway, enough about the bus",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "the recycling was acting up again today",
+     "I'd be fed up with the recycling too."
+    ]
+   ],
+   "answer": "Tbilisi",
+   "reply": "Your uncle Ivan is moving to Tbilisi.",
+   "queries": [
+    "uncle moving city"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_06",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i told you about my neighbour's car",
+   "view": [
+    [
+     "funny how my laptop keeps coming up",
+     "It does seem to come up a lot."
+    ],
+    [
+     "i lost an hour to my bike today",
+     "I'd be fed up with my bike too."
+    ],
+    [
+     "i was thinking about the garden on the way home",
+     "What about the garden got you thinking?"
+    ]
+   ],
+   "answer": "blue Tacoma",
+   "reply": "Your neighbour Nell bought a blue Tacoma.",
+   "queries": [
+    "neighbour car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"neighbour car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_07",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i told you about my sister's car",
+   "view": [
+    [
+     "i was thinking about the furnace on the way home",
+     "Ha, what did they say about the furnace?"
+    ],
+    [
+     "so the recycling has been a pain all week",
+     "I'd be fed up with the recycling too."
+    ],
+    [
+     "i was thinking about my desk on the way home",
+     "Sure, we can move on from my desk."
+    ]
+   ],
+   "answer": "blue Tacoma",
+   "reply": "Your sister Marc bought a blue Tacoma.",
+   "queries": [
+    "sister car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sister car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_08",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i bring up my aunt's new hobby",
+   "view": [
+    [
+     "someone at work brought up the garden today",
+     "Sure, we can move on from the garden."
+    ],
+    [
+     "the recycling was the best part of my day",
+     "Love that for you."
+    ],
+    [
+     "ugh, the rain is driving me up the wall",
+     "Sorry, the rain sounds like a real hassle."
+    ]
+   ],
+   "answer": "curling",
+   "reply": "Your aunt Lena has taken up curling.",
+   "queries": [
+    "aunt weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"aunt weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_09",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i bring up my brother's new hobby",
+   "view": [
+    [
+     "not much going on, just dealing with the stairs",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "the roof is getting on my nerves",
+     "Sorry, the roof sounds like a real hassle."
+    ],
+    [
+     "i lost an hour to my glasses today",
+     "I'd be fed up with my glasses too."
+    ]
+   ],
+   "answer": "glassblowing",
+   "reply": "Your brother Dana has taken up glassblowing.",
+   "queries": [
+    "brother weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"brother weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_10",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i tell you about my uncle's new job",
+   "view": [
+    [
+     "the recycling came up at dinner",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "not much going on, just dealing with my laptop",
+     "Ha, what did they say about my laptop?"
+    ],
+    [
+     "the gym was the best part of my day",
+     "Glad the gym worked out."
+    ]
+   ],
+   "answer": "welder",
+   "reply": "Your uncle Yusuf works as a welder.",
+   "queries": [
+    "uncle new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_confirm_11",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i bring up my uncle's new hobby",
+   "view": [
+    [
+     "funny how the wifi keeps coming up",
+     "It does seem to come up a lot."
+    ],
+    [
+     "the lawn is getting on my nerves",
+     "That sounds annoying. Hope the lawn settles down soon."
+    ],
+    [
+     "no complaints about the bank this week",
+     "Love that for you."
+    ]
+   ],
+   "answer": "fencing",
+   "reply": "Your uncle Tomas has taken up fencing.",
+   "queries": [
+    "uncle weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "58_in_view_00",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what is the name of the dog Omar adopted",
+   "view": [
+    [
+     "my uncle Omar adopted a dog named Biscuit last month",
+     "Thanks for telling me."
+    ],
+    [
+     "my back let me down this morning",
+     "Oof. An hour lost to my back is no fun."
+    ],
+    [
+     "good news, my bike sorted itself out",
+     "Love that for you."
+    ]
+   ],
+   "answer": "Biscuit",
+   "reply": "The name of the dog is Biscuit.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "The name of the dog is Biscuit.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_01",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what's my roommate driving around in now",
+   "view": [
+    [
+     "the bus turned out fine in the end",
+     "Love that for you."
+    ],
+    [
+     "my roommate Lena bought a green Corolla from an auction",
+     "Oh, that's nice to hear."
+    ],
+    [
+     "anyway, enough about the kettle",
+     "Sure, we can move on from the kettle."
+    ]
+   ],
+   "answer": "green Corolla",
+   "reply": "That's a great question! Since you haven't told me, I'll have to guess. Based on the information you provided, it sounds like your roommate Lena bought a green Corolla from an auction. That's a cool car!",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That's a great question! Since you haven't told me, I'll have to guess. Based on the information you provided, it sounds like your roommate Lena bought a green Corolla from an auction. That's a cool car!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_02",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what's my roommate driving around in now",
+   "view": [
+    [
+     "the mail was the best part of my day",
+     "That's a small win. the mail sounds good."
+    ],
+    [
+     "anyway, enough about the gym",
+     "Ha, what did they say about the gym?"
+    ],
+    [
+     "my roommate Tomas bought a grey Golf from an auction",
+     "Oh, that's nice to hear."
+    ]
+   ],
+   "answer": "grey Golf",
+   "reply": "It sounds like your roommate Tomas is driving a grey Golf.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your roommate Tomas is driving a grey Golf.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_03",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "where is my neighbour headed once winter is over",
+   "view": [
+    [
+     "anyway, enough about the gym",
+     "Ha, what did they say about the gym?"
+    ],
+    [
+     "my neighbour Marc is moving to Tbilisi in the spring",
+     "That's a change."
+    ],
+    [
+     "i lost an hour to the mail today",
+     "That sounds annoying. Hope the mail settles down soon."
+    ]
+   ],
+   "answer": "Tbilisi",
+   "reply": "Marc is moving to Tbilisi, Georgia, in the spring.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Marc is moving to Tbilisi, Georgia, in the spring.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_04",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "i was trying to think of what my coworker does on weekends",
+   "view": [
+    [
+     "my coworker Dana has taken up birdwatching on weekends",
+     "How are they finding it?"
+    ],
+    [
+     "not much going on, just dealing with my bike",
+     "It does seem to come up a lot."
+    ],
+    [
+     "funny how the dishwasher keeps coming up",
+     "What about the dishwasher got you thinking?"
+    ]
+   ],
+   "answer": "birdwatching",
+   "reply": "That's a great way to start a conversation. Dana is an avid birdwatcher, so she spends her weekends out in nature, observing and learning about different species. It's a great hobby and a great way to connect with the natural world.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That's a great way to start a conversation. Dana is an avid birdwatcher, so she spends her weekends out in nature, observing and learning about different species. It's a great hobby and a great way to connect with the natural world.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_05",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "i was trying to think of what my aunt does on weekends",
+   "view": [
+    [
+     "i'm actually pretty happy with the groceries lately",
+     "Good to hear the groceries is behaving."
+    ],
+    [
+     "my aunt Marc has taken up pottery on weekends",
+     "How are they finding it?"
+    ],
+    [
+     "the rain was acting up again today",
+     "Sorry, the rain sounds like a real hassle."
+    ]
+   ],
+   "answer": "pottery",
+   "reply": "Marc is taking up pottery on weekends.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Marc is taking up pottery on weekends.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_06",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what car did Dana buy at the auction",
+   "view": [
+    [
+     "my cousin Dana bought a red Civic from an auction",
+     "That's a change."
+    ],
+    [
+     "the mail let me down this morning",
+     "That sounds annoying. Hope the mail settles down soon."
+    ],
+    [
+     "the laundry turned out fine in the end",
+     "Good to hear the laundry is behaving."
+    ]
+   ],
+   "answer": "red Civic",
+   "reply": "Dana bought a red Civic at the auction.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Dana bought a red Civic at the auction.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_07",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what does my aunt do for a living these days",
+   "view": [
+    [
+     "my aunt Nell just started work as a court reporter",
+     "Good to know."
+    ],
+    [
+     "the lawn was the best part of my day",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "the stairs let me down this morning",
+     "I'd be fed up with the stairs too."
+    ]
+   ],
+   "answer": "court reporter",
+   "reply": "Nell is a court reporter, so she transcribes what she hears in court.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Nell is a court reporter, so she transcribes what she hears in court.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_08",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what's my neighbour driving around in now",
+   "view": [
+    [
+     "my neighbour Tomas bought a blue Tacoma from an auction",
+     "That's a change."
+    ],
+    [
+     "no complaints about the kettle this week",
+     "Love that for you."
+    ],
+    [
+     "my glasses was the best part of my day",
+     "Nice, that's one less thing to think about."
+    ]
+   ],
+   "answer": "blue Tacoma",
+   "reply": "That's a good one.  A blue Tacoma is a solid choice.  What else can I tell you about your neighbor?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That's a good one.  A blue Tacoma is a solid choice.  What else can I tell you about your neighbor?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_09",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "i was trying to think of what my sister does on weekends",
+   "view": [
+    [
+     "i'm actually pretty happy with the bakery lately",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "my sister Ivan has taken up birdwatching on weekends",
+     "Oh, that's nice to hear."
+    ],
+    [
+     "i was thinking about the gym on the way home",
+     "What about the gym got you thinking?"
+    ]
+   ],
+   "answer": "birdwatching",
+   "reply": "She's out birdwatching, I think.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "She's out birdwatching, I think.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_10",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what car did Nell buy at the auction",
+   "view": [
+    [
+     "good news, the stairs sorted itself out",
+     "Glad the stairs worked out."
+    ],
+    [
+     "my cousin Nell bought a grey Golf from an auction",
+     "Good to know."
+    ],
+    [
+     "the parking lot let me down this morning",
+     "That sounds annoying. Hope the parking lot settles down soon."
+    ]
+   ],
+   "answer": "grey Golf",
+   "reply": "Nell bought a grey Golf at the auction.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Nell bought a grey Golf at the auction.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_11",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what do they call that pup over at my cousin's place",
+   "view": [
+    [
+     "the bakery is getting on my nerves",
+     "That sounds annoying. Hope the bakery settles down soon."
+    ],
+    [
+     "my cousin Tomas adopted a dog named Rusty last month",
+     "Thanks for telling me."
+    ],
+    [
+     "the rain was the best part of my day",
+     "Glad the rain worked out."
+    ]
+   ],
+   "answer": "Rusty",
+   "reply": "Rusty is a name, so it's not something that can be called. It's a name for the dog.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Rusty is a name, so it's not something that can be called. It's a name for the dog.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_00",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what do they call that pup over at my uncle's place",
+   "view": [
+    [
+     "someone at work brought up the stairs today",
+     "Ha, what did they say about the stairs?"
+    ],
+    [
+     "good news, the bus sorted itself out",
+     "Good to hear the bus is behaving."
+    ],
+    [
+     "the bus is getting on my nerves",
+     "Sorry, the bus sounds like a real hassle."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "uncle dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_01",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what job did Greta start",
+   "view": [
+    [
+     "i'm actually pretty happy with the bank lately",
+     "Love that for you."
+    ],
+    [
+     "i was thinking about the furnace on the way home",
+     "Sure, we can move on from the furnace."
+    ],
+    [
+     "the stairs was acting up again today",
+     "Sorry, the stairs sounds like a real hassle."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "Greta new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Greta new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_02",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what job did Tomas start",
+   "view": [
+    [
+     "i lost an hour to the wifi today",
+     "That's frustrating. Is the wifi usually like that?"
+    ],
+    [
+     "good news, the parking lot sorted itself out",
+     "Glad the parking lot worked out."
+    ],
+    [
+     "not much going on, just dealing with my coffee",
+     "Sure, we can move on from my coffee."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "Tomas new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Tomas new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_03",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what job did Yusuf start",
+   "view": [
+    [
+     "the roof let me down this morning",
+     "That's frustrating. Is the roof usually like that?"
+    ],
+    [
+     "not much going on, just dealing with the rain",
+     "What about the rain got you thinking?"
+    ],
+    [
+     "my coffee is getting on my nerves",
+     "That sounds annoying. Hope my coffee settles down soon."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "Yusuf new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Yusuf new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_04",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what is the name of the dog Greta adopted",
+   "view": [
+    [
+     "funny how the snow keeps coming up",
+     "Ha, what did they say about the snow?"
+    ],
+    [
+     "the fridge was acting up again today",
+     "I'd be fed up with the fridge too."
+    ],
+    [
+     "ugh, my knee is driving me up the wall",
+     "Sorry, my knee sounds like a real hassle."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "Greta dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Greta dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_05",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "i keep forgetting what my sister drives",
+   "view": [
+    [
+     "the mail came up at dinner",
+     "Sure, we can move on from the mail."
+    ],
+    [
+     "the rain was acting up again today",
+     "Sorry, the rain sounds like a real hassle."
+    ],
+    [
+     "i lost an hour to the groceries today",
+     "Sorry, the groceries sounds like a real hassle."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "sister car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sister car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_06",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "i can't remember what my uncle's dog is called",
+   "view": [
+    [
+     "i'm actually pretty happy with the fridge lately",
+     "Glad the fridge worked out."
+    ],
+    [
+     "funny how my phone keeps coming up",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "the recycling was acting up again today",
+     "Sorry, the recycling sounds like a real hassle."
+    ]
+   ],
+   "answer": "",
+   "reply": "I don't have that from you. What is it?",
+   "queries": [
+    "uncle dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_07",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "i forget where my coworker is moving",
+   "view": [
+    [
+     "anyway, enough about my knee",
+     "It does seem to come up a lot."
+    ],
+    [
+     "my back was the best part of my day",
+     "That's a small win. my back sounds good."
+    ],
+    [
+     "good news, the bus sorted itself out",
+     "Good to hear the bus is behaving."
+    ]
+   ],
+   "answer": "",
+   "reply": "That hasn't come up in our conversation, so I don't know.",
+   "queries": [
+    "coworker moving city"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_08",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "i forget where my aunt is moving",
+   "view": [
+    [
+     "the snow turned out fine in the end",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "i'm actually pretty happy with my phone lately",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "i was thinking about the fridge on the way home",
+     "Fair enough, one thing at a time."
+    ]
+   ],
+   "answer": "",
+   "reply": "That hasn't come up in our conversation, so I don't know.",
+   "queries": [
+    "aunt moving city"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"aunt moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_09",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what is the name of the dog Ivan adopted",
+   "view": [
+    [
+     "i'm actually pretty happy with the fridge lately",
+     "Love that for you."
+    ],
+    [
+     "ugh, the wifi is driving me up the wall",
+     "That sounds annoying. Hope the wifi settles down soon."
+    ],
+    [
+     "the stairs was the best part of my day",
+     "Love that for you."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "Ivan dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Ivan dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_10",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "i can't remember what my aunt's dog is called",
+   "view": [
+    [
+     "the parking lot let me down this morning",
+     "Sorry, the parking lot sounds like a real hassle."
+    ],
+    [
+     "the dishwasher turned out fine in the end",
+     "Good to hear the dishwasher is behaving."
+    ],
+    [
+     "the printer was acting up again today",
+     "I'd be fed up with the printer too."
+    ]
+   ],
+   "answer": "",
+   "reply": "I don't have that from you. What is it?",
+   "queries": [
+    "aunt dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"aunt dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_11",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what is the name of the dog Priya adopted",
+   "view": [
+    [
+     "anyway, enough about the stairs",
+     "Ha, what did they say about the stairs?"
+    ],
+    [
+     "i lost an hour to my back today",
+     "That sounds annoying. Hope my back settles down soon."
+    ],
+    [
+     "someone at work brought up my phone today",
+     "Tell me more if you feel like it."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "Priya dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Priya dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_00",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "you won't believe what my aunt said today",
+   "view": [
+    [
+     "anyway, enough about the recycling",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "i was thinking about the snow on the way home",
+     "What about the snow got you thinking?"
+    ],
+    [
+     "ugh, the parking lot is driving me up the wall",
+     "That sounds annoying. Hope the parking lot settles down soon."
+    ]
+   ],
+   "answer": "",
+   "reply": "I'm sorry to hear that. What did your aunt say? I'm here to listen and offer support if you need it.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "I'm sorry to hear that. What did your aunt say? I'm here to listen and offer support if you need it.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_01",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "i haven't seen my aunt in ages",
+   "view": [
+    [
+     "the bank came up at dinner",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "the laundry was the best part of my day",
+     "Glad the laundry worked out."
+    ],
+    [
+     "the recycling came up at dinner",
+     "Ha, what did they say about the recycling?"
+    ]
+   ],
+   "answer": "",
+   "reply": "It's great that you're thinking about catching up with your aunt. How have you been keeping in touch?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "It's great that you're thinking about catching up with your aunt. How have you been keeping in touch?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_02",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my cousin called me last night",
+   "view": [
+    [
+     "i was thinking about the furnace on the way home",
+     "What about the furnace got you thinking?"
+    ],
+    [
+     "the mail was acting up again today",
+     "That sounds annoying. Hope the mail settles down soon."
+    ],
+    [
+     "i'm actually pretty happy with the roof lately",
+     "Good to hear the roof is behaving."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a good thing. Was it a long conversation?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a good thing. Was it a long conversation?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_03",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "guess who ran into Marc at the store",
+   "view": [
+    [
+     "anyway, enough about my coffee",
+     "Sure, we can move on from my coffee."
+    ],
+    [
+     "ugh, the elevator is driving me up the wall",
+     "I'd be fed up with the elevator too."
+    ],
+    [
+     "i lost an hour to the gym today",
+     "I'd be fed up with the gym too."
+    ]
+   ],
+   "answer": "",
+   "reply": "Marc?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Marc?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_04",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Priya and i went for a long walk today",
+   "view": [
+    [
+     "no complaints about the bus this week",
+     "That's a small win. the bus sounds good."
+    ],
+    [
+     "the garden is getting on my nerves",
+     "That's frustrating. Is the garden usually like that?"
+    ],
+    [
+     "my glasses let me down this morning",
+     "Sorry, my glasses sounds like a real hassle."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a nice break from the bus. Did you explore any interesting places or enjoy the scenery?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a nice break from the bus. Did you explore any interesting places or enjoy the scenery?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_05",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Ivan and i went for a long walk today",
+   "view": [
+    [
+     "funny how the elevator keeps coming up",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "the wifi was acting up again today",
+     "Sorry, the wifi sounds like a real hassle."
+    ],
+    [
+     "the bakery was the best part of my day",
+     "Good to hear the bakery is behaving."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a nice break from the usual routine. Did you explore any interesting places or enjoy the outdoors?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a nice break from the usual routine. Did you explore any interesting places or enjoy the outdoors?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_06",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "i haven't seen my cousin in ages",
+   "view": [
+    [
+     "i lost an hour to my back today",
+     "That's frustrating. Is my back usually like that?"
+    ],
+    [
+     "i was thinking about my back on the way home",
+     "What about my back got you thinking?"
+    ],
+    [
+     "i lost an hour to the garden today",
+     "I'd be fed up with the garden too."
+    ]
+   ],
+   "answer": "",
+   "reply": "It sounds like you need to catch up with your cousin. Maybe you could plan a visit or a phone call to catch up and catch up on all the things you've been missing.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you need to catch up with your cousin. Maybe you could plan a visit or a phone call to catch up and catch up on all the things you've been missing.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_07",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "i haven't seen my brother in ages",
+   "view": [
+    [
+     "so the groceries has been a pain all week",
+     "Sorry, the groceries sounds like a real hassle."
+    ],
+    [
+     "anyway, enough about the mail",
+     "Sure, we can move on from the mail."
+    ],
+    [
+     "the bank turned out fine in the end",
+     "Glad the bank worked out."
+    ]
+   ],
+   "answer": "",
+   "reply": "It can be a bit of a struggle to stay in touch with family, especially if you're not in the same city or country. Have you tried reaching out to him recently?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "It can be a bit of a struggle to stay in touch with family, especially if you're not in the same city or country. Have you tried reaching out to him recently?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_08",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Marc still owes me twenty bucks",
+   "view": [
+    [
+     "the laundry is getting on my nerves",
+     "Sorry, the laundry sounds like a real hassle."
+    ],
+    [
+     "the bank was acting up again today",
+     "Oof. An hour lost to the bank is no fun."
+    ],
+    [
+     "so the parking lot has been a pain all week",
+     "I'd be fed up with the parking lot too."
+    ]
+   ],
+   "answer": "",
+   "reply": "Marc still owes you twenty bucks.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Marc still owes you twenty bucks.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_09",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "guess who ran into Dana at the store",
+   "view": [
+    [
+     "no complaints about the parking lot this week",
+     "Glad the parking lot worked out."
+    ],
+    [
+     "good news, the stairs sorted itself out",
+     "That's a small win. the stairs sounds good."
+    ],
+    [
+     "the bus turned out fine in the end",
+     "Love that for you."
+    ]
+   ],
+   "answer": "",
+   "reply": "Whoa, that's a surprise. Did you run into Dana at the store?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Whoa, that's a surprise. Did you run into Dana at the store?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_10",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Marc and i went for a long walk today",
+   "view": [
+    [
+     "i lost an hour to that show today",
+     "Oof. An hour lost to that show is no fun."
+    ],
+    [
+     "my laptop let me down this morning",
+     "That sounds annoying. Hope my laptop settles down soon."
+    ],
+    [
+     "not much going on, just dealing with the laundry",
+     "Ha, what did they say about the laundry?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a nice break from the usual routine. Did you explore any interesting places or enjoy the outdoors?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a nice break from the usual routine. Did you explore any interesting places or enjoy the outdoors?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_11",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "you won't believe what my neighbour said today",
+   "view": [
+    [
+     "i lost an hour to my back today",
+     "That sounds annoying. Hope my back settles down soon."
+    ],
+    [
+     "the roof was acting up again today",
+     "That sounds annoying. Hope the roof settles down soon."
+    ],
+    [
+     "i'm actually pretty happy with that show lately",
+     "That's a small win. that show sounds good."
+    ]
+   ],
+   "answer": "",
+   "reply": "I'm sorry to hear that.  What did your neighbor say? I'm here to listen and offer support if you need it.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "I'm sorry to hear that.  What did your neighbor say? I'm here to listen and offer support if you need it.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_older_00",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what's my roommate driving around in now",
+   "view": [
+    [
+     "i lost an hour to the mail today",
+     "That's frustrating. Is the mail usually like that?"
+    ],
+    [
+     "ugh, my laptop is driving me up the wall",
+     "Sorry, my laptop sounds like a real hassle."
+    ],
+    [
+     "the recycling turned out fine in the end",
+     "Love that for you."
+    ]
+   ],
+   "answer": "green Corolla",
+   "reply": "Your roommate Ivan bought a green Corolla.",
+   "queries": [
+    "roommate car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"roommate car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_01",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "where is my brother headed once winter is over",
+   "view": [
+    [
+     "so my back has been a pain all week",
+     "Sorry, my back sounds like a real hassle."
+    ],
+    [
+     "not much going on, just dealing with the bakery",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "the fridge turned out fine in the end",
+     "Nice, that's one less thing to think about."
+    ]
+   ],
+   "answer": "Oslo",
+   "reply": "Your brother Yusuf is moving to Oslo.",
+   "queries": [
+    "brother moving city"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"brother moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_02",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i keep forgetting what my roommate drives",
+   "view": [
+    [
+     "the mail was the best part of my day",
+     "Good to hear the mail is behaving."
+    ],
+    [
+     "anyway, enough about the bus",
+     "Ha, what did they say about the bus?"
+    ],
+    [
+     "no complaints about my glasses this week",
+     "Good to hear my glasses is behaving."
+    ]
+   ],
+   "answer": "grey Golf",
+   "reply": "Your roommate Ivan bought a grey Golf.",
+   "queries": [
+    "roommate car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"roommate car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_03",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i keep forgetting what my roommate drives",
+   "view": [
+    [
+     "good news, the rain sorted itself out",
+     "Glad the rain worked out."
+    ],
+    [
+     "i was thinking about the fridge on the way home",
+     "What about the fridge got you thinking?"
+    ],
+    [
+     "my phone came up at dinner",
+     "Sure, we can move on from my phone."
+    ]
+   ],
+   "answer": "grey Golf",
+   "reply": "Your roommate Marc bought a grey Golf.",
+   "queries": [
+    "roommate car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"roommate car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_04",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what's my uncle driving around in now",
+   "view": [
+    [
+     "funny how the parking lot keeps coming up",
+     "Ha, what did they say about the parking lot?"
+    ],
+    [
+     "no complaints about the elevator this week",
+     "Good to hear the elevator is behaving."
+    ],
+    [
+     "i was thinking about my bike on the way home",
+     "Sure, we can move on from my bike."
+    ]
+   ],
+   "answer": "blue Tacoma",
+   "reply": "Your uncle Omar bought a blue Tacoma.",
+   "queries": [
+    "uncle car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_05",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "remind me what my cousin does for work",
+   "view": [
+    [
+     "the bank came up at dinner",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "the wifi came up at dinner",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "anyway, enough about my laptop",
+     "Sure, we can move on from my laptop."
+    ]
+   ],
+   "answer": "pastry chef",
+   "reply": "Your cousin Marc works as a pastry chef.",
+   "queries": [
+    "cousin new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"cousin new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_06",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what do they call that pup over at my coworker's place",
+   "view": [
+    [
+     "so the wifi has been a pain all week",
+     "That's frustrating. Is the wifi usually like that?"
+    ],
+    [
+     "good news, the gym sorted itself out",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "good news, my glasses sorted itself out",
+     "Nice, that's one less thing to think about."
+    ]
+   ],
+   "answer": "Juno",
+   "reply": "Your coworker Greta's dog is called Juno.",
+   "queries": [
+    "coworker dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_07",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what does my neighbour do for a living these days",
+   "view": [
+    [
+     "the mail was acting up again today",
+     "I'd be fed up with the mail too."
+    ],
+    [
+     "anyway, enough about the mail",
+     "Sure, we can move on from the mail."
+    ],
+    [
+     "so my laptop has been a pain all week",
+     "That sounds annoying. Hope my laptop settles down soon."
+    ]
+   ],
+   "answer": "surveyor",
+   "reply": "Your neighbour Dana works as a surveyor.",
+   "queries": [
+    "neighbour new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"neighbour new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_08",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which city is Ivan moving to",
+   "view": [
+    [
+     "funny how the furnace keeps coming up",
+     "Ha, what did they say about the furnace?"
+    ],
+    [
+     "someone at work brought up the kettle today",
+     "Sure, we can move on from the kettle."
+    ],
+    [
+     "ugh, the bus is driving me up the wall",
+     "Oof. An hour lost to the bus is no fun."
+    ]
+   ],
+   "answer": "Tbilisi",
+   "reply": "Your neighbour Ivan is moving to Tbilisi.",
+   "queries": [
+    "Ivan moving city"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Ivan moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_09",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "where is my brother headed once winter is over",
+   "view": [
+    [
+     "good news, the bank sorted itself out",
+     "Love that for you."
+    ],
+    [
+     "i was thinking about the stairs on the way home",
+     "Sure, we can move on from the stairs."
+    ],
+    [
+     "no complaints about the bakery this week",
+     "Glad the bakery worked out."
+    ]
+   ],
+   "answer": "Tbilisi",
+   "reply": "Your brother Marc is moving to Tbilisi.",
+   "queries": [
+    "brother moving city"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"brother moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_10",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i can't remember what my uncle's dog is called",
+   "view": [
+    [
+     "good news, the rain sorted itself out",
+     "Love that for you."
+    ],
+    [
+     "funny how my glasses keeps coming up",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "my knee is getting on my nerves",
+     "That sounds annoying. Hope my knee settles down soon."
+    ]
+   ],
+   "answer": "Waffles",
+   "reply": "Your uncle Tomas's dog is called Waffles.",
+   "queries": [
+    "uncle dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_older_11",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which city is Dana moving to",
+   "view": [
+    [
+     "ugh, the stairs is driving me up the wall",
+     "I'd be fed up with the stairs too."
+    ],
+    [
+     "the lawn is getting on my nerves",
+     "I'd be fed up with the lawn too."
+    ],
+    [
+     "the gym was acting up again today",
+     "Sorry, the gym sounds like a real hassle."
+    ]
+   ],
+   "answer": "Oslo",
+   "reply": "Your coworker Dana is moving to Oslo.",
+   "queries": [
+    "Dana moving city"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Dana moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_00",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i tell you about my aunt's new job",
+   "view": [
+    [
+     "good news, my laptop sorted itself out",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "so my knee has been a pain all week",
+     "I'd be fed up with my knee too."
+    ],
+    [
+     "the gym turned out fine in the end",
+     "Nice, that's one less thing to think about."
+    ]
+   ],
+   "answer": "beekeeper",
+   "reply": "Your aunt Marc works as a beekeeper.",
+   "queries": [
+    "aunt new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"aunt new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_01",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i bring up my aunt's new hobby",
+   "view": [
+    [
+     "funny how the parking lot keeps coming up",
+     "Sure, we can move on from the parking lot."
+    ],
+    [
+     "the rain was acting up again today",
+     "Oof. An hour lost to the rain is no fun."
+    ],
+    [
+     "ugh, the rain is driving me up the wall",
+     "Sorry, the rain sounds like a real hassle."
+    ]
+   ],
+   "answer": "birdwatching",
+   "reply": "Your aunt Greta has taken up birdwatching.",
+   "queries": [
+    "aunt weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"aunt weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_02",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever tell you about my brother's dog",
+   "view": [
+    [
+     "ugh, my glasses is driving me up the wall",
+     "Oof. An hour lost to my glasses is no fun."
+    ],
+    [
+     "ugh, my coffee is driving me up the wall",
+     "That sounds annoying. Hope my coffee settles down soon."
+    ],
+    [
+     "someone at work brought up the dishwasher today",
+     "Tell me more if you feel like it."
+    ]
+   ],
+   "answer": "Waffles",
+   "reply": "Your brother Ivan's dog is called Waffles.",
+   "queries": [
+    "brother dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"brother dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_03",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i told you about my roommate's car",
+   "view": [
+    [
+     "my glasses was the best part of my day",
+     "Glad my glasses worked out."
+    ],
+    [
+     "my desk came up at dinner",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "so the bakery has been a pain all week",
+     "That's frustrating. Is the bakery usually like that?"
+    ]
+   ],
+   "answer": "green Corolla",
+   "reply": "Your roommate Tomas bought a green Corolla.",
+   "queries": [
+    "roommate car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"roommate car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_04",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever tell you about my coworker's dog",
+   "view": [
+    [
+     "that show let me down this morning",
+     "Oof. An hour lost to that show is no fun."
+    ],
+    [
+     "someone at work brought up the bus today",
+     "Sure, we can move on from the bus."
+    ],
+    [
+     "good news, the dentist sorted itself out",
+     "Good to hear the dentist is behaving."
+    ]
+   ],
+   "answer": "Clover",
+   "reply": "Your coworker Ivan's dog is called Clover.",
+   "queries": [
+    "coworker dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_05",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever tell you about my uncle's dog",
+   "view": [
+    [
+     "i'm actually pretty happy with the kettle lately",
+     "Glad the kettle worked out."
+    ],
+    [
+     "not much going on, just dealing with the elevator",
+     "Sure, we can move on from the elevator."
+    ],
+    [
+     "no complaints about the kettle this week",
+     "Nice, that's one less thing to think about."
+    ]
+   ],
+   "answer": "Rusty",
+   "reply": "Your uncle Dana's dog is called Rusty.",
+   "queries": [
+    "uncle dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_06",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i bring up my coworker's new hobby",
+   "view": [
+    [
+     "funny how my desk keeps coming up",
+     "What about my desk got you thinking?"
+    ],
+    [
+     "someone at work brought up my phone today",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "ugh, my coffee is driving me up the wall",
+     "That sounds annoying. Hope my coffee settles down soon."
+    ]
+   ],
+   "answer": "pottery",
+   "reply": "Your coworker Ivan has taken up pottery.",
+   "queries": [
+    "coworker weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_07",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i bring up my coworker's new hobby",
+   "view": [
+    [
+     "anyway, enough about the fridge",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "the recycling let me down this morning",
+     "Sorry, the recycling sounds like a real hassle."
+    ],
+    [
+     "i lost an hour to the furnace today",
+     "That sounds annoying. Hope the furnace settles down soon."
+    ]
+   ],
+   "answer": "fencing",
+   "reply": "Your coworker Lena has taken up fencing.",
+   "queries": [
+    "coworker weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_08",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever tell you about my neighbour's dog",
+   "view": [
+    [
+     "the snow came up at dinner",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "i was thinking about that show on the way home",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "i was thinking about the stairs on the way home",
+     "Sure, we can move on from the stairs."
+    ]
+   ],
+   "answer": "Juno",
+   "reply": "Your neighbour Lena's dog is called Juno.",
+   "queries": [
+    "neighbour dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"neighbour dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_09",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i bring up my coworker's new hobby",
+   "view": [
+    [
+     "the parking lot came up at dinner",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "ugh, my back is driving me up the wall",
+     "That's frustrating. Is my back usually like that?"
+    ],
+    [
+     "no complaints about the kettle this week",
+     "Glad the kettle worked out."
+    ]
+   ],
+   "answer": "bouldering",
+   "reply": "Your coworker Tomas has taken up bouldering.",
+   "queries": [
+    "coworker weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_10",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i told you about my coworker's car",
+   "view": [
+    [
+     "the wifi came up at dinner",
+     "Ha, what did they say about the wifi?"
+    ],
+    [
+     "someone at work brought up the bus today",
+     "Sure, we can move on from the bus."
+    ],
+    [
+     "my bike turned out fine in the end",
+     "Good to hear my bike is behaving."
+    ]
+   ],
+   "answer": "blue Tacoma",
+   "reply": "Your coworker Lena bought a blue Tacoma.",
+   "queries": [
+    "coworker car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_confirm_11",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i tell you about my coworker's new job",
+   "view": [
+    [
+     "ugh, the bus is driving me up the wall",
+     "That's frustrating. Is the bus usually like that?"
+    ],
+    [
+     "my knee came up at dinner",
+     "It does seem to come up a lot."
+    ],
+    [
+     "i lost an hour to my coffee today",
+     "Sorry, my coffee sounds like a real hassle."
+    ]
+   ],
+   "answer": "welder",
+   "reply": "Your coworker Dana works as a welder.",
+   "queries": [
+    "coworker new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coworker new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "419_in_view_00",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "how does my sister keep busy on saturdays",
+   "view": [
+    [
+     "funny how the laundry keeps coming up",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "my sister Lena has taken up fencing on weekends",
+     "That sounds exciting for them."
+    ],
+    [
+     "the snow was the best part of my day",
+     "That's a small win. the snow sounds good."
+    ]
+   ],
+   "answer": "fencing",
+   "reply": "It sounds like your sister is enjoying fencing, which is a great way to stay active and engaged. Fencing is a fantastic sport that combines physical fitness, strategy, and skill. It's wonderful that she finds it enjoyable.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your sister is enjoying fencing, which is a great way to stay active and engaged. Fencing is a fantastic sport that combines physical fitness, strategy, and skill. It's wonderful that she finds it enjoyable.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_01",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what job did Marc start",
+   "view": [
+    [
+     "the elevator let me down this morning",
+     "I'd be fed up with the elevator too."
+    ],
+    [
+     "my cousin Marc just started work as a surveyor",
+     "That's a change."
+    ],
+    [
+     "i'm actually pretty happy with the rain lately",
+     "That's a small win. the rain sounds good."
+    ]
+   ],
+   "answer": "surveyor",
+   "reply": "Marc started as a surveyor.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Marc started as a surveyor.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_02",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what's my cousin driving around in now",
+   "view": [
+    [
+     "my bike was acting up again today",
+     "That's frustrating. Is my bike usually like that?"
+    ],
+    [
+     "my cousin Greta bought a grey Golf from an auction",
+     "Thanks for telling me."
+    ],
+    [
+     "ugh, my coffee is driving me up the wall",
+     "That sounds annoying. Hope my coffee settles down soon."
+    ]
+   ],
+   "answer": "grey Golf",
+   "reply": "She's driving a grey Golf.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "She's driving a grey Golf.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_03",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "where is my roommate headed once winter is over",
+   "view": [
+    [
+     "someone at work brought up the groceries today",
+     "It does seem to come up a lot."
+    ],
+    [
+     "i'm actually pretty happy with the snow lately",
+     "Love that for you."
+    ],
+    [
+     "my roommate Greta is moving to Valparaiso in the spring",
+     "Thanks for telling me."
+    ]
+   ],
+   "answer": "Valparaiso",
+   "reply": "Valparaiso is a city in Indiana, USA. It's a small city with a rich history and culture. It's a great place to live, with a strong sense of community and a variety of activities to enjoy.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Valparaiso is a city in Indiana, USA. It's a small city with a rich history and culture. It's a great place to live, with a strong sense of community and a variety of activities to enjoy.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_04",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what car did Tomas buy at the auction",
+   "view": [
+    [
+     "my coworker Tomas bought a blue Tacoma from an auction",
+     "How are they finding it?"
+    ],
+    [
+     "anyway, enough about the gym",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "funny how the furnace keeps coming up",
+     "Fair enough, one thing at a time."
+    ]
+   ],
+   "answer": "blue Tacoma",
+   "reply": "Tomas bought a blue Tacoma at the auction.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Tomas bought a blue Tacoma at the auction.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_05",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what car did Greta buy at the auction",
+   "view": [
+    [
+     "my coworker Greta bought a blue Tacoma from an auction",
+     "That's a change."
+    ],
+    [
+     "the elevator was the best part of my day",
+     "Good to hear the elevator is behaving."
+    ],
+    [
+     "the printer turned out fine in the end",
+     "Nice, that's one less thing to think about."
+    ]
+   ],
+   "answer": "blue Tacoma",
+   "reply": "Greta bought a blue Tacoma at the auction.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Greta bought a blue Tacoma at the auction.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_06",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what car did Ivan buy at the auction",
+   "view": [
+    [
+     "someone at work brought up my desk today",
+     "Ha, what did they say about my desk?"
+    ],
+    [
+     "someone at work brought up the gym today",
+     "It does seem to come up a lot."
+    ],
+    [
+     "my uncle Ivan bought a white Forester from an auction",
+     "That's a change."
+    ]
+   ],
+   "answer": "white Forester",
+   "reply": "Ivan bought a white Forester at the auction.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Ivan bought a white Forester at the auction.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_07",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "where is my roommate headed once winter is over",
+   "view": [
+    [
+     "i'm actually pretty happy with the kettle lately",
+     "That's a small win. the kettle sounds good."
+    ],
+    [
+     "my roommate Dana is moving to Tbilisi in the spring",
+     "How are they finding it?"
+    ],
+    [
+     "someone at work brought up the printer today",
+     "It does seem to come up a lot."
+    ]
+   ],
+   "answer": "Tbilisi",
+   "reply": "Tbilisi, Georgia.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Tbilisi, Georgia.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_08",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "i forget where my neighbour is moving",
+   "view": [
+    [
+     "so the bus has been a pain all week",
+     "I'd be fed up with the bus too."
+    ],
+    [
+     "my neighbour Marc is moving to Tbilisi in the spring",
+     "That's a change."
+    ],
+    [
+     "my back is getting on my nerves",
+     "Sorry, my back sounds like a real hassle."
+    ]
+   ],
+   "answer": "Tbilisi",
+   "reply": "Marc is moving to Tbilisi, the capital of Georgia, in the spring.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Marc is moving to Tbilisi, the capital of Georgia, in the spring.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_09",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "how does my roommate keep busy on saturdays",
+   "view": [
+    [
+     "anyway, enough about that show",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "so my phone has been a pain all week",
+     "Oof. An hour lost to my phone is no fun."
+    ],
+    [
+     "my roommate Lena has taken up curling on weekends",
+     "Oh, that's nice to hear."
+    ]
+   ],
+   "answer": "curling",
+   "reply": "It sounds like your roommate is enjoying a fun activity. Curling is a great way to stay active and social. Do you think she might be interested in joining a local curling league or team?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your roommate is enjoying a fun activity. Curling is a great way to stay active and social. Do you think she might be interested in joining a local curling league or team?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_10",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "what has Greta taken up on weekends",
+   "view": [
+    [
+     "so the furnace has been a pain all week",
+     "Sorry, the furnace sounds like a real hassle."
+    ],
+    [
+     "funny how the recycling keeps coming up",
+     "Sure, we can move on from the recycling."
+    ],
+    [
+     "my sister Greta has taken up pottery on weekends",
+     "That's a change."
+    ]
+   ],
+   "answer": "pottery",
+   "reply": "She's taken up pottery.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "She's taken up pottery.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_in_view_11",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "where is my brother headed once winter is over",
+   "view": [
+    [
+     "i'm actually pretty happy with my back lately",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "my brother Priya is moving to Tbilisi in the spring",
+     "Good to know."
+    ],
+    [
+     "ugh, the roof is driving me up the wall",
+     "Sorry, the roof sounds like a real hassle."
+    ]
+   ],
+   "answer": "Tbilisi",
+   "reply": "He is moving to Tbilisi in the spring.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "He is moving to Tbilisi in the spring.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_00",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what's my sister driving around in now",
+   "view": [
+    [
+     "the roof was the best part of my day",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "no complaints about my glasses this week",
+     "Glad my glasses worked out."
+    ],
+    [
+     "the roof was acting up again today",
+     "I'd be fed up with the roof too."
+    ]
+   ],
+   "answer": "",
+   "reply": "That hasn't come up in our conversation, so I don't know.",
+   "queries": [
+    "sister car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sister car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_01",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "i was trying to think of what my uncle does on weekends",
+   "view": [
+    [
+     "anyway, enough about the groceries",
+     "Sure, we can move on from the groceries."
+    ],
+    [
+     "funny how the bank keeps coming up",
+     "It does seem to come up a lot."
+    ],
+    [
+     "the lawn turned out fine in the end",
+     "That's a small win. the lawn sounds good."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "uncle weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_02",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "i can't remember what my uncle's dog is called",
+   "view": [
+    [
+     "not much going on, just dealing with the parking lot",
+     "It does seem to come up a lot."
+    ],
+    [
+     "good news, the parking lot sorted itself out",
+     "Glad the parking lot worked out."
+    ],
+    [
+     "no complaints about the recycling this week",
+     "Glad the recycling worked out."
+    ]
+   ],
+   "answer": "",
+   "reply": "That hasn't come up in our conversation, so I don't know.",
+   "queries": [
+    "uncle dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_03",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what is the name of the dog Greta adopted",
+   "view": [
+    [
+     "my glasses turned out fine in the end",
+     "Good to hear my glasses is behaving."
+    ],
+    [
+     "the dishwasher was the best part of my day",
+     "Nice, that's one less thing to think about."
+    ],
+    [
+     "not much going on, just dealing with my knee",
+     "It does seem to come up a lot."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "Greta dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Greta dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_04",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what's my uncle driving around in now",
+   "view": [
+    [
+     "not much going on, just dealing with the garden",
+     "Tell me more if you feel like it."
+    ],
+    [
+     "i lost an hour to my back today",
+     "That sounds annoying. Hope my back settles down soon."
+    ],
+    [
+     "anyway, enough about the rain",
+     "Fair enough, one thing at a time."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "uncle car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"uncle car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_05",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what do they call that pup over at my cousin's place",
+   "view": [
+    [
+     "no complaints about the recycling this week",
+     "That's a small win. the recycling sounds good."
+    ],
+    [
+     "good news, my phone sorted itself out",
+     "Good to hear my phone is behaving."
+    ],
+    [
+     "ugh, my desk is driving me up the wall",
+     "That's frustrating. Is my desk usually like that?"
+    ]
+   ],
+   "answer": "",
+   "reply": "I don't have that from you. What is it?",
+   "queries": [
+    "cousin dog name"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"cousin dog name\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_06",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what does my neighbour do for a living these days",
+   "view": [
+    [
+     "good news, the bakery sorted itself out",
+     "Glad the bakery worked out."
+    ],
+    [
+     "i was thinking about the wifi on the way home",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "the garden came up at dinner",
+     "Tell me more if you feel like it."
+    ]
+   ],
+   "answer": "",
+   "reply": "I don't have that from you. What is it?",
+   "queries": [
+    "neighbour new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"neighbour new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_07",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "remind me what my neighbour does for work",
+   "view": [
+    [
+     "anyway, enough about my desk",
+     "What about my desk got you thinking?"
+    ],
+    [
+     "ugh, the furnace is driving me up the wall",
+     "That's frustrating. Is the furnace usually like that?"
+    ],
+    [
+     "so the parking lot has been a pain all week",
+     "I'd be fed up with the parking lot too."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "neighbour new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"neighbour new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_08",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "remind me what my aunt does for work",
+   "view": [
+    [
+     "so the snow has been a pain all week",
+     "That sounds annoying. Hope the snow settles down soon."
+    ],
+    [
+     "the elevator was the best part of my day",
+     "That's a small win. the elevator sounds good."
+    ],
+    [
+     "so the mail has been a pain all week",
+     "That's frustrating. Is the mail usually like that?"
+    ]
+   ],
+   "answer": "",
+   "reply": "I don't have that from you. What is it?",
+   "queries": [
+    "aunt new job"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"aunt new job\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_09",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what car did Omar buy at the auction",
+   "view": [
+    [
+     "i lost an hour to the bank today",
+     "That sounds annoying. Hope the bank settles down soon."
+    ],
+    [
+     "i lost an hour to the gym today",
+     "That's frustrating. Is the gym usually like that?"
+    ],
+    [
+     "ugh, my phone is driving me up the wall",
+     "I'd be fed up with my phone too."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "Omar car auction"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Omar car auction\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_10",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "what has Marc taken up on weekends",
+   "view": [
+    [
+     "the stairs turned out fine in the end",
+     "Good to hear the stairs is behaving."
+    ],
+    [
+     "i lost an hour to the printer today",
+     "I'd be fed up with the printer too."
+    ],
+    [
+     "the mail turned out fine in the end",
+     "Nice, that's one less thing to think about."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "Marc weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Marc weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_never_told_11",
+   "size": 419,
+   "kind": "never_told",
+   "arm": "tool_loop",
+   "message": "i was trying to think of what my roommate does on weekends",
+   "view": [
+    [
+     "i lost an hour to my coffee today",
+     "Sorry, my coffee sounds like a real hassle."
+    ],
+    [
+     "the kettle was the best part of my day",
+     "That's a small win. the kettle sounds good."
+    ],
+    [
+     "funny how the gym keeps coming up",
+     "Sure, we can move on from the gym."
+    ]
+   ],
+   "answer": "",
+   "reply": "I checked and you haven't told me that.",
+   "queries": [
+    "roommate weekend hobby"
+   ],
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"roommate weekend hobby\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_00",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Nell still owes me twenty bucks",
+   "view": [
+    [
+     "the bus was acting up again today",
+     "Sorry, the bus sounds like a real hassle."
+    ],
+    [
+     "funny how the recycling keeps coming up",
+     "Ha, what did they say about the recycling?"
+    ],
+    [
+     "the mail let me down this morning",
+     "Sorry, the mail sounds like a real hassle."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a bit of a problem. Maybe you could try reaching out to Nell and seeing if there's a way to resolve the issue?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That's a bit of a problem. Maybe you could try reaching out to Nell and seeing if there's a way to resolve the issue?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_01",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Nell and i went for a long walk today",
+   "view": [
+    [
+     "the dentist was acting up again today",
+     "Sorry, the dentist sounds like a real hassle."
+    ],
+    [
+     "anyway, enough about the dentist",
+     "It does seem to come up a lot."
+    ],
+    [
+     "the wifi was the best part of my day",
+     "Good to hear the wifi is behaving."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a nice break from the dentist. Did you explore any interesting places or enjoy the outdoors?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a nice break from the dentist. Did you explore any interesting places or enjoy the outdoors?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_02",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my uncle called me last night",
+   "view": [
+    [
+     "the snow is getting on my nerves",
+     "Oof. An hour lost to the snow is no fun."
+    ],
+    [
+     "the dishwasher turned out fine in the end",
+     "Love that for you."
+    ],
+    [
+     "the rain came up at dinner",
+     "It does seem to come up a lot."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a good thing. Was he calling about something specific?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a good thing. Was he calling about something specific?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_03",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my aunt called me last night",
+   "view": [
+    [
+     "i was thinking about my bike on the way home",
+     "What about my bike got you thinking?"
+    ],
+    [
+     "i lost an hour to the bus today",
+     "Oof. An hour lost to the bus is no fun."
+    ],
+    [
+     "no complaints about the bank this week",
+     "That's a small win. the bank sounds good."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a good thing. Was she calling about something specific?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a good thing. Was she calling about something specific?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_04",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "guess who ran into Lena at the store",
+   "view": [
+    [
+     "the wifi let me down this morning",
+     "Oof. An hour lost to the wifi is no fun."
+    ],
+    [
+     "the bank was the best part of my day",
+     "Glad the bank worked out."
+    ],
+    [
+     "my back turned out fine in the end",
+     "Love that for you."
+    ]
+   ],
+   "answer": "",
+   "reply": "Whoa, that's a surprise. Did you tell me that?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Whoa, that's a surprise. Did you tell me that?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_05",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Lena still owes me twenty bucks",
+   "view": [
+    [
+     "my back let me down this morning",
+     "Sorry, my back sounds like a real hassle."
+    ],
+    [
+     "the stairs turned out fine in the end",
+     "Glad the stairs worked out."
+    ],
+    [
+     "i was thinking about my coffee on the way home",
+     "Ha, what did they say about my coffee?"
+    ]
+   ],
+   "answer": "",
+   "reply": "It sounds like you have a small debt to resolve. Would you like to discuss how to settle the account?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you have a small debt to resolve. Would you like to discuss how to settle the account?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_06",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Lena still owes me twenty bucks",
+   "view": [
+    [
+     "my back let me down this morning",
+     "That sounds annoying. Hope my back settles down soon."
+    ],
+    [
+     "i lost an hour to the laundry today",
+     "I'd be fed up with the laundry too."
+    ],
+    [
+     "someone at work brought up the lawn today",
+     "Sure, we can move on from the lawn."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a bit of a problem. Maybe you could try reaching out to her and see if there's a way to resolve the issue.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That's a bit of a problem. Maybe you could try reaching out to her and see if there's a way to resolve the issue.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_07",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Marc still owes me twenty bucks",
+   "view": [
+    [
+     "not much going on, just dealing with my desk",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "funny how the rain keeps coming up",
+     "Sure, we can move on from the rain."
+    ],
+    [
+     "the furnace was acting up again today",
+     "I'd be fed up with the furnace too."
+    ]
+   ],
+   "answer": "",
+   "reply": "Marc still owes you twenty bucks.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Marc still owes you twenty bucks.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_08",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my coworker called me last night",
+   "view": [
+    [
+     "the elevator came up at dinner",
+     "What about the elevator got you thinking?"
+    ],
+    [
+     "the bakery is getting on my nerves",
+     "I'd be fed up with the bakery too."
+    ],
+    [
+     "someone at work brought up my phone today",
+     "What about my phone got you thinking?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a good reason to take a break from work. Did you get to talk to them?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a good reason to take a break from work. Did you get to talk to them?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_09",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "guess who ran into Nell at the store",
+   "view": [
+    [
+     "i was thinking about the garden on the way home",
+     "Fair enough, one thing at a time."
+    ],
+    [
+     "funny how my desk keeps coming up",
+     "It does seem to come up a lot."
+    ],
+    [
+     "so my glasses has been a pain all week",
+     "Oof. An hour lost to my glasses is no fun."
+    ]
+   ],
+   "answer": "",
+   "reply": "Nell?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "Nell?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_10",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Greta still owes me twenty bucks",
+   "view": [
+    [
+     "no complaints about the bank this week",
+     "Good to hear the bank is behaving."
+    ],
+    [
+     "the recycling was acting up again today",
+     "Sorry, the recycling sounds like a real hassle."
+    ],
+    [
+     "no complaints about the recycling this week",
+     "Love that for you."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a bit of a problem. 20 bucks doesn't seem like a lot, but it's still something to sort out.",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That's a bit of a problem. 20 bucks doesn't seem like a lot, but it's still something to sort out.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_11",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my cousin called me last night",
+   "view": [
+    [
+     "funny how the kettle keeps coming up",
+     "It does seem to come up a lot."
+    ],
+    [
+     "ugh, the mail is driving me up the wall",
+     "Oof. An hour lost to the mail is no fun."
+    ],
+    [
+     "my coffee came up at dinner",
+     "Fair enough, one thing at a time."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a good thing. Did you get to talk to them?",
+   "queries": [],
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a good thing. Did you get to talk to them?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  }
+ ],
+ "peak_vram_gib": 6.48,
+ "seconds": 182
+}

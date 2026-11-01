@@ -30,6 +30,7 @@ carry their own provenance (command, git commit, package versions).
 | R-015 | Recall development baseline, rules written and committed before the run |
 | R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** |
 | R-017 | ★ Recall development baseline: base on its own tool loop; the 419 ceiling fails again |
+| R-018 | ★ First recall adapter: 119 of 120 on development items, on training vocabulary; a third pool and a stricter coherence comparison added |
 
 ---
 
@@ -554,3 +555,61 @@ matter more. It needs its own test before anyone says so.
 
 **Next.** Build the training set and train the first adapter under R-016. The development check uses this
 run's seed, so the conversations are identical.
+
+## R-018 · 2026-11-01 · SPRINT · First recall adapter: 119 of 120 on development items, on training vocabulary; a third pool and a stricter coherence comparison added
+
+**Runs.** Training set `data/recall_train.jsonl`, commit `0523ec4`: 750 rows, seed 71003, every `older` and
+`confirm` demonstration found its fact, 30 `in_view` base replies rejected by the scorer. Adapter seed 81,
+`results/recall_train/seed_81.json`, commit `c5e2d9c`: 1,125 steps, 5,811 s, peak VRAM 9.77 GiB, adapter
+moved. Evaluation `results/recall_eval/tuned81_seed_45356.json`, clean tree, 182 s, peak VRAM 6.48 GiB, the
+same 120 conversations as R-017, `tool_loop`, greedy. Development items, so nothing here is a project result.
+
+| Correct, of 12 | `older` | `confirm` | `in_view` | `never_told` | `statement` |
+|---|---|---|---|---|---|
+| base, 58 messages | 8 | 0 | 8 | 6 | 7 |
+| adapter, 58 messages | 12 | 12 | 11 | 12 | 12 |
+| base, 419 messages | 5 | 0 | 7 | 8 | 5 |
+| adapter, 419 messages | 12 | 12 | 12 | 12 | 12 |
+
+Totals: base 54 of 120, adapter 119 of 120.
+
+| Behaviour, of 24 per kind | `older` | `confirm` | `in_view` | `never_told` | `statement` |
+|---|---|---|---|---|---|
+| Searched, base | 22 | 2 | 11 | 21 | 12 |
+| Searched, adapter | 24 | 24 | 0 | 24 | 0 |
+| First reply a clean call, base | 12 | 0 | 6 | 11 | 1 |
+| First reply a clean call, adapter | 24 | 24 | 0 | 24 | 0 |
+
+The same wording of question is searched when the fact is out of view and not searched when it is in view,
+so the decision rests on the view and not on the wording alone. No run ran out of calls.
+
+**Why this does not yet say what it appears to say.**
+1. *The content is the training content.* Development seeds are new, and the people, facts, question
+   templates, query templates and answer sentences are the ones the adapter trained on. Queries came back
+   as the exact templates ("aunt new job"), and 72 of 72 answers read as the training answer sentence. This
+   measures the habit on known material. It cannot separate a learned habit from memorised templates.
+2. *The scorer does not read coherence.* A `statement` counts as correct if the model did not search.
+   Replies marked correct include "Rusty is a name, so it's not something that can be called",
+   "That's a great question! Since you haven't told me, I'll have to guess", which denies a fact that is in
+   view, "Valparaiso is a city in Indiana, USA", and "Marc still owes you twenty bucks." Nobody has yet
+   marked coherence on any adapter reply.
+3. *R-016's coherence comparison has a low floor.* It compares the adapter with base on `tool_loop`, and
+   R-017 showed the tool in the prompt already harms base: statements fall from 24 of 24 to 12 of 24.
+   Beating a base damaged by the tool does not show that ordinary talk held. Kevin's rule is that coherence
+   cannot fall, and the honest reference for that is base with no tool in the prompt.
+4. *Adapter replies are not base's replies.* Training targets for `statement` and `in_view` were base's own
+   no-tool replies, which R-016 called the protection for coherence. Only 1 of 48 adapter replies on these
+   kinds matches base's `tool_loop` reply. That comparison is weak, since base's reply there was often a
+   search, but the protection has not been shown to work either.
+
+**One miss.** `58_in_view_04` said "avid birdwatcher" where the answer is "birdwatching". The fact is right
+and the scorer's substring check missed it. The scorer stays as registered and the miss stands.
+
+**Decisions (Claude).** The held-out pool stays sealed. Before training two more adapters, which takes about
+three hours:
+- Add a third pool, `probe`, sharing no content with `train` or `heldout`, for development checks on unseen
+  material. It is not a project result and does not replace the held-out test.
+- Add to R-016, before any held-out read: the coherence sheet also compares the adapter with base with no
+  tool in the prompt (`three_exchanges`), on `statement` and `in_view`, the kinds where the no-tool model has
+  what it needs. The original comparison stays as registered. This addition is reported beside it. Whether
+  it gates is settled in the record that sets it, once its development reading is in.
