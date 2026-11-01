@@ -24,6 +24,9 @@ carry their own provenance (command, git commit, package versions).
 | R-009 | First test from a clean commit: the same reading; LoRA only |
 | R-010 | ★ **R-005 and R-009 withdrawn: generation did not stop on the end of a turn**; the goal; panel findings |
 | R-011 | Recall first test, rules written and committed before the run |
+| R-012 | Batched generation: greedy only, one-at-a-time stays the reference |
+| R-013 | ★ **First test with stops: the base readings return. Supervised pilot passes** |
+| R-014 | ★ Recall first test: search finds the fact and the model often ignores it; the 419 ceiling is not valid |
 
 ---
 
@@ -261,6 +264,8 @@ The R-007 quote "o o o o" came from AgentTune's own rollout, not this code, and 
 this finding. The files stay in `results/first_test/` as a record. Claude had told Kevin these
 numbers were the official "before"; the correction was given in chat the same hour.
 
+*Outcome in R-013: with the fix, the primary counts did not change, so these claims returned.*
+
 **Fix.** `inference.generate_reply` stops on all three ids, with tests that read the closing tokens
 from the rendered template. The first test is rerun on a new seed, and the supervised pilot in
 R-008 is rescored from its adapter, since it ran with the same defect.
@@ -338,3 +343,98 @@ this again on its own items and uses OR mode for the arms.
 
 **Limit.** One seed, base only. Coherence is not measured here; its measure comes with the held-out
 design.
+
+## R-012 · 2026-11-01 · SPRINT · Batched generation: greedy only, one-at-a-time stays the reference
+
+Kevin asked why generation is not batched when order does not matter, and asked for a panel. One
+adversarial reviewer read the code and ran CPU tests on a tiny random Cohere2 model.
+
+**Findings.** The tokenizer loads with right padding and `generate` only warns: on the tiny model right
+padding changed 5 of 6 replies and left padding matched 6 of 6. A batch has one random stream, so a
+sampled reply changes with its position and seeds do not reproduce. Finished rows keep being padded,
+so decoding has to cut each row at its first stop token and record whether it stopped or hit the cap.
+A 419-message prompt is about 5,500 tokens, which the reviewer estimates allows 2 to 4 rows.
+
+**Decision (Claude, on the panel's verdict).** Adopt for greedy runs only. Sampled arms stay one at a
+time. A batched result is believed only after a greedy comparison on base and adapter at all sizes
+where every reply and score matches, with any difference listed. A deliberately right-padded batch
+must fail that check. Left padding is set per call. Real-model rounding, memory and speed are not
+known yet. Not built.
+
+## R-013 · 2026-11-01 · SPRINT · First test with stops: the base readings return. Supervised pilot passes
+
+**First test.** `results/first_test/seed_26919.json`, commit `9d2dd1b`, clean tree, 780 s, peak VRAM
+6.39 GiB, with generation stopping on all three end tokens.
+
+| Prompt | Decoding | Lookups searched | Statements searched | Clean calls, of replies that searched |
+|---|---|---|---|---|
+| Neutral (primary) | greedy | 20 of 20 | 20 of 20 | 10 of 40 |
+| Neutral | sampled, T=0.7 | 56 of 60 | 59 of 60 | 30 of 115 |
+| AgentTune default | greedy | 20 of 20 | 17 of 20 | 0 of 37 |
+| AgentTune default | sampled, T=0.7 | 53 of 60 | 36 of 60 | 0 of 89 |
+
+**Reading.** The stop defect in R-010 was real but did not drive these results: the primary greedy
+counts are the same as in R-009. The claims R-010 marked unconfirmed return: base searches statements
+and lookups alike, and most of its calls are not clean. Go on behaviour 1 under R-004. This file is the
+base model's "before". Replies that carry on after a call do so without any end token, so the model
+itself writes them.
+
+**Supervised pilot.** `results/supervised_pilot/seed_4630_rescored.json`, adapter moved.
+
+| Decoding | Lookups searched | Statements searched | Clean calls |
+|---|---|---|---|
+| Greedy | 20 of 20 | 0 of 20 | 20 of 20 |
+| Sampled, T=0.7 | 60 of 60 | 0 of 60 | 60 of 60 |
+
+**Reading.** Pass under R-008. Supervised training is the main route.
+
+**Deviation 2.** The adapter was trained at commit `648ef6a`, seed 4630, in about 27 minutes. Scoring
+then stalled with memory held by the trained model, and it had the stop defect anyway, so Claude
+stopped that process by its id after 24 minutes. Scoring was redone in a fresh process at commit
+`9d2dd1b` with `--score-only`. Training VRAM was not recorded. The training script does not yet free
+its model before scoring, which has to be fixed before the next training run.
+
+**Limits on this result.** One adapter seed. Claude wrote both the training rows and the test items, in
+the same paired style, so the task may be easier than it looks, and a perfect score is a reason for a
+harder test rather than a claim. Coherence was not measured, and statement replies read thin, such as
+"That sounds like a change."
+
+## R-014 · 2026-11-01 · SPRINT · Recall first test: search finds the fact and the model often ignores it; the 419 ceiling is not valid
+
+**Run.** `results/recall_first_test/seed_18680.json`, commit `9d2dd1b`, clean tree, 3,561 s, peak VRAM
+11.22 GiB, so memory spilled out of the card on whole-chat prompts at 419 messages. The estimate given
+to Kevin was about 15 minutes for this job; it took 59.
+
+| Top-5 search, on the user's message | 58 same | 58 new | 419 same | 419 new |
+|---|---|---|---|---|
+| AND mode | 0 of 20 | 0 of 20 | 0 of 20 | 0 of 20 |
+| OR mode | 20 of 20 | 17 of 20 | 20 of 20 | 16 of 20 |
+
+| Correct answers, base, greedy | 58 same | 58 new | 419 same | 419 new |
+|---|---|---|---|---|
+| `whole_chat` | 20 of 20 | 11 of 20 | 1 of 20 | 1 of 20 |
+| `three_exchanges` | 0 of 20 | 0 of 20 | 0 of 20 | 0 of 20 |
+| `always_search` | 18 of 20 | 16 of 20 | 13 of 20 | 15 of 20 |
+
+**Against the rule.** Controls pass: `whole_chat` at 58 messages is 31 of 40, 78%, and `three_exchanges`
+is 0 of 80. At 58 messages `always_search` (34 of 40) is within 10 points of the whole chat. At 419 it
+is 28 of 40 against 2 of 40, far above it, a case the rule in R-011 did not cover, so it gives no reading
+at that size.
+
+**The 419 ceiling is not valid.** 23 of those 40 replies are exactly "Thanks for telling me." The
+scripted small talk draws on 6 reply lines repeated across some 200 exchanges, and the model copies
+them. This is likely an effect of the test conversations, and nothing here says that seeing a whole
+long chat hurts this model. No claim is made from the 2 of 40.
+
+**What is real.** Search found the fact on 73 of 80 and the answer came back right on 62 of 80, so on
+at least 11 items the fact was in the results and the model did not use it. The failures mostly answer
+the small talk in view, such as "Yes, you did mention the rain yesterday." That is a trainable failure.
+
+**`always_search` is not the untrained model's own performance.** Code made the call and supplied a clean
+result. The goal in R-010 compares the adapter with the base model deciding for itself, which has not
+been measured.
+
+**Consequences.**
+1. Small talk gets varied before any further recall run, and whole-chat runs at 419 stop until then.
+2. Next measure: base through the real two-step harness, calling the tool itself.
+3. What the adapter must improve: deciding when to call, what to ask, and answering from the result.

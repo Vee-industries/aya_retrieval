@@ -1,0 +1,1192 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-01T17:24:16+00:00",
+  "command": [
+   "scripts/run_supervised_pilot.py",
+   "--seed",
+   "4630",
+   "--out-dir",
+   "C:/Users/Gaming/scratch/claude/C--Users-Gaming-Desktop-Claude-s-House/389594c2-8513-47d9-80f1-1a28b96837f7/scratchpad/pilot_adapter",
+   "--score-only"
+  ],
+  "git_commit": "9d2dd1b730de5ca733e585341e268ed8644b798e",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+ "seed": 4630,
+ "epochs": 6,
+ "learning_rate": 0.0002,
+ "adapter_moved": true,
+ "adapter": {
+  "greedy": {
+   "lookup": {
+    "searched": 20,
+    "of": 20
+   },
+   "statement": {
+    "searched": 0,
+    "of": 20
+   }
+  },
+  "sampled": {
+   "lookup": {
+    "searched": 60,
+    "of": 60
+   },
+   "statement": {
+    "searched": 0,
+    "of": 60
+   }
+  },
+  "greedy_clean_calls": {
+   "clean": 20,
+   "of": 20
+  },
+  "sampled_clean_calls": {
+   "clean": 60,
+   "of": 60
+  },
+  "greedy_rows": [
+   {
+    "id": "L01",
+    "kind": "lookup",
+    "text": "what is the meal allowance for overnight trips",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"meal allowance for overnight trips\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L02",
+    "kind": "lookup",
+    "text": "How many vacation days do new drivers get in their first year?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"new driver vacation days first year\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L03",
+    "kind": "lookup",
+    "text": "who approves overtime at the Moncton depot",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"overtime approval Moncton depot\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L04",
+    "kind": "lookup",
+    "text": "What's the maximum pallet height for the Halifax warehouse?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"max pallet height Halifax warehouse\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L05",
+    "kind": "lookup",
+    "text": "when do we have to file incident reports by",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"incident report deadline\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L06",
+    "kind": "lookup",
+    "text": "Which form do I use to request a new forklift licence?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"request new forklift licence\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L07",
+    "kind": "lookup",
+    "text": "do contractors get access to the dispatch system",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"contractor access dispatch system\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L08",
+    "kind": "lookup",
+    "text": "What is the refund window for damaged freight claims?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"damaged freight claim refund window\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L09",
+    "kind": "lookup",
+    "text": "how long do we keep driver logbooks",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"driver logbook retention period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L10",
+    "kind": "lookup",
+    "text": "Who is the safety officer for the Saint John yard?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"safety officer Saint John yard\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L11",
+    "kind": "lookup",
+    "text": "can i take my work truck home on weekends",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"work truck weekend use\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L12",
+    "kind": "lookup",
+    "text": "What temperature does the cold chain policy require for pharmaceuticals?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"pharmaceutical cold chain temperature\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L13",
+    "kind": "lookup",
+    "text": "whats the rule on tire tread depth before a trip",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"tire tread depth before trip\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L14",
+    "kind": "lookup",
+    "text": "How much notice is needed for a shift swap?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"shift swap notice period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L15",
+    "kind": "lookup",
+    "text": "look up the hazmat training renewal period",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"hazmat training renewal period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L16",
+    "kind": "lookup",
+    "text": "I need the phone number for the after-hours dispatch line",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"after-hours dispatch line phone number\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L17",
+    "kind": "lookup",
+    "text": "tell me what the mileage rate is this year",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"mileage rate\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L18",
+    "kind": "lookup",
+    "text": "What does the handbook say about phone use while loading?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"phone use while loading\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L19",
+    "kind": "lookup",
+    "text": "which carriers are on the approved list for Newfoundland",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"approved carriers Newfoundland\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L20",
+    "kind": "lookup",
+    "text": "is there a limit on how many hours i can drive in a day",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"daily driving hours limit\"}}]",
+    "searched": true
+   },
+   {
+    "id": "S01",
+    "kind": "statement",
+    "text": "my overnight trip to Moncton got moved to Thursday",
+    "reply": "That sounds like a change.",
+    "searched": false
+   },
+   {
+    "id": "S02",
+    "kind": "statement",
+    "text": "I just finished my first year as a driver here.",
+    "reply": "That's great to hear.",
+    "searched": false
+   },
+   {
+    "id": "S03",
+    "kind": "statement",
+    "text": "the overtime at the depot has been brutal lately",
+    "reply": "I hope things ease up soon.",
+    "searched": false
+   },
+   {
+    "id": "S04",
+    "kind": "statement",
+    "text": "We stacked the pallets in the Halifax warehouse this morning.",
+    "reply": "Thanks for the update.",
+    "searched": false
+   },
+   {
+    "id": "S05",
+    "kind": "statement",
+    "text": "i filed my incident report yesterday",
+    "reply": "Thanks for letting me know.",
+    "searched": false
+   },
+   {
+    "id": "S06",
+    "kind": "statement",
+    "text": "My forklift licence came in the mail today.",
+    "reply": "That's great news.",
+    "searched": false
+   },
+   {
+    "id": "S07",
+    "kind": "statement",
+    "text": "the new contractor started on dispatch this week",
+    "reply": "That's great to hear.",
+    "searched": false
+   },
+   {
+    "id": "S08",
+    "kind": "statement",
+    "text": "Our damaged freight claim finally went through.",
+    "reply": "That's good news.",
+    "searched": false
+   },
+   {
+    "id": "S09",
+    "kind": "statement",
+    "text": "i left my logbook in the truck again",
+    "reply": "I hope you found it.",
+    "searched": false
+   },
+   {
+    "id": "S10",
+    "kind": "statement",
+    "text": "Dana is the safety officer I usually talk to.",
+    "reply": "Understood.",
+    "searched": false
+   },
+   {
+    "id": "S11",
+    "kind": "statement",
+    "text": "i drove the work truck home last night because of the storm",
+    "reply": "Good to hear you made it home safely.",
+    "searched": false
+   },
+   {
+    "id": "S12",
+    "kind": "statement",
+    "text": "The pharmaceutical load is sitting in the cold room.",
+    "reply": "Thanks for the update.",
+    "searched": false
+   },
+   {
+    "id": "S13",
+    "kind": "statement",
+    "text": "my front tires are getting worn down",
+    "reply": "Consider getting them replaced soon.",
+    "searched": false
+   },
+   {
+    "id": "S14",
+    "kind": "statement",
+    "text": "I swapped shifts with Marc for Saturday.",
+    "reply": "Good.",
+    "searched": false
+   },
+   {
+    "id": "S15",
+    "kind": "statement",
+    "text": "my hazmat training wrapped up on friday",
+    "reply": "Good to hear.",
+    "searched": false
+   },
+   {
+    "id": "S16",
+    "kind": "statement",
+    "text": "After-hours dispatch called me twice last night.",
+    "reply": "Thanks for letting me know.",
+    "searched": false
+   },
+   {
+    "id": "S17",
+    "kind": "statement",
+    "text": "i put about 400 km on my own car this month",
+    "reply": "That's a good chunk of miles.",
+    "searched": false
+   },
+   {
+    "id": "S18",
+    "kind": "statement",
+    "text": "My phone died while we were loading.",
+    "reply": "Sorry to hear that.",
+    "searched": false
+   },
+   {
+    "id": "S19",
+    "kind": "statement",
+    "text": "we use a Newfoundland carrier for the Corner Brook run",
+    "reply": "Got it.",
+    "searched": false
+   },
+   {
+    "id": "S20",
+    "kind": "statement",
+    "text": "i'm tired, i drove eleven hours today",
+    "reply": "Take a break.",
+    "searched": false
+   }
+  ],
+  "sampled_rows": [
+   {
+    "id": "L01",
+    "kind": "lookup",
+    "text": "what is the meal allowance for overnight trips",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"meal allowance for overnight trips\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L01",
+    "kind": "lookup",
+    "text": "what is the meal allowance for overnight trips",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"meal allowance for overnight trips\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L01",
+    "kind": "lookup",
+    "text": "what is the meal allowance for overnight trips",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"meal allowance for overnight trips\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L02",
+    "kind": "lookup",
+    "text": "How many vacation days do new drivers get in their first year?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"new drivers vacation days first year\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L02",
+    "kind": "lookup",
+    "text": "How many vacation days do new drivers get in their first year?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"new driver vacation days first year\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L02",
+    "kind": "lookup",
+    "text": "How many vacation days do new drivers get in their first year?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"new driver vacation days first year\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L03",
+    "kind": "lookup",
+    "text": "who approves overtime at the Moncton depot",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"overtime approval Moncton depot\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L03",
+    "kind": "lookup",
+    "text": "who approves overtime at the Moncton depot",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"overtime approval Moncton depot\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L03",
+    "kind": "lookup",
+    "text": "who approves overtime at the Moncton depot",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"overtime approval Moncton depot\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L04",
+    "kind": "lookup",
+    "text": "What's the maximum pallet height for the Halifax warehouse?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"max pallet height Halifax warehouse\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L04",
+    "kind": "lookup",
+    "text": "What's the maximum pallet height for the Halifax warehouse?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"max pallet height Halifax warehouse\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L04",
+    "kind": "lookup",
+    "text": "What's the maximum pallet height for the Halifax warehouse?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"max pallet height Halifax warehouse\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L05",
+    "kind": "lookup",
+    "text": "when do we have to file incident reports by",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"incident report submission deadline\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L05",
+    "kind": "lookup",
+    "text": "when do we have to file incident reports by",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"incident report deadline\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L05",
+    "kind": "lookup",
+    "text": "when do we have to file incident reports by",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"incident report deadline\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L06",
+    "kind": "lookup",
+    "text": "Which form do I use to request a new forklift licence?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"new forklift licence form\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L06",
+    "kind": "lookup",
+    "text": "Which form do I use to request a new forklift licence?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"request new forklift licence\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L06",
+    "kind": "lookup",
+    "text": "Which form do I use to request a new forklift licence?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"request new forklift licence form\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L07",
+    "kind": "lookup",
+    "text": "do contractors get access to the dispatch system",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"contractor access dispatch system\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L07",
+    "kind": "lookup",
+    "text": "do contractors get access to the dispatch system",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"contractor access dispatch system\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L07",
+    "kind": "lookup",
+    "text": "do contractors get access to the dispatch system",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"contractor system access\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L08",
+    "kind": "lookup",
+    "text": "What is the refund window for damaged freight claims?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"damaged freight refund window\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L08",
+    "kind": "lookup",
+    "text": "What is the refund window for damaged freight claims?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"damaged freight claims refund window\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L08",
+    "kind": "lookup",
+    "text": "What is the refund window for damaged freight claims?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"damaged freight claim refund window\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L09",
+    "kind": "lookup",
+    "text": "how long do we keep driver logbooks",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"driver logbooks retention period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L09",
+    "kind": "lookup",
+    "text": "how long do we keep driver logbooks",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"driver logbook retention period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L09",
+    "kind": "lookup",
+    "text": "how long do we keep driver logbooks",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"driver logbook retention period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L10",
+    "kind": "lookup",
+    "text": "Who is the safety officer for the Saint John yard?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"safety officer Saint John yard\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L10",
+    "kind": "lookup",
+    "text": "Who is the safety officer for the Saint John yard?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"safety officer Saint John yard\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L10",
+    "kind": "lookup",
+    "text": "Who is the safety officer for the Saint John yard?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"safety officer Saint John yard\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L11",
+    "kind": "lookup",
+    "text": "can i take my work truck home on weekends",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"personal vehicle use\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L11",
+    "kind": "lookup",
+    "text": "can i take my work truck home on weekends",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"home loan pre-approval period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L11",
+    "kind": "lookup",
+    "text": "can i take my work truck home on weekends",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"take home truck on weekends\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L12",
+    "kind": "lookup",
+    "text": "What temperature does the cold chain policy require for pharmaceuticals?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"pharmaceutical cold chain temperature requirements\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L12",
+    "kind": "lookup",
+    "text": "What temperature does the cold chain policy require for pharmaceuticals?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"pharmaceutical cold chain temperature requirements\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L12",
+    "kind": "lookup",
+    "text": "What temperature does the cold chain policy require for pharmaceuticals?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"pharmaceutical cold chain temperature\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L13",
+    "kind": "lookup",
+    "text": "whats the rule on tire tread depth before a trip",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"tire tread depth before trip\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L13",
+    "kind": "lookup",
+    "text": "whats the rule on tire tread depth before a trip",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"tire tread depth before trip\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L13",
+    "kind": "lookup",
+    "text": "whats the rule on tire tread depth before a trip",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"tire tread depth before trip\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L14",
+    "kind": "lookup",
+    "text": "How much notice is needed for a shift swap?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"shift swap notice period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L14",
+    "kind": "lookup",
+    "text": "How much notice is needed for a shift swap?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"shift swap notice period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L14",
+    "kind": "lookup",
+    "text": "How much notice is needed for a shift swap?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"shift swap notice period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L15",
+    "kind": "lookup",
+    "text": "look up the hazmat training renewal period",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"hazmat training renewal period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L15",
+    "kind": "lookup",
+    "text": "look up the hazmat training renewal period",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"hazmat training renewal period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L15",
+    "kind": "lookup",
+    "text": "look up the hazmat training renewal period",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"hazmat training renewal period\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L16",
+    "kind": "lookup",
+    "text": "I need the phone number for the after-hours dispatch line",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"after-hours dispatch phone number\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L16",
+    "kind": "lookup",
+    "text": "I need the phone number for the after-hours dispatch line",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"after-hours dispatch phone number\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L16",
+    "kind": "lookup",
+    "text": "I need the phone number for the after-hours dispatch line",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"after-hours dispatch line phone number\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L17",
+    "kind": "lookup",
+    "text": "tell me what the mileage rate is this year",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"mileage rate\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L17",
+    "kind": "lookup",
+    "text": "tell me what the mileage rate is this year",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"mileage rate\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L17",
+    "kind": "lookup",
+    "text": "tell me what the mileage rate is this year",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"mileage rate\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L18",
+    "kind": "lookup",
+    "text": "What does the handbook say about phone use while loading?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"phone use while loading\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L18",
+    "kind": "lookup",
+    "text": "What does the handbook say about phone use while loading?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"phone use while loading\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L18",
+    "kind": "lookup",
+    "text": "What does the handbook say about phone use while loading?",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"phone use while loading\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L19",
+    "kind": "lookup",
+    "text": "which carriers are on the approved list for Newfoundland",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"approved carriers Newfoundland\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L19",
+    "kind": "lookup",
+    "text": "which carriers are on the approved list for Newfoundland",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"approved carriers Newfoundland\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L19",
+    "kind": "lookup",
+    "text": "which carriers are on the approved list for Newfoundland",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"approved carriers Newfoundland\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L20",
+    "kind": "lookup",
+    "text": "is there a limit on how many hours i can drive in a day",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"max driving hours per day\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L20",
+    "kind": "lookup",
+    "text": "is there a limit on how many hours i can drive in a day",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"daily driving limit\"}}]",
+    "searched": true
+   },
+   {
+    "id": "L20",
+    "kind": "lookup",
+    "text": "is there a limit on how many hours i can drive in a day",
+    "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"driving hours limit\"}}]",
+    "searched": true
+   },
+   {
+    "id": "S01",
+    "kind": "statement",
+    "text": "my overnight trip to Moncton got moved to Thursday",
+    "reply": "That's a bummer. Hope it works out for you.",
+    "searched": false
+   },
+   {
+    "id": "S01",
+    "kind": "statement",
+    "text": "my overnight trip to Moncton got moved to Thursday",
+    "reply": "I hope the weather's kinder on Thursday.",
+    "searched": false
+   },
+   {
+    "id": "S01",
+    "kind": "statement",
+    "text": "my overnight trip to Moncton got moved to Thursday",
+    "reply": "That's a bit of a bang, but at least it won't be on Tuesday.",
+    "searched": false
+   },
+   {
+    "id": "S02",
+    "kind": "statement",
+    "text": "I just finished my first year as a driver here.",
+    "reply": "That's great to hear.",
+    "searched": false
+   },
+   {
+    "id": "S02",
+    "kind": "statement",
+    "text": "I just finished my first year as a driver here.",
+    "reply": "That's a big milestone. Congratulations.",
+    "searched": false
+   },
+   {
+    "id": "S02",
+    "kind": "statement",
+    "text": "I just finished my first year as a driver here.",
+    "reply": "That sounds good to hear.",
+    "searched": false
+   },
+   {
+    "id": "S03",
+    "kind": "statement",
+    "text": "the overtime at the depot has been brutal lately",
+    "reply": "Thanks for telling me. Hope things ease up soon.",
+    "searched": false
+   },
+   {
+    "id": "S03",
+    "kind": "statement",
+    "text": "the overtime at the depot has been brutal lately",
+    "reply": "That's tough. Hope you get some relief soon.",
+    "searched": false
+   },
+   {
+    "id": "S03",
+    "kind": "statement",
+    "text": "the overtime at the depot has been brutal lately",
+    "reply": "Thanks for telling me.",
+    "searched": false
+   },
+   {
+    "id": "S04",
+    "kind": "statement",
+    "text": "We stacked the pallets in the Halifax warehouse this morning.",
+    "reply": "Good job.",
+    "searched": false
+   },
+   {
+    "id": "S04",
+    "kind": "statement",
+    "text": "We stacked the pallets in the Halifax warehouse this morning.",
+    "reply": "Good morning.",
+    "searched": false
+   },
+   {
+    "id": "S04",
+    "kind": "statement",
+    "text": "We stacked the pallets in the Halifax warehouse this morning.",
+    "reply": "Thanks for the update.",
+    "searched": false
+   },
+   {
+    "id": "S05",
+    "kind": "statement",
+    "text": "i filed my incident report yesterday",
+    "reply": "Okay, thanks for letting me know.",
+    "searched": false
+   },
+   {
+    "id": "S05",
+    "kind": "statement",
+    "text": "i filed my incident report yesterday",
+    "reply": "Good. Hope it goes well.",
+    "searched": false
+   },
+   {
+    "id": "S05",
+    "kind": "statement",
+    "text": "i filed my incident report yesterday",
+    "reply": "Thanks for letting me know.",
+    "searched": false
+   },
+   {
+    "id": "S06",
+    "kind": "statement",
+    "text": "My forklift licence came in the mail today.",
+    "reply": "That's great news.",
+    "searched": false
+   },
+   {
+    "id": "S06",
+    "kind": "statement",
+    "text": "My forklift licence came in the mail today.",
+    "reply": "That sounds good.",
+    "searched": false
+   },
+   {
+    "id": "S06",
+    "kind": "statement",
+    "text": "My forklift licence came in the mail today.",
+    "reply": "Nice.",
+    "searched": false
+   },
+   {
+    "id": "S07",
+    "kind": "statement",
+    "text": "the new contractor started on dispatch this week",
+    "reply": "Sounds like a good start for them.",
+    "searched": false
+   },
+   {
+    "id": "S07",
+    "kind": "statement",
+    "text": "the new contractor started on dispatch this week",
+    "reply": "Sounds like a big week for operations.",
+    "searched": false
+   },
+   {
+    "id": "S07",
+    "kind": "statement",
+    "text": "the new contractor started on dispatch this week",
+    "reply": "Good to hear.",
+    "searched": false
+   },
+   {
+    "id": "S08",
+    "kind": "statement",
+    "text": "Our damaged freight claim finally went through.",
+    "reply": "Good news.",
+    "searched": false
+   },
+   {
+    "id": "S08",
+    "kind": "statement",
+    "text": "Our damaged freight claim finally went through.",
+    "reply": "That's good news.",
+    "searched": false
+   },
+   {
+    "id": "S08",
+    "kind": "statement",
+    "text": "Our damaged freight claim finally went through.",
+    "reply": "That's good news.",
+    "searched": false
+   },
+   {
+    "id": "S09",
+    "kind": "statement",
+    "text": "i left my logbook in the truck again",
+    "reply": "Noted. I'll remember to check for it when I go out.",
+    "searched": false
+   },
+   {
+    "id": "S09",
+    "kind": "statement",
+    "text": "i left my logbook in the truck again",
+    "reply": "Sorry to hear that. You’ll need to take it to the office and hand it in.",
+    "searched": false
+   },
+   {
+    "id": "S09",
+    "kind": "statement",
+    "text": "i left my logbook in the truck again",
+    "reply": "You should take it to the dock before the shift ends.",
+    "searched": false
+   },
+   {
+    "id": "S10",
+    "kind": "statement",
+    "text": "Dana is the safety officer I usually talk to.",
+    "reply": "I didn't know she was the safety officer.",
+    "searched": false
+   },
+   {
+    "id": "S10",
+    "kind": "statement",
+    "text": "Dana is the safety officer I usually talk to.",
+    "reply": "Understood.",
+    "searched": false
+   },
+   {
+    "id": "S10",
+    "kind": "statement",
+    "text": "Dana is the safety officer I usually talk to.",
+    "reply": "Understood.",
+    "searched": false
+   },
+   {
+    "id": "S11",
+    "kind": "statement",
+    "text": "i drove the work truck home last night because of the storm",
+    "reply": "Good. Stay safe on the road.",
+    "searched": false
+   },
+   {
+    "id": "S11",
+    "kind": "statement",
+    "text": "i drove the work truck home last night because of the storm",
+    "reply": "That sounds like a tough night. Hope you were okay.",
+    "searched": false
+   },
+   {
+    "id": "S11",
+    "kind": "statement",
+    "text": "i drove the work truck home last night because of the storm",
+    "reply": "That's smart—keep the van on the street.",
+    "searched": false
+   },
+   {
+    "id": "S12",
+    "kind": "statement",
+    "text": "The pharmaceutical load is sitting in the cold room.",
+    "reply": "Okay, thanks for letting me know.",
+    "searched": false
+   },
+   {
+    "id": "S12",
+    "kind": "statement",
+    "text": "The pharmaceutical load is sitting in the cold room.",
+    "reply": "Thanks for letting me know.",
+    "searched": false
+   },
+   {
+    "id": "S12",
+    "kind": "statement",
+    "text": "The pharmaceutical load is sitting in the cold room.",
+    "reply": "Thanks for the heads-up.",
+    "searched": false
+   },
+   {
+    "id": "S13",
+    "kind": "statement",
+    "text": "my front tires are getting worn down",
+    "reply": "Consider getting them replaced soon.",
+    "searched": false
+   },
+   {
+    "id": "S13",
+    "kind": "statement",
+    "text": "my front tires are getting worn down",
+    "reply": "Consider getting them checked out.",
+    "searched": false
+   },
+   {
+    "id": "S13",
+    "kind": "statement",
+    "text": "my front tires are getting worn down",
+    "reply": "You might want to check the tire pressure and consider getting new ones soon.",
+    "searched": false
+   },
+   {
+    "id": "S14",
+    "kind": "statement",
+    "text": "I swapped shifts with Marc for Saturday.",
+    "reply": "Good.",
+    "searched": false
+   },
+   {
+    "id": "S14",
+    "kind": "statement",
+    "text": "I swapped shifts with Marc for Saturday.",
+    "reply": "No problem about it.",
+    "searched": false
+   },
+   {
+    "id": "S14",
+    "kind": "statement",
+    "text": "I swapped shifts with Marc for Saturday.",
+    "reply": "Good.",
+    "searched": false
+   },
+   {
+    "id": "S15",
+    "kind": "statement",
+    "text": "my hazmat training wrapped up on friday",
+    "reply": "That's good news.",
+    "searched": false
+   },
+   {
+    "id": "S15",
+    "kind": "statement",
+    "text": "my hazmat training wrapped up on friday",
+    "reply": "Good news.",
+    "searched": false
+   },
+   {
+    "id": "S15",
+    "kind": "statement",
+    "text": "my hazmat training wrapped up on friday",
+    "reply": "Good on you.",
+    "searched": false
+   },
+   {
+    "id": "S16",
+    "kind": "statement",
+    "text": "After-hours dispatch called me twice last night.",
+    "reply": "Thanks for letting me know.",
+    "searched": false
+   },
+   {
+    "id": "S16",
+    "kind": "statement",
+    "text": "After-hours dispatch called me twice last night.",
+    "reply": "Thanks for the heads-up.",
+    "searched": false
+   },
+   {
+    "id": "S16",
+    "kind": "statement",
+    "text": "After-hours dispatch called me twice last night.",
+    "reply": "Thanks for letting me know.",
+    "searched": false
+   },
+   {
+    "id": "S17",
+    "kind": "statement",
+    "text": "i put about 400 km on my own car this month",
+    "reply": "That's a good run.",
+    "searched": false
+   },
+   {
+    "id": "S17",
+    "kind": "statement",
+    "text": "i put about 400 km on my own car this month",
+    "reply": "That's a good run.",
+    "searched": false
+   },
+   {
+    "id": "S17",
+    "kind": "statement",
+    "text": "i put about 400 km on my own car this month",
+    "reply": "That sounds like a good run.",
+    "searched": false
+   },
+   {
+    "id": "S18",
+    "kind": "statement",
+    "text": "My phone died while we were loading.",
+    "reply": "Sorry to hear that. Please call the office and we can sort out the load.",
+    "searched": false
+   },
+   {
+    "id": "S18",
+    "kind": "statement",
+    "text": "My phone died while we were loading.",
+    "reply": "Sorry, I didn't realize you were still on the call. Here's a new charger for your car.",
+    "searched": false
+   },
+   {
+    "id": "S18",
+    "kind": "statement",
+    "text": "My phone died while we were loading.",
+    "reply": "Got it.",
+    "searched": false
+   },
+   {
+    "id": "S19",
+    "kind": "statement",
+    "text": "we use a Newfoundland carrier for the Corner Brook run",
+    "reply": "Understood.",
+    "searched": false
+   },
+   {
+    "id": "S19",
+    "kind": "statement",
+    "text": "we use a Newfoundland carrier for the Corner Brook run",
+    "reply": "That's a good call.",
+    "searched": false
+   },
+   {
+    "id": "S19",
+    "kind": "statement",
+    "text": "we use a Newfoundland carrier for the Corner Brook run",
+    "reply": "Okay.",
+    "searched": false
+   },
+   {
+    "id": "S20",
+    "kind": "statement",
+    "text": "i'm tired, i drove eleven hours today",
+    "reply": "That sounds like a long shift. Take care.",
+    "searched": false
+   },
+   {
+    "id": "S20",
+    "kind": "statement",
+    "text": "i'm tired, i drove eleven hours today",
+    "reply": "Take a break.",
+    "searched": false
+   },
+   {
+    "id": "S20",
+    "kind": "statement",
+    "text": "i'm tired, i drove eleven hours today",
+    "reply": "Have a good night.",
+    "searched": false
+   }
+  ]
+ },
+ "seconds": 187
+}
