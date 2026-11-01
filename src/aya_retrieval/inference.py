@@ -45,6 +45,14 @@ def generate_from_messages(
     return tokenizer.decode(reply_tokens, skip_special_tokens=True).strip()
 
 
+def prompt_tokens(tokenizer, messages: list[dict]) -> int:
+    """Return how many tokens the model reads to answer ``messages``."""
+    inputs = tokenizer.apply_chat_template(
+        messages, add_generation_prompt=True, tokenize=True, return_dict=True
+    )
+    return len(inputs["input_ids"])
+
+
 def generate_reply(model, tokenizer, system: str, user: str, options: dict, max_tokens: int) -> str:
     """Return the model's reply to one user message."""
     messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]

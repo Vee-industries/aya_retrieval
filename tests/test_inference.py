@@ -4,7 +4,7 @@ import pytest
 from huggingface_hub import snapshot_download
 from transformers import AutoTokenizer
 
-from aya_retrieval.inference import STOP_TOKENS, stop_token_ids
+from aya_retrieval.inference import STOP_TOKENS, prompt_tokens, stop_token_ids
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION
 
 
@@ -23,6 +23,20 @@ def test_the_tokens_that_close_a_rendered_turn_are_all_stops(tokenizer):
 
 def test_the_three_stops_are_distinct(tokenizer):
     assert len(set(stop_token_ids(tokenizer))) == len(STOP_TOKENS)
+
+
+def test_prompt_tokens_counts_what_generation_feeds_the_model(tokenizer):
+    messages = [{"role": "user", "content": "how is the weather"}]
+    inputs = tokenizer.apply_chat_template(
+        messages, add_generation_prompt=True, return_tensors="pt", return_dict=True
+    )
+    assert prompt_tokens(tokenizer, messages) == inputs["input_ids"].shape[1]
+
+
+def test_prompt_tokens_grow_with_the_conversation(tokenizer):
+    short = [{"role": "user", "content": "hello"}]
+    longer = [*short, {"role": "assistant", "content": "hi"}, {"role": "user", "content": "hello"}]
+    assert prompt_tokens(tokenizer, longer) > prompt_tokens(tokenizer, short)
 
 
 class _TokenizerMissingOneStop:

@@ -23,7 +23,7 @@ from peft import PeftModel
 
 from aya_retrieval.conversations import ITEM_KINDS, OLDER, build_item
 from aya_retrieval.harness import TurnResult, run_turn, turns_from
-from aya_retrieval.inference import GREEDY, generate_from_messages
+from aya_retrieval.inference import GREEDY, generate_from_messages, prompt_tokens
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION, load_model
 from aya_retrieval.pools import POOLS
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
@@ -96,8 +96,13 @@ def main() -> None:
         model = PeftModel.from_pretrained(model, str(args.adapter))
         model.eval()
 
+    spent = Counter()
+
     def generate(messages: list[dict]) -> str:
-        return generate_from_messages(model, tokenizer, messages, GREEDY, MAX_TOKENS)
+        reply = generate_from_messages(model, tokenizer, messages, GREEDY, MAX_TOKENS)
+        spent["read"] += prompt_tokens(tokenizer, messages)
+        spent["written"] += len(tokenizer.encode(reply, add_special_tokens=False))
+        return reply
 
     for size in SIZES:
         for kind_number, kind in enumerate(ITEM_KINDS):
@@ -105,9 +110,17 @@ def main() -> None:
                 seed = args.seed + size * 1000 + kind_number * 100 + number
                 item = build_item(f"{size}_{kind}_{number:02d}", seed, size, kind, args.pool)
                 tool = build_recall_tool(item, args.index, match_all=False)
+                ask = {"role": "user", "content": item.message}
+                whole_chat = [
+                    {"role": "system", "content": SYSTEM},
+                    *turns_from(item.exchanges),
+                    ask,
+                ]
+                whole_chat_tokens = prompt_tokens(tokenizer, whole_chat)
                 for arm in args.arms:
                     if arm == "whole_chat" and kind != OLDER:
                         continue
+                    spent.clear()
                     result = run_arm(arm, item, generate, tool)
                     calls = len(result.queries)
                     report["rows"].append(
@@ -125,6 +138,9 @@ def main() -> None:
                                 tool.execute(query).output.count("chunk_id=")
                                 for query in result.queries
                             ],
+                            "tokens_read": spent["read"],
+                            "tokens_written": spent["written"],
+                            "whole_chat_tokens": whole_chat_tokens,
                             "ran_out_of_calls": result.ran_out_of_calls,
                             "first_reply": result.transcript[0],
                             "correct": item_correct(
