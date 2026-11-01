@@ -21,7 +21,8 @@ carry their own provenance (command, git commit, package versions).
 | R-006 | ★ Repository brought to the standard; deviation 1: the first test ran outside it |
 | R-007 | ★ Ten GRPO steps: the chain runs, nothing trained, and it does not fit the card |
 | R-008 | Supervised pilot, rules written and committed before the run |
-| R-009 | ★ First test from a clean commit: the same reading; LoRA only |
+| R-009 | First test from a clean commit: the same reading; LoRA only |
+| R-010 | ★ **R-005 and R-009 withdrawn: generation did not stop on the end of a turn**; the goal; panel findings |
 
 ---
 
@@ -235,3 +236,61 @@ VRAM 6.39 GiB. This is the rerun that R-006 called for, and these numbers replac
 **Reading.** The reading in R-005 holds on a new seed: Go on behaviour 1 under R-004. Base does not
 separate lookups from statements. The clean-call counts use the definition in R-008. They were
 computed from this file after that rule was committed, and they are the base model's "before".
+
+*Withdrawn in R-010: these replies ran past the end of the model's turn.*
+
+## R-010 · 2026-11-01 · SPRINT · R-005 and R-009 withdrawn: generation did not stop on the end of a turn; the goal; panel findings
+
+**Defect, found by a review of the recall plan and confirmed in the model files.** The model's
+`generation_config.json` stops only on `<EOS_TOKEN>` (id 3). Its chat template ends a turn with
+`<|END_RESPONSE|>` (261001) and `<|END_OF_TURN_TOKEN|>` (6). `generate_reply` passed no stop ids, and
+decoding removes those tokens from the text, so a finished reply could run on with nothing to show
+where it ended.
+
+**What this withdraws.** The results of R-005 and R-009, and the readings built on them:
+
+| Claim | Status |
+|---|---|
+| Base searches 20 of 20 statements | Unconfirmed: a plain reply could have ended, then run on into a call |
+| Only 10 of 40 searches are clean calls | Unconfirmed |
+| Base invents tool results after a call | Unconfirmed, and it may be this defect |
+| Go on behaviour 1 under R-004 | Open until the rerun |
+
+The R-007 quote "o o o o" came from AgentTune's own rollout, not this code, and is not affected by
+this finding. The files stay in `results/first_test/` as a record. Claude had told Kevin these
+numbers were the official "before"; the correction was given in chat the same hour.
+
+**Fix.** `inference.generate_reply` stops on all three ids, with tests that read the closing tokens
+from the rendered template. The first test is rerun on a new seed, and the supervised pilot in
+R-008 is rescored from its adapter, since it ran with the same defect.
+
+**Goal (Kevin Vaillancourt).** Better recall, with coherence: "coherence can't decrease. if it
+increases that's a bonus. our goal is to see marked improvement over untrained model with
+maintained coherence in a tested environment". Tuned is compared with untrained on the same tools,
+the same three exchanges in view and the same held-out conversations. Recall must improve by a
+threshold set before the run. Coherence is a hard gate: tuned at or above untrained on the measured
+score, with the uncertainty reported beside it.
+
+**Decisions (Kevin).** `recall` is the one tool; `write_note`, a trained embedder and LLE's maps are
+out. The tools stay thin and come from AgentTune, and base and tuned get identical ones. Denial is
+off the cut list and trains with recall.
+
+**Panel on the recall plan (one adversarial reviewer, code read, nothing run).** Taken up:
+- Add an arm where code always searches the user's message and base answers. If it ties the
+  adapter, the adapter added no recall.
+- Add an arm that hands over the right passage, to separate retrieval failure from grounding failure.
+- Scoring by substring passes a reply that dumps every chunk: plant decoy facts and require one
+  answer, and report each item type alone.
+- SQLite search returns nothing on paraphrases in AND mode and hits on "the" in OR mode, so settle
+  that before writing demonstrations. Held-out questions must include ones sharing no words with
+  the fact.
+- Use several adapter seeds, not one.
+- Two-step demonstrations go through `trajectories=` with OBSERVATION and TEXT events only, because
+  TOOL_CALL writes `<tool_call>` tags and TOOL_RESULT renders empty on Aya's template.
+- Check whether training loss covers prompt tokens: `segment_weights` looks unused.
+
+Not yet checked: the panel's SQLite, `segment_weights` and trajectory claims came from reading code
+and have not been run.
+
+**Next.** Fix stops, rerun the first test, then the recall first test: 40 older-fact items, search hit
+rate on CPU, and base in the whole-chat, three-exchange and always-search arms, with no training.
