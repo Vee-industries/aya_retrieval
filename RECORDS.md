@@ -826,5 +826,5 @@ enter any result here.
 
 **Where the new set still misses (for the next fixes).** Wrong replies by cause, seeds 82, 83, 84: `in_view`
 answered without searching and wrong 10, 8 and 5; `older` searched without finding the fact 6, 4 and 6; `confirm`
-fact found and not used 7, 7 and 4. Search queries that miss often change the relation word ("mentress",
+fact found and not used 7, 7 and 4. In a first look at seed 84, several queries that miss change the relation word ("mentress",
 "step sister").
