@@ -128,12 +128,25 @@ def main() -> None:
     parser.add_argument(
         "--read-hint", action="store_true", help="keep in_view items base got wrong, via a hint"
     )
+    parser.add_argument(
+        "--hard-in-view",
+        type=int,
+        default=0,
+        help="in_view rows kept for items base got wrong; needs --read-hint",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
+    if args.hard_in_view and not args.read_hint:
+        parser.error("--hard-in-view needs --read-hint")
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 
     require_clean_tree(args.allow_dirty)
-    report = {"provenance": run_metadata(), "seed": args.seed, "read_hint": args.read_hint}
+    report = {
+        "provenance": run_metadata(),
+        "seed": args.seed,
+        "read_hint": args.read_hint,
+        "hard_in_view": args.hard_in_view,
+    }
     rng = random.Random(args.seed)
     model, tokenizer = load_model()
 
@@ -157,9 +170,14 @@ def main() -> None:
                     reply = reply or item.reply
             else:
                 reply, output, found = base_reply(model, tokenizer, item), "", False
+                if reply and kind == IN_VIEW and easy_full(tally, args.hard_in_view):
+                    tally[f"{kind}_easy_skipped"] += 1
+                    continue
                 if reply is None and args.read_hint and kind == IN_VIEW:
                     reply = hinted_reply(model, tokenizer, item)
                     tally[f"{kind}_hinted_reply" if reply else f"{kind}_hinted_reply_rejected"] += 1
+                elif reply and kind == IN_VIEW:
+                    tally[f"{kind}_base_reply"] += 1
                 if reply is None:
                     tally[f"{kind}_base_reply_rejected"] += 1
                     continue
@@ -183,6 +201,11 @@ def main() -> None:
     provenance_path = args.out.with_suffix(".provenance.json")
     provenance_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
     LOG.info("wrote %d rows: %s", len(rows), {**tally, **report["passages_per_kind"]})
+
+
+def easy_full(tally: Counter, hard_rows: int) -> bool:
+    """Return True once `in_view` rows base answered unaided fill the share left for hard rows."""
+    return tally[f"{IN_VIEW}_base_reply"] >= ROWS_PER_KIND[IN_VIEW] - hard_rows
 
 
 def kind_seed_offset(kind: str) -> int:
