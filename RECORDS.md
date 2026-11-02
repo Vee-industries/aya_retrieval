@@ -791,3 +791,40 @@ seed 73157 as `probe3_tuned*`. `results/recall_train/seed_8*.json` are overwritt
 replaces the old one only if correct `older` plus `confirm` is not lower, `confirm` read rate is higher, and right
 decisions stay at or above 200 of 240 on every seed. Then Sheet B runs on it, and it must hold at or above base.
 Otherwise the old data and adapters stand. No held-out run comes out of this without Kevin.
+
+## R-023 · 2026-11-02 · SPRINT · R-022's rule passes: the new training data replaces the old
+
+Development only, probe pool, probe seed 73157. Counts from `scratchpad/rule_r022.py` and `gate_r022.py` on the
+committed results files; Sheet B counts from `coherence.paired_counts`.
+
+**Rule, three seeds against three.** Correct `older` plus `confirm`, pooled over seeds 82, 83 and 84: old data
+210 of 288, new data 234 of 288 (per seed old 59, 78, 73; new 76, 79, 79 of 96). Base is 30 of 96. `confirm`
+read rate, found-fact items: old 99 of 139, new 120 of 138. Right decisions on the new data: 233, 229 and 230 of
+240. All three parts of the rule hold, and every new adapter passes R-020's per-seed gate.
+
+**Sheet B, each new adapter against base with no tool, `statement` and `in_view`.** One sheet per seed, 192 lines,
+shuffle seeds 90422, 90423 and 90424, each marked by a fresh judge that saw only the rubric and its sheet.
+
+| Seed | Base coherent | Adapter coherent | Only base | Only adapter |
+|---|---|---|---|---|
+| 82 | 81 of 96 | 87 of 96 | 7 | 13 |
+| 83 | 83 of 96 | 84 of 96 | 8 | 9 |
+| 84 | 81 of 96 | 86 of 96 | 8 | 13 |
+
+Every adapter is at or above base, so the gate holds. The three sheets share base's replies; the three judges
+gave the same mark to 86 of 89 base replies that appear on all three, so the judges agree with each other.
+`statement` is a point or two lower than base on 82 and 83 and higher on 84; the gain is on `in_view`.
+
+**Decision.** `adapters/v2_seed_82`, `v2_seed_83` and `v2_seed_84` replace `seed_82` to `seed_84` as the current
+set. The old adapters stay on disc for comparison. No held-out run comes out of this without Kevin.
+
+**Disclosure, run conditions.** Windows Update replaced the card driver (572.60 to 610.88) at 02:12. Seed 83 of
+the new set trained on 610.88 in 16,337 s, against 4,485 to 7,513 s for every earlier run; scoring speed did not
+change. Kevin rolled the driver back to 572.60 and rebooted; seed 84 was retrained from scratch after that. Seed
+84 also slowed while other programs held card memory, because training peaks at 9.81 of 10 GiB. Speed does not
+enter any result here.
+
+**Where the new set still misses (for the next fixes).** Wrong replies by cause, seeds 82, 83, 84: `in_view`
+answered without searching and wrong 10, 8 and 5; `older` searched without finding the fact 6, 4 and 6; `confirm`
+fact found and not used 7, 7 and 4. Search queries that miss often change the relation word ("mentress",
+"step sister").
