@@ -5,6 +5,11 @@ About 9 seconds a step on an RTX 3080. The adapter goes outside the repository.
 
 Usage:
     python scripts/run_recall_train.py --seed 1234 --out-dir C:/scratch/recall_adapter
+
+A quick screening run trains on part of the rows for fewer epochs, one row a step with two steps an
+update so it leaves card memory for other programs, and writes its report under its own name:
+    python scripts/run_recall_train.py --seed 1234 --out-dir C:/scratch/screen --fraction 0.5
+        --epochs 1 --batch-size 1 --grad-accum 2 --report-name screen_fix01
 """
 
 from __future__ import annotations
@@ -20,7 +25,7 @@ from agenttune import create_distill_trainer
 from agenttune.agentic.distill_trainer import _DefaultSFTTrainerFactory
 from huggingface_hub import snapshot_download
 
-from aya_retrieval.demonstrations import as_event_log
+from aya_retrieval.demonstrations import as_event_log, kind_balanced_subset
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.tool_prompt import system_prompt_with_tools
@@ -52,6 +57,10 @@ def main() -> None:
     parser.add_argument("--out-dir", type=Path, required=True, help="where the adapter goes")
     parser.add_argument("--epochs", type=float, default=3)
     parser.add_argument("--learning-rate", type=float, default=2e-4)
+    parser.add_argument("--fraction", type=float, default=1.0, help="share of rows, same per kind")
+    parser.add_argument("--batch-size", type=int, default=2)
+    parser.add_argument("--grad-accum", type=int, default=1, help="steps per update")
+    parser.add_argument("--report-name", help="report file name, default seed_<seed>")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
@@ -64,9 +73,14 @@ def main() -> None:
         "seed": args.seed,
         "epochs": args.epochs,
         "learning_rate": args.learning_rate,
+        "fraction": args.fraction,
+        "batch_size": args.batch_size,
+        "grad_accum": args.grad_accum,
     }
-    lines = TRAIN_PATH.read_text(encoding="utf-8").splitlines()
-    logs = [as_event_log(json.loads(line)["turns"]) for line in lines]
+    rows = [json.loads(line) for line in TRAIN_PATH.read_text(encoding="utf-8").splitlines()]
+    if args.fraction < 1:
+        rows = kind_balanced_subset(rows, args.fraction, args.seed)
+    logs = [as_event_log(row["turns"]) for row in rows]
     report["rows"] = len(logs)
 
     started = time.time()
@@ -81,7 +95,8 @@ def main() -> None:
         output_dir=str(args.out_dir),
         num_train_epochs=args.epochs,
         learning_rate=args.learning_rate,
-        per_device_train_batch_size=2,
+        per_device_train_batch_size=args.batch_size,
+        gradient_accumulation_steps=args.grad_accum,
         gradient_checkpointing=True,
         seed=args.seed,
         save_strategy="no",
@@ -96,7 +111,8 @@ def main() -> None:
     report["adapter_moved"] = adapter_moved(args.out_dir / "adapter_model.safetensors")
     if not report["adapter_moved"]:
         raise RuntimeError("the adapter did not move, so this run cannot be reported")
-    out = REPO_ROOT / "results" / "recall_train" / f"seed_{args.seed}.json"
+    name = args.report_name or f"seed_{args.seed}"
+    out = REPO_ROOT / "results" / "recall_train" / f"{name}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, indent=1), encoding="utf-8")
     LOG.info("wrote %s: %s", out, {k: v for k, v in report.items() if k != "provenance"})

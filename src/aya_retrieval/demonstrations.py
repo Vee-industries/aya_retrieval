@@ -8,6 +8,8 @@ Calls are scripted, because the base model does not make them well enough to cop
 from __future__ import annotations
 
 import json
+import random
+from collections import defaultdict
 
 from agenttune.agentic.events import Event, EventKind, EventLog
 from agenttune.agentic.rollout_engines.rollout_factory import DEFAULT_TOOL_RESULT_FORMAT
@@ -72,3 +74,18 @@ def as_event_log(turns: list[dict]) -> EventLog:
         kind = EventKind.OBSERVATION if turn["role"] == "user" else EventKind.TEXT
         log.append(Event(kind, {"text": turn["content"]}))
     return log
+
+
+def kind_balanced_subset(rows: list[dict], fraction: float, seed: int) -> list[dict]:
+    """Return ``fraction`` of ``rows``, drawn the same share from each kind, in the original order.
+
+    For quick screening runs. The training file is sorted by kind, so a prefix is one kind.
+    """
+    by_kind = defaultdict(list)
+    for index, row in enumerate(rows):
+        by_kind[row["kind"]].append(index)
+    rng = random.Random(seed)
+    keep = set()
+    for indices in by_kind.values():
+        keep.update(rng.sample(indices, round(len(indices) * fraction)))
+    return [row for index, row in enumerate(rows) if index in keep]

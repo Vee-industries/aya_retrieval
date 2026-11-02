@@ -67,3 +67,26 @@ def test_the_call_carries_the_query():
 def test_agenttune_renders_the_trajectory_back_to_the_same_turns(kind):
     _, result = turns(kind)
     assert as_event_log(result).as_dataset_rows("sft")[0]["messages"] == result
+
+
+def _rows():
+    sizes = (("older", 8), ("confirm", 6))
+    return [{"id": f"{kind}_{i}", "kind": kind} for kind, n in sizes for i in range(n)]
+
+
+def test_kind_balanced_subset_takes_the_same_share_of_each_kind():
+    from collections import Counter
+
+    from aya_retrieval.demonstrations import kind_balanced_subset
+
+    subset = kind_balanced_subset(_rows(), 0.5, seed=1)
+    assert Counter(row["kind"] for row in subset) == {"older": 4, "confirm": 3}
+
+
+def test_kind_balanced_subset_keeps_order_and_repeats_on_the_same_seed():
+    from aya_retrieval.demonstrations import kind_balanced_subset
+
+    rows = _rows()
+    first = kind_balanced_subset(rows, 0.5, seed=1)
+    assert first == kind_balanced_subset(rows, 0.5, seed=1)
+    assert [rows.index(row) for row in first] == sorted(rows.index(row) for row in first)
