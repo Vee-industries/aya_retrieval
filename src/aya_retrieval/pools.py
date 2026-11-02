@@ -444,7 +444,7 @@ TRAIN = Pool(
         "Nothing on that here. Did you mean someone else?",
         "I don't see it, so I'd only be guessing.",
         "I don't know that one yet.",
-        "That's new to me. Tell me about it?",
+        "Haven't heard about that. Tell me about it?",
         "You may not have mentioned it to me.",
     ),
 )

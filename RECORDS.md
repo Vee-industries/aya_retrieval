@@ -34,6 +34,7 @@ carry their own provenance (command, git commit, package versions).
 | R-019 | Probe check, rules written and committed before the run |
 | R-020 | ★ **Probe fails: the habit carried and reading did not; passage count gave the answer away in training.** New training design, rules before the run |
 | R-021 | ★ **Adapter seed 82 passes the probe rule and both blind coherence sheets**; false denials remain on `confirm`. Seeds 83 and 84 next |
+| R-022 | One training sentence replaced to test the false denials on `confirm`; rule before the run |
 
 ---
 
@@ -757,3 +758,36 @@ Both gates pass. Sheet B is at or above base, so R-020 says to train the other t
 - Context tokens per turn, listed in R-016 as reported beside the result, were not logged until `24a0fa3`.
   Base and adapter 82 rerun on probe seed 73157 to log them. Their replies must match the first run exactly,
   and any difference is reported.
+
+## R-022 · 2026-11-01 · SPRINT · One training sentence replaced to test the false denials on `confirm`; rule before the run
+
+Written at 21:40 while adapter seed 84 was training, before its result existed. Development only, probe pool.
+
+**Finding.** On adapter 82, found-fact replies on `older` and `confirm` that open "That's" split into 13 "That's
+great", all right, and 25 "That's new", all wrong. Only 2 other found-fact replies are wrong. Training has
+"That's great" as a common opening of base's own answers and "That's new to me. Tell me about it?" as an unknown
+sentence, so both share their first word. The likely cause on that seed is a collision at that word.
+
+**Adapter 83, same data, same settings.** `probe2_tuned83_seed_73157.json`: +47.9 points at 58 messages and +52.1
+at 419, right decisions 225 of 240, `older` read 42 of 44, `confirm` read 36 of 46, and "That's new" on 1 of the
+misses. Its misses open "I don't" and "I searched". So the collision is specific to seed 82, and seeds differ by
+about 20 points on recall. A one-seed comparison would be noise, so the comparison below uses all three seeds.
+
+**Other results.** Reruns for token logging matched exactly: base 480 of 480 replies, adapter 82 240 of 240.
+Tokens read per reply, adapter 82 against the whole chat: 1,203 against 1,113 at 58 messages, 1,199 against 5,409
+at 419. Base on `tool_loop` reads 1,041 and 1,118, on 91 searches against the adapter's 145, so the adapter does
+not read fewer tokens than base with the tool. It reads about 78% fewer than the whole chat at 419 messages.
+
+**Disclosure.** While testing a cause that turned out wrong, Claude counted how many confirm wordings share a topic
+word with their statement in each pool, and that count included `heldout` (0 of 5). No held-out item was run, and
+nothing below uses that count. Later: the held-out pool's wording is less like the training wording than the probe's.
+
+**Change.** In `TRAIN.unknown_replies` only, "That's new to me. Tell me about it?" becomes "Haven't heard about that.
+Tell me about it?". Same build seed, 71119, so the training rows differ only where that sentence was drawn, and any
+difference beyond that is reported. Three adapters, seeds 82, 83 and 84, in `adapters/v2_seed_*`, scored on probe
+seed 73157 as `probe3_tuned*`. `results/recall_train/seed_8*.json` are overwritten; the old ones stay in git.
+
+**Rule, fixed now, pooled over three seeds against the first three on the same probe conversations.** The new set
+replaces the old one only if correct `older` plus `confirm` is not lower, `confirm` read rate is higher, and right
+decisions stay at or above 200 of 240 on every seed. Then Sheet B runs on it, and it must hold at or above base.
+Otherwise the old data and adapters stand. No held-out run comes out of this without Kevin.
