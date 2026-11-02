@@ -57,6 +57,7 @@ def main() -> None:
     parser.add_argument("--out-dir", type=Path, required=True, help="where the adapter goes")
     parser.add_argument("--epochs", type=float, default=3)
     parser.add_argument("--learning-rate", type=float, default=2e-4)
+    parser.add_argument("--data", type=Path, default=TRAIN_PATH, help="training rows, .jsonl")
     parser.add_argument("--fraction", type=float, default=1.0, help="share of rows, same per kind")
     parser.add_argument("--batch-size", type=int, default=2)
     parser.add_argument("--grad-accum", type=int, default=1, help="steps per update")
@@ -71,13 +72,14 @@ def main() -> None:
         "model": MODEL_ID,
         "model_revision": MODEL_REVISION,
         "seed": args.seed,
+        "data": args.data.resolve().relative_to(REPO_ROOT).as_posix(),
         "epochs": args.epochs,
         "learning_rate": args.learning_rate,
         "fraction": args.fraction,
         "batch_size": args.batch_size,
         "grad_accum": args.grad_accum,
     }
-    rows = [json.loads(line) for line in TRAIN_PATH.read_text(encoding="utf-8").splitlines()]
+    rows = [json.loads(line) for line in args.data.read_text(encoding="utf-8").splitlines()]
     if args.fraction < 1:
         rows = kind_balanced_subset(rows, args.fraction, args.seed)
     logs = [as_event_log(row["turns"]) for row in rows]

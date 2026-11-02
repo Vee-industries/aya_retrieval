@@ -92,6 +92,21 @@ def base_answer(model, tokenizer, item: RecallItem, output: str) -> str | None:
     return fit_to_copy(model, tokenizer, item, messages)
 
 
+def hinted_reply(model, tokenizer, item: RecallItem) -> str | None:
+    """Return base's reply with the fact restated in the system prompt, or None if not fit to copy.
+
+    For `in_view` items base answered wrong. The training row leaves the hint out, so the adapter
+    learns to read the fact from the turns in view rather than to search for it.
+    """
+    fact = item.exchanges[item.fact_index][0]
+    messages = [
+        {"role": "system", "content": f'{SYSTEM} Earlier your friend said: "{fact}"'},
+        *turns_from(item.view()),
+        {"role": "user", "content": item.message},
+    ]
+    return fit_to_copy(model, tokenizer, item, messages)
+
+
 def longest_row(rows: list[dict], tokenizer) -> int:
     """Return the token length of the longest row as training will see it."""
     system = {"role": "system", "content": system_prompt_with_tools(SYSTEM_WITH_TOOL)}
@@ -109,12 +124,16 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--seed", type=int, required=True)
     parser.add_argument("--index", type=Path, required=True, help="scratch database path")
+    parser.add_argument("--out", type=Path, default=OUT_PATH, help="training rows, .jsonl")
+    parser.add_argument(
+        "--read-hint", action="store_true", help="keep in_view items base got wrong, via a hint"
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 
     require_clean_tree(args.allow_dirty)
-    report = {"provenance": run_metadata(), "seed": args.seed}
+    report = {"provenance": run_metadata(), "seed": args.seed, "read_hint": args.read_hint}
     rng = random.Random(args.seed)
     model, tokenizer = load_model()
 
@@ -138,6 +157,9 @@ def main() -> None:
                     reply = reply or item.reply
             else:
                 reply, output, found = base_reply(model, tokenizer, item), "", False
+                if reply is None and args.read_hint and kind == IN_VIEW:
+                    reply = hinted_reply(model, tokenizer, item)
+                    tally[f"{kind}_hinted_reply" if reply else f"{kind}_hinted_reply_rejected"] += 1
                 if reply is None:
                     tally[f"{kind}_base_reply_rejected"] += 1
                     continue
@@ -150,14 +172,15 @@ def main() -> None:
 
     args.index.unlink(missing_ok=True)
     lines = (json.dumps(row, ensure_ascii=False) for row in rows)
-    OUT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     report["rows"] = len(rows)
     report["tally"] = dict(tally)
     report["passages_per_kind"] = {kind: dict(counts) for kind, counts in passages.items()}
     report["longest_row_tokens"] = longest_row(rows, tokenizer)
     if report["longest_row_tokens"] > MAX_ROW_TOKENS:
         raise SystemExit(f"a row exceeds {MAX_ROW_TOKENS} tokens, so training would cut its answer")
-    provenance_path = OUT_PATH.with_suffix(".provenance.json")
+    provenance_path = args.out.with_suffix(".provenance.json")
     provenance_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
     LOG.info("wrote %d rows: %s", len(rows), {**tally, **report["passages_per_kind"]})
 
