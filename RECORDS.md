@@ -828,3 +828,41 @@ enter any result here.
 answered without searching and wrong 10, 8 and 5; `older` searched without finding the fact 6, 4 and 6; `confirm`
 fact found and not used 7, 7 and 4. In a first look at seed 84, several queries that miss change the relation word ("mentress",
 "step sister").
+
+## R-024 · 2026-11-02 · SPRINT · Screens are full runs; fix 1 (read in-view facts) points the right way, too small to call
+
+Development only, probe pool, probe seed 51203 (48 items per kind, 240 rows, tool loop). Counts from
+`scratchpad/screen_cmp.py` on the committed results files. Screens train on seed 82 and are compared with the
+current adapter `v2_seed_82` scored on the same probe seed (`screen_full82`). Base differs a lot between probe
+seeds (`older` 23 of 48 on 73157, 33 of 48 here), so screen numbers are compared only within probe seed 51203.
+
+**Method change: a screen is a full run.** Two shorter references were tried first and neither stands in for the
+full adapter, so each fix is screened with all rows and 3 epochs.
+
+| Run | `older`+`confirm` | `in_view` | `never_told` | `statement` | Right decisions |
+|---|---|---|---|---|---|
+| Base | 38 of 96 | 32 | 46 | 25 | 109 of 240 |
+| Half the rows, 1 epoch | 76 | 13 | 18 | 46 | 199 |
+| Half the rows, 3 epochs | 57 | 31 | 38 | 45 | 221 |
+| Full, `v2_seed_82` | 70 | 33 | 46 | 48 | 232 |
+| Fix 1, `screens/read_hint_82` | 69 | 37 | 47 | 48 | 235 |
+
+**Fix 1.** Kevin's decision: in-view questions are not searched; the adapter learns to read the fact from the turns
+in view. The registered decision metric is unchanged. `run_build_training_set.py --read-hint`: when base answers
+an `in_view` item wrong, base is asked again with the fact restated in the system prompt; if that reply passes the
+same copy checks, the row keeps it without the hint. Of 39 such items on build seed 71119, 16 were kept and 20 were
+still rejected. Data `data/screens/read_hint.jsonl`, 800 rows.
+
+**Data differences, disclosed.** Against the current training set, fix 1 changes 16 `in_view` rows. Because the
+build draws from one random stream, 77 `never_told` rows also have different conversations; their replies are
+scripted and their form is unchanged.
+
+**Result.** `in_view` correct 37 against 33 (+12% over the full adapter, +16% over base); on the same items fix 1
+alone is right on 7 and the full adapter alone on 3, sign test p = 0.34. `older`+`confirm` 69 against 70 (8 and 9
+discordant, p = 1.0). `in_view` answered without a search and wrong: 9 against 12. Right decisions 235 against 232.
+Nothing is lost, and the gain is not distinguishable from noise on one seed. No coherence sheet for screens;
+coherence is checked when a fix is confirmed on three seeds.
+
+**Next: fix 1b, a larger dose.** `--hard-in-view 75` keeps 75 of the 150 `in_view` rows for items base got wrong
+(read through the hint), against 16 in fix 1. Same build seed, same screen. If it beats the full adapter on
+`in_view` without losing `older`+`confirm`, it is confirmed on seeds 82, 83 and 84 with Sheet B.
