@@ -1,14 +1,14 @@
 {
  "provenance": {
-  "utc_time": "2026-11-02T02:10:18+00:00",
+  "utc_time": "2026-11-02T13:08:26+00:00",
   "command": [
    "scripts/run_recall_train.py",
    "--seed",
    "84",
    "--out-dir",
-   "C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/seed_84"
+   "C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/v2_seed_84"
   ],
-  "git_commit": "f57f87bc5a79799455d0a732f62ad8954c0b6158",
+  "git_commit": "02834de276017454a3ac72dc9764a90958a2f945",
   "git_dirty": false,
   "toolkit_commits": {
    "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
@@ -34,6 +34,6 @@
  "learning_rate": 0.0002,
  "rows": 800,
  "train_peak_vram_gib": 9.81,
- "train_seconds": 7513,
+ "train_seconds": 14208,
  "adapter_moved": true
 }
