@@ -931,3 +931,30 @@ it spilled out of card memory (training peaks at 9.8 of 10 GiB), and was stopped
 (`older` plus `confirm`) 10, 4 and 14, mostly a "not told" reply; `in_view` answered without a search and wrong 10,
 5 and 6; searched without finding the fact 6, 2 and 4. Next screen, fix 3: the same data with 100 `never_told`
 rows instead of 150, to weaken the lean towards "not told".
+
+## R-027 · 2026-11-03 · SPRINT · Sheet A on v3: above base overall, below base on `confirm`
+
+Development only, probe seed 73157, v3 seed 82 against base, both on `tool_loop`, every kind. 480 lines, shuffle
+seed 90428, marked by a fresh judge that saw only the rubric and its sheet (asked afterwards, it confirmed it
+judged every line itself; code only wrote its list of zeros to the file). Counts from `coherence.paired_counts`.
+
+**Overall.** Adapter coherent 203 of 240, base 169 of 240 (+20% over base). Only adapter coherent 58, only base 24.
+
+| Kind | Base coherent | Adapter coherent |
+|---|---|---|
+| `older` | 32 of 48 | 39 |
+| `confirm` | 47 | 35 |
+| `in_view` | 32 | 39 |
+| `never_told` | 29 | 45 |
+| `statement` | 29 | 45 |
+
+**`confirm` is below base, 35 against 47 (-26%).** This breaks "coherence cannot decrease" for one kind under the
+tool loop, and the overall gain does not cancel it. The adapter's incoherent `confirm` replies open with a stock
+phrase that does not fit ("That's great to hear!", "That's a relief."), speak as the friend ("Farah is my
+stepsister"), or mix up who is who. The training targets carry the same openers: base's own answers to found
+facts are kept when they contain the answer, and nothing checks their coherence (`confirm` targets: "That's great
+news!" 9, "That's great to" 4, "Thanks for the update" and similar).
+
+**Next: fix 5, coherent targets.** A fresh judge marks base's found-fact answers in the v3 training data with the
+same rubric, blind; answers marked incoherent fall back to the scripted answer, as answers that fail the scorer
+already do. The fix 5 screen then gets a Sheet A on `older` and `confirm` against the v3 screen adapter.
