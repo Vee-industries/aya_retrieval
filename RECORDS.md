@@ -28,13 +28,29 @@ carry their own provenance (command, git commit, package versions).
 | R-013 | ★ **First test with stops: the base readings return. Supervised pilot passes** |
 | R-014 | ★ Recall first test: search finds the fact and the model often ignores it; the 419 ceiling is not valid |
 | R-015 | Recall development baseline, rules written and committed before the run |
-| R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** |
+| R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** (amended by R-038) |
 | R-017 | ★ Recall development baseline: base on its own tool loop; the 419 ceiling fails again |
 | R-018 | ★ First recall adapter: 119 of 120 on development items, on training vocabulary; a third pool and a stricter coherence comparison added |
 | R-019 | Probe check, rules written and committed before the run |
 | R-020 | ★ **Probe fails: the habit carried and reading did not; passage count gave the answer away in training.** New training design, rules before the run |
 | R-021 | ★ **Adapter seed 82 passes the probe rule and both blind coherence sheets**; false denials remain on `confirm`. Seeds 83 and 84 next |
 | R-022 | One training sentence replaced to test the false denials on `confirm`; rule before the run |
+| R-023 | R-022's rule passes: the new training data replaces the old |
+| R-024 | Screens are full runs; fix 1 (read in-view facts) points the right way, too small to call |
+| R-025 | Fix 1b (more hard in-view rows) beats the full adapter on the screen; confirmation rule registered |
+| R-026 | ★ R-025's rule passes: fix 1b replaces v2 as the current set (v3) |
+| R-027 | Sheet A on v3: above base overall, below base on `confirm` |
+| R-028 | Fix 3 (fewer `never_told` rows) is worse than v3 on the screen: dropped |
+| R-029 | ★ Fix 5 and fix 4 data built; training slowed by card memory, a lean loss fixes it; records moved out of scratch |
+| R-030 | AuditKIT joins the evaluation: a second scorer and a second significance test, registered before use |
+| R-031 | ★ AuditKIT's paired bootstrap is defective; R-030 uses a sign test and a centred bootstrap instead; AuditKIT on v3 |
+| R-032 | Lean loss leaves v3 unchanged; fix 4 dropped; fix 5 ties on recall and does not restore `confirm` coherence; fix 5b next |
+| R-033 | Fix 5b (scripted `confirm` answers) ties v3 on the screen; confirmation rule registered before its runs and marks |
+| R-034 | R-033's rule fails on coherence: v3 stands; fix 5b is better than v3 on `confirm` coherence but still below base |
+| R-035 | Fix 5c (answers name the relation) on the screen; confirmation rule registered before its runs and marks |
+| R-036 | ★ R-035's rule passes: fix 5c replaces v3 as the current set (v4) |
+| R-037 | v4 is a checkpoint: its misses ranked, and the next screens |
+| R-038 | ★ Amendment to R-016, made before any held-out run: the registered test gets harder (crowded results, false retrieval) |
 
 ---
 
