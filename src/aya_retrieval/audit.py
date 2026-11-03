@@ -10,14 +10,15 @@ The outcome of each case comes from an AuditKIT oracle:
 - ``never_told``: a ``CustomPredicate`` that the reply names no value of that kind.
 - ``statement``: a ``CustomPredicate`` that the episode holds no tool call.
 
-Base and adapter are then compared with AuditKIT's paired bootstrap on these outcomes.
+Base and adapter are then compared on these outcomes with an exact sign test and a centred paired
+bootstrap (``aya_retrieval.stats``). AuditKIT's own paired bootstrap is not used: in 1.1.3 it does
+not centre its resamples, so a gain on every case reads as p = 1 (R-031).
 """
 
 from __future__ import annotations
 
 import json
 
-from auditkit._bootstrap import paired_bootstrap
 from auditkit.agent_eval import (
     AgentCase,
     AgentEvalRunner,
@@ -28,6 +29,7 @@ from auditkit.agent_eval import (
 )
 
 from aya_retrieval.conversations import ITEM_KINDS, NEVER_TOLD, STATEMENT, RecallItem, build_item
+from aya_retrieval.stats import exact_sign_test, paired_bootstrap
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME
 
 ORACLE_VERSION = "1"
@@ -106,6 +108,14 @@ def verified(result) -> dict[str, float]:
 
 
 def compare(base: dict[str, float], adapter: dict[str, float]) -> dict:
-    """AuditKIT's paired bootstrap of adapter against base, paired by case id."""
-    pairs = [(base[i], adapter[i]) for i in sorted(base.keys() & adapter.keys())]
-    return paired_bootstrap(pairs, n_resamples=10_000, seed=0)
+    """Adapter against base on the same cases, paired by case id: sign test and bootstrap."""
+    ids = sorted(base.keys() & adapter.keys())
+    pairs = [(base[i], adapter[i]) for i in ids]
+    only_base = sum(b > a for b, a in pairs)
+    only_adapter = sum(a > b for b, a in pairs)
+    return {
+        "only_base": only_base,
+        "only_adapter": only_adapter,
+        "sign_test_p": exact_sign_test(only_base, only_adapter),
+        "bootstrap": paired_bootstrap(pairs),
+    }

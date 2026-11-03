@@ -5,8 +5,8 @@ Usage:
         --adapters probe4_tuned82 probe4_tuned83 probe4_tuned84 --name v3_probe
 
 Writes ``results/audit/<name>.json``: per label, AuditKIT's verified successes by kind, the cases
-where AuditKIT and our scorer disagree, AuditKIT's diagnostics, and for each adapter AuditKIT's
-paired bootstrap against base on every case and on the recall kinds.
+where AuditKIT and our scorer disagree, AuditKIT's diagnostics, and for each adapter a sign test
+and a centred paired bootstrap against base on every case and on the recall kinds (R-031).
 """
 
 from __future__ import annotations

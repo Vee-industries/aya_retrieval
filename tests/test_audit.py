@@ -55,5 +55,6 @@ def test_a_row_that_does_not_match_its_rebuilt_item_is_refused():
 
 def test_compare_pairs_by_case_id():
     result = compare({"a": 0.0, "b": 0.0, "c": 1.0}, {"c": 1.0, "a": 1.0, "b": 1.0})
-    assert result["n"] == 3
-    assert result["delta"] == pytest.approx(2 / 3, abs=1e-6)
+    assert (result["only_base"], result["only_adapter"]) == (0, 2)
+    assert result["bootstrap"]["n"] == 3
+    assert result["bootstrap"]["delta"] == pytest.approx(2 / 3)
