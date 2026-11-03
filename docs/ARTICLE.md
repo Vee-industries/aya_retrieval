@@ -14,7 +14,7 @@ With only the last three exchanges in view, the adapter answers questions about 
 correctly **84%** of the time in 58-message chats and **91%** in
 419-message chats. The untrained model gets 31% and 31%. That is
 **+169%** and **+191%** above the untrained model. Every kind of message improves.
-A blind judge finds the adapter's replies 8% more often coherent than the untrained model's, and at or above it on every kind judged.
+A blind judge finds the adapter's replies 8% more often coherent than the untrained model's, and at or above it on every kind judged. It names the wrong person's fact in 1.1% of replies, against 5.4% for the untrained model.
 
 ![Recall before and after training](../figures/recall_by_length.png)
 
@@ -53,6 +53,9 @@ model instead. Nothing from that engine's code or test sets is used here.
 - **Training.** LoRA r=16 on the attention projections, learning rate 2e-4, 3 epochs, batch 2,
   through **AgentTune**'s distillation trainer, on 800 rows.
 - **Evaluation.** Our scorer, then **AuditKIT**'s agent evaluation as a second, independent scorer.
+  The final test was registered before training began and made harder before it was run: every
+  held-out chat runs once with one decoy and once with four, and recall, coherence and false
+  retrieval must all hold in both (RECORDS R-016, R-038).
 - **Records.** Every decision, run and result is in a dated log
   ([`RECORDS.md`](../RECORDS.md)). Rules for each comparison were written before its run.
 
@@ -133,6 +136,26 @@ Pooled over 3 adapter seeds and 6 sheets, each with its own judge:
 | Just chatting | untrained with no tool | 133 of 144 | 138 of 144 | +4% |
 
 Fact questions are judged with the search tool for both models. On-screen facts and ordinary chat are judged against the untrained model with no tool at all, so the adapter is held to the model's own ordinary talk.
+
+### False retrieval: the wrong person's fact
+
+Every test chat also holds a decoy: the same kind of fact about someone else, so a search for the
+friend's tutor's fear can bring back their classmate's too. A reply that names a wrong value of the
+fact asked about, the decoy's or, for a question never told, any value at all, is a false retrieval.
+The scorer already fails such a reply; here it is counted on its own.
+
+![False retrieval by kind](../figures/false_retrieval.png)
+
+| Kind | Untrained | Adapter |
+|---|---|---|
+| Fact told long ago | 1 of 48 | 3 of 144 |
+| “Did I tell you…?” | 0 of 48 | 1 of 144 |
+| Fact still on screen | 5 of 48 | 1 of 144 |
+| Never told | 6 of 48 | 3 of 144 |
+| Just chatting | 1 of 48 | 0 of 144 |
+| **All** | **13 of 240** | **8 of 720** |
+
+Over every kind the adapter names a wrong value in 1.1% of replies against 5.4%, -79%. Most of the gain is on facts still on screen and questions never told, where the untrained model fills in a value. On the two kinds that need a search the counts are small, 1 and 4, and the untrained model searches far less often (37 of 96 questions against 275 of 288), so it has fewer chances to pick up a decoy. The registered final test adds a crowded condition with four decoys a chat for exactly this reason.
 
 ### A second scorer: AuditKIT
 

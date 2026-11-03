@@ -22,6 +22,7 @@ from aya_retrieval.report_data import (
     coherence_by_model_and_kind,
     coherence_pooled,
     eval_rows,
+    false_retrieval,
     percent_above,
     pooled,
     recall,
@@ -139,6 +140,39 @@ def coherence_numbers(out) -> None:
     )
 
 
+def false_retrieval_numbers(base, tuned, out) -> None:
+    fb = false_retrieval(BASE, PROBE)
+    ft = {k: pooled([false_retrieval(f"{TUNED}{s}", PROBE)[k] for s in SEEDS]) for k in KINDS}
+    all_b, all_t = totals(fb), totals(ft)
+    rows = "\n".join(
+        f"| {KIND_NAMES[k]} | {fb[k][0]} of {fb[k][1]} | {ft[k][0]} of {ft[k][1]} |" for k in KINDS
+    )
+    searched_b = sum(bool(r["queries"]) for r in base if r["kind"] in ("older", "confirm"))
+    searched_t = sum(
+        bool(r["queries"]) for s in SEEDS for r in tuned[s] if r["kind"] in ("older", "confirm")
+    )
+    facts_b = pooled([fb["older"], fb["confirm"]])
+    facts_t = pooled([ft["older"], ft["confirm"]])
+    out["false_retrieval_text"] = (
+        "| Kind | Untrained | Adapter |\n|---|---|---|\n"
+        + rows
+        + f"\n| **All** | **{all_b[0]} of {all_b[1]}** | **{all_t[0]} of {all_t[1]}** |\n\n"
+        f"Over every kind the adapter names a wrong value in {100 * all_t[0] / all_t[1]:.1f}% of "
+        f"replies against {100 * all_b[0] / all_b[1]:.1f}%, "
+        f"{signed(percent_above(all_t, all_b))}%. Most of the gain is on facts still on screen and "
+        "questions never told, where the untrained model fills in a value. On the two kinds that "
+        f"need a search the counts are small, {facts_b[0]} and {facts_t[0]}, and the untrained "
+        f"model searches far less often ({searched_b} of {facts_b[1]} questions against "
+        f"{searched_t} of {facts_t[1]}), so it has fewer chances to pick up a decoy. The "
+        "registered final test adds a crowded condition with four decoys a chat for exactly this "
+        "reason."
+    )
+    out["false_retrieval_summary"] = (
+        f"It names the wrong person's fact in {100 * all_t[0] / all_t[1]:.1f}% of replies, against "
+        f"{100 * all_b[0] / all_b[1]:.1f}% for the untrained model."
+    )
+
+
 def audit_numbers(out) -> None:
     audit = json.loads(AUDIT.read_text(encoding="utf-8"))
     labels = audit["labels"]
@@ -199,6 +233,7 @@ def numbers() -> dict[str, str]:
     recall_numbers(base, tuned, out)
     kind_numbers(base, tuned, out)
     coherence_numbers(out)
+    false_retrieval_numbers(base, tuned, out)
     audit_numbers(out)
     memory_numbers(out)
     dropped_numbers(out)

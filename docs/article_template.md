@@ -14,7 +14,7 @@ With only the last three exchanges in view, the adapter answers questions about 
 correctly **{{tuned_recall_58}}%** of the time in 58-message chats and **{{tuned_recall_419}}%** in
 419-message chats. The untrained model gets {{base_recall_58}}% and {{base_recall_419}}%. That is
 **{{gain_58}}%** and **{{gain_419}}%** above the untrained model. {{kinds_summary}}
-{{coherence_summary}}
+{{coherence_summary}} {{false_retrieval_summary}}
 
 ![Recall before and after training](../figures/recall_by_length.png)
 
@@ -53,6 +53,9 @@ model instead. Nothing from that engine's code or test sets is used here.
 - **Training.** LoRA r=16 on the attention projections, learning rate 2e-4, 3 epochs, batch 2,
   through **AgentTune**'s distillation trainer, on 800 rows.
 - **Evaluation.** Our scorer, then **AuditKIT**'s agent evaluation as a second, independent scorer.
+  The final test was registered before training began and made harder before it was run: every
+  held-out chat runs once with one decoy and once with four, and recall, coherence and false
+  retrieval must all hold in both (RECORDS R-016, R-038).
 - **Records.** Every decision, run and result is in a dated log
   ([`RECORDS.md`](../RECORDS.md)). Rules for each comparison were written before its run.
 
@@ -120,6 +123,17 @@ after the marks are in.
 ![Coherence by kind](../figures/coherence_by_kind.png)
 
 {{coherence_text}}
+
+### False retrieval: the wrong person's fact
+
+Every test chat also holds a decoy: the same kind of fact about someone else, so a search for the
+friend's tutor's fear can bring back their classmate's too. A reply that names a wrong value of the
+fact asked about, the decoy's or, for a question never told, any value at all, is a false retrieval.
+The scorer already fails such a reply; here it is counted on its own.
+
+![False retrieval by kind](../figures/false_retrieval.png)
+
+{{false_retrieval_text}}
 
 ### A second scorer: AuditKIT
 

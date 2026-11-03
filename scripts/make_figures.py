@@ -22,6 +22,7 @@ from aya_retrieval.report_data import (  # noqa: E402
     by_kind,
     coherence_pooled,
     eval_rows,
+    false_retrieval,
     pooled,
     recall,
     train_report,
@@ -145,25 +146,30 @@ def legend(ax) -> None:
     )
 
 
-def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None) -> None:
-    """Rows top to bottom; a hairline from base to adapter, value labels at both ends."""
+def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None, xmax=100) -> None:
+    """Rows top to bottom; a hairline from base to adapter, value labels at both ends.
+
+    The adapter's value is always the bold one, on whichever side it falls.
+    """
     ys = list(range(len(labels)))[::-1]
+    pad = 0.022 * xmax
+    fmt = "{:.0f}%" if xmax > 40 else "{:.1f}%"
     for y, b, t in zip(ys, base_vals, tuned_vals, strict=True):
         ax.plot([b, t], [y, y], color=AXIS, lw=2, solid_capstyle="round", zorder=1)
         ax.scatter([b], [y], s=110, color=BASE_C, edgecolor=SURFACE, linewidth=2, zorder=3)
         ax.scatter([t], [y], s=130, color=TUNED_C, edgecolor=SURFACE, linewidth=2, zorder=4)
-        left, right = (b, t) if b <= t else (t, b)
-        ax.text(left - 2.2, y, f"{left:.0f}%", ha="right", va="center", color=INK_2, fontsize=10)
-        ax.text(
-            right + 2.2,
-            y,
-            f"{right:.0f}%",
-            ha="left",
-            va="center",
-            color=INK,
-            fontsize=10,
-            fontweight="semibold" if right == t else "normal",
-        )
+        for value, tuned in ((b, False), (t, True)):
+            on_right = value > (t if not tuned else b) or (value == b == t and tuned)
+            ax.text(
+                value + pad if on_right else value - pad,
+                y,
+                fmt.format(value),
+                ha="left" if on_right else "right",
+                va="center",
+                color=INK if tuned else INK_2,
+                fontsize=10,
+                fontweight="semibold" if tuned else "normal",
+            )
     if seed_vals:
         for y, seeds in zip(ys, seed_vals, strict=True):
             ax.scatter(
@@ -172,8 +178,9 @@ def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None) -> None:
     ax.set_yticks(ys, labels)
     ax.set_ylim(-0.6, len(labels) - 0.45)
     ax.tick_params(axis="y", length=0, labelsize=10.5)
-    ax.set_xlim(-8, 108)
-    ax.set_xticks([0, 25, 50, 75, 100], ["0%", "25%", "50%", "75%", "100%"])
+    ax.set_xlim(-0.08 * xmax, 1.08 * xmax)
+    ticks = [xmax * i / 4 for i in range(5)]
+    ax.set_xticks(ticks, [f"{t:g}%" for t in ticks])
     ax.grid(axis="y", visible=False)
     ax.spines["left"].set_visible(False)
 
@@ -251,6 +258,40 @@ def fig_coherence() -> None:
         "the rest against the untrained model with no tool.",
     )
     save(fig, "coherence_by_kind")
+
+
+def fig_false_retrieval() -> None:
+    base, _ = current_rows()
+    b = false_retrieval(BASE_LABEL, PROBE)
+    t = {
+        k: pooled([false_retrieval(f"{VERSIONS[CURRENT]}{s}", PROBE)[k] for s in SEEDS])
+        for k in KINDS
+    }
+    seeds = [
+        [pct(false_retrieval(f"{VERSIONS[CURRENT]}{s}", PROBE)[k]) for s in SEEDS] for k in KINDS
+    ]
+    top = max(
+        10.0, max(max(pct(b[k]), pct(t[k]), *row) for k, row in zip(KINDS, seeds, strict=True))
+    )
+    fig, ax = plt.subplots(figsize=(8, 4.3))
+    fig.subplots_adjust(left=0.24, right=0.97, top=0.75, bottom=0.13)
+    dumbbell(
+        ax,
+        [KIND_NAMES[k] for k in KINDS],
+        [pct(b[k]) for k in KINDS],
+        [pct(t[k]) for k in KINDS],
+        seeds,
+        xmax=20 * -(-top // 20),
+    )
+    ax.set_xlabel("Replies naming a wrong value of the fact asked about (lower is better)")
+    legend(ax)
+    titled(
+        fig,
+        "False retrieval: the wrong person's fact",
+        f"Probe pool, one decoy a chat, {len(SEEDS)} seeds pooled (small dots: each seed). "
+        "Never told: any value at all.",
+    )
+    save(fig, "false_retrieval")
 
 
 def fig_development_path() -> None:
@@ -351,3 +392,4 @@ if __name__ == "__main__":
     fig_coherence()
     fig_development_path()
     fig_memory()
+    fig_false_retrieval()
