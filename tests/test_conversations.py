@@ -16,9 +16,9 @@ from aya_retrieval.conversations import (
     STATEMENT,
     build_item,
 )
-from aya_retrieval.pools import HELDOUT, PROBE, TRAIN
+from aya_retrieval.pools import HELDOUT, POOLS, PROBE, TRAIN
 
-POOL_NAMES = ("train", "heldout", "probe")
+POOL_NAMES = ("train", "heldout", "probe", "independent")
 
 
 @pytest.mark.parametrize("pool", POOL_NAMES)
@@ -117,7 +117,9 @@ def test_no_reply_dominates_a_long_conversation(pool):
     assert replies.most_common(1)[0][1] <= len(item.exchanges) * 0.08
 
 
-@pytest.mark.parametrize("first, second", list(combinations((TRAIN, HELDOUT, PROBE), 2)))
+@pytest.mark.parametrize(
+    "first, second", list(combinations((TRAIN, HELDOUT, PROBE, POOLS["independent"]), 2))
+)
 def test_the_pools_share_no_content(first, second):
     assert not set(first.people) & set(second.people)
     assert not set(first.relations) & set(second.relations)
@@ -137,7 +139,7 @@ def opening_shape(statement):
     return statement[: second[0] + len(second[1])]
 
 
-@pytest.mark.parametrize("sealed", [HELDOUT, PROBE])
+@pytest.mark.parametrize("sealed", [HELDOUT, PROBE, POOLS["independent"]])
 def test_training_shares_no_way_of_stating_a_fact_with_the_test_pools(sealed):
     train_shapes = {opening_shape(fact.statement) for fact in TRAIN.facts.values()}
     sealed_shapes = {opening_shape(fact.statement) for fact in sealed.facts.values()}

@@ -800,3 +800,9 @@ PROBE = Pool(
 )
 
 POOLS = {"train": TRAIN, "heldout": HELDOUT, "probe": PROBE}
+
+# Imported last: it builds its pool from the classes above.
+from aya_retrieval.pool_independent import INDEPENDENT  # noqa: E402
+
+POOLS["independent"] = INDEPENDENT
+SEALED = ("heldout", "independent")

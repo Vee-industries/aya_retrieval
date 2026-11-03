@@ -25,7 +25,7 @@ from aya_retrieval.conversations import ITEM_KINDS, OLDER, build_item
 from aya_retrieval.harness import TurnResult, run_turn, turns_from
 from aya_retrieval.inference import GREEDY, generate_from_messages, prompt_tokens
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION, load_model
-from aya_retrieval.pools import POOLS
+from aya_retrieval.pools import POOLS, SEALED
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.recall_tool import build_recall_tool, search_finds_fact
 from aya_retrieval.scoring import check_scorer, item_correct, right_decision
@@ -78,8 +78,8 @@ def main() -> None:
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
-    if args.pool == "heldout" and not args.final:
-        parser.error("held-out conversations need --final")
+    if args.pool in SEALED and not args.final:
+        parser.error("sealed conversations need --final")
 
     require_clean_tree(args.allow_dirty)
     check_scorer()
