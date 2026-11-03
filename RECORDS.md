@@ -1044,3 +1044,40 @@ with AuditKIT's paired bootstrap (10,000 resamples, seed 0), on every case and o
 R-016's recall rule, sign test and coherence gate still decide the project. On the held-out run AuditKIT
 runs on the same results files after R-016's numbers are computed, and its numbers are reported whatever
 they show, with the disagreements counted.
+
+## R-031 · 2026-11-03 · SPRINT · AuditKIT's paired bootstrap is defective; R-030 uses a sign test and a centred bootstrap instead; AuditKIT on v3
+
+**Defect.** AuditKIT 1.1.3's `_bootstrap.paired_bootstrap`, which `compare_models`, `Experiment.significance`
+and `ComparisonResult.significance` share, resamples the paired differences and counts resampled means at
+least as large as the observed one, without centring them under no difference. Every resampled mean then
+sits around the observed mean, so p is about 0.5 for any real effect and 1.0 when every pair improves:
+
+| Pairs | AuditKIT's p |
+|---|---|
+| 100 of 100 improve | 1.0 |
+| 50 improve, 50 the same | 0.53 |
+| none change | 1.0 |
+
+The first full AuditKIT run on v3 read p = 0.52 for 57% to 88% over 240 paired cases, which is how this was
+found. Upstream `main` was still 1.1.3 (`71316da`) when checked. `tests/test_stats.py` pins the defect, so a
+fix upstream fails that test and this note gets updated.
+
+**Change to R-030, before any held-out use.** AuditKIT's bootstrap is dropped. The AuditKIT link compares
+base and adapter with the exact sign test R-016 registered and a paired bootstrap centred under no
+difference (`aya_retrieval.stats`, 10,000 resamples, seed 0; tests check both on known cases). AuditKIT's
+scoring is unchanged and still decides each case.
+
+**AuditKIT on v3, development, probe seed 73157** (`results/audit/v3_probe73157.json`). Verified successes:
+base 137 of 240; adapters 212, 220 and 211 (seeds 82, 83, 84). AuditKIT's verdict agrees with our scorer on
+959 of 960 cases. The one disagreement is seed 82's `419_in_view_03`: the answer is "thistle" and the reply
+says "Thistles"; our substring scorer passes it and AuditKIT's whole-word match does not.
+
+| Seed | Only base right | Only adapter right | Sign test p | `older` + `confirm`: only base, only adapter |
+|---|---|---|---|---|
+| 82 | 10 | 85 | 6e-16 | 4, 54 |
+| 83 | 8 | 91 | 6e-19 | 3, 59 |
+| 84 | 10 | 84 | 1e-15 | 7, 53 |
+
+The centred bootstrap gives p at its floor (1 in 10,001) for every adapter, on every case and on the recall
+kinds. AuditKIT's diagnostics: every recorded search call is valid for base and adapters; base repeats a
+call in some turns (redundant-call score summed 1.3 over 83 turns that searched), the adapters never do.
