@@ -866,3 +866,33 @@ coherence is checked when a fix is confirmed on three seeds.
 **Next: fix 1b, a larger dose.** `--hard-in-view 75` keeps 75 of the 150 `in_view` rows for items base got wrong
 (read through the hint), against 16 in fix 1. Same build seed, same screen. If it beats the full adapter on
 `in_view` without losing `older`+`confirm`, it is confirmed on seeds 82, 83 and 84 with Sheet B.
+
+## R-025 · 2026-11-02 · SPRINT · Fix 1b (more hard in-view rows) beats the full adapter on the screen; confirmation rule registered
+
+Development only, probe pool, probe seed 51203, same screen as R-024. Counts from `scratchpad/screen_cmp.py` on the
+committed results files.
+
+**Data.** `--read-hint --hard-in-view 75`, build seed 71119: 75 `in_view` rows base answered unaided and 75 from
+items base got wrong, read through the hint (102 more were rejected by the copy checks; 719 easy items were
+skipped once the easy share was full). Other kinds as in fix 1. `data/screens/hard_in_view.jsonl`, 800 rows.
+
+| Run | `older`+`confirm` | `in_view` | `never_told` | `statement` | Right decisions |
+|---|---|---|---|---|---|
+| Base | 38 of 96 | 32 | 46 | 25 | 109 of 240 |
+| Full, `v2_seed_82` | 70 | 33 | 46 | 48 | 232 |
+| Fix 1, 16 hard rows | 69 | 37 | 47 | 48 | 235 |
+| Fix 1b, 75 hard rows | 75 | 38 | 48 | 48 | 234 |
+
+Against the full adapter on the same items: `in_view` fix 1b alone right on 7, full alone on 2 (p = 0.18);
+`older`+`confirm` 10 and 5 (p = 0.30); the two together 17 and 7 (p = 0.064). Better on every kind, not yet
+distinguishable from noise on one training seed.
+
+**Run conditions.** Training took 10,770 s (8.97 s a step), against 4,485 to 7,513 s for earlier full runs on the
+same settings; speed does not enter any result.
+
+**Confirmation rule, registered before the runs.** Fix 1b trains on seeds 82 (the screen adapter), 83 and 84 and
+is scored on probe seed 73157, compared with the current set `v2_seed_82` to `v2_seed_84` from R-023. Fix 1b
+replaces v2 only if, pooled over the three seeds: correct `older` plus `confirm` is not lower than v2's 234 of 288;
+correct `in_view` is higher than v2's 109 of 144 (34, 37, 38); and right decisions stay at or above 200 of 240 on
+every seed. Then Sheet B runs on each new adapter and must hold at or above base, as in R-023. Otherwise v2 stands.
+No held-out run comes out of this without Kevin.
