@@ -64,3 +64,26 @@ def coherence_by_model_and_kind(
     return {
         model: {kind: (c[0], c[1]) for kind, c in kinds.items()} for model, kinds in counts.items()
     }
+
+
+def train_report(name: str) -> dict:
+    """One training run's report from ``results/recall_train``."""
+    path = REPO_ROOT / "results" / "recall_train" / f"{name}.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def weights_gib() -> float:
+    """Size of the pinned model's weights in bf16, counted from its safetensors files."""
+    from math import prod
+
+    from huggingface_hub import snapshot_download
+    from safetensors import safe_open
+
+    from aya_retrieval.models import MODEL_ID, MODEL_REVISION
+
+    folder = Path(snapshot_download(MODEL_ID, revision=MODEL_REVISION, local_files_only=True))
+    params = 0
+    for file in folder.glob("*.safetensors"):
+        with safe_open(str(file), "pt") as tensors:
+            params += sum(prod(tensors.get_slice(k).get_shape()) for k in tensors.keys())
+    return params * 2 / 2**30

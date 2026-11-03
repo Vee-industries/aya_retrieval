@@ -25,6 +25,8 @@ from aya_retrieval.report_data import (  # noqa: E402
     eval_rows,
     pooled,
     recall,
+    train_report,
+    weights_gib,
 )
 
 OUT = REPO_ROOT / "figures"
@@ -33,6 +35,8 @@ SEEDS = (82, 83, 84)
 BASE_LABEL = "probe2_base"
 VERSIONS = {"v1": "probe2_tuned", "v2": "probe3_tuned", "v3": "probe4_tuned"}
 CURRENT = "v3"
+TRL_LOSS_RUN = "hard_in_view_84"  # v3 data, TRL's loss (R-026)
+LEAN_LOSS_RUN = "screen_hard_in_view_lean_82"  # same data, lean loss (R-032)
 
 # Reference palette (dataviz skill): one hue, two shades for before -> after, validated --ordinal.
 SURFACE = "#fcfcfb"
@@ -275,7 +279,9 @@ def fig_development_path() -> None:
 
 
 def fig_memory() -> None:
-    weights, before, after, card = 6.27, 9.81, 7.12, 10.0  # GiB, measured in R-029
+    weights, card = weights_gib(), 10.0
+    before = train_report(TRL_LOSS_RUN)["train_peak_vram_gib"]
+    after = train_report(LEAN_LOSS_RUN)["train_peak_vram_gib"]
     fig, ax = plt.subplots(figsize=(8, 3.3))
     fig.subplots_adjust(left=0.15, right=0.97, top=0.66, bottom=0.18)
     rows = [("TRL's loss", before), ("Lean loss", after)]
@@ -308,7 +314,9 @@ def fig_memory() -> None:
     ax.grid(axis="y", visible=False)
     ax.spines["left"].set_visible(False)
     handles = [
-        Line2D([], [], marker="s", ls="", ms=10, mfc=TUNED_C, mec=TUNED_C, label="Model weights"),
+        Line2D(
+            [], [], marker="s", ls="", ms=10, mfc=TUNED_C, mec=TUNED_C, label="Model weights (bf16)"
+        ),
         Line2D([], [], marker="s", ls="", ms=10, mfc=BASE_C, mec=BASE_C, label="Training on top"),
     ]
     ax.legend(
@@ -322,7 +330,7 @@ def fig_memory() -> None:
     )
     titled(
         fig,
-        "Same loss, 2.7 GiB less memory",
+        f"Same loss, {before - after:.1f} GiB less memory",
         "Longest training rows. The lean loss gives TRL's values bit for bit, "
         "and training runs beside a browser.",
     )

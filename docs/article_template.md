@@ -13,8 +13,9 @@ reads what comes back, and answers in the same easy voice as before.
 With only the last three exchanges in view, the adapter answers questions about earlier facts
 correctly **{{tuned_recall_58}}%** of the time in 58-message chats and **{{tuned_recall_419}}%** in
 419-message chats. The untrained model gets {{base_recall_58}}% and {{base_recall_419}}%. That is
-**{{gain_58}}%** and **{{gain_419}}%** above the untrained model. Every kind of message improves, and a
-blind judge finds the adapter's replies {{coherence_overall_change}} coherent overall.
+**{{gain_58}}%** and **{{gain_419}}%** above the untrained model. Every kind of message improves. A
+blind judge finds the adapter's replies {{coherence_overall_change}} coherent overall, with one kind,
+"Did I tell you…?", still below the untrained model (see Coherence).
 
 ![Recall before and after training](../figures/recall_by_length.png)
 
