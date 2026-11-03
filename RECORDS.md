@@ -1214,3 +1214,40 @@ and `confirm`, each seed against base on probe seed 73157, each to a fresh judge
 above base's count, and pooled `older` plus `confirm` coherent at or above base's count. The screen's Sheet A
 (against base, probe seed 51203) is reported but does not decide. Otherwise v3 stands. Sheet B runs on the result
 before it is final. No held-out run comes out of this without Kevin.
+
+## R-036 · 2026-11-03 · SPRINT · R-035's rule passes: fix 5c replaces v3 as the current set (v4)
+
+**Screen sheet (R-035), unblinded after the rule was written.** Fix 5c against base, probe seed 51203, shuffle seed
+90434: base 80 of 96, fix 5c 90 (only base 2, only fix 5c 12); `older` 33 against 43, `confirm` 47 against 47.
+
+**Confirmation runs, probe seed 73157** (`probe6_tuned8x`; seed 82 is the screen adapter, 83 and 84 trained with the
+lean loss).
+
+| Rule item | Needed | Fix 5c | Holds |
+|---|---|---|---|
+| 1. `older` + `confirm` correct, pooled | at least 230 of 288 | 252 (84, 87, 81); v3 242 | yes |
+| 2. `in_view` correct, pooled | at least 114 of 144 | 115; v3 120 | yes |
+| 3. Right decisions, each seed | at least 200 of 240 | 236, 229, 226 | yes |
+| 4a. `confirm` coherent, pooled | at least base's 141 of 144 | 142 (48, 47, 47) | yes |
+| 4b. `older` + `confirm` coherent, pooled | at least base's 240 of 288 | 260 (88, 89, 83) | yes |
+
+Sheets in `results/coherence/R-036/`: shuffle seeds 90435 to 90437, three fresh judges, one sheet each, marks written
+to the scratchpad and copied in. Each judge reported judging every line itself; three turned their own zero lines
+into the file with a short script or loop. Base on these sheets: `older` 33 and `confirm` 47 on each seed.
+
+**Sheet B, before final** (`results/coherence/R-036B/`, shuffle seeds 90438 to 90440, base with no tool against fix
+5c on `statement` and `in_view`, built as R-026's: all 96 base lines come from base's `three_exchanges` replies).
+Base against fix 5c: 77 against 91, 80 against 81, 78 against 83. Per kind, `statement` 44/48, 44/44, 45/46 and
+`in_view` 33/43, 36/37, 33/37. At or above base on every seed and kind. (v3's Sheet B in R-026: 79 against 88, 87,
+89.)
+
+**AuditKIT** (`results/audit/fix5c_probe73157.json`): verified successes base 137 of 240, fix 5c 218, 218, 214.
+Agreement with our scorer 957 of 960. Sign test, every case: only base right 7, 10, 11 against only adapter 88, 91,
+88, p from 6e-19 to 5e-16; `older` + `confirm`: 4/58, 3/60, 6/57, p from 3e-13 to 2e-11.
+
+**Decision, by the rule: fix 5c is v4.** `adapters/v4_seed_82` to `v4_seed_84` (copies of
+`screens/relation_answers_8x`, checked byte for byte), data `data/screens/relation_answers.jsonl`, train pool
+templates as of commit `bc5f6d8`. Against v3, pooled on probe seed 73157: recall 252 against 242, `confirm` correct
+133 against 122, `in_view` 115 against 120, and `confirm` coherence at base instead of below it. `in_view` is the one
+measure that falls, inside R-035's allowance. Not yet measured on v4: Sheet A on `in_view`, `never_told` and
+`statement` with the tool; the held-out run's full sheet covers every kind. No held-out run without Kevin.
