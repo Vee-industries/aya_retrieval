@@ -28,7 +28,7 @@ carry their own provenance (command, git commit, package versions).
 | R-013 | ★ **First test with stops: the base readings return. Supervised pilot passes** |
 | R-014 | ★ Recall first test: search finds the fact and the model often ignores it; the 419 ceiling is not valid |
 | R-015 | Recall development baseline, rules written and committed before the run |
-| R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** (amended by R-038) |
+| R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** (amended by R-038 and R-039) |
 | R-017 | ★ Recall development baseline: base on its own tool loop; the 419 ceiling fails again |
 | R-018 | ★ First recall adapter: 119 of 120 on development items, on training vocabulary; a third pool and a stricter coherence comparison added |
 | R-019 | Probe check, rules written and committed before the run |
@@ -51,6 +51,7 @@ carry their own provenance (command, git commit, package versions).
 | R-036 | ★ R-035's rule passes: fix 5c replaces v3 as the current set (v4) |
 | R-037 | v4 is a checkpoint: its misses ranked, and the next screens |
 | R-038 | ★ Amendment to R-016, made before any held-out run: the registered test gets harder (crowded results, false retrieval) |
+| R-039 | ★ Amendment to R-016 and R-038, before any final run: an independent, harder test pool |
 
 ---
 
