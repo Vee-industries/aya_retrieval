@@ -17,11 +17,10 @@ from matplotlib.lines import Line2D  # noqa: E402
 
 from aya_retrieval.provenance import REPO_ROOT  # noqa: E402
 from aya_retrieval.report_data import (  # noqa: E402
-    COHERENCE_DIR,
     KINDS,
     SIZES,
     by_kind,
-    coherence_by_model_and_kind,
+    coherence_pooled,
     eval_rows,
     pooled,
     recall,
@@ -33,8 +32,15 @@ OUT = REPO_ROOT / "figures"
 PROBE = 73157
 SEEDS = (82, 83, 84)
 BASE_LABEL = "probe2_base"
-VERSIONS = {"v1": "probe2_tuned", "v2": "probe3_tuned", "v3": "probe4_tuned"}
-CURRENT = "v3"
+VERSIONS = {
+    "v1": "probe2_tuned",
+    "v2": "probe3_tuned",
+    "v3": "probe4_tuned",
+    "v4": "probe6_tuned",
+}
+CURRENT = "v4"
+SHEET_A_RECORD = "R-036"  # v4, older and confirm, with the tool
+SHEET_B_RECORD = "R-036B"  # v4, statement and in_view, base with no tool
 TRL_LOSS_RUN = "hard_in_view_84"  # v3 data, TRL's loss (R-026)
 LEAN_LOSS_RUN = "screen_hard_in_view_lean_82"  # same data, lean loss (R-032)
 
@@ -224,25 +230,25 @@ def fig_by_kind() -> None:
 
 
 def fig_coherence() -> None:
-    sheet_a = coherence_by_model_and_kind(
-        COHERENCE_DIR / "R-027" / "judge" / "marks_a82.json",
-        COHERENCE_DIR / "R-027" / "sheet_a82" / "key.json",
-    )
-    fig, ax = plt.subplots(figsize=(8, 4.3))
-    fig.subplots_adjust(left=0.24, right=0.97, top=0.75, bottom=0.13)
+    with_tool = coherence_pooled(SHEET_A_RECORD, [f"a{s}" for s in SEEDS])
+    no_tool = coherence_pooled(SHEET_B_RECORD, [f"b{s}" for s in SEEDS])
+    kinds = [k for k in KINDS if k in with_tool["tuned"] or k in no_tool["tuned"]]
+    counts = {k: with_tool if k in with_tool["tuned"] else no_tool for k in kinds}
+    fig, ax = plt.subplots(figsize=(8, 3.9))
+    fig.subplots_adjust(left=0.24, right=0.97, top=0.72, bottom=0.14)
     dumbbell(
         ax,
-        [KIND_NAMES[k] for k in KINDS],
-        [pct(sheet_a["base"][k]) for k in KINDS],
-        [pct(sheet_a["tuned"][k]) for k in KINDS],
+        [KIND_NAMES[k] for k in kinds],
+        [pct(counts[k]["base"][k]) for k in kinds],
+        [pct(counts[k]["tuned"][k]) for k in kinds],
     )
     ax.set_xlabel("Replies a blind judge marked coherent")
     legend(ax)
     titled(
         fig,
         "Coherence, judged blind",
-        "Probe pool, adapter seed 82, with the search tool. "
-        "The judge saw only the rubric and shuffled replies.",
+        f"Probe pool, {len(SEEDS)} seeds pooled. Fact questions with the tool; "
+        "the rest against the untrained model with no tool.",
     )
     save(fig, "coherence_by_kind")
 
@@ -265,7 +271,7 @@ def fig_development_path() -> None:
         xs[-1] + 0.12, means[-1], f"{means[-1]:.0f}%", va="center", color=INK, fontweight="semibold"
     )
     ax.text(xs[0] + 0.12, means[0], f"{means[0]:.0f}%", va="center", color=INK_2)
-    ax.set_xticks(xs, ["Untrained", "Adapter v1", "Adapter v2", "Adapter v3"])
+    ax.set_xticks(xs, ["Untrained", *(f"Adapter {v}" for v in names)])
     ax.tick_params(axis="x", length=0, colors=INK_2)
     ax.set_ylim(0, 100)
     ax.set_yticks([0, 25, 50, 75, 100], ["0%", "25%", "50%", "75%", "100%"])
@@ -275,7 +281,7 @@ def fig_development_path() -> None:
         fig,
         "Each training set, one fix at a time",
         "Probe pool, line: 3 seeds pooled, dots: each seed. "
-        "Each version kept only if it beat the last on 3 seeds.",
+        "Each kept only if it passed a rule written before its 3-seed runs.",
     )
     save(fig, "development_path")
 

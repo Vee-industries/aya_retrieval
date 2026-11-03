@@ -87,3 +87,22 @@ def weights_gib() -> float:
         with safe_open(str(file), "pt") as tensors:
             params += sum(prod(tensors.get_slice(k).get_shape()) for k in tensors.keys())
     return params * 2 / 2**30
+
+
+def coherence_pooled(record: str, sheets: list[str]) -> dict[str, dict[str, tuple[int, int]]]:
+    """Coherent lines per model and kind, added up over several sheets of one record.
+
+    Each name in ``sheets`` has its marks at ``judge/marks_<name>.json`` and its key at
+    ``sheet_<name>/key.json`` under ``results/coherence/<record>``.
+    """
+    folder = COHERENCE_DIR / record
+    total: dict[str, dict[str, list[int]]] = defaultdict(lambda: defaultdict(lambda: [0, 0]))
+    for name in sheets:
+        counts = coherence_by_model_and_kind(
+            folder / "judge" / f"marks_{name}.json", folder / f"sheet_{name}" / "key.json"
+        )
+        for model, kinds in counts.items():
+            for kind, (hits, lines) in kinds.items():
+                total[model][kind][0] += hits
+                total[model][kind][1] += lines
+    return {model: {k: (c[0], c[1]) for k, c in kinds.items()} for model, kinds in total.items()}

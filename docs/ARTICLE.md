@@ -11,11 +11,10 @@ fact up instead: it searches the earlier conversation when, and only when, the a
 reads what comes back, and answers in the same easy voice as before.
 
 With only the last three exchanges in view, the adapter answers questions about earlier facts
-correctly **81%** of the time in 58-message chats and **88%** in
+correctly **84%** of the time in 58-message chats and **91%** in
 419-message chats. The untrained model gets 31% and 31%. That is
-**+158%** and **+180%** above the untrained model. Every kind of message improves. A
-blind judge finds the adapter's replies 20% more coherent overall, with one kind,
-"Did I tell you…?", still below the untrained model (see Coherence).
+**+169%** and **+191%** above the untrained model. Every kind of message improves.
+A blind judge finds the adapter's replies 8% more often coherent than the untrained model's, and at or above it on every kind judged.
 
 ![Recall before and after training](../figures/recall_by_length.png)
 
@@ -87,11 +86,18 @@ before the runs.
 3. **Facts still on screen.** The adapter searched less but still missed facts in plain view. Rows
    where the untrained model had failed were added, answered through a hint that is removed from the
    row (**v3**).
-4. **Fixes that did not work were dropped.** Fewer “never told” rows (fix 3): recall 73 against 74 of 96 on the screen (sign test p = 0.50). A second search after an empty one (fix 4): recall 62 against 74 of 96 on the screen (sign test p = 0.08).
+4. **Coherence on "Did I tell you…?" fell below the untrained model.** A blind judge found the
+   adapter answering a question with "That's great news!" or "Esme, who is my tutor, speaks fluent
+   Turkish". Both came from the training answers. Some of the untrained model's own answers on this
+   kind opened with a reaction to news, so this kind's rows got a plain answer instead.
+   And most plain answers left the relation out ("Esme speaks fluent Turkish"), so the model never
+   saw the friend's "my tutor" turned into "your tutor" and copied the "my" from the search result.
+   Answers that name the relation from the friend's side closed the gap (**v4**).
+5. **Fixes that did not work were dropped.** Fewer “never told” rows (fix 3): recall 73 against 74 of 96 on the screen (sign test p = 0.50). A second search after an empty one (fix 4): recall 62 against 74 of 96 on the screen (sign test p = 0.08). Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
 
 ## Results
 
-Development numbers: the probe pool, 240 conversations (24 of each kind at each length), the untrained model against 3 adapters trained on seeds 82, 83, 84. The held-out run replaces these.
+Development numbers: the probe pool, 240 conversations (24 of each kind at each length), the untrained model against 3 adapters (v4) trained on seeds 82, 83, 84. The held-out run replaces these.
 
 ### Every kind of message improves
 
@@ -99,14 +105,14 @@ Development numbers: the probe pool, 240 conversations (24 of each kind at each 
 
 | Kind | Untrained | Adapter | Above untrained |
 |---|---|---|---|
-| Fact told long ago | 48% | 83% | +74% |
-| “Did I tell you…?” | 15% | 85% | +481% |
-| Fact still on screen | 71% | 83% | +18% |
-| Never told | 88% | 97% | +10% |
+| Fact told long ago | 48% | 83% | +72% |
+| “Did I tell you…?” | 15% | 92% | +533% |
+| Fact still on screen | 71% | 80% | +13% |
+| Never told | 88% | 98% | +12% |
 | Just chatting | 65% | 99% | +54% |
 
 Right decisions, searching exactly when the answer is out of view: 119 of
-240 untrained, 238, 230, 230 (seeds 82, 83, 84) of 240 with the adapter.
+240 untrained, 236, 229, 226 (seeds 82, 83, 84) of 240 with the adapter.
 
 ### Coherence, judged blind
 
@@ -117,16 +123,23 @@ after the marks are in.
 
 ![Coherence by kind](../figures/coherence_by_kind.png)
 
-**With the search tool** (adapter seed 82, every kind): the adapter's replies are coherent 203 of 240 times against the untrained model's 169, +20%. Four kinds gain. **One kind loses:** on “Did I tell you…?” the adapter is coherent 35 of 48 times against 47. Its incoherent replies open with a reaction to news (“That's great news!”) when the friend asked a question, a habit carried over from some of the untrained model's own answers in the training data. This is the open problem the next fix targets.
+Pooled over 3 adapter seeds and 6 sheets, each with its own judge:
 
-**Ordinary talk, with no tool at all** (just chatting and facts on screen, 96 replies a sheet, 3 adapter seeds, each against the untrained model): 88 against 79 (seed 82); 87 against 79 (seed 83); 89 against 79 (seed 84). Training the tool habit did not cost ordinary conversation.
+| Kind | Setting | Untrained | Adapter | Above untrained |
+|---|---|---|---|---|
+| Fact told long ago | both with the tool | 99 of 144 | 118 of 144 | +19% |
+| “Did I tell you…?” | both with the tool | 141 of 144 | 142 of 144 | +1% |
+| Fact still on screen | untrained with no tool | 102 of 144 | 117 of 144 | +15% |
+| Just chatting | untrained with no tool | 133 of 144 | 138 of 144 | +4% |
+
+Fact questions are judged with the search tool for both models. On-screen facts and ordinary chat are judged against the untrained model with no tool at all, so the adapter is held to the model's own ordinary talk.
 
 ### A second scorer: AuditKIT
 
 Every reply is scored again with AuditKIT's agent evaluation. Each turn becomes an AuditKIT episode
 (the friend's message, the search calls, the final reply), and AuditKIT's own oracles decide each
 case. For the fact questions this is its `AnswerAssertion`, which matches whole words and is stricter
-than our scorer. AuditKIT agrees with our scorer on 959 of 960 cases. The exact sign test on AuditKIT's verdicts puts every adapter seed above the untrained model with p between 6e-19 and 1e-15.
+than our scorer. AuditKIT agrees with our scorer on 957 of 960 cases. The exact sign test on AuditKIT's verdicts puts every adapter seed above the untrained model with p between 6e-19 and 5e-16.
 
 **AuditKIT's significance test is broken, so it is not used.** Its paired bootstrap does not centre
 its resamples under the hypothesis of no difference. A gain on 100 of 100 pairs comes out as
@@ -153,6 +166,8 @@ not the exact result, so every claim here pools three training seeds.
 
 - The conversations are generated from templates. Real chats are messier, and the vocabulary is
   narrower than real speech.
+- In development, coherence was judged on four of the five kinds; "never told" replies were not on a
+  coherence sheet. The held-out run's sheet covers every kind.
 - The "never told" scorer passes any reply that names none of the listed values, so an invented
   fact outside the list can pass. It is reported, not used to decide.
 - The coherence judge sees only the turns in view, so it cannot tell a false "you never told me"

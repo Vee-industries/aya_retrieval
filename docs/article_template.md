@@ -13,9 +13,8 @@ reads what comes back, and answers in the same easy voice as before.
 With only the last three exchanges in view, the adapter answers questions about earlier facts
 correctly **{{tuned_recall_58}}%** of the time in 58-message chats and **{{tuned_recall_419}}%** in
 419-message chats. The untrained model gets {{base_recall_58}}% and {{base_recall_419}}%. That is
-**{{gain_58}}%** and **{{gain_419}}%** above the untrained model. Every kind of message improves. A
-blind judge finds the adapter's replies {{coherence_overall_change}} coherent overall, with one kind,
-"Did I tell you…?", still below the untrained model (see Coherence).
+**{{gain_58}}%** and **{{gain_419}}%** above the untrained model. {{kinds_summary}}
+{{coherence_summary}}
 
 ![Recall before and after training](../figures/recall_by_length.png)
 
@@ -87,7 +86,14 @@ before the runs.
 3. **Facts still on screen.** The adapter searched less but still missed facts in plain view. Rows
    where the untrained model had failed were added, answered through a hint that is removed from the
    row (**v3**).
-4. **Fixes that did not work were dropped.** {{dropped_fixes}}
+4. **Coherence on "Did I tell you…?" fell below the untrained model.** A blind judge found the
+   adapter answering a question with "That's great news!" or "Esme, who is my tutor, speaks fluent
+   Turkish". Both came from the training answers. Some of the untrained model's own answers on this
+   kind opened with a reaction to news, so this kind's rows got a plain answer instead.
+   And most plain answers left the relation out ("Esme speaks fluent Turkish"), so the model never
+   saw the friend's "my tutor" turned into "your tutor" and copied the "my" from the search result.
+   Answers that name the relation from the friend's side closed the gap (**v4**).
+5. **Fixes that did not work were dropped.** {{dropped_fixes}}
 
 ## Results
 
@@ -147,6 +153,8 @@ not the exact result, so every claim here pools three training seeds.
 
 - The conversations are generated from templates. Real chats are messier, and the vocabulary is
   narrower than real speech.
+- In development, coherence was judged on four of the five kinds; "never told" replies were not on a
+  coherence sheet. The held-out run's sheet covers every kind.
 - The "never told" scorer passes any reply that names none of the listed values, so an invented
   fact outside the list can pass. It is reported, not used to decide.
 - The coherence judge sees only the turns in view, so it cannot tell a false "you never told me"
