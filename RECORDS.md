@@ -1118,3 +1118,34 @@ targets was the wrong filter. Fix 5 is not adopted.
 scripted answer ("Your cousin Ivan's dog is called Waffles.") in place of base's own answer. One change from v3,
 same build seed, same screen, then Sheet A on `older` and `confirm` against base with a fresh judge. It is adopted
 for confirmation on three seeds only if recall does not fall and `confirm` coherence reaches base's.
+
+## R-033 · 2026-11-03 · SPRINT · Fix 5b (scripted `confirm` answers) ties v3 on the screen; confirmation rule registered before its runs and marks
+
+Development only, screen probe seed 51203, adapter seed 82, lean loss. `--scripted-answers confirm`, build seed 71119:
+all 150 `confirm` rows whose search found the fact get the scripted answer (base answers 0, against 94 in v3's
+data); other kinds as v3. `data/screens/scripted_confirm.jsonl`, 800 rows.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) |
+|---|---|---|---|---|---|---|---|
+| base | 38 | 33 | 5 | 32 | 46 | 25 | 109 |
+| v3, lean loss | 74 | 36 | 38 | 37 | 47 | 48 | 233 |
+| fix 5b (`screen_scripted_confirm_82`) | 71 | 33 | 38 | 37 | 48 | 48 | 232 |
+
+Against v3 on correct answers: 14 items v3 alone, 12 fix 5b alone (p = 0.85). The stock news openers are gone from
+fix 5b's `confirm` replies; its most common openings are "I don't have" (5) and a name followed by the fact. Sheet A
+on `older` and `confirm` against base (192 lines, shuffle seed 90430, `results/coherence/R-033/`) went to a fresh
+judge before this rule was written; its marks are not read yet.
+
+**Confirmation rule, written before seeds 83 and 84 exist and before any fix 5b coherence mark is read.** Fix 5b
+trains on seeds 82 (the screen adapter), 83 and 84 and is scored on probe seed 73157 as `probe5_tuned8x`, against v3
+(`probe4_tuned8x`, R-026). It replaces v3 only if all of these hold:
+1. correct `older` plus `confirm`, pooled, at least 230 of 288 (v3: 242);
+2. correct `in_view`, pooled, at least 114 of 144 (v3: 120);
+3. right decisions at least 200 of 240 on every seed;
+4. Sheet A on `older` and `confirm`, each seed against base on probe seed 73157, each sheet to a fresh judge:
+   pooled over the three sheets, `confirm` coherent at or above base's count, and `older` plus `confirm` coherent at
+   or above base's count.
+Items 1 and 2 allow 5% below v3 (12 and 6 items). This is a judgment made now, not a measured noise band: fix 5b
+gives up base's wording on `confirm` to remove the incoherent openers, the screen shows a 3-item drop that the sign
+test cannot tell from noise, and Kevin's hard rule is that coherence cannot decrease. Otherwise v3 stands. Sheet B
+runs on the result before it is final. No held-out run comes out of this without Kevin.
