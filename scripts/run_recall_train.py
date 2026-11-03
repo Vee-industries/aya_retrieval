@@ -2,7 +2,7 @@
 
 Training only: scoring is a separate process (``run_recall_eval.py``), so the card is free for it.
 About 1 second a step on an RTX 3080 (R-029). The adapter goes outside the repository. The loss is
-TRL's chunked cross-entropy with the output layer applied by vocabulary block (``lean_loss``), so
+TRL's chunked cross-entropy without its float32 copies of the output layer (``lean_loss``), so
 training leaves card memory for other programs.
 
 Usage:
