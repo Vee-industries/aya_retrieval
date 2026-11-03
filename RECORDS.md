@@ -1059,7 +1059,8 @@ sits around the observed mean, so p is about 0.5 for any real effect and 1.0 whe
 | none change | 1.0 |
 
 The first full AuditKIT run on v3 read p = 0.52 for 57% to 88% over 240 paired cases, which is how this was
-found. Upstream `main` was still 1.1.3 (`71316da`) when checked. `tests/test_stats.py` pins the defect, so a
+found. Upstream `main` was still 1.1.3 (`71316da`) when checked. The write-up for Lexsi is in
+`docs/auditkit_bootstrap_defect.md`; Kevin reports it in the submission, not publicly. `tests/test_stats.py` pins the defect, so a
 fix upstream fails that test and this note gets updated.
 
 **Change to R-030, before any held-out use.** AuditKIT's bootstrap is dropped. The AuditKIT link compares
