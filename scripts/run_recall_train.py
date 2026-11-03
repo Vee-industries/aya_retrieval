@@ -1,7 +1,9 @@
 """Train the recall adapter on ``data/recall_train.jsonl`` through AgentTune's distillation trainer.
 
 Training only: scoring is a separate process (``run_recall_eval.py``), so the card is free for it.
-About 9 seconds a step on an RTX 3080. The adapter goes outside the repository.
+About 6 seconds a step on an RTX 3080. The adapter goes outside the repository. The loss is
+TRL's chunked cross-entropy with the output layer applied by vocabulary block (``lean_loss``), so
+training leaves card memory for other programs.
 
 Usage:
     python scripts/run_recall_train.py --seed 1234 --out-dir C:/scratch/recall_adapter
@@ -26,6 +28,7 @@ from agenttune.agentic.distill_trainer import _DefaultSFTTrainerFactory
 from huggingface_hub import snapshot_download
 
 from aya_retrieval.demonstrations import as_event_log, kind_balanced_subset
+from aya_retrieval.lean_loss import use_lean_loss
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.tool_prompt import system_prompt_with_tools
@@ -78,6 +81,7 @@ def main() -> None:
         "fraction": args.fraction,
         "batch_size": args.batch_size,
         "grad_accum": args.grad_accum,
+        **use_lean_loss(),
     }
     rows = [json.loads(line) for line in args.data.read_text(encoding="utf-8").splitlines()]
     if args.fraction < 1:
