@@ -1283,3 +1283,42 @@ indirect phrasing per fact type, 25 in all, each used for a third of that type's
    read in the loss list above; a test enforces it, so the probe still measures phrasings the model has not seen. The
    held-out pool's phrasings were not read. Drawn from a separate generator, so only the question changes.
 A screen that gains goes to three seeds under a rule written before those runs, as R-033 and R-035 did.
+
+## R-038 · 2026-11-03 · SPRINT · ★ Amendment to R-016, made before any held-out run: the registered test gets harder (crowded results, false retrieval)
+
+**What changes.** R-016's held-out test stays exactly as registered, and two requirements are added to it. Nothing in
+R-016 is loosened or dropped.
+
+1. **A crowded condition.** Every held-out conversation is also run with four decoys (`run_recall_eval.py --pool
+   heldout --final --decoys 4`): four more facts of the same type about other people, so a search for the asked fact
+   comes back with several same-type facts and only one is the friend's. Base and each adapter run on identical
+   conversations in both conditions, 300 conversations each (30 per kind at each of 58 and 419 messages), once.
+2. **False retrieval as a gated measure.** A reply that names a wrong value of the asked fact's type, whether a decoy
+   about someone else or, for a question never told, any value of that type, is a false retrieval
+   (`report_data.false_retrieval`). In each condition, each adapter's false retrievals must be no more than base's
+   on the same conversations.
+3. **R-016's rules apply in both conditions.** The recall rule (at least 20 points above base at each message size,
+   pooled over the three adapters, and the paired exact sign test below p = 0.01) and the hard coherence gate (each
+   adapter's coherent count at or above base's on the same conversations, blind judge, rubric only) must hold with one
+   decoy and with four. **The project passes only if every rule holds in both conditions.** Each condition's results
+   are reported in full whether it passes or fails, with false retrieval per kind beside them.
+
+**Why it is added now.** On 2026-11-03 Kevin asked whether the project accounts for false retrieval. Checking showed
+that it does in the scorer, which fails a reply naming a wrong value, but that the registered test does not press on
+it: every test conversation holds one decoy, while training shows 0 to 3, so the test never asks whether the model
+picks the right person out of several same-type facts. Kevin: "we're just making the registered test harder ... we
+want our answers to be toight." The amendment can only make the project's claims harder to earn.
+
+**Why now is still clean.**
+- No held-out conversation has been built, run or scored. No results file exists for the `heldout` pool.
+- What Claude has seen of the held-out pool: a count of wording overlap with its statements (R-022, disclosed there);
+  its five answer templates, which appeared in a search output on 2026-11-03 while Claude counted train answer
+  templates; and its counts of values per fact type (at least 5), people (10) and relations (8), read to find how many
+  decoys it supports. No held-out question, conversation or value list was read.
+- The decoy count is fixed now, before any four-decoy result exists on any pool: four is the most the held-out pool
+  supports (at least five values per type, one of them the answer) and more than training ever shows (three).
+
+**Development.** The same four-decoy run on the probe pool (base and v4, probe seed 73157) shows where the current
+adapter stands. It is development only and decides nothing. If training is later changed in response to it, the probe's
+four-decoy numbers stop being a clean measure, and the held-out run is the only clean read; any such change is recorded
+as one.
