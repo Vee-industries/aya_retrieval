@@ -284,9 +284,46 @@ run-to-run variation (R-032).
   on a coherence sheet; the final sheets cover every kind.
 - **Training is not bit-reproducible on this card.** With the same rows and seed, TRL's own first
   gradient norm varied from run to run (R-029), so every claim pools three seeds.
-- **English only.**
+## 11. Limitations
 
-## 11. Reproduce
+What this work does not cover, whatever its numbers:
+
+- **One model, one size.** Only Tiny Aya Global (3.35B) was trained. Whether the recipe carries to
+  Aya Expanse 8B or 32B, or to other families, is untested.
+- **English only.** Tiny Aya is multilingual, and the friend's messages here are all English.
+- **Facts never change.** Each fact is told once and stays true. Real friends correct themselves
+  ("actually they moved again"), and the model is never asked to prefer the newer of two facts.
+- **One tool, read only.** The model searches but never writes: it cannot save a note, update a
+  fact or forget one, which a real memory needs.
+- **A fixed window.** The view is always the last three exchanges, and conversations are 58 or 419
+  messages. Other window sizes and much longer histories are untested.
+- **No hostile text.** Retrieved passages are the friend's own words. Instructions hidden inside
+  retrieved text, a risk for any model that reads search results, are out of scope here.
+- **Greedy decoding only.** Every reply is greedy; behaviour under sampling is not measured.
+- **Judged by models, not people.** Coherence is marked by a language model with a fixed rubric;
+  no human panel checked the marks.
+- **One machine.** All training and timing ran on one consumer card; costs elsewhere are estimates
+  from measured speed and published prices.
+
+## 12. Future work
+
+- **Facts that change.** Train and test conversations where a fact is told, then corrected, and
+  score whether the reply uses the newer one.
+- **Injection in retrieved text.** Train the model to treat instructions inside search results as
+  content, not commands, and test it with hidden instructions in the friend's earlier messages.
+  This was the second behaviour in the original plan.
+- **Writing memory.** Add a tool that saves a note, so the model decides what is worth keeping, and
+  measure recall when only the notes, not the full history, are searchable.
+- **Reinforcement on verified outcomes.** The decision to search and the answer are both checkable
+  by code, so they suit reward-based training (for example GRPO through AgentTune) on top of the
+  supervised adapter.
+- **Other languages and larger models.** Repeat the recipe in the languages Tiny Aya supports, and
+  on Aya Expanse 8B, with the same sealed-test protocol.
+- **Real conversations.** Test on consented real chat logs, and add a human panel beside the model
+  judge.
+- **Upstream fixes.** Offer the memory-lean loss to TRL and the bootstrap fix to AuditKIT.
+
+## 13. Reproduce
 
 Everything runs on one 10 GB card. The repository holds the pinned model revision, the data
 builder, training and evaluation scripts, every results file with its provenance (command, commit,
