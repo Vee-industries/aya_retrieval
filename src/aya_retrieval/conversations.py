@@ -163,3 +163,17 @@ def build_item(
         query=query,
         reply=reply,
     )
+
+
+def rebuild_eval_item(row: dict, probe_seed: int, pool: str, decoys: int = 1) -> RecallItem:
+    """Rebuild a results row's test item from its id, as the evaluation built it, and check it.
+
+    Raises:
+        ValueError: If the rebuilt item's message or answer differs from the row's.
+    """
+    size, number = int(row["id"].split("_")[0]), int(row["id"].rsplit("_", 1)[1])
+    seed = probe_seed + size * 1000 + ITEM_KINDS.index(row["kind"]) * 100 + number
+    item = build_item(row["id"], seed, size, row["kind"], pool, decoys)
+    if item.message != row["message"] or item.answer != row["answer"]:
+        raise ValueError(f"rebuilt item {row['id']} does not match the results row")
+    return item

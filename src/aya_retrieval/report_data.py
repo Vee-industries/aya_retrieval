@@ -106,3 +106,26 @@ def coherence_pooled(record: str, sheets: list[str]) -> dict[str, dict[str, tupl
                 total[model][kind][0] += hits
                 total[model][kind][1] += lines
     return {model: {k: (c[0], c[1]) for k, c in kinds.items()} for model, kinds in total.items()}
+
+
+def false_retrieval(
+    label: str, probe_seed: int, arm: str = "tool_loop"
+) -> dict[str, tuple[int, int]]:
+    """Replies per kind that name a wrong value of the asked fact's type: false retrieval.
+
+    A wrong value is a decoy, the same fact about someone else, or for a question never told, any
+    value of that type.
+
+    Each item is rebuilt from its seed, with the pool and decoy count its results file records.
+    """
+    from aya_retrieval.conversations import rebuild_eval_item
+
+    report = json.loads((EVAL_DIR / f"{label}_seed_{probe_seed}.json").read_text(encoding="utf-8"))
+    pool, decoys = report["pool"], report.get("decoys", 1)
+    counts = {kind: [0, 0] for kind in KINDS}
+    for row in eval_rows(label, probe_seed, arm):
+        item = rebuild_eval_item(row, probe_seed, pool, decoys)
+        text = row["reply"].casefold()
+        counts[row["kind"]][0] += any(v.casefold() in text for v in item.forbidden)
+        counts[row["kind"]][1] += 1
+    return {kind: (c[0], c[1]) for kind, c in counts.items()}

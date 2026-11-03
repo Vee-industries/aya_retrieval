@@ -28,7 +28,7 @@ from auditkit.agent_eval import (
     episode_from_openai_messages,
 )
 
-from aya_retrieval.conversations import ITEM_KINDS, NEVER_TOLD, STATEMENT, RecallItem, build_item
+from aya_retrieval.conversations import NEVER_TOLD, STATEMENT, RecallItem, rebuild_eval_item
 from aya_retrieval.stats import exact_sign_test, paired_bootstrap
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME
 
@@ -36,14 +36,9 @@ ORACLE_VERSION = "1"
 DIAGNOSTICS = ["tool_call_validity", "redundant_tool_calls"]
 
 
-def rebuild_item(row: dict, probe_seed: int, pool: str) -> RecallItem:
+def rebuild_item(row: dict, probe_seed: int, pool: str, decoys: int = 1) -> RecallItem:
     """Rebuild a row's test item from its id, as the evaluation built it, and check it matches."""
-    size, number = int(row["id"].split("_")[0]), int(row["id"].rsplit("_", 1)[1])
-    seed = probe_seed + size * 1000 + ITEM_KINDS.index(row["kind"]) * 100 + number
-    item = build_item(row["id"], seed, size, row["kind"], pool)
-    if item.message != row["message"] or item.answer != row["answer"]:
-        raise ValueError(f"rebuilt item {row['id']} does not match the results row")
-    return item
+    return rebuild_eval_item(row, probe_seed, pool, decoys)
 
 
 def episode_for(row: dict):

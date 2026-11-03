@@ -74,3 +74,31 @@ def test_coherence_pooled_adds_sheets(tmp_path, monkeypatch):
         (tmp_path / "R" / f"sheet_{name}" / "key.json").write_text(json.dumps(key))
         (tmp_path / "R" / "judge" / f"marks_{name}.json").write_text(json.dumps({"0": mark}))
     assert report_data.coherence_pooled("R", ["a", "b"]) == {"tuned": {"older": (1, 2)}}
+
+
+def test_false_retrieval_counts_replies_that_name_a_wrong_value(tmp_path, monkeypatch):
+    from aya_retrieval.conversations import ITEM_KINDS, build_item
+
+    monkeypatch.setattr(report_data, "EVAL_DIR", tmp_path)
+    rows = []
+    for number, (kind, reply) in enumerate(
+        [("older", "It was {answer}."), ("older", "It was {decoy}."), ("never_told", "{any}!")]
+    ):
+        seed = 7 + 58 * 1000 + ITEM_KINDS.index(kind) * 100 + number
+        item = build_item(f"58_{kind}_{number:02d}", seed, 58, kind, "probe")
+        text = reply.format(answer=item.answer, decoy=item.decoy, any=item.forbidden[0])
+        rows.append(
+            {
+                "id": item.item_id,
+                "kind": kind,
+                "message": item.message,
+                "answer": item.answer,
+                "reply": text,
+                "size": 58,
+                "correct": True,
+            }
+        )
+    (tmp_path / "x_seed_7.json").write_text(json.dumps({"pool": "probe", "rows": rows}))
+    counts = report_data.false_retrieval("x", 7)
+    assert counts["older"] == (1, 2)
+    assert counts["never_told"] == (1, 1)
