@@ -925,7 +925,7 @@ without Kevin.
 
 **Disclosure, run conditions.** Seed 84's first run slowed at step 545 from about 7 s to 300 to 650 s a step when
 it spilled out of card memory (training peaks at 9.8 of 10 GiB), and was stopped and retrained from scratch at
-02:08 (6,798 s). A stall watcher now runs beside every training run. Speed does not enter any result.
+02:08 (6,807 s). A stall watcher now runs beside every training run. Speed does not enter any result.
 
 **Where v3 still misses (for the next fixes).** Wrong replies by cause, seeds 82, 83, 84: fact found and not used
 (`older` plus `confirm`) 10, 4 and 14, mostly a "not told" reply; `in_view` answered without a search and wrong 10,
