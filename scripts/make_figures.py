@@ -75,6 +75,7 @@ plt.rcParams.update(
         "grid.color": GRID,
         "grid.linewidth": 0.8,
         "axes.axisbelow": True,
+        "svg.hashsalt": "aya_retrieval",
     }
 )
 
@@ -94,7 +95,8 @@ def titled(fig, title: str, subtitle: str) -> None:
 def save(fig, name: str) -> None:
     OUT.mkdir(exist_ok=True)
     for ext in ("png", "svg"):
-        fig.savefig(OUT / f"{name}.{ext}", dpi=200)
+        meta = {"Date": None} if ext == "svg" else {"Software": None}
+        fig.savefig(OUT / f"{name}.{ext}", dpi=200, metadata=meta)
     plt.close(fig)
     print(f"wrote figures/{name}.png and .svg")
 
