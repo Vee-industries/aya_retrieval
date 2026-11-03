@@ -1019,3 +1019,28 @@ sits under `results/coherence/R-0xx/`, and the counting scripts the records cite
 (`screen_cmp.py`, `rule_r022.py`, `gate_r022.py`, `rule_r025.py`, `unblind.py`). The scripts were reformatted
 for lint only; on the committed results they print what the scratch copies printed, and `unblind.py` gives every
 coherence count in R-020 to R-027 from the moved files.
+
+## R-030 · 2026-11-03 · SPRINT · AuditKIT joins the evaluation: a second scorer and a second significance test, registered before use
+
+The hackathon asks for at least two Lexsi toolkits chained. Training runs through AgentTune; until now
+AuditKIT only read a smoke run's trajectories (R-004). From here every scored results file can be scored
+again by AuditKIT's agent evaluation (`aya_retrieval.audit`, `scripts/run_audit.py`), written before any
+full run of it was read.
+
+**How.** Each results row becomes an AuditKIT episode: the friend's message, one `search_corpus` call per
+query the model made, and its final reply. Search results were not kept, so AuditKIT marks them
+unavailable. Each item is rebuilt from its seed and checked against the row before scoring. The outcome
+of each case is an AuditKIT oracle:
+- `older`, `confirm`, `in_view`: AuditKIT's `AnswerAssertion` in `contains` mode, which matches the planted
+  answer on word boundaries. Our scorer (R-016) matches any substring and also fails a reply that names a
+  wrong value, so the two can disagree; every disagreement is listed with its reply.
+- `never_told`: a `CustomPredicate` (version 1) that the reply names no value of that kind, our own rule
+  run inside AuditKIT.
+- `statement`: a `CustomPredicate` (version 1) that the episode holds no tool call.
+Diagnostics: AuditKIT's `tool_call_validity` and `redundant_tool_calls`. Base and each adapter are compared
+with AuditKIT's paired bootstrap (10,000 resamples, seed 0), on every case and on `older` plus `confirm`.
+
+**Rule.** This is a second scorer and a second test, reported beside R-016's and never in place of them.
+R-016's recall rule, sign test and coherence gate still decide the project. On the held-out run AuditKIT
+runs on the same results files after R-016's numbers are computed, and its numbers are reported whatever
+they show, with the disagreements counted.
