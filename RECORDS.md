@@ -1082,3 +1082,39 @@ says "Thistles"; our substring scorer passes it and AuditKIT's whole-word match 
 The centred bootstrap gives p at its floor (1 in 10,001) for every adapter, on every case and on the recall
 kinds. AuditKIT's diagnostics: every recorded search call is valid for base and adapters; base repeats a
 call in some turns (redundant-call score summed 1.3 over 83 turns that searched), the adapters never do.
+
+## R-032 · 2026-11-03 · SPRINT · Lean loss leaves v3 unchanged; fix 4 dropped; fix 5 ties on recall and does not restore `confirm` coherence; fix 5b next
+
+Development only, screen probe seed 51203, adapter seed 82, 240 items. Counts from `scripts/records/screen_cmp.py`;
+sign tests on correct answers from `aya_retrieval.stats`. Every run here trains with the lean loss (R-029), about
+1,300 s a run at 7.1 to 7.2 GiB peak.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) |
+|---|---|---|---|---|---|---|---|
+| base | 38 | 33 | 5 | 32 | 46 | 25 | 109 |
+| v3, TRL loss (`screen_hard_in_view82`) | 75 | 37 | 38 | 38 | 48 | 48 | 234 |
+| v3, lean loss (`screen_hard_in_view_lean82`) | 74 | 36 | 38 | 37 | 47 | 48 | 233 |
+| fix 5 (`screen_coherent_targets_82`) | 76 | 36 | 40 | 41 | 47 | 48 | 233 |
+| fix 4 (`screen_second_search_82`) | 62 | 29 | 33 | 37 | 48 | 48 | 233 |
+
+**Lean loss.** v3 retrained on the same data with the lean loss differs from the TRL-loss run on 13 of 240 items
+(5 and 8 each way, p = 0.58): the loss change leaves results where run-to-run variation puts them. Fixes below are
+compared with the lean-loss v3.
+
+**Fix 4 dropped.** Correct answers: v3 alone right on 22 items, fix 4 alone on 11 (p = 0.080); recall 62 against 74.
+Teaching an empty first search made the model worse at answering.
+
+**Fix 5: recall ties, coherence does not recover.** Correct answers 8 and 14 each way (p = 0.29). Sheet A on
+`older` and `confirm`, fix 5 against base on probe seed 51203: 192 lines, shuffle seed 90429, a fresh judge with only
+the rubric and its sheet (it judged every line by reading it and typed its 44 zero lines into a short script to write
+the file). Files in `results/coherence/R-032/`. Base coherent 79 of 96, fix 5 69 (only base 18, only fix 5 8).
+`older` 32 against 34, **`confirm` 47 against 35**, the same gap R-027 found for v3 on probe seed 73157. Fix 5's
+incoherent `confirm` replies open with a news reaction ("That's great news!", "That's great to hear!", "That's a
+change") to a question, or name the wrong person. The training targets still carry those openers: 14 of 150
+`confirm` answers in fix 5's data, as in v3's, because R-029's judge marked them coherent there. Judging the
+targets was the wrong filter. Fix 5 is not adopted.
+
+**Next: fix 5b.** `--scripted-answers confirm`: every `confirm` row whose search found the fact gets the short
+scripted answer ("Your cousin Ivan's dog is called Waffles.") in place of base's own answer. One change from v3,
+same build seed, same screen, then Sheet A on `older` and `confirm` against base with a fresh judge. It is adopted
+for confirmation on three seeds only if recall does not fall and `confirm` coherence reaches base's.
