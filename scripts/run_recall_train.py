@@ -1,7 +1,7 @@
 """Train the recall adapter on ``data/recall_train.jsonl`` through AgentTune's distillation trainer.
 
 Training only: scoring is a separate process (``run_recall_eval.py``), so the card is free for it.
-About 6 seconds a step on an RTX 3080. The adapter goes outside the repository. The loss is
+About 1 second a step on an RTX 3080 (R-029). The adapter goes outside the repository. The loss is
 TRL's chunked cross-entropy with the output layer applied by vocabulary block (``lean_loss``), so
 training leaves card memory for other programs.
 
