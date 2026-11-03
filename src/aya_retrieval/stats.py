@@ -45,3 +45,48 @@ def paired_bootstrap(
         "delta": observed,
         "p_value": (extreme + 1) / (n_resamples + 1),
     }
+
+
+def wilson_interval(hits: int, total: int, z: float = 1.96) -> tuple[float, float]:
+    """95% Wilson score interval for a proportion, as fractions."""
+    if total == 0:
+        return 0.0, 1.0
+    p = hits / total
+    centre = (p + z * z / (2 * total)) / (1 + z * z / total)
+    half = z * ((p * (1 - p) / total + z * z / (4 * total * total)) ** 0.5) / (1 + z * z / total)
+    return max(0.0, centre - half), min(1.0, centre + half)
+
+
+def bootstrap_gain_interval(
+    base: list[int], adapters: list[list[int]], n_resamples: int = 10_000, seed: int = 0
+) -> dict:
+    """95% percentile intervals for the adapters' gain over base, resampling conversations.
+
+    ``base[i]`` and ``adapters[s][i]`` score the same conversation ``i`` (1 right, 0 wrong). Each
+    resample draws conversations with replacement and keeps every model's answer on them, so the
+    pairing holds. Returned: the difference in rates (adapters pooled minus base) and the relative
+    gain (adapters pooled over base, minus one), each with its observed value and interval.
+    """
+    n = len(base)
+    if n < 2 or any(len(a) != n for a in adapters):
+        raise ValueError("need at least 2 conversations, scored by every model")
+
+    def rates(idx: list[int]) -> tuple[float, float]:
+        b = sum(base[i] for i in idx) / len(idx)
+        t = sum(a[i] for a in adapters for i in idx) / (len(idx) * len(adapters))
+        return b, t
+
+    rng = random.Random(seed)
+    diffs, gains = [], []
+    for _ in range(n_resamples):
+        b, t = rates([rng.randrange(n) for _ in range(n)])
+        diffs.append(t - b)
+        gains.append(t / b - 1 if b else float("inf"))
+    diffs.sort()
+    gains.sort()
+    lo, hi = int(0.025 * n_resamples), int(0.975 * n_resamples) - 1
+    b, t = rates(list(range(n)))
+    return {
+        "difference": (t - b, diffs[lo], diffs[hi]),
+        "relative_gain": (t / b - 1 if b else float("inf"), gains[lo], gains[hi]),
+    }
