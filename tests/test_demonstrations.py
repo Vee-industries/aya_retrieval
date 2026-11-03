@@ -1,6 +1,7 @@
 """A demonstration must show the right habit and stay true to what the tool returned."""
 
 import json
+import re
 
 import pytest
 
@@ -8,6 +9,7 @@ from aya_retrieval.conversations import CONFIRM, IN_VIEW, NEVER_TOLD, OLDER, STA
 from aya_retrieval.demonstrations import (
     as_event_log,
     demonstration_turns,
+    missing_words_query,
     search_call,
     whole_sentences,
 )
@@ -90,3 +92,23 @@ def test_kind_balanced_subset_keeps_order_and_repeats_on_the_same_seed():
     first = kind_balanced_subset(rows, 0.5, seed=1)
     assert first == kind_balanced_subset(rows, 0.5, seed=1)
     assert [rows.index(row) for row in first] == sorted(rows.index(row) for row in first)
+
+
+@pytest.mark.parametrize("kind", [OLDER, CONFIRM, NEVER_TOLD])
+def test_an_empty_first_search_comes_before_the_real_one(kind):
+    item = build_item("x", 5, 58, kind, "train")
+    result = demonstration_turns(
+        item, "RESULT TEXT", "base's own reply", True, "I don't know.", ("lost words", "NONE")
+    )
+    assert json.loads(result[-5]["content"])[0]["parameters"]["query"] == "lost words"
+    assert "NONE" in result[-4]["content"]
+    assert json.loads(result[-3]["content"])[0]["parameters"]["query"] == item.query
+    assert "RESULT TEXT" in result[-2]["content"]
+
+
+def test_the_missing_words_query_uses_no_word_said_earlier():
+    for seed in range(20):
+        item = build_item("x", seed, 58, OLDER, "train")
+        query = missing_words_query(item)
+        earlier = " ".join(u + " " + a for u, a in item.older()).lower()
+        assert query is None or not set(query.split()) & set(re.findall(r"[a-z']+", earlier))

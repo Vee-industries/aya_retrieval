@@ -28,7 +28,12 @@ from aya_retrieval.conversations import (
     RecallItem,
     build_item,
 )
-from aya_retrieval.demonstrations import demonstration_turns, search_call, whole_sentences
+from aya_retrieval.demonstrations import (
+    demonstration_turns,
+    missing_words_query,
+    search_call,
+    whole_sentences,
+)
 from aya_retrieval.harness import turns_from
 from aya_retrieval.inference import GREEDY, generate_from_messages
 from aya_retrieval.models import load_model
@@ -107,17 +112,28 @@ def hinted_reply(model, tokenizer, item: RecallItem) -> str | None:
     return fit_to_copy(model, tokenizer, item, messages)
 
 
+def empty_search(tool, item: RecallItem) -> tuple[str, str] | None:
+    """Return a search in the message's own words and its empty result, or None if it finds any."""
+    query = missing_words_query(item)
+    if query is None:
+        return None
+    output = tool.execute(query).output
+    return (query, output) if "chunk_id=" not in output else None
+
+
+def row_tokens(turns: list[dict], tokenizer) -> int:
+    """Return the token length of one row as training will see it."""
+    system = {"role": "system", "content": system_prompt_with_tools(SYSTEM_WITH_TOOL)}
+    return len(
+        tokenizer.apply_chat_template([system, *turns], tokenize=True, return_dict=True)[
+            "input_ids"
+        ]
+    )
+
+
 def longest_row(rows: list[dict], tokenizer) -> int:
     """Return the token length of the longest row as training will see it."""
-    system = {"role": "system", "content": system_prompt_with_tools(SYSTEM_WITH_TOOL)}
-    return max(
-        len(
-            tokenizer.apply_chat_template([system, *row["turns"]], tokenize=True, return_dict=True)[
-                "input_ids"
-            ]
-        )
-        for row in rows
-    )
+    return max(row_tokens(row["turns"], tokenizer) for row in rows)
 
 
 def main() -> None:
@@ -140,6 +156,12 @@ def main() -> None:
         default=ROWS_PER_KIND[NEVER_TOLD],
         help="never_told rows to make",
     )
+    parser.add_argument(
+        "--second-search",
+        type=float,
+        default=0.0,
+        help="share of search rows that first make a search that finds nothing",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -153,9 +175,12 @@ def main() -> None:
         "read_hint": args.read_hint,
         "hard_in_view": args.hard_in_view,
         "never_told_rows": args.never_told_rows,
+        "second_search": args.second_search,
     }
     rows_per_kind = {**ROWS_PER_KIND, NEVER_TOLD: args.never_told_rows}
     rng = random.Random(args.seed)
+    # Its own stream, so choosing second-search rows leaves every other row as it was.
+    second_rng = random.Random(args.seed + 1)
     model, tokenizer = load_model()
 
     rows, tally, passages = [], Counter(), defaultdict(Counter)
@@ -189,9 +214,16 @@ def main() -> None:
                 if reply is None:
                     tally[f"{kind}_base_reply_rejected"] += 1
                     continue
-            turns = demonstration_turns(
-                item, output, reply, found, rng.choice(TRAIN.unknown_replies)
-            )
+            unknown = rng.choice(TRAIN.unknown_replies)
+            turns = demonstration_turns(item, output, reply, found, unknown)
+            if kind in NEEDS_SEARCH and second_rng.random() < args.second_search:
+                miss = empty_search(tool, item)
+                longer = miss and demonstration_turns(item, output, reply, found, unknown, miss)
+                if longer and row_tokens(longer, tokenizer) <= MAX_ROW_TOKENS:
+                    turns = longer
+                tally[
+                    f"{kind}_second_search" if turns is longer else f"{kind}_second_search_skipped"
+                ] += 1
             rows.append({"id": item.item_id, "kind": kind, "turns": turns})
             made += 1
         LOG.info("%s done after %d attempts", kind, attempt)

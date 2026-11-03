@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import random
+import re
 from collections import defaultdict
 
 from agenttune.agentic.events import Event, EventKind, EventLog
@@ -33,8 +34,26 @@ def search_call(query: str) -> str:
     return json.dumps([{"tool_name": SEARCH_TOOL_NAME, "parameters": {"query": query}}])
 
 
+def missing_words_query(item: RecallItem, words: int = 3) -> str | None:
+    """Return a query of the message's own words that appear nowhere in the older exchanges.
+
+    Such a query finds nothing, like a search in the friend's words when the fact was told in
+    others. None if every word of the message appears somewhere earlier.
+    """
+    seen = set(re.findall(r"[a-z']+", " ".join(u + " " + a for u, a in item.older()).lower()))
+    absent = [
+        w for w in dict.fromkeys(re.findall(r"[a-z']+", item.message.lower())) if w not in seen
+    ]
+    return " ".join(absent[:words]) or None
+
+
 def demonstration_turns(
-    item: RecallItem, search_output: str, base_reply: str, found_fact: bool, unknown_reply: str
+    item: RecallItem,
+    search_output: str,
+    base_reply: str,
+    found_fact: bool,
+    unknown_reply: str,
+    first_miss: tuple[str, str] | None = None,
 ) -> list[dict]:
     """Return the chat turns of a demonstration, ending in the reply the model should give.
 
@@ -44,6 +63,7 @@ def demonstration_turns(
         base_reply: The reply to teach: base's own, or a scripted one if base's failed the scorer.
         found_fact: Whether the search really returned the fact.
         unknown_reply: What to say when the search came back without it.
+        first_miss: A search made before ``item.query`` and its result; None for a single search.
     """
     turns = [*turns_from(item.view()), {"role": "user", "content": item.message}]
     if item.kind not in NEEDS_SEARCH:
@@ -55,6 +75,13 @@ def demonstration_turns(
     else:
         answer = base_reply if found_fact else unknown_reply
     tool_turn = DEFAULT_TOOL_RESULT_FORMAT.format(name=SEARCH_TOOL_NAME, content=search_output)
+    if first_miss:
+        query, output = first_miss
+        miss_turn = DEFAULT_TOOL_RESULT_FORMAT.format(name=SEARCH_TOOL_NAME, content=output)
+        turns += [
+            {"role": "assistant", "content": search_call(query)},
+            {"role": "user", "content": miss_turn},
+        ]
     return [
         *turns,
         {"role": "assistant", "content": search_call(item.query)},
