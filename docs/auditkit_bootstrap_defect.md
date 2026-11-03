@@ -19,10 +19,10 @@ so all three are affected.
 ```python
 from auditkit._bootstrap import paired_bootstrap
 
-paired_bootstrap([(0.0, 1.0)] * 100)                      # every pair improves
+paired_bootstrap([(0.0, 1.0)] * 100)  # every pair improves
 # {'delta': 1.0, 'p_value': 1.0, 'significant': False}
 
-paired_bootstrap([(0.0, 1.0)] * 50 + [(1.0, 1.0)] * 50)   # half improve, none get worse
+paired_bootstrap([(0.0, 1.0)] * 50 + [(1.0, 1.0)] * 50)  # half improve, none get worse
 # {'delta': 0.5, 'p_value': 0.532468, 'significant': False}
 ```
 

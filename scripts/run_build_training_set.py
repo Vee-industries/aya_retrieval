@@ -167,6 +167,13 @@ def main() -> None:
         type=Path,
         help="JSON list of row ids whose base answer was judged incoherent",
     )
+    parser.add_argument(
+        "--scripted-answers",
+        nargs="+",
+        default=[],
+        choices=[OLDER, CONFIRM],
+        help="kinds whose found-fact rows always get the scripted answer, not base's",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -182,6 +189,7 @@ def main() -> None:
         "never_told_rows": args.never_told_rows,
         "second_search": args.second_search,
         "reject_replies": args.reject_replies and args.reject_replies.as_posix(),
+        "scripted_answers": args.scripted_answers,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {**ROWS_PER_KIND, NEVER_TOLD: args.never_told_rows}
@@ -204,7 +212,9 @@ def main() -> None:
                 tally[f"{kind}_found" if found else f"{kind}_missed"] += 1
                 passages[kind][output.count("chunk_id=")] += 1
                 reply = item.reply
-                if found and kind != NEVER_TOLD:
+                if found and kind in args.scripted_answers:
+                    tally[f"{kind}_scripted_answer"] += 1
+                elif found and kind != NEVER_TOLD:
                     reply = base_answer(model, tokenizer, item, output)
                     if reply and item.item_id in rejected:
                         tally[f"{kind}_base_answer_judged_incoherent"] += 1
