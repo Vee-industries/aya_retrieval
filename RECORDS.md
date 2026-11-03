@@ -958,3 +958,19 @@ news!" 9, "That's great to" 4, "Thanks for the update" and similar).
 **Next: fix 5, coherent targets.** A fresh judge marks base's found-fact answers in the v3 training data with the
 same rubric, blind; answers marked incoherent fall back to the scripted answer, as answers that fail the scorer
 already do. The fix 5 screen then gets a Sheet A on `older` and `confirm` against the v3 screen adapter.
+
+## R-028 · 2026-11-03 · SPRINT · Fix 3 (fewer `never_told` rows) is worse than v3 on the screen: dropped
+
+Development only, screen probe seed 51203, adapter seed 82, 240 items. Fix 3 is v3's build (`--read-hint
+--hard-in-view 75`) with `--never-told-rows 100` in place of 150 (750 rows). It targets v3's misses where the
+search found the fact and the reply still said it was never told.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) |
+|---|---|---|---|---|---|---|---|
+| base | 38 | 33 | 5 | 32 | 46 | 25 | 109 |
+| v3 (`screen_hard_in_view82`) | 75 | 37 | 38 | 38 | 48 | 48 | 234 |
+| fix 3 (`screen_few_never_told82`) | 73 | 38 | 35 | 37 | 44 | 47 | 228 |
+
+Fix 3 is below v3 on recall (73 against 75), `never_told` (44 against 48) and decisions (228 against 234), and
+above it on nothing but `older` by one. Fewer `never_told` rows did not cut the false denials and cost correct
+refusals. Dropped; v3 stays the current set. Next on the card: fix 5, then fix 4.
