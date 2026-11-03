@@ -29,6 +29,8 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+# Kept exactly as used, as a record (R-039): not reformatted.
+extend-exclude = ["docs/independent_pool"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B", "A"]
