@@ -64,6 +64,10 @@ def main() -> None:
     parser.add_argument("--fraction", type=float, default=1.0, help="share of rows, same per kind")
     parser.add_argument("--batch-size", type=int, default=2)
     parser.add_argument("--grad-accum", type=int, default=1, help="steps per update")
+    parser.add_argument("--lora-r", type=int, default=16, help="LoRA rank; alpha is twice it")
+    parser.add_argument(
+        "--lora-targets", nargs="+", default=LORA_TARGETS, help="modules the adapter trains"
+    )
     parser.add_argument("--report-name", help="report file name, default seed_<seed>")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
@@ -81,6 +85,8 @@ def main() -> None:
         "fraction": args.fraction,
         "batch_size": args.batch_size,
         "grad_accum": args.grad_accum,
+        "lora_r": args.lora_r,
+        "lora_targets": args.lora_targets,
         **use_lean_loss(),
     }
     rows = [json.loads(line) for line in args.data.read_text(encoding="utf-8").splitlines()]
@@ -91,7 +97,9 @@ def main() -> None:
 
     started = time.time()
     torch.manual_seed(args.seed)
-    default_factory = _DefaultSFTTrainerFactory(lora_targets=LORA_TARGETS)
+    default_factory = _DefaultSFTTrainerFactory(
+        lora_r=args.lora_r, lora_alpha=2 * args.lora_r, lora_targets=args.lora_targets
+    )
     trainer = create_distill_trainer(
         student=snapshot_download(MODEL_ID, revision=MODEL_REVISION, local_files_only=True),
         trajectories=logs,
