@@ -1189,3 +1189,28 @@ so a reply that names the relation can only copy the friend's "my" from the foun
 friend's side ("Your {relation} {person} speaks fluent {value}."). Only the train pool changes; the probe and
 held-out pools' answer templates are never used as targets. The template is plain formatting, so every
 conversation and draw is unchanged. Same screen, then Sheet A on `older` and `confirm` against base.
+
+## R-035 · 2026-11-03 · SPRINT · Fix 5c (answers name the relation) on the screen; confirmation rule registered before its runs and marks
+
+Development only, screen probe seed 51203, adapter seed 82, lean loss. Fix 5b's build (`--read-hint --hard-in-view
+75 --scripted-answers confirm`, build seed 71119) with the train pool's answer templates naming the relation (R-034).
+`data/screens/relation_answers.jsonl`, 800 rows.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) |
+|---|---|---|---|---|---|---|---|
+| base | 38 | 33 | 5 | 32 | 46 | 25 | 109 |
+| v3, lean loss | 74 | 36 | 38 | 37 | 47 | 48 | 233 |
+| fix 5b | 71 | 33 | 38 | 37 | 48 | 48 | 232 |
+| fix 5c (`screen_relation_answers_82`) | 76 | 34 | 42 | 37 | 48 | 48 | 232 |
+
+Against v3 on correct answers: 12 items v3 alone, 15 fix 5c alone (p = 0.70). Replies to `older` and `confirm` that
+give the friend's relation as the model's own ("who is my tutor", "is my classmate"): fix 5b 7 of 96, fix 5c 0.
+
+**Confirmation rule, written before seeds 83 and 84 exist and before any fix 5c coherence mark is read.** The same
+as R-033's, for fix 5c: seeds 82 (the screen adapter), 83 and 84, scored on probe seed 73157 as `probe6_tuned8x`,
+against v3. Fix 5c replaces v3 only if: (1) correct `older` plus `confirm`, pooled, at least 230 of 288; (2) correct
+`in_view`, pooled, at least 114 of 144; (3) right decisions at least 200 of 240 on every seed; (4) Sheet A on `older`
+and `confirm`, each seed against base on probe seed 73157, each to a fresh judge: pooled `confirm` coherent at or
+above base's count, and pooled `older` plus `confirm` coherent at or above base's count. The screen's Sheet A
+(against base, probe seed 51203) is reported but does not decide. Otherwise v3 stands. Sheet B runs on the result
+before it is final. No held-out run comes out of this without Kevin.
