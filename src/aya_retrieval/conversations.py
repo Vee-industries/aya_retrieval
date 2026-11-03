@@ -10,6 +10,7 @@ import random
 from dataclasses import dataclass
 
 from aya_retrieval.pools import POOLS, FactTemplate, Pool
+from aya_retrieval.train_phrasings import MORE_INDIRECT
 
 EXCHANGES_IN_VIEW = 3
 ASK_FORMS = ("same_words", "new_words", "indirect")
@@ -61,7 +62,13 @@ def _query(template: FactTemplate, message: str, relation: str, person: str) -> 
 
 
 def build_item(
-    item_id: str, seed: int, messages: int, kind: str, pool_name: str, decoys: int = 1
+    item_id: str,
+    seed: int,
+    messages: int,
+    kind: str,
+    pool_name: str,
+    decoys: int = 1,
+    more_indirect: bool = False,
 ) -> RecallItem:
     """Return a conversation of about ``messages`` messages ending in a message of ``kind``.
 
@@ -74,6 +81,9 @@ def build_item(
         decoys: Facts of the same type about other people. Training varies this, because if
             the number of passages a search returns told found from not found, the model would
             never have to read them. Tests keep the default.
+        more_indirect: Draw an indirect question from the template's own phrasing and those in
+            ``train_phrasings.MORE_INDIRECT``, from a separate generator, so the rest of the
+            conversation is the same with or without it.
     """
     pool = POOLS[pool_name]
     rng = random.Random(seed)
@@ -117,7 +127,11 @@ def build_item(
         slot = spare_slots.pop(extras.randrange(len(spare_slots)))
         exchanges[slot] = (line, extras.choice(pool.acknowledgements))
 
-    ask_form = getattr(template, rng.choice(ASK_FORMS))
+    form_name = rng.choice(ASK_FORMS)
+    ask_form = getattr(template, form_name)
+    if more_indirect and form_name == "indirect":
+        extra = MORE_INDIRECT.get(template.indirect, ())
+        ask_form = random.Random(seed + 2).choice((template.indirect, *extra))
     reply = template.answer.format(relation=relation, person=person, value=answer)
     forbidden: tuple[str, ...] = (decoy, *extra_values)
     if kind == STATEMENT:

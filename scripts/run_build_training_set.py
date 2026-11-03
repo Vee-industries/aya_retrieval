@@ -174,6 +174,11 @@ def main() -> None:
         choices=[OLDER, CONFIRM],
         help="kinds whose found-fact rows always get the scripted answer, not base's",
     )
+    parser.add_argument(
+        "--more-indirect",
+        action="store_true",
+        help="indirect questions also drawn from train_phrasings.MORE_INDIRECT",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -190,6 +195,7 @@ def main() -> None:
         "second_search": args.second_search,
         "reject_replies": args.reject_replies and args.reject_replies.as_posix(),
         "scripted_answers": args.scripted_answers,
+        "more_indirect": args.more_indirect,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {**ROWS_PER_KIND, NEVER_TOLD: args.never_told_rows}
@@ -204,7 +210,9 @@ def main() -> None:
         while made < rows_per_kind[kind]:
             seed, attempt = args.seed + kind_seed_offset(kind) + attempt, attempt + 1
             decoys = rng.choice(DECOY_CHOICES[kind])
-            item = build_item(f"{kind}_{made:04d}", seed, SIZE, kind, "train", decoys)
+            item = build_item(
+                f"{kind}_{made:04d}", seed, SIZE, kind, "train", decoys, args.more_indirect
+            )
             if kind in NEEDS_SEARCH:
                 tool = build_recall_tool(item, args.index, match_all=False)
                 output = tool.execute(item.query).output
