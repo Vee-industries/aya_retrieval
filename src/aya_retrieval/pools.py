@@ -116,7 +116,7 @@ TRAIN = Pool(
             indirect="the name of my {relation}'s kitten escapes me",
             confirm="did i tell you my {relation} got a kitten",
             query="{who} kitten",
-            answer="{person} called the kitten {value}.",
+            answer="Your {relation} {person} called the kitten {value}.",
         ),
         "street": FactTemplate(
             values=(
@@ -133,7 +133,7 @@ TRAIN = Pool(
             indirect="i had my {relation}'s street written down somewhere",
             confirm="have i told you what street my {relation} lives on",
             query="{who} street address",
-            answer="{person} lives on {value}.",
+            answer="Your {relation} {person} lives on {value}.",
         ),
         "phone": FactTemplate(
             values=("Pixel", "iPhone", "Nokia", "Galaxy", "Motorola", "Fairphone"),
@@ -143,7 +143,7 @@ TRAIN = Pool(
             indirect="not sure what kind of phone my {relation} went with",
             confirm="did i bring up my {relation}'s phone",
             query="{who} phone switched",
-            answer="{person} switched to a {value}.",
+            answer="Your {relation} {person} switched to a {value}.",
         ),
         "band": FactTemplate(
             values=("The Lanterns", "Night Bus", "Paper Tigers", "Copper Moon", "Salt Road"),
@@ -153,7 +153,7 @@ TRAIN = Pool(
             indirect="the name of my {relation}'s band is gone from my head",
             confirm="did i ever mention my {relation}'s band",
             query="{who} band bass",
-            answer="{person} plays bass in {value}.",
+            answer="Your {relation} {person} plays bass in {value}.",
         ),
         "baby": FactTemplate(
             values=("Silas", "Mila", "Arlo", "Nora", "Hugo", "Esther"),
@@ -163,7 +163,7 @@ TRAIN = Pool(
             indirect="i want to send a gift but i forget my {relation}'s baby's name",
             confirm="have i said anything about my {relation}'s baby",
             query="{who} baby name",
-            answer="{person} named the baby {value}.",
+            answer="Your {relation} {person} named the baby {value}.",
         ),
         "shop": FactTemplate(
             values=("florist", "thrift", "comic", "candle", "vintage", "cheese"),
@@ -173,7 +173,7 @@ TRAIN = Pool(
             indirect="i keep meaning to visit my {relation}'s shop, what kind was it again",
             confirm="did i tell you what my {relation} opened",
             query="{who} shop opened",
-            answer="{person} opened a {value} shop.",
+            answer="Your {relation} {person} opened a {value} shop.",
         ),
         "race": FactTemplate(
             values=("half marathon", "triathlon", "5k", "10k", "duathlon", "relay"),
@@ -183,7 +183,7 @@ TRAIN = Pool(
             indirect="i meant to congratulate my {relation} but what was the race",
             confirm="did i mention my {relation}'s race",
             query="{who} race finished",
-            answer="{person} finished a {value}.",
+            answer="Your {relation} {person} finished a {value}.",
         ),
         "injury": FactTemplate(
             values=("collarbone", "thumb", "kneecap", "jaw", "pelvis", "forearm"),
@@ -193,7 +193,7 @@ TRAIN = Pool(
             indirect="i should ask how my {relation} is healing, what was it they broke",
             confirm="did i say what my {relation} broke",
             query="{who} broke skiing injury",
-            answer="{person} broke a {value}.",
+            answer="Your {relation} {person} broke a {value}.",
         ),
         "boat": FactTemplate(
             values=("Sea Otter", "Blue Heron", "Second Wind", "Lady Grace", "Driftwood"),
@@ -203,7 +203,7 @@ TRAIN = Pool(
             indirect="what my {relation}'s boat is called has slipped away from me",
             confirm="have i ever told you about my {relation}'s boat",
             query="{who} boat name",
-            answer="{person}'s boat is called {value}.",
+            answer="Your {relation} {person}'s boat is called {value}.",
         ),
         "coffee": FactTemplate(
             values=("flat white", "cortado", "mocha", "macchiato", "americano", "chai latte"),
@@ -213,7 +213,7 @@ TRAIN = Pool(
             indirect="i'm at the cafe and i can't recall my {relation}'s usual",
             confirm="did i mention my {relation}'s usual order",
             query="{who} usual order cafe",
-            answer="{person} only orders a {value}.",
+            answer="Your {relation} {person} only orders a {value}.",
         ),
         "birth": FactTemplate(
             values=("March", "July", "October", "February", "November", "August"),
@@ -223,7 +223,7 @@ TRAIN = Pool(
             indirect="my {relation}'s birthday month is on the edge of my memory",
             confirm="did i ever say when my {relation} was born",
             query="{who} born birthday month",
-            answer="{person} was born in {value}.",
+            answer="Your {relation} {person} was born in {value}.",
         ),
         "prize": FactTemplate(
             values=("canoe", "hot tub", "lawnmower", "telescope", "kayak", "pinball machine"),
@@ -233,7 +233,7 @@ TRAIN = Pool(
             indirect="there was something my {relation} won, what was that",
             confirm="did i say what my {relation} won",
             query="{who} raffle won prize",
-            answer="{person} won a {value} in a raffle.",
+            answer="Your {relation} {person} won a {value} in a raffle.",
         ),
         "genre": FactTemplate(
             values=("mystery", "romance", "fantasy", "horror", "western", "science fiction"),
@@ -243,7 +243,7 @@ TRAIN = Pool(
             indirect="i was telling someone about my {relation}'s novels, what genre are they",
             confirm="have i told you what my {relation} writes",
             query="{who} novels genre",
-            answer="{person} writes {value} novels.",
+            answer="Your {relation} {person} writes {value} novels.",
         ),
         "paint": FactTemplate(
             values=("teal", "mustard", "coral", "lavender", "burgundy", "sage green"),
@@ -253,7 +253,7 @@ TRAIN = Pool(
             indirect="i'm trying to picture my {relation}'s house, what colour is it",
             confirm="did i mention the colour of my {relation}'s house",
             query="{who} house colour painted",
-            answer="{person}'s house is painted {value}.",
+            answer="Your {relation} {person}'s house is painted {value}.",
         ),
         "floor": FactTemplate(
             values=("third", "ninth", "twelfth", "fifteenth", "seventh", "twentieth"),
@@ -263,7 +263,7 @@ TRAIN = Pool(
             indirect="i'm in the lobby and i've lost my {relation}'s floor",
             confirm="have i said what floor my {relation} lives on",
             query="{who} floor flat rent",
-            answer="{person} rents on the {value} floor.",
+            answer="Your {relation} {person} rents on the {value} floor.",
         ),
         "subject": FactTemplate(
             values=("chemistry", "geometry", "history", "drama", "physics", "economics"),
@@ -273,7 +273,7 @@ TRAIN = Pool(
             indirect="my {relation} teaches something at the high school but what",
             confirm="did i say what my {relation} teaches",
             query="{who} teaches high school",
-            answer="{person} teaches {value}.",
+            answer="Your {relation} {person} teaches {value}.",
         ),
         "animals": FactTemplate(
             values=("ferrets", "chickens", "goats", "rabbits", "tortoises", "geckos"),
@@ -283,7 +283,7 @@ TRAIN = Pool(
             indirect="the animals my {relation} keeps, i can never remember what they are",
             confirm="have i told you about my {relation}'s animals",
             query="{who} keeps animals yard",
-            answer="{person} keeps {value}.",
+            answer="Your {relation} {person} keeps {value}.",
         ),
         "festival": FactTemplate(
             values=(
@@ -300,7 +300,7 @@ TRAIN = Pool(
             indirect="my {relation} is off to some festival and i forget which",
             confirm="did i mention the tickets my {relation} got",
             query="{who} tickets festival",
-            answer="{person} got tickets to {value}.",
+            answer="Your {relation} {person} got tickets to {value}.",
         ),
         "motorbike": FactTemplate(
             values=("Ducati", "Harley", "Vespa", "Triumph", "Yamaha", "Kawasaki"),
@@ -310,7 +310,7 @@ TRAIN = Pool(
             indirect="i can't place the bike my {relation} rides",
             confirm="did i ever say what my {relation} rides",
             query="{who} rides bike work",
-            answer="{person} rides a {value}.",
+            answer="Your {relation} {person} rides a {value}.",
         ),
         "promotion": FactTemplate(
             values=(
@@ -327,7 +327,7 @@ TRAIN = Pool(
             indirect="my {relation} got a new title and i've lost track of it",
             confirm="did i tell you about my {relation}'s promotion",
             query="{who} promoted title",
-            answer="{person} was promoted to {value}.",
+            answer="Your {relation} {person} was promoted to {value}.",
         ),
     },
     subjects=(
