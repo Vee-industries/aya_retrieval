@@ -134,6 +134,12 @@ def main() -> None:
         default=0,
         help="in_view rows kept for items base got wrong; needs --read-hint",
     )
+    parser.add_argument(
+        "--never-told-rows",
+        type=int,
+        default=ROWS_PER_KIND[NEVER_TOLD],
+        help="never_told rows to make",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -146,14 +152,16 @@ def main() -> None:
         "seed": args.seed,
         "read_hint": args.read_hint,
         "hard_in_view": args.hard_in_view,
+        "never_told_rows": args.never_told_rows,
     }
+    rows_per_kind = {**ROWS_PER_KIND, NEVER_TOLD: args.never_told_rows}
     rng = random.Random(args.seed)
     model, tokenizer = load_model()
 
     rows, tally, passages = [], Counter(), defaultdict(Counter)
     for kind in ITEM_KINDS:
         made = attempt = 0
-        while made < ROWS_PER_KIND[kind]:
+        while made < rows_per_kind[kind]:
             seed, attempt = args.seed + kind_seed_offset(kind) + attempt, attempt + 1
             decoys = rng.choice(DECOY_CHOICES[kind])
             item = build_item(f"{kind}_{made:04d}", seed, SIZE, kind, "train", decoys)
