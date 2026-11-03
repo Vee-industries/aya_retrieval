@@ -12,10 +12,12 @@ from __future__ import annotations
 
 import json
 import re
+from collections import Counter
 
 from aya_retrieval.provenance import REPO_ROOT
 from aya_retrieval.report_data import (
     COHERENCE_DIR,
+    EVAL_DIR,
     KINDS,
     SIZES,
     by_kind,
@@ -29,7 +31,7 @@ from aya_retrieval.report_data import (
     share,
     train_report,
 )
-from aya_retrieval.stats import exact_sign_test
+from aya_retrieval.stats import bootstrap_gain_interval, exact_sign_test
 
 TEMPLATE = REPO_ROOT / "docs" / "article_template.md"
 OUT = REPO_ROOT / "docs" / "ARTICLE.md"
@@ -53,6 +55,78 @@ SHEET_B = ("R-036B", [f"b{s}" for s in SEEDS])  # v4, statement and in_view, bas
 AUDIT = REPO_ROOT / "results" / "audit" / "fix5c_probe73157.json"
 AUDIT_BUG_EXAMPLE = REPO_ROOT / "results" / "audit" / "v3_probe73157.json"
 TRL_LOSS_RUN, LEAN_LOSS_RUN = "hard_in_view_84", "screen_hard_in_view_lean_82"
+SCREENS = [  # label, its reference, what changed, outcome (the record that decided it)
+    (
+        "screen_full82",
+        "screen_base",
+        "v2: the full training set",
+        "the reference for fixes 1 and 1b",
+    ),
+    (
+        "screen_read_hint82",
+        "screen_full82",
+        "Fix 1: read in-view facts through a hint",
+        "led to 1b (R-024)",
+    ),
+    ("screen_hard_in_view82", "screen_full82", "Fix 1b: 75 hard in-view rows", "**v3** (R-026)"),
+    (
+        "screen_few_never_told82",
+        "screen_hard_in_view82",
+        "Fix 3: fewer never-told rows",
+        "dropped (R-028)",
+    ),
+    (
+        "screen_hard_in_view_lean82",
+        "screen_hard_in_view82",
+        "v3 retrained with the lean loss",
+        "same results (R-032)",
+    ),
+    (
+        "screen_second_search_82",
+        "screen_hard_in_view_lean82",
+        "Fix 4: a second search after an empty one",
+        "dropped (R-032)",
+    ),
+    (
+        "screen_coherent_targets_82",
+        "screen_hard_in_view_lean82",
+        "Fix 5: a judge filters the training answers",
+        "dropped on coherence (R-032)",
+    ),
+    (
+        "screen_scripted_confirm_82",
+        "screen_hard_in_view_lean82",
+        "Fix 5b: plain answers on “did I tell you…?”",
+        "failed its coherence rule (R-034)",
+    ),
+    (
+        "screen_relation_answers_82",
+        "screen_hard_in_view_lean82",
+        "Fix 5c: 5b, and answers name the relation",
+        "**v4** (R-036)",
+    ),
+    (
+        "screen_epochs4_82",
+        "screen_relation_answers_82",
+        "4 epochs instead of 3",
+        "candidate (R-037)",
+    ),
+    (
+        "screen_lr1e4_82",
+        "screen_relation_answers_82",
+        "Learning rate 1e-4 instead of 2e-4",
+        "dropped (R-040)",
+    ),
+    (
+        "screen_more_indirect_82",
+        "screen_relation_answers_82",
+        "Fix 6: more ways of saying “I forgot”",
+        "pending",
+    ),
+    ("screen_lora_mlp_82", "screen_relation_answers_82", "LoRA on the MLP layers too", "pending"),
+    ("screen_lora_r32_82", "screen_relation_answers_82", "LoRA rank 32", "pending"),
+    ("screen_lr3e4_82", "screen_relation_answers_82", "Learning rate 3e-4", "pending"),
+]
 KIND_NAMES = {
     "older": "Fact told long ago",
     "confirm": "“Did I tell you…?”",
@@ -64,6 +138,15 @@ KIND_NAMES = {
 
 def pct(pair: tuple[int, int]) -> str:
     return f"{100 * pair[0] / pair[1]:.0f}"
+
+
+def lr_text(rate: float) -> str:
+    mantissa, exponent = f"{rate:.0e}".split("e")
+    return f"{mantissa}e{int(exponent)}"
+
+
+def p_text(p: float) -> str:
+    return "<0.01" if p < 0.01 else f"{p:.2f}"
 
 
 def signed(value: float) -> str:
@@ -201,18 +284,17 @@ def memory_numbers(out) -> None:
 
 
 def dropped_numbers(out) -> None:
-    reference = eval_rows(SCREEN_REFERENCE, SCREEN_PROBE)
-    ref = {r["id"]: r for r in reference}
-    parts = []
-    for name, label in DROPPED.items():
-        new = {r["id"]: r for r in eval_rows(label, SCREEN_PROBE)}
-        only_ref = sum(ref[i]["correct"] and not new[i]["correct"] for i in ref)
-        only_new = sum(new[i]["correct"] and not ref[i]["correct"] for i in ref)
-        parts.append(
-            f"{name[0].upper() + name[1:]}: recall {recall(list(new.values()))[0]} against "
-            f"{recall(reference)[0]} of {recall(reference)[1]} on the screen "
-            f"(sign test p = {exact_sign_test(only_ref, only_new):.2f})."
-        )
+    dropped = [
+        change
+        for label, _, change, outcome in SCREENS
+        if outcome.startswith("dropped")
+        and (EVAL_DIR / f"{label}_seed_{SCREEN_PROBE}.json").exists()
+    ]
+    parts = [
+        "**Changes that did not help were dropped**, with their numbers in the table: "
+        + "; ".join(d[0].lower() + d[1:] for d in dropped)
+        + "."
+    ]
     record, marks, key = JUDGED_TARGETS
     judged = coherence_by_model_and_kind(
         COHERENCE_DIR / record / marks, COHERENCE_DIR / record / key
@@ -226,6 +308,130 @@ def dropped_numbers(out) -> None:
     out["dropped_fixes"] = " ".join(parts)
 
 
+def ablation_numbers(out) -> None:
+    """One row per screen with a results file, against its own reference, on the screen probe."""
+    lines = []
+    for label, reference, change, outcome in SCREENS:
+        path = EVAL_DIR / f"{label}_seed_{SCREEN_PROBE}.json"
+        if not path.exists():
+            continue
+        new = {r["id"]: r for r in eval_rows(label, SCREEN_PROBE)}
+        ref = {r["id"]: r for r in eval_rows(reference, SCREEN_PROBE)}
+        rows = list(new.values())
+        only_ref = sum(ref[i]["correct"] and not new[i]["correct"] for i in ref)
+        only_new = sum(new[i]["correct"] and not ref[i]["correct"] for i in ref)
+        in_view = by_kind(rows)["in_view"]
+        lines.append(
+            f"| {change} | {recall(rows)[0]} ({recall(list(ref.values()))[0]}) "
+            f"| {in_view[0]} | {share(rows, 'right_decision')[0]} "
+            f"| {only_ref} / {only_new} | {p_text(exact_sign_test(only_ref, only_new))} "
+            f"| {outcome} |"
+        )
+    base = eval_rows("screen_base", SCREEN_PROBE)
+    out["ablation_table"] = (
+        "| Change | Recall of 96 (reference) | On screen of 48 | Right decisions of 240 "
+        "| Right, all kinds: only reference / only change | Sign test p | Outcome |\n"
+        "|---|---|---|---|---|---|---|\n"
+        f"| Untrained model | {recall(base)[0]} | {by_kind(base)['in_view'][0]} "
+        f"| {share(base, 'right_decision')[0]} | | | |\n" + "\n".join(lines)
+    )
+
+
+def interval_numbers(base, tuned, out) -> None:
+    """95% intervals for the headline recall gains, resampling conversations."""
+    parts = []
+    for size in SIZES:
+        ids = [r["id"] for r in base if r["kind"] in ("older", "confirm") and r["size"] == size]
+        b = {r["id"]: int(r["correct"]) for r in base}
+        a = [{r["id"]: int(r["correct"]) for r in tuned[s]} for s in SEEDS]
+        gain = bootstrap_gain_interval([b[i] for i in ids], [[t[i] for i in ids] for t in a])
+        rel, low, high = gain["relative_gain"]
+        parts.append(
+            f"at {size} messages {100 * rel:+.0f}% (95% interval {100 * low:+.0f}% to "
+            f"{100 * high:+.0f}%, {len(ids)} conversations)"
+        )
+    out["recall_intervals"] = "Recall above the untrained model, " + "; ".join(parts) + "."
+
+
+CURRENT_TRAIN_REPORT = "screen_relation_answers_82"  # v4, seed 82
+FIRST_ADAPTER = ("tuned81", 45356)  # R-018, training-style conversations
+
+
+def setup_numbers(out) -> None:
+    report = train_report(CURRENT_TRAIN_REPORT)
+    data = REPO_ROOT / report["data"]
+    lines = data.read_text(encoding="utf-8").splitlines()
+    kinds = Counter(json.loads(line)["kind"] for line in lines)
+    per_kind = ", ".join(f"{KIND_NAMES[k]} {kinds[k]}" for k in KINDS)
+    out["training_setup"] = (
+        f"{report['rows']} rows ({per_kind}); LoRA rank {report.get('lora_r', 16)} on the "
+        f"attention projections, learning rate {lr_text(report['learning_rate'])}, "
+        f"{report['epochs']} epochs, batch {report['batch_size']}."
+    )
+    before, after = train_report(TRL_LOSS_RUN), train_report(LEAN_LOSS_RUN)
+    out["mem_saved"] = f"{before['train_peak_vram_gib'] - after['train_peak_vram_gib']:.1f}"
+    label, seed = FIRST_ADAPTER
+    first = share(eval_rows(label, seed))
+    out["first_adapter"] = f"{first[0]} of {first[1]}"
+    old = {r["id"]: r for r in eval_rows("screen_hard_in_view82", SCREEN_PROBE)}
+    new = {r["id"]: r for r in eval_rows("screen_hard_in_view_lean82", SCREEN_PROBE)}
+    differ = sum(old[i]["correct"] != new[i]["correct"] for i in old)
+    out["lean_retrain_diff"] = f"{differ} of {len(old)}"
+
+
+# Published prices, read 2026-11-03. Per million tokens: input, cached input, output.
+# Source: https://developers.openai.com/api/docs/pricing (standard tier, short context).
+CLOSED_PRICES = {
+    "gpt-6-astra": (10.00, 1.00, 50.00),
+    "gpt-6.1-sol": (2.00, 0.10, 10.00),
+    "gpt-6.1-terra": (1.00, 0.05, 5.00),
+    "gpt-6-luna": (0.10, 0.01, 0.50),
+}
+# Dollars per GPU hour. Source: https://huggingface.co/docs/inference-endpoints/en/pricing
+GPU_PRICE = ("NVIDIA A10G on Hugging Face Inference Endpoints (AWS)", 1.00)
+THROUGHPUT = REPO_ROOT / "results" / "throughput" / "v4_seed_82.json"
+ROI_SIZE = 419
+
+
+def roi_numbers(tuned, out) -> None:
+    """Cost per million turns: the adapter self-hosted against closed models sent the whole chat."""
+    rows = [r for s in SEEDS for r in tuned[s] if r["size"] == ROI_SIZE]
+    read = sum(r["tokens_read"] for r in rows) / len(rows)
+    written = sum(r["tokens_written"] for r in rows) / len(rows)
+    whole = sum(r["whole_chat_tokens"] for r in rows) / len(rows)
+    calls = 1 + sum(len(r["queries"]) for r in rows) / len(rows)
+    out["roi_tokens"] = (
+        f"At {ROI_SIZE} messages the adapter reads {read:,.0f} tokens a turn on average over "
+        f"{calls:.2f} model calls and writes {written:.0f}; the whole chat is {whole:,.0f} tokens, "
+        f"so it reads {100 * (1 - read / whole):.0f}% less."
+    )
+    if not THROUGHPUT.exists():
+        out["roi_text"] = (
+            "*Pending: the throughput benchmark (`scripts/run_throughput.py`) is queued.*"
+        )
+        return
+    bench = json.loads(THROUGHPUT.read_text(encoding="utf-8"))
+    gpu_name, per_hour = GPU_PRICE
+    lines = []
+    for b in bench["batches"]:
+        cost = 1e6 * calls / b["calls_per_hour"] * per_hour
+        lines.append(f"| This adapter, self-hosted, batch {b['batch_size']} | ${cost:,.0f} | |")
+    for model, (inp, cached, outp) in CLOSED_PRICES.items():
+        plain = 1e6 * (whole * inp + written * outp) / 1e6
+        warm = 1e6 * (whole * cached + written * outp) / 1e6
+        lines.append(f"| {model}, whole chat each turn | ${plain:,.0f} | ${warm:,.0f} |")
+    out["roi_text"] = (
+        "| Per million turns | Cost | With the chat prefix cached |\n|---|---|---|\n"
+        + "\n".join(lines)
+        + f"\n\nSelf-hosted cost assumes the {gpu_name} at ${per_hour:.2f} an hour serves calls as "
+        f"fast as the measured card ({bench['gpu']}), with calls of about "
+        f"{bench['batches'][0]['mean_prompt_tokens']} prompt tokens; real serving with a "
+        "dedicated engine would be faster. Closed-model cost sends the whole chat each turn and "
+        "writes as many tokens as the adapter; the cached column charges every chat token at the "
+        "cached rate, the most favourable case for the closed model."
+    )
+
+
 def numbers() -> dict[str, str]:
     base = eval_rows(BASE, PROBE)
     tuned = {s: eval_rows(f"{TUNED}{s}", PROBE) for s in SEEDS}
@@ -234,6 +440,10 @@ def numbers() -> dict[str, str]:
     kind_numbers(base, tuned, out)
     coherence_numbers(out)
     false_retrieval_numbers(base, tuned, out)
+    ablation_numbers(out)
+    interval_numbers(base, tuned, out)
+    roi_numbers(tuned, out)
+    setup_numbers(out)
     audit_numbers(out)
     memory_numbers(out)
     dropped_numbers(out)

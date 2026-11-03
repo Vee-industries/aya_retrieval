@@ -4,105 +4,153 @@
 
 > **Draft. Numbers are development results on the probe pool; the registered held-out run replaces them before submission.**
 
-A small model in a long chat forgets. Once a fact scrolls out of its context window it is gone, and
-when the friend asks about it the model either says it was never told or makes something up. This
-project trains a LoRA adapter on **Tiny Aya Global** (3.35B parameters) so that the model looks the
-fact up instead: it searches the earlier conversation when, and only when, the answer is out of view,
-reads what comes back, and answers in the same easy voice as before.
+## Abstract
 
-With only the last three exchanges in view, the adapter answers questions about earlier facts
-correctly **84%** of the time in 58-message chats and **91%** in
-419-message chats. The untrained model gets 31% and 31%. That is
-**+169%** and **+191%** above the untrained model. Every kind of message improves.
-A blind judge finds the adapter's replies 8% more often coherent than the untrained model's, and at or above it on every kind judged. It names the wrong person's fact in 1.1% of replies, against 5.4% for the untrained model.
+A small model in a long chat forgets: once a fact scrolls out of its context window, it either says
+it was never told or makes something up. We train a LoRA adapter on Tiny Aya Global (3.35B
+parameters) to search the earlier conversation when, and only when, the answer is out of view, to
+read what comes back, and to answer in the model's own voice. With only the last three exchanges
+in view, the adapter answers questions about earlier facts correctly 84% of the
+time in 58-message chats and 91% in 419-message chats, against
+31% and 31% for the untrained model (+169% and
++191%). A blind judge finds the adapter's replies 8% more often coherent than the untrained model's, and at or above it on every kind judged. It names the wrong person's fact in 1.1% of replies, against 5.4% for the untrained model. Every training change was
+screened against a rule written before its run, and the final test was registered in advance and
+then only made harder: a crowded condition with four distracting facts per chat, and a second
+test pool written by an independent agent and never read by the authors. We also report two
+findings about the toolkits we built on: a defect in AuditKIT's significance test, and a change to
+TRL's loss that gives the same results with 2.7 GiB less memory.
 
 ![Recall before and after training](../figures/recall_by_length.png)
 
-## The problem
+## 1. Introduction
 
-The setting is a friendly chat that has run for 58 or 419 messages. The model sees only the last three
-exchanges and the friend's newest message. Everything earlier sits behind one tool, `search_corpus`,
-which runs a full-text search over the earlier conversation and returns the top passages.
+Chat products keep long conversations, but a small model can only attend to a short window. The
+usual answers are to send the whole conversation every turn, which costs more with every message,
+or to bolt retrieval on with code around the model. We ask whether a 3B model can learn the
+retrieval behaviour itself: decide when an answer is out of view, write a search, read the
+result, and answer without sounding any different from before.
 
-The newest message is one of five kinds, and each calls for a different move:
+The Track 3 statement asks for a model that "decides when and what to retrieve, grounds its answers
+in the retrieved text and ignores distracting documents". Each phrase maps to a measure here:
+
+| Track statement | Measure |
+|---|---|
+| decides **when** to retrieve | right decisions: searched exactly when the answer was out of view |
+| decides **what** to retrieve | the fact was found by the model's own query |
+| **grounds** its answers | recall: the right fact in the reply |
+| **ignores distracting documents** | false retrieval: a decoy's fact in the reply, with one and four decoys a chat |
+
+**Contributions.**
+1. A training recipe that teaches the habit without changing the voice: the model is trained on
+   its own replies wherever they are right, and the tool's real output is always shown.
+2. A test that is hard to game: pre-registered, amended only to make it harder, with a sealed pool
+   written by an independent agent, a crowded condition, blind coherence judges and a second
+   scorer from AuditKIT.
+3. An ablation record of every change tried, kept or dropped, each against its own reference.
+4. Two toolkit findings (AuditKIT's bootstrap, TRL's loss memory) and a cost comparison against
+   closed models.
+
+## 2. Related work
+
+Tool use can be learned from demonstrations of when a call helps (Toolformer, Schick et al., 2023)
+and interleaved with reasoning (ReAct, Yao et al., 2023). Adaptive retrieval asks when to retrieve
+at all: popular facts are answered from memory, rare ones looked up (Mallen et al., 2023), and
+Self-RAG trains a model to decide and to critique its own retrievals (Asai et al., 2024). RAFT
+fine-tunes on retrieved sets that include distractor documents, so the model learns to cite the
+right one (Zhang et al., 2024); our decoys play the same role inside a conversation. For long
+chats, MemGPT manages memory with an agent loop around the model (Packer et al., 2023), and
+LongMemEval measures long-term chat memory (Wu et al., 2025); models also use the middle of long
+contexts poorly (Liu et al., 2024), which is one reason to keep the window short and search
+instead. Training on a model's own outputs that pass a check follows STaR (Zelikman et al., 2022).
+Coherence is judged by a model, as in LLM-as-a-judge evaluation (Zheng et al., 2023), but blind to
+which model wrote each reply. Adapters are LoRA (Hu et al., 2022).
+
+## 3. Task
+
+A conversation has run for 58 or 419 messages. The model sees the system prompt, the last three
+exchanges and the friend's newest message. Everything earlier sits behind one tool,
+`search_corpus`, a full-text search over the earlier conversation that returns the top five
+passages; the model may call it up to three times a turn. The newest message is one of five kinds:
 
 | Kind | Example | What a good reply does |
 |---|---|---|
 | Fact told long ago | "drawing a blank on my daughter's tattoo" | searches, then answers ("a koi") |
-| "Did I tell you…?" | "did I ever mention where my brother works" | searches, then confirms with the fact |
-| Fact still on screen | asks about something in the last three exchanges | answers from view, no search |
-| Never told | asks about something never mentioned | searches, finds nothing, says so |
+| "Did I tell you…?" | "did i say anything about my godfather's tattoo" | searches, then confirms with the fact |
+| Fact still on screen | "what language does Chidi speak" | answers from view, no search |
+| Never told | "did i ever bring up what my mentor grows" | searches, finds nothing, says so |
 | Just chatting | "i got stuck talking to Lucia for an hour" | replies, no search |
 
-Each test has two scores. **Recall** counts correct answers on the first two kinds, the ones that
-need a search. **Right decisions** counts the times the model searched exactly when it should have.
-Coherence is judged separately and blind (below).
+Every chat also holds **decoys**: the same type of fact about other people ("my classmate is scared
+of heights" beside "my tutor is scared of spiders"), so a search can bring back the wrong person's
+fact.
 
-The idea comes from Latent Lab Explorer, the author's local chat engine, which does this with code
-around a Llama model. This project asks whether the behaviour can live in the weights of a small
-model instead. Nothing from that engine's code or test sets is used here.
+**Pools.** Conversations are built from templates in four pools that share no people, relations,
+values, subjects or wording: **train**, **probe** (development; never trained on), **held-out**
+(sealed) and **independent** (sealed, written by a separate agent; section 5).
 
-## Setup
+## 4. Method
 
-- **Model.** `CohereLabs/tiny-aya-global`, pinned to one revision. Generation is greedy.
-- **Conversations.** Generated from templates with planted facts, in three pools that share no
-  content: **train** (training data), **probe** (development) and **held-out** (sealed until one
-  final run, registered in advance).
-- **Harness.** A tool loop of up to three calls per turn, with AgentTune's tool prompt. Base and
-  adapter run on identical conversations and identical tools.
-- **Training.** LoRA r=16 on the attention projections, learning rate 2e-4, 3 epochs, batch 2,
-  through **AgentTune**'s distillation trainer, on 800 rows.
-- **Evaluation.** Our scorer, then **AuditKIT**'s agent evaluation as a second, independent scorer.
-  The final test was registered before training began and made harder before it was run: every
-  held-out chat runs once with one decoy and once with four, and recall, coherence and false
-  retrieval must all hold in both (RECORDS R-016, R-038).
-- **Records.** Every decision, run and result is in a dated log
-  ([`RECORDS.md`](../RECORDS.md)). Rules for each comparison were written before its run.
+**Training data.** 800 rows (Fact told long ago 200, “Did I tell you…?” 150, Fact still on screen 150, Never told 150, Just chatting 150); LoRA rank 16 on the attention projections, learning rate 2e-4, 3 epochs, batch 2. For every training conversation the untrained model is run on
+the same turn. Where its reply passes the scorer, that reply is the target, so training teaches
+the habit of searching and reading without teaching a new voice. Where a search is needed, the row
+shows a clean call with the demonstrated query, the tool's real output and then the answer; if the
+real search missed the fact, the row says the model does not know, so a demonstration never
+contradicts what the tool returned. Where the untrained model's answer fails, a short scripted
+answer stands in. The number of decoys varies per row, so the number of passages a search returns
+never gives the answer away.
 
-## How the training data is built
+**Training.** LoRA on Tiny Aya Global through AgentTune's distillation trainer (TRL underneath),
+with the loss replaced by an equivalent that uses less memory (section 9). Three training seeds per
+version.
 
-The main design choice protects coherence: **the adapter learns from the untrained model's own
-words.** For each training conversation, the untrained model is run on the same turn. Where its
-reply passes the scorer, that reply is the training target. Training then teaches the habit of
-searching and reading without teaching a new voice.
+**How changes were made.** One change at a time. A change is screened on one training seed against
+its reference on a development probe; if it gains, a rule is written down and then it is trained on
+three seeds and confirmed on a second probe, with blind coherence sheets. Every step is a dated
+entry in [`RECORDS.md`](../RECORDS.md), and every rule is committed before its runs.
 
-Where a search is needed, the row shows a clean call with the model's query, the tool's real output,
-and then the answer. If the real search missed the fact, the row says the model does not know,
-because a demonstration must stay true to what the tool returned. Where the untrained model's
-answer fails the scorer, a short scripted answer stands in.
+## 5. Evaluation protocol
 
-## What it took: one fix at a time
+**Measures.** Recall (correct answers on the two kinds that need a search), right decisions,
+correct answers per kind, false retrieval (a reply naming a wrong value of the fact asked about:
+a decoy's, or for a question never told, any value), and coherence. Our scorer fails a reply that
+names any wrong value; AuditKIT's agent evaluation scores every reply a second time with its own
+oracles.
 
-The method was "one small fix, see the results, repeat". Each change was screened on one training
-seed, and a change replaced the current set only if it beat it on three seeds under a rule written
-before the runs.
+**Coherence.** A fresh judge model receives only a rubric and a shuffled sheet of replies, without
+knowing which model wrote which, and marks each 1 or 0: does it respond to the newest message, fit
+what was said, read as ordinary language, and avoid contradicting what is in view? The key is
+opened only after the marks are in. Fact questions are judged with the tool for both models;
+on-screen facts and ordinary chat are judged against the untrained model with no tool at all, so
+the adapter is held to the model's own ordinary talk.
 
-![Recall across training sets](../figures/development_path.png)
+**Statistics.** Base and adapter run on identical conversations. Paired comparisons use the exact
+sign test on the conversations where they differ; intervals are 95% percentile bootstraps over
+conversations, keeping the pairing.
 
-1. **The first adapter memorised.** It scored 119 of 120 on training-style conversations and then
-   failed on the probe pool's unseen content. It had learned to search, not to read: in training,
-   the number of passages returned gave the answer away. The data was rebuilt so that reading the
-   result is the only way to answer (**v1**).
-2. **A false denial from one training sentence.** On one seed, many found-fact answers opened with
-   the same word as a training sentence that means "I don't know", and the model slid into it.
-   Changing that one sentence fixed it (**v2**).
-3. **Facts still on screen.** The adapter searched less but still missed facts in plain view. Rows
-   where the untrained model had failed were added, answered through a hint that is removed from the
-   row (**v3**).
-4. **Coherence on "Did I tell you…?" fell below the untrained model.** A blind judge found the
-   adapter answering a question with "That's great news!" or "Esme, who is my tutor, speaks fluent
-   Turkish". Both came from the training answers. Some of the untrained model's own answers on this
-   kind opened with a reaction to news, so this kind's rows got a plain answer instead.
-   And most plain answers left the relation out ("Esme speaks fluent Turkish"), so the model never
-   saw the friend's "my tutor" turned into "your tutor" and copied the "my" from the search result.
-   Answers that name the relation from the friend's side closed the gap (**v4**).
-5. **Fixes that did not work were dropped.** Fewer “never told” rows (fix 3): recall 73 against 74 of 96 on the screen (sign test p = 0.50). A second search after an empty one (fix 4): recall 62 against 74 of 96 on the screen (sign test p = 0.08). Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
+**The final test.** Registered before training (R-016) and amended twice before any run, each time
+to make it harder: four conditions, base and three adapters on identical conversations, 300
+conversations each.
 
-## Results
+| Condition | Pool | Decoys a chat | Added by |
+|---|---|---|---|
+| A | held-out | 1 | R-016 |
+| B | held-out | 4 | R-038 |
+| C | independent | 1 | R-039 |
+| D | independent | 4 | R-039 |
+
+Recall must be at least 20 points above the untrained model at each chat length with a sign test
+below p = 0.01, false retrieval no higher than the untrained model's, and coherence at or above
+it, in every condition. The held-out pool was written by Claude, the author's AI assistant, in the same
+session as the training pool; the independent pool was written by a fresh agent that saw only a brief, an
+avoid-list and a checker, and nobody on the project has read it (R-039).
+
+## 6. Results
 
 Development numbers: the probe pool, 240 conversations (24 of each kind at each length), the untrained model against 3 adapters (v4) trained on seeds 82, 83, 84. The held-out run replaces these.
 
-### Every kind of message improves
+Recall above the untrained model, at 58 messages +169% (95% interval +83% to +356%, 48 conversations); at 419 messages +191% (95% interval +100% to +393%, 48 conversations).
+
+### Every kind of message
 
 ![Every kind, before and after](../figures/by_kind.png)
 
@@ -115,14 +163,9 @@ Development numbers: the probe pool, 240 conversations (24 of each kind at each 
 | Just chatting | 65% | 99% | +54% |
 
 Right decisions, searching exactly when the answer is out of view: 119 of
-240 untrained, 236, 229, 226 (seeds 82, 83, 84) of 240 with the adapter.
+240 untrained, 236, 229, 226 (seeds 82, 83, 84) of 240 with the adapter. Every kind of message improves.
 
 ### Coherence, judged blind
-
-A fresh judge model receives only a rubric and a shuffled sheet of replies, without knowing which
-model wrote which, and marks each reply 1 or 0: does it respond to the newest message, fit what was
-said, read as ordinary language, and avoid contradicting what is in view? The key is opened only
-after the marks are in.
 
 ![Coherence by kind](../figures/coherence_by_kind.png)
 
@@ -139,11 +182,6 @@ Fact questions are judged with the search tool for both models. On-screen facts 
 
 ### False retrieval: the wrong person's fact
 
-Every test chat also holds a decoy: the same kind of fact about someone else, so a search for the
-friend's tutor's fear can bring back their classmate's too. A reply that names a wrong value of the
-fact asked about, the decoy's or, for a question never told, any value at all, is a false retrieval.
-The scorer already fails such a reply; here it is counted on its own.
-
 ![False retrieval by kind](../figures/false_retrieval.png)
 
 | Kind | Untrained | Adapter |
@@ -159,51 +197,118 @@ Over every kind the adapter names a wrong value in 1.1% of replies against 5.4%,
 
 ### A second scorer: AuditKIT
 
-Every reply is scored again with AuditKIT's agent evaluation. Each turn becomes an AuditKIT episode
-(the friend's message, the search calls, the final reply), and AuditKIT's own oracles decide each
-case. For the fact questions this is its `AnswerAssertion`, which matches whole words and is stricter
-than our scorer. AuditKIT agrees with our scorer on 957 of 960 cases. The exact sign test on AuditKIT's verdicts puts every adapter seed above the untrained model with p between 6e-19 and 5e-16.
+Each turn becomes an AuditKIT episode (the friend's message, the search calls, the final reply),
+and AuditKIT's own oracles decide each case; for the fact questions this is its `AnswerAssertion`,
+which matches whole words and is stricter than our scorer. AuditKIT agrees with our scorer on 957 of 960 cases. The exact sign test on AuditKIT's verdicts puts every adapter seed above the untrained model with p between 6e-19 and 5e-16.
 
-**AuditKIT's significance test is broken, so it is not used.** Its paired bootstrap does not centre
-its resamples under the hypothesis of no difference. A gain on 100 of 100 pairs comes out as
-p = 1.0, and on this project's data it reported p = 0.52 for 57% → 88% over 240 paired cases. The exact sign
-test and a correctly centred bootstrap are used instead, and the defect is written up for Lexsi in
-[`docs/auditkit_bootstrap_defect.md`](auditkit_bootstrap_defect.md).
+## 7. Ablations: every change tried
 
-## Engineering notes
+Each row is one training seed on the development screen, against its own reference. Recall is out
+of 96, on-screen answers out of 48, right decisions out of 240; the paired counts and sign test are
+over all 240 conversations.
 
-**The same loss with 2.7 GiB less memory.** Training first used 9.81 GiB of a 10 GiB card,
-so any other program on the card pushed it into shared memory, at two to ten times the step time.
-TRL's chunked loss makes a float32 copy of the model's 262,144-word output layer for every chunk of
-tokens, and under bf16 autocast that copy is cast straight back to bf16. A replacement that skips the
-copies gives TRL's loss, scores and gradients bit for bit, and training now peaks at 7.12 GiB
-at about 1.1 s a step, while a browser plays video beside it.
+![Recall across training sets](../figures/development_path.png)
+
+| Change | Recall of 96 (reference) | On screen of 48 | Right decisions of 240 | Right, all kinds: only reference / only change | Sign test p | Outcome |
+|---|---|---|---|---|---|---|
+| Untrained model | 38 | 32 | 109 | | | |
+| v2: the full training set | 70 (38) | 33 | 232 | 20 / 76 | <0.01 | the reference for fixes 1 and 1b |
+| Fix 1: read in-view facts through a hint | 69 (70) | 37 | 235 | 12 / 16 | 0.57 | led to 1b (R-024) |
+| Fix 1b: 75 hard in-view rows | 75 (70) | 38 | 234 | 7 / 19 | 0.03 | **v3** (R-026) |
+| Fix 3: fewer never-told rows | 73 (75) | 37 | 228 | 19 / 11 | 0.20 | dropped (R-028) |
+| v3 retrained with the lean loss | 74 (75) | 37 | 233 | 8 / 5 | 0.58 | same results (R-032) |
+| Fix 4: a second search after an empty one | 62 (74) | 37 | 233 | 22 / 11 | 0.08 | dropped (R-032) |
+| Fix 5: a judge filters the training answers | 76 (74) | 41 | 233 | 8 / 14 | 0.29 | dropped on coherence (R-032) |
+| Fix 5b: plain answers on “did I tell you…?” | 71 (74) | 37 | 232 | 14 / 12 | 0.85 | failed its coherence rule (R-034) |
+| Fix 5c: 5b, and answers name the relation | 76 (74) | 37 | 232 | 12 / 15 | 0.70 | **v4** (R-036) |
+| 4 epochs instead of 3 | 78 (76) | 39 | 231 | 3 / 7 | 0.34 | candidate (R-037) |
+| Learning rate 1e-4 instead of 2e-4 | 67 (76) | 35 | 228 | 33 / 9 | <0.01 | dropped (R-040) |
+
+What the path shows:
+
+1. **The first adapter memorised.** It scored 119 of 120 on training-style conversations and then
+   failed on the probe pool's unseen content. In training, the number of passages a search returned
+   gave the answer away, so it learned to search, not to read. Varying the decoys fixed it (**v1**).
+2. **A false denial from one training sentence.** Many found-fact answers opened with the same word
+   as a training sentence meaning "I don't know", and one seed slid into it. Changing that sentence
+   fixed it (**v2**).
+3. **Facts still on screen.** Rows where the untrained model had failed were added, answered through
+   a hint that is removed from the row (**v3**).
+4. **Coherence on "Did I tell you…?" fell below the untrained model.** The adapter answered a
+   question with "That's great news!", or "Esme, who is my tutor, speaks fluent Turkish". Both came
+   from training answers: some of the untrained model's own answers on this kind opened with a
+   reaction to news, and most scripted answers left the relation out, so the model never saw the
+   friend's "my tutor" turned into "your tutor". Plain answers that name the relation from the
+   friend's side closed the gap (**v4**).
+5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
+
+## 8. Cost
+
+At 419 messages the adapter reads 1,186 tokens a turn on average over 1.59 model calls and writes 28; the whole chat is 5,409 tokens, so it reads 78% less. Sending the whole chat costs more with every message; the adapter's cost per turn
+stays flat.
+
+*Pending: the throughput benchmark (`scripts/run_throughput.py`) is queued.*
+
+## 9. Toolkit findings
+
+**AuditKIT's paired bootstrap does not centre its resamples.** A gain on 100 of 100 pairs comes out
+as p = 1.0, and on this project's data it reported p = 0.52 for 57% → 88% over 240 paired cases. It is
+shared by AuditKIT's model comparison, run comparison and experiment significance. We use the exact
+sign test and a correctly centred bootstrap instead; the defect, a reproduction and a one-line fix
+are in [`docs/auditkit_bootstrap_defect.md`](auditkit_bootstrap_defect.md).
+
+**TRL's chunked loss copies the output layer for every chunk.** Training first peaked at
+9.81 GiB on a 10 GiB card, so any other program on the card pushed it into shared memory
+at several times the step time. The loss computes `h.float() @ w.float().t()`; under bf16 autocast
+both float32 copies of the 262,144-word output layer are cast straight back to bf16, so they change
+nothing but memory. A replacement that takes the bf16 product directly gives TRL's loss, scores and
+gradients bit for bit (tested), and training peaks at 7.12 GiB at about 1.1 s
+a step. Retrained with it, v3 differed from its original on 13 of 240 conversations, inside
+run-to-run variation (R-032).
 
 ![Training memory](../figures/training_memory.png)
 
-**Training is not bit-reproducible on this card.** With the same rows and seed, TRL's own first
-gradient norm varied from run to run (3.86, 3.42, 3.63). Seeds fix data order and starting weights,
-not the exact result, so every claim here pools three training seeds.
+## 10. Threats to validity
 
-## Limitations
+- **Synthetic conversations.** All chats are generated from templates; real chats are messier. The
+  independent pool was written to be harder (run-on messages, texting style, values that are easy to
+  confuse), but it is still templated.
+- **One author for train and held-out.** The held-out pool shares no content with training but was
+  written by the same assistant; condition C and D's independent pool exists for this reason.
+- **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
+  only the sealed pools decide.
+- **The never-told scorer** passes any reply that names none of the listed values, so an invented
+  value outside the list can pass; false retrieval undercounts for that kind.
+- **The coherence judge** sees only the turns in view, so it cannot tell a false "you never told me"
+  from a true one; recall is always read beside it. In development, "never told" replies were not
+  on a coherence sheet; the final sheets cover every kind.
+- **Training is not bit-reproducible on this card.** With the same rows and seed, TRL's own first
+  gradient norm varied from run to run (R-029), so every claim pools three seeds.
+- **English only.**
 
-- The conversations are generated from templates. Real chats are messier, and the vocabulary is
-  narrower than real speech.
-- In development, coherence was judged on four of the five kinds; "never told" replies were not on a
-  coherence sheet. The held-out run's sheet covers every kind.
-- The "never told" scorer passes any reply that names none of the listed values, so an invented
-  fact outside the list can pass. It is reported, not used to decide.
-- The coherence judge sees only the turns in view, so it cannot tell a false "you never told me"
-  from a true one. Recall is always read beside coherence for that reason.
-- English only.
+## 11. Reproduce
 
-## Reproduce
+Everything runs on one 10 GB card. The repository holds the pinned model revision, the data
+builder, training and evaluation scripts, every results file with its provenance (command, commit,
+package versions), every coherence sheet with its key and the judge's marks, and the scripts that
+make every number and figure here: `python scripts/make_figures.py` and
+`python scripts/make_article.py`. No number in this article is typed by hand.
 
-Everything runs on one 10 GB card. The repository holds the pinned model revision, the data builder,
-the training and evaluation scripts, every results file with its provenance, every coherence sheet
-with its key and the judge's marks, and the scripts that make every number and figure in this
-article: `python scripts/make_figures.py` and `python scripts/make_article.py`.
+## References
 
-*Prior work: Latent Lab Explorer, the author's chat engine, enforces these behaviours with code; this
-project trains them into a model. Built with AgentTune and AuditKIT from Lexsi Labs. Tiny Aya is
-CC-BY-NC-4.0, and the adapter carries that licence.*
+- Asai, A., et al. (2024). Self-RAG: Learning to retrieve, generate, and critique through self-reflection. *ICLR*.
+- Hu, E. J., et al. (2022). LoRA: Low-rank adaptation of large language models. *ICLR*.
+- Liu, N. F., et al. (2024). Lost in the middle: How language models use long contexts. *TACL*.
+- Mallen, A., et al. (2023). When not to trust language models: Investigating effectiveness of parametric and non-parametric memories. *ACL*.
+- Packer, C., et al. (2023). MemGPT: Towards LLMs as operating systems. *arXiv:2310.08560*.
+- Schick, T., et al. (2023). Toolformer: Language models can teach themselves to use tools. *NeurIPS*.
+- Wu, D., et al. (2025). LongMemEval: Benchmarking chat assistants on long-term interactive memory. *ICLR*.
+- Yao, S., et al. (2023). ReAct: Synergizing reasoning and acting in language models. *ICLR*.
+- Zelikman, E., et al. (2022). STaR: Bootstrapping reasoning with reasoning. *NeurIPS*.
+- Zhang, T., et al. (2024). RAFT: Adapting language model to domain specific RAG. *COLM*.
+- Zheng, L., et al. (2023). Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. *NeurIPS*.
+
+*Prior work: Latent Lab Explorer, the author's local chat engine, enforces these behaviours with
+code around a Llama model; this project trains them into a model, and uses none of its code or test
+sets. Built with AgentTune and AuditKIT from Lexsi Labs. Tiny Aya is CC-BY-NC-4.0, and the adapter
+carries that licence.*
