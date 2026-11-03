@@ -896,3 +896,38 @@ replaces v2 only if, pooled over the three seeds: correct `older` plus `confirm`
 correct `in_view` is higher than v2's 109 of 144 (34, 37, 38); and right decisions stay at or above 200 of 240 on
 every seed. Then Sheet B runs on each new adapter and must hold at or above base, as in R-023. Otherwise v2 stands.
 No held-out run comes out of this without Kevin.
+
+## R-026 · 2026-11-03 · SPRINT · R-025's rule passes: fix 1b replaces v2 as the current set (v3)
+
+Development only, probe pool, probe seed 73157. Counts from `scratchpad/rule_r025.py` and `gate_r022.py` on the
+committed results files; Sheet B counts from `coherence.paired_counts`.
+
+**Rule, three seeds against three.** Correct `older` plus `confirm`, pooled over seeds 82, 83 and 84: v2 234 of
+288, fix 1b 242 of 288 (per seed 80, 86, 76 of 96). Correct `in_view`: v2 109 of 144, fix 1b 120 of 144 (38, 42,
+40). Right decisions 238, 230 and 230 of 240. Base is 30 of 96 and 34 of 48. All three parts hold, and every
+adapter passes R-020's per-seed gate. `confirm` read rate, found-fact items: 122 of 141 (v2 120 of 138).
+
+**Sheet B, each adapter against base with no tool, `statement` and `in_view`.** 192 lines a sheet, shuffle seeds
+90425, 90426 and 90427, each marked by a fresh judge that saw only the rubric and its sheet.
+
+| Seed | Base coherent | Adapter coherent | Only base | Only adapter |
+|---|---|---|---|---|
+| 82 | 79 of 96 | 88 of 96 | 4 | 13 |
+| 83 | 79 of 96 | 87 of 96 | 8 | 16 |
+| 84 | 79 of 96 | 89 of 96 | 5 | 15 |
+
+Every adapter is above base, so the gate holds. `statement` is equal to base or one higher on every seed; the gain
+is on `in_view` (42, 43 and 43 of 48 against base 34, 35 and 34).
+
+**Decision.** The fix 1b adapters, copied to `adapters/v3_seed_82` to `v3_seed_84`, replace v2 as the current set;
+training data `data/screens/hard_in_view.jsonl`. v2 stays on disc for comparison. No held-out run comes out of this
+without Kevin.
+
+**Disclosure, run conditions.** Seed 84's first run slowed at step 545 from about 7 s to 300 to 650 s a step when
+it spilled out of card memory (training peaks at 9.8 of 10 GiB), and was stopped and retrained from scratch at
+02:08 (6,798 s). A stall watcher now runs beside every training run. Speed does not enter any result.
+
+**Where v3 still misses (for the next fixes).** Wrong replies by cause, seeds 82, 83, 84: fact found and not used
+(`older` plus `confirm`) 10, 4 and 14, mostly a "not told" reply; `in_view` answered without a search and wrong 10,
+5 and 6; searched without finding the fact 6, 2 and 4. Next screen, fix 3: the same data with 100 `never_told`
+rows instead of 150, to weaken the lean towards "not told".
