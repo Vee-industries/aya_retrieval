@@ -658,7 +658,7 @@ The search found the fact on 22 of 24 `older` and 24 of 24 `confirm`, and the ad
 Most misses are a training sentence, "I checked and you haven't told me that". That is a false denial the
 adapter did not have before training, and at 58 messages it does worse than base on `older`.
 
-**Coherence, blind, fresh agent given the rubric and sheets only, Sonnet.** Marks and key in the scratchpad.
+**Coherence, blind, fresh agent given the rubric and sheets only, Sonnet.** Sheets, marks and key in `results/coherence/R-020/`.
 - Sheet A, adapter against base on `tool_loop`: 99 against 68 of 120. Only adapter coherent 43, only base 12.
 - Sheet B, adapter against base with no tool, ordinary talk: 34 against 39 of 48. Only adapter 2, only base 7.
   `statement` 23 against 23 of 24. `in_view` 11 against 16 of 24, so all of the loss is `in_view`.
@@ -723,7 +723,7 @@ R-020's rule, every part passes:
   7 of 22, so the reading failure R-020 set out to fix is fixed on this kind.
 
 **Coherence, blind, fresh agent given the rubric and sheets only, Sonnet.** Sheets by
-`make_coherence_sheet.py`, shuffle seeds 90411 and 90412. Marks and key in the scratchpad.
+`make_coherence_sheet.py`, shuffle seeds 90411 and 90412. Sheets, marks and key in `results/coherence/R-021/`.
 - Sheet A, adapter against base on `tool_loop`: 225 against 180 of 240. Only adapter coherent 55, only base 10.
 - Sheet B, adapter against base with no tool, ordinary talk: 85 against 79 of 96. Only adapter 12, only base 6.
   `statement` 45 against 45 of 48. `in_view` 40 against 34 of 48. Adapter 81 lost this sheet, 34 against 39.
@@ -794,8 +794,8 @@ Otherwise the old data and adapters stand. No held-out run comes out of this wit
 
 ## R-023 · 2026-11-02 · SPRINT · R-022's rule passes: the new training data replaces the old
 
-Development only, probe pool, probe seed 73157. Counts from `scratchpad/rule_r022.py` and `gate_r022.py` on the
-committed results files; Sheet B counts from `coherence.paired_counts`.
+Development only, probe pool, probe seed 73157. Counts from `scripts/records/rule_r022.py` and `gate_r022.py` on
+the committed results files; Sheet B counts from `scripts/records/unblind.py` on `results/coherence/R-023/`.
 
 **Rule, three seeds against three.** Correct `older` plus `confirm`, pooled over seeds 82, 83 and 84: old data
 210 of 288, new data 234 of 288 (per seed old 59, 78, 73; new 76, 79, 79 of 96). Base is 30 of 96. `confirm`
@@ -832,7 +832,7 @@ fact found and not used 7, 7 and 4. In a first look at seed 84, several queries 
 ## R-024 · 2026-11-02 · SPRINT · Screens are full runs; fix 1 (read in-view facts) points the right way, too small to call
 
 Development only, probe pool, probe seed 51203 (48 items per kind, 240 rows, tool loop). Counts from
-`scratchpad/screen_cmp.py` on the committed results files. Screens train on seed 82 and are compared with the
+`scripts/records/screen_cmp.py` on the committed results files. Screens train on seed 82 and are compared with the
 current adapter `v2_seed_82` scored on the same probe seed (`screen_full82`). Base differs a lot between probe
 seeds (`older` 23 of 48 on 73157, 33 of 48 here), so screen numbers are compared only within probe seed 51203.
 
@@ -869,7 +869,7 @@ coherence is checked when a fix is confirmed on three seeds.
 
 ## R-025 · 2026-11-02 · SPRINT · Fix 1b (more hard in-view rows) beats the full adapter on the screen; confirmation rule registered
 
-Development only, probe pool, probe seed 51203, same screen as R-024. Counts from `scratchpad/screen_cmp.py` on the
+Development only, probe pool, probe seed 51203, same screen as R-024. Counts from `scripts/records/screen_cmp.py` on the
 committed results files.
 
 **Data.** `--read-hint --hard-in-view 75`, build seed 71119: 75 `in_view` rows base answered unaided and 75 from
@@ -899,8 +899,8 @@ No held-out run comes out of this without Kevin.
 
 ## R-026 · 2026-11-03 · SPRINT · R-025's rule passes: fix 1b replaces v2 as the current set (v3)
 
-Development only, probe pool, probe seed 73157. Counts from `scratchpad/rule_r025.py` and `gate_r022.py` on the
-committed results files; Sheet B counts from `coherence.paired_counts`.
+Development only, probe pool, probe seed 73157. Counts from `scripts/records/rule_r025.py` and `gate_r022.py` on
+the committed results files; Sheet B counts from `scripts/records/unblind.py` on `results/coherence/R-026/`.
 
 **Rule, three seeds against three.** Correct `older` plus `confirm`, pooled over seeds 82, 83 and 84: v2 234 of
 288, fix 1b 242 of 288 (per seed 80, 86, 76 of 96). Correct `in_view`: v2 109 of 144, fix 1b 120 of 144 (38, 42,
@@ -936,7 +936,8 @@ rows instead of 150, to weaken the lean towards "not told".
 
 Development only, probe seed 73157, v3 seed 82 against base, both on `tool_loop`, every kind. 480 lines, shuffle
 seed 90428, marked by a fresh judge that saw only the rubric and its sheet (asked afterwards, it confirmed it
-judged every line itself; code only wrote its list of zeros to the file). Counts from `coherence.paired_counts`.
+judged every line itself; code only wrote its list of zeros to the file). Counts from `scripts/records/unblind.py`
+on `results/coherence/R-027/`.
 
 **Overall.** Adapter coherent 203 of 240, base 169 of 240 (+20% over base). Only adapter coherent 58, only base 24.
 
@@ -961,7 +962,8 @@ already do. The fix 5 screen then gets a Sheet A on `older` and `confirm` agains
 
 ## R-028 · 2026-11-03 · SPRINT · Fix 3 (fewer `never_told` rows) is worse than v3 on the screen: dropped
 
-Development only, screen probe seed 51203, adapter seed 82, 240 items. Fix 3 is v3's build (`--read-hint
+Development only, screen probe seed 51203, adapter seed 82, 240 items. Counts from `scripts/records/screen_cmp.py`.
+Fix 3 is v3's build (`--read-hint
 --hard-in-view 75`) with `--never-told-rows 100` in place of 150 (750 rows). It targets v3's misses where the
 search found the fact and the reply still said it was never told.
 
@@ -974,3 +976,46 @@ search found the fact and the reply still said it was never told.
 Fix 3 is below v3 on recall (73 against 75), `never_told` (44 against 48) and decisions (228 against 234), and
 above it on nothing but `older` by one. Fewer `never_told` rows did not cut the false denials and cost correct
 refusals. Dropped; v3 stays the current set. Next on the card: fix 5, then fix 4.
+
+## R-029 · 2026-11-03 · SPRINT · Fix 5 and fix 4 data built; training slowed by card memory, a lean loss fixes it; records moved out of scratch
+
+**Fix 5 targets, judged blind.** `scripts/run_target_coherence.py` puts every `older` and `confirm` row of the
+v3 data whose search found the fact and whose last turn is base's own answer (350 rows) on one sheet, shuffle
+seed 5. A fresh judge marked it with the R-020 rubric alone; 79 marked incoherent (`older` 52, `confirm` 27),
+listed in `data/screens/fix5_rejected.json`. Sheet, key, rubric and marks: `results/coherence/R-029_fix5_targets/`.
+The fix 5 build (`--reject-replies`) gives those rows the scripted answer: `older` base answers 90 and scripted
+110, `confirm` 67 and 83. **Caveat:** the judge also marked down some answers for using a detail not in the
+shown turns, which the rubric allows, so a few coherent answers were probably replaced. The scripted answer they
+get is coherent, so the cost is a little less of base's own wording, not incoherent targets.
+
+**Fix 4 data.** `--second-search 0.33`: rows that make an empty search in the message's own words before the
+real one, `older` 65, `confirm` 43, `never_told` 53; 2, 14 and 3 more were drawn and left at one search because
+the longer row passed 1,024 tokens. The build ran 09:26 to 10:15 beside the memory checks below, because
+stopping the queue's background task did not stop its child script; its training then refused to start on the
+uncommitted loss change, so no adapter came from it.
+
+**Training slowed by card memory.** Fix 3 trained at 11.7 s a step (13,152 s for 1,125 steps) against 5.7 s for
+v3 seeds 83 and 84. The first fix 5 run ran at about 22 s a step with 1.4 GiB in shared memory: training needed
+9.8 of the card's 10 GiB and Firefox held about 1 GiB. It was stopped at step 103 of 1,200; nothing from it is
+used. The stall watcher's 60 s limit missed a steady slowdown; it now trips at 12 s a step after step 20.
+
+**Cause and fix.** The model's weights are 6.27 GiB. TRL's chunked loss computes `h.float() @ w.float().t()`
+for every chunk of tokens; under bf16 autocast both float32 copies are cast back to bf16 before the product, so
+the copies (2 GiB float32 plus 1 GiB bf16 of the 262,144 x 2,048 output layer) change nothing but memory. Peak
+was 9.56 GiB at 256 tokens a row and 9.65 at 512, so it did not depend on row length. `lean_loss.lean_chunk`
+takes the bf16 product directly when the tensors already have autocast's dtype and is TRL's code otherwise;
+`tests/test_lean_loss.py` shows loss, scores and gradients equal to TRL's bit for bit, with and without
+autocast. Loss chunks drop from 256 to 128 tokens. Peak on the longest rows falls from 9.81 to 7.12 GiB.
+
+**Disclosure: training is not bit-reproducible on this card.** On the same rows and seed, TRL's own loss gave
+first-step gradient norms 3.86, 3.42 and 3.63 in three runs (first-step loss 2.963 every time); the lean loss
+gave 3.45, 3.65 and 3.56. Seeds fix data order and starting weights, not the exact result. Fix 5 and fix 4 train
+with the lean loss while the v3 screen they are compared with trained with TRL's; the difference sits inside
+this run-to-run spread. If either fix wins by a small margin, the v3 screen is retrained with the lean loss
+before it is called.
+
+**Records moved out of the scratchpad.** Every coherence sheet, key and judge's marks behind R-020 to R-027 now
+sits under `results/coherence/R-0xx/`, and the counting scripts the records cite under `scripts/records/`
+(`screen_cmp.py`, `rule_r022.py`, `gate_r022.py`, `rule_r025.py`, `unblind.py`). The scripts were reformatted
+for lint only; on the committed results they print what the scratch copies printed, and `unblind.py` gives every
+coherence count in R-020 to R-027 from the moved files.
