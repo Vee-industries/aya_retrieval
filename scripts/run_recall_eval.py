@@ -71,6 +71,9 @@ def main() -> None:
     parser.add_argument("--arms", nargs="+", default=list(ARMS), choices=ARMS)
     parser.add_argument("--items-per-kind", type=int, default=12)
     parser.add_argument("--pool", default="train", choices=sorted(POOLS))
+    parser.add_argument(
+        "--decoys", type=int, default=1, help="same-type facts about other people in each chat"
+    )
     parser.add_argument("--final", action="store_true", help="needed to read held-out items")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
@@ -87,6 +90,7 @@ def main() -> None:
         "adapter": str(args.adapter) if args.adapter else None,
         "seed": args.seed,
         "pool": args.pool,
+        "decoys": args.decoys,
         "rows": [],
     }
 
@@ -108,7 +112,9 @@ def main() -> None:
         for kind_number, kind in enumerate(ITEM_KINDS):
             for number in range(args.items_per_kind):
                 seed = args.seed + size * 1000 + kind_number * 100 + number
-                item = build_item(f"{size}_{kind}_{number:02d}", seed, size, kind, args.pool)
+                item = build_item(
+                    f"{size}_{kind}_{number:02d}", seed, size, kind, args.pool, args.decoys
+                )
                 tool = build_recall_tool(item, args.index, match_all=False)
                 ask = {"role": "user", "content": item.message}
                 whole_chat = [
