@@ -1255,7 +1255,7 @@ measure that falls, inside R-035's allowance. Not yet measured on v4: Sheet A on
 ## R-037 · 2026-11-03 · SPRINT · v4 is a checkpoint: its misses ranked, and the next screens
 
 Kevin: "lets push this until gains become insubstantial". v4's wrong answers and wrong decisions on probe seed
-73157, three seeds pooled, 80 in all, by cause:
+73157, three seeds pooled, 79 in all, by cause:
 
 | Kind | Cause | 58 msgs | 419 msgs |
 |---|---|---|---|
@@ -1263,7 +1263,7 @@ Kevin: "lets push this until gains become insubstantial". v4's wrong answers and
 | `older` | no search | 10 | 3 |
 | `never_told` | no search (right refusal, wrong decision) | 5 | 4 |
 | `older` | searched, fact not found | 4 | 4 |
-| `older` / `confirm` | fact found, not used | 5 / 4 | 1 / 2 |
+| `older` / `confirm` | fact found, not used | 4 / 4 | 1 / 2 |
 | `confirm` | searched, fact not found | 2 | 3 |
 | `in_view` | searched, wrong | 3 | 2 |
 | `never_told` | named a value | 1 | 2 |
