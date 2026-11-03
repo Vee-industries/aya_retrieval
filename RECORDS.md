@@ -52,6 +52,7 @@ carry their own provenance (command, git commit, package versions).
 | R-037 | v4 is a checkpoint: its misses ranked, and the next screens |
 | R-038 | ★ Amendment to R-016, made before any held-out run: the registered test gets harder (crowded results, false retrieval) |
 | R-039 | ★ Amendment to R-016 and R-038, before any final run: an independent, harder test pool |
+| R-040 | Screens on v4: 4 epochs a candidate, learning rate 1e-4 dropped, fix 6 gains on recall; confirmation rule registered |
 
 ---
 
@@ -1381,3 +1382,31 @@ is judged in full as R-016 registered (every conversation, base and adapter). In
 on a fixed sample of 120 conversations (12 per kind at each length, drawn with seed 39 before any run) against base on
 the same conversations, one fresh judge per sheet, to keep judging within reach; the gate is the same, each adapter's
 coherent count at or above base's on its sample.
+
+## R-040 · 2026-11-03 · SPRINT · Screens on v4: 4 epochs a candidate, learning rate 1e-4 dropped, fix 6 gains on recall; confirmation rule registered
+
+Development only, screen probe seed 51203, adapter seed 82, lean loss, against v4's screen adapter
+(`screen_relation_answers_82`). Counts from `scripts/records/screen_cmp.py`; sign tests from `aya_retrieval.stats`.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) |
+|---|---|---|---|---|---|---|---|
+| base | 38 | 33 | 5 | 32 | 46 | 25 | 109 |
+| v4 (`screen_relation_answers_82`) | 76 | 34 | 42 | 37 | 48 | 48 | 232 |
+| 4 epochs (`screen_epochs4_82`) | 78 | 36 | 42 | 39 | 48 | 48 | 231 |
+| learning rate 1e-4 (`screen_lr1e4_82`) | 67 | 30 | 37 | 35 | 35 | 48 | 228 |
+| fix 6 (`screen_more_indirect_82`) | 84 | 41 | 43 | 36 | 48 | 47 | 235 |
+
+- **4 epochs**: correct answers 3 v4 alone, 7 alone (p = 0.34). A candidate, not confirmed.
+- **Learning rate 1e-4**: 33 v4 alone, 9 alone (p < 0.01); `never_told` falls from 48 to 35. Dropped. A screen at 3e-4
+  is queued.
+- **Fix 6** (`--more-indirect`, R-037; data `data/screens/more_indirect.jsonl`, 800 rows): on `older` plus `confirm`,
+  2 items v4 alone right and 10 fix 6 alone (p = 0.039); over all kinds 10 and 16 (p = 0.33). On the 38 `older` and
+  `in_view` items asked with a forgetting phrase, v4 24 right and fix 6 28. `in_view` does not move (36 against 37).
+
+**Confirmation rule for fix 6, written before seeds 83 and 84 exist and before any fix 6 coherence sheet.** Fix 6 is
+meant to raise recall, so it must beat v4, not only stay near it. Seeds 82 (the screen adapter), 83 and 84, scored on
+probe seed 73157 as `probe7_tuned8x`, against v4 (`probe6_tuned8x`, R-036). Fix 6 replaces v4 only if: (1) correct
+`older` plus `confirm`, pooled, is higher than v4's 252 of 288; (2) correct `in_view`, pooled, at least 110 of 144
+(v4 115, 5% below); (3) right decisions at least 200 of 240 on every seed; (4) Sheet A on `older` and `confirm`, each
+seed against base on probe seed 73157, a fresh judge per sheet: pooled `confirm` coherent at or above base's count, and
+pooled `older` plus `confirm` coherent at or above base's count. Then Sheet B before it is final. Otherwise v4 stands.
