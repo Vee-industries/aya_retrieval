@@ -1023,7 +1023,7 @@ coherence count in R-020 to R-027 from the moved files.
 ## R-030 · 2026-11-03 · SPRINT · AuditKIT joins the evaluation: a second scorer and a second significance test, registered before use
 
 The hackathon asks for at least two Lexsi toolkits chained. Training runs through AgentTune; until now
-AuditKIT only read a smoke run's trajectories (R-004). From here every scored results file can be scored
+AuditKIT only read a smoke run's trajectories (R-007). From here every scored results file can be scored
 again by AuditKIT's agent evaluation (`aya_retrieval.audit`, `scripts/run_audit.py`), written before any
 full run of it was read.
 
