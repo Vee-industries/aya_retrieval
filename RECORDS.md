@@ -1251,3 +1251,35 @@ templates as of commit `bc5f6d8`. Against v3, pooled on probe seed 73157: recall
 133 against 122, `in_view` 115 against 120, and `confirm` coherence at base instead of below it. `in_view` is the one
 measure that falls, inside R-035's allowance. Not yet measured on v4: Sheet A on `in_view`, `never_told` and
 `statement` with the tool; the held-out run's full sheet covers every kind. No held-out run without Kevin.
+
+## R-037 · 2026-11-03 · SPRINT · v4 is a checkpoint: its misses ranked, and the next screens
+
+Kevin: "lets push this until gains become insubstantial". v4's wrong answers and wrong decisions on probe seed
+73157, three seeds pooled, 80 in all, by cause:
+
+| Kind | Cause | 58 msgs | 419 msgs |
+|---|---|---|---|
+| `in_view` | no search, wrong answer | 15 | 9 |
+| `older` | no search | 10 | 3 |
+| `never_told` | no search (right refusal, wrong decision) | 5 | 4 |
+| `older` | searched, fact not found | 4 | 4 |
+| `older` / `confirm` | fact found, not used | 5 / 4 | 1 / 2 |
+| `confirm` | searched, fact not found | 2 | 3 |
+| `in_view` | searched, wrong | 3 | 2 |
+| `never_told` | named a value | 1 | 2 |
+| `statement` | searched | 1 | 0 |
+
+Most of the first two rows are indirect questions: "drawing a blank on my classmate's tattoo", "i cannot think what
+my godfather grows", "i'm blanking on what my mentor is scared of". v4 reads them as the friend's mood ("It sounds
+like you're having a bit of a brainfog") and neither searches nor reads the fact in view. The train pool has one
+indirect phrasing per fact type, 25 in all, each used for a third of that type's questions.
+
+**Screens queued, each against v4's screen adapter (`screen_relation_answers_82`) on probe seed 51203:**
+1. 4 epochs instead of 3, v4 data (`screen_epochs4_82`).
+2. Learning rate 1e-4 instead of 2e-4, v4 data (`screen_lr1e4_82`).
+3. Fix 6, `--more-indirect`: v4's build plus three more indirect phrasings per train fact type
+   (`train_phrasings.py`, 75 in all), written by Claude for this fix, mostly statements about forgetting. None uses
+   an idiom from the probe pool ("drawing a blank", "blanking", "tip of my tongue", "cannot think"), which Claude had
+   read in the loss list above; a test enforces it, so the probe still measures phrasings the model has not seen. The
+   held-out pool's phrasings were not read. Drawn from a separate generator, so only the question changes.
+A screen that gains goes to three seeds under a rule written before those runs, as R-033 and R-035 did.
