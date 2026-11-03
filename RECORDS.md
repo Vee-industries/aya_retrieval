@@ -1338,3 +1338,45 @@ want our answers to be toight." The amendment can only make the project's claims
 adapter stands. It is development only and decides nothing. If training is later changed in response to it, the probe's
 four-decoy numbers stop being a clean measure, and the held-out run is the only clean read; any such change is recorded
 as one.
+
+## R-039 · 2026-11-03 · SPRINT · ★ Amendment to R-016 and R-038, before any final run: an independent, harder test pool
+
+**Why.** Kevin asked who wrote the held-out pool. Claude did, on 2026-11-01 (commit `c662adf`, R-015), in the same
+session as the training pool. A test keeps the pools free of shared content, but not of shared style, and Claude also
+wrote today's training phrasings (fix 6). A test written by the same author as the training data is easier than an
+independent one. Kevin chose a pool written by a fresh agent, and asked for it to be harder.
+
+**How it was written.** A fresh agent with no project context received only `docs/independent_pool/BRIEF.md` (written
+by Claude: the five kinds, the pool format, rules for hard material, and two example words, "landlady" and "the bus
+stop"), an avoid-list built by code from the other pools (`avoid.json`: their people, relations, values, subjects,
+fact-type names, acknowledgements and unknown replies) and a checker (`check_pool.py`). It was told to open nothing
+else, and reported that it did not. It ran the checker until it passed; the first version passed the checker but
+failed the repository's own tests on fact-type names and reply variety, which the checker did not yet cover, and the
+agent fixed both after the checker was extended. Its replies to Claude carried only counts: 12 people, 10 relations,
+6 fact types with 6 values each, 35 subjects, 3 moods (5 lines, 12 replies each), 18 acknowledgements, 12 statement
+pairs, 4 unknown replies. The brief asked for hard material: run-on statements with the fact buried mid-sentence,
+texting-style questions, `new_words` without the type's keyword, forgetting phrased without the probe's idioms, and
+values within a type that are easy to confuse.
+
+**Sealed.** `src/aya_retrieval/pool_independent.py` (sha256 begins `f65ea72e1d91276f`), registered as pool
+`independent`, readable only with `--final` like `heldout`. Claude has not read it: every check ran by code and
+printed only pass or fail, test failures were listed by name only, and the scratch copy was deleted. Tests confirm it
+shares no people, relations, values, subjects, fact types, acknowledgements or unknown replies with any other pool and
+no fact or question wording with the training pool.
+
+**The final test, as amended.** Four conditions, each run once, base and the three adapters on identical
+conversations, 300 conversations per condition (30 per kind at each of 58 and 419 messages):
+
+| Condition | Pool | Decoys a chat |
+|---|---|---|
+| A (R-016 as registered) | `heldout` | 1 |
+| B (R-038) | `heldout` | 4 |
+| C (this record) | `independent` | 1 |
+| D (this record) | `independent` | 4 |
+
+R-016's recall rule and sign test, R-038's false-retrieval rule, and the coherence gate must hold in every condition;
+the project passes only if all four do, and every condition is reported in full either way. Coherence: condition A
+is judged in full as R-016 registered (every conversation, base and adapter). In B, C and D each adapter is judged
+on a fixed sample of 120 conversations (12 per kind at each length, drawn with seed 39 before any run) against base on
+the same conversations, one fresh judge per sheet, to keep judging within reach; the gate is the same, each adapter's
+coherent count at or above base's on its sample.
