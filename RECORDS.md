@@ -1149,3 +1149,43 @@ Items 1 and 2 allow 5% below v3 (12 and 6 items). This is a judgment made now, n
 gives up base's wording on `confirm` to remove the incoherent openers, the screen shows a 3-item drop that the sign
 test cannot tell from noise, and Kevin's hard rule is that coherence cannot decrease. Otherwise v3 stands. Sheet B
 runs on the result before it is final. No held-out run comes out of this without Kevin.
+
+## R-034 · 2026-11-03 · SPRINT · R-033's rule fails on coherence: v3 stands; fix 5b is better than v3 on `confirm` coherence but still below base
+
+**Screen sheet (R-033), unblinded after the rule was written.** Fix 5b against base, probe seed 51203: base 79 of 96,
+fix 5b 80 (only base 9, only fix 5b 10); `older` 32 against 36, `confirm` 47 against 44. Fix 5 on the same items
+(R-032) had `confirm` 35.
+
+**Confirmation runs, probe seed 73157** (`probe5_tuned8x`; seeds 83 and 84 trained with the lean loss, seed 82 is
+the screen adapter).
+
+| Rule item | Needed | Fix 5b | Holds |
+|---|---|---|---|
+| 1. `older` + `confirm` correct, pooled | at least 230 of 288 | 232 (67, 87, 78); v3 242 (80, 86, 76) | yes |
+| 2. `in_view` correct, pooled | at least 114 of 144 | 122; v3 120 | yes |
+| 3. Right decisions, each seed | at least 200 of 240 | 235, 236, 227 | yes |
+| 4a. `confirm` coherent, pooled over three sheets | at least base's 141 of 144 | 121 (42, 37, 42) | **no** |
+| 4b. `older` + `confirm` coherent, pooled | at least base's 241 of 288 | 236 (80, 77, 79) | **no** |
+
+Sheets: `older` and `confirm`, base against each seed, 192 lines each, shuffle seeds 90431 to 90433, three fresh
+judges with only the rubric and one sheet each; marks written to the scratchpad and copied in, files in
+`results/coherence/R-034/`. Each judge reported judging every line itself; two typed their own zero lines into a
+short script to write the file. The seed 82 judge saw that the folder already held the seed 83 marks and did not
+open them. Per seed, base against fix 5b: 81 against 80, 79 against 77, 81 against 79; `older` 34/38, 32/40, 34/37
+and `confirm` 47/42, 47/37, 47/42.
+
+**Decision, by the rule: v3 stands.** Fix 5b is not adopted. For the record, it removes most of v3's `confirm`
+loss: v3 seed 82 had `confirm` 35 of 48 against base 47 on R-027's sheet (every kind, a different judge); fix 5b
+seed 82 has 42 against 47. It is still below base, and the rule asks for base.
+
+**What is left.** 23 incoherent fix 5b `confirm` replies over the three sheets. 15 copy the friend's own wording of
+the relation, "Esme, who is my tutor, speaks fluent Turkish" or "Kofi is my classmate", or name the wrong person;
+the rest are a news opener (2), an unrelated follow-up question after "I don't have that from you" (2) and other
+off-topic replies. The scripted answers fix 5b trains on do not show the change from the friend's "my tutor" to
+"your tutor": 20 of the train pool's 25 answer templates drop the relation ("{person} speaks fluent {value}."),
+so a reply that names the relation can only copy the friend's "my" from the found passage.
+
+**Next: fix 5c.** Fix 5b's data with the train pool's answer templates rewritten to name the relation from the
+friend's side ("Your {relation} {person} speaks fluent {value}."). Only the train pool changes; the probe and
+held-out pools' answer templates are never used as targets. The template is plain formatting, so every
+conversation and draw is unchanged. Same screen, then Sheet A on `older` and `confirm` against base.
