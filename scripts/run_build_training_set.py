@@ -162,6 +162,11 @@ def main() -> None:
         default=0.0,
         help="share of search rows that first make a search that finds nothing",
     )
+    parser.add_argument(
+        "--reject-replies",
+        type=Path,
+        help="JSON list of row ids whose base answer was judged incoherent",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -176,7 +181,9 @@ def main() -> None:
         "hard_in_view": args.hard_in_view,
         "never_told_rows": args.never_told_rows,
         "second_search": args.second_search,
+        "reject_replies": args.reject_replies and args.reject_replies.as_posix(),
     }
+    rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {**ROWS_PER_KIND, NEVER_TOLD: args.never_told_rows}
     rng = random.Random(args.seed)
     # Its own stream, so choosing second-search rows leaves every other row as it was.
@@ -199,6 +206,9 @@ def main() -> None:
                 reply = item.reply
                 if found and kind != NEVER_TOLD:
                     reply = base_answer(model, tokenizer, item, output)
+                    if reply and item.item_id in rejected:
+                        tally[f"{kind}_base_answer_judged_incoherent"] += 1
+                        reply = None
                     tally[f"{kind}_base_answer" if reply else f"{kind}_scripted_answer"] += 1
                     reply = reply or item.reply
             else:
