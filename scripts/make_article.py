@@ -5,7 +5,7 @@ Usage:
 
 Every ``{{name}}`` in ``docs/article_template.md`` is computed here from files under ``results/``,
 so no number in the article is typed by hand. A placeholder left unfilled stops the script.
-The current set is v4 on probe seed 73157 (development); the final run swaps in the held-out files.
+The current set is v5 on probe seed 73157 (development); the final run swaps in the held-out files.
 """
 
 from __future__ import annotations
@@ -39,7 +39,7 @@ OUT = REPO_ROOT / "docs" / "ARTICLE.md"
 PROBE = 73157
 SEEDS = (82, 83, 84)
 BASE = "probe2_base"
-TUNED = "probe6_tuned"  # v4
+TUNED = "probe12_tuned"  # v5
 SCREEN_PROBE = 51203
 SCREEN_REFERENCE = "screen_hard_in_view_lean82"
 DROPPED = {
@@ -51,9 +51,9 @@ JUDGED_TARGETS = (
     "judge_fix5/marks.json",
     "sheet_fix5/key.json",
 )  # fix 5, filtered answers
-SHEET_A = ("R-036", [f"a{s}" for s in SEEDS])  # v4, older and confirm, with the tool
-SHEET_B = ("R-036B", [f"b{s}" for s in SEEDS])  # v4, statement and in_view, base with no tool
-AUDIT = REPO_ROOT / "results" / "audit" / "fix5c_probe73157.json"
+SHEET_A = ("R-061", [f"a{s}" for s in SEEDS])  # v5, older and confirm, with the tool
+SHEET_B = ("R-061B", [f"b{s}" for s in SEEDS])  # v5, statement and in_view, base with no tool
+AUDIT = REPO_ROOT / "results" / "audit" / "v5_probe73157.json"
 AUDIT_BUG_EXAMPLE = REPO_ROOT / "results" / "audit" / "v3_probe73157.json"
 TRL_LOSS_RUN, LEAN_LOSS_RUN = "hard_in_view_84", "screen_hard_in_view_lean_82"
 SCREENS = [  # label, its reference, what changed, outcome (the record that decided it)
@@ -199,6 +199,12 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "screen_fix9_all_82",
         "Fix 10: fix 9 with judge-vetted chat targets",
         "failed coherence at one seed by one reply (R-059)",
+    ),
+    (
+        "screen_fix11_all_82",
+        "screen_fix10_all_82",
+        "Fix 11: fix 10 with brief chat targets",
+        "**v5** (R-061)",
     ),
     (
         "screen_fix6_all_e4_82",
@@ -465,8 +471,14 @@ def interval_numbers(base, tuned, out) -> None:
     out["recall_intervals"] = "Recall above the untrained model, " + "; ".join(parts) + "."
 
 
-CURRENT_TRAIN_REPORT = "screen_relation_answers_82"  # v4, seed 82
+CURRENT_TRAIN_REPORT = "fix11_all_82"  # v5, seed 82
 FIRST_ADAPTER = ("tuned81", 45356)  # R-018, training-style conversations
+
+
+def lora_where(report: dict) -> str:
+    """Where the LoRA weights sit, in words: attention only, or attention and MLP."""
+    targets = report.get("lora_targets", ["q_proj", "k_proj", "v_proj", "o_proj"])
+    return "attention and MLP projections" if "gate_proj" in targets else "attention projections"
 
 
 def setup_numbers(out) -> None:
@@ -477,7 +489,7 @@ def setup_numbers(out) -> None:
     per_kind = ", ".join(f"{KIND_NAMES[k]} {kinds[k]}" for k in KINDS)
     out["training_setup"] = (
         f"{report['rows']} rows ({per_kind}); LoRA rank {report.get('lora_r', 16)} on the "
-        f"attention projections, learning rate {lr_text(report['learning_rate'])}, "
+        f"{lora_where(report)}, learning rate {lr_text(report['learning_rate'])}, "
         f"{report['epochs']} epochs, batch {report['batch_size']}."
     )
     before, after = train_report(TRL_LOSS_RUN), train_report(LEAN_LOSS_RUN)
@@ -501,7 +513,7 @@ CLOSED_PRICES = {
 }
 # Dollars per GPU hour. Source: https://huggingface.co/docs/inference-endpoints/en/pricing
 GPU_PRICE = ("NVIDIA A10G on Hugging Face Inference Endpoints (AWS)", 1.00)
-THROUGHPUT = REPO_ROOT / "results" / "throughput" / "v4_seed_82.json"
+THROUGHPUT = REPO_ROOT / "results" / "throughput" / "v5_seed_82.json"
 ROI_SIZE = 419
 
 
@@ -583,7 +595,7 @@ def numbers() -> dict[str, str]:
     out["results_scope"] = (
         f"Development numbers: the probe pool, {len(base)} conversations "
         f"({len(base) // 10} of each kind at each length), the untrained model against "
-        f"{len(SEEDS)} adapters (v4) trained on seeds {', '.join(map(str, SEEDS))}. "
+        f"{len(SEEDS)} adapters (v5) trained on seeds {', '.join(map(str, SEEDS))}. "
         "The held-out run replaces these."
     )
     out["status_line"] = (

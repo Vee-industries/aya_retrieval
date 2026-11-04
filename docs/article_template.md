@@ -97,7 +97,11 @@ shows a clean call with the demonstrated query, the tool's real output and then 
 real search missed the fact, the row says the model does not know, so a demonstration never
 contradicts what the tool returned. Where the untrained model's answer fails, a short scripted
 answer stands in. The number of decoys varies per row, so the number of passages a search returns
-never gives the answer away.
+never gives the answer away. Plain chat lines take the untrained model's reply when it is asked to
+be brief (the instruction is not part of the row), and a blind judge marks every such target on the
+coherence rubric before training; the 8% it rejects are swapped for spares it accepted (R-058,
+R-060). This filters the targets by the same rubric the coherence judges use, so the adapter is
+trained toward what this kind of judge accepts; the held-out judges are the same kind.
 
 **Training.** LoRA on Tiny Aya Global through AgentTune's distillation trainer (TRL underneath),
 with the loss replaced by an equivalent that uses less memory (section 9). Three training seeds per
@@ -222,6 +226,13 @@ What the path shows:
    trained harder treated any line about a named person as a lookup. Searching in the friend's own
    words (fix 7) showed the same pull from the other side: recall rose and never-told questions
    were answered with other people's facts (R-050, R-054).
+7. **The plain-chat habits came from the targets.** Adding 48 chat lines (fix 9) fixed the lookups,
+   and its recall was 34% above v4's, but at one seed of three the judge still marked six chat
+   replies incoherent, among them "Lucia is a great name." Those were the untrained model's own
+   habits, copied from its replies in the training set. A blind judge vetting those targets first
+   (fix 10) cut that seed's misses from six to three, one short of the untrained model; asking the
+   untrained model for brief replies before vetting them (fix 11) passed on every seed (**v5**,
+   R-057 to R-061).
 
 ## 8. Cost
 

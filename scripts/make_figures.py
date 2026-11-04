@@ -38,10 +38,11 @@ VERSIONS = {
     "v2": "probe3_tuned",
     "v3": "probe4_tuned",
     "v4": "probe6_tuned",
+    "v5": "probe12_tuned",
 }
-CURRENT = "v4"
-SHEET_A_RECORD = "R-036"  # v4, older and confirm, with the tool
-SHEET_B_RECORD = "R-036B"  # v4, statement and in_view, base with no tool
+CURRENT = "v5"
+SHEET_A_RECORD = "R-061"  # v5, older and confirm, with the tool
+SHEET_B_RECORD = "R-061B"  # v5, statement and in_view, base with no tool
 TRL_LOSS_RUN = "hard_in_view_84"  # v3 data, TRL's loss (R-026)
 LEAN_LOSS_RUN = "screen_hard_in_view_lean_82"  # same data, lean loss (R-032)
 

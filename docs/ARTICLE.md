@@ -10,10 +10,10 @@ A small model in a long chat forgets: once a fact scrolls out of its context win
 it was never told or makes something up. We train a LoRA adapter on Tiny Aya Global (3.35B
 parameters) to search the earlier conversation when, and only when, the answer is out of view, to
 read what comes back, and to answer in the model's own voice. With only the last three exchanges
-in view, the adapter answers questions about earlier facts correctly 84% of the
-time in 58-message chats and 91% in 419-message chats, against
-31% and 31% for the untrained model (+169% and
-+191%). A blind judge finds the adapter's replies 8% more often coherent than the untrained model's, and at or above it on every kind judged. It names the wrong person's fact in 1.1% of replies, against 5.4% for the untrained model. Every training change was
+in view, the adapter answers questions about earlier facts correctly 98% of the
+time in 58-message chats and 96% in 419-message chats, against
+31% and 31% for the untrained model (+213% and
++207%). A blind judge finds the adapter's replies 14% more often coherent than the untrained model's, and at or above it on every kind judged. It names the wrong person's fact in 0.3% of replies, against 5.4% for the untrained model. Every training change was
 screened against a rule written before its run, and the final test was registered in advance and
 then only made harder: a crowded condition with four distracting facts per chat, and a second
 test pool written by an independent agent and never read by the authors. We also report two
@@ -90,14 +90,18 @@ values, subjects or wording: **train**, **probe** (development; never trained on
 
 ## 4. Method
 
-**Training data.** 800 rows (Fact told long ago 200, “Did I tell you…?” 150, Fact still on screen 150, Never told 150, Just chatting 150); LoRA rank 16 on the attention projections, learning rate 2e-4, 3 epochs, batch 2. For every training conversation the untrained model is run on
+**Training data.** 800 rows (Fact told long ago 200, “Did I tell you…?” 150, Fact still on screen 150, Never told 150, Just chatting 150); LoRA rank 32 on the attention and MLP projections, learning rate 3e-4, 3 epochs, batch 2. For every training conversation the untrained model is run on
 the same turn. Where its reply passes the scorer, that reply is the target, so training teaches
 the habit of searching and reading without teaching a new voice. Where a search is needed, the row
 shows a clean call with the demonstrated query, the tool's real output and then the answer; if the
 real search missed the fact, the row says the model does not know, so a demonstration never
 contradicts what the tool returned. Where the untrained model's answer fails, a short scripted
 answer stands in. The number of decoys varies per row, so the number of passages a search returns
-never gives the answer away.
+never gives the answer away. Plain chat lines take the untrained model's reply when it is asked to
+be brief (the instruction is not part of the row), and a blind judge marks every such target on the
+coherence rubric before training; the 8% it rejects are swapped for spares it accepted (R-058,
+R-060). This filters the targets by the same rubric the coherence judges use, so the adapter is
+trained toward what this kind of judge accepts; the held-out judges are the same kind.
 
 **Training.** LoRA on Tiny Aya Global through AgentTune's distillation trainer (TRL underneath),
 with the loss replaced by an equivalent that uses less memory (section 9). Three training seeds per
@@ -146,9 +150,9 @@ avoid-list and a checker, and nobody on the project has read it (R-039).
 
 ## 6. Results
 
-Development numbers: the probe pool, 240 conversations (24 of each kind at each length), the untrained model against 3 adapters (v4) trained on seeds 82, 83, 84. The held-out run replaces these.
+Development numbers: the probe pool, 240 conversations (24 of each kind at each length), the untrained model against 3 adapters (v5) trained on seeds 82, 83, 84. The held-out run replaces these.
 
-Recall above the untrained model, at 58 messages +169% (95% interval +83% to +356%, 48 conversations); at 419 messages +191% (95% interval +100% to +393%, 48 conversations).
+Recall above the untrained model, at 58 messages +213% (95% interval +119% to +422%, 48 conversations); at 419 messages +207% (95% interval +116% to +407%, 48 conversations).
 
 ### Retrieved, not guessed
 
@@ -158,12 +162,12 @@ of a search the model itself made, and a **guess** otherwise.
 
 | Questions that need a search | Untrained (96) | Adapter, 3 seeds (288) |
 |---|---|---|
-| Right, fact in its own search results | 30 | 251 |
+| Right, fact in its own search results | 30 | 279 |
 | Right, searched but the fact was not returned | 0 | 0 |
-| Right without searching | 0 | 1 |
-| Wrong although the fact was returned | 4 | 11 |
+| Right without searching | 0 | 0 |
+| Wrong although the fact was returned | 4 | 9 |
 
-Of the adapter's 252 right answers, 251 were retrieved and 1 was a guess (the untrained model: 30 and 0). The gain is recovered information, not better guessing. The final test applies the recall rule to retrieved answers alone as well (R-041).
+Of the adapter's 279 right answers, 279 were retrieved and 0 were guesses (the untrained model: 30 and 0). The gain is recovered information, not better guessing. The final test applies the recall rule to retrieved answers alone as well (R-041).
 
 ### Every kind of message
 
@@ -171,14 +175,14 @@ Of the adapter's 252 right answers, 251 were retrieved and 1 was a guess (the un
 
 | Kind | Untrained | Adapter | Above untrained |
 |---|---|---|---|
-| Fact told long ago | 48% | 83% | +72% |
-| “Did I tell you…?” | 15% | 92% | +533% |
-| Fact still on screen | 71% | 80% | +13% |
-| Never told | 88% | 98% | +12% |
-| Just chatting | 65% | 99% | +54% |
+| Fact told long ago | 48% | 97% | +101% |
+| “Did I tell you…?” | 15% | 97% | +567% |
+| Fact still on screen | 71% | 90% | +27% |
+| Never told | 88% | 99% | +13% |
+| Just chatting | 65% | 100% | +55% |
 
 Right decisions, searching exactly when the answer is out of view: 119 of
-240 untrained, 236, 229, 226 (seeds 82, 83, 84) of 240 with the adapter. Every kind of message improves.
+240 untrained, 240, 240, 240 (seeds 82, 83, 84) of 240 with the adapter. Every kind of message improves.
 
 ### Coherence, judged blind
 
@@ -188,10 +192,10 @@ Pooled over 3 adapter seeds and 6 sheets, each with its own judge:
 
 | Kind | Setting | Untrained | Adapter | Above untrained |
 |---|---|---|---|---|
-| Fact told long ago | both with the tool | 99 of 144 | 118 of 144 | +19% |
-| “Did I tell you…?” | both with the tool | 141 of 144 | 142 of 144 | +1% |
-| Fact still on screen | untrained with no tool | 102 of 144 | 117 of 144 | +15% |
-| Just chatting | untrained with no tool | 133 of 144 | 138 of 144 | +4% |
+| Fact told long ago | both with the tool | 95 of 144 | 129 of 144 | +36% |
+| “Did I tell you…?” | both with the tool | 141 of 144 | 144 of 144 | +2% |
+| Fact still on screen | untrained with no tool | 99 of 144 | 119 of 144 | +20% |
+| Just chatting | untrained with no tool | 135 of 144 | 142 of 144 | +5% |
 
 Fact questions are judged with the search tool for both models. On-screen facts and ordinary chat are judged against the untrained model with no tool at all, so the adapter is held to the model's own ordinary talk.
 
@@ -201,20 +205,20 @@ Fact questions are judged with the search tool for both models. On-screen facts 
 
 | Kind | Untrained | Adapter |
 |---|---|---|
-| Fact told long ago | 1 of 48 | 3 of 144 |
-| “Did I tell you…?” | 0 of 48 | 1 of 144 |
-| Fact still on screen | 5 of 48 | 1 of 144 |
-| Never told | 6 of 48 | 3 of 144 |
+| Fact told long ago | 1 of 48 | 0 of 144 |
+| “Did I tell you…?” | 0 of 48 | 0 of 144 |
+| Fact still on screen | 5 of 48 | 0 of 144 |
+| Never told | 6 of 48 | 2 of 144 |
 | Just chatting | 1 of 48 | 0 of 144 |
-| **All** | **13 of 240** | **8 of 720** |
+| **All** | **13 of 240** | **2 of 720** |
 
-Over every kind the adapter names a wrong value in 1.1% of replies against 5.4%, -79%. Most of the gain is on facts still on screen and questions never told, where the untrained model fills in a value. On the two kinds that need a search the counts are small, 1 and 4, and the untrained model searches far less often (37 of 96 questions against 275 of 288), so it has fewer chances to pick up a decoy. The registered final test adds a crowded condition with four decoys a chat for exactly this reason.
+Over every kind the adapter names a wrong value in 0.3% of replies against 5.4%, -95%. Most of the gain is on facts still on screen and questions never told, where the untrained model fills in a value. On the two kinds that need a search the counts are small, 1 and 0, and the untrained model searches far less often (37 of 96 questions against 288 of 288), so it has fewer chances to pick up a decoy. The registered final test adds a crowded condition with four decoys a chat for exactly this reason.
 
 ### A second scorer: AuditKIT
 
 Each turn becomes an AuditKIT episode (the friend's message, the search calls, the final reply),
 and AuditKIT's own oracles decide each case; for the fact questions this is its `AnswerAssertion`,
-which matches whole words and is stricter than our scorer. AuditKIT agrees with our scorer on 957 of 960 cases. The exact sign test on AuditKIT's verdicts puts every adapter seed above the untrained model with p between 6e-19 and 5e-16.
+which matches whole words and is stricter than our scorer. AuditKIT agrees with our scorer on 959 of 960 cases. The exact sign test on AuditKIT's verdicts puts every adapter seed above the untrained model with p between 7e-26 and 1e-24.
 
 ## 7. Ablations: every change tried
 
@@ -255,6 +259,7 @@ over all 240 conversations.
 | Fix 9: more plain-chat lines, lead's settings | 94 (95) | 45 | 240 | 3 / 4 | 1.00 | failed coherence at one seed of three (R-057) |
 | Fix 8 data on the lead's settings | 94 (95) | 42 | 232 | 16 / 4 | 0.01 | loses statements (R-056) |
 | Fix 10: fix 9 with judge-vetted chat targets | 96 (94) | 43 | 240 | 2 / 2 | 1.00 | failed coherence at one seed by one reply (R-059) |
+| Fix 11: fix 10 with brief chat targets | 95 (96) | 42 | 240 | 4 / 3 | 1.00 | **v5** (R-061) |
 | Lead's settings, 4 epochs | 93 (95) | 44 | 230 | 13 / 3 | 0.02 | loses statements (R-056) |
 
 What the path shows:
@@ -282,24 +287,31 @@ What the path shows:
    trained harder treated any line about a named person as a lookup. Searching in the friend's own
    words (fix 7) showed the same pull from the other side: recall rose and never-told questions
    were answered with other people's facts (R-050, R-054).
+7. **The plain-chat habits came from the targets.** Adding 48 chat lines (fix 9) fixed the lookups,
+   and its recall was 34% above v4's, but at one seed of three the judge still marked six chat
+   replies incoherent, among them "Lucia is a great name." Those were the untrained model's own
+   habits, copied from its replies in the training set. A blind judge vetting those targets first
+   (fix 10) cut that seed's misses from six to three, one short of the untrained model; asking the
+   untrained model for brief replies before vetting them (fix 11) passed on every seed (**v5**,
+   R-057 to R-061).
 
 ## 8. Cost
 
-At 419 messages the adapter reads 1,186 tokens a turn on average over 1.59 model calls and writes 28; the whole chat is 5,409 tokens, so it reads 78% less. Sending the whole chat costs more with every message; the adapter's cost per turn
+At 419 messages the adapter reads 1,214 tokens a turn on average over 1.60 model calls and writes 28; the whole chat is 5,409 tokens, so it reads 78% less. Sending the whole chat costs more with every message; the adapter's cost per turn
 stays flat.
 
 | Per million turns | Cost | With the chat prefix cached |
 |---|---|---|
-| This adapter, self-hosted, batch 1 | $573 | |
-| This adapter, self-hosted, batch 4 | $170 | |
-| This adapter, self-hosted, batch 8 | $106 | |
+| This adapter, self-hosted, batch 1 | $457 | |
+| This adapter, self-hosted, batch 4 | $145 | |
+| This adapter, self-hosted, batch 8 | $96 | |
 | This adapter, self-hosted, batch 16 | $76 | |
-| gpt-6-astra, whole chat each turn | $55,507 | $6,830 |
-| gpt-6.1-sol, whole chat each turn | $11,101 | $825 |
-| gpt-6.1-terra, whole chat each turn | $5,551 | $413 |
+| gpt-6-astra, whole chat each turn | $55,469 | $6,792 |
+| gpt-6.1-sol, whole chat each turn | $11,094 | $817 |
+| gpt-6.1-terra, whole chat each turn | $5,547 | $409 |
 | gpt-6-luna, whole chat each turn | $555 | $68 |
 
-At batch 16 the adapter costs $76 per million turns, 7× to 731× less than these closed models sent the whole chat. With every chat token billed at the cached rate, the cheapest closed model (gpt-6-luna, $68) costs about the same or less, so the saving there is privacy and control rather than money.
+At batch 16 the adapter costs $76 per million turns, 7× to 730× less than these closed models sent the whole chat. With every chat token billed at the cached rate, the cheapest closed model (gpt-6-luna, $68) costs about the same or less, so the saving there is privacy and control rather than money.
 
 **Assumptions.** Self-hosted cost assumes the NVIDIA A10G on Hugging Face Inference Endpoints (AWS) at $1.00 an hour serves calls as fast as the measured card (NVIDIA GeForce RTX 3080, plain Transformers, calls of about 714 prompt tokens). The A10G has less memory bandwidth than that card, so it would likely be somewhat slower, while a dedicated serving engine would be faster. Closed-model cost sends the whole chat each turn and writes as many tokens as the adapter; the cached column charges every chat token at the cached rate, the most favourable case for the closed model. A closed model could also retrieve instead of reading the whole chat; the point here is that a 3B model can do the retrieval itself.
 
