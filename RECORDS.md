@@ -70,6 +70,7 @@ carry their own provenance (command, git commit, package versions).
 | R-055 | R-052 fails on Sheet B at seed 82: v4 stands; statements answered with stored facts; fix 9 (more chat lines) |
 | R-056 | Fix 9 passes the screen gate (statement 48, recall 94); fix 8 and 4 epochs dropped; fix 9 confirmation rule |
 | R-057 | R-056 fails on Sheet B at seed 84 (statement 42 against 46): v4 stands; items 1 to 6 pass; Sheet A judges disagree |
+| R-058 | Fix 10: blind judge vets statement training targets; gate and confirmation rule written first |
 
 ---
 
@@ -1896,3 +1897,31 @@ they agree within one line (`statement` 45, 45, 46; `in_view` 34, 35, 34), so se
 adapters, not between judges. On Sheet A they do not: base `older` is 34, 17 and 30 on the same 48 replies. The
 judge of A83 marked down any reply that opens with a name and a comma. Sheet A's item is pooled and passes by 49 lines,
 so this does not change the result; it is recorded for the write-up's threats to validity.
+
+## R-058 · 2026-11-04 · SPRINT · Fix 10: a blind judge vets the statement training targets before training; screen gate and confirmation rule written before the judging
+
+**Why.** At seed 84 the adapter's incoherent `statement` replies were the untrained model's own habits ("Lucia is a
+great name.", "It sounds like you're feeling a bit down" to "i should really call my classmate"), and statement rows
+train on base's own no-tool reply, unvetted (R-057).
+
+**Fix 10.** Fix 9's data (`more_chat.jsonl`) with its 150 `statement` targets vetted:
+
+1. 150 spare statement rows, built with fix 9's flags at seed 71120 (`--kinds statement --statement-rows 150`,
+   `data/screens/more_chat_spare.jsonl`).
+2. `scripts/vet_statement_targets.py sheet` shuffles all 300 statement targets into one blind sheet (shuffle seed
+   90451); the judge cannot tell targets from spares. A fresh Sonnet judge marks it with the same rubric as the
+   coherence sheets, given only the rubric and the sheet.
+3. `apply` swaps each target marked 0 for the next spare marked 1, preferring spares whose message is not already in
+   the set. Every other row is unchanged. Output: `data/screens/vetted_chat.jsonl`.
+
+Disclosure: the training targets are filtered by the same rubric the coherence judges use. The rubric is the
+definition of coherence in this study, and filtering targets by it is ordinary rejection of bad examples; but it trains
+toward what this kind of judge accepts, and the held-out judges are the same kind. The write-up says so.
+
+**Gate and rule, written before the sheet is judged and before any fix 10 adapter exists.** Train seed 82 on
+`vetted_chat.jsonl` at R-052's settings (`--lora-r 32 --lora-targets q_proj k_proj v_proj o_proj gate_proj up_proj
+down_proj --learning-rate 3e-4`), screen it on probe seed 51203 (`screen_fix10_all_82`). It goes on only if `statement`
+is at least 47 of 48 and recall at least 92 of 96 (R-055's gate). Then seeds 82, 83 and 84 are scored on probe seed
+73157 as `probe11_tuned8x`, and R-052's seven items apply unchanged against v4 (`probe6_tuned8x`) and base
+(`probe2_base`), with Sheet B on every seed. It replaces v4 (as v5) only if all seven pass. Fresh judges, rubric and
+sheet only. No held-out or independent run without Kevin.
