@@ -124,7 +124,12 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "Fix 6: more ways of saying “I forgot”",
         "candidate (R-040)",
     ),
-    ("screen_lora_mlp_82", "screen_relation_answers_82", "LoRA on the MLP layers too", "candidate (R-044)"),
+    (
+        "screen_lora_mlp_82",
+        "screen_relation_answers_82",
+        "LoRA on the MLP layers too",
+        "candidate (R-044)",
+    ),
     ("screen_lora_r32_82", "screen_relation_answers_82", "LoRA rank 32", "candidate (R-044)"),
     ("screen_lr3e4_82", "screen_relation_answers_82", "Learning rate 3e-4", "candidate (R-046)"),
 ]

@@ -238,9 +238,10 @@ over all 240 conversations.
 | Fix 5c: 5b, and answers name the relation | 76 (74) | 37 | 232 | 12 / 15 | 0.70 | **v4** (R-036) |
 | 4 epochs instead of 3 | 78 (76) | 39 | 231 | 3 / 7 | 0.34 | candidate (R-037) |
 | Learning rate 1e-4 instead of 2e-4 | 67 (76) | 35 | 228 | 33 / 9 | <0.01 | dropped (R-040) |
-| Fix 6: more ways of saying “I forgot” | 84 (76) | 36 | 235 | 10 / 16 | 0.33 | pending |
-| LoRA on the MLP layers too | 87 (76) | 37 | 234 | 6 / 17 | 0.03 | pending |
-| LoRA rank 32 | 86 (76) | 43 | 233 | 5 / 20 | <0.01 | pending |
+| Fix 6: more ways of saying “I forgot” | 84 (76) | 36 | 235 | 10 / 16 | 0.33 | candidate (R-040) |
+| LoRA on the MLP layers too | 87 (76) | 37 | 234 | 6 / 17 | 0.03 | candidate (R-044) |
+| LoRA rank 32 | 86 (76) | 43 | 233 | 5 / 20 | <0.01 | candidate (R-044) |
+| Learning rate 3e-4 | 86 (76) | 39 | 235 | 3 / 15 | <0.01 | candidate (R-046) |
 
 What the path shows:
 
