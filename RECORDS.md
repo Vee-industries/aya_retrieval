@@ -1925,3 +1925,9 @@ is at least 47 of 48 and recall at least 92 of 96 (R-055's gate). Then seeds 82,
 73157 as `probe11_tuned8x`, and R-052's seven items apply unchanged against v4 (`probe6_tuned8x`) and base
 (`probe2_base`), with Sheet B on every seed. It replaces v4 (as v5) only if all seven pass. Fresh judges, rubric and
 sheet only. No held-out or independent run without Kevin.
+
+**Vetting result** (fresh Sonnet judge, `results/coherence/R-058/`): of the 150 targets, 137 coherent and 13 not; of
+the 150 spares, 137 and 13. The 13 rejected targets were swapped for coherent spares. The judge's reasons: the
+direction of a debt reversed, "great that you're catching up" to "haven't seen {person} in ages", "Who did you run
+into?" to "guess who ran into {person}", a name taken for a TV character or "a male name", a topic carried over from
+earlier turns, and one reply that contradicts the line.
