@@ -105,7 +105,7 @@ def base_answer(model, tokenizer, item: RecallItem, output: str) -> str | None:
     return fit_to_copy(model, tokenizer, item, messages)
 
 
-def hinted_reply(model, tokenizer, item: RecallItem) -> str | None:
+def hinted_reply(model, tokenizer, item: RecallItem, brief: bool = False) -> str | None:
     """Return base's reply with the fact restated in the system prompt, or None if not fit to copy.
 
     For `in_view` items base answered wrong. The training row leaves the hint out, so the adapter
@@ -113,7 +113,11 @@ def hinted_reply(model, tokenizer, item: RecallItem) -> str | None:
     """
     fact = item.exchanges[item.fact_index][0]
     messages = [
-        {"role": "system", "content": f'{SYSTEM} Earlier your friend said: "{fact}"'},
+        {
+            "role": "system",
+            "content": f'{SYSTEM} Earlier your friend said: "{fact}"'
+            + (f" {BRIEF}" if brief else ""),
+        },
         *turns_from(item.view()),
         {"role": "user", "content": item.message},
     ]
@@ -213,6 +217,11 @@ def main() -> None:
         help="statement targets are base's reply when asked to be brief (not part of the row)",
     )
     parser.add_argument(
+        "--brief-in-view",
+        action="store_true",
+        help="in_view targets (plain and hinted) are base's reply when asked to be brief",
+    )
+    parser.add_argument(
         "--kinds",
         nargs="+",
         default=list(ITEM_KINDS),
@@ -247,6 +256,7 @@ def main() -> None:
         "more_statements": args.more_statements,
         "more_chat": args.more_chat,
         "brief_chat": args.brief_chat,
+        "brief_in_view": args.brief_in_view,
         "kinds": args.kinds,
         "statement_rows": args.statement_rows,
     }
@@ -302,13 +312,15 @@ def main() -> None:
                     tally[f"{kind}_base_answer" if reply else f"{kind}_scripted_answer"] += 1
                     reply = reply or item.reply
             else:
-                brief = args.brief_chat and kind == STATEMENT
+                brief = (args.brief_chat and kind == STATEMENT) or (
+                    args.brief_in_view and kind == IN_VIEW
+                )
                 reply, output, found = base_reply(model, tokenizer, item, brief), "", False
                 if reply and kind == IN_VIEW and easy_full(tally, args.hard_in_view):
                     tally[f"{kind}_easy_skipped"] += 1
                     continue
                 if reply is None and args.read_hint and kind == IN_VIEW:
-                    reply = hinted_reply(model, tokenizer, item)
+                    reply = hinted_reply(model, tokenizer, item, brief)
                     tally[f"{kind}_hinted_reply" if reply else f"{kind}_hinted_reply_rejected"] += 1
                 elif reply and kind == IN_VIEW:
                     tally[f"{kind}_base_reply"] += 1

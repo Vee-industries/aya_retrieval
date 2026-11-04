@@ -1,4 +1,4 @@
-"""Vet statement training targets with a blind judge, then swap out the ones marked incoherent.
+"""Vet training targets of one kind with a blind judge, then swap out the ones marked incoherent.
 
 Usage:
     python scripts/vet_statement_targets.py sheet --data data/screens/more_chat.jsonl \
@@ -17,8 +17,9 @@ import json
 import random
 from pathlib import Path
 
+from aya_retrieval.conversations import ITEM_KINDS, STATEMENT
 from aya_retrieval.provenance import run_metadata
-from aya_retrieval.vetting import replace_rejected, statement_sheet
+from aya_retrieval.vetting import replace_rejected, splice_kind, target_sheet
 
 
 def read_rows(path: Path) -> list[dict]:
@@ -35,14 +36,18 @@ def main() -> None:
     apply.add_argument("--key", type=Path, required=True)
     apply.add_argument("--marks", type=Path, required=True)
     apply.add_argument("--out", type=Path, required=True)
+    apply.add_argument(
+        "--into", type=Path, help="full training set whose rows of the kind the vetted rows replace"
+    )
     for step in (sheet, apply):
         step.add_argument("--data", type=Path, required=True, help="training rows to vet")
-        step.add_argument("--spare", type=Path, required=True, help="spare statement rows")
+        step.add_argument("--spare", type=Path, required=True, help="spare rows of the kind")
+        step.add_argument("--kind", default=STATEMENT, choices=ITEM_KINDS, help="kind to vet")
     args = parser.parse_args()
 
     data, spare = read_rows(args.data), read_rows(args.spare)
     if args.step == "sheet":
-        lines, key = statement_sheet(data, spare, random.Random(args.seed))
+        lines, key = target_sheet(data, spare, random.Random(args.seed), args.kind)
         args.out_dir.mkdir(parents=True, exist_ok=True)
         (args.out_dir / "sheet.json").write_text(json.dumps(lines, indent=1), encoding="utf-8")
         (args.out_dir / "key.json").write_text(json.dumps(key, indent=1), encoding="utf-8")
@@ -51,7 +56,9 @@ def main() -> None:
 
     key = json.loads(args.key.read_text(encoding="utf-8"))
     marks = {int(k): int(v) for k, v in json.loads(args.marks.read_text()).items()}
-    rows, tally = replace_rejected(data, spare, key, marks)
+    rows, tally = replace_rejected(data, spare, key, marks, args.kind)
+    if args.into:
+        rows = splice_kind(read_rows(args.into), rows, args.kind)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     lines = (json.dumps(row, ensure_ascii=False) for row in rows)
     args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -59,6 +66,7 @@ def main() -> None:
         "provenance": run_metadata(),
         "data": args.data.as_posix(),
         "spare": args.spare.as_posix(),
+        "into": args.into and args.into.as_posix(),
         "marks": marks,
         "key": key,
         "rows": len(rows),

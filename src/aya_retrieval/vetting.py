@@ -1,9 +1,9 @@
-"""Vet `statement` training targets with a blind judge before training (fix 10, R-058).
+"""Vet training targets of one kind with a blind judge before training (fix 10, R-058; fix 12).
 
-Statement rows train on base's own reply with no tool in sight. Some of those replies are weak
-("Lucia is a great name."), and the adapter copies them (R-057). A judge marks every statement
-target on the coherence rubric, without knowing which rows are spares; each target marked
-incoherent is swapped for a spare row the judge marked coherent.
+Statement and in_view rows train on base's own reply. Some of those replies are weak ("Lucia is a
+great name."), and the adapter copies them (R-057). A judge marks every target of the kind on the
+coherence rubric, without knowing which rows are spares; each target marked incoherent is swapped
+for a spare row the judge marked coherent.
 """
 
 from __future__ import annotations
@@ -15,10 +15,10 @@ from aya_retrieval.conversations import STATEMENT
 SOURCES = ("data", "spare")
 
 
-def statement_sheet(
-    data: list[dict], spare: list[dict], rng: random.Random
+def target_sheet(
+    data: list[dict], spare: list[dict], rng: random.Random, kind: str = STATEMENT
 ) -> tuple[list[dict], list[dict]]:
-    """Return a shuffled sheet of every statement target in ``data`` and ``spare``, and its key.
+    """Return a shuffled sheet of every ``kind`` target in ``data`` and ``spare``, and its key.
 
     Sheet lines have the turns in view, the friend's message and the reply, as
     ``render_judge_sheet.render`` prints them; the key says which file and row each line came from.
@@ -27,7 +27,7 @@ def statement_sheet(
         (source, row)
         for source, rows in zip(SOURCES, (data, spare), strict=True)
         for row in rows
-        if row["kind"] == STATEMENT
+        if row["kind"] == kind
     ]
     rng.shuffle(entries)
     sheet, key = [], []
@@ -47,29 +47,31 @@ def statement_sheet(
 
 
 def replace_rejected(
-    data: list[dict], spare: list[dict], key: list[dict], marks: dict[int, int]
+    data: list[dict],
+    spare: list[dict],
+    key: list[dict],
+    marks: dict[int, int],
+    kind: str = STATEMENT,
 ) -> tuple[list[dict], dict[str, int]]:
-    """Return ``data`` with each statement row marked 0 swapped for a spare row marked 1.
+    """Return ``data`` with each ``kind`` row marked 0 swapped for a spare row marked 1.
 
     Spares are used in file order, each once, and a spare repeating a kept row's message is
     skipped, so the set keeps as many distinct messages as it can. Raises ValueError if the
-    spares run out or a statement line has no mark.
+    spares run out or a line has no mark.
     """
     mark = {(entry["source"], entry["id"]): marks[entry["line"]] for entry in key}
     kept_messages = {
         row["turns"][-2]["content"]
         for row in data
-        if row["kind"] == STATEMENT and mark[("data", row["id"])] == 1
+        if row["kind"] == kind and mark[("data", row["id"])] == 1
     }
-    good_spares = [
-        row for row in spare if row["kind"] == STATEMENT and mark[("spare", row["id"])] == 1
-    ]
+    good_spares = [row for row in spare if row["kind"] == kind and mark[("spare", row["id"])] == 1]
     fresh = [row for row in good_spares if row["turns"][-2]["content"] not in kept_messages]
     queue = fresh + [row for row in good_spares if row not in fresh]
 
     out, rejected = [], 0
     for row in data:
-        if row["kind"] == STATEMENT and mark[("data", row["id"])] == 0:
+        if row["kind"] == kind and mark[("data", row["id"])] == 0:
             if not queue:
                 raise ValueError("not enough coherent spare rows to replace every rejected target")
             out.append({**queue.pop(0), "id": f"{row['id']}_vetted"})
@@ -77,9 +79,23 @@ def replace_rejected(
         else:
             out.append(row)
     tally = {
-        "statement_targets": sum(row["kind"] == STATEMENT for row in data),
+        "kind": kind,
+        "targets": sum(row["kind"] == kind for row in data),
         "rejected": rejected,
         "spares_coherent": len(good_spares),
         "spares_used": rejected,
     }
     return out, tally
+
+
+def splice_kind(into: list[dict], rows: list[dict], kind: str) -> list[dict]:
+    """Return ``into`` with its ``kind`` rows replaced, in order, by the ``kind`` rows of ``rows``.
+
+    Every other row keeps its place, so the rest of a training set stays exactly as it was. Raises
+    ValueError unless both have the same number of ``kind`` rows.
+    """
+    new = [row for row in rows if row["kind"] == kind]
+    if len(new) != sum(row["kind"] == kind for row in into):
+        raise ValueError(f"{kind} row counts differ")
+    supply = iter(new)
+    return [next(supply) if row["kind"] == kind else row for row in into]
