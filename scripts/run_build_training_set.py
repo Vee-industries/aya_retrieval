@@ -50,6 +50,9 @@ LOG = logging.getLogger("build_training_set")
 OUT_PATH = REPO_ROOT / "data" / "recall_train.jsonl"
 SYSTEM = "You are chatting with a friend."
 SYSTEM_WITH_TOOL = "You are chatting with a friend. You can search the earlier conversation."
+# Fix 11 (R-060): asked for base's statement replies only. The training row leaves it out, so the
+# adapter learns short replies to chat without being told to.
+BRIEF = "Reply briefly, in one or two sentences."
 MAX_TOKENS = 60
 SIZE = 58
 ROWS_PER_KIND = {OLDER: 200, CONFIRM: 150, NEVER_TOLD: 150, IN_VIEW: 150, STATEMENT: 150}
@@ -74,10 +77,13 @@ def fit_to_copy(model, tokenizer, item: RecallItem, messages: list[dict]) -> str
     return reply
 
 
-def base_reply(model, tokenizer, item: RecallItem) -> str | None:
-    """Return base's reply with no tool in sight, or None if it is not fit to copy."""
+def base_reply(model, tokenizer, item: RecallItem, brief: bool = False) -> str | None:
+    """Return base's reply with no tool in sight, or None if it is not fit to copy.
+
+    With ``brief``, base is asked for a short reply; the instruction is not part of the row.
+    """
     messages = [
-        {"role": "system", "content": SYSTEM},
+        {"role": "system", "content": f"{SYSTEM} {BRIEF}" if brief else SYSTEM},
         *turns_from(item.view()),
         {"role": "user", "content": item.message},
     ]
@@ -202,6 +208,11 @@ def main() -> None:
         help="statement rows also draw from train_phrasings.MORE_CHAT",
     )
     parser.add_argument(
+        "--brief-chat",
+        action="store_true",
+        help="statement targets are base's reply when asked to be brief (not part of the row)",
+    )
+    parser.add_argument(
         "--kinds",
         nargs="+",
         default=list(ITEM_KINDS),
@@ -235,6 +246,7 @@ def main() -> None:
         "never_told_hits": args.never_told_hits,
         "more_statements": args.more_statements,
         "more_chat": args.more_chat,
+        "brief_chat": args.brief_chat,
         "kinds": args.kinds,
         "statement_rows": args.statement_rows,
     }
@@ -290,7 +302,8 @@ def main() -> None:
                     tally[f"{kind}_base_answer" if reply else f"{kind}_scripted_answer"] += 1
                     reply = reply or item.reply
             else:
-                reply, output, found = base_reply(model, tokenizer, item), "", False
+                brief = args.brief_chat and kind == STATEMENT
+                reply, output, found = base_reply(model, tokenizer, item, brief), "", False
                 if reply and kind == IN_VIEW and easy_full(tally, args.hard_in_view):
                     tally[f"{kind}_easy_skipped"] += 1
                     continue
