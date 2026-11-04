@@ -150,6 +150,14 @@ avoid-list and a checker, and nobody on the project has read it (R-039).
 
 {{recall_intervals}}
 
+### Retrieved, not guessed
+
+A right answer can come from reading the fact or from guessing among plausible values. Each answer is
+counted by where it came from: **retrieved** if the exchange holding the fact was among the results
+of a search the model itself made, and a **guess** otherwise.
+
+{{sources_text}}
+
 ### Every kind of message
 
 ![Every kind, before and after](../figures/by_kind.png)

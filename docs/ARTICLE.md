@@ -150,6 +150,21 @@ Development numbers: the probe pool, 240 conversations (24 of each kind at each 
 
 Recall above the untrained model, at 58 messages +169% (95% interval +83% to +356%, 48 conversations); at 419 messages +191% (95% interval +100% to +393%, 48 conversations).
 
+### Retrieved, not guessed
+
+A right answer can come from reading the fact or from guessing among plausible values. Each answer is
+counted by where it came from: **retrieved** if the exchange holding the fact was among the results
+of a search the model itself made, and a **guess** otherwise.
+
+| Questions that need a search | Untrained (96) | Adapter, 3 seeds (288) |
+|---|---|---|
+| Right, fact in its own search results | 30 | 251 |
+| Right, searched but the fact was not returned | 0 | 0 |
+| Right without searching | 0 | 1 |
+| Wrong although the fact was returned | 4 | 11 |
+
+Of the adapter's 252 right answers, 251 were retrieved and 1 was a guess (the untrained model: 30 and 0). The gain is recovered information, not better guessing. The final test applies the recall rule to retrieved answers alone as well (R-041).
+
 ### Every kind of message
 
 ![Every kind, before and after](../figures/by_kind.png)
@@ -223,6 +238,7 @@ over all 240 conversations.
 | Fix 5c: 5b, and answers name the relation | 76 (74) | 37 | 232 | 12 / 15 | 0.70 | **v4** (R-036) |
 | 4 epochs instead of 3 | 78 (76) | 39 | 231 | 3 / 7 | 0.34 | candidate (R-037) |
 | Learning rate 1e-4 instead of 2e-4 | 67 (76) | 35 | 228 | 33 / 9 | <0.01 | dropped (R-040) |
+| Fix 6: more ways of saying “I forgot” | 84 (76) | 36 | 235 | 10 / 16 | 0.33 | pending |
 
 What the path shows:
 

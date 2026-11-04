@@ -102,3 +102,23 @@ def test_false_retrieval_counts_replies_that_name_a_wrong_value(tmp_path, monkey
     counts = report_data.false_retrieval("x", 7)
     assert counts["older"] == (1, 2)
     assert counts["never_told"] == (1, 1)
+
+
+def test_recall_sources_separate_retrieved_answers_from_guesses():
+    def r(kind, correct, found, queries):
+        return {"kind": kind, "correct": correct, "found_fact": found, "queries": queries}
+
+    rows = [
+        r("older", True, True, ["q"]),
+        r("confirm", True, False, ["q"]),
+        r("older", True, False, []),
+        r("older", False, True, ["q"]),
+        r("in_view", True, False, []),
+    ]
+    assert report_data.recall_sources(rows) == {
+        "questions": 4,
+        "retrieved": 1,
+        "searched_not_returned": 1,
+        "no_search": 1,
+        "wrong_though_retrieved": 1,
+    }

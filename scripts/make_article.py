@@ -28,6 +28,7 @@ from aya_retrieval.report_data import (
     percent_above,
     pooled,
     recall,
+    recall_sources,
     share,
     train_report,
 )
@@ -337,6 +338,38 @@ def ablation_numbers(out) -> None:
     )
 
 
+def sources_numbers(base, tuned, out) -> None:
+    """Right answers on questions that need a search, split by whether the fact was retrieved."""
+    b = recall_sources(base)
+    seeds = [recall_sources(tuned[s]) for s in SEEDS]
+    t = {key: sum(s[key] for s in seeds) for key in b}
+    rows = [
+        ("Right, fact in its own search results", "retrieved"),
+        ("Right, searched but the fact was not returned", "searched_not_returned"),
+        ("Right without searching", "no_search"),
+        ("Wrong although the fact was returned", "wrong_though_retrieved"),
+    ]
+    table = "\n".join(f"| {name} | {b[key]} | {t[key]} |" for name, key in rows)
+    guesses_b = b["searched_not_returned"] + b["no_search"]
+    guesses_t = t["searched_not_returned"] + t["no_search"]
+    right_t = t["retrieved"] + guesses_t
+    out["sources_text"] = (
+        f"| Questions that need a search | Untrained ({b['questions']}) "
+        f"| Adapter, {len(SEEDS)} seeds ({t['questions']}) |\n|---|---|---|\n"
+        + table
+        + f"\n\nOf the adapter's {right_t} right answers, {t['retrieved']} were retrieved and "
+        f"{guesses_t} {'was a guess' if guesses_t == 1 else 'were guesses'} "
+        f"(the untrained model: {b['retrieved']} and {guesses_b}). "
+        + (
+            "The gain is recovered information, not better guessing. "
+            if guesses_t <= 0.05 * right_t
+            else "A share of the gain is guessing, counted here apart. "
+        )
+        + "The final test applies the recall rule to "
+        "retrieved answers alone as well (R-041)."
+    )
+
+
 def interval_numbers(base, tuned, out) -> None:
     """95% intervals for the headline recall gains, resampling conversations."""
     parts = []
@@ -442,6 +475,7 @@ def numbers() -> dict[str, str]:
     false_retrieval_numbers(base, tuned, out)
     ablation_numbers(out)
     interval_numbers(base, tuned, out)
+    sources_numbers(base, tuned, out)
     roi_numbers(tuned, out)
     setup_numbers(out)
     audit_numbers(out)

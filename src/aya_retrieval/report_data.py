@@ -129,3 +129,23 @@ def false_retrieval(
         counts[row["kind"]][0] += any(v.casefold() in text for v in item.forbidden)
         counts[row["kind"]][1] += 1
     return {kind: (c[0], c[1]) for kind, c in counts.items()}
+
+
+def recall_sources(rows: list[dict]) -> dict[str, int]:
+    """Where each answer to a question that needs a search came from.
+
+    ``retrieved``: right, and the exchange holding the fact was in the results of a search the
+    model made. ``searched_not_returned``: right, though no search it made returned the fact.
+    ``no_search``: right without searching. ``wrong_though_retrieved``: the fact came back and the
+    reply still missed it. The middle two are right answers the model could not have read.
+    """
+    asked = [r for r in rows if r["kind"] in RECALL_KINDS]
+    return {
+        "questions": len(asked),
+        "retrieved": sum(bool(r["correct"] and r["found_fact"]) for r in asked),
+        "searched_not_returned": sum(
+            bool(r["correct"] and not r["found_fact"] and r["queries"]) for r in asked
+        ),
+        "no_search": sum(bool(r["correct"] and not r["queries"]) for r in asked),
+        "wrong_though_retrieved": sum(bool(not r["correct"] and r["found_fact"]) for r in asked),
+    }

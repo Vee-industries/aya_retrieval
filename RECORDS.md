@@ -28,7 +28,7 @@ carry their own provenance (command, git commit, package versions).
 | R-013 | ★ **First test with stops: the base readings return. Supervised pilot passes** |
 | R-014 | ★ Recall first test: search finds the fact and the model often ignores it; the 419 ceiling is not valid |
 | R-015 | Recall development baseline, rules written and committed before the run |
-| R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** (amended by R-038 and R-039) |
+| R-016 | ★ **Pre-registration: training design, held-out test, recall threshold, coherence gate** (amended by R-038, R-039 and R-041) |
 | R-017 | ★ Recall development baseline: base on its own tool loop; the 419 ceiling fails again |
 | R-018 | ★ First recall adapter: 119 of 120 on development items, on training vocabulary; a third pool and a stricter coherence comparison added |
 | R-019 | Probe check, rules written and committed before the run |
@@ -53,6 +53,7 @@ carry their own provenance (command, git commit, package versions).
 | R-038 | ★ Amendment to R-016, made before any held-out run: the registered test gets harder (crowded results, false retrieval) |
 | R-039 | ★ Amendment to R-016 and R-038, before any final run: an independent, harder test pool |
 | R-040 | Screens on v4: 4 epochs a candidate, learning rate 1e-4 dropped, fix 6 gains on recall; confirmation rule registered |
+| R-041 | ★ Amendment to R-016, R-038 and R-039, before any final run: recall counted by source; the recall rule must also hold on retrieved answers alone |
 
 ---
 
@@ -1410,3 +1411,29 @@ probe seed 73157 as `probe7_tuned8x`, against v4 (`probe6_tuned8x`, R-036). Fix 
 (v4 115, 5% below); (3) right decisions at least 200 of 240 on every seed; (4) Sheet A on `older` and `confirm`, each
 seed against base on probe seed 73157, a fresh judge per sheet: pooled `confirm` coherent at or above base's count, and
 pooled `older` plus `confirm` coherent at or above base's count. Then Sheet B before it is final. Otherwise v4 stands.
+
+## R-041 · 2026-11-03 · SPRINT · ★ Amendment to R-016, R-038 and R-039, before any final run: recall counted by source; the recall rule must also hold on retrieved answers alone
+
+**Why.** Kevin: "are the additional correct recalls genuinely recovered information, or are they better guesses? Those
+need separate accounting." A right answer on `older` or `confirm` can come from reading the fact or from guessing
+among the six or so plausible values of its type.
+
+**The split** (`report_data.recall_sources`, tested). Each answer to a question that needs a search is
+**retrieved** if the exchange holding the fact was among the top five results of a search the model itself made
+(`found_fact`, `recall_tool.search_finds_fact`), and otherwise a guess, either after a search that did not return it
+or with no search. Answers that were wrong although the fact came back are counted too.
+
+| Probe seed 73157, `older` + `confirm` | Base (96) | v4, three seeds (288) |
+|---|---|---|
+| Right, fact retrieved | 30 | 251 |
+| Right, searched but not returned | 0 | 0 |
+| Right, no search | 0 | 1 |
+| Wrong although retrieved | 4 | 11 |
+
+Of v4's 252 right answers, 251 were retrieved. On the screen probe, fix 6's 84 right answers were all retrieved (v4's
+screen adapter: 75 of 76). The gains so far are recovered information.
+
+**Amendment.** In every condition of the final test, recall is reported by source, and R-016's recall rule (at least
+20 points above base at each length, pooled over the three adapters, sign test below p = 0.01) must also hold when
+only retrieved answers count, for base and adapters alike. A guess can no longer carry the result. Nothing is
+loosened. No final run has happened.
