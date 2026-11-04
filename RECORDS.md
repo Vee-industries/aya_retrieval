@@ -77,6 +77,7 @@ carry their own provenance (command, git commit, package versions).
 | R-062 | Fix 12: brief, vetted in_view targets spliced into v5's set; nine-item rule written before the build |
 | R-063 | Fix 12 fails the screen gate (recall 90): dropped; v5's 23 misses broken down; fix 13 rule (more indirect in_view) |
 | R-064 | Fix 13 fails the screen gate (recall 91): dropped; in_view changes trade in_view for older; v5 is the final candidate |
+| R-065 | v5 with four decoys (development): recall 277 of 288, false retrieval 0 of 720; style of the independent pool untested |
 
 ---
 
@@ -2125,3 +2126,29 @@ worked as R-055's fix intended.
 more than they gain. v5's misses are 23 of 720 replies on the confirmation probe (3%), and its single-seed screen is
 95 of 96 on recall. A further fix would chase a handful of questions on a probe that has guided every change, which
 the sealed pools would not reward. v5 stands as the candidate for the registered final test.
+
+## R-065 · 2026-11-04 · SPRINT · v5 in the crowded condition (four decoys), development: recall 277 of 288, no false retrieval
+
+Development only, probe seed 73157, the same conversations as R-061 with four decoys a chat (`--decoys 4`, labels
+`probe_d4_v5_8x`, adapters `adapters/v5_seed_8x`), beside R-045's base and v4 runs. Kevin questioned R-064's "final
+candidate": the plateau there was measured only in the one-decoy condition, and the final test is harder.
+
+| Probe seed 73157 | Base, 1 decoy | Base, 4 | v4, 1 (3 seeds) | v4, 4 | v5, 1 (3 seeds) | v5, 4 |
+|---|---|---|---|---|---|---|
+| `older` + `confirm` correct | 30 of 96 | 27 | 252 of 288 | 245 | 279 of 288 | **277** |
+| of which retrieved | 30 | 27 | 251 | 245 | 279 | 277 |
+| wrong although retrieved | 4 | 7 | 11 | 17 | 9 | 11 |
+| `in_view` | 34 of 48 | 33 | 115 of 144 | 114 | 130 of 144 | 130 |
+| `never_told` | 42 | 41 | 141 | 139 | 142 | 144 |
+| False retrieval, all replies | 13 of 240 | 19 | 8 of 720 | 22 | 2 of 720 | **0** |
+| Right decisions per seed | 119 | 119 | 236, 229, 226 | same | 240 each | 240 each |
+
+Four decoys cost v5 2 of 288 recall answers (v4: 7) and no false retrievals (v4: 22 of 720, base 19 of 240). Every
+right answer is retrieved. The crowded condition is not where v5's remaining room is.
+
+**What has not been measured in development: the independent pool's style.** Every probe so far shares the training
+pool's author and style. R-039's independent pool was asked for run-on statements with the fact buried mid-sentence,
+texting-style questions, `new_words` without the type's keyword, forgetting without the probe's idioms, and values easy
+to confuse. Nothing in development tests that. A development twin written by a fresh agent from the same brief would;
+that choice is Kevin's, because tuning on it makes the sealed independent pool less independent (same brief, different
+content).
