@@ -18,7 +18,7 @@ from aya_retrieval.conversations import (
 )
 from aya_retrieval.pools import HELDOUT, POOLS, PROBE, TRAIN
 
-POOL_NAMES = ("train", "heldout", "probe", "independent")
+POOL_NAMES = ("train", "heldout", "probe", "independent", "hard_dev")
 
 
 @pytest.mark.parametrize("pool", POOL_NAMES)
@@ -118,7 +118,8 @@ def test_no_reply_dominates_a_long_conversation(pool):
 
 
 @pytest.mark.parametrize(
-    "first, second", list(combinations((TRAIN, HELDOUT, PROBE, POOLS["independent"]), 2))
+    "first, second",
+    list(combinations((TRAIN, HELDOUT, PROBE, POOLS["independent"], POOLS["hard_dev"]), 2)),
 )
 def test_the_pools_share_no_content(first, second):
     assert not set(first.people) & set(second.people)

@@ -805,4 +805,9 @@ POOLS = {"train": TRAIN, "heldout": HELDOUT, "probe": PROBE}
 from aya_retrieval.pool_independent import INDEPENDENT  # noqa: E402
 
 POOLS["independent"] = INDEPENDENT
+
+# R-066: a development twin of the independent pool, by a fresh agent from its brief. Not sealed.
+from aya_retrieval.pool_hard_dev import HARD_DEV  # noqa: E402
+
+POOLS["hard_dev"] = HARD_DEV
 SEALED = ("heldout", "independent")
