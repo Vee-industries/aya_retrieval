@@ -6,7 +6,9 @@ out of view, to read what comes back, and to answer in its own voice, while stay
 the untrained model. The write-up is [`docs/ARTICLE.md`](docs/ARTICLE.md).
 
 Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.ai) (1–14 November
-2026), Track 3, Agentic Fine-tuning. Author: Kevin Vaillancourt.
+2026), Track 3, Agentic Fine-tuning. Author: Kevin Vaillancourt, working with an AI assistant
+(Claude) as an executive-function accommodation; who did what is in the article's author
+contributions.
 
 > **Status: in progress.** The current adapter is v5 (RECORDS R-061); development numbers only, until
 > the registered final test runs. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
