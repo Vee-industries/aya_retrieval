@@ -2283,3 +2283,10 @@ the brief forbids running any code but the checker or importing the project's mo
 **Docs.** The article gains the development checks beyond the probe (section 5), their results (R-065, R-068) in
 section 6 and the abstract, and this incident and the shared brief under threats to validity; the README describes
 the current project, the pools and the stress tests.
+
+**Order of runs (R-067 to R-070).** R-067's stress runs had not started (their queue was waiting for the `hard_dev`
+runs) and were stopped at 18:27 so fix 14 runs first: it targets the largest gap found, and the stress tests are
+better spent on whichever adapter is current after it. The second `wide` pool (47 fact types, 8 values each, 33
+people, 50 subjects) was written by a fresh agent under R-070's checker; its transcript shows it read only its three
+files, edited only its pool, and ran only the checker. It joins as `src/aya_retrieval/pool_wide.py`, with a test that
+it shares no four-word wording with any test pool. Fix 14 builds its fact rows at seed 71124.
