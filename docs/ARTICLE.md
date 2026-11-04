@@ -335,6 +335,11 @@ run-to-run variation (R-032).
 - **The coherence judge** sees only the turns in view, so it cannot tell a false "you never told me"
   from a true one; recall is always read beside it. In development, "never told" replies were not
   on a coherence sheet; the final sheets cover every kind.
+- **One judge a sheet.** The untrained model's replies are the same on every sheet of a kind, so
+  its score shows how much judges agree. On plain-chat and in-view lines they agreed within one line
+  in 48; on "fact told long ago" lines, three judges gave the same 48 replies 34, 17 and 30, because
+  one marked down any reply that opens with a name (R-057). Claims on that kind rest on the pooled,
+  paired comparison, where the adapter's lead (130 against 81) is larger than that spread.
 - **Training is not bit-reproducible on this card.** With the same rows and seed, TRL's own first
   gradient norm varied from run to run (R-029), so every claim pools three seeds.
 ## 11. Limitations
