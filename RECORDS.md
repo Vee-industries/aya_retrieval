@@ -78,6 +78,7 @@ carry their own provenance (command, git commit, package versions).
 | R-063 | Fix 12 fails the screen gate (recall 90): dropped; v5's 23 misses broken down; fix 13 rule (more indirect in_view) |
 | R-064 | Fix 13 fails the screen gate (recall 91): dropped; in_view changes trade in_view for older; v5 is the final candidate |
 | R-065 | v5 with four decoys (development): recall 277 of 288, false retrieval 0 of 720; style of the independent pool untested |
+| R-066 | Development twin of the independent pool (`hard_dev`), fresh agent, R-039's brief; cost to independence disclosed |
 
 ---
 
@@ -2152,3 +2153,25 @@ texting-style questions, `new_words` without the type's keyword, forgetting with
 to confuse. Nothing in development tests that. A development twin written by a fresh agent from the same brief would;
 that choice is Kevin's, because tuning on it makes the sealed independent pool less independent (same brief, different
 content).
+
+## R-066 · 2026-11-04 · SPRINT · A development twin of the independent pool, written by a fresh agent from R-039's brief (Kevin's go)
+
+**Why.** R-065: v5 holds in the crowded condition, and the one part of the final test with no development stand-in is
+the independent pool's style. Kevin chose a twin: a pool written by a fresh agent from the same brief, readable and
+used for development, so the sealed pool stays sealed.
+
+**Cost, disclosed now.** Tuning against the twin moves the model toward what R-039's brief asks for. The sealed
+independent pool came from that brief, so it is less independent of the development work than it was: it still
+shares no people, relations, values, subjects, fact types or wording with any other pool (tests), and nobody on the
+project has read it, but its style was written to the same instructions. The write-up says so.
+
+**How.** As R-039, in `scratch/.../twin/`: `BRIEF.md` (R-039's brief with the pool name `hard_dev`, the file name, and
+a final report that may describe the pool, since it is for development), `avoid.json` built by code from all four
+pools, the sealed ones included, never printed, and `check_pool.py` (R-039's checker, plus: no question or statement
+wording sharing four words in a row with the held-out or independent pool, reported as pass or fail only). A fresh
+agent reads only those three files and runs the checker until it passes. The pool joins as
+`src/aya_retrieval/pool_hard_dev.py`, registered as `hard_dev`, not sealed; the pool tests gain it, run with tracebacks
+off so a failure names the test, never a sealed value.
+
+**Use.** Base and v5 on `hard_dev` (seed 73157, 24 a kind, one and four decoys), development only. If v5 falls there,
+the next fixes are screened on it, with R-055's gate on the probe kept so the probe does not slip.
