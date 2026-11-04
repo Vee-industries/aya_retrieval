@@ -65,6 +65,7 @@ carry their own provenance (command, git commit, package versions).
 | R-050 | Fix 7 lifts recall to 94 but answers never-told questions with others' facts: dropped; fix 7b queued |
 | R-051 | Fix 8 is a small, non-significant gain and misses its target; screened again at rank 32 |
 | R-052 | Fix 6 with all three capacity changes is the best screen (95 of 96); R-049 superseded; confirmation rule |
+| R-053 | Rank 64 adds nothing; rank 32 at 3e-4 without MLP fails one statement opening 8 of 10; R-052 stands |
 
 ---
 
@@ -1720,3 +1721,25 @@ held-out or independent run without Kevin.
 
 Still on the card before these runs: rank 64 and rank 32 at 3e-4 (R-047's queue). After them: fix 7b (R-050) and fix 8
 at rank 32 (R-051).
+
+## R-053 · 2026-11-04 · SPRINT · Rank 64 gains nothing over rank 32; rank 32 at 3e-4 without the MLP layers fails one statement opening 8 times in 10; R-052's lead stands
+
+Development only, screen probe seed 51203, adapter seed 82, fix 6's data. Both queued in R-047.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) | False retrieval | Train s | Peak GiB |
+|---|---|---|---|---|---|---|---|---|---|---|
+| fix 6 + rank 32 (R-047) | 92 | 45 | 47 | 39 | 48 | 44 | 235 | 0 | 1,282 | 7.22 |
+| fix 6 + all three (R-052) | 95 | 47 | 48 | 44 | 48 | 46 | 238 | 0 | 1,643 | 7.83 |
+| fix 6 + rank 64 (`screen_fix6_r64_82`) | 91 | 45 | 46 | 35 | 48 | 47 | 235 | 0 | 1,331 | 7.42 |
+| fix 6 + rank 32 + 3e-4 (`screen_fix6_r32_lr3e4_82`) | 93 | 45 | 48 | 42 | 48 | 39 | 231 | 0 | 1,349 | 7.22 |
+
+- **Rank 64** against rank 32: recall 4 and 3 (p = 1.0), all kinds 12 and 10 (p = 0.83). Raising the rank past 32
+  adds nothing: capacity through rank has levelled off. Against all three: all kinds 14 and 2 (p = 0.004).
+- **Rank 32 at 3e-4, attention only** against all three: recall 2 and 0 (p = 0.50), all kinds 15 and 4 (p = 0.019),
+  `statement` 8 and 1 (p = 0.039). Eight of its nine statement failures are the one opening R-047 found, "my
+  {relation} has been acting strange lately". Out of the ten probe statements with that opening, the failures are:
+  v4 0, all three 2, rank 32 4, rank 32 at 3e-4 8.
+
+The MLP layers did not add recall on their own (R-047, R-048), but with rank 32 and 3e-4 they are what keeps this
+opening from being read as a question. R-052's lead stands, and its confirmation is next on the card. The "acting
+strange" opening is the one weak spot left on the screen, and R-052's item 3 and Sheet B check it.

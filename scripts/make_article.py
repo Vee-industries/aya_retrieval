@@ -164,6 +164,18 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "Fix 6 at rank 32, with MLP, at 3e-4",
         "best screen; confirming (R-052)",
     ),
+    (
+        "screen_fix6_r64_82",
+        "screen_fix6_r32_82",
+        "Fix 6 at rank 64",
+        "no gain over rank 32 (R-053)",
+    ),
+    (
+        "screen_fix6_r32_lr3e4_82",
+        "screen_fix6_all_82",
+        "Fix 6 at rank 32 and 3e-4, attention only",
+        "loses statements (R-053)",
+    ),
 ]
 KIND_NAMES = {
     "older": "Fact told long ago",

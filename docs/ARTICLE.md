@@ -249,6 +249,8 @@ over all 240 conversations.
 | Fix 8: more ways of stating each fact | 86 (84) | 41 | 238 | 9 / 15 | 0.31 | candidate at rank 32 (R-051) |
 | Fix 6 at 3e-4 | 92 (84) | 41 | 238 | 4 / 16 | 0.01 | ties rank 32 (R-052) |
 | Fix 6 at rank 32, with MLP, at 3e-4 | 95 (84) | 44 | 238 | 4 / 22 | <0.01 | best screen; confirming (R-052) |
+| Fix 6 at rank 64 | 91 (92) | 35 | 235 | 12 / 10 | 0.83 | no gain over rank 32 (R-053) |
+| Fix 6 at rank 32 and 3e-4, attention only | 93 (95) | 42 | 231 | 15 / 4 | 0.02 | loses statements (R-053) |
 
 What the path shows:
 
