@@ -34,6 +34,31 @@ def search_call(query: str) -> str:
     return json.dumps([{"tool_name": SEARCH_TOOL_NAME, "parameters": {"query": query}}])
 
 
+# Words that carry no fact: function words and the ways of saying "I forgot". A search in the
+# friend's own words keeps the rest.
+FILLER = frozenset(
+    "a an the my i i'm im me you your what what's whats which who whom is was were be been "
+    "did do does have has had ever say said saying mention mentioned tell told about of on in "
+    "at to it its that this again remind can't cant cannot can forget forgetting forgot "
+    "remember remembering think thinking keep keeps keeping trying try just some something "
+    "kind there these days now lately so and or but if then up out over from for with by any "
+    "anything one ones gone head memory mind won't wont come back second ago place lost track "
+    "sure not no right where when how why once slipped escapes".split()
+)
+
+
+def message_words_query(item: RecallItem, words: int = 4) -> str:
+    """A search in the friend's own words: the name or relation they gave, then other content words.
+
+    Training searches built from fixed keywords per fact type teach the model to recite those
+    keywords; a search built from the message teaches it to search with what it was told.
+    """
+    who = item.query.split()[0]
+    tokens = [t.removesuffix("'s") for t in re.findall(r"[a-z']+", item.message.lower())]
+    rest = [t for t in dict.fromkeys(tokens) if t and t not in FILLER and t != who.lower()]
+    return " ".join([who, *rest][:words])
+
+
 def missing_words_query(item: RecallItem, words: int = 3) -> str | None:
     """Return a query of the message's own words that appear nowhere in the older exchanges.
 

@@ -9,6 +9,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import json
 import logging
 import random
@@ -30,6 +31,7 @@ from aya_retrieval.conversations import (
 )
 from aya_retrieval.demonstrations import (
     demonstration_turns,
+    message_words_query,
     missing_words_query,
     search_call,
     whole_sentences,
@@ -179,6 +181,11 @@ def main() -> None:
         action="store_true",
         help="indirect questions also drawn from train_phrasings.MORE_INDIRECT",
     )
+    parser.add_argument(
+        "--message-queries",
+        action="store_true",
+        help="demonstrated searches use the friend's own words, not fixed keywords",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -196,6 +203,7 @@ def main() -> None:
         "reject_replies": args.reject_replies and args.reject_replies.as_posix(),
         "scripted_answers": args.scripted_answers,
         "more_indirect": args.more_indirect,
+        "message_queries": args.message_queries,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {**ROWS_PER_KIND, NEVER_TOLD: args.never_told_rows}
@@ -213,6 +221,8 @@ def main() -> None:
             item = build_item(
                 f"{kind}_{made:04d}", seed, SIZE, kind, "train", decoys, args.more_indirect
             )
+            if args.message_queries and item.query:
+                item = dataclasses.replace(item, query=message_words_query(item))
             if kind in NEEDS_SEARCH:
                 tool = build_recall_tool(item, args.index, match_all=False)
                 output = tool.execute(item.query).output

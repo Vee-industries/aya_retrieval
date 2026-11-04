@@ -9,6 +9,7 @@ from aya_retrieval.conversations import CONFIRM, IN_VIEW, NEVER_TOLD, OLDER, STA
 from aya_retrieval.demonstrations import (
     as_event_log,
     demonstration_turns,
+    message_words_query,
     missing_words_query,
     search_call,
     whole_sentences,
@@ -112,3 +113,15 @@ def test_the_missing_words_query_uses_no_word_said_earlier():
         query = missing_words_query(item)
         earlier = " ".join(u + " " + a for u, a in item.older()).lower()
         assert query is None or not set(query.split()) & set(re.findall(r"[a-z']+", earlier))
+
+
+def test_a_message_words_query_uses_only_the_message_and_leads_with_who_was_asked_about():
+    for seed in range(40):
+        for kind in (OLDER, CONFIRM):
+            item = build_item("x", seed, 58, kind, "train", 1, True)
+            query = message_words_query(item)
+            words = query.split()
+            assert words[0] == item.query.split()[0]
+            message = {t.removesuffix("'s") for t in re.findall(r"[a-z']+", item.message.lower())}
+            assert all(w.lower() in message for w in words)
+            assert len(words) == len(set(words)) <= 4

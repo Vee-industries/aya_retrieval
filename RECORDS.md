@@ -54,6 +54,7 @@ carry their own provenance (command, git commit, package versions).
 | R-039 | ★ Amendment to R-016 and R-038, before any final run: an independent, harder test pool |
 | R-040 | Screens on v4: 4 epochs a candidate, learning rate 1e-4 dropped, fix 6 gains on recall; confirmation rule registered |
 | R-041 | ★ Amendment to R-016, R-038 and R-039, before any final run: recall counted by source; the recall rule must also hold on retrieved answers alone |
+| R-042 | Fix 6's remaining misses, and fix 7: searches in the friend's own words |
 
 ---
 
@@ -1437,3 +1438,23 @@ screen adapter: 75 of 76). The gains so far are recovered information.
 20 points above base at each length, pooled over the three adapters, sign test below p = 0.01) must also hold when
 only retrieved answers count, for base and adapters alike. A guess can no longer carry the result. Nothing is
 loosened. No final run has happened.
+
+## R-042 · 2026-11-03 · SPRINT · Fix 6's remaining misses, and fix 7: searches in the friend's own words
+
+Fix 6's screen adapter (`screen_more_indirect_82`, probe seed 51203) misses, by cause: `in_view` answered without
+searching and wrong 9; `older` searched and not found 4, found and not used 3; `in_view` searched and wrong 3;
+`confirm` searched and not found 3, found and not used 2; `statement` searched 1.
+
+The searches that miss are written in the training pool's words, not the friend's: "what freaks my barber out the
+most" is searched as `bruder born winter month`, "did i mention what language my barber speaks" as `bank brother
+city`, "what's the new ink on my stepsister" as `sister new title book`. "born", "month", "city", "title" and "teaches"
+are keywords of the train pool's fact types. Every demonstrated search in training is a fixed keyword pattern per fact
+type (`{who} moving city`, `{who} promoted title`), often with words the friend never said, so the model learned to
+recite them, and it also bends unfamiliar relation words ("barber") toward familiar ones.
+
+**Fix 7, `--message-queries`.** Each demonstrated search is built from the friend's own message: the name or relation
+they gave first, then up to three other words of theirs, with function words and ways of saying "I forgot" dropped
+(`demonstrations.message_words_query`, tested). On 300 train questions (`older` and `confirm`, build seeds as
+`run_build_training_set.py` draws them), these searches found the fact 300 times, the same as the fixed keywords, so
+no demonstration loses its fact. The rest of the build is fix 6's. Screened against fix 6's screen adapter on probe seed
+51203; a gain goes to three seeds under a rule written first.

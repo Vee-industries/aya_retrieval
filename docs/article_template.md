@@ -139,7 +139,7 @@ conversations each.
 | D | independent | 4 | R-039 |
 
 Recall must be at least 20 points above the untrained model at each chat length with a sign test
-below p = 0.01, false retrieval no higher than the untrained model's, and coherence at or above
+below p = 0.01, counting all right answers and again counting only retrieved ones (R-041), false retrieval no higher than the untrained model's, and coherence at or above
 it, in every condition. The held-out pool was written by Claude, the author's AI assistant, in the same
 session as the training pool; the independent pool was written by a fresh agent that saw only a brief, an
 avoid-list and a checker, and nobody on the project has read it (R-039).
