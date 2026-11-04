@@ -57,6 +57,7 @@ carry their own provenance (command, git commit, package versions).
 | R-042 | Fix 6's remaining misses, and fix 7: searches in the friend's own words |
 | R-043 | Wrong although retrieved: a reading failure; fix 8 states each training fact in more ways |
 | R-044 | Capacity screens beat every data fix: LoRA on the MLP layers, and rank 32; R-040's confirmation superseded before it ran; combinations next |
+| R-045 | R-038's crowded condition on the probe, development: v4 holds with four decoys |
 
 ---
 
@@ -1508,3 +1509,23 @@ rule is not applied to anything; fix 6's screen stands as recorded.
 **Combinations, next.** Fix 6's data with (a) LoRA on attention and MLP, (b) rank 32, (c) both, each against fix 6's
 screen adapter. The best goes to three seeds under a rule written before those runs, with Sheet A and Sheet B. Fixes 7
 and 8 are still screened on v4's settings against fix 6, as R-042 and R-043 set out, and join the winner if they gain.
+
+## R-045 · 2026-11-03 · SPRINT · R-038's crowded condition on the probe, development: v4 holds with four decoys
+
+Development only, probe seed 73157, the same conversations as R-036 with four decoys a chat instead of one
+(`run_recall_eval.py --decoys 4`, labels `probe_d4_base`, `probe_d4_v4_8x`; v4 adapters `adapters/v4_seed_8x`). Counts from
+`report_data` (`recall`, `false_retrieval`, `recall_sources`).
+
+| Probe seed 73157 | Base, 1 decoy | Base, 4 decoys | v4, 1 decoy (3 seeds) | v4, 4 decoys (3 seeds) |
+|---|---|---|---|---|
+| `older` + `confirm` correct | 30 of 96 | 27 of 96 | 252 of 288 | 245 of 288 |
+| of which retrieved / guessed | 30 / 0 | 27 / 0 | 251 / 1 | 245 / 0 |
+| wrong although retrieved | 4 | 7 | 11 | 17 |
+| False retrieval, all replies | 13 of 240 | 19 of 240 | 8 of 720 | 22 of 720 |
+| False retrieval on `older` + `confirm` | 1 | 7 | 4 | 12 |
+| Right decisions per seed | 119 | 119 | 236, 229, 226 | 236, 229, 226 |
+
+Four decoys cost v4 7 of 288 correct answers. Its false-retrieval rate rises from 1.1% to 3.1% and stays below base's
+(5.4% to 7.9%); per adapter, 2, 9 and 11 false retrievals against base's 19 on the same conversations. Every right answer under
+four decoys was retrieved. Answers wrong although the fact came back rise from 11 to 17, the reading failure R-043 targets.
+This decides nothing; it shows where the current adapter stands on the condition R-038 added to the final test.
