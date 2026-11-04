@@ -182,6 +182,24 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "Fix 6 at rank 32 and 3e-4, attention only",
         "loses statements (R-053)",
     ),
+    (
+        "screen_fix9_all_82",
+        "screen_fix6_all_82",
+        "Fix 9: more plain-chat lines, lead's settings",
+        "passed its screen; confirmation (R-056)",
+    ),
+    (
+        "screen_fix8_all_82",
+        "screen_fix6_all_82",
+        "Fix 8 data on the lead's settings",
+        "loses statements (R-056)",
+    ),
+    (
+        "screen_fix6_all_e4_82",
+        "screen_fix6_all_82",
+        "Lead's settings, 4 epochs",
+        "loses statements (R-056)",
+    ),
 ]
 KIND_NAMES = {
     "older": "Fact told long ago",

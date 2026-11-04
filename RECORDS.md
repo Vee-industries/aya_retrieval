@@ -68,6 +68,7 @@ carry their own provenance (command, git commit, package versions).
 | R-053 | Rank 64 adds nothing; rank 32 at 3e-4 without MLP fails one statement opening 8 of 10; R-052 stands |
 | R-054 | Fix 7b brings never_told only part way back and loses statements: fix 7 line dropped |
 | R-055 | R-052 fails on Sheet B at seed 82: v4 stands; statements answered with stored facts; fix 9 (more chat lines) |
+| R-056 | Fix 9 passes the screen gate (statement 48, recall 94); fix 8 and 4 epochs dropped; fix 9 confirmation rule |
 
 ---
 
@@ -1812,3 +1813,43 @@ in it. The probe's own wording is excluded by the test, and the sealed pools are
 screened against `screen_fix6_all_82`. It goes to a confirmation only if `statement` on the screen is at least v4's 48
 less one and recall is not below the lead's 95 less 3. Its confirmation then runs R-052's seven items, with Sheet B on
 every seed. After it: fix 8's data and 4 epochs on the lead's settings (R-054's plan).
+
+## R-056 · 2026-11-04 · SPRINT · Fix 9 passes R-055's screen gate (statement 48 of 48, recall 94 of 96, every decision right); fix 8 and 4 epochs on the lead's settings lose statements; confirmation rule for fix 9
+
+Development only, screen probe seed 51203, adapter seed 82, all at rank 32 on attention and MLP, 3e-4 (R-052's
+settings).
+
+| Label | Data | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) | False retrieval | Train s | Peak GiB |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Base (`screen_base`) | | 38 | 33 | 5 | 32 | 46 | 25 | 109 | 9 | | |
+| v4 (`screen_scripted_confirm_82`) | | 71 | 33 | 38 | 37 | 48 | 48 | 232 | 0 | | |
+| Lead, R-052 (`screen_fix6_all_82`) | fix 6 | 95 | 47 | 48 | 44 | 48 | 46 | 238 | 0 | 1,643 | 7.83 |
+| `screen_fix9_all_82` | fix 9 (`more_chat.jsonl`) | 94 | 47 | 47 | 45 | 47 | 48 | 240 | 1 | 1,659 | 7.83 |
+| `screen_fix8_all_82` | fix 8 (`more_statements.jsonl`) | 94 | 46 | 48 | 42 | 45 | 40 | 232 | 3 | 1,630 | 7.82 |
+| `screen_fix6_all_e4_82` | fix 6, 4 epochs | 93 | 45 | 48 | 44 | 48 | 38 | 230 | 0 | 2,267 | 7.83 |
+
+Sign tests for fix 9 (conversations one adapter got right and the other wrong): against the lead, recall 1 and 2
+(p = 1.0), all kinds 4 and 3 (p = 1.0), `statement` 2 and 0 (p = 0.5); against v4, recall 24 and 1 (p < 0.0001), all
+kinds 34 and 4 (p < 0.0001), `in_view` 10 and 2 (p = 0.039); against base, recall 56 and 0, all kinds 94 and 1.
+Recall is 34% above v4 and 147% above base on this probe. Its one false retrieval is a `never_told` reply; base has 9.
+No `statement` line was searched.
+
+**Fix 9 passes R-055's gate** (`statement` at least 47, recall at least 92). The screen counts `statement` by whether
+it searched, so the gate does not show whether the replies are good chat; Sheet B does, and R-055 failed there.
+
+**Fix 8 on the lead's settings is dropped**: `statement` 40 of 48 and 3 false retrievals on `never_told`. **Four
+epochs is dropped**: against the lead it loses 8 statements and gains none (p = 0.008), and over all kinds 3 against
+13 (p = 0.021). Training longer, like training harder (R-055), costs plain chat before it adds recall.
+
+**Confirmation rule for fix 9, written before seeds 83 and 84 exist and before any of its coherence sheets.** R-052's
+seven items, unchanged, for this data: seeds 82 (`adapters/screens/fix9_all_82`), 83 and 84, trained on
+`data/screens/more_chat.jsonl` with `--lora-r 32 --lora-targets q_proj k_proj v_proj o_proj gate_proj up_proj
+down_proj --learning-rate 3e-4`, scored on probe seed 73157 as `probe10_tuned8x`, against v4 (`probe6_tuned8x`) and
+base (`probe2_base`). It replaces v4 (as v5) only if: (1) recall pooled above 252 of 288; (2) `in_view` pooled at
+least 110 of 144; (3) `statement` pooled at least 136 of 144; (4) right decisions at least 200 of 240 on every seed;
+(5) false retrieval pooled at most 39 of 720; (6) Sheet A, pooled `confirm` and pooled `older` plus `confirm` coherent
+at or above base; (7) Sheet B on every seed, `statement` and `in_view` coherent each at or above base. Otherwise v4
+stands. Seed 82 is scored first and its Sheet B judged while seed 83 trains; if seed 82 fails item 7, the remaining
+runs stop, as in R-055. Fresh judges, rubric and sheet only, marks to the scratchpad and copied in. No held-out or
+independent run without Kevin. From this queue on, runs set `HF_HUB_OFFLINE=1` and `HF_HUB_DISABLE_TELEMETRY=1`:
+TRL had sent a usage ping to huggingface.co at the start of each training run; nothing else went online.
