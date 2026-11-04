@@ -64,6 +64,7 @@ carry their own provenance (command, git commit, package versions).
 | R-049 | Confirmation rule for fix 6 at rank 32, written before its runs and sheets |
 | R-050 | Fix 7 lifts recall to 94 but answers never-told questions with others' facts: dropped; fix 7b queued |
 | R-051 | Fix 8 is a small, non-significant gain and misses its target; screened again at rank 32 |
+| R-052 | Fix 6 with all three capacity changes is the best screen (95 of 96); R-049 superseded; confirmation rule |
 
 ---
 
@@ -1676,3 +1677,46 @@ it is not significant alone.
 Fix 8's data is screened again at rank 32 against fix 6 at rank 32 (queued after fix 7b): R-047 found that rank 32
 loses statements, and more ways of stating facts is the data change most likely to prevent that. It is kept as a
 candidate for that reason only.
+
+## R-052 · 2026-11-04 · SPRINT · Fix 6 with all three capacity changes is the best screen (recall 95 of 96, false retrieval 0); R-049 superseded before its runs; confirmation rule for it
+
+Development only, screen probe seed 51203, adapter seed 82, fix 6's data.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) | False retrieval | Train s | Peak GiB |
+|---|---|---|---|---|---|---|---|---|---|---|
+| fix 6 (R-040) | 84 | 41 | 43 | 36 | 48 | 47 | 235 | 0 | | |
+| fix 6 + rank 32 (R-047) | 92 | 45 | 47 | 39 | 48 | 44 | 235 | 0 | 1,282 | 7.22 |
+| fix 6 + 3e-4 (`screen_fix6_lr3e4_82`) | 92 | 45 | 47 | 41 | 48 | 46 | 238 | 0 | 1,315 | 7.12 |
+| fix 6 + rank 32, attention and MLP, 3e-4 (`screen_fix6_all_82`) | 95 | 47 | 48 | 44 | 48 | 46 | 238 | 0 | 1,643 | 7.83 |
+
+Sign tests (conversations one adapter got right and the other wrong):
+
+| Comparison | `older` + `confirm` | All kinds | `in_view` |
+|---|---|---|---|
+| 3e-4 against fix 6 | 0 and 8 (p = 0.008) | 4 and 16 (p = 0.012) | 3 and 8 (p = 0.23) |
+| 3e-4 against rank 32 | 1 and 1 (p = 1.0) | 5 and 9 (p = 0.42) | 4 and 6 (p = 0.75) |
+| all three against fix 6 | 0 and 11 (p = 0.001) | 4 and 22 (p < 0.001) | 3 and 11 (p = 0.057) |
+| all three against rank 32 | 1 and 4 (p = 0.38) | 3 and 13 (p = 0.021) | 1 and 6 (p = 0.13) |
+
+With all three changes the adapter misses one recall question of 96, gains on `in_view` (44 against 36), loses one
+statement where rank 32 alone lost three, and names no wrong value anywhere. Over all kinds it beats R-049's lead
+(p = 0.021).
+
+**R-049 is superseded before its runs.** Its queue was still waiting for earlier screens and had produced nothing; it
+was stopped at 01:41. Confirming rank 32 alone would confirm a setting already beaten on the screen, as R-044 found for
+R-040. R-049's rule is not applied to anything. (R-049 said a better screen would get its own runs beside it; the card
+time goes to the better setting instead, and this record says so.)
+
+**Confirmation rule for fix 6 with all three changes, written before seeds 83 and 84 exist and before any of its
+coherence sheets.** R-049's seven items, unchanged, for this setting: seeds 82 (`adapters/screens/fix6_all_82`), 83
+and 84, trained on `data/screens/more_indirect.jsonl` with `--lora-r 32 --lora-targets q_proj k_proj v_proj o_proj
+gate_proj up_proj down_proj --learning-rate 3e-4`, scored on probe seed 73157 as `probe9_tuned8x`, against v4
+(`probe6_tuned8x`) and base (`probe2_base`). It replaces v4 (as v5) only if: (1) recall pooled above 252 of 288;
+(2) `in_view` pooled at least 110 of 144; (3) `statement` pooled at least 136 of 144; (4) right decisions at least 200
+of 240 on every seed; (5) false retrieval pooled at most 39 of 720; (6) Sheet A, pooled `confirm` and pooled `older`
+plus `confirm` coherent at or above base; (7) Sheet B on every seed, `statement` and `in_view` coherent each at or
+above base. Otherwise v4 stands. Fresh judges, rubric and sheet only, marks to the scratchpad and copied in. No
+held-out or independent run without Kevin.
+
+Still on the card before these runs: rank 64 and rank 32 at 3e-4 (R-047's queue). After them: fix 7b (R-050) and fix 8
+at rank 32 (R-051).

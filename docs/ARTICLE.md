@@ -243,10 +243,12 @@ over all 240 conversations.
 | LoRA rank 32 | 86 (76) | 43 | 233 | 5 / 20 | <0.01 | candidate (R-044) |
 | Learning rate 3e-4 | 86 (76) | 39 | 235 | 3 / 15 | <0.01 | candidate (R-046) |
 | Fix 6 with LoRA on the MLP layers | 87 (84) | 39 | 235 | 16 / 18 | 0.86 | no gain over fix 6 (R-047) |
-| Fix 6 at rank 32 | 92 (84) | 39 | 235 | 11 / 19 | 0.20 | candidate (R-047) |
+| Fix 6 at rank 32 | 92 (84) | 39 | 235 | 11 / 19 | 0.20 | beaten (R-052) |
 | Fix 6 at rank 32 with the MLP layers | 90 (84) | 43 | 235 | 11 / 20 | 0.15 | ties rank 32 alone (R-048) |
 | Fix 7: searches in the friend's own words | 94 (84) | 39 | 229 | 36 / 19 | 0.03 | dropped on false retrieval (R-050) |
 | Fix 8: more ways of stating each fact | 86 (84) | 41 | 238 | 9 / 15 | 0.31 | candidate at rank 32 (R-051) |
+| Fix 6 at 3e-4 | 92 (84) | 41 | 238 | 4 / 16 | 0.01 | ties rank 32 (R-052) |
+| Fix 6 at rank 32, with MLP, at 3e-4 | 95 (84) | 44 | 238 | 4 / 22 | <0.01 | best screen; confirming (R-052) |
 
 What the path shows:
 

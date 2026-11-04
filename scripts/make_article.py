@@ -138,7 +138,7 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "Fix 6 with LoRA on the MLP layers",
         "no gain over fix 6 (R-047)",
     ),
-    ("screen_fix6_r32_82", "screen_more_indirect_82", "Fix 6 at rank 32", "candidate (R-047)"),
+    ("screen_fix6_r32_82", "screen_more_indirect_82", "Fix 6 at rank 32", "beaten (R-052)"),
     (
         "screen_fix6_mlp_r32_82",
         "screen_more_indirect_82",
@@ -156,6 +156,13 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "screen_more_indirect_82",
         "Fix 8: more ways of stating each fact",
         "candidate at rank 32 (R-051)",
+    ),
+    ("screen_fix6_lr3e4_82", "screen_more_indirect_82", "Fix 6 at 3e-4", "ties rank 32 (R-052)"),
+    (
+        "screen_fix6_all_82",
+        "screen_more_indirect_82",
+        "Fix 6 at rank 32, with MLP, at 3e-4",
+        "best screen; confirming (R-052)",
     ),
 ]
 KIND_NAMES = {
