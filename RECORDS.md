@@ -2059,3 +2059,10 @@ data/screens/vetted_brief.jsonl`), so every other row is v5's: `data/screens/vet
 against base, unchanged, with Sheet B on every seed, and two items against v5: (8) Sheet B `in_view` pooled coherent
 above v5's 119 of 144, since that is what it is for; (9) recall pooled at least 273 of 288 (v5's 279 less 6). It
 replaces v5 (as v6) only if all nine pass. No held-out or independent run without Kevin.
+
+**Build and vetting result.** 150 `in_view` rows and 150 spares, each 75 base replies and 75 hinted replies (as v5's
+set). Brief targets average 13.6 words against 21.8 in v5's set. Vetting (fresh Sonnet judge, `results/coherence/R-062/`):
+of the 150 targets, 125 coherent and 25 not; of the spares, 125 and 25. The 25 were swapped and the vetted rows
+spliced into v5's set: all 650 other rows are v5's, in v5's order. The judge's reasons: a reply that says it is not
+sure of a fact the friend just stated (the scorer passes these because the value is named), the friend's relative
+spoken of as the reply's own, "lost" read as the friend losing it, the wrong relation, and filler.

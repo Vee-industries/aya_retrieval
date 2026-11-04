@@ -1,0 +1,5702 @@
+[
+ {
+  "line": 0,
+  "view": [
+   [
+    "i'm actually pretty happy with the roof lately",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "Nell is my brother, and they rent on the twentieth floor",
+    "That's a change."
+   ],
+   [
+    "the kettle was acting up again today",
+    "Sorry, the kettle sounds like a real hassle."
+   ]
+  ],
+  "message": "which floor does Nell rent on",
+  "reply": "Nell lives on the twentieth floor."
+ },
+ {
+  "line": 1,
+  "view": [
+   [
+    "ugh, the laundry is driving me up the wall",
+    "That sounds annoying. Hope the laundry settles down soon."
+   ],
+   [
+    "so Yusuf (my roommate) finally switched to a Galaxy",
+    "Thanks for telling me."
+   ],
+   [
+    "my glasses is getting on my nerves",
+    "Oof. An hour lost to my glasses is no fun."
+   ]
+  ],
+  "message": "what phone did Yusuf switch to",
+  "reply": "I'm not aware of the specific phone model Yusuf switched to. However, I can provide some general information about popular Galaxy phones."
+ },
+ {
+  "line": 2,
+  "view": [
+   [
+    "funny how my desk keeps coming up",
+    "What about my desk got you thinking?"
+   ],
+   [
+    "my aunt Yusuf is moving to Lisbon in the spring",
+    "Thanks for telling me."
+   ],
+   [
+    "so my back has been a pain all week",
+    "Oof. An hour lost to my back is no fun."
+   ]
+  ],
+  "message": "my aunt told me where they're moving and i've lost it",
+  "reply": "That's a lot of information to process all at once. Your aunt is moving to Lisbon in the spring, and your back has been hurting all week."
+ },
+ {
+  "line": 3,
+  "view": [
+   [
+    "news from my coworker Nell: they opened a thrift shop",
+    "That's a change."
+   ],
+   [
+    "the elevator was acting up again today",
+    "I'd be fed up with the elevator too."
+   ],
+   [
+    "i'm actually pretty happy with the printer lately",
+    "That's a small win. the printer sounds good."
+   ]
+  ],
+  "message": "the shop my coworker opened, i can't recall what it sells",
+  "reply": "A thrift shop typically sells gently used clothing, furniture, and other items."
+ },
+ {
+  "line": 4,
+  "view": [
+   [
+    "Greta, the uncle i keep talking about, broke a thumb skiing",
+    "How are they finding it?"
+   ],
+   [
+    "someone at work brought up my coffee today",
+    "Sure, we can move on from my coffee."
+   ],
+   [
+    "the fridge was acting up again today",
+    "Oof. An hour lost to the fridge is no fun."
+   ]
+  ],
+  "message": "what did Greta break skiing",
+  "reply": "Greta broke her thumb skiing."
+ },
+ {
+  "line": 5,
+  "view": [
+   [
+    "anyway, enough about my bike",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "the snow was acting up again today",
+    "That's frustrating. Is the snow usually like that?"
+   ],
+   [
+    "you know my neighbour Nell? they live on Cedar Court now",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "what street does Nell live on",
+  "reply": "Nell lives on Cedar Court."
+ },
+ {
+  "line": 6,
+  "view": [
+   [
+    "talked to Priya today, my brother, now promoted to head of sales",
+    "How are they finding it?"
+   ],
+   [
+    "the lawn came up at dinner",
+    "Sure, we can move on from the lawn."
+   ],
+   [
+    "my coffee let me down this morning",
+    "Sorry, my coffee sounds like a real hassle."
+   ]
+  ],
+  "message": "my brother's promotion, the title escapes me",
+  "reply": "He became the head of sales."
+ },
+ {
+  "line": 7,
+  "view": [
+   [
+    "the kettle came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "you know my coworker Greta? they live on Juniper Way now",
+    "That's a change."
+   ],
+   [
+    "the stairs turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "where do i send a card for my coworker",
+  "reply": "You can send a card to Greta at her home address, which is Juniper Way."
+ },
+ {
+  "line": 8,
+  "view": [
+   [
+    "no complaints about the groceries this week",
+    "Love that for you."
+   ],
+   [
+    "good news, the fridge sorted itself out",
+    "Good to hear the fridge is behaving."
+   ],
+   [
+    "my aunt Omar has taken up birdwatching on weekends",
+    "Good to know."
+   ]
+  ],
+  "message": "my aunt's weekend thing has completely escaped me",
+  "reply": "Birdwatching is a great hobby. It's a peaceful way to connect with nature and observe the beauty of the avian world."
+ },
+ {
+  "line": 9,
+  "view": [
+   [
+    "ugh, the stairs is driving me up the wall",
+    "That sounds annoying. Hope the stairs settles down soon."
+   ],
+   [
+    "so Tomas (my brother) finally switched to a Fairphone",
+    "That sounds exciting for them."
+   ],
+   [
+    "funny how my phone keeps coming up",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "the phone my brother switched to has slipped my mind",
+  "reply": "Fairphone is a great choice. They focus on sustainability and repairability, which is a nice change from many other phones."
+ },
+ {
+  "line": 10,
+  "view": [
+   [
+    "my bike let me down this morning",
+    "That's frustrating. Is my bike usually like that?"
+   ],
+   [
+    "Omar is my uncle, and their boat is called Lady Grace",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "my glasses let me down this morning",
+    "Sorry, my glasses sounds like a real hassle."
+   ]
+  ],
+  "message": "what is Omar's boat called",
+  "reply": "Omar's boat is called the Lady Grace."
+ },
+ {
+  "line": 11,
+  "view": [
+   [
+    "my uncle Marc bought a white Forester from an auction",
+    "Good to know."
+   ],
+   [
+    "my glasses came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the kettle is getting on my nerves",
+    "I'd be fed up with the kettle too."
+   ]
+  ],
+  "message": "i was telling a friend about my uncle's car and lost the model",
+  "reply": "No worries, white Forester is a common model. It's a compact SUV, often called a \"coupe\" due to its roofline."
+ },
+ {
+  "line": 12,
+  "view": [
+   [
+    "the fridge let me down this morning",
+    "That's frustrating. Is the fridge usually like that?"
+   ],
+   [
+    "you know my sister Nell? they teach history at the high school",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the lawn was acting up again today",
+    "I'd be fed up with the lawn too."
+   ]
+  ],
+  "message": "i was asked what my sister teaches and i had nothing",
+  "reply": "That's a bit embarrassing. Maybe you could say something like, \"She teaches history at the high school."
+ },
+ {
+  "line": 13,
+  "view": [
+   [
+    "my desk is getting on my nerves",
+    "Sorry, my desk sounds like a real hassle."
+   ],
+   [
+    "the recycling is getting on my nerves",
+    "That sounds annoying. Hope the recycling settles down soon."
+   ],
+   [
+    "Tomas is my brother, and they rent on the twentieth floor",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "the floor my brother rents on escapes me",
+  "reply": "Ah, I see. The twentieth floor is a bit of a challenge to remember."
+ },
+ {
+  "line": 14,
+  "view": [
+   [
+    "my roommate Lena is moving to Tbilisi in the spring",
+    "That's a change."
+   ],
+   [
+    "someone at work brought up my coffee today",
+    "Ha, what did they say about my coffee?"
+   ],
+   [
+    "my bike let me down this morning",
+    "I'd be fed up with my bike too."
+   ]
+  ],
+  "message": "the city my roommate is moving to has slipped my mind",
+  "reply": "Tbilisi is a beautiful city with a rich history and culture. It's known for its stunning architecture, delicious cuisine, and vibrant nightlife."
+ },
+ {
+  "line": 15,
+  "view": [
+   [
+    "i'm actually pretty happy with my desk lately",
+    "Love that for you."
+   ],
+   [
+    "i lost an hour to the furnace today",
+    "I'd be fed up with the furnace too."
+   ],
+   [
+    "news from my uncle Ivan: they got tickets to Burning Man",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what did Ivan get tickets to",
+  "reply": "Burning Man tickets."
+ },
+ {
+  "line": 16,
+  "view": [
+   [
+    "anyway, enough about the elevator",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the kettle is getting on my nerves",
+    "That's frustrating. Is the kettle usually like that?"
+   ],
+   [
+    "my roommate, Marc, writes romance novels at night",
+    "Good to know."
+   ]
+  ],
+  "message": "i keep losing what my roommate writes at night",
+  "reply": "That sounds like a challenge. Maybe you could try writing your own romance novels to keep up with Marc's productivity."
+ },
+ {
+  "line": 17,
+  "view": [
+   [
+    "i lost an hour to the furnace today",
+    "That sounds annoying. Hope the furnace settles down soon."
+   ],
+   [
+    "my roommate, Priya, writes fantasy novels at night",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "i'm actually pretty happy with the dentist lately",
+    "That's a small win. the dentist sounds good."
+   ]
+  ],
+  "message": "what kind of novels does Priya write",
+  "reply": "I'm not sure, but it's great to hear she's writing fantasy novels."
+ },
+ {
+  "line": 18,
+  "view": [
+   [
+    "good news, my knee sorted itself out",
+    "Love that for you."
+   ],
+   [
+    "someone at work brought up the garden today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "Lena is my cousin, and they rent on the seventh floor",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "the floor my cousin rents on escapes me",
+  "reply": "Sure, I can help you remember. Lena's cousin lives on the seventh floor."
+ },
+ {
+  "line": 19,
+  "view": [
+   [
+    "ugh, my phone is driving me up the wall",
+    "That's frustrating. Is my phone usually like that?"
+   ],
+   [
+    "Yusuf, the brother i keep talking about, broke a jaw skiing",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "i'm actually pretty happy with the groceries lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "how did my brother get hurt on the slopes",
+  "reply": "He was skiing and, unfortunately, fell, which led to the jaw injury."
+ },
+ {
+  "line": 20,
+  "view": [
+   [
+    "funny how that show keeps coming up",
+    "It does seem to come up a lot."
+   ],
+   [
+    "drove past Priya's place, my sister, it's been painted mustard",
+    "That's a change."
+   ],
+   [
+    "the roof turned out fine in the end",
+    "That's a small win. the roof sounds good."
+   ]
+  ],
+  "message": "how will i spot my sister's house from the road",
+  "reply": "If you live near Priya's house, you should be able to spot it from the road, especially if it's a distinctive color like mustard."
+ },
+ {
+  "line": 21,
+  "view": [
+   [
+    "so the printer has been a pain all week",
+    "I'd be fed up with the printer too."
+   ],
+   [
+    "anyway, enough about the recycling",
+    "What about the recycling got you thinking?"
+   ],
+   [
+    "Lena, the neighbour i keep talking about, broke a collarbone skiing",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what my neighbour broke skiing has slipped my mind",
+  "reply": "No worries, it's okay to forget. Lena's collarbone recovery sounds like a fun story to share."
+ },
+ {
+  "line": 22,
+  "view": [
+   [
+    "my bike was acting up again today",
+    "Oof. An hour lost to my bike is no fun."
+   ],
+   [
+    "funny how the fridge keeps coming up",
+    "Ha, what did they say about the fridge?"
+   ],
+   [
+    "my aunt Greta has taken up curling on weekends",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what my aunt took up lately has gone fuzzy",
+  "reply": "Fuzzy is a great word for it. Curling can be a bit of a challenge, especially if you're new to it."
+ },
+ {
+  "line": 23,
+  "view": [
+   [
+    "you'll laugh, my sister Priya won a hot tub in a raffle",
+    "Good to know."
+   ],
+   [
+    "no complaints about the recycling this week",
+    "That's a small win. the recycling sounds good."
+   ],
+   [
+    "the laundry came up at dinner",
+    "Sure, we can move on from the laundry."
+   ]
+  ],
+  "message": "what did my sister get lucky with",
+  "reply": "She won a hot tub in a raffle!"
+ },
+ {
+  "line": 24,
+  "view": [
+   [
+    "the snow came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "the lawn came up at dinner",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "drove past Dana's place, my roommate, it's been painted teal",
+    "That's a change."
+   ]
+  ],
+  "message": "the colour of my roommate's house has slipped my mind",
+  "reply": "It's a nice touch, a unique color choice. Teal is a vibrant and eye-catching shade."
+ },
+ {
+  "line": 25,
+  "view": [
+   [
+    "funny how that show keeps coming up",
+    "It does seem to come up a lot."
+   ],
+   [
+    "drove past Priya's place, my sister, it's been painted mustard",
+    "That's a change."
+   ],
+   [
+    "the roof turned out fine in the end",
+    "That's a small win. the roof sounds good."
+   ]
+  ],
+  "message": "how will i spot my sister's house from the road",
+  "reply": "If you live near Priya's house, you should be able to spot it from the road, especially if it's a distinctive color like mustard."
+ },
+ {
+  "line": 26,
+  "view": [
+   [
+    "my coffee is getting on my nerves",
+    "That's frustrating. Is my coffee usually like that?"
+   ],
+   [
+    "funny how the mail keeps coming up",
+    "Ha, what did they say about the mail?"
+   ],
+   [
+    "Ivan, the sister i keep talking about, broke a kneecap skiing",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what did Ivan break skiing",
+  "reply": "Ivan broke her kneecap skiing."
+ },
+ {
+  "line": 27,
+  "view": [
+   [
+    "my aunt Priya has taken up birdwatching on weekends",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "ugh, the kettle is driving me up the wall",
+    "Oof. An hour lost to the kettle is no fun."
+   ],
+   [
+    "i was thinking about the dishwasher on the way home",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "i had my aunt's new hobby in my head this morning",
+  "reply": "That\u2019s adorable! Birdwatching sounds like a wonderful way to spend weekends. What kind of birds are you seeing?"
+ },
+ {
+  "line": 28,
+  "view": [
+   [
+    "the bakery is getting on my nerves",
+    "That's frustrating. Is the bakery usually like that?"
+   ],
+   [
+    "i just learned Ivan was born in February, and that's my coworker",
+    "That's a change."
+   ],
+   [
+    "i was thinking about the rain on the way home",
+    "Ha, what did they say about the rain?"
+   ]
+  ],
+  "message": "i'm planning something for my coworker and the month won't come",
+  "reply": "That's a bummer. Maybe you can plan something fun to celebrate their birthday in February instead?"
+ },
+ {
+  "line": 29,
+  "view": [
+   [
+    "my coworker Yusuf is moving to Oslo in the spring",
+    "That sounds exciting for them."
+   ],
+   [
+    "i lost an hour to my desk today",
+    "I'd be fed up with my desk too."
+   ],
+   [
+    "my glasses let me down this morning",
+    "Oof. An hour lost to my glasses is no fun."
+   ]
+  ],
+  "message": "where is my coworker headed once winter is over",
+  "reply": "He is heading to Oslo in the spring."
+ },
+ {
+  "line": 30,
+  "view": [
+   [
+    "my back let me down this morning",
+    "I'd be fed up with my back too."
+   ],
+   [
+    "ugh, the furnace is driving me up the wall",
+    "I'd be fed up with the furnace too."
+   ],
+   [
+    "i just learned Dana was born in July, and that's my coworker",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "i'm planning something for my coworker and the month won't come",
+  "reply": "That's a tough one. Maybe you could plan something fun or surprise her for July?"
+ },
+ {
+  "line": 31,
+  "view": [
+   [
+    "the furnace was the best part of my day",
+    "Good to hear the furnace is behaving."
+   ],
+   [
+    "no complaints about the kettle this week",
+    "That's a small win. the kettle sounds good."
+   ],
+   [
+    "my sister Priya bought a blue Tacoma from an auction",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what car did Priya buy at the auction",
+  "reply": "Priya bought a blue Tacoma at the auction."
+ },
+ {
+  "line": 32,
+  "view": [
+   [
+    "you know my aunt Lena? they teach physics at the high school",
+    "That sounds exciting for them."
+   ],
+   [
+    "the elevator is getting on my nerves",
+    "Oof. An hour lost to the elevator is no fun."
+   ],
+   [
+    "the dishwasher was acting up again today",
+    "Sorry, the dishwasher sounds like a real hassle."
+   ]
+  ],
+  "message": "what does Lena teach at the high school",
+  "reply": "Lena teaches physics at the high school."
+ },
+ {
+  "line": 33,
+  "view": [
+   [
+    "news from my sister Priya: they opened a thrift shop",
+    "That's a change."
+   ],
+   [
+    "anyway, enough about the snow",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "the fridge was acting up again today",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ]
+  ],
+  "message": "the shop my sister opened, i can't recall what it sells",
+  "reply": "A thrift shop typically sells gently used clothing, furniture, and other items. It's a great way to find unique and affordable finds."
+ },
+ {
+  "line": 34,
+  "view": [
+   [
+    "ugh, the dishwasher is driving me up the wall",
+    "That sounds annoying. Hope the dishwasher settles down soon."
+   ],
+   [
+    "anyway, enough about the bank",
+    "It does seem to come up a lot."
+   ],
+   [
+    "Greta, the neighbour i keep talking about, broke a jaw skiing",
+    "That's a change."
+   ]
+  ],
+  "message": "i'm calling my neighbour later and can't recall the injury",
+  "reply": "You can say something like, \"Hey, I was just thinking about you. I hope you're doing okay and that the jaw is healing up."
+ },
+ {
+  "line": 35,
+  "view": [
+   [
+    "not much going on, just dealing with my laptop",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "good news, my knee sorted itself out",
+    "Glad my knee worked out."
+   ],
+   [
+    "news from my sister Nell: they opened a florist shop",
+    "That's a change."
+   ]
+  ],
+  "message": "what kind of shop did Nell open",
+  "reply": "I'm not sure what kind of shop it is, but it's a florist shop."
+ },
+ {
+  "line": 36,
+  "view": [
+   [
+    "not much going on, just dealing with the bakery",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "good news, the wifi sorted itself out",
+    "Glad the wifi worked out."
+   ],
+   [
+    "so Yusuf (my coworker) finally switched to a Motorola",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what's my coworker using for a phone",
+  "reply": "It seems like you want to know what your coworker, Yusuf, is using. Based on the conversation, it looks like he switched to a Motorola phone."
+ },
+ {
+  "line": 37,
+  "view": [
+   [
+    "Greta, the uncle i keep talking about, broke a thumb skiing",
+    "How are they finding it?"
+   ],
+   [
+    "someone at work brought up my coffee today",
+    "Sure, we can move on from my coffee."
+   ],
+   [
+    "the fridge was acting up again today",
+    "Oof. An hour lost to the fridge is no fun."
+   ]
+  ],
+  "message": "what did Greta break skiing",
+  "reply": "Greta broke her thumb skiing."
+ },
+ {
+  "line": 38,
+  "view": [
+   [
+    "i lost an hour to the parking lot today",
+    "That sounds annoying. Hope the parking lot settles down soon."
+   ],
+   [
+    "Ivan is my brother, and their boat is called Second Wind",
+    "That sounds exciting for them."
+   ],
+   [
+    "my phone turned out fine in the end",
+    "Glad my phone worked out."
+   ]
+  ],
+  "message": "what name is painted on my brother's boat",
+  "reply": "Second Wind."
+ },
+ {
+  "line": 39,
+  "view": [
+   [
+    "not much going on, just dealing with my desk",
+    "Sure, we can move on from my desk."
+   ],
+   [
+    "so Greta (my roommate) finally switched to a iPhone",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "my bike is getting on my nerves",
+    "Oof. An hour lost to my bike is no fun."
+   ]
+  ],
+  "message": "what phone did Greta switch to",
+  "reply": "I don't have access to personal information about Greta, but I can suggest some popular options for switching to an iPhone, such as the iPhone SE, iPhone 12, or iPhone 13."
+ },
+ {
+  "line": 40,
+  "view": [
+   [
+    "anyway, enough about the elevator",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the kettle is getting on my nerves",
+    "That's frustrating. Is the kettle usually like that?"
+   ],
+   [
+    "my roommate, Marc, writes romance novels at night",
+    "Good to know."
+   ]
+  ],
+  "message": "i keep losing what my roommate writes at night",
+  "reply": "That sounds like a challenge. Maybe you could try writing your own romance novels to keep up with Marc's productivity."
+ },
+ {
+  "line": 41,
+  "view": [
+   [
+    "ugh, the printer is driving me up the wall",
+    "That's frustrating. Is the printer usually like that?"
+   ],
+   [
+    "my brother Priya adopted a dog named Rusty last month",
+    "Good to know."
+   ],
+   [
+    "good news, the printer sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "the dog my brother adopted, its name has gone clean out of my head",
+  "reply": "Rusty, huh? That's a cute name."
+ },
+ {
+  "line": 42,
+  "view": [
+   [
+    "good news, my knee sorted itself out",
+    "Love that for you."
+   ],
+   [
+    "someone at work brought up the garden today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "Lena is my cousin, and they rent on the seventh floor",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "the floor my cousin rents on escapes me",
+  "reply": "Sure, I can help you remember. Lena's cousin lives on the seventh floor."
+ },
+ {
+  "line": 43,
+  "view": [
+   [
+    "my bike was acting up again today",
+    "I'd be fed up with my bike too."
+   ],
+   [
+    "i lost an hour to the elevator today",
+    "Oof. An hour lost to the elevator is no fun."
+   ],
+   [
+    "for the record my aunt Greta only ever orders a chai latte",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what should i get my aunt from the cafe",
+  "reply": "Since your aunt only ever orders a chai latte, you could consider ordering a chai latte as well. It's a safe bet that she'll enjoy it."
+ },
+ {
+  "line": 44,
+  "view": [
+   [
+    "i lost an hour to the laundry today",
+    "That sounds annoying. Hope the laundry settles down soon."
+   ],
+   [
+    "so the parking lot has been a pain all week",
+    "Oof. An hour lost to the parking lot is no fun."
+   ],
+   [
+    "so Omar (my uncle) keeps goats in the yard",
+    "Good to know."
+   ]
+  ],
+  "message": "what animals will i meet at my uncle's place",
+  "reply": "You might meet goats, sheep, chickens, and maybe even some dogs or cats."
+ },
+ {
+  "line": 45,
+  "view": [
+   [
+    "no complaints about the kettle this week",
+    "Love that for you."
+   ],
+   [
+    "my coworker Lena has taken up birdwatching on weekends",
+    "That sounds exciting for them."
+   ],
+   [
+    "the elevator came up at dinner",
+    "Ha, what did they say about the elevator?"
+   ]
+  ],
+  "message": "i had my coworker's new hobby in my head this morning",
+  "reply": "That's a cute coincidence. Birdwatching is a lovely hobby."
+ },
+ {
+  "line": 46,
+  "view": [
+   [
+    "talked to Priya today, my brother, now promoted to head of sales",
+    "How are they finding it?"
+   ],
+   [
+    "the lawn came up at dinner",
+    "Sure, we can move on from the lawn."
+   ],
+   [
+    "my coffee let me down this morning",
+    "Sorry, my coffee sounds like a real hassle."
+   ]
+  ],
+  "message": "my brother's promotion, the title escapes me",
+  "reply": "He became the head of sales."
+ },
+ {
+  "line": 47,
+  "view": [
+   [
+    "my coworker Yusuf is moving to Oslo in the spring",
+    "That sounds exciting for them."
+   ],
+   [
+    "i lost an hour to my desk today",
+    "I'd be fed up with my desk too."
+   ],
+   [
+    "my glasses let me down this morning",
+    "Oof. An hour lost to my glasses is no fun."
+   ]
+  ],
+  "message": "where is my coworker headed once winter is over",
+  "reply": "He is heading to Oslo in the spring."
+ },
+ {
+  "line": 48,
+  "view": [
+   [
+    "my roommate, Greta, had a baby and named them Esther",
+    "Good to know."
+   ],
+   [
+    "the mail let me down this morning",
+    "That sounds annoying. Hope the mail settles down soon."
+   ],
+   [
+    "the roof was the best part of my day",
+    "Love that for you."
+   ]
+  ],
+  "message": "the name my roommate picked for the baby escapes me now",
+  "reply": "Esther is a lovely name."
+ },
+ {
+  "line": 49,
+  "view": [
+   [
+    "no complaints about the roof this week",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "my phone was acting up again today",
+    "That sounds annoying. Hope my phone settles down soon."
+   ],
+   [
+    "apparently my sister Marc rides a Triumph to work",
+    "That's a change."
+   ]
+  ],
+  "message": "what does Marc ride to work",
+  "reply": "Marc rides a Triumph motorcycle to work."
+ },
+ {
+  "line": 50,
+  "view": [
+   [
+    "ugh, the wifi is driving me up the wall",
+    "I'd be fed up with the wifi too."
+   ],
+   [
+    "no complaints about my knee this week",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "Ivan is my sister, and their boat is called Second Wind",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what name is painted on my sister's boat",
+  "reply": "Second Wind is the name painted on your sister's boat."
+ },
+ {
+  "line": 51,
+  "view": [
+   [
+    "you know my neighbour Ivan? they teach geometry at the high school",
+    "That sounds exciting for them."
+   ],
+   [
+    "the bus was the best part of my day",
+    "That's a small win. the bus sounds good."
+   ],
+   [
+    "the wifi was acting up again today",
+    "That's frustrating. Is the wifi usually like that?"
+   ]
+  ],
+  "message": "what classes does my neighbour run",
+  "reply": "It sounds like your neighbor Ivan runs geometry classes at the high school."
+ },
+ {
+  "line": 52,
+  "view": [
+   [
+    "i'm actually pretty happy with my desk lately",
+    "Good to hear my desk is behaving."
+   ],
+   [
+    "good news, my glasses sorted itself out",
+    "That's a small win. my glasses sounds good."
+   ],
+   [
+    "for the record my neighbour Nell only ever orders a chai latte",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what should i get my neighbour from the cafe",
+  "reply": "You could consider ordering a chai latte, just like your neighbor Nell! It's a great way to show you're in the same league."
+ },
+ {
+  "line": 53,
+  "view": [
+   [
+    "the wifi turned out fine in the end",
+    "Good to hear the wifi is behaving."
+   ],
+   [
+    "i was thinking about the bank on the way home",
+    "Ha, what did they say about the bank?"
+   ],
+   [
+    "my cousin Omar just started work as a beekeeper",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "what job did Omar start",
+  "reply": "Omar started as a beekeeper."
+ },
+ {
+  "line": 54,
+  "view": [
+   [
+    "the roof turned out fine in the end",
+    "Glad the roof worked out."
+   ],
+   [
+    "ugh, the roof is driving me up the wall",
+    "I'd be fed up with the roof too."
+   ],
+   [
+    "for the record my roommate Omar only ever orders a americano",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what my roommate always orders has slipped my mind",
+  "reply": "Just a heads-up, Omar's always ordering an Americano."
+ },
+ {
+  "line": 55,
+  "view": [
+   [
+    "apparently my neighbour Tomas finished a duathlon on sunday",
+    "Good to know."
+   ],
+   [
+    "i'm actually pretty happy with my bike lately",
+    "Love that for you."
+   ],
+   [
+    "no complaints about the recycling this week",
+    "Love that for you."
+   ]
+  ],
+  "message": "i want to say well done to my neighbour and the race won't come to me",
+  "reply": "That's a great idea. A simple \"Well done, Tomas!\" or \"Nice job on the duathlon!\" would be a nice way to acknowledge their achievement."
+ },
+ {
+  "line": 56,
+  "view": [
+   [
+    "i just learned Nell was born in October, and that's my roommate",
+    "That's a change."
+   ],
+   [
+    "anyway, enough about the rain",
+    "What about the rain got you thinking?"
+   ],
+   [
+    "i was thinking about my coffee on the way home",
+    "Ha, what did they say about my coffee?"
+   ]
+  ],
+  "message": "what month was Nell born in",
+  "reply": "Nell was born in October."
+ },
+ {
+  "line": 57,
+  "view": [
+   [
+    "no complaints about the bakery this week",
+    "That's a small win. the bakery sounds good."
+   ],
+   [
+    "the roof was acting up again today",
+    "That sounds annoying. Hope the roof settles down soon."
+   ],
+   [
+    "so Ivan (my neighbour) keeps ferrets in the yard",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what animals will i meet at my neighbour's place",
+  "reply": "You might meet ferrets, but also other pets like cats, dogs, or even birds."
+ },
+ {
+  "line": 58,
+  "view": [
+   [
+    "i just learned Greta was born in March, and that's my cousin",
+    "Good to know."
+   ],
+   [
+    "i'm actually pretty happy with the snow lately",
+    "Love that for you."
+   ],
+   [
+    "anyway, enough about my glasses",
+    "Sure, we can move on from my glasses."
+   ]
+  ],
+  "message": "what month was Greta born in",
+  "reply": "Greta was born in March."
+ },
+ {
+  "line": 59,
+  "view": [
+   [
+    "my sister, Yusuf, writes mystery novels at night",
+    "That sounds exciting for them."
+   ],
+   [
+    "the elevator came up at dinner",
+    "Ha, what did they say about the elevator?"
+   ],
+   [
+    "so the gym has been a pain all week",
+    "That sounds annoying. Hope the gym settles down soon."
+   ]
+  ],
+  "message": "what kind of novels does Yusuf write",
+  "reply": "Yusuf writes mystery novels, which are suspenseful and often involve solving a crime or uncovering a secret."
+ },
+ {
+  "line": 60,
+  "view": [
+   [
+    "no complaints about the elevator this week",
+    "That's a small win. the elevator sounds good."
+   ],
+   [
+    "apparently my coworker Greta finished a 10k on sunday",
+    "That's a change."
+   ],
+   [
+    "the mail was the best part of my day",
+    "Good to hear the mail is behaving."
+   ]
+  ],
+  "message": "what race did Greta finish on sunday",
+  "reply": "Greta finished a 10k on Sunday."
+ },
+ {
+  "line": 61,
+  "view": [
+   [
+    "i'm actually pretty happy with the bank lately",
+    "Glad the bank worked out."
+   ],
+   [
+    "no complaints about the recycling this week",
+    "Good to hear the recycling is behaving."
+   ],
+   [
+    "Ivan is my sister and just got a kitten called Noodle",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "i wanted to ask after my sister's kitten but the name's gone",
+  "reply": "No worries! If you want to ask about Noodle, just let me know."
+ },
+ {
+  "line": 62,
+  "view": [
+   [
+    "the furnace was the best part of my day",
+    "Good to hear the furnace is behaving."
+   ],
+   [
+    "no complaints about the kettle this week",
+    "That's a small win. the kettle sounds good."
+   ],
+   [
+    "my sister Priya bought a blue Tacoma from an auction",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what car did Priya buy at the auction",
+  "reply": "Priya bought a blue Tacoma at the auction."
+ },
+ {
+  "line": 63,
+  "view": [
+   [
+    "not much going on, just dealing with my laptop",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "good news, my knee sorted itself out",
+    "Glad my knee worked out."
+   ],
+   [
+    "news from my sister Nell: they opened a florist shop",
+    "That's a change."
+   ]
+  ],
+  "message": "what kind of shop did Nell open",
+  "reply": "I'm not sure what kind of shop it is, but it's a florist shop."
+ },
+ {
+  "line": 64,
+  "view": [
+   [
+    "anyway, enough about my back",
+    "What about my back got you thinking?"
+   ],
+   [
+    "so Yusuf (my neighbour) finally switched to a iPhone",
+    "Good to know."
+   ],
+   [
+    "good news, the roof sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "my neighbour told me which phone they got and i've lost it",
+  "reply": "That's a bit of a problem. If your neighbor told you which iPhone they got, you should be able to find it. Have you checked their car, their house, or maybe even their social media accounts?"
+ },
+ {
+  "line": 65,
+  "view": [
+   [
+    "i was thinking about my desk on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "Ivan is my cousin, and their boat is called Driftwood",
+    "Good to know."
+   ],
+   [
+    "the printer came up at dinner",
+    "Sure, we can move on from the printer."
+   ]
+  ],
+  "message": "what name is painted on my cousin's boat",
+  "reply": "The name painted on the boat is \"Driftwood\"."
+ },
+ {
+  "line": 66,
+  "view": [
+   [
+    "the mail let me down this morning",
+    "That sounds annoying. Hope the mail settles down soon."
+   ],
+   [
+    "so Marc (my brother) keeps goats in the yard",
+    "Thanks for telling me."
+   ],
+   [
+    "i was thinking about the lawn on the way home",
+    "What about the lawn got you thinking?"
+   ]
+  ],
+  "message": "the animals my brother keeps, i can never remember what they are",
+  "reply": "Goats are fascinating creatures. They are herbivores, primarily grazing on grasses, leaves, and other vegetation. They are also known for their ability to adapt to various environments and their strong, hooves-like feet."
+ },
+ {
+  "line": 67,
+  "view": [
+   [
+    "news from my sister Tomas: they opened a thrift shop",
+    "That's a change."
+   ],
+   [
+    "i lost an hour to the laundry today",
+    "Sorry, the laundry sounds like a real hassle."
+   ],
+   [
+    "not much going on, just dealing with my bike",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "the shop my sister opened, i can't recall what it sells",
+  "reply": "A thrift shop typically sells gently used clothing, furniture, and other items. It's a great place to find unique and affordable finds."
+ },
+ {
+  "line": 68,
+  "view": [
+   [
+    "funny how the rain keeps coming up",
+    "Ha, what did they say about the rain?"
+   ],
+   [
+    "my phone came up at dinner",
+    "Sure, we can move on from my phone."
+   ],
+   [
+    "you'll laugh, my brother Dana won a pinball machine in a raffle",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what did my brother get lucky with",
+  "reply": "A pinball machine."
+ },
+ {
+  "line": 69,
+  "view": [
+   [
+    "the fridge was the best part of my day",
+    "That's a small win. the fridge sounds good."
+   ],
+   [
+    "so Greta (my aunt) finally switched to a Nokia",
+    "Good to know."
+   ],
+   [
+    "no complaints about the bakery this week",
+    "That's a small win. the bakery sounds good."
+   ]
+  ],
+  "message": "what's my aunt using for a phone",
+  "reply": "It sounds like your aunt is switching from a brand that might not be as well-known or as advanced as Nokia. Nokia is known for its durable and reliable phones, often used in harsh environments."
+ },
+ {
+  "line": 70,
+  "view": [
+   [
+    "someone at work brought up the dishwasher today",
+    "It does seem to come up a lot."
+   ],
+   [
+    "you'll laugh, my cousin Ivan won a canoe in a raffle",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "anyway, enough about the snow",
+    "Ha, what did they say about the snow?"
+   ]
+  ],
+  "message": "my cousin won something silly and i've lost what",
+  "reply": "You lost a canoe, huh? That's a pretty silly thing to lose."
+ },
+ {
+  "line": 71,
+  "view": [
+   [
+    "the bakery turned out fine in the end",
+    "Glad the bakery worked out."
+   ],
+   [
+    "the dentist was acting up again today",
+    "That sounds annoying. Hope the dentist settles down soon."
+   ],
+   [
+    "Omar is my uncle, and their boat is called Sea Otter",
+    "That's a change."
+   ]
+  ],
+  "message": "what name is painted on my uncle's boat",
+  "reply": "The boat is called \"Sea Otter\"."
+ },
+ {
+  "line": 72,
+  "view": [
+   [
+    "no complaints about the roof this week",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "my phone was acting up again today",
+    "That sounds annoying. Hope my phone settles down soon."
+   ],
+   [
+    "apparently my sister Marc rides a Triumph to work",
+    "That's a change."
+   ]
+  ],
+  "message": "what does Marc ride to work",
+  "reply": "Marc rides a Triumph motorcycle to work."
+ },
+ {
+  "line": 73,
+  "view": [
+   [
+    "no complaints about the kettle this week",
+    "Love that for you."
+   ],
+   [
+    "my coworker Lena has taken up birdwatching on weekends",
+    "That sounds exciting for them."
+   ],
+   [
+    "the elevator came up at dinner",
+    "Ha, what did they say about the elevator?"
+   ]
+  ],
+  "message": "i had my coworker's new hobby in my head this morning",
+  "reply": "That's a cute coincidence. Birdwatching is a lovely hobby."
+ },
+ {
+  "line": 74,
+  "view": [
+   [
+    "the garden is getting on my nerves",
+    "Oof. An hour lost to the garden is no fun."
+   ],
+   [
+    "i just learned Priya was born in July, and that's my roommate",
+    "That's a change."
+   ],
+   [
+    "anyway, enough about the parking lot",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "when should i plan my roommate's party",
+  "reply": "Depends on Priya's schedule. If she has a busy July, maybe a few weeks out?"
+ },
+ {
+  "line": 75,
+  "view": [
+   [
+    "not much going on, just dealing with the bakery",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "good news, the wifi sorted itself out",
+    "Glad the wifi worked out."
+   ],
+   [
+    "so Yusuf (my coworker) finally switched to a Motorola",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what's my coworker using for a phone",
+  "reply": "It seems like you want to know what your coworker, Yusuf, is using. Based on the conversation, it looks like he switched to a Motorola phone."
+ },
+ {
+  "line": 76,
+  "view": [
+   [
+    "the wifi let me down this morning",
+    "I'd be fed up with the wifi too."
+   ],
+   [
+    "my brother, Priya, writes western novels at night",
+    "That's a change."
+   ],
+   [
+    "the mail came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "the kind of books my brother writes has gone out of my head",
+  "reply": "Western novels, huh? Sounds like a classic genre."
+ },
+ {
+  "line": 77,
+  "view": [
+   [
+    "my knee was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "funny how the dentist keeps coming up",
+    "Ha, what did they say about the dentist?"
+   ],
+   [
+    "you know my neighbour Tomas? they teach chemistry at the high school",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what classes does my neighbour run",
+  "reply": "I'm glad to hear that your neighbor is teaching chemistry. What classes do they run?"
+ },
+ {
+  "line": 78,
+  "view": [
+   [
+    "ugh, my phone is driving me up the wall",
+    "That's frustrating. Is my phone usually like that?"
+   ],
+   [
+    "Yusuf, the brother i keep talking about, broke a jaw skiing",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "i'm actually pretty happy with the groceries lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "how did my brother get hurt on the slopes",
+  "reply": "He was skiing and, unfortunately, fell, which led to the jaw injury."
+ },
+ {
+  "line": 79,
+  "view": [
+   [
+    "my sister, Yusuf, writes mystery novels at night",
+    "That sounds exciting for them."
+   ],
+   [
+    "the elevator came up at dinner",
+    "Ha, what did they say about the elevator?"
+   ],
+   [
+    "so the gym has been a pain all week",
+    "That sounds annoying. Hope the gym settles down soon."
+   ]
+  ],
+  "message": "what kind of novels does Yusuf write",
+  "reply": "Yusuf writes mystery novels, which are suspenseful and often involve solving a crime or uncovering a secret."
+ },
+ {
+  "line": 80,
+  "view": [
+   [
+    "news from my sister Tomas: they opened a thrift shop",
+    "That's a change."
+   ],
+   [
+    "i lost an hour to the laundry today",
+    "Sorry, the laundry sounds like a real hassle."
+   ],
+   [
+    "not much going on, just dealing with my bike",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "the shop my sister opened, i can't recall what it sells",
+  "reply": "A thrift shop typically sells gently used clothing, furniture, and other items. It's a great place to find unique and affordable finds."
+ },
+ {
+  "line": 81,
+  "view": [
+   [
+    "for the record my roommate Dana only ever orders a flat white",
+    "Thanks for telling me."
+   ],
+   [
+    "i lost an hour to the fridge today",
+    "Sorry, the fridge sounds like a real hassle."
+   ],
+   [
+    "i'm actually pretty happy with my glasses lately",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "my roommate's coffee order has gone out of my head",
+  "reply": "Flat white, huh? That\u2019s a solid pick."
+ },
+ {
+  "line": 82,
+  "view": [
+   [
+    "funny how the elevator keeps coming up",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "my laptop is getting on my nerves",
+    "Sorry, my laptop sounds like a real hassle."
+   ],
+   [
+    "for the record my uncle Nell only ever orders a cortado",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "i'm ordering for my uncle and the drink won't come to me",
+  "reply": "It seems like there's a bit of a mix-up. If your uncle Nell only orders a cortado, maybe you should just order a cortado for him. Otherwise, you might want to check with the barista or the restaurant to ensure the drink is prepared correctly."
+ },
+ {
+  "line": 83,
+  "view": [
+   [
+    "Omar is my coworker, and they rent on the ninth floor",
+    "That sounds exciting for them."
+   ],
+   [
+    "i lost an hour to the parking lot today",
+    "I'd be fed up with the parking lot too."
+   ],
+   [
+    "my laptop turned out fine in the end",
+    "That's a small win. my laptop sounds good."
+   ]
+  ],
+  "message": "how far up do i go to reach my coworker's flat",
+  "reply": "Assuming your coworker lives on the ninth floor, you'd need to go up nine floors."
+ },
+ {
+  "line": 84,
+  "view": [
+   [
+    "good news, the laundry sorted itself out",
+    "Good to hear the laundry is behaving."
+   ],
+   [
+    "i'm actually pretty happy with the snow lately",
+    "That's a small win. the snow sounds good."
+   ],
+   [
+    "my sister Yusuf bought a grey Golf from an auction",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "what car did Yusuf buy at the auction",
+  "reply": "Yusuf bought a grey Golf at the auction."
+ },
+ {
+  "line": 85,
+  "view": [
+   [
+    "talked to Priya today, my sister, now promoted to director",
+    "That's a change."
+   ],
+   [
+    "that show is getting on my nerves",
+    "I'd be fed up with that show too."
+   ],
+   [
+    "anyway, enough about the rain",
+    "What about the rain got you thinking?"
+   ]
+  ],
+  "message": "what was Priya promoted to",
+  "reply": "Priya was promoted to director."
+ },
+ {
+  "line": 86,
+  "view": [
+   [
+    "good news, the laundry sorted itself out",
+    "Good to hear the laundry is behaving."
+   ],
+   [
+    "i'm actually pretty happy with the snow lately",
+    "That's a small win. the snow sounds good."
+   ],
+   [
+    "my sister Yusuf bought a grey Golf from an auction",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "what car did Yusuf buy at the auction",
+  "reply": "Yusuf bought a grey Golf at the auction."
+ },
+ {
+  "line": 87,
+  "view": [
+   [
+    "funny how the bakery keeps coming up",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "apparently my cousin Yusuf finished a 10k on sunday",
+    "Thanks for telling me."
+   ],
+   [
+    "so the bakery has been a pain all week",
+    "That sounds annoying. Hope the bakery settles down soon."
+   ]
+  ],
+  "message": "what race did Yusuf finish on sunday",
+  "reply": "Yusuf finished a 10k on Sunday."
+ },
+ {
+  "line": 88,
+  "view": [
+   [
+    "my roommate Lena is moving to Tbilisi in the spring",
+    "That's a change."
+   ],
+   [
+    "someone at work brought up my coffee today",
+    "Ha, what did they say about my coffee?"
+   ],
+   [
+    "my bike let me down this morning",
+    "I'd be fed up with my bike too."
+   ]
+  ],
+  "message": "the city my roommate is moving to has slipped my mind",
+  "reply": "Tbilisi is a beautiful city with a rich history and culture. It's known for its stunning architecture, delicious cuisine, and vibrant nightlife."
+ },
+ {
+  "line": 89,
+  "view": [
+   [
+    "not much going on, just dealing with that show",
+    "Sure, we can move on from that show."
+   ],
+   [
+    "anyway, enough about the bank",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "apparently my brother Yusuf finished a 5k on sunday",
+    "Good to know."
+   ]
+  ],
+  "message": "i want to say well done to my brother and the race won't come to me",
+  "reply": "That's great! A well-deserved achievement. You can say something like, \"Yusuf, that's amazing! I'm so proud of you for finishing the 5k."
+ },
+ {
+  "line": 90,
+  "view": [
+   [
+    "you know my cousin Nell? they live on Alder Road now",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "ugh, my coffee is driving me up the wall",
+    "Oof. An hour lost to my coffee is no fun."
+   ],
+   [
+    "funny how the elevator keeps coming up",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "where do i send a card for my cousin",
+  "reply": "Nell lives on Alder Road, so you can send a card to her address there."
+ },
+ {
+  "line": 91,
+  "view": [
+   [
+    "the kettle is getting on my nerves",
+    "That's frustrating. Is the kettle usually like that?"
+   ],
+   [
+    "my coworker, Ivan, writes mystery novels at night",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "i was thinking about my coffee on the way home",
+    "What about my coffee got you thinking?"
+   ]
+  ],
+  "message": "my coworker's novels, the genre won't come to me",
+  "reply": "I see. It's a shame that the mystery genre doesn't resonate with you. Maybe you could try reading a different type of novel or explore other genres."
+ },
+ {
+  "line": 92,
+  "view": [
+   [
+    "i lost an hour to the snow today",
+    "I'd be fed up with the snow too."
+   ],
+   [
+    "you know my brother Ivan? they live on Elm Terrace now",
+    "Good to know."
+   ],
+   [
+    "ugh, the rain is driving me up the wall",
+    "Oof. An hour lost to the rain is no fun."
+   ]
+  ],
+  "message": "where do i send a card for my brother",
+  "reply": "You can send a card to Ivan at his current address on Elm Terrace."
+ },
+ {
+  "line": 93,
+  "view": [
+   [
+    "funny how the gym keeps coming up",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "news from my uncle Ivan: they opened a comic shop",
+    "Good to know."
+   ],
+   [
+    "ugh, the wifi is driving me up the wall",
+    "Sorry, the wifi sounds like a real hassle."
+   ]
+  ],
+  "message": "what does my uncle sell these days",
+  "reply": "He sells comics, apparently."
+ },
+ {
+  "line": 94,
+  "view": [
+   [
+    "the groceries turned out fine in the end",
+    "Good to hear the groceries is behaving."
+   ],
+   [
+    "no complaints about the snow this week",
+    "That's a small win. the snow sounds good."
+   ],
+   [
+    "you know my coworker Yusuf? they teach physics at the high school",
+    "That's a change."
+   ]
+  ],
+  "message": "what classes does my coworker run",
+  "reply": "Yusuf teaches physics classes at the high school."
+ },
+ {
+  "line": 95,
+  "view": [
+   [
+    "talked to Dana today, my neighbour, who plays bass in Salt Road",
+    "That sounds exciting for them."
+   ],
+   [
+    "the stairs turned out fine in the end",
+    "Good to hear the stairs is behaving."
+   ],
+   [
+    "i'm actually pretty happy with the parking lot lately",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "i wanted to look up my neighbour's band but i lost the name",
+  "reply": "You can try searching for \"Salt Road band members\" or \"Salt Road live music\" to find more information."
+ },
+ {
+  "line": 96,
+  "view": [
+   [
+    "talked to Priya today, my sister, now promoted to director",
+    "That's a change."
+   ],
+   [
+    "that show is getting on my nerves",
+    "I'd be fed up with that show too."
+   ],
+   [
+    "anyway, enough about the rain",
+    "What about the rain got you thinking?"
+   ]
+  ],
+  "message": "what was Priya promoted to",
+  "reply": "Priya was promoted to director."
+ },
+ {
+  "line": 97,
+  "view": [
+   [
+    "so the parking lot has been a pain all week",
+    "That sounds annoying. Hope the parking lot settles down soon."
+   ],
+   [
+    "i was thinking about the dishwasher on the way home",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "Ivan is my roommate, and their boat is called Driftwood",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what is Ivan's boat called",
+  "reply": "Ivan's boat is called Driftwood."
+ },
+ {
+  "line": 98,
+  "view": [
+   [
+    "anyway, enough about the garden",
+    "It does seem to come up a lot."
+   ],
+   [
+    "Lena is my sister and just got a kitten called Noodle",
+    "Thanks for telling me."
+   ],
+   [
+    "so the laundry has been a pain all week",
+    "Oof. An hour lost to the laundry is no fun."
+   ]
+  ],
+  "message": "what's the name of my sister's kitten",
+  "reply": "Noodle. How's it going?"
+ },
+ {
+  "line": 99,
+  "view": [
+   [
+    "the bus was acting up again today",
+    "That sounds annoying. Hope the bus settles down soon."
+   ],
+   [
+    "my cousin Omar is moving to Valparaiso in the spring",
+    "That's a change."
+   ],
+   [
+    "so my back has been a pain all week",
+    "That's frustrating. Is my back usually like that?"
+   ]
+  ],
+  "message": "i forget where my cousin is moving",
+  "reply": "Valparaiso is a city in Indiana, USA. It's a small college town with a rich history."
+ },
+ {
+  "line": 100,
+  "view": [
+   [
+    "you'll laugh, my aunt Tomas won a canoe in a raffle",
+    "How are they finding it?"
+   ],
+   [
+    "anyway, enough about the furnace",
+    "Sure, we can move on from the furnace."
+   ],
+   [
+    "funny how my desk keeps coming up",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "what did my aunt get lucky with",
+  "reply": "She won a canoe in a raffle."
+ },
+ {
+  "line": 101,
+  "view": [
+   [
+    "no complaints about the elevator this week",
+    "That's a small win. the elevator sounds good."
+   ],
+   [
+    "apparently my coworker Greta finished a 10k on sunday",
+    "That's a change."
+   ],
+   [
+    "the mail was the best part of my day",
+    "Good to hear the mail is behaving."
+   ]
+  ],
+  "message": "what race did Greta finish on sunday",
+  "reply": "Greta finished a 10k on Sunday."
+ },
+ {
+  "line": 102,
+  "view": [
+   [
+    "my coffee is getting on my nerves",
+    "That's frustrating. Is my coffee usually like that?"
+   ],
+   [
+    "funny how the mail keeps coming up",
+    "Ha, what did they say about the mail?"
+   ],
+   [
+    "Ivan, the sister i keep talking about, broke a kneecap skiing",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what did Ivan break skiing",
+  "reply": "Ivan broke her kneecap skiing."
+ },
+ {
+  "line": 103,
+  "view": [
+   [
+    "the bakery is getting on my nerves",
+    "That's frustrating. Is the bakery usually like that?"
+   ],
+   [
+    "i just learned Ivan was born in February, and that's my coworker",
+    "That's a change."
+   ],
+   [
+    "i was thinking about the rain on the way home",
+    "Ha, what did they say about the rain?"
+   ]
+  ],
+  "message": "i'm planning something for my coworker and the month won't come",
+  "reply": "That's a bummer. Maybe you can plan something fun to celebrate their birthday in February instead?"
+ },
+ {
+  "line": 104,
+  "view": [
+   [
+    "i lost an hour to the snow today",
+    "Sorry, the snow sounds like a real hassle."
+   ],
+   [
+    "Tomas is my cousin, and their boat is called Sea Otter",
+    "Thanks for telling me."
+   ],
+   [
+    "the groceries turned out fine in the end",
+    "That's a small win. the groceries sounds good."
+   ]
+  ],
+  "message": "i wanted to tell someone the name of my cousin's boat and it's gone",
+  "reply": "That's a bit of a bummer.  \"Sea Otter\" is a nice name for a boat.  Maybe you can tell them it's still there somewhere, waiting to be found."
+ },
+ {
+  "line": 105,
+  "view": [
+   [
+    "you'll laugh, my aunt Tomas won a canoe in a raffle",
+    "How are they finding it?"
+   ],
+   [
+    "anyway, enough about the furnace",
+    "Sure, we can move on from the furnace."
+   ],
+   [
+    "funny how my desk keeps coming up",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "what did my aunt get lucky with",
+  "reply": "She won a canoe in a raffle."
+ },
+ {
+  "line": 106,
+  "view": [
+   [
+    "talked to Marc today, my coworker, who plays bass in The Lanterns",
+    "How are they finding it?"
+   ],
+   [
+    "i'm actually pretty happy with the furnace lately",
+    "Good to hear the furnace is behaving."
+   ],
+   [
+    "no complaints about my laptop this week",
+    "Love that for you."
+   ]
+  ],
+  "message": "who does my coworker gig with",
+  "reply": "The Lanterns is a band, so your coworker is likely part of a musical group."
+ },
+ {
+  "line": 107,
+  "view": [
+   [
+    "so the parking lot has been a pain all week",
+    "That's frustrating. Is the parking lot usually like that?"
+   ],
+   [
+    "i lost an hour to the furnace today",
+    "That's frustrating. Is the furnace usually like that?"
+   ],
+   [
+    "you'll laugh, my uncle Dana won a kayak in a raffle",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what did Dana win in the raffle",
+  "reply": "Dana won a kayak in the raffle."
+ },
+ {
+  "line": 108,
+  "view": [
+   [
+    "no complaints about the laundry this week",
+    "That's a small win. the laundry sounds good."
+   ],
+   [
+    "you know my cousin Tomas? they teach physics at the high school",
+    "That sounds exciting for them."
+   ],
+   [
+    "i'm actually pretty happy with my desk lately",
+    "That's a small win. my desk sounds good."
+   ]
+  ],
+  "message": "what classes does my cousin run",
+  "reply": "I'm not aware of your cousin's specific classes, but I can tell you that they likely teach a variety of physics courses, such as mechanics, electromagnetism, or quantum physics, depending on the level of their students."
+ },
+ {
+  "line": 109,
+  "view": [
+   [
+    "ugh, the stairs is driving me up the wall",
+    "That sounds annoying. Hope the stairs settles down soon."
+   ],
+   [
+    "so Tomas (my brother) finally switched to a Fairphone",
+    "That sounds exciting for them."
+   ],
+   [
+    "funny how my phone keeps coming up",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "the phone my brother switched to has slipped my mind",
+  "reply": "Fairphone is a great choice. They focus on sustainability and repairability, which is a nice change from many other phones."
+ },
+ {
+  "line": 110,
+  "view": [
+   [
+    "drove past Marc's place, my uncle, it's been painted sage green",
+    "Thanks for telling me."
+   ],
+   [
+    "not much going on, just dealing with the fridge",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "i'm actually pretty happy with the gym lately",
+    "Good to hear the gym is behaving."
+   ]
+  ],
+  "message": "i'm trying to picture my uncle's house, what colour is it",
+  "reply": "Sage green is a nice, calming color. It looks fresh and modern."
+ },
+ {
+  "line": 111,
+  "view": [
+   [
+    "the fridge turned out fine in the end",
+    "That's a small win. the fridge sounds good."
+   ],
+   [
+    "i lost an hour to the roof today",
+    "I'd be fed up with the roof too."
+   ],
+   [
+    "you'll laugh, my brother Lena won a canoe in a raffle",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what did my brother get lucky with",
+  "reply": "My brother Lena won a canoe in a raffle. That's pretty lucky!"
+ },
+ {
+  "line": 112,
+  "view": [
+   [
+    "i was thinking about that show on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "good news, the elevator sorted itself out",
+    "Good to hear the elevator is behaving."
+   ],
+   [
+    "my uncle, Lena, writes western novels at night",
+    "Good to know."
+   ]
+  ],
+  "message": "the kind of books my uncle writes has gone out of my head",
+  "reply": "Western novels, huh? Sounds like a classic genre."
+ },
+ {
+  "line": 113,
+  "view": [
+   [
+    "my aunt Priya has taken up birdwatching on weekends",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "ugh, the kettle is driving me up the wall",
+    "Oof. An hour lost to the kettle is no fun."
+   ],
+   [
+    "i was thinking about the dishwasher on the way home",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "i had my aunt's new hobby in my head this morning",
+  "reply": "That\u2019s adorable! Birdwatching sounds like a wonderful way to spend weekends. What kind of birds are you seeing?"
+ },
+ {
+  "line": 114,
+  "view": [
+   [
+    "anyway, enough about my phone",
+    "It does seem to come up a lot."
+   ],
+   [
+    "so Ivan (my cousin) finally switched to a Galaxy",
+    "Good to know."
+   ],
+   [
+    "the recycling came up at dinner",
+    "What about the recycling got you thinking?"
+   ]
+  ],
+  "message": "what's my cousin using for a phone",
+  "reply": "He\u2019s using a Samsung Galaxy S23."
+ },
+ {
+  "line": 115,
+  "view": [
+   [
+    "Ivan, the roommate i keep talking about, broke a collarbone skiing",
+    "Thanks for telling me."
+   ],
+   [
+    "so the wifi has been a pain all week",
+    "I'd be fed up with the wifi too."
+   ],
+   [
+    "i was thinking about my laptop on the way home",
+    "What about my laptop got you thinking?"
+   ]
+  ],
+  "message": "how did my roommate get hurt on the slopes",
+  "reply": "He slipped and fell, which resulted in a broken collarbone."
+ },
+ {
+  "line": 116,
+  "view": [
+   [
+    "my cousin, Ivan, writes western novels at night",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the dishwasher let me down this morning",
+    "Oof. An hour lost to the dishwasher is no fun."
+   ],
+   [
+    "my coffee came up at dinner",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "what does my cousin write about",
+  "reply": "He writes about western novels, which typically involve themes of adventure, lawmen, and the American frontier."
+ },
+ {
+  "line": 117,
+  "view": [
+   [
+    "news from my coworker Nell: they opened a thrift shop",
+    "That's a change."
+   ],
+   [
+    "the elevator was acting up again today",
+    "I'd be fed up with the elevator too."
+   ],
+   [
+    "i'm actually pretty happy with the printer lately",
+    "That's a small win. the printer sounds good."
+   ]
+  ],
+  "message": "the shop my coworker opened, i can't recall what it sells",
+  "reply": "A thrift shop typically sells gently used clothing, furniture, and other items."
+ },
+ {
+  "line": 118,
+  "view": [
+   [
+    "my brother, Greta, writes fantasy novels at night",
+    "How are they finding it?"
+   ],
+   [
+    "the fridge came up at dinner",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "the gym was the best part of my day",
+    "Good to hear the gym is behaving."
+   ]
+  ],
+  "message": "what does my brother write about",
+  "reply": "Fantasy novels, I think."
+ },
+ {
+  "line": 119,
+  "view": [
+   [
+    "my bike was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "you know my aunt Marc? they live on Alder Road now",
+    "How are they finding it?"
+   ],
+   [
+    "i'm actually pretty happy with my desk lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "where do i send a card for my aunt",
+  "reply": "You can send a card to your aunt's current address on Alder Road. Just make sure to include your name, address, and any other details the post office requires."
+ },
+ {
+  "line": 120,
+  "view": [
+   [
+    "talked to Yusuf today, my sister, who plays bass in Salt Road",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "not much going on, just dealing with the snow",
+    "Ha, what did they say about the snow?"
+   ],
+   [
+    "someone at work brought up the dishwasher today",
+    "Sure, we can move on from the dishwasher."
+   ]
+  ],
+  "message": "who does my sister gig with",
+  "reply": "She's part of Salt Road, a band I think?"
+ },
+ {
+  "line": 121,
+  "view": [
+   [
+    "Omar is my roommate, and their boat is called Sea Otter",
+    "That's a change."
+   ],
+   [
+    "my back was acting up again today",
+    "That sounds annoying. Hope my back settles down soon."
+   ],
+   [
+    "the groceries came up at dinner",
+    "What about the groceries got you thinking?"
+   ]
+  ],
+  "message": "my roommate's boat name won't come to me",
+  "reply": "It seems like your roommate's boat name, \"Sea Otter,\" is a bit of a mystery. Maybe it's a fun fact or a hidden meaning?"
+ },
+ {
+  "line": 122,
+  "view": [
+   [
+    "so the parking lot has been a pain all week",
+    "That's frustrating. Is the parking lot usually like that?"
+   ],
+   [
+    "i lost an hour to the furnace today",
+    "That's frustrating. Is the furnace usually like that?"
+   ],
+   [
+    "you'll laugh, my uncle Dana won a kayak in a raffle",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what did Dana win in the raffle",
+  "reply": "Dana won a kayak in the raffle."
+ },
+ {
+  "line": 123,
+  "view": [
+   [
+    "so the garden has been a pain all week",
+    "I'd be fed up with the garden too."
+   ],
+   [
+    "the roof was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "Ivan is my brother and just got a kitten called Tofu",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "my brother's kitten has a name and i've lost it",
+  "reply": "That\u2019s adorable! Tofu is a cute name. If you need help remembering it, try to recall any details about its appearance, personality, or anything else that stands out."
+ },
+ {
+  "line": 124,
+  "view": [
+   [
+    "the roof turned out fine in the end",
+    "Glad the roof worked out."
+   ],
+   [
+    "ugh, the roof is driving me up the wall",
+    "I'd be fed up with the roof too."
+   ],
+   [
+    "for the record my roommate Omar only ever orders a americano",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what my roommate always orders has slipped my mind",
+  "reply": "Just a heads-up, Omar's always ordering an Americano."
+ },
+ {
+  "line": 125,
+  "view": [
+   [
+    "the bus was acting up again today",
+    "That sounds annoying. Hope the bus settles down soon."
+   ],
+   [
+    "my cousin Omar is moving to Valparaiso in the spring",
+    "That's a change."
+   ],
+   [
+    "so my back has been a pain all week",
+    "That's frustrating. Is my back usually like that?"
+   ]
+  ],
+  "message": "i forget where my cousin is moving",
+  "reply": "Valparaiso is a city in Indiana, USA. It's a small college town with a rich history."
+ },
+ {
+  "line": 126,
+  "view": [
+   [
+    "my bike was the best part of my day",
+    "Good to hear my bike is behaving."
+   ],
+   [
+    "my cousin Omar has taken up curling on weekends",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "i'm actually pretty happy with the parking lot lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "how does my cousin keep busy on saturdays",
+  "reply": "He seems to be enjoying curling, which is a great way to stay active and social."
+ },
+ {
+  "line": 127,
+  "view": [
+   [
+    "apparently my roommate Greta rides a Triumph to work",
+    "That sounds exciting for them."
+   ],
+   [
+    "i was thinking about the kettle on the way home",
+    "Sure, we can move on from the kettle."
+   ],
+   [
+    "the gym is getting on my nerves",
+    "That sounds annoying. Hope the gym settles down soon."
+   ]
+  ],
+  "message": "what's parked outside my roommate's office",
+  "reply": "I don't have real-time information, but I can speculate. Based on the context, it's likely a car, possibly a Triumph motorcycle, given your roommate's mention of riding one to work."
+ },
+ {
+  "line": 128,
+  "view": [
+   [
+    "no complaints about the laundry this week",
+    "That's a small win. the laundry sounds good."
+   ],
+   [
+    "you know my cousin Tomas? they teach physics at the high school",
+    "That sounds exciting for them."
+   ],
+   [
+    "i'm actually pretty happy with my desk lately",
+    "That's a small win. my desk sounds good."
+   ]
+  ],
+  "message": "what classes does my cousin run",
+  "reply": "I'm not aware of your cousin's specific classes, but I can tell you that they likely teach a variety of physics courses, such as mechanics, electromagnetism, or quantum physics, depending on the level of their students."
+ },
+ {
+  "line": 129,
+  "view": [
+   [
+    "my coworker Ivan just started work as a court reporter",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "not much going on, just dealing with my desk",
+    "What about my desk got you thinking?"
+   ],
+   [
+    "my laptop let me down this morning",
+    "That sounds annoying. Hope my laptop settles down soon."
+   ]
+  ],
+  "message": "i'm useless, i can't say what my coworker does now",
+  "reply": "Don't worry, everyone has those days. Ivan's probably doing great as a court reporter."
+ },
+ {
+  "line": 130,
+  "view": [
+   [
+    "the groceries turned out fine in the end",
+    "Glad the groceries worked out."
+   ],
+   [
+    "my brother, Omar, writes romance novels at night",
+    "Good to know."
+   ],
+   [
+    "i lost an hour to my knee today",
+    "That's frustrating. Is my knee usually like that?"
+   ]
+  ],
+  "message": "my brother's novels, the genre won't come to me",
+  "reply": "Maybe you need to read more romance novels to get the feel of the genre."
+ },
+ {
+  "line": 131,
+  "view": [
+   [
+    "my neighbour, Ivan, had a baby and named them Silas",
+    "That sounds exciting for them."
+   ],
+   [
+    "no complaints about that show this week",
+    "That's a small win. that show sounds good."
+   ],
+   [
+    "no complaints about the gym this week",
+    "Love that for you."
+   ]
+  ],
+  "message": "my neighbour's baby's name has gone out of my head",
+  "reply": "Silas, huh? That's a cute name."
+ },
+ {
+  "line": 132,
+  "view": [
+   [
+    "the wifi turned out fine in the end",
+    "Good to hear the wifi is behaving."
+   ],
+   [
+    "i was thinking about the bank on the way home",
+    "Ha, what did they say about the bank?"
+   ],
+   [
+    "my cousin Omar just started work as a beekeeper",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "what job did Omar start",
+  "reply": "Omar started as a beekeeper."
+ },
+ {
+  "line": 133,
+  "view": [
+   [
+    "my bike let me down this morning",
+    "That's frustrating. Is my bike usually like that?"
+   ],
+   [
+    "Omar is my uncle, and their boat is called Lady Grace",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "my glasses let me down this morning",
+    "Sorry, my glasses sounds like a real hassle."
+   ]
+  ],
+  "message": "what is Omar's boat called",
+  "reply": "Omar's boat is called the Lady Grace."
+ },
+ {
+  "line": 134,
+  "view": [
+   [
+    "i'm actually pretty happy with my desk lately",
+    "Love that for you."
+   ],
+   [
+    "i lost an hour to the furnace today",
+    "I'd be fed up with the furnace too."
+   ],
+   [
+    "news from my uncle Ivan: they got tickets to Burning Man",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what did Ivan get tickets to",
+  "reply": "Burning Man tickets."
+ },
+ {
+  "line": 135,
+  "view": [
+   [
+    "the groceries turned out fine in the end",
+    "Glad the groceries worked out."
+   ],
+   [
+    "my brother, Omar, writes romance novels at night",
+    "Good to know."
+   ],
+   [
+    "i lost an hour to my knee today",
+    "That's frustrating. Is my knee usually like that?"
+   ]
+  ],
+  "message": "my brother's novels, the genre won't come to me",
+  "reply": "Maybe you need to read more romance novels to get the feel of the genre."
+ },
+ {
+  "line": 136,
+  "view": [
+   [
+    "i just learned Nell was born in October, and that's my roommate",
+    "That's a change."
+   ],
+   [
+    "anyway, enough about the rain",
+    "What about the rain got you thinking?"
+   ],
+   [
+    "i was thinking about my coffee on the way home",
+    "Ha, what did they say about my coffee?"
+   ]
+  ],
+  "message": "what month was Nell born in",
+  "reply": "Nell was born in October."
+ },
+ {
+  "line": 137,
+  "view": [
+   [
+    "i was thinking about the bus on the way home",
+    "Ha, what did they say about the bus?"
+   ],
+   [
+    "i just learned Marc was born in March, and that's my brother",
+    "Thanks for telling me."
+   ],
+   [
+    "the fridge was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "when should i plan my brother's party",
+  "reply": "Depends on his schedule, but March is a good time for a spring party."
+ },
+ {
+  "line": 138,
+  "view": [
+   [
+    "so the parking lot has been a pain all week",
+    "That sounds annoying. Hope the parking lot settles down soon."
+   ],
+   [
+    "i was thinking about the dishwasher on the way home",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "Ivan is my roommate, and their boat is called Driftwood",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what is Ivan's boat called",
+  "reply": "Ivan's boat is called Driftwood."
+ },
+ {
+  "line": 139,
+  "view": [
+   [
+    "i was thinking about that show on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "good news, the elevator sorted itself out",
+    "Good to hear the elevator is behaving."
+   ],
+   [
+    "my uncle, Lena, writes western novels at night",
+    "Good to know."
+   ]
+  ],
+  "message": "the kind of books my uncle writes has gone out of my head",
+  "reply": "Western novels, huh? Sounds like a classic genre."
+ },
+ {
+  "line": 140,
+  "view": [
+   [
+    "my knee let me down this morning",
+    "That's frustrating. Is my knee usually like that?"
+   ],
+   [
+    "good news, the mail sorted itself out",
+    "Good to hear the mail is behaving."
+   ],
+   [
+    "you'll laugh, my uncle Tomas won a kayak in a raffle",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what did Tomas win in the raffle",
+  "reply": "My uncle Tomas won a kayak in a raffle."
+ },
+ {
+  "line": 141,
+  "view": [
+   [
+    "apparently my neighbour Ivan rides a Harley to work",
+    "That sounds exciting for them."
+   ],
+   [
+    "i'm actually pretty happy with the furnace lately",
+    "Glad the furnace worked out."
+   ],
+   [
+    "good news, the bank sorted itself out",
+    "Good to hear the bank is behaving."
+   ]
+  ],
+  "message": "what's parked outside my neighbour's office",
+  "reply": "A Harley, probably."
+ },
+ {
+  "line": 142,
+  "view": [
+   [
+    "talked to Marc today, my coworker, who plays bass in The Lanterns",
+    "How are they finding it?"
+   ],
+   [
+    "i'm actually pretty happy with the furnace lately",
+    "Good to hear the furnace is behaving."
+   ],
+   [
+    "no complaints about my laptop this week",
+    "Love that for you."
+   ]
+  ],
+  "message": "who does my coworker gig with",
+  "reply": "The Lanterns is a band, so your coworker is likely part of a musical group."
+ },
+ {
+  "line": 143,
+  "view": [
+   [
+    "someone at work brought up the dentist today",
+    "Sure, we can move on from the dentist."
+   ],
+   [
+    "so my coffee has been a pain all week",
+    "Sorry, my coffee sounds like a real hassle."
+   ],
+   [
+    "Yusuf is my roommate and just got a kitten called Pickle",
+    "Good to know."
+   ]
+  ],
+  "message": "what did Yusuf call the kitten",
+  "reply": "Yusuf named the kitten Pickle."
+ },
+ {
+  "line": 144,
+  "view": [
+   [
+    "no complaints about the groceries this week",
+    "Love that for you."
+   ],
+   [
+    "good news, the fridge sorted itself out",
+    "Good to hear the fridge is behaving."
+   ],
+   [
+    "my aunt Omar has taken up birdwatching on weekends",
+    "Good to know."
+   ]
+  ],
+  "message": "my aunt's weekend thing has completely escaped me",
+  "reply": "Birdwatching is a great hobby. It's a peaceful way to connect with nature and observe the beauty of the avian world."
+ },
+ {
+  "line": 145,
+  "view": [
+   [
+    "my cousin, Ivan, writes western novels at night",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the dishwasher let me down this morning",
+    "Oof. An hour lost to the dishwasher is no fun."
+   ],
+   [
+    "my coffee came up at dinner",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "what does my cousin write about",
+  "reply": "He writes about western novels, which typically involve themes of adventure, lawmen, and the American frontier."
+ },
+ {
+  "line": 146,
+  "view": [
+   [
+    "i'm actually pretty happy with my desk lately",
+    "Good to hear my desk is behaving."
+   ],
+   [
+    "Priya is my roommate, and their boat is called Sea Otter",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the wifi came up at dinner",
+    "Sure, we can move on from the wifi."
+   ]
+  ],
+  "message": "what name is painted on my roommate's boat",
+  "reply": "The name painted on Priya's boat is \"Sea Otter."
+ },
+ {
+  "line": 147,
+  "view": [
+   [
+    "apparently my roommate Ivan finished a 5k on sunday",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "anyway, enough about the gym",
+    "Ha, what did they say about the gym?"
+   ],
+   [
+    "my knee came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "what did my roommate run at the weekend",
+  "reply": "Ivan finished a 5k on Sunday."
+ },
+ {
+  "line": 148,
+  "view": [
+   [
+    "the bakery turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "ugh, the printer is driving me up the wall",
+    "That sounds annoying. Hope the printer settles down soon."
+   ],
+   [
+    "news from my brother Yusuf: they opened a candle shop",
+    "That's a change."
+   ]
+  ],
+  "message": "what does my brother sell these days",
+  "reply": "He sells candles."
+ },
+ {
+  "line": 149,
+  "view": [
+   [
+    "someone at work brought up the dentist today",
+    "Sure, we can move on from the dentist."
+   ],
+   [
+    "so my coffee has been a pain all week",
+    "Sorry, my coffee sounds like a real hassle."
+   ],
+   [
+    "Yusuf is my roommate and just got a kitten called Pickle",
+    "Good to know."
+   ]
+  ],
+  "message": "what did Yusuf call the kitten",
+  "reply": "Yusuf named the kitten Pickle."
+ },
+ {
+  "line": 150,
+  "view": [
+   [
+    "funny how the bakery keeps coming up",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "apparently my cousin Yusuf finished a 10k on sunday",
+    "Thanks for telling me."
+   ],
+   [
+    "so the bakery has been a pain all week",
+    "That sounds annoying. Hope the bakery settles down soon."
+   ]
+  ],
+  "message": "what race did Yusuf finish on sunday",
+  "reply": "Yusuf finished a 10k on Sunday."
+ },
+ {
+  "line": 151,
+  "view": [
+   [
+    "the mail let me down this morning",
+    "That sounds annoying. Hope the mail settles down soon."
+   ],
+   [
+    "so Marc (my brother) keeps goats in the yard",
+    "Thanks for telling me."
+   ],
+   [
+    "i was thinking about the lawn on the way home",
+    "What about the lawn got you thinking?"
+   ]
+  ],
+  "message": "the animals my brother keeps, i can never remember what they are",
+  "reply": "Goats are fascinating creatures. They are herbivores, primarily grazing on grasses, leaves, and other vegetation. They are also known for their ability to adapt to various environments and their strong, hooves-like feet."
+ },
+ {
+  "line": 152,
+  "view": [
+   [
+    "the groceries came up at dinner",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "you know my aunt Omar? they teach physics at the high school",
+    "That's a change."
+   ],
+   [
+    "the bank let me down this morning",
+    "I'd be fed up with the bank too."
+   ]
+  ],
+  "message": "what does Omar teach at the high school",
+  "reply": "Omar teaches physics at the high school."
+ },
+ {
+  "line": 153,
+  "view": [
+   [
+    "you know my brother Lena? they teach economics at the high school",
+    "How are they finding it?"
+   ],
+   [
+    "my laptop came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "ugh, the lawn is driving me up the wall",
+    "Oof. An hour lost to the lawn is no fun."
+   ]
+  ],
+  "message": "what does Lena teach at the high school",
+  "reply": "I'm not sure, but I can try to help you find out. Lena is likely a high school economics teacher, as you mentioned."
+ },
+ {
+  "line": 154,
+  "view": [
+   [
+    "the bakery let me down this morning",
+    "That sounds annoying. Hope the bakery settles down soon."
+   ],
+   [
+    "my sister, Dana, writes romance novels at night",
+    "That sounds exciting for them."
+   ],
+   [
+    "the bank came up at dinner",
+    "Sure, we can move on from the bank."
+   ]
+  ],
+  "message": "what kind of novels does Dana write",
+  "reply": "I'm not sure what kind of novels Dana writes, but romance novels typically focus on love stories, relationships, and emotional connections between characters."
+ },
+ {
+  "line": 155,
+  "view": [
+   [
+    "you know my brother Lena? they teach economics at the high school",
+    "How are they finding it?"
+   ],
+   [
+    "my laptop came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "ugh, the lawn is driving me up the wall",
+    "Oof. An hour lost to the lawn is no fun."
+   ]
+  ],
+  "message": "what does Lena teach at the high school",
+  "reply": "I'm not sure, but I can try to help you find out. Lena is likely a high school economics teacher, as you mentioned."
+ },
+ {
+  "line": 156,
+  "view": [
+   [
+    "my neighbour, Ivan, had a baby and named them Silas",
+    "That sounds exciting for them."
+   ],
+   [
+    "no complaints about that show this week",
+    "That's a small win. that show sounds good."
+   ],
+   [
+    "no complaints about the gym this week",
+    "Love that for you."
+   ]
+  ],
+  "message": "my neighbour's baby's name has gone out of my head",
+  "reply": "Silas, huh? That's a cute name."
+ },
+ {
+  "line": 157,
+  "view": [
+   [
+    "you'll laugh, my sister Priya won a hot tub in a raffle",
+    "Good to know."
+   ],
+   [
+    "no complaints about the recycling this week",
+    "That's a small win. the recycling sounds good."
+   ],
+   [
+    "the laundry came up at dinner",
+    "Sure, we can move on from the laundry."
+   ]
+  ],
+  "message": "what did my sister get lucky with",
+  "reply": "She won a hot tub in a raffle!"
+ },
+ {
+  "line": 158,
+  "view": [
+   [
+    "news from my neighbour Ivan: they got tickets to Lollapalooza",
+    "Good to know."
+   ],
+   [
+    "the roof was acting up again today",
+    "That's frustrating. Is the roof usually like that?"
+   ],
+   [
+    "i'm actually pretty happy with the mail lately",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "what is my neighbour going to this summer",
+  "reply": "He'll be at Lollapalooza this summer!"
+ },
+ {
+  "line": 159,
+  "view": [
+   [
+    "no complaints about the bakery this week",
+    "That's a small win. the bakery sounds good."
+   ],
+   [
+    "the roof was acting up again today",
+    "That sounds annoying. Hope the roof settles down soon."
+   ],
+   [
+    "so Ivan (my neighbour) keeps ferrets in the yard",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what animals will i meet at my neighbour's place",
+  "reply": "You might meet ferrets, but also other pets like cats, dogs, or even birds."
+ },
+ {
+  "line": 160,
+  "view": [
+   [
+    "the printer let me down this morning",
+    "That sounds annoying. Hope the printer settles down soon."
+   ],
+   [
+    "apparently my sister Marc finished a 5k on sunday",
+    "Good to know."
+   ],
+   [
+    "so the snow has been a pain all week",
+    "I'd be fed up with the snow too."
+   ]
+  ],
+  "message": "what did my sister run at the weekend",
+  "reply": "She ran a 5k!"
+ },
+ {
+  "line": 161,
+  "view": [
+   [
+    "apparently my roommate Ivan finished a 5k on sunday",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "anyway, enough about the gym",
+    "Ha, what did they say about the gym?"
+   ],
+   [
+    "my knee came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "what did my roommate run at the weekend",
+  "reply": "Ivan finished a 5k on Sunday."
+ },
+ {
+  "line": 162,
+  "view": [
+   [
+    "i lost an hour to the furnace today",
+    "That sounds annoying. Hope the furnace settles down soon."
+   ],
+   [
+    "my roommate, Priya, writes fantasy novels at night",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "i'm actually pretty happy with the dentist lately",
+    "That's a small win. the dentist sounds good."
+   ]
+  ],
+  "message": "what kind of novels does Priya write",
+  "reply": "I'm not sure, but it's great to hear she's writing fantasy novels."
+ },
+ {
+  "line": 163,
+  "view": [
+   [
+    "my coworker, Marc, writes horror novels at night",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the bank was acting up again today",
+    "I'd be fed up with the bank too."
+   ],
+   [
+    "ugh, the elevator is driving me up the wall",
+    "That sounds annoying. Hope the elevator settles down soon."
+   ]
+  ],
+  "message": "the kind of books my coworker writes has gone out of my head",
+  "reply": "I can try to help you remember. What kind of horror novels does Marc write?"
+ },
+ {
+  "line": 164,
+  "view": [
+   [
+    "drove past Marc's place, my uncle, it's been painted sage green",
+    "Thanks for telling me."
+   ],
+   [
+    "not much going on, just dealing with the fridge",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "i'm actually pretty happy with the gym lately",
+    "Good to hear the gym is behaving."
+   ]
+  ],
+  "message": "i'm trying to picture my uncle's house, what colour is it",
+  "reply": "Sage green is a nice, calming color. It looks fresh and modern."
+ },
+ {
+  "line": 165,
+  "view": [
+   [
+    "someone at work brought up the parking lot today",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "my neighbour Ivan has taken up fencing on weekends",
+    "How are they finding it?"
+   ],
+   [
+    "i lost an hour to the wifi today",
+    "I'd be fed up with the wifi too."
+   ]
+  ],
+  "message": "what my neighbour took up lately has gone fuzzy",
+  "reply": "Fencing can be a bit of a mess, especially if it's not done properly."
+ },
+ {
+  "line": 166,
+  "view": [
+   [
+    "Marc is my sister, and they rent on the twelfth floor",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "someone at work brought up the printer today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "the dentist turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "how far up do i go to reach my sister's flat",
+  "reply": "Assuming your sister lives on the twelfth floor, you would need to go up twelve floors to reach her flat."
+ },
+ {
+  "line": 167,
+  "view": [
+   [
+    "i was thinking about the kettle on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "talked to Priya today, my uncle, now promoted to head of sales",
+    "That's a change."
+   ],
+   [
+    "no complaints about my desk this week",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "what's my uncle's title now",
+  "reply": "Head of Sales."
+ },
+ {
+  "line": 168,
+  "view": [
+   [
+    "Marc is my sister, and they rent on the twelfth floor",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "someone at work brought up the printer today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "the dentist turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "how far up do i go to reach my sister's flat",
+  "reply": "Assuming your sister lives on the twelfth floor, you would need to go up twelve floors to reach her flat."
+ },
+ {
+  "line": 169,
+  "view": [
+   [
+    "apparently my neighbour Ivan rides a Harley to work",
+    "That sounds exciting for them."
+   ],
+   [
+    "i'm actually pretty happy with the furnace lately",
+    "Glad the furnace worked out."
+   ],
+   [
+    "good news, the bank sorted itself out",
+    "Good to hear the bank is behaving."
+   ]
+  ],
+  "message": "what's parked outside my neighbour's office",
+  "reply": "A Harley, probably."
+ },
+ {
+  "line": 170,
+  "view": [
+   [
+    "anyway, enough about the bank",
+    "Sure, we can move on from the bank."
+   ],
+   [
+    "my neighbour, Tomas, had a baby and named them Esther",
+    "Thanks for telling me."
+   ],
+   [
+    "good news, the furnace sorted itself out",
+    "Love that for you."
+   ]
+  ],
+  "message": "what's my neighbour's little one called",
+  "reply": "Esther."
+ },
+ {
+  "line": 171,
+  "view": [
+   [
+    "i'm actually pretty happy with my desk lately",
+    "Good to hear my desk is behaving."
+   ],
+   [
+    "good news, my glasses sorted itself out",
+    "That's a small win. my glasses sounds good."
+   ],
+   [
+    "for the record my neighbour Nell only ever orders a chai latte",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what should i get my neighbour from the cafe",
+  "reply": "You could consider ordering a chai latte, just like your neighbor Nell! It's a great way to show you're in the same league."
+ },
+ {
+  "line": 172,
+  "view": [
+   [
+    "no complaints about the stairs this week",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "the laundry was acting up again today",
+    "Sorry, the laundry sounds like a real hassle."
+   ],
+   [
+    "my cousin Priya has taken up birdwatching on weekends",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "how does my cousin keep busy on saturdays",
+  "reply": "It sounds like she finds a lot of joy in birdwatching and nature."
+ },
+ {
+  "line": 173,
+  "view": [
+   [
+    "someone at work brought up the parking lot today",
+    "What about the parking lot got you thinking?"
+   ],
+   [
+    "apparently my cousin Nell rides a Yamaha to work",
+    "Good to know."
+   ],
+   [
+    "no complaints about the groceries this week",
+    "That's a small win. the groceries sounds good."
+   ]
+  ],
+  "message": "what's parked outside my cousin's office",
+  "reply": "A Yamaha motorcycle."
+ },
+ {
+  "line": 174,
+  "view": [
+   [
+    "the dishwasher came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "so Yusuf (my aunt) keeps geckos in the yard",
+    "That sounds exciting for them."
+   ],
+   [
+    "no complaints about the mail this week",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "what animals will i meet at my aunt's place",
+  "reply": "Geckos, birds, and maybe some other pets depending on what she keeps."
+ },
+ {
+  "line": 175,
+  "view": [
+   [
+    "my coworker, Marc, writes horror novels at night",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the bank was acting up again today",
+    "I'd be fed up with the bank too."
+   ],
+   [
+    "ugh, the elevator is driving me up the wall",
+    "That sounds annoying. Hope the elevator settles down soon."
+   ]
+  ],
+  "message": "the kind of books my coworker writes has gone out of my head",
+  "reply": "I can try to help you remember. What kind of horror novels does Marc write?"
+ },
+ {
+  "line": 176,
+  "view": [
+   [
+    "no complaints about my coffee this week",
+    "Glad my coffee worked out."
+   ],
+   [
+    "i was thinking about the garden on the way home",
+    "Sure, we can move on from the garden."
+   ],
+   [
+    "for the record my roommate Marc only ever orders a americano",
+    "Good to know."
+   ]
+  ],
+  "message": "what should i get my roommate from the cafe",
+  "reply": "Since Marc only orders an Americano, you could consider ordering something similar or complementary. Some options could be a latte, a cappuccino, or a black coffee."
+ },
+ {
+  "line": 177,
+  "view": [
+   [
+    "the bakery turned out fine in the end",
+    "Glad the bakery worked out."
+   ],
+   [
+    "the dentist was acting up again today",
+    "That sounds annoying. Hope the dentist settles down soon."
+   ],
+   [
+    "Omar is my uncle, and their boat is called Sea Otter",
+    "That's a change."
+   ]
+  ],
+  "message": "what name is painted on my uncle's boat",
+  "reply": "The boat is called \"Sea Otter\"."
+ },
+ {
+  "line": 178,
+  "view": [
+   [
+    "the garden is getting on my nerves",
+    "Oof. An hour lost to the garden is no fun."
+   ],
+   [
+    "i just learned Priya was born in July, and that's my roommate",
+    "That's a change."
+   ],
+   [
+    "anyway, enough about the parking lot",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "when should i plan my roommate's party",
+  "reply": "Depends on Priya's schedule. If she has a busy July, maybe a few weeks out?"
+ },
+ {
+  "line": 179,
+  "view": [
+   [
+    "i lost an hour to the fridge today",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ],
+   [
+    "my knee was acting up again today",
+    "That's frustrating. Is my knee usually like that?"
+   ],
+   [
+    "you know my roommate Marc? they teach drama at the high school",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what classes does my roommate run",
+  "reply": "Marc teaches acting and possibly other drama-related classes at the high school."
+ },
+ {
+  "line": 180,
+  "view": [
+   [
+    "so the printer has been a pain all week",
+    "I'd be fed up with the printer too."
+   ],
+   [
+    "anyway, enough about the recycling",
+    "What about the recycling got you thinking?"
+   ],
+   [
+    "Lena, the neighbour i keep talking about, broke a collarbone skiing",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what my neighbour broke skiing has slipped my mind",
+  "reply": "No worries, it's okay to forget. Lena's collarbone recovery sounds like a fun story to share."
+ },
+ {
+  "line": 181,
+  "view": [
+   [
+    "not much going on, just dealing with that show",
+    "Sure, we can move on from that show."
+   ],
+   [
+    "anyway, enough about the bank",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "apparently my brother Yusuf finished a 5k on sunday",
+    "Good to know."
+   ]
+  ],
+  "message": "i want to say well done to my brother and the race won't come to me",
+  "reply": "That's great! A well-deserved achievement. You can say something like, \"Yusuf, that's amazing! I'm so proud of you for finishing the 5k."
+ },
+ {
+  "line": 182,
+  "view": [
+   [
+    "the garden turned out fine in the end",
+    "Love that for you."
+   ],
+   [
+    "funny how the dishwasher keeps coming up",
+    "It does seem to come up a lot."
+   ],
+   [
+    "my brother Ivan is moving to Valparaiso in the spring",
+    "That's a change."
+   ]
+  ],
+  "message": "where is my brother headed once winter is over",
+  "reply": "Once winter is over, my brother Ivan is moving to Valparaiso."
+ },
+ {
+  "line": 183,
+  "view": [
+   [
+    "someone at work brought up the dishwasher today",
+    "It does seem to come up a lot."
+   ],
+   [
+    "you'll laugh, my cousin Ivan won a canoe in a raffle",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "anyway, enough about the snow",
+    "Ha, what did they say about the snow?"
+   ]
+  ],
+  "message": "my cousin won something silly and i've lost what",
+  "reply": "You lost a canoe, huh? That's a pretty silly thing to lose."
+ },
+ {
+  "line": 184,
+  "view": [
+   [
+    "Omar is my roommate, and their boat is called Sea Otter",
+    "That's a change."
+   ],
+   [
+    "my back was acting up again today",
+    "That sounds annoying. Hope my back settles down soon."
+   ],
+   [
+    "the groceries came up at dinner",
+    "What about the groceries got you thinking?"
+   ]
+  ],
+  "message": "my roommate's boat name won't come to me",
+  "reply": "It seems like your roommate's boat name, \"Sea Otter,\" is a bit of a mystery. Maybe it's a fun fact or a hidden meaning?"
+ },
+ {
+  "line": 185,
+  "view": [
+   [
+    "good news, the snow sorted itself out",
+    "Love that for you."
+   ],
+   [
+    "you'll laugh, my neighbour Tomas won a kayak in a raffle",
+    "Thanks for telling me."
+   ],
+   [
+    "anyway, enough about the elevator",
+    "Sure, we can move on from the elevator."
+   ]
+  ],
+  "message": "my neighbour won something silly and i've lost what",
+  "reply": "You lost the kayak raffle prize."
+ },
+ {
+  "line": 186,
+  "view": [
+   [
+    "anyway, enough about my phone",
+    "It does seem to come up a lot."
+   ],
+   [
+    "so Ivan (my cousin) finally switched to a Galaxy",
+    "Good to know."
+   ],
+   [
+    "the recycling came up at dinner",
+    "What about the recycling got you thinking?"
+   ]
+  ],
+  "message": "what's my cousin using for a phone",
+  "reply": "He\u2019s using a Samsung Galaxy S23."
+ },
+ {
+  "line": 187,
+  "view": [
+   [
+    "not much going on, just dealing with my glasses",
+    "Ha, what did they say about my glasses?"
+   ],
+   [
+    "my coworker Greta just started work as a surveyor",
+    "That sounds exciting for them."
+   ],
+   [
+    "someone at work brought up the dishwasher today",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "what does my coworker do for a living these days",
+  "reply": "She works as a surveyor, which involves taking measurements and collecting data for construction or real estate projects."
+ },
+ {
+  "line": 188,
+  "view": [
+   [
+    "my back let me down this morning",
+    "I'd be fed up with my back too."
+   ],
+   [
+    "ugh, the furnace is driving me up the wall",
+    "I'd be fed up with the furnace too."
+   ],
+   [
+    "i just learned Dana was born in July, and that's my coworker",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "i'm planning something for my coworker and the month won't come",
+  "reply": "That's a tough one. Maybe you could plan something fun or surprise her for July?"
+ },
+ {
+  "line": 189,
+  "view": [
+   [
+    "the kettle let me down this morning",
+    "That's frustrating. Is the kettle usually like that?"
+   ],
+   [
+    "my uncle Ivan just started work as a surveyor",
+    "How are they finding it?"
+   ],
+   [
+    "i lost an hour to my glasses today",
+    "Sorry, my glasses sounds like a real hassle."
+   ]
+  ],
+  "message": "someone asked about my uncle's work and i had nothing",
+  "reply": "That's fair. It's easy to get caught off guard when someone asks about your uncle's job. Maybe you can ask him about his experience or what he does in his role as a surveyor."
+ },
+ {
+  "line": 190,
+  "view": [
+   [
+    "ugh, the wifi is driving me up the wall",
+    "I'd be fed up with the wifi too."
+   ],
+   [
+    "no complaints about my knee this week",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "Ivan is my sister, and their boat is called Second Wind",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what name is painted on my sister's boat",
+  "reply": "Second Wind is the name painted on your sister's boat."
+ },
+ {
+  "line": 191,
+  "view": [
+   [
+    "my coworker, Lena, had a baby and named them Nora",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "so the garden has been a pain all week",
+    "Sorry, the garden sounds like a real hassle."
+   ],
+   [
+    "good news, the parking lot sorted itself out",
+    "Glad the parking lot worked out."
+   ]
+  ],
+  "message": "what did Lena name the baby",
+  "reply": "Lena named the baby Nora."
+ },
+ {
+  "line": 192,
+  "view": [
+   [
+    "i'm actually pretty happy with the roof lately",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "Nell is my brother, and they rent on the twentieth floor",
+    "That's a change."
+   ],
+   [
+    "the kettle was acting up again today",
+    "Sorry, the kettle sounds like a real hassle."
+   ]
+  ],
+  "message": "which floor does Nell rent on",
+  "reply": "Nell lives on the twentieth floor."
+ },
+ {
+  "line": 193,
+  "view": [
+   [
+    "ugh, the dishwasher is driving me up the wall",
+    "That sounds annoying. Hope the dishwasher settles down soon."
+   ],
+   [
+    "anyway, enough about the bank",
+    "It does seem to come up a lot."
+   ],
+   [
+    "Greta, the neighbour i keep talking about, broke a jaw skiing",
+    "That's a change."
+   ]
+  ],
+  "message": "i'm calling my neighbour later and can't recall the injury",
+  "reply": "You can say something like, \"Hey, I was just thinking about you. I hope you're doing okay and that the jaw is healing up."
+ },
+ {
+  "line": 194,
+  "view": [
+   [
+    "news from my neighbour Ivan: they got tickets to Lollapalooza",
+    "Good to know."
+   ],
+   [
+    "the roof was acting up again today",
+    "That's frustrating. Is the roof usually like that?"
+   ],
+   [
+    "i'm actually pretty happy with the mail lately",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "what is my neighbour going to this summer",
+  "reply": "He'll be at Lollapalooza this summer!"
+ },
+ {
+  "line": 195,
+  "view": [
+   [
+    "not much going on, just dealing with the rain",
+    "It does seem to come up a lot."
+   ],
+   [
+    "my cousin Omar has taken up fencing on weekends",
+    "How are they finding it?"
+   ],
+   [
+    "my knee came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "what has Omar taken up on weekends",
+  "reply": "Fencing."
+ },
+ {
+  "line": 196,
+  "view": [
+   [
+    "you know my roommate Priya? they teach geometry at the high school",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the printer came up at dinner",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "i'm actually pretty happy with my knee lately",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "what does Priya teach at the high school",
+  "reply": "I'm not aware of Priya's specific subjects or expertise, but I can try to help with any questions you might have about geometry or other topics."
+ },
+ {
+  "line": 197,
+  "view": [
+   [
+    "the bus was the best part of my day",
+    "Good to hear the bus is behaving."
+   ],
+   [
+    "my aunt Dana has taken up glassblowing on weekends",
+    "That's a change."
+   ],
+   [
+    "the laundry was the best part of my day",
+    "Glad the laundry worked out."
+   ]
+  ],
+  "message": "how does my aunt keep busy on saturdays",
+  "reply": "Glassblowing is a great way to keep busy on weekends!"
+ },
+ {
+  "line": 198,
+  "view": [
+   [
+    "anyway, enough about the bank",
+    "Sure, we can move on from the bank."
+   ],
+   [
+    "my neighbour, Tomas, had a baby and named them Esther",
+    "Thanks for telling me."
+   ],
+   [
+    "good news, the furnace sorted itself out",
+    "Love that for you."
+   ]
+  ],
+  "message": "what's my neighbour's little one called",
+  "reply": "Esther."
+ },
+ {
+  "line": 199,
+  "view": [
+   [
+    "someone at work brought up the elevator today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "news from my uncle Tomas: they got tickets to Oktoberfest",
+    "That sounds exciting for them."
+   ],
+   [
+    "the bank turned out fine in the end",
+    "Good to hear the bank is behaving."
+   ]
+  ],
+  "message": "what did Tomas get tickets to",
+  "reply": "Oktoberfest tickets."
+ },
+ {
+  "line": 200,
+  "view": [
+   [
+    "good news, the snow sorted itself out",
+    "Love that for you."
+   ],
+   [
+    "you'll laugh, my neighbour Tomas won a kayak in a raffle",
+    "Thanks for telling me."
+   ],
+   [
+    "anyway, enough about the elevator",
+    "Sure, we can move on from the elevator."
+   ]
+  ],
+  "message": "my neighbour won something silly and i've lost what",
+  "reply": "You lost the kayak raffle prize."
+ },
+ {
+  "line": 201,
+  "view": [
+   [
+    "anyway, enough about the garden",
+    "It does seem to come up a lot."
+   ],
+   [
+    "Lena is my sister and just got a kitten called Noodle",
+    "Thanks for telling me."
+   ],
+   [
+    "so the laundry has been a pain all week",
+    "Oof. An hour lost to the laundry is no fun."
+   ]
+  ],
+  "message": "what's the name of my sister's kitten",
+  "reply": "Noodle. How's it going?"
+ },
+ {
+  "line": 202,
+  "view": [
+   [
+    "my bike came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "drove past Omar's place, my neighbour, it's been painted teal",
+    "Good to know."
+   ],
+   [
+    "someone at work brought up my desk today",
+    "Ha, what did they say about my desk?"
+   ]
+  ],
+  "message": "what colour my neighbour's place is now won't come to me",
+  "reply": "That's a bit of a bummer. Maybe you can visit them and see the teal paint for yourself?"
+ },
+ {
+  "line": 203,
+  "view": [
+   [
+    "no complaints about the laundry this week",
+    "Love that for you."
+   ],
+   [
+    "so my laptop has been a pain all week",
+    "Oof. An hour lost to my laptop is no fun."
+   ],
+   [
+    "apparently my cousin Omar finished a 10k on sunday",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "i want to say well done to my cousin and the race won't come to me",
+  "reply": "That's a great sentiment. Congrats to your cousin Omar for completing the 10k!"
+ },
+ {
+  "line": 204,
+  "view": [
+   [
+    "not much going on, just dealing with the rain",
+    "It does seem to come up a lot."
+   ],
+   [
+    "my cousin Omar has taken up fencing on weekends",
+    "How are they finding it?"
+   ],
+   [
+    "my knee came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "what has Omar taken up on weekends",
+  "reply": "Fencing."
+ },
+ {
+  "line": 205,
+  "view": [
+   [
+    "my bike came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "drove past Omar's place, my neighbour, it's been painted teal",
+    "Good to know."
+   ],
+   [
+    "someone at work brought up my desk today",
+    "Ha, what did they say about my desk?"
+   ]
+  ],
+  "message": "what colour my neighbour's place is now won't come to me",
+  "reply": "That's a bit of a bummer. Maybe you can visit them and see the teal paint for yourself?"
+ },
+ {
+  "line": 206,
+  "view": [
+   [
+    "you know my roommate Priya? they teach geometry at the high school",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the printer came up at dinner",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "i'm actually pretty happy with my knee lately",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "what does Priya teach at the high school",
+  "reply": "I'm not aware of Priya's specific subjects or expertise, but I can try to help with any questions you might have about geometry or other topics."
+ },
+ {
+  "line": 207,
+  "view": [
+   [
+    "my cousin Greta bought a red Civic from an auction",
+    "That sounds exciting for them."
+   ],
+   [
+    "i lost an hour to my laptop today",
+    "That's frustrating. Is my laptop usually like that?"
+   ],
+   [
+    "the bakery was acting up again today",
+    "Oof. An hour lost to the bakery is no fun."
+   ]
+  ],
+  "message": "what's my cousin driving around in now",
+  "reply": "A red Civic."
+ },
+ {
+  "line": 208,
+  "view": [
+   [
+    "i lost an hour to the garden today",
+    "Oof. An hour lost to the garden is no fun."
+   ],
+   [
+    "my neighbour Ivan has taken up fencing on weekends",
+    "How are they finding it?"
+   ],
+   [
+    "my laptop was the best part of my day",
+    "Love that for you."
+   ]
+  ],
+  "message": "what has Ivan taken up on weekends",
+  "reply": "Ivan has taken up fencing."
+ },
+ {
+  "line": 209,
+  "view": [
+   [
+    "i was thinking about the bus on the way home",
+    "Ha, what did they say about the bus?"
+   ],
+   [
+    "i just learned Marc was born in March, and that's my brother",
+    "Thanks for telling me."
+   ],
+   [
+    "the fridge was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "when should i plan my brother's party",
+  "reply": "Depends on his schedule, but March is a good time for a spring party."
+ },
+ {
+  "line": 210,
+  "view": [
+   [
+    "the snow came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "the lawn came up at dinner",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "drove past Dana's place, my roommate, it's been painted teal",
+    "That's a change."
+   ]
+  ],
+  "message": "the colour of my roommate's house has slipped my mind",
+  "reply": "It's a nice touch, a unique color choice. Teal is a vibrant and eye-catching shade."
+ },
+ {
+  "line": 211,
+  "view": [
+   [
+    "i'm actually pretty happy with the bank lately",
+    "Glad the bank worked out."
+   ],
+   [
+    "no complaints about the recycling this week",
+    "Good to hear the recycling is behaving."
+   ],
+   [
+    "Ivan is my sister and just got a kitten called Noodle",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "i wanted to ask after my sister's kitten but the name's gone",
+  "reply": "No worries! If you want to ask about Noodle, just let me know."
+ },
+ {
+  "line": 212,
+  "view": [
+   [
+    "so the garden has been a pain all week",
+    "Sorry, the garden sounds like a real hassle."
+   ],
+   [
+    "my glasses turned out fine in the end",
+    "Glad my glasses worked out."
+   ],
+   [
+    "my cousin, Omar, had a baby and named them Arlo",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "what did Omar name the baby",
+  "reply": "Omar named the baby Arlo."
+ },
+ {
+  "line": 213,
+  "view": [
+   [
+    "my uncle Marc bought a white Forester from an auction",
+    "Good to know."
+   ],
+   [
+    "my glasses came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the kettle is getting on my nerves",
+    "I'd be fed up with the kettle too."
+   ]
+  ],
+  "message": "i was telling a friend about my uncle's car and lost the model",
+  "reply": "No worries, white Forester is a common model. It's a compact SUV, often called a \"coupe\" due to its roofline."
+ },
+ {
+  "line": 214,
+  "view": [
+   [
+    "i lost an hour to the snow today",
+    "Sorry, the snow sounds like a real hassle."
+   ],
+   [
+    "Tomas is my cousin, and their boat is called Sea Otter",
+    "Thanks for telling me."
+   ],
+   [
+    "the groceries turned out fine in the end",
+    "That's a small win. the groceries sounds good."
+   ]
+  ],
+  "message": "i wanted to tell someone the name of my cousin's boat and it's gone",
+  "reply": "That's a bit of a bummer.  \"Sea Otter\" is a nice name for a boat.  Maybe you can tell them it's still there somewhere, waiting to be found."
+ },
+ {
+  "line": 215,
+  "view": [
+   [
+    "Marc is my neighbour, and their boat is called Driftwood",
+    "How are they finding it?"
+   ],
+   [
+    "my glasses was the best part of my day",
+    "Good to hear my glasses is behaving."
+   ],
+   [
+    "good news, the bus sorted itself out",
+    "Love that for you."
+   ]
+  ],
+  "message": "what name is painted on my neighbour's boat",
+  "reply": "Driftwood, as mentioned earlier."
+ },
+ {
+  "line": 216,
+  "view": [
+   [
+    "so Yusuf (my neighbour) finally switched to a Motorola",
+    "That's a change."
+   ],
+   [
+    "anyway, enough about the bakery",
+    "Sure, we can move on from the bakery."
+   ],
+   [
+    "the stairs was acting up again today",
+    "I'd be fed up with the stairs too."
+   ]
+  ],
+  "message": "my neighbour told me which phone they got and i've lost it",
+  "reply": "That's a bit of a problem. If your neighbour switched to a Motorola, they might have given you a new phone. You should try contacting them to see if they can help you locate it."
+ },
+ {
+  "line": 217,
+  "view": [
+   [
+    "i lost an hour to the garden today",
+    "Oof. An hour lost to the garden is no fun."
+   ],
+   [
+    "my neighbour Ivan has taken up fencing on weekends",
+    "How are they finding it?"
+   ],
+   [
+    "my laptop was the best part of my day",
+    "Love that for you."
+   ]
+  ],
+  "message": "what has Ivan taken up on weekends",
+  "reply": "Ivan has taken up fencing."
+ },
+ {
+  "line": 218,
+  "view": [
+   [
+    "i lost an hour to the printer today",
+    "Oof. An hour lost to the printer is no fun."
+   ],
+   [
+    "my phone was the best part of my day",
+    "Good to hear my phone is behaving."
+   ],
+   [
+    "news from my cousin Omar: they got tickets to Burning Man",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "the festival my cousin got tickets to has slipped my mind",
+  "reply": "Burning Man is a unique experience. What can you expect?"
+ },
+ {
+  "line": 219,
+  "view": [
+   [
+    "ugh, the printer is driving me up the wall",
+    "That's frustrating. Is the printer usually like that?"
+   ],
+   [
+    "my brother Priya adopted a dog named Rusty last month",
+    "Good to know."
+   ],
+   [
+    "good news, the printer sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "the dog my brother adopted, its name has gone clean out of my head",
+  "reply": "Rusty, huh? That's a cute name."
+ },
+ {
+  "line": 220,
+  "view": [
+   [
+    "so Yusuf (my neighbour) finally switched to a Motorola",
+    "That's a change."
+   ],
+   [
+    "anyway, enough about the bakery",
+    "Sure, we can move on from the bakery."
+   ],
+   [
+    "the stairs was acting up again today",
+    "I'd be fed up with the stairs too."
+   ]
+  ],
+  "message": "my neighbour told me which phone they got and i've lost it",
+  "reply": "That's a bit of a problem. If your neighbour switched to a Motorola, they might have given you a new phone. You should try contacting them to see if they can help you locate it."
+ },
+ {
+  "line": 221,
+  "view": [
+   [
+    "my roommate, Greta, had a baby and named them Esther",
+    "Good to know."
+   ],
+   [
+    "the mail let me down this morning",
+    "That sounds annoying. Hope the mail settles down soon."
+   ],
+   [
+    "the roof was the best part of my day",
+    "Love that for you."
+   ]
+  ],
+  "message": "the name my roommate picked for the baby escapes me now",
+  "reply": "Esther is a lovely name."
+ },
+ {
+  "line": 222,
+  "view": [
+   [
+    "no complaints about my coffee this week",
+    "Glad my coffee worked out."
+   ],
+   [
+    "i was thinking about the garden on the way home",
+    "Sure, we can move on from the garden."
+   ],
+   [
+    "for the record my roommate Marc only ever orders a americano",
+    "Good to know."
+   ]
+  ],
+  "message": "what should i get my roommate from the cafe",
+  "reply": "Since Marc only orders an Americano, you could consider ordering something similar or complementary. Some options could be a latte, a cappuccino, or a black coffee."
+ },
+ {
+  "line": 223,
+  "view": [
+   [
+    "funny how the mail keeps coming up",
+    "Ha, what did they say about the mail?"
+   ],
+   [
+    "the roof was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "my neighbour Lena just started work as a court reporter",
+    "Good to know."
+   ]
+  ],
+  "message": "what job did Lena start",
+  "reply": "She started as a court reporter."
+ },
+ {
+  "line": 224,
+  "view": [
+   [
+    "apparently my cousin Ivan rides a Ducati to work",
+    "How are they finding it?"
+   ],
+   [
+    "i was thinking about the recycling on the way home",
+    "Ha, what did they say about the recycling?"
+   ],
+   [
+    "i lost an hour to the elevator today",
+    "That's frustrating. Is the elevator usually like that?"
+   ]
+  ],
+  "message": "i keep losing what my cousin rides",
+  "reply": "It sounds like you're having a bit of a \"Ducati\" moment. Maybe it's a game of \"I Spy\" or something similar?"
+ },
+ {
+  "line": 225,
+  "view": [
+   [
+    "no complaints about the stairs this week",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "the laundry was acting up again today",
+    "Sorry, the laundry sounds like a real hassle."
+   ],
+   [
+    "my cousin Priya has taken up birdwatching on weekends",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "how does my cousin keep busy on saturdays",
+  "reply": "It sounds like she finds a lot of joy in birdwatching and nature."
+ },
+ {
+  "line": 226,
+  "view": [
+   [
+    "my knee let me down this morning",
+    "That's frustrating. Is my knee usually like that?"
+   ],
+   [
+    "good news, the mail sorted itself out",
+    "Good to hear the mail is behaving."
+   ],
+   [
+    "you'll laugh, my uncle Tomas won a kayak in a raffle",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what did Tomas win in the raffle",
+  "reply": "My uncle Tomas won a kayak in a raffle."
+ },
+ {
+  "line": 227,
+  "view": [
+   [
+    "news from my sister Priya: they opened a thrift shop",
+    "That's a change."
+   ],
+   [
+    "anyway, enough about the snow",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "the fridge was acting up again today",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ]
+  ],
+  "message": "the shop my sister opened, i can't recall what it sells",
+  "reply": "A thrift shop typically sells gently used clothing, furniture, and other items. It's a great way to find unique and affordable finds."
+ },
+ {
+  "line": 228,
+  "view": [
+   [
+    "i lost an hour to the snow today",
+    "I'd be fed up with the snow too."
+   ],
+   [
+    "you know my brother Ivan? they live on Elm Terrace now",
+    "Good to know."
+   ],
+   [
+    "ugh, the rain is driving me up the wall",
+    "Oof. An hour lost to the rain is no fun."
+   ]
+  ],
+  "message": "where do i send a card for my brother",
+  "reply": "You can send a card to Ivan at his current address on Elm Terrace."
+ },
+ {
+  "line": 229,
+  "view": [
+   [
+    "i just learned Greta was born in November, and that's my brother",
+    "Good to know."
+   ],
+   [
+    "no complaints about the gym this week",
+    "That's a small win. the gym sounds good."
+   ],
+   [
+    "not much going on, just dealing with the printer",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "when should i plan my brother's party",
+  "reply": "Considering your brother was born in November, you could plan the party around that time, maybe in December or early January."
+ },
+ {
+  "line": 230,
+  "view": [
+   [
+    "my bike was acting up again today",
+    "I'd be fed up with my bike too."
+   ],
+   [
+    "i lost an hour to the elevator today",
+    "Oof. An hour lost to the elevator is no fun."
+   ],
+   [
+    "for the record my aunt Greta only ever orders a chai latte",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what should i get my aunt from the cafe",
+  "reply": "Since your aunt only ever orders a chai latte, you could consider ordering a chai latte as well. It's a safe bet that she'll enjoy it."
+ },
+ {
+  "line": 231,
+  "view": [
+   [
+    "the wifi let me down this morning",
+    "I'd be fed up with the wifi too."
+   ],
+   [
+    "my brother, Priya, writes western novels at night",
+    "That's a change."
+   ],
+   [
+    "the mail came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "the kind of books my brother writes has gone out of my head",
+  "reply": "Western novels, huh? Sounds like a classic genre."
+ },
+ {
+  "line": 232,
+  "view": [
+   [
+    "someone at work brought up the parking lot today",
+    "What about the parking lot got you thinking?"
+   ],
+   [
+    "apparently my cousin Nell rides a Yamaha to work",
+    "Good to know."
+   ],
+   [
+    "no complaints about the groceries this week",
+    "That's a small win. the groceries sounds good."
+   ]
+  ],
+  "message": "what's parked outside my cousin's office",
+  "reply": "A Yamaha motorcycle."
+ },
+ {
+  "line": 233,
+  "view": [
+   [
+    "so the garden has been a pain all week",
+    "I'd be fed up with the garden too."
+   ],
+   [
+    "the roof was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "Ivan is my brother and just got a kitten called Tofu",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "my brother's kitten has a name and i've lost it",
+  "reply": "That\u2019s adorable! Tofu is a cute name. If you need help remembering it, try to recall any details about its appearance, personality, or anything else that stands out."
+ },
+ {
+  "line": 234,
+  "view": [
+   [
+    "Omar is my coworker, and they rent on the ninth floor",
+    "That sounds exciting for them."
+   ],
+   [
+    "i lost an hour to the parking lot today",
+    "I'd be fed up with the parking lot too."
+   ],
+   [
+    "my laptop turned out fine in the end",
+    "That's a small win. my laptop sounds good."
+   ]
+  ],
+  "message": "how far up do i go to reach my coworker's flat",
+  "reply": "Assuming your coworker lives on the ninth floor, you'd need to go up nine floors."
+ },
+ {
+  "line": 235,
+  "view": [
+   [
+    "my bike was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "you know my aunt Marc? they live on Alder Road now",
+    "How are they finding it?"
+   ],
+   [
+    "i'm actually pretty happy with my desk lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "where do i send a card for my aunt",
+  "reply": "You can send a card to your aunt's current address on Alder Road. Just make sure to include your name, address, and any other details the post office requires."
+ },
+ {
+  "line": 236,
+  "view": [
+   [
+    "the kettle let me down this morning",
+    "That's frustrating. Is the kettle usually like that?"
+   ],
+   [
+    "my uncle Ivan just started work as a surveyor",
+    "How are they finding it?"
+   ],
+   [
+    "i lost an hour to my glasses today",
+    "Sorry, my glasses sounds like a real hassle."
+   ]
+  ],
+  "message": "someone asked about my uncle's work and i had nothing",
+  "reply": "That's fair. It's easy to get caught off guard when someone asks about your uncle's job. Maybe you can ask him about his experience or what he does in his role as a surveyor."
+ },
+ {
+  "line": 237,
+  "view": [
+   [
+    "talked to Yusuf today, my sister, who plays bass in Salt Road",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "not much going on, just dealing with the snow",
+    "Ha, what did they say about the snow?"
+   ],
+   [
+    "someone at work brought up the dishwasher today",
+    "Sure, we can move on from the dishwasher."
+   ]
+  ],
+  "message": "who does my sister gig with",
+  "reply": "She's part of Salt Road, a band I think?"
+ },
+ {
+  "line": 238,
+  "view": [
+   [
+    "Ivan, the roommate i keep talking about, broke a collarbone skiing",
+    "Thanks for telling me."
+   ],
+   [
+    "so the wifi has been a pain all week",
+    "I'd be fed up with the wifi too."
+   ],
+   [
+    "i was thinking about my laptop on the way home",
+    "What about my laptop got you thinking?"
+   ]
+  ],
+  "message": "how did my roommate get hurt on the slopes",
+  "reply": "He slipped and fell, which resulted in a broken collarbone."
+ },
+ {
+  "line": 239,
+  "view": [
+   [
+    "my coworker, Lena, had a baby and named them Nora",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "so the garden has been a pain all week",
+    "Sorry, the garden sounds like a real hassle."
+   ],
+   [
+    "good news, the parking lot sorted itself out",
+    "Glad the parking lot worked out."
+   ]
+  ],
+  "message": "what did Lena name the baby",
+  "reply": "Lena named the baby Nora."
+ },
+ {
+  "line": 240,
+  "view": [
+   [
+    "funny how the rain keeps coming up",
+    "Ha, what did they say about the rain?"
+   ],
+   [
+    "my phone came up at dinner",
+    "Sure, we can move on from my phone."
+   ],
+   [
+    "you'll laugh, my brother Dana won a pinball machine in a raffle",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what did my brother get lucky with",
+  "reply": "A pinball machine."
+ },
+ {
+  "line": 241,
+  "view": [
+   [
+    "my knee was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "funny how the dentist keeps coming up",
+    "Ha, what did they say about the dentist?"
+   ],
+   [
+    "you know my neighbour Tomas? they teach chemistry at the high school",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what classes does my neighbour run",
+  "reply": "I'm glad to hear that your neighbor is teaching chemistry. What classes do they run?"
+ },
+ {
+  "line": 242,
+  "view": [
+   [
+    "anyway, enough about my bike",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "the snow was acting up again today",
+    "That's frustrating. Is the snow usually like that?"
+   ],
+   [
+    "you know my neighbour Nell? they live on Cedar Court now",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "what street does Nell live on",
+  "reply": "Nell lives on Cedar Court."
+ },
+ {
+  "line": 243,
+  "view": [
+   [
+    "Marc is my neighbour, and their boat is called Driftwood",
+    "How are they finding it?"
+   ],
+   [
+    "my glasses was the best part of my day",
+    "Good to hear my glasses is behaving."
+   ],
+   [
+    "good news, the bus sorted itself out",
+    "Love that for you."
+   ]
+  ],
+  "message": "what name is painted on my neighbour's boat",
+  "reply": "Driftwood, as mentioned earlier."
+ },
+ {
+  "line": 244,
+  "view": [
+   [
+    "the dishwasher came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "so Yusuf (my aunt) keeps geckos in the yard",
+    "That sounds exciting for them."
+   ],
+   [
+    "no complaints about the mail this week",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "what animals will i meet at my aunt's place",
+  "reply": "Geckos, birds, and maybe some other pets depending on what she keeps."
+ },
+ {
+  "line": 245,
+  "view": [
+   [
+    "i just learned Greta was born in March, and that's my cousin",
+    "Good to know."
+   ],
+   [
+    "i'm actually pretty happy with the snow lately",
+    "Love that for you."
+   ],
+   [
+    "anyway, enough about my glasses",
+    "Sure, we can move on from my glasses."
+   ]
+  ],
+  "message": "what month was Greta born in",
+  "reply": "Greta was born in March."
+ },
+ {
+  "line": 246,
+  "view": [
+   [
+    "funny how my desk keeps coming up",
+    "What about my desk got you thinking?"
+   ],
+   [
+    "my aunt Yusuf is moving to Lisbon in the spring",
+    "Thanks for telling me."
+   ],
+   [
+    "so my back has been a pain all week",
+    "Oof. An hour lost to my back is no fun."
+   ]
+  ],
+  "message": "my aunt told me where they're moving and i've lost it",
+  "reply": "That's a lot of information to process all at once. Your aunt is moving to Lisbon in the spring, and your back has been hurting all week."
+ },
+ {
+  "line": 247,
+  "view": [
+   [
+    "i was thinking about the printer on the way home",
+    "What about the printer got you thinking?"
+   ],
+   [
+    "i was thinking about the elevator on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "news from my coworker Omar: they opened a cheese shop",
+    "That's a change."
+   ]
+  ],
+  "message": "what does my coworker sell these days",
+  "reply": "He sells cheese."
+ },
+ {
+  "line": 248,
+  "view": [
+   [
+    "you know my aunt Lena? they teach physics at the high school",
+    "That sounds exciting for them."
+   ],
+   [
+    "the elevator is getting on my nerves",
+    "Oof. An hour lost to the elevator is no fun."
+   ],
+   [
+    "the dishwasher was acting up again today",
+    "Sorry, the dishwasher sounds like a real hassle."
+   ]
+  ],
+  "message": "what does Lena teach at the high school",
+  "reply": "Lena teaches physics at the high school."
+ },
+ {
+  "line": 249,
+  "view": [
+   [
+    "apparently my roommate Greta rides a Triumph to work",
+    "That sounds exciting for them."
+   ],
+   [
+    "i was thinking about the kettle on the way home",
+    "Sure, we can move on from the kettle."
+   ],
+   [
+    "the gym is getting on my nerves",
+    "That sounds annoying. Hope the gym settles down soon."
+   ]
+  ],
+  "message": "what's parked outside my roommate's office",
+  "reply": "I don't have real-time information, but I can speculate. Based on the context, it's likely a car, possibly a Triumph motorcycle, given your roommate's mention of riding one to work."
+ },
+ {
+  "line": 250,
+  "view": [
+   [
+    "so my bike has been a pain all week",
+    "Sorry, my bike sounds like a real hassle."
+   ],
+   [
+    "for the record my coworker Nell only ever orders a mocha",
+    "That's a change."
+   ],
+   [
+    "not much going on, just dealing with the dentist",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "what should i get my coworker from the cafe",
+  "reply": "A mocha, of course! Nell's favorite."
+ },
+ {
+  "line": 251,
+  "view": [
+   [
+    "i lost an hour to the fridge today",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ],
+   [
+    "my knee was acting up again today",
+    "That's frustrating. Is my knee usually like that?"
+   ],
+   [
+    "you know my roommate Marc? they teach drama at the high school",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what classes does my roommate run",
+  "reply": "Marc teaches acting and possibly other drama-related classes at the high school."
+ },
+ {
+  "line": 252,
+  "view": [
+   [
+    "apparently my neighbour Tomas finished a duathlon on sunday",
+    "Good to know."
+   ],
+   [
+    "i'm actually pretty happy with my bike lately",
+    "Love that for you."
+   ],
+   [
+    "no complaints about the recycling this week",
+    "Love that for you."
+   ]
+  ],
+  "message": "i want to say well done to my neighbour and the race won't come to me",
+  "reply": "That's a great idea. A simple \"Well done, Tomas!\" or \"Nice job on the duathlon!\" would be a nice way to acknowledge their achievement."
+ },
+ {
+  "line": 253,
+  "view": [
+   [
+    "the fridge was the best part of my day",
+    "That's a small win. the fridge sounds good."
+   ],
+   [
+    "so Greta (my aunt) finally switched to a Nokia",
+    "Good to know."
+   ],
+   [
+    "no complaints about the bakery this week",
+    "That's a small win. the bakery sounds good."
+   ]
+  ],
+  "message": "what's my aunt using for a phone",
+  "reply": "It sounds like your aunt is switching from a brand that might not be as well-known or as advanced as Nokia. Nokia is known for its durable and reliable phones, often used in harsh environments."
+ },
+ {
+  "line": 254,
+  "view": [
+   [
+    "ugh, the laundry is driving me up the wall",
+    "That sounds annoying. Hope the laundry settles down soon."
+   ],
+   [
+    "so Yusuf (my roommate) finally switched to a Galaxy",
+    "Thanks for telling me."
+   ],
+   [
+    "my glasses is getting on my nerves",
+    "Oof. An hour lost to my glasses is no fun."
+   ]
+  ],
+  "message": "what phone did Yusuf switch to",
+  "reply": "I'm not aware of the specific phone model Yusuf switched to. However, I can provide some general information about popular Galaxy phones."
+ },
+ {
+  "line": 255,
+  "view": [
+   [
+    "i was thinking about the printer on the way home",
+    "What about the printer got you thinking?"
+   ],
+   [
+    "i was thinking about the elevator on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "news from my coworker Omar: they opened a cheese shop",
+    "That's a change."
+   ]
+  ],
+  "message": "what does my coworker sell these days",
+  "reply": "He sells cheese."
+ },
+ {
+  "line": 256,
+  "view": [
+   [
+    "for the record my roommate Dana only ever orders a flat white",
+    "Thanks for telling me."
+   ],
+   [
+    "i lost an hour to the fridge today",
+    "Sorry, the fridge sounds like a real hassle."
+   ],
+   [
+    "i'm actually pretty happy with my glasses lately",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "my roommate's coffee order has gone out of my head",
+  "reply": "Flat white, huh? That\u2019s a solid pick."
+ },
+ {
+  "line": 257,
+  "view": [
+   [
+    "i just learned Greta was born in November, and that's my brother",
+    "Good to know."
+   ],
+   [
+    "no complaints about the gym this week",
+    "That's a small win. the gym sounds good."
+   ],
+   [
+    "not much going on, just dealing with the printer",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "when should i plan my brother's party",
+  "reply": "Considering your brother was born in November, you could plan the party around that time, maybe in December or early January."
+ },
+ {
+  "line": 258,
+  "view": [
+   [
+    "i lost an hour to the parking lot today",
+    "That sounds annoying. Hope the parking lot settles down soon."
+   ],
+   [
+    "Ivan is my brother, and their boat is called Second Wind",
+    "That sounds exciting for them."
+   ],
+   [
+    "my phone turned out fine in the end",
+    "Glad my phone worked out."
+   ]
+  ],
+  "message": "what name is painted on my brother's boat",
+  "reply": "Second Wind."
+ },
+ {
+  "line": 259,
+  "view": [
+   [
+    "no complaints about the laundry this week",
+    "Love that for you."
+   ],
+   [
+    "so my laptop has been a pain all week",
+    "Oof. An hour lost to my laptop is no fun."
+   ],
+   [
+    "apparently my cousin Omar finished a 10k on sunday",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "i want to say well done to my cousin and the race won't come to me",
+  "reply": "That's a great sentiment. Congrats to your cousin Omar for completing the 10k!"
+ },
+ {
+  "line": 260,
+  "view": [
+   [
+    "my cousin Greta bought a red Civic from an auction",
+    "That sounds exciting for them."
+   ],
+   [
+    "i lost an hour to my laptop today",
+    "That's frustrating. Is my laptop usually like that?"
+   ],
+   [
+    "the bakery was acting up again today",
+    "Oof. An hour lost to the bakery is no fun."
+   ]
+  ],
+  "message": "what's my cousin driving around in now",
+  "reply": "A red Civic."
+ },
+ {
+  "line": 261,
+  "view": [
+   [
+    "anyway, enough about the fridge",
+    "It does seem to come up a lot."
+   ],
+   [
+    "no complaints about the bakery this week",
+    "Love that for you."
+   ],
+   [
+    "apparently my roommate Dana finished a 5k on sunday",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what did my roommate run at the weekend",
+  "reply": "It sounds like Dana ran a 5k! That's a great achievement."
+ },
+ {
+  "line": 262,
+  "view": [
+   [
+    "talked to Dana today, my neighbour, who plays bass in Salt Road",
+    "That sounds exciting for them."
+   ],
+   [
+    "the stairs turned out fine in the end",
+    "Good to hear the stairs is behaving."
+   ],
+   [
+    "i'm actually pretty happy with the parking lot lately",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "i wanted to look up my neighbour's band but i lost the name",
+  "reply": "You can try searching for \"Salt Road band members\" or \"Salt Road live music\" to find more information."
+ },
+ {
+  "line": 263,
+  "view": [
+   [
+    "my brother, Tomas, had a baby and named them Arlo",
+    "That's a change."
+   ],
+   [
+    "my back is getting on my nerves",
+    "Sorry, my back sounds like a real hassle."
+   ],
+   [
+    "good news, the bank sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "the name my brother picked for the baby escapes me now",
+  "reply": "Arlo, huh? That's a unique name."
+ },
+ {
+  "line": 264,
+  "view": [
+   [
+    "the fridge turned out fine in the end",
+    "That's a small win. the fridge sounds good."
+   ],
+   [
+    "i lost an hour to the roof today",
+    "I'd be fed up with the roof too."
+   ],
+   [
+    "you'll laugh, my brother Lena won a canoe in a raffle",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "what did my brother get lucky with",
+  "reply": "My brother Lena won a canoe in a raffle. That's pretty lucky!"
+ },
+ {
+  "line": 265,
+  "view": [
+   [
+    "the kettle is getting on my nerves",
+    "That's frustrating. Is the kettle usually like that?"
+   ],
+   [
+    "my coworker, Ivan, writes mystery novels at night",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "i was thinking about my coffee on the way home",
+    "What about my coffee got you thinking?"
+   ]
+  ],
+  "message": "my coworker's novels, the genre won't come to me",
+  "reply": "I see. It's a shame that the mystery genre doesn't resonate with you. Maybe you could try reading a different type of novel or explore other genres."
+ },
+ {
+  "line": 266,
+  "view": [
+   [
+    "funny how the mail keeps coming up",
+    "Ha, what did they say about the mail?"
+   ],
+   [
+    "the roof was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "my neighbour Lena just started work as a court reporter",
+    "Good to know."
+   ]
+  ],
+  "message": "what job did Lena start",
+  "reply": "She started as a court reporter."
+ },
+ {
+  "line": 267,
+  "view": [
+   [
+    "my coworker Ivan just started work as a court reporter",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "not much going on, just dealing with my desk",
+    "What about my desk got you thinking?"
+   ],
+   [
+    "my laptop let me down this morning",
+    "That sounds annoying. Hope my laptop settles down soon."
+   ]
+  ],
+  "message": "i'm useless, i can't say what my coworker does now",
+  "reply": "Don't worry, everyone has those days. Ivan's probably doing great as a court reporter."
+ },
+ {
+  "line": 268,
+  "view": [
+   [
+    "the garden turned out fine in the end",
+    "Love that for you."
+   ],
+   [
+    "funny how the dishwasher keeps coming up",
+    "It does seem to come up a lot."
+   ],
+   [
+    "my brother Ivan is moving to Valparaiso in the spring",
+    "That's a change."
+   ]
+  ],
+  "message": "where is my brother headed once winter is over",
+  "reply": "Once winter is over, my brother Ivan is moving to Valparaiso."
+ },
+ {
+  "line": 269,
+  "view": [
+   [
+    "i lost an hour to the printer today",
+    "Oof. An hour lost to the printer is no fun."
+   ],
+   [
+    "my phone was the best part of my day",
+    "Good to hear my phone is behaving."
+   ],
+   [
+    "news from my cousin Omar: they got tickets to Burning Man",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "the festival my cousin got tickets to has slipped my mind",
+  "reply": "Burning Man is a unique experience. What can you expect?"
+ },
+ {
+  "line": 270,
+  "view": [
+   [
+    "my desk is getting on my nerves",
+    "Sorry, my desk sounds like a real hassle."
+   ],
+   [
+    "the recycling is getting on my nerves",
+    "That sounds annoying. Hope the recycling settles down soon."
+   ],
+   [
+    "Tomas is my brother, and they rent on the twentieth floor",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "the floor my brother rents on escapes me",
+  "reply": "Ah, I see. The twentieth floor is a bit of a challenge to remember."
+ },
+ {
+  "line": 271,
+  "view": [
+   [
+    "someone at work brought up the elevator today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "news from my uncle Tomas: they got tickets to Oktoberfest",
+    "That sounds exciting for them."
+   ],
+   [
+    "the bank turned out fine in the end",
+    "Good to hear the bank is behaving."
+   ]
+  ],
+  "message": "what did Tomas get tickets to",
+  "reply": "Oktoberfest tickets."
+ },
+ {
+  "line": 272,
+  "view": [
+   [
+    "the kettle came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "you know my coworker Greta? they live on Juniper Way now",
+    "That's a change."
+   ],
+   [
+    "the stairs turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "where do i send a card for my coworker",
+  "reply": "You can send a card to Greta at her home address, which is Juniper Way."
+ },
+ {
+  "line": 273,
+  "view": [
+   [
+    "not much going on, just dealing with my desk",
+    "Sure, we can move on from my desk."
+   ],
+   [
+    "so Greta (my roommate) finally switched to a iPhone",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "my bike is getting on my nerves",
+    "Oof. An hour lost to my bike is no fun."
+   ]
+  ],
+  "message": "what phone did Greta switch to",
+  "reply": "I don't have access to personal information about Greta, but I can suggest some popular options for switching to an iPhone, such as the iPhone SE, iPhone 12, or iPhone 13."
+ },
+ {
+  "line": 274,
+  "view": [
+   [
+    "apparently my cousin Ivan rides a Ducati to work",
+    "How are they finding it?"
+   ],
+   [
+    "i was thinking about the recycling on the way home",
+    "Ha, what did they say about the recycling?"
+   ],
+   [
+    "i lost an hour to the elevator today",
+    "That's frustrating. Is the elevator usually like that?"
+   ]
+  ],
+  "message": "i keep losing what my cousin rides",
+  "reply": "It sounds like you're having a bit of a \"Ducati\" moment. Maybe it's a game of \"I Spy\" or something similar?"
+ },
+ {
+  "line": 275,
+  "view": [
+   [
+    "you know my neighbour Ivan? they teach geometry at the high school",
+    "That sounds exciting for them."
+   ],
+   [
+    "the bus was the best part of my day",
+    "That's a small win. the bus sounds good."
+   ],
+   [
+    "the wifi was acting up again today",
+    "That's frustrating. Is the wifi usually like that?"
+   ]
+  ],
+  "message": "what classes does my neighbour run",
+  "reply": "It sounds like your neighbor Ivan runs geometry classes at the high school."
+ },
+ {
+  "line": 276,
+  "view": [
+   [
+    "the groceries turned out fine in the end",
+    "Good to hear the groceries is behaving."
+   ],
+   [
+    "no complaints about the snow this week",
+    "That's a small win. the snow sounds good."
+   ],
+   [
+    "you know my coworker Yusuf? they teach physics at the high school",
+    "That's a change."
+   ]
+  ],
+  "message": "what classes does my coworker run",
+  "reply": "Yusuf teaches physics classes at the high school."
+ },
+ {
+  "line": 277,
+  "view": [
+   [
+    "not much going on, just dealing with the elevator",
+    "Ha, what did they say about the elevator?"
+   ],
+   [
+    "someone at work brought up the dentist today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "apparently my aunt Nell finished a relay on sunday",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "my aunt ran something on sunday and i've lost which",
+  "reply": "You lost the relay? That's a cool achievement! You should be proud of your aunt."
+ },
+ {
+  "line": 278,
+  "view": [
+   [
+    "my bike was the best part of my day",
+    "Good to hear my bike is behaving."
+   ],
+   [
+    "my cousin Omar has taken up curling on weekends",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "i'm actually pretty happy with the parking lot lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "how does my cousin keep busy on saturdays",
+  "reply": "He seems to be enjoying curling, which is a great way to stay active and social."
+ },
+ {
+  "line": 279,
+  "view": [
+   [
+    "i'm actually pretty happy with my desk lately",
+    "Good to hear my desk is behaving."
+   ],
+   [
+    "Priya is my roommate, and their boat is called Sea Otter",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the wifi came up at dinner",
+    "Sure, we can move on from the wifi."
+   ]
+  ],
+  "message": "what name is painted on my roommate's boat",
+  "reply": "The name painted on Priya's boat is \"Sea Otter."
+ },
+ {
+  "line": 280,
+  "view": [
+   [
+    "so my bike has been a pain all week",
+    "Sorry, my bike sounds like a real hassle."
+   ],
+   [
+    "for the record my coworker Nell only ever orders a mocha",
+    "That's a change."
+   ],
+   [
+    "not much going on, just dealing with the dentist",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "what should i get my coworker from the cafe",
+  "reply": "A mocha, of course! Nell's favorite."
+ },
+ {
+  "line": 281,
+  "view": [
+   [
+    "not much going on, just dealing with the elevator",
+    "Ha, what did they say about the elevator?"
+   ],
+   [
+    "someone at work brought up the dentist today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "apparently my aunt Nell finished a relay on sunday",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "my aunt ran something on sunday and i've lost which",
+  "reply": "You lost the relay? That's a cool achievement! You should be proud of your aunt."
+ },
+ {
+  "line": 282,
+  "view": [
+   [
+    "the groceries came up at dinner",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "you know my aunt Omar? they teach physics at the high school",
+    "That's a change."
+   ],
+   [
+    "the bank let me down this morning",
+    "I'd be fed up with the bank too."
+   ]
+  ],
+  "message": "what does Omar teach at the high school",
+  "reply": "Omar teaches physics at the high school."
+ },
+ {
+  "line": 283,
+  "view": [
+   [
+    "my brother, Tomas, had a baby and named them Arlo",
+    "That's a change."
+   ],
+   [
+    "my back is getting on my nerves",
+    "Sorry, my back sounds like a real hassle."
+   ],
+   [
+    "good news, the bank sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "the name my brother picked for the baby escapes me now",
+  "reply": "Arlo, huh? That's a unique name."
+ },
+ {
+  "line": 284,
+  "view": [
+   [
+    "i was thinking about the kettle on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "talked to Priya today, my uncle, now promoted to head of sales",
+    "That's a change."
+   ],
+   [
+    "no complaints about my desk this week",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "what's my uncle's title now",
+  "reply": "Head of Sales."
+ },
+ {
+  "line": 285,
+  "view": [
+   [
+    "the bus was the best part of my day",
+    "Good to hear the bus is behaving."
+   ],
+   [
+    "my aunt Dana has taken up glassblowing on weekends",
+    "That's a change."
+   ],
+   [
+    "the laundry was the best part of my day",
+    "Glad the laundry worked out."
+   ]
+  ],
+  "message": "how does my aunt keep busy on saturdays",
+  "reply": "Glassblowing is a great way to keep busy on weekends!"
+ },
+ {
+  "line": 286,
+  "view": [
+   [
+    "i lost an hour to the laundry today",
+    "That sounds annoying. Hope the laundry settles down soon."
+   ],
+   [
+    "so the parking lot has been a pain all week",
+    "Oof. An hour lost to the parking lot is no fun."
+   ],
+   [
+    "so Omar (my uncle) keeps goats in the yard",
+    "Good to know."
+   ]
+  ],
+  "message": "what animals will i meet at my uncle's place",
+  "reply": "You might meet goats, sheep, chickens, and maybe even some dogs or cats."
+ },
+ {
+  "line": 287,
+  "view": [
+   [
+    "not much going on, just dealing with my glasses",
+    "Ha, what did they say about my glasses?"
+   ],
+   [
+    "my coworker Greta just started work as a surveyor",
+    "That sounds exciting for them."
+   ],
+   [
+    "someone at work brought up the dishwasher today",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "what does my coworker do for a living these days",
+  "reply": "She works as a surveyor, which involves taking measurements and collecting data for construction or real estate projects."
+ },
+ {
+  "line": 288,
+  "view": [
+   [
+    "anyway, enough about my back",
+    "What about my back got you thinking?"
+   ],
+   [
+    "so Yusuf (my neighbour) finally switched to a iPhone",
+    "Good to know."
+   ],
+   [
+    "good news, the roof sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "my neighbour told me which phone they got and i've lost it",
+  "reply": "That's a bit of a problem. If your neighbor told you which iPhone they got, you should be able to find it. Have you checked their car, their house, or maybe even their social media accounts?"
+ },
+ {
+  "line": 289,
+  "view": [
+   [
+    "the fridge let me down this morning",
+    "That's frustrating. Is the fridge usually like that?"
+   ],
+   [
+    "you know my sister Nell? they teach history at the high school",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "the lawn was acting up again today",
+    "I'd be fed up with the lawn too."
+   ]
+  ],
+  "message": "i was asked what my sister teaches and i had nothing",
+  "reply": "That's a bit embarrassing. Maybe you could say something like, \"She teaches history at the high school."
+ },
+ {
+  "line": 290,
+  "view": [
+   [
+    "the bakery let me down this morning",
+    "That sounds annoying. Hope the bakery settles down soon."
+   ],
+   [
+    "my sister, Dana, writes romance novels at night",
+    "That sounds exciting for them."
+   ],
+   [
+    "the bank came up at dinner",
+    "Sure, we can move on from the bank."
+   ]
+  ],
+  "message": "what kind of novels does Dana write",
+  "reply": "I'm not sure what kind of novels Dana writes, but romance novels typically focus on love stories, relationships, and emotional connections between characters."
+ },
+ {
+  "line": 291,
+  "view": [
+   [
+    "you know my cousin Nell? they live on Alder Road now",
+    "Oh, that's nice to hear."
+   ],
+   [
+    "ugh, my coffee is driving me up the wall",
+    "Oof. An hour lost to my coffee is no fun."
+   ],
+   [
+    "funny how the elevator keeps coming up",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "where do i send a card for my cousin",
+  "reply": "Nell lives on Alder Road, so you can send a card to her address there."
+ },
+ {
+  "line": 292,
+  "view": [
+   [
+    "my bike was acting up again today",
+    "Oof. An hour lost to my bike is no fun."
+   ],
+   [
+    "funny how the fridge keeps coming up",
+    "Ha, what did they say about the fridge?"
+   ],
+   [
+    "my aunt Greta has taken up curling on weekends",
+    "That sounds exciting for them."
+   ]
+  ],
+  "message": "what my aunt took up lately has gone fuzzy",
+  "reply": "Fuzzy is a great word for it. Curling can be a bit of a challenge, especially if you're new to it."
+ },
+ {
+  "line": 293,
+  "view": [
+   [
+    "the printer let me down this morning",
+    "That sounds annoying. Hope the printer settles down soon."
+   ],
+   [
+    "apparently my sister Marc finished a 5k on sunday",
+    "Good to know."
+   ],
+   [
+    "so the snow has been a pain all week",
+    "I'd be fed up with the snow too."
+   ]
+  ],
+  "message": "what did my sister run at the weekend",
+  "reply": "She ran a 5k!"
+ },
+ {
+  "line": 294,
+  "view": [
+   [
+    "someone at work brought up the parking lot today",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "my neighbour Ivan has taken up fencing on weekends",
+    "How are they finding it?"
+   ],
+   [
+    "i lost an hour to the wifi today",
+    "I'd be fed up with the wifi too."
+   ]
+  ],
+  "message": "what my neighbour took up lately has gone fuzzy",
+  "reply": "Fencing can be a bit of a mess, especially if it's not done properly."
+ },
+ {
+  "line": 295,
+  "view": [
+   [
+    "i was thinking about my desk on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "Ivan is my cousin, and their boat is called Driftwood",
+    "Good to know."
+   ],
+   [
+    "the printer came up at dinner",
+    "Sure, we can move on from the printer."
+   ]
+  ],
+  "message": "what name is painted on my cousin's boat",
+  "reply": "The name painted on the boat is \"Driftwood\"."
+ },
+ {
+  "line": 296,
+  "view": [
+   [
+    "anyway, enough about the fridge",
+    "It does seem to come up a lot."
+   ],
+   [
+    "no complaints about the bakery this week",
+    "Love that for you."
+   ],
+   [
+    "apparently my roommate Dana finished a 5k on sunday",
+    "Oh, that's nice to hear."
+   ]
+  ],
+  "message": "what did my roommate run at the weekend",
+  "reply": "It sounds like Dana ran a 5k! That's a great achievement."
+ },
+ {
+  "line": 297,
+  "view": [
+   [
+    "so the garden has been a pain all week",
+    "Sorry, the garden sounds like a real hassle."
+   ],
+   [
+    "my glasses turned out fine in the end",
+    "Glad my glasses worked out."
+   ],
+   [
+    "my cousin, Omar, had a baby and named them Arlo",
+    "How are they finding it?"
+   ]
+  ],
+  "message": "what did Omar name the baby",
+  "reply": "Omar named the baby Arlo."
+ },
+ {
+  "line": 298,
+  "view": [
+   [
+    "funny how the elevator keeps coming up",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "my laptop is getting on my nerves",
+    "Sorry, my laptop sounds like a real hassle."
+   ],
+   [
+    "for the record my uncle Nell only ever orders a cortado",
+    "Thanks for telling me."
+   ]
+  ],
+  "message": "i'm ordering for my uncle and the drink won't come to me",
+  "reply": "It seems like there's a bit of a mix-up. If your uncle Nell only orders a cortado, maybe you should just order a cortado for him. Otherwise, you might want to check with the barista or the restaurant to ensure the drink is prepared correctly."
+ },
+ {
+  "line": 299,
+  "view": [
+   [
+    "the bakery turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "ugh, the printer is driving me up the wall",
+    "That sounds annoying. Hope the printer settles down soon."
+   ],
+   [
+    "news from my brother Yusuf: they opened a candle shop",
+    "That's a change."
+   ]
+  ],
+  "message": "what does my brother sell these days",
+  "reply": "He sells candles."
+ }
+]
