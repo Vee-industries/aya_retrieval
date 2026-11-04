@@ -1,6 +1,6 @@
 from aya_retrieval.conversations import build_item
 from aya_retrieval.pools import HELDOUT, POOLS, PROBE, TRAIN
-from aya_retrieval.train_phrasings import MORE_INDIRECT, MORE_STATEMENTS
+from aya_retrieval.train_phrasings import MORE_CHAT, MORE_INDIRECT, MORE_STATEMENTS
 
 PROBE_IDIOMS = ("blank", "tip of my tongue", "cannot think")
 
@@ -73,3 +73,42 @@ def test_more_statements_change_only_the_wording_of_fact_lines():
         assert more.answer in more.exchanges[more.fact_index][0]
         changed += plain.exchanges != more.exchanges
     assert 0 < changed < 100
+
+
+def four_word_runs(line):
+    words = line.split()
+    return {tuple(words[i : i + 4]) for i in range(len(words) - 3)}
+
+
+def test_more_chat_lines_are_new_and_well_formed():
+    assert len(MORE_CHAT) == 48
+    assert len({line for line, _ in MORE_CHAT}) == 48
+    train = {line for line, _ in TRAIN.statements}
+    for line, reply in MORE_CHAT:
+        assert line not in train and reply
+        assert ("{person}" in line) != ("{relation}" in line)
+        assert line.format(person="Ann", relation="aunt")
+
+
+def test_no_more_chat_line_shares_four_words_with_the_probe_or_a_sealed_pool():
+    others = set()
+    for pool in (PROBE, HELDOUT, POOLS["independent"]):
+        for line, _ in pool.statements:
+            others |= four_word_runs(line)
+    for line, _ in MORE_CHAT:
+        clash = bool(four_word_runs(line) & others)
+        assert not clash, line
+
+
+def test_more_chat_changes_only_statement_lines():
+    changed = 0
+    for seed in range(200):
+        for kind in ("older", "statement"):
+            plain = build_item("x", seed, 58, kind, "train")
+            more = build_item("x", seed, 58, kind, "train", more_chat=True)
+            assert plain.exchanges == more.exchanges
+            if kind == "older":
+                assert plain == more
+            else:
+                changed += plain.message != more.message
+    assert changed > 100

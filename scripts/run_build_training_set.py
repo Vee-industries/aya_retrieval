@@ -196,6 +196,11 @@ def main() -> None:
         action="store_true",
         help="facts also stated in train_phrasings.MORE_STATEMENTS wordings",
     )
+    parser.add_argument(
+        "--more-chat",
+        action="store_true",
+        help="statement rows also draw from train_phrasings.MORE_CHAT",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -216,6 +221,7 @@ def main() -> None:
         "message_queries": args.message_queries,
         "never_told_hits": args.never_told_hits,
         "more_statements": args.more_statements,
+        "more_chat": args.more_chat,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {**ROWS_PER_KIND, NEVER_TOLD: args.never_told_rows}
@@ -239,6 +245,7 @@ def main() -> None:
                 decoys,
                 args.more_indirect,
                 args.more_statements,
+                args.more_chat,
             )
             if args.message_queries and item.query:
                 item = dataclasses.replace(item, query=message_words_query(item))

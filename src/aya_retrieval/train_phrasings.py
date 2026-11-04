@@ -272,3 +272,64 @@ MORE_STATEMENTS: dict[str, tuple[str, ...]] = {
         "news from my {relation} {person}: they made {value} this week",
     ),
 }
+
+
+# Fix 9: more ways the friend just talks about someone. The train pool has six chat lines, so
+# the model saw few lines that name a person without asking for a fact, and none about how a
+# person is behaving or feeling; trained harder, it began to answer such lines with a stored fact
+# (R-055). These add 48, in the train pool's own voice. Statement rows take base's reply with no
+# tool in sight, so the reply here is a reference only. No four-word run of any line appears in a
+# sealed pool's or the probe's chat lines (a test enforces it).
+MORE_CHAT: tuple[tuple[str, str], ...] = (
+    ("my {relation} seems really quiet these days", "Quiet in a worrying way, or just busy?"),
+    ("{person} was in a funny mood at dinner", "Funny how? Did something happen?"),
+    ("my {relation} keeps cancelling on me", "That's frustrating. Is something going on?"),
+    ("{person} snapped at me this morning", "Ouch. Do you know what set them off?"),
+    ("i think my {relation} is avoiding me", "What makes you think so?"),
+    ("{person} seemed off when i saw them", "Off in what way?"),
+    ("my {relation} hasn't been sleeping well", "That's rough. Is something keeping them up?"),
+    ("{person} was unusually cheerful today", "Nice. Any idea why?"),
+    ("my {relation} is stressed out about work", "Sounds tough. Is it a busy stretch?"),
+    ("{person} has gone very quiet in the group chat", "Maybe they're busy. Have you checked in?"),
+    ("my {relation} was in tears on the phone", "Oh no. Are they okay?"),
+    ("{person} keeps sighing whenever i bring it up", "Sounds like a sore spot. What's it about?"),
+    ("saturday works for my {relation} to visit", "Are you up for it?"),
+    ("{person} and i are planning a trip", "Fun! Where are you thinking?"),
+    ("i promised my {relation} i'd help them move", "That's good of you. When is it?"),
+    ("{person} invited me to a party", "Are you going to go?"),
+    (
+        "my {relation} will be staying with me all week",
+        "A whole week! Are you looking forward to it?",
+    ),
+    ("thinking of surprising {person} with a visit", "That would be a nice surprise."),
+    ("i owe my {relation} a thank-you card", "Better late than never."),
+    ("{person} asked me to be their plus one", "Ooh. Are you going to say yes?"),
+    ("my {relation} never answers their phone", "That's annoying. Maybe try a text?"),
+    ("{person} was late again", "How late this time?"),
+    ("my {relation} keeps giving me advice i didn't ask for", "That can wear thin. Do you say so?"),
+    ("{person} talked through the whole film", "Ugh, that would drive me mad."),
+    ("my {relation} ate the last of my leftovers", "The nerve! Did they own up?"),
+    ("{person} left me on read", "That's never a great feeling."),
+    ("my {relation} keeps sending me memes at midnight", "Ha. Do you send any back?"),
+    ("{person} cancelled our plans at the last minute", "That's disappointing. Did they say why?"),
+    ("my {relation} dropped by unannounced", "A nice surprise or an awkward one?"),
+    ("{person} made me laugh so hard today", "Love that. What did they say?"),
+    ("finally patched things up with my {relation}", "I'm glad. That must be a relief."),
+    ("had a big argument with {person}", "I'm sorry. Do you want to talk about it?"),
+    ("my {relation} sent me a photo from their holiday", "Nice! Where are they?"),
+    ("{person} cooked dinner for everyone tonight", "That's kind of them. Was it good?"),
+    ("my {relation} gave me a lift to work", "Handy. That's a nice favour."),
+    ("{person} lent me a book", "Is it any good so far?"),
+    ("my {relation} came round to watch the match", "Who were you rooting for?"),
+    ("{person} helped me fix my bike", "Nice. Is it riding well now?"),
+    ("i miss my {relation}", "That's hard. When did you last see them?"),
+    ("{person} really gets on my nerves sometimes", "What do they do that bugs you?"),
+    ("i'm a bit worried about my {relation}", "What's worrying you?"),
+    ("{person} is the funniest person i know", "They sound like great company."),
+    ("i feel bad about how i treated my {relation}", "It's good you're thinking about it."),
+    ("{person} always knows how to cheer me up", "Everyone needs someone like that."),
+    ("things are better between me and my {relation}", "That's good to hear."),
+    ("i keep thinking about what {person} said", "It stuck with you. What did they say?"),
+    ("my {relation} is nervous about tomorrow", "Fingers crossed for them."),
+    ("{person} is going through a hard time", "I'm sorry to hear that. Can you help at all?"),
+)

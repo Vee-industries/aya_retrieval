@@ -10,7 +10,7 @@ import random
 from dataclasses import dataclass
 
 from aya_retrieval.pools import POOLS, FactTemplate, Pool
-from aya_retrieval.train_phrasings import MORE_INDIRECT, MORE_STATEMENTS
+from aya_retrieval.train_phrasings import MORE_CHAT, MORE_INDIRECT, MORE_STATEMENTS
 
 EXCHANGES_IN_VIEW = 3
 ASK_FORMS = ("same_words", "new_words", "indirect")
@@ -70,6 +70,7 @@ def build_item(
     decoys: int = 1,
     more_indirect: bool = False,
     more_statements: bool = False,
+    more_chat: bool = False,
 ) -> RecallItem:
     """Return a conversation of about ``messages`` messages ending in a message of ``kind``.
 
@@ -87,6 +88,8 @@ def build_item(
             conversation is the same with or without it.
         more_statements: State each fact in the template's own wording or one from
             ``train_phrasings.MORE_STATEMENTS``, drawn per line from a separate generator.
+        more_chat: Draw a ``statement`` item's line from the pool's own and
+            ``train_phrasings.MORE_CHAT``, from a separate generator.
     """
     pool = POOLS[pool_name]
     rng = random.Random(seed)
@@ -143,6 +146,8 @@ def build_item(
     forbidden: tuple[str, ...] = (decoy, *extra_values)
     if kind == STATEMENT:
         line, reply = rng.choice(pool.statements)
+        if more_chat:
+            line, reply = random.Random(seed + 4).choice((*pool.statements, *MORE_CHAT))
         message = line.format(relation=relation, person=person)
         answer, query = "", ""
     elif kind == NEVER_TOLD:

@@ -67,6 +67,7 @@ carry their own provenance (command, git commit, package versions).
 | R-052 | Fix 6 with all three capacity changes is the best screen (95 of 96); R-049 superseded; confirmation rule |
 | R-053 | Rank 64 adds nothing; rank 32 at 3e-4 without MLP fails one statement opening 8 of 10; R-052 stands |
 | R-054 | Fix 7b brings never_told only part way back and loses statements: fix 7 line dropped |
+| R-055 | R-052 fails on Sheet B at seed 82: v4 stands; statements answered with stored facts; fix 9 (more chat lines) |
 
 ---
 
@@ -1769,3 +1770,45 @@ fix 6's keyword searches and no loss on `never_told` or false retrieval.
 **Next, on the lead's settings** (rank 32, attention and MLP, 3e-4), against `screen_fix6_all_82`, queued after R-052's
 confirmation: fix 8's data (`fix8_all`), which replaces R-051's plan for fix 8 at rank 32 alone, since rank 32 alone is
 no longer the lead; and fix 6's data at 4 epochs (`fix6_all_e4`).
+
+## R-055 · 2026-11-04 · SPRINT · R-052's rule fails on Sheet B at its first seed: v4 stands; the lead answers "just chatting" lines with stored facts; fix 9, more chat lines
+
+**R-052's confirmation, seed 82** (the screen adapter, probe seed 73157, `probe9_tuned82`):
+
+| Measure | fix 6 + all three, seed 82 | v4, seed 82 (`probe6_tuned82`) | Base |
+|---|---|---|---|
+| Recall (`older` + `confirm`, of 96) | 92 | 84 | 30 |
+| `in_view` (of 48) | 41 | 39 | 34 |
+| `statement` (of 48) | 43 | 48 | 31 |
+| `never_told` (of 48) | 47 | 47 | 42 |
+| Right decisions (of 240) | 235 | 236 | 119 |
+| False retrieval (of 240) | 1 | 1 | 13 |
+
+Sheet A (`results/coherence/R-055/`, shuffle seed 90441, a fresh Sonnet judge, rubric and sheet only): base against
+the adapter, `older` 29 against 38, `confirm` 47 against 48. At or above base.
+
+Sheet B (`results/coherence/R-055B/`, shuffle seed 90444, base's `three_exchanges` replies, a second fresh judge):
+`in_view` 33 against 43, but **`statement` 45 against 41**. R-052's item 7 needs `statement` at or above base on every
+seed, so **the rule fails at seed 82 and v4 stands.** Seeds 83 and 84 could not change that; seed 83's training was
+stopped at 03:41, five minutes in, and its partial adapter deleted. Items 1 to 5 are not reported as passed or failed,
+because the rule is decided on item 7.
+
+**What the judge marked down.** Of the adapter's 7 incoherent `statement` replies, 4 are "my {relation} has been
+acting strange lately": it searches ("tutor acting strange") and states a stored fact ("My tutor, Ayaan, got a swallow
+tattoo last week."), once claiming the friend's tutor as its own. The other 3 did not search but answered off the
+point ("Esme must be feeling a bit fed up with you."). The screen (R-047, R-053) showed the same opening failing, but
+`statement` correctness there counts only searching; Sheet B counts the reply.
+
+**Fix 9, `--more-chat`** (this commit). The train pool has 6 chat lines against 25 fact templates, and none about how
+a person is behaving or feeling. Trained harder, the model treats any line about a named person as a lookup.
+`train_phrasings.MORE_CHAT` adds 48 chat lines in the train pool's voice: moods and behaviour, plans, complaints,
+small events, feelings about someone. Statement rows take base's own reply with no tool, as before. A test checks that
+no four-word run of any new line appears in the probe's, the held-out pool's or the independent pool's chat lines; it
+reports only the new line, so the sealed pools stay unread. Seven drafted lines failed that test and were reworded
+before this commit. Disclosure: the category (how a person is behaving) was chosen because the probe's failures are
+in it. The probe's own wording is excluded by the test, and the sealed pools are the test of whether it generalises.
+
+**Next.** Fix 9's build (fix 6's flags plus `--more-chat`) on the lead's settings (rank 32, attention and MLP, 3e-4),
+screened against `screen_fix6_all_82`. It goes to a confirmation only if `statement` on the screen is at least v4's 48
+less one and recall is not below the lead's 95 less 3. Its confirmation then runs R-052's seven items, with Sheet B on
+every seed. After it: fix 8's data and 4 epochs on the lead's settings (R-054's plan).
