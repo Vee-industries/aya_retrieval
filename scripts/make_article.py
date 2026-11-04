@@ -195,6 +195,12 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "loses statements (R-056)",
     ),
     (
+        "screen_fix10_all_82",
+        "screen_fix9_all_82",
+        "Fix 10: fix 9 with judge-vetted chat targets",
+        "failed coherence at one seed by one reply (R-059)",
+    ),
+    (
         "screen_fix6_all_e4_82",
         "screen_fix6_all_82",
         "Lead's settings, 4 epochs",

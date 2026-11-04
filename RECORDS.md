@@ -71,6 +71,7 @@ carry their own provenance (command, git commit, package versions).
 | R-056 | Fix 9 passes the screen gate (statement 48, recall 94); fix 8 and 4 epochs dropped; fix 9 confirmation rule |
 | R-057 | R-056 fails on Sheet B at seed 84 (statement 42 against 46): v4 stands; items 1 to 6 pass; Sheet A judges disagree |
 | R-058 | Fix 10: blind judge vets statement training targets; gate and confirmation rule written first |
+| R-059 | Fix 10 passes six of seven items (recall 282 of 288); seed 84 statement 45 against 46: v4 stands |
 
 ---
 
@@ -1931,3 +1932,41 @@ the 150 spares, 137 and 13. The 13 rejected targets were swapped for coherent sp
 direction of a debt reversed, "great that you're catching up" to "haven't seen {person} in ages", "Who did you run
 into?" to "guess who ran into {person}", a name taken for a TV character or "a male name", a topic carried over from
 earlier turns, and one reply that contradicts the line.
+
+## R-059 · 2026-11-04 · SPRINT · Fix 10 passes six of R-058's seven items; Sheet B `statement` at seed 84 is 45 against base 46: v4 stands
+
+Probe seed 73157, `probe11_tuned8x`, seeds 82, 83, 84 (queue finished 11:11). Seed 82's screen on 51203
+(`screen_fix10_all_82`): recall 96 of 96, `statement` 48, `in_view` 43, `never_told` 47; it passed R-055's gate.
+
+| Measure | Seed 82 | 83 | 84 | Pooled | v4 pooled | Fix 9 pooled (R-057) | Rule |
+|---|---|---|---|---|---|---|---|
+| Recall (`older` + `confirm`) | 93 | 96 | 93 | **282 of 288** | 252 | 276 | above 252: pass |
+| `in_view` | 42 | 40 | 42 | **124 of 144** | 115 | 128 | at least 110: pass |
+| `statement` | 48 | 48 | 48 | **144 of 144** | 143 | 144 | at least 136: pass |
+| Right decisions (of 240) | 240 | 240 | 240 | | 236, 229, 226 | 240 each | at least 200: pass |
+| False retrieval | 1 | 0 | 2 | **3 of 720** | 8 | 1 | at most 39: pass |
+
+Paired against v4, pooled: recall 35 and 5 (p < 0.0001), all kinds 55 and 15 (p < 0.0001). Against fix 9: recall 8 and
+2 (p = 0.11), all kinds 13 and 13. Base (`probe2_base`) has recall 30 of 96, so fix 10's 94 a seed is 213% above base.
+
+Coherence, six fresh Sonnet judges, one a sheet, rubric and sheet only, each seed's two sheets judged while the next
+seed trained (`results/coherence/R-059/`, `R-059B/`). Shuffle seeds: Sheet B 90452, 90454, 90456; Sheet A 90453, 90455,
+90457.
+
+| Sheet | Kind | Base (seed 82, 83, 84 sheets) | Fix 10, seed 82 | 83 | 84 | Pooled base | Pooled fix 10 |
+|---|---|---|---|---|---|---|---|
+| A | `older` | 29, 33, 31 | 42 | 44 | 43 | 93 | 129 |
+| A | `confirm` | 47, 47, 47 | 48 | 48 | 48 | 141 | 144 |
+| B | `in_view` | 34, 35, 36 | 45 | 42 | 39 | 105 | 126 |
+| B | `statement` | 46, 46, 46 | 48 | 48 | **45** | 138 | 141 |
+
+Items 1 to 6 pass. Item 7 needs `statement` at or above base on every seed; **seed 84 is 45 against 46, so the rule
+fails and v4 stands.** The three judges gave base's same 48 statement replies 46 each time, marking down the same two
+("Dmitri is a character from the book *The Brothers Karamazov*", "Gustav is a powerful storm system"), so the gap is
+one reply, not judge noise. Seed 84's three: "It sounds like you could use a call from your barber" to "i should
+really call my barber"; "...or you could just enjoy the fact that..." to "Dmitri forgot my birthday again"; and "Did
+she say what she wanted to know about my skateboard?" to "my daughter texted me out of nowhere", which pulls in an
+earlier topic as the reply's own.
+
+Against fix 9 (R-057), vetting the targets moved seed 84's `statement` from 42 to 45 and kept the other two seeds at
+48; it did not remove the untrained model's habits entirely.

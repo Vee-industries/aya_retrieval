@@ -254,6 +254,7 @@ over all 240 conversations.
 | Fix 6 at rank 32 and 3e-4, attention only | 93 (95) | 42 | 231 | 15 / 4 | 0.02 | loses statements (R-053) |
 | Fix 9: more plain-chat lines, lead's settings | 94 (95) | 45 | 240 | 3 / 4 | 1.00 | failed coherence at one seed of three (R-057) |
 | Fix 8 data on the lead's settings | 94 (95) | 42 | 232 | 16 / 4 | 0.01 | loses statements (R-056) |
+| Fix 10: fix 9 with judge-vetted chat targets | 96 (94) | 43 | 240 | 2 / 2 | 1.00 | failed coherence at one seed by one reply (R-059) |
 | Lead's settings, 4 epochs | 93 (95) | 44 | 230 | 13 / 3 | 0.02 | loses statements (R-056) |
 
 What the path shows:
