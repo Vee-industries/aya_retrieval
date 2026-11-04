@@ -69,6 +69,7 @@ carry their own provenance (command, git commit, package versions).
 | R-054 | Fix 7b brings never_told only part way back and loses statements: fix 7 line dropped |
 | R-055 | R-052 fails on Sheet B at seed 82: v4 stands; statements answered with stored facts; fix 9 (more chat lines) |
 | R-056 | Fix 9 passes the screen gate (statement 48, recall 94); fix 8 and 4 epochs dropped; fix 9 confirmation rule |
+| R-057 | R-056 fails on Sheet B at seed 84 (statement 42 against 46): v4 stands; items 1 to 6 pass; Sheet A judges disagree |
 
 ---
 
@@ -1853,3 +1854,45 @@ stands. Seed 82 is scored first and its Sheet B judged while seed 83 trains; if 
 runs stop, as in R-055. Fresh judges, rubric and sheet only, marks to the scratchpad and copied in. No held-out or
 independent run without Kevin. From this queue on, runs set `HF_HUB_OFFLINE=1` and `HF_HUB_DISABLE_TELEMETRY=1`:
 TRL had sent a usage ping to huggingface.co at the start of each training run; nothing else went online.
+
+## R-057 · 2026-11-04 · SPRINT · R-056's rule fails on Sheet B at seed 84 (statement 42 against base 46): v4 stands; items 1 to 6 pass by wide margins
+
+**R-056's confirmation** (probe seed 73157, `probe10_tuned8x`, seeds 82, 83, 84; queue finished 08:44):
+
+| Measure | Fix 9, seed 82 | 83 | 84 | Fix 9 pooled | v4 pooled (`probe6_tuned8x`) | Rule |
+|---|---|---|---|---|---|---|
+| Recall (`older` + `confirm`) | 90 | 96 | 90 | **276 of 288** | 252 | above 252: pass |
+| `in_view` | 42 | 40 | 46 | **128 of 144** | 115 | at least 110: pass |
+| `statement` | 48 | 48 | 48 | **144 of 144** | 143 | at least 136: pass |
+| Right decisions (of 240) | 240 | 240 | 240 | | 236, 229, 226 | at least 200 each: pass |
+| False retrieval | 1 | 0 | 0 | **1 of 720** | 8 | at most 39: pass |
+
+Against v4 on the same conversations, pooled: recall 33 and 9 (p = 0.0003), all kinds 54 and 14 (p < 0.0001). Base
+(`probe2_base`, one run) has recall 30 of 96, so fix 9's 92 a seed is 207% above base.
+
+Coherence, six fresh Sonnet judges, rubric and sheet only, one judge a sheet, marks in `results/coherence/R-057/` and
+`R-057B/`. Shuffle seeds: Sheet B 90445, 90446, 90447 (seeds 82, 83, 84); Sheet A 90448, 90449, 90450.
+
+| Sheet | Kind | Base | Fix 9, seed 82 | 83 | 84 | Pooled base | Pooled fix 9 |
+|---|---|---|---|---|---|---|---|
+| A | `older` | 34, 17, 30 | 42 | 42 | 46 | 81 | 130 |
+| A | `confirm` | 47, 41, 47 | 48 | 48 | 48 | 135 | 144 |
+| B | `in_view` | 34, 35, 34 | 44 | 41 | 40 | 103 | 125 |
+| B | `statement` | 45, 45, 46 | 48 | 46 | **42** | 136 | 136 |
+
+Item 6 passes. Item 7 needs `statement` at or above base on every seed; **seed 84 is 42 against 46, so the rule fails
+and v4 stands.** Pooled, `statement` ties base at 136.
+
+**What the judge marked down at seed 84.** Six replies, none searched: "Lucia is a great name.", "Dmitri is a great
+name. What did you talk about?" and "Esme is a great name..." to "i got stuck talking to {person} for an hour"; "It
+sounds like you're feeling a bit down" twice to "i should really call my {relation}"; and a reply that asks about the
+camera and the chimney from earlier turns. These are the untrained model's habits: statement rows train on base's own
+no-tool reply, and some of those targets are weak (a sample of 20 from `more_chat.jsonl` shows a bulleted list, "Is
+there anything I can do to help?", and a reply that contradicts the line). Seed 83's two were "Esme is a character from
+the TV show *The Office*" and "How did they get your number?".
+
+**Judge agreement.** Base's replies are the same on every sheet of a kind, so its score measures the judges. On Sheet B
+they agree within one line (`statement` 45, 45, 46; `in_view` 34, 35, 34), so seed 84's 42 is a difference between
+adapters, not between judges. On Sheet A they do not: base `older` is 34, 17 and 30 on the same 48 replies. The
+judge of A83 marked down any reply that opens with a name and a comma. Sheet A's item is pooled and passes by 49 lines,
+so this does not change the result; it is recorded for the write-up's threats to validity.

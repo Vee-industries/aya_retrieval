@@ -186,7 +186,7 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "screen_fix9_all_82",
         "screen_fix6_all_82",
         "Fix 9: more plain-chat lines, lead's settings",
-        "passed its screen; confirmation (R-056)",
+        "failed coherence at one seed of three (R-057)",
     ),
     (
         "screen_fix8_all_82",

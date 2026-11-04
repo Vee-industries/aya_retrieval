@@ -252,7 +252,7 @@ over all 240 conversations.
 | Fix 6 at rank 64 | 91 (92) | 35 | 235 | 12 / 10 | 0.83 | no gain over rank 32 (R-053) |
 | Fix 7b: 7, never-told rows only with results | 95 (84) | 38 | 222 | 27 / 19 | 0.30 | dropped on statements (R-054) |
 | Fix 6 at rank 32 and 3e-4, attention only | 93 (95) | 42 | 231 | 15 / 4 | 0.02 | loses statements (R-053) |
-| Fix 9: more plain-chat lines, lead's settings | 94 (95) | 45 | 240 | 3 / 4 | 1.00 | passed its screen; confirmation (R-056) |
+| Fix 9: more plain-chat lines, lead's settings | 94 (95) | 45 | 240 | 3 / 4 | 1.00 | failed coherence at one seed of three (R-057) |
 | Fix 8 data on the lead's settings | 94 (95) | 42 | 232 | 16 / 4 | 0.01 | loses statements (R-056) |
 | Lead's settings, 4 epochs | 93 (95) | 44 | 230 | 13 / 3 | 0.02 | loses statements (R-056) |
 
