@@ -2290,3 +2290,7 @@ better spent on whichever adapter is current after it. The second `wide` pool (4
 people, 50 subjects) was written by a fresh agent under R-070's checker; its transcript shows it read only its three
 files, edited only its pool, and ran only the checker. It joins as `src/aya_retrieval/pool_wide.py`, with a test that
 it shares no four-word wording with any test pool. Fix 14 builds its fact rows at seed 71124.
+
+**`hard_dev` with four decoys** (`hd_d4_base`, `hd_d4_v5_8x`, finished 18:31): v5's recall is 177 of 288 (one decoy:
+172), base's 20 of 96 (20); false retrieval v5 9 of 720, base 26 of 240. More decoys cost v5 nothing here; R-068's gap
+is the unfamiliar fact types, not the crowding (98 of its 111 recall misses are found-but-wrong).
