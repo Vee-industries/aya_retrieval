@@ -81,6 +81,7 @@ carry their own provenance (command, git commit, package versions).
 | R-066 | Development twin of the independent pool (`hard_dev`), fresh agent, R-039's brief; cost to independence disclosed |
 | R-067 | Harder development tests from LLE's failure categories: user typing style, corrections, 1,000-message chats |
 | R-068 | On `hard_dev` v5's recall is 172 of 288: unseen fact types searched with the training pool's query phrases |
+| R-069 | Fix 14: a wide training pool of new fact types by a fresh agent; gate and rule on probe and `hard_dev` first |
 
 ---
 
@@ -2230,3 +2231,32 @@ The training set has 25 fact types, each with one fixed query phrase, and every 
 one of them. v5 has learned those types and phrases, not how to search for and read an unfamiliar fact. The probe hid
 this because its fact types were written by the same author in the same mould. This is the largest gap found so far,
 and the sealed independent pool, written to the same brief as `hard_dev`, is likely to show it.
+
+## R-069 · 2026-11-04 · SPRINT · Fix 14: a wide training pool of new fact types, written by a fresh agent (Kevin's go); rule written before it exists
+
+**Why.** R-068: v5 searches unfamiliar fact types with the training pool's fixed query phrases. The training pool has
+25 fact types; v5 learned them rather than how to search for and read a fact of any type.
+
+**The pool.** A fresh agent writes `wide`, a training pool of at least 40 new fact types, from a brief that asks for
+breadth (many areas of life, unusual types), chatty statements with the fact mid-sentence, varied question wordings,
+and values that are easy to confuse within a type. It reads only its brief, an avoid-list built by code from all five
+pools (sealed ones included, never printed) and a checker: R-066's, plus no fact-type name, value, person, relation or
+subject shared with any pool, and no question or statement wording sharing four words in a row with the probe, the
+held-out, the independent or `hard_dev` pool (pass or fail only). It joins as `src/aya_retrieval/pool_wide.py`, used
+only for training. Disclosure: the brief asks for the same kind of hardness as R-039's, so training moves toward the
+style the sealed independent pool was written in, with none of its content.
+
+**Fix 14.** The fact rows of v5's set (`older`, `confirm`, `in_view`, `never_told`) are rebuilt with v5's flags, each
+row from `wide` with probability one half and otherwise from `train` (`--wide-share 0.5`, `--kinds older confirm
+in_view never_told`), and spliced into v5's set in place of its fact rows; v5's 150 vetted brief `statement` rows stay.
+Same counts per kind, same settings (rank 32, attention and MLP, 3e-4, 3 epochs).
+
+**Gate, at seed 82.** On the probe (51203), R-055's gate (recall at least 92 of 96, `statement` at least 47). On
+`hard_dev` (73157, 24 a kind), recall above v5's seed-82 result of 58 of 96 by at least 10.
+
+**Rule, three seeds.** R-052's seven items on the probe (73157) against base, Sheet B on every seed, unchanged; recall
+on the probe pooled at least 273 of 288 (v5's 279 less 6); and on `hard_dev`: recall pooled at least 202 of 288 (v5's
+172 plus 30), false retrieval pooled at most v5's 10 of 720 plus 10, and Sheet B `statement` and `in_view` pooled
+coherent at or above base's `three_exchanges` replies (one sheet a seed). It replaces v5 (as v6) only if all pass.
+Labels: `screen_fix14_all_82`, `hd_fix14_82`, `probe15_tuned8x`, `hd_fix14_8x`; adapters
+`adapters/screens/fix14_all_8x`. No held-out or independent run without Kevin.
