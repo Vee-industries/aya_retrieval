@@ -145,6 +145,12 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "Fix 6 at rank 32 with the MLP layers",
         "ties rank 32 alone (R-048)",
     ),
+    (
+        "screen_message_queries_82",
+        "screen_more_indirect_82",
+        "Fix 7: searches in the friend's own words",
+        "dropped on false retrieval (R-050)",
+    ),
 ]
 KIND_NAMES = {
     "older": "Fact told long ago",

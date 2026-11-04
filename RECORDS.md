@@ -62,6 +62,7 @@ carry their own provenance (command, git commit, package versions).
 | R-047 | Fix 6 at rank 32 is the best screen (recall 92 of 96); stronger training costs a few statements on one opening |
 | R-048 | Rank 32 with the MLP layers ties rank 32 alone; rank 32 alone stays the lead |
 | R-049 | Confirmation rule for fix 6 at rank 32, written before its runs and sheets |
+| R-050 | Fix 7 lifts recall to 94 but answers never-told questions with others' facts: dropped; fix 7b queued |
 
 ---
 
@@ -1629,3 +1630,29 @@ Otherwise v4 stands. Judges get only the rubric and the sheet; marks go to the s
 held-out or independent run comes out of this without Kevin. The runs are queued after the screens already on the
 card (fix 7, fix 8, R-046's two combinations, rank 64, rank 32 at 3e-4); if one of those beats this lead on the screen,
 it gets its own rule and runs, and this one is still decided as written.
+
+## R-050 · 2026-11-03 · SPRINT · Fix 7 (searches in the friend's own words) lifts recall to 94 of 96 but answers never-told questions with other people's facts: dropped; fix 7b queued
+
+Development only, screen probe seed 51203, adapter seed 82, rank 16. Fix 6's build plus `--message-queries` (R-042),
+`data/screens/message_queries.jsonl`, 800 rows; trained 1,239 s, peak 7.13 GiB.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) | False retrieval (of 240) |
+|---|---|---|---|---|---|---|---|---|
+| fix 6 (R-040) | 84 | 41 | 43 | 36 | 48 | 47 | 235 | 0 |
+| fix 7 (`screen_message_queries_82`) | 94 | 46 | 48 | 39 | 21 | 44 | 229 | 27, all `never_told` |
+
+Against fix 6: recall 1 alone right and 11 (p = 0.006); all kinds 36 and 19 (p = 0.030, fix 6 better). On 27 of 48
+never-told questions fix 7 searches in the question's words, gets back the same fact about other people, and gives
+one of them as the answer ("did i mention what language my daughter speaks" → "Your daughter Hana speaks Tagalog.").
+That is false retrieval, which R-038 forbids above base. Fix 7 is dropped as built.
+
+**Why.** With the friend's own words, the search in a never-told training row often finds nothing, because the
+question's words are not in any statement ("coworker band" against "plays bass in Salt Road"). Of fix 7's 150
+never-told rows, 77 have an empty result; fix 6's have 20. So fix 7 taught declining mainly on empty results, while on
+the probe the question's words ("language", "speaks") do match other people's facts. The recall gain is real (the
+searches find more facts); the training simply stopped showing the case where the wrong person's fact comes back.
+
+**Fix 7b, `--never-told-hits`** (commit `1eb289a`): fix 7's build, but a never-told row is kept only if its search
+returns passages, so all 150 show other people's facts coming back and the reply declining. Screened against fix 7
+and fix 6 on probe seed 51203, after R-049's confirmation runs. It goes forward only if `never_told` is back at fix
+6's level with false retrieval at 0 and recall stays above fix 6.
