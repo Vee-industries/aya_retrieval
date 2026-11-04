@@ -213,6 +213,12 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "dropped at the screen gate (R-063)",
     ),
     (
+        "screen_fix13_all_82",
+        "screen_fix11_all_82",
+        "Fix 13: v5 with more indirect in-view questions",
+        "dropped at the screen gate (R-064)",
+    ),
+    (
         "screen_fix6_all_e4_82",
         "screen_fix6_all_82",
         "Lead's settings, 4 epochs",

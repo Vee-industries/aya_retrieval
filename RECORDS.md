@@ -76,6 +76,7 @@ carry their own provenance (command, git commit, package versions).
 | R-061 | **v5**: fix 11 passes all seven items (recall 279 of 288, statement coherent on every seed) |
 | R-062 | Fix 12: brief, vetted in_view targets spliced into v5's set; nine-item rule written before the build |
 | R-063 | Fix 12 fails the screen gate (recall 90): dropped; v5's 23 misses broken down; fix 13 rule (more indirect in_view) |
+| R-064 | Fix 13 fails the screen gate (recall 91): dropped; in_view changes trade in_view for older; v5 is the final candidate |
 
 ---
 
@@ -2099,3 +2100,28 @@ is v5's: `data/screens/indirect_view.jsonl`. No vetting, so the one change is th
 R-055's screen gate, plus `in_view` on the screen at least v5's 42. Then R-062's nine items (R-052's seven against
 base, Sheet B on every seed; `in_view` coherent pooled above v5's 119 of 144; recall pooled at least 273). It
 replaces v5 (as v6) only if all pass.
+
+## R-064 · 2026-11-04 · SPRINT · Fix 13 fails R-055's screen gate (recall 91 of 96): dropped; changing `in_view` rows trades `in_view` for `older`
+
+`screen_fix13_all_82` (probe seed 51203, gate at 15:47): recall 91 (`older` 43, `confirm` 48), `in_view` 45, `never_told`
+48, `statement` 48. The gate needs recall at least 92, so seeds 83 and 84 are not trained.
+
+| Screen (seed 82) | Recall | `older` | `in_view` | `statement` |
+|---|---|---|---|---|
+| v5 (`screen_fix11_all_82`) | 95 | 48 | 42 | 48 |
+| Fix 12, brief vetted `in_view` (R-063) | 90 | 42 | 45 | 48 |
+| Fix 13, two in three `in_view` indirect | 91 | 43 | 45 | 48 |
+
+Both changes to the `in_view` rows gained three `in_view` answers and lost five or six `older` ones, and four of the
+lost questions are the same in both ("what tattoo did Dmitri get", "which club did Ayaan join", "which club did Gustav
+join", "where does my tutor go after work these days"): each search found the fact and the reply denied it ("I don't
+have that from you") or said it was not in the results. v5 answered all four. On this screen, more confident reading
+of the turns in view comes with less trust in a search result.
+
+The build step of this queue also retried once on a dirty tree (an article commit of mine at 14:50); the retry
+worked as R-055's fix intended.
+
+**Where this leaves the work.** Fixes 12 and 13, the two aimed at v5's largest remaining group of misses, both lose
+more than they gain. v5's misses are 23 of 720 replies on the confirmation probe (3%), and its single-seed screen is
+95 of 96 on recall. A further fix would chase a handful of questions on a probe that has guided every change, which
+the sealed pools would not reward. v5 stands as the candidate for the registered final test.
