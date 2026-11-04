@@ -1,0 +1,277 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-04T18:36:17+00:00",
+  "command": [
+   "scripts/run_audit.py",
+   "--probe-seed",
+   "73157",
+   "--pool",
+   "probe",
+   "--base",
+   "probe2_base",
+   "--adapters",
+   "probe12_tuned82",
+   "probe12_tuned83",
+   "probe12_tuned84",
+   "--name",
+   "v5_probe73157"
+  ],
+  "git_commit": "aa3dd22e9a3997ecd086bbb49c7f2c442b1e246a",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "probe_seed": 73157,
+ "pool": "probe",
+ "labels": {
+  "probe2_base": {
+   "verified_by_kind": {
+    "older": [
+     23,
+     48
+    ],
+    "confirm": [
+     7,
+     48
+    ],
+    "in_view": [
+     34,
+     48
+    ],
+    "never_told": [
+     42,
+     48
+    ],
+    "statement": [
+     31,
+     48
+    ]
+   },
+   "verified": 137.0,
+   "cases": 240,
+   "disagreements_with_our_scorer": [],
+   "statuses": {
+    "completed": 240
+   },
+   "diagnostics": {
+    "tool_call_validity_sum": 83.0,
+    "tool_call_validity_n": 83,
+    "redundant_tool_calls_sum": 1.3333333333333333,
+    "redundant_tool_calls_n": 83
+   },
+   "summary": "Agent eval   Mode: recorded   Cases: 240\nVerified success: 137/240 (137/240 decided)   Failure: 103   Unknown outcome: 0   Error: 0   Over budget: 0\nEndpoint errors: 0\nStatus: completed 240\nTrace coverage: full 240, tool names only 0, answer only 0\nTool validity: 83/83 eligible\nMedian latency: n/a          Agent calls: 0"
+  },
+  "probe12_tuned82": {
+   "verified_by_kind": {
+    "older": [
+     47,
+     48
+    ],
+    "confirm": [
+     48,
+     48
+    ],
+    "in_view": [
+     43,
+     48
+    ],
+    "never_told": [
+     47,
+     48
+    ],
+    "statement": [
+     48,
+     48
+    ]
+   },
+   "verified": 233.0,
+   "cases": 240,
+   "disagreements_with_our_scorer": [
+    {
+     "id": "58_older_13",
+     "ours": true,
+     "auditkit": false,
+     "reply": "Your daughter Esme grows prize zucchinis."
+    }
+   ],
+   "statuses": {
+    "completed": 240
+   },
+   "diagnostics": {
+    "tool_call_validity_sum": 144.0,
+    "tool_call_validity_n": 144,
+    "redundant_tool_calls_sum": 0.0,
+    "redundant_tool_calls_n": 144
+   },
+   "summary": "Agent eval   Mode: recorded   Cases: 240\nVerified success: 233/240 (233/240 decided)   Failure: 7   Unknown outcome: 0   Error: 0   Over budget: 0\nEndpoint errors: 0\nStatus: completed 240\nTrace coverage: full 240, tool names only 0, answer only 0\nTool validity: 144/144 eligible\nMedian latency: n/a          Agent calls: 0"
+  },
+  "probe12_tuned83": {
+   "verified_by_kind": {
+    "older": [
+     48,
+     48
+    ],
+    "confirm": [
+     44,
+     48
+    ],
+    "in_view": [
+     44,
+     48
+    ],
+    "never_told": [
+     48,
+     48
+    ],
+    "statement": [
+     48,
+     48
+    ]
+   },
+   "verified": 232.0,
+   "cases": 240,
+   "disagreements_with_our_scorer": [],
+   "statuses": {
+    "completed": 240
+   },
+   "diagnostics": {
+    "tool_call_validity_sum": 144.0,
+    "tool_call_validity_n": 144,
+    "redundant_tool_calls_sum": 0.0,
+    "redundant_tool_calls_n": 144
+   },
+   "summary": "Agent eval   Mode: recorded   Cases: 240\nVerified success: 232/240 (232/240 decided)   Failure: 8   Unknown outcome: 0   Error: 0   Over budget: 0\nEndpoint errors: 0\nStatus: completed 240\nTrace coverage: full 240, tool names only 0, answer only 0\nTool validity: 144/144 eligible\nMedian latency: n/a          Agent calls: 0"
+  },
+  "probe12_tuned84": {
+   "verified_by_kind": {
+    "older": [
+     43,
+     48
+    ],
+    "confirm": [
+     48,
+     48
+    ],
+    "in_view": [
+     43,
+     48
+    ],
+    "never_told": [
+     47,
+     48
+    ],
+    "statement": [
+     48,
+     48
+    ]
+   },
+   "verified": 229.0,
+   "cases": 240,
+   "disagreements_with_our_scorer": [],
+   "statuses": {
+    "completed": 240
+   },
+   "diagnostics": {
+    "tool_call_validity_sum": 144.0,
+    "tool_call_validity_n": 144,
+    "redundant_tool_calls_sum": 0.0,
+    "redundant_tool_calls_n": 144
+   },
+   "summary": "Agent eval   Mode: recorded   Cases: 240\nVerified success: 229/240 (229/240 decided)   Failure: 11   Unknown outcome: 0   Error: 0   Over budget: 0\nEndpoint errors: 0\nStatus: completed 240\nTrace coverage: full 240, tool names only 0, answer only 0\nTool validity: 144/144 eligible\nMedian latency: n/a          Agent calls: 0"
+  }
+ },
+ "bootstrap": {
+  "probe12_tuned82": {
+   "all_kinds": {
+    "only_base": 3,
+    "only_adapter": 99,
+    "sign_test_p": 6.979604631123946e-26,
+    "bootstrap": {
+     "n": 240,
+     "mean_base": 0.5708333333333333,
+     "mean_adapter": 0.9708333333333333,
+     "delta": 0.4,
+     "p_value": 9.999000099990002e-05
+    }
+   },
+   "recall_kinds": {
+    "only_base": 0,
+    "only_adapter": 65,
+    "sign_test_p": 5.421010862427522e-20,
+    "bootstrap": {
+     "n": 96,
+     "mean_base": 0.3125,
+     "mean_adapter": 0.9895833333333334,
+     "delta": 0.6770833333333334,
+     "p_value": 9.999000099990002e-05
+    }
+   }
+  },
+  "probe12_tuned83": {
+   "all_kinds": {
+    "only_base": 3,
+    "only_adapter": 98,
+    "sign_test_p": 1.3552788123878027e-25,
+    "bootstrap": {
+     "n": 240,
+     "mean_base": 0.5708333333333333,
+     "mean_adapter": 0.9666666666666667,
+     "delta": 0.3958333333333333,
+     "p_value": 9.999000099990002e-05
+    }
+   },
+   "recall_kinds": {
+    "only_base": 0,
+    "only_adapter": 62,
+    "sign_test_p": 4.336808689942018e-19,
+    "bootstrap": {
+     "n": 96,
+     "mean_base": 0.3125,
+     "mean_adapter": 0.9583333333333334,
+     "delta": 0.6458333333333334,
+     "p_value": 9.999000099990002e-05
+    }
+   }
+  },
+  "probe12_tuned84": {
+   "all_kinds": {
+    "only_base": 3,
+    "only_adapter": 95,
+    "sign_test_p": 9.904811308210189e-25,
+    "bootstrap": {
+     "n": 240,
+     "mean_base": 0.5708333333333333,
+     "mean_adapter": 0.9541666666666667,
+     "delta": 0.38333333333333336,
+     "p_value": 9.999000099990002e-05
+    }
+   },
+   "recall_kinds": {
+    "only_base": 0,
+    "only_adapter": 61,
+    "sign_test_p": 8.673617379884035e-19,
+    "bootstrap": {
+     "n": 96,
+     "mean_base": 0.3125,
+     "mean_adapter": 0.9479166666666666,
+     "delta": 0.6354166666666666,
+     "p_value": 9.999000099990002e-05
+    }
+   }
+  }
+ }
+}
