@@ -72,6 +72,7 @@ carry their own provenance (command, git commit, package versions).
 | R-057 | R-056 fails on Sheet B at seed 84 (statement 42 against 46): v4 stands; items 1 to 6 pass; Sheet A judges disagree |
 | R-058 | Fix 10: blind judge vets statement training targets; gate and confirmation rule written first |
 | R-059 | Fix 10 passes six of seven items (recall 282 of 288); seed 84 statement 45 against 46: v4 stands |
+| R-060 | Fix 11: brief statement targets (hint left out of the row), vetted; rule written before the build |
 
 ---
 
@@ -1970,3 +1971,23 @@ earlier topic as the reply's own.
 
 Against fix 9 (R-057), vetting the targets moved seed 84's `statement` from 42 to 45 and kept the other two seeds at
 48; it did not remove the untrained model's habits entirely.
+
+## R-060 · 2026-11-04 · SPRINT · Fix 11: brief statement targets, then vetted; gate and confirmation rule written before the build
+
+**Why.** Every incoherent `statement` reply in R-057 and R-059, the adapter's and base's alike, is a long reply that
+drifts: a book character, a storm system, an earlier topic taken as the reply's own, a reversed direction. Base's
+replies are cut at 60 tokens, so the longer the reply, the more room to drift and the more often it ends mid-thought.
+
+**Fix 11, `--brief-chat`** (commit `da083cf`). When the set is built, base is asked for its `statement` reply with "Reply
+briefly, in one or two sentences." added to its system prompt. The training row leaves that sentence out, as
+`--read-hint` does for `in_view`, so the adapter learns short replies to chat without being told. No other kind
+changes; `statement` is built last, so every other row is identical to fix 9's at the same seed.
+
+1. Full set, fix 9's flags plus `--brief-chat`, seed 71119: `data/screens/brief_chat.jsonl`.
+2. 150 spares, same flags, seed 71120, `--kinds statement`: `data/screens/brief_chat_spare.jsonl`.
+3. R-058's vetting: one blind sheet of all 300 statement targets (shuffle seed 90458), a fresh Sonnet judge, rejected
+   targets swapped for coherent spares: `data/screens/vetted_brief.jsonl`.
+
+**Gate and rule, written before the build.** As R-058, with labels `screen_fix11_all_82` and `probe12_tuned8x` and
+adapters `adapters/screens/fix11_all_8x`: R-055's screen gate at seed 82, then R-052's seven items unchanged, with
+Sheet B on every seed. It replaces v4 (as v5) only if all seven pass. No held-out or independent run without Kevin.
