@@ -187,6 +187,11 @@ def main() -> None:
         help="demonstrated searches use the friend's own words, not fixed keywords",
     )
     parser.add_argument(
+        "--never-told-hits",
+        action="store_true",
+        help="never_told rows only where the search returns passages, all about someone else",
+    )
+    parser.add_argument(
         "--more-statements",
         action="store_true",
         help="facts also stated in train_phrasings.MORE_STATEMENTS wordings",
@@ -209,6 +214,7 @@ def main() -> None:
         "scripted_answers": args.scripted_answers,
         "more_indirect": args.more_indirect,
         "message_queries": args.message_queries,
+        "never_told_hits": args.never_told_hits,
         "more_statements": args.more_statements,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
@@ -239,6 +245,11 @@ def main() -> None:
             if kind in NEEDS_SEARCH:
                 tool = build_recall_tool(item, args.index, match_all=False)
                 output = tool.execute(item.query).output
+                if args.never_told_hits and kind == NEVER_TOLD and "chunk_id=" not in output:
+                    # An empty result makes declining easy; the case to teach is same-type facts
+                    # about other people coming back (R-050).
+                    tally[f"{kind}_empty_skipped"] += 1
+                    continue
                 found = search_finds_fact(tool, item, item.query)
                 tally[f"{kind}_found" if found else f"{kind}_missed"] += 1
                 passages[kind][output.count("chunk_id=")] += 1
