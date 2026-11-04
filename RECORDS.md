@@ -1991,3 +1991,10 @@ changes; `statement` is built last, so every other row is identical to fix 9's a
 **Gate and rule, written before the build.** As R-058, with labels `screen_fix11_all_82` and `probe12_tuned8x` and
 adapters `adapters/screens/fix11_all_8x`: R-055's screen gate at seed 82, then R-052's seven items unchanged, with
 Sheet B on every seed. It replaces v4 (as v5) only if all seven pass. No held-out or independent run without Kevin.
+
+**Build and vetting result.** `brief_chat.jsonl`: all 650 non-statement rows are identical to fix 9's. Brief statement
+targets average 12.6 words against 21.3 before (spares), and 20 of 150 brief replies use a curly apostrophe (none
+before). Vetting (fresh Sonnet judge, `results/coherence/R-060/`): of the 150 targets, 138 coherent and 12 not; of the
+spares, 137 and 13. The 12 were swapped. Reasons given: "Enjoy the party, {person}" addressed to the inviter, "great
+that you're catching up" to "haven't seen my uncle in ages", unrelated replies, and odd fits ("That sounds like a bad
+day" to "guess who ran into {person}").
