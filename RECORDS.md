@@ -61,6 +61,7 @@ carry their own provenance (command, git commit, package versions).
 | R-046 | Learning rate 3e-4 also beats v4: three ways to train harder all gain; two more combinations queued |
 | R-047 | Fix 6 at rank 32 is the best screen (recall 92 of 96); stronger training costs a few statements on one opening |
 | R-048 | Rank 32 with the MLP layers ties rank 32 alone; rank 32 alone stays the lead |
+| R-049 | Confirmation rule for fix 6 at rank 32, written before its runs and sheets |
 
 ---
 
@@ -1596,3 +1597,35 @@ Against rank 32 alone: recall 4 and 2 (p = 0.69), all kinds 6 and 7 (p = 1.0), `
 fix 6: recall 3 and 9 (p = 0.15). The MLP layers add no recall, cost 30% more training time and 0.6 GiB more card
 memory, and lose one more statement; the `in_view` gain of 4 is not significant on its own. Rank 32 alone stays the
 lead. Its four `in_view` gains are noted for the confirmation: rank 32 on v4's data also lifted `in_view` (R-044).
+
+## R-049 · 2026-11-03 · SPRINT · Confirmation rule for fix 6 at rank 32, written before seeds 83 and 84 exist and before any of its coherence sheets
+
+Fix 6 at rank 32 (R-047) is the lead on the screen. It is meant to raise recall, and R-047 found it loses a few
+statements, so the rule must check that it beats v4 on recall, and also that it holds `statement`, coherence and false
+retrieval. Seeds 82 (the screen adapter, `adapters/screens/fix6_r32_82`), 83 and 84, trained on
+`data/screens/more_indirect.jsonl` with `--lora-r 32`, scored on probe seed 73157 as `probe8_tuned8x`, against v4
+(`probe6_tuned8x`, R-036) and base (`probe2_base`).
+
+v4 on this probe, pooled over its three seeds: recall 252 of 288, `in_view` 115 of 144, `statement` 143 of 144, false
+retrieval 8 of 720 replies. Base: false retrieval 13 of 240.
+
+Fix 6 at rank 32 replaces v4 (as v5) only if all of these hold:
+
+1. Correct `older` plus `confirm`, pooled, higher than v4's 252 of 288.
+2. Correct `in_view`, pooled, at least 110 of 144 (v4's 115 less 5%, as R-040).
+3. Correct `statement`, pooled, at least 136 of 144 (v4's 143 less 5%, the same tolerance as item 2). This item is new:
+   R-047 showed `statement` is the kind that falls as recall rises.
+4. Right decisions at least 200 of 240 on every seed.
+5. False retrieval, pooled, no higher than base's rate (13 of 240, so at most 39 of 720), as R-038 requires of the
+   final test. v4's 8 is reported beside it.
+6. Sheet A on `older` and `confirm`, each seed against base on probe seed 73157, a fresh judge per sheet: pooled
+   `confirm` coherent at or above base's count, and pooled `older` plus `confirm` coherent at or above base's count.
+7. Sheet B on `statement` and `in_view`, each seed against base with no tool (built as R-036B), a fresh judge per
+   sheet: on every seed, coherent `statement` and coherent `in_view` each at or above base's count on that sheet.
+   Until now Sheet B ran after the decision; this rule makes it decide, because the statements this setting fails
+   are replies that recite an unasked fact.
+
+Otherwise v4 stands. Judges get only the rubric and the sheet; marks go to the scratchpad and are copied in. No
+held-out or independent run comes out of this without Kevin. The runs are queued after the screens already on the
+card (fix 7, fix 8, R-046's two combinations, rank 64, rank 32 at 3e-4); if one of those beats this lead on the screen,
+it gets its own rule and runs, and this one is still decided as written.
