@@ -239,6 +239,8 @@ over all 240 conversations.
 | 4 epochs instead of 3 | 78 (76) | 39 | 231 | 3 / 7 | 0.34 | candidate (R-037) |
 | Learning rate 1e-4 instead of 2e-4 | 67 (76) | 35 | 228 | 33 / 9 | <0.01 | dropped (R-040) |
 | Fix 6: more ways of saying “I forgot” | 84 (76) | 36 | 235 | 10 / 16 | 0.33 | pending |
+| LoRA on the MLP layers too | 87 (76) | 37 | 234 | 6 / 17 | 0.03 | pending |
+| LoRA rank 32 | 86 (76) | 43 | 233 | 5 / 20 | <0.01 | pending |
 
 What the path shows:
 
@@ -263,7 +265,20 @@ What the path shows:
 At 419 messages the adapter reads 1,186 tokens a turn on average over 1.59 model calls and writes 28; the whole chat is 5,409 tokens, so it reads 78% less. Sending the whole chat costs more with every message; the adapter's cost per turn
 stays flat.
 
-*Pending: the throughput benchmark (`scripts/run_throughput.py`) is queued.*
+| Per million turns | Cost | With the chat prefix cached |
+|---|---|---|
+| This adapter, self-hosted, batch 1 | $573 | |
+| This adapter, self-hosted, batch 4 | $170 | |
+| This adapter, self-hosted, batch 8 | $106 | |
+| This adapter, self-hosted, batch 16 | $76 | |
+| gpt-6-astra, whole chat each turn | $55,507 | $6,830 |
+| gpt-6.1-sol, whole chat each turn | $11,101 | $825 |
+| gpt-6.1-terra, whole chat each turn | $5,551 | $413 |
+| gpt-6-luna, whole chat each turn | $555 | $68 |
+
+At batch 16 the adapter costs $76 per million turns, 7× to 731× less than these closed models sent the whole chat. With every chat token billed at the cached rate, the cheapest closed model (gpt-6-luna, $68) costs about the same or less, so the saving there is privacy and control rather than money.
+
+**Assumptions.** Self-hosted cost assumes the NVIDIA A10G on Hugging Face Inference Endpoints (AWS) at $1.00 an hour serves calls as fast as the measured card (NVIDIA GeForce RTX 3080, plain Transformers, calls of about 714 prompt tokens). The A10G has less memory bandwidth than that card, so it would likely be somewhat slower, while a dedicated serving engine would be faster. Closed-model cost sends the whole chat each turn and writes as many tokens as the adapter; the cached column charges every chat token at the cached rate, the most favourable case for the closed model. A closed model could also retrieve instead of reading the whole chat; the point here is that a 3B model can do the retrieval itself.
 
 ## 9. Toolkit findings
 

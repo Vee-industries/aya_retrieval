@@ -445,23 +445,43 @@ def roi_numbers(tuned, out) -> None:
         return
     bench = json.loads(THROUGHPUT.read_text(encoding="utf-8"))
     gpu_name, per_hour = GPU_PRICE
-    lines = []
+    lines, self_costs, closed = [], [], {}
     for b in bench["batches"]:
         cost = 1e6 * calls / b["calls_per_hour"] * per_hour
+        self_costs.append((b["batch_size"], cost))
         lines.append(f"| This adapter, self-hosted, batch {b['batch_size']} | ${cost:,.0f} | |")
     for model, (inp, cached, outp) in CLOSED_PRICES.items():
-        plain = 1e6 * (whole * inp + written * outp) / 1e6
-        warm = 1e6 * (whole * cached + written * outp) / 1e6
+        plain = whole * inp + written * outp  # dollars per million turns
+        warm = whole * cached + written * outp
+        closed[model] = (plain, warm)
         lines.append(f"| {model}, whole chat each turn | ${plain:,.0f} | ${warm:,.0f} |")
+    batch, best = self_costs[-1]
+    cheapest = min(closed, key=lambda m: closed[m][0])
+    ratios = sorted(closed[m][0] / best for m in closed)
+    summary = (
+        f"At batch {batch} the adapter costs ${best:,.0f} per million turns, "
+        f"{ratios[0]:.0f}× to {ratios[-1]:.0f}× less than these closed models sent the whole chat. "
+        + (
+            f"With every chat token billed at the cached rate, the cheapest closed model "
+            f"({cheapest}, ${closed[cheapest][1]:,.0f}) costs about the same or less, so the "
+            "saving there is privacy and control rather than money."
+            if closed[cheapest][1] <= 1.25 * best
+            else f"Even fully cached, the cheapest closed model costs ${closed[cheapest][1]:,.0f}."
+        )
+    )
     out["roi_text"] = (
         "| Per million turns | Cost | With the chat prefix cached |\n|---|---|---|\n"
         + "\n".join(lines)
-        + f"\n\nSelf-hosted cost assumes the {gpu_name} at ${per_hour:.2f} an hour serves calls as "
-        f"fast as the measured card ({bench['gpu']}), with calls of about "
-        f"{bench['batches'][0]['mean_prompt_tokens']} prompt tokens; real serving with a "
-        "dedicated engine would be faster. Closed-model cost sends the whole chat each turn and "
-        "writes as many tokens as the adapter; the cached column charges every chat token at the "
-        "cached rate, the most favourable case for the closed model."
+        + f"\n\n{summary}\n\n"
+        f"**Assumptions.** Self-hosted cost assumes the {gpu_name} at ${per_hour:.2f} an hour "
+        f"serves calls as fast as the measured card ({bench['gpu']}, plain Transformers, calls of "
+        f"about {bench['batches'][0]['mean_prompt_tokens']} prompt tokens). The A10G has less "
+        "memory bandwidth than that card, so it would likely be somewhat slower, while a "
+        "dedicated serving engine would be faster. Closed-model cost sends the whole chat each "
+        "turn and writes as many tokens as the adapter; the cached column charges every chat token "
+        "at the cached rate, the most favourable case for the closed model. A closed model could "
+        "also retrieve instead of reading the whole chat; the point here is that a 3B model can "
+        "do the retrieval itself."
     )
 
 
