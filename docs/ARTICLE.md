@@ -428,21 +428,10 @@ make every number and figure here: `python scripts/make_figures.py` and
 
 ## Author contributions
 
-Kevin Vaillancourt conceived the project, from his own chat engine's question of whether behaviour
-enforced by code can be trained into a model's weights; chose the task and its success measure;
-set the research standard the work follows ([`STANDARD.md`](../STANDARD.md)); and made every
-framing decision. Several of his challenges changed the results: asking whether added correct
-answers were recovered or guessed (recall counted by source, R-041), who wrote the held-out pool
-(the independent pool, R-039), and twice whether the work was finished (fixes 9 to 11, and the
-development twin that found the largest remaining gap, R-068).
-
-The implementation was done by an AI assistant, Claude (Anthropic), working under his direction:
-code, training and evaluation runs, analysis, the records and the text of this article. Test pools
-meant to be independent were written by fresh AI agents that saw only a brief, and coherence was
-marked by fresh AI judges that saw only a rubric and a sheet.
-
-Working through an AI assistant is an executive-function accommodation for the author, not a
-convenience. It is disclosed here so the division of labour is clear.
+Kevin Vaillancourt directed this work, carried out with an AI assistant, Claude (Anthropic), as an
+executive-function accommodation. Test pools meant to be independent were written by fresh AI
+agents that saw only a brief, and coherence was marked by fresh AI judges that saw only a rubric
+and a sheet.
 
 ## References
 
