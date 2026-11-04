@@ -75,6 +75,7 @@ carry their own provenance (command, git commit, package versions).
 | R-060 | Fix 11: brief statement targets (hint left out of the row), vetted; rule written before the build |
 | R-061 | **v5**: fix 11 passes all seven items (recall 279 of 288, statement coherent on every seed) |
 | R-062 | Fix 12: brief, vetted in_view targets spliced into v5's set; nine-item rule written before the build |
+| R-063 | Fix 12 fails the screen gate (recall 90): dropped; v5's 23 misses broken down; fix 13 rule (more indirect in_view) |
 
 ---
 
@@ -2066,3 +2067,35 @@ of the 150 targets, 125 coherent and 25 not; of the spares, 125 and 25. The 25 w
 spliced into v5's set: all 650 other rows are v5's, in v5's order. The judge's reasons: a reply that says it is not
 sure of a fact the friend just stated (the scorer passes these because the value is named), the friend's relative
 spoken of as the reply's own, "lost" read as the friend losing it, the wrong relation, and filler.
+
+## R-063 · 2026-11-04 · SPRINT · Fix 12 fails R-055's screen gate (recall 90 of 96): dropped; where v5's last misses are
+
+`screen_fix12_all_82` (probe seed 51203, queue stopped at the gate at 14:48): recall 90 (`older` 42, `confirm` 48),
+`in_view` 45, `never_told` 48, `statement` 48. The gate needs recall at least 92, so fix 12 stops here and seeds 83
+and 84 are not trained. `in_view` rose against v5's screen (45 against 42), but five of its six recall misses are
+searches that found the fact followed by "I don't have that from you"; v5's screen had one recall miss in all. Brief
+`in_view` answers appear to have moved the model toward declining.
+
+**v5's misses on the confirmation probe** (`probe12_tuned8x`, 720 replies, 23 wrong):
+
+| Kind | How | Count |
+|---|---|---|
+| `in_view` | no search, and no answer from the turns in view | 14 |
+| `older` | search found the fact, reply denies it or names another value | 5 |
+| `confirm` | search found the fact, reply denies it | 4 |
+| `never_told` | searched, not found, reply named a value | 2 |
+
+Twelve of the 14 `in_view` misses are indirect wordings ("drawing a blank on my {relation}'s tattoo", "i cannot think
+what my {relation} grows", "i'm blanking on what my {relation} is scared of"): the reply treats them as feelings
+("It sounds like you're trying to remember something...") and asks for a hint.
+
+**Fix 13, `--in-view-indirect 0.5`.** In v5's set, an `in_view` row's question takes the indirect form one time in
+three (`ASK_FORMS`). Fix 13 forces it on half the rows, so with the third of the rest it is two in three, drawing the indirect wording from the train pool and
+`MORE_INDIRECT` as before; the probe's wordings stay out (the four-word test in `test_train_phrasings.py`). 150
+`in_view` rows are built alone (seed 71123) and spliced into v5's set in place of its `in_view` rows; every other row
+is v5's: `data/screens/indirect_view.jsonl`. No vetting, so the one change is the share of indirect questions.
+
+**Gate and rule, written before the build.** Labels `screen_fix13_all_82` and `probe14_tuned8x`, v5's settings.
+R-055's screen gate, plus `in_view` on the screen at least v5's 42. Then R-062's nine items (R-052's seven against
+base, Sheet B on every seed; `in_view` coherent pooled above v5's 119 of 144; recall pooled at least 273). It
+replaces v5 (as v6) only if all pass.

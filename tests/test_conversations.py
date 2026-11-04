@@ -152,3 +152,15 @@ def test_a_demonstrated_query_uses_no_name_the_message_did_not_give(seed, kind):
     item = build_item("x", seed, 58, kind, "train")
     names = [name for name in TRAIN.people if name in item.query]
     assert all(name in item.message for name in names)
+
+
+def test_force_indirect_changes_only_the_question():
+    from aya_retrieval.conversations import build_item
+
+    changed = 0
+    for seed in range(60):
+        plain = build_item("x", seed, 58, "in_view", "train")
+        forced = build_item("x", seed, 58, "in_view", "train", force_indirect=True)
+        assert plain.exchanges == forced.exchanges and plain.answer == forced.answer
+        changed += plain.message != forced.message
+    assert changed > 20

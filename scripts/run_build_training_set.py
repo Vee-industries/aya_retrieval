@@ -217,6 +217,12 @@ def main() -> None:
         help="statement targets are base's reply when asked to be brief (not part of the row)",
     )
     parser.add_argument(
+        "--in-view-indirect",
+        type=float,
+        default=0.0,
+        help="share of in_view rows forced to ask in the indirect form (fix 13)",
+    )
+    parser.add_argument(
         "--brief-in-view",
         action="store_true",
         help="in_view targets (plain and hinted) are base's reply when asked to be brief",
@@ -257,6 +263,7 @@ def main() -> None:
         "more_chat": args.more_chat,
         "brief_chat": args.brief_chat,
         "brief_in_view": args.brief_in_view,
+        "in_view_indirect": args.in_view_indirect,
         "kinds": args.kinds,
         "statement_rows": args.statement_rows,
     }
@@ -287,6 +294,7 @@ def main() -> None:
                 args.more_indirect,
                 args.more_statements,
                 args.more_chat,
+                kind == IN_VIEW and random.Random(seed + 5).random() < args.in_view_indirect,
             )
             if args.message_queries and item.query:
                 item = dataclasses.replace(item, query=message_words_query(item))

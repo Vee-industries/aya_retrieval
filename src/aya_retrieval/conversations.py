@@ -71,6 +71,7 @@ def build_item(
     more_indirect: bool = False,
     more_statements: bool = False,
     more_chat: bool = False,
+    force_indirect: bool = False,
 ) -> RecallItem:
     """Return a conversation of about ``messages`` messages ending in a message of ``kind``.
 
@@ -90,6 +91,8 @@ def build_item(
             ``train_phrasings.MORE_STATEMENTS``, drawn per line from a separate generator.
         more_chat: Draw a ``statement`` item's line from the pool's own and
             ``train_phrasings.MORE_CHAT``, from a separate generator.
+        force_indirect: Ask in the indirect form whatever the draw; the draw is still made, so
+            the rest of the conversation is unchanged.
     """
     pool = POOLS[pool_name]
     rng = random.Random(seed)
@@ -138,6 +141,8 @@ def build_item(
         exchanges[slot] = (line, extras.choice(pool.acknowledgements))
 
     form_name = rng.choice(ASK_FORMS)
+    if force_indirect:
+        form_name = "indirect"
     ask_form = getattr(template, form_name)
     if more_indirect and form_name == "indirect":
         extra = MORE_INDIRECT.get(template.indirect, ())
