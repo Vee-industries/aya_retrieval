@@ -1,0 +1,56 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-04T07:57:04+00:00",
+  "command": [
+   "scripts/run_recall_train.py",
+   "--seed",
+   "82",
+   "--out-dir",
+   "C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/never_told_hits_82",
+   "--data",
+   "data/screens/never_told_hits.jsonl",
+   "--report-name",
+   "screen_never_told_hits_82"
+  ],
+  "git_commit": "633df5f744391b335fb6b6f9c5781e7babf3e5db",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+ "seed": 82,
+ "data": "data/screens/never_told_hits.jsonl",
+ "epochs": 3,
+ "learning_rate": 0.0002,
+ "fraction": 1.0,
+ "batch_size": 2,
+ "grad_accum": 1,
+ "lora_r": 16,
+ "lora_targets": [
+  "q_proj",
+  "k_proj",
+  "v_proj",
+  "o_proj"
+ ],
+ "loss": "lean_loss.lean_chunk",
+ "loss_chunk_tokens": 128,
+ "rows": 800,
+ "train_peak_vram_gib": 7.12,
+ "train_seconds": 1330,
+ "adapter_moved": true
+}
