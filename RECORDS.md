@@ -73,6 +73,7 @@ carry their own provenance (command, git commit, package versions).
 | R-058 | Fix 10: blind judge vets statement training targets; gate and confirmation rule written first |
 | R-059 | Fix 10 passes six of seven items (recall 282 of 288); seed 84 statement 45 against 46: v4 stands |
 | R-060 | Fix 11: brief statement targets (hint left out of the row), vetted; rule written before the build |
+| R-061 | **v5**: fix 11 passes all seven items (recall 279 of 288, statement coherent on every seed) |
 
 ---
 
@@ -1998,3 +1999,43 @@ before). Vetting (fresh Sonnet judge, `results/coherence/R-060/`): of the 150 ta
 spares, 137 and 13. The 12 were swapped. Reasons given: "Enjoy the party, {person}" addressed to the inviter, "great
 that you're catching up" to "haven't seen my uncle in ages", unrelated replies, and odd fits ("That sounds like a bad
 day" to "guess who ran into {person}").
+
+## R-061 · 2026-11-04 · SPRINT · Fix 11 passes all seven of R-060's items: **v5**
+
+Probe seed 73157, `probe12_tuned8x`, seeds 82, 83, 84 (queue finished 13:33). Seed 82's screen on 51203
+(`screen_fix11_all_82`): recall 95 of 96, `statement` 48; it passed R-055's gate.
+
+| Measure | Seed 82 | 83 | 84 | Pooled | v4 pooled | Fix 10 pooled (R-059) | Rule |
+|---|---|---|---|---|---|---|---|
+| Recall (`older` + `confirm`) | 96 | 92 | 91 | **279 of 288** | 252 | 282 | above 252: pass |
+| `in_view` | 43 | 44 | 43 | **130 of 144** | 115 | 124 | at least 110: pass |
+| `statement` | 48 | 48 | 48 | **144 of 144** | 143 | 144 | at least 136: pass |
+| Right decisions (of 240) | 240 | 240 | 240 | | 236, 229, 226 | 240 each | at least 200: pass |
+| False retrieval | 1 | 0 | 1 | **2 of 720** | 8 | 3 | at most 39: pass |
+
+Paired against v4, pooled: recall 35 and 8 (p < 0.0001), all kinds 58 and 14 (p < 0.0001). Against fix 10: recall 5
+and 8, all kinds 17 and 13 (p = 0.58 both): no difference in correctness. Base has recall 30 of 96, so v5's 93 a seed
+is 210% above base.
+
+Coherence, six fresh Sonnet judges, one a sheet, rubric and sheet only, each seed's sheets judged while the next seed
+trained (`results/coherence/R-061/`, `R-061B/`). Shuffle seeds: Sheet B 90459, 90461, 90463; Sheet A 90460, 90462,
+90464.
+
+| Sheet | Kind | Base (seed 82, 83, 84 sheets) | v5, seed 82 | 83 | 84 | Pooled base | Pooled v5 |
+|---|---|---|---|---|---|---|---|
+| A | `older` | 32, 31, 32 | 44 | 44 | 41 | 95 | 129 |
+| A | `confirm` | 47, 47, 47 | 48 | 48 | 48 | 141 | 144 |
+| B | `in_view` | 33, 32, 34 | 37 | 44 | 38 | 99 | 119 |
+| B | `statement` | 46, 44, 45 | 47 | 48 | 47 | 135 | 142 |
+
+**All seven items pass: fix 11 replaces v4 as v5** (adapters `adapters/screens/fix11_all_82`, `_83`, `_84`; data
+`data/screens/vetted_brief.jsonl`; rank 32 on attention and MLP, 3e-4, 3 epochs). Its two incoherent `statement`
+replies: "Hope my barber settles down soon." to "my barber texted me out of nowhere" (an acknowledgement copied from
+the small talk, in the wrong voice) and "It sounds like you're feeling a bit down" to "i should really call my
+teammate".
+
+Base's `statement` score moved between sheets this time (46, 44, 45) where it held at 46 in R-059: one or two lines of
+judge disagreement on the same replies. v5's margin over base is one to four lines a seed, so the result rests on
+each seed's comparison as the rule asks, and pooled it is 142 against 135.
+
+Next: the write-up moves to v5 (article, figures, AuditKIT run, throughput), then the question of what is left to fix.
