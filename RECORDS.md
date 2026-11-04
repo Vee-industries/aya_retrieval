@@ -58,6 +58,7 @@ carry their own provenance (command, git commit, package versions).
 | R-043 | Wrong although retrieved: a reading failure; fix 8 states each training fact in more ways |
 | R-044 | Capacity screens beat every data fix: LoRA on the MLP layers, and rank 32; R-040's confirmation superseded before it ran; combinations next |
 | R-045 | R-038's crowded condition on the probe, development: v4 holds with four decoys |
+| R-046 | Learning rate 3e-4 also beats v4: three ways to train harder all gain; two more combinations queued |
 
 ---
 
@@ -1529,3 +1530,18 @@ Four decoys cost v4 7 of 288 correct answers. Its false-retrieval rate rises fro
 (5.4% to 7.9%); per adapter, 2, 9 and 11 false retrievals against base's 19 on the same conversations. Every right answer under
 four decoys was retrieved. Answers wrong although the fact came back rise from 11 to 17, the reading failure R-043 targets.
 This decides nothing; it shows where the current adapter stands on the condition R-038 added to the final test.
+
+## R-046 · 2026-11-03 · SPRINT · Learning rate 3e-4 also beats v4: three ways to train harder all gain; two more combinations queued
+
+Development only, screen probe seed 51203, adapter seed 82, v4's data, against v4's screen adapter.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) |
+|---|---|---|---|---|---|---|---|
+| v4 | 76 | 34 | 42 | 37 | 48 | 48 | 232 |
+| learning rate 3e-4 (`screen_lr3e4_82`) | 86 | 40 | 46 | 39 | 48 | 48 | 235 |
+
+On `older` plus `confirm`, 1 v4 alone right and 11 alone (p = 0.006); all kinds 3 and 15 (p = 0.008). With R-044, a higher
+learning rate, a higher rank and LoRA on the MLP layers each gain about ten recall answers, and a lower learning rate
+loses nine (R-040): v4's settings under-train it. Queued after fix 8, against fix 6's screen adapter: fix 6's data at
+learning rate 3e-4 (`fix6_lr3e4`), and with all three changes together (`fix6_all`: rank 32, attention and MLP, 3e-4),
+beside R-044's three combinations. The best goes to three seeds under a rule written first.
