@@ -217,6 +217,12 @@ def main() -> None:
         help="statement targets are base's reply when asked to be brief (not part of the row)",
     )
     parser.add_argument(
+        "--wide-share",
+        type=float,
+        default=0.0,
+        help="share of rows built from the wide training pool instead of train (fix 14, R-069)",
+    )
+    parser.add_argument(
         "--in-view-indirect",
         type=float,
         default=0.0,
@@ -264,6 +270,7 @@ def main() -> None:
         "brief_chat": args.brief_chat,
         "brief_in_view": args.brief_in_view,
         "in_view_indirect": args.in_view_indirect,
+        "wide_share": args.wide_share,
         "kinds": args.kinds,
         "statement_rows": args.statement_rows,
     }
@@ -289,7 +296,7 @@ def main() -> None:
                 seed,
                 SIZE,
                 kind,
-                "train",
+                "wide" if random.Random(seed + 6).random() < args.wide_share else "train",
                 decoys,
                 args.more_indirect,
                 args.more_statements,
