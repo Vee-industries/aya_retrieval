@@ -80,6 +80,7 @@ carry their own provenance (command, git commit, package versions).
 | R-065 | v5 with four decoys (development): recall 277 of 288, false retrieval 0 of 720; style of the independent pool untested |
 | R-066 | Development twin of the independent pool (`hard_dev`), fresh agent, R-039's brief; cost to independence disclosed |
 | R-067 | Harder development tests from LLE's failure categories: user typing style, corrections, 1,000-message chats |
+| R-068 | On `hard_dev` v5's recall is 172 of 288: unseen fact types searched with the training pool's query phrases |
 
 ---
 
@@ -2201,3 +2202,31 @@ outside it.
 probe and on `hard_dev`, every kind; corrections on the probe and on `hard_dev`, `older` and `confirm`; 1,000-message
 chats on the probe, `older`, `confirm` and `never_told`. They decide nothing; they show where v5's gaps are, and the
 largest gap is the next fix. Any test here that a fix is aimed at joins the screen gate for that fix.
+
+## R-068 · 2026-11-04 · SPRINT · On `hard_dev`, v5's recall is 172 of 288 (60%) against 279 on the probe: it maps unseen fact types onto the training pool's
+
+Development only, seed 73157, 24 a kind, one decoy (`hd_base`, `hd_v5_8x`).
+
+| | Probe: base | Probe: v5 (3 seeds) | `hard_dev`: base | `hard_dev`: v5 (3 seeds) |
+|---|---|---|---|---|
+| Recall (`older` + `confirm`) | 30 of 96 | 279 of 288 | 20 of 96 | **172 of 288** |
+| `older` / `confirm` | 23 / 7 | 139 / 140 | 8 / 12 | 95 / 77 |
+| `in_view` | 34 | 130 | 33 | 112 |
+| `never_told` | 42 | 142 | 39 | 141 |
+| `statement` | 31 | 144 | 36 | 144 |
+| Recall misses: search found the fact / no search | 4 / 59 | 9 / 0 | 31 / 38 | **103** / 5 |
+| False retrieval | 13 of 240 | 2 of 720 | 21 of 240 | 10 of 720 |
+| Right decisions | 119 | 240 each | 167 | 233, 236, 237 |
+
+v5 is still 187% above base on recall here, decides to search almost every time it should (5 recall questions of
+288 without a search) and rarely names another person's fact; but 103 of its 116 recall misses are searches that
+brought the fact back. The searches show why: v5 writes the training pool's query phrase for the nearest training fact
+type, not words from the question. "where my babysitter came of age" is searched as "babysitter born birthday month";
+"that hot drink my vicar lives on" as "vicar street address"; "the weekday my housemate faces the hiring panel" as
+"housemate promoted title". The name in the query brings the right passage back, and the reply then denies it (47 of
+the 103) or answers the training fact type it searched for ("Your coach, Henrik, was born in November").
+
+The training set has 25 fact types, each with one fixed query phrase, and every training question is answerable by
+one of them. v5 has learned those types and phrases, not how to search for and read an unfamiliar fact. The probe hid
+this because its fact types were written by the same author in the same mould. This is the largest gap found so far,
+and the sealed independent pool, written to the same brief as `hard_dev`, is likely to show it.
