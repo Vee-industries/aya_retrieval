@@ -201,6 +201,19 @@ def main() -> None:
         action="store_true",
         help="statement rows also draw from train_phrasings.MORE_CHAT",
     )
+    parser.add_argument(
+        "--kinds",
+        nargs="+",
+        default=list(ITEM_KINDS),
+        choices=ITEM_KINDS,
+        help="kinds to build; spare rows for vetting need only some",
+    )
+    parser.add_argument(
+        "--statement-rows",
+        type=int,
+        default=ROWS_PER_KIND[STATEMENT],
+        help="statement rows to make",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -222,16 +235,22 @@ def main() -> None:
         "never_told_hits": args.never_told_hits,
         "more_statements": args.more_statements,
         "more_chat": args.more_chat,
+        "kinds": args.kinds,
+        "statement_rows": args.statement_rows,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
-    rows_per_kind = {**ROWS_PER_KIND, NEVER_TOLD: args.never_told_rows}
+    rows_per_kind = {
+        **ROWS_PER_KIND,
+        NEVER_TOLD: args.never_told_rows,
+        STATEMENT: args.statement_rows,
+    }
     rng = random.Random(args.seed)
     # Its own stream, so choosing second-search rows leaves every other row as it was.
     second_rng = random.Random(args.seed + 1)
     model, tokenizer = load_model()
 
     rows, tally, passages = [], Counter(), defaultdict(Counter)
-    for kind in ITEM_KINDS:
+    for kind in (kind for kind in ITEM_KINDS if kind in args.kinds):
         made = attempt = 0
         while made < rows_per_kind[kind]:
             seed, attempt = args.seed + kind_seed_offset(kind) + attempt, attempt + 1
