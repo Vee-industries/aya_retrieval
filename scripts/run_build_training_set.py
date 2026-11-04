@@ -186,6 +186,11 @@ def main() -> None:
         action="store_true",
         help="demonstrated searches use the friend's own words, not fixed keywords",
     )
+    parser.add_argument(
+        "--more-statements",
+        action="store_true",
+        help="facts also stated in train_phrasings.MORE_STATEMENTS wordings",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -204,6 +209,7 @@ def main() -> None:
         "scripted_answers": args.scripted_answers,
         "more_indirect": args.more_indirect,
         "message_queries": args.message_queries,
+        "more_statements": args.more_statements,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {**ROWS_PER_KIND, NEVER_TOLD: args.never_told_rows}
@@ -219,7 +225,14 @@ def main() -> None:
             seed, attempt = args.seed + kind_seed_offset(kind) + attempt, attempt + 1
             decoys = rng.choice(DECOY_CHOICES[kind])
             item = build_item(
-                f"{kind}_{made:04d}", seed, SIZE, kind, "train", decoys, args.more_indirect
+                f"{kind}_{made:04d}",
+                seed,
+                SIZE,
+                kind,
+                "train",
+                decoys,
+                args.more_indirect,
+                args.more_statements,
             )
             if args.message_queries and item.query:
                 item = dataclasses.replace(item, query=message_words_query(item))

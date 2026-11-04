@@ -138,3 +138,137 @@ MORE_INDIRECT: dict[str, tuple[str, ...]] = {
         "i want to congratulate my {relation} and the new role won't come to me",
     ),
 }
+
+
+# Fix 8: more ways the friend states each fact. Each train fact template has one statement, so the
+# model saw every fact in one wording and learned to match words; these add three more each, with
+# different words for the fact itself ("has a new pup called" beside "adopted a dog named"). Every
+# one opens the way an existing train statement opens, so no opening can match a sealed pool's
+# (a test enforces it). Keyed by the template's own statement, which is unique in the train pool.
+MORE_STATEMENTS: dict[str, tuple[str, ...]] = {
+    "my {relation} {person} adopted a dog named {value} last month": (
+        "my {relation} {person} has a new pup called {value}",
+        "{person} is my {relation} and their rescue dog goes by {value}",
+        "you know my {relation} {person}? the dog they brought home is {value}",
+    ),
+    "my {relation} {person} is moving to {value} in the spring": (
+        "my {relation} {person} is relocating to {value} after winter",
+        "news from my {relation} {person}: they're packing up for {value}",
+        "{person} is my {relation} and they've found a flat in {value} for next year",
+    ),
+    "my {relation} {person} just started work as a {value}": (
+        "my {relation} {person} got hired as a {value}",
+        "news from my {relation} {person}: they're working as a {value} now",
+        "apparently my {relation} {person} trained up to be a {value}",
+    ),
+    "my {relation} {person} bought a {value} from an auction": (
+        "my {relation} {person} won a bid on a {value}",
+        "so {person} (my {relation}) is driving a {value} these days",
+        "you know my {relation} {person}? they picked up a {value} cheap at a sale",
+    ),
+    "my {relation} {person} has taken up {value} on weekends": (
+        "my {relation} {person} spends saturdays doing {value} now",
+        "news from my {relation} {person}: they've got really into {value}",
+        "{person} is my {relation} and their new hobby is {value}",
+    ),
+    "{person} is my {relation} and just got a kitten called {value}": (
+        "my {relation} {person} brought home a kitten and named it {value}",
+        "news from my {relation} {person}: the new kitten is {value}",
+        "so {person} (my {relation}) has a tiny cat now, {value}",
+    ),
+    "you know my {relation} {person}? they live on {value} now": (
+        "my {relation} {person} moved over to {value}",
+        "{person} is my {relation} and their new address is on {value}",
+        "news from my {relation} {person}: they've settled on {value}",
+    ),
+    "so {person} (my {relation}) finally switched to a {value}": (
+        "my {relation} {person} got rid of the old phone for a {value}",
+        "{person} is my {relation} and they're on a {value} now",
+        "apparently my {relation} {person} upgraded to a {value}",
+    ),
+    "talked to {person} today, my {relation}, who plays bass in {value}": (
+        "my {relation} {person} is in a band called {value}",
+        "news from my {relation} {person}: {value} has a gig with them on bass",
+        "{person} is my {relation} and they play bass for {value}",
+    ),
+    "my {relation}, {person}, had a baby and named them {value}": (
+        "my {relation} {person} welcomed a little one called {value}",
+        "news from my {relation} {person}: the baby's name is {value}",
+        "{person} is my {relation} and they called their newborn {value}",
+    ),
+    "news from my {relation} {person}: they opened a {value} shop": (
+        "my {relation} {person} runs a {value} store now",
+        "{person} is my {relation} and they've launched a {value} business",
+        "apparently my {relation} {person} got the keys to a {value} place in town",
+    ),
+    "apparently my {relation} {person} finished a {value} on sunday": (
+        "my {relation} {person} crossed the line at a {value} this weekend",
+        "{person} is my {relation} and they completed a {value} on sunday",
+        "news from my {relation} {person}: they got through a whole {value}",
+    ),
+    "{person}, the {relation} i keep talking about, broke a {value} skiing": (
+        "my {relation} {person} fractured a {value} on the slopes",
+        "news from my {relation} {person}: a ski fall cracked their {value}",
+        "{person} is my {relation} and they hurt their {value} skiing, it's broken",
+    ),
+    "{person} is my {relation}, and their boat is called {value}": (
+        "my {relation} {person} named their boat {value}",
+        "news from my {relation} {person}: the little sailboat is {value}",
+        "you know my {relation} {person}? {value} is painted on the side of their boat",
+    ),
+    "for the record my {relation} {person} only ever orders a {value}": (
+        "my {relation} {person} always gets a {value} at the cafe",
+        "{person} is my {relation} and a {value} is their usual",
+        "so {person} (my {relation}) won't drink anything but a {value}",
+    ),
+    "i just learned {person} was born in {value}, and that's my {relation}": (
+        "my {relation} {person} has a birthday in {value}",
+        "{person} is my {relation} and they were born in {value}",
+        "news from my {relation} {person}: their birthday month is {value}",
+    ),
+    "you'll laugh, my {relation} {person} won a {value} in a raffle": (
+        "my {relation} {person} took home a {value} from a prize draw",
+        "{person} is my {relation} and they just won a {value} in a raffle",
+        "news from my {relation} {person}: the raffle prize was a {value}",
+    ),
+    "my {relation}, {person}, writes {value} novels at night": (
+        "my {relation} {person} is working on a {value} book",
+        "{person} is my {relation} and they write {value} fiction in the evenings",
+        "news from my {relation} {person}: another {value} manuscript is done",
+    ),
+    "drove past {person}'s place, my {relation}, it's been painted {value}": (
+        "my {relation} {person} repainted the house {value}",
+        "{person} is my {relation} and their walls are {value} now",
+        "news from my {relation} {person}: the whole house is {value} this year",
+    ),
+    "{person} is my {relation}, and they rent on the {value} floor": (
+        "my {relation} {person} lives up on the {value} floor",
+        "news from my {relation} {person}: their flat is on the {value} floor",
+        "you know my {relation} {person}? their place is on the {value} floor",
+    ),
+    "you know my {relation} {person}? they teach {value} at the high school": (
+        "my {relation} {person} is a {value} teacher",
+        "{person} is my {relation} and they take the {value} classes at the school",
+        "news from my {relation} {person}: they're running the {value} department",
+    ),
+    "so {person} (my {relation}) keeps {value} in the yard": (
+        "my {relation} {person} looks after {value} out back",
+        "{person} is my {relation} and they've got {value} in the garden",
+        "news from my {relation} {person}: the {value} got out of the yard again",
+    ),
+    "news from my {relation} {person}: they got tickets to {value}": (
+        "my {relation} {person} is going to {value} this summer",
+        "{person} is my {relation} and they've booked {value}",
+        "apparently my {relation} {person} landed passes for {value}",
+    ),
+    "apparently my {relation} {person} rides a {value} to work": (
+        "my {relation} {person} commutes on a {value}",
+        "{person} is my {relation} and their bike is a {value}",
+        "news from my {relation} {person}: they bought a {value} for getting around",
+    ),
+    "talked to {person} today, my {relation}, now promoted to {value}": (
+        "my {relation} {person} got bumped up to {value}",
+        "{person} is my {relation} and their new title is {value}",
+        "news from my {relation} {person}: they made {value} this week",
+    ),
+}

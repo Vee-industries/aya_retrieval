@@ -55,6 +55,7 @@ carry their own provenance (command, git commit, package versions).
 | R-040 | Screens on v4: 4 epochs a candidate, learning rate 1e-4 dropped, fix 6 gains on recall; confirmation rule registered |
 | R-041 | ★ Amendment to R-016, R-038 and R-039, before any final run: recall counted by source; the recall rule must also hold on retrieved answers alone |
 | R-042 | Fix 6's remaining misses, and fix 7: searches in the friend's own words |
+| R-043 | Wrong although retrieved: a reading failure; fix 8 states each training fact in more ways |
 
 ---
 
@@ -1458,3 +1459,26 @@ they gave first, then up to three other words of theirs, with function words and
 `run_build_training_set.py` draws them), these searches found the fact 300 times, the same as the fixed keywords, so
 no demonstration loses its fact. The rest of the build is fix 6's. Screened against fix 6's screen adapter on probe seed
 51203; a gain goes to three seeds under a rule written first.
+
+## R-043 · 2026-11-03 · SPRINT · Wrong although retrieved: a reading failure; fix 8 states each training fact in more ways
+
+Kevin agreed the answers that were wrong although the fact was retrieved are worth fixing. v4, probe seed 73157, three
+seeds: 11 such answers; with fix 6's screen adapter, 16 in all. 12 of the 16 are false denials ("I don't have that from
+you", "I checked and you haven't told me that"); 3 give other content; 1 names the decoy.
+
+**Not position.** In 10 of v4's 11 the fact was the top search result (successes: 247 of 251 at the top). In
+`58_confirm_12` the model searched `tutor scares` and got one passage, "Ayaan, who is my tutor, is terrified of
+pigeons", and replied "I don't have that from you"; seed 83 searched `tutor fear` and answered "Your tutor, Ayaan, is
+scared of pigeons".
+
+**A reading failure on wording.** The probe's `fear` type fails 7 of 68 retrieved answers (10%) against about 2% for the
+other types; its statement says "terrified of" and its questions say "scares", "scared", "freaks out". Failures share no
+content word with the fact statement 6 times in 11, successes 96 in 251. Each train fact template states its fact in
+one wording, so the model saw every fact one way and learned to match on words.
+
+**Fix 8, `--more-statements`.** Three more statements per train fact type (`train_phrasings.MORE_STATEMENTS`, 75,
+written by Claude), each with different words for the fact ("has a new pup called" beside "adopted a dog named"), each
+opening the way an existing train statement opens, so no opening matches a sealed pool's (tested). Every fact line,
+decoys included, draws its wording from a separate generator, so the rest of the conversation is unchanged (tested).
+The probe's wording was read in the loss list above, and none of the new statements copies it. Built on fix 6's data
+and screened against fix 6's screen adapter on probe seed 51203, independently of fix 7.

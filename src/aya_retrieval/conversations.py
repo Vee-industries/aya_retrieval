@@ -10,7 +10,7 @@ import random
 from dataclasses import dataclass
 
 from aya_retrieval.pools import POOLS, FactTemplate, Pool
-from aya_retrieval.train_phrasings import MORE_INDIRECT
+from aya_retrieval.train_phrasings import MORE_INDIRECT, MORE_STATEMENTS
 
 EXCHANGES_IN_VIEW = 3
 ASK_FORMS = ("same_words", "new_words", "indirect")
@@ -69,6 +69,7 @@ def build_item(
     pool_name: str,
     decoys: int = 1,
     more_indirect: bool = False,
+    more_statements: bool = False,
 ) -> RecallItem:
     """Return a conversation of about ``messages`` messages ending in a message of ``kind``.
 
@@ -84,6 +85,8 @@ def build_item(
         more_indirect: Draw an indirect question from the template's own phrasing and those in
             ``train_phrasings.MORE_INDIRECT``, from a separate generator, so the rest of the
             conversation is the same with or without it.
+        more_statements: State each fact in the template's own wording or one from
+            ``train_phrasings.MORE_STATEMENTS``, drawn per line from a separate generator.
     """
     pool = POOLS[pool_name]
     rng = random.Random(seed)
@@ -99,8 +102,12 @@ def build_item(
     if kind == IN_VIEW:
         fact_index = exchange_count - rng.randint(1, EXCHANGES_IN_VIEW)
 
-    fact = template.statement.format(relation=relation, person=person, value=answer)
-    decoy_fact = template.statement.format(
+    wordings = (template.statement,)
+    if more_statements:
+        wordings += MORE_STATEMENTS.get(template.statement, ())
+    phraser = random.Random(seed + 3)
+    fact = phraser.choice(wordings).format(relation=relation, person=person, value=answer)
+    decoy_fact = phraser.choice(wordings).format(
         relation=decoy_relation, person=decoy_person, value=decoy
     )
     decoy_line = (decoy_fact, rng.choice(pool.acknowledgements))
@@ -119,7 +126,7 @@ def build_item(
     spare_slots = [slot for slot in older_slots if slot not in (fact_index, decoy_index)]
     extra_values = extras.sample(spare_values, max(decoys - 1, 0))
     for value in extra_values:
-        line = template.statement.format(
+        line = phraser.choice(wordings).format(
             relation=spare_relations.pop(extras.randrange(len(spare_relations))),
             person=spare_people.pop(extras.randrange(len(spare_people))),
             value=value,
