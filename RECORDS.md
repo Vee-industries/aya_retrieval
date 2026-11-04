@@ -56,6 +56,7 @@ carry their own provenance (command, git commit, package versions).
 | R-041 | ★ Amendment to R-016, R-038 and R-039, before any final run: recall counted by source; the recall rule must also hold on retrieved answers alone |
 | R-042 | Fix 6's remaining misses, and fix 7: searches in the friend's own words |
 | R-043 | Wrong although retrieved: a reading failure; fix 8 states each training fact in more ways |
+| R-044 | Capacity screens beat every data fix: LoRA on the MLP layers, and rank 32; R-040's confirmation superseded before it ran; combinations next |
 
 ---
 
@@ -1482,3 +1483,28 @@ opening the way an existing train statement opens, so no opening matches a seale
 decoys included, draws its wording from a separate generator, so the rest of the conversation is unchanged (tested).
 The probe's wording was read in the loss list above, and none of the new statements copies it. Built on fix 6's data
 and screened against fix 6's screen adapter on probe seed 51203, independently of fix 7.
+
+## R-044 · 2026-11-03 · SPRINT · Capacity screens beat every data fix: LoRA on the MLP layers, and rank 32; R-040's confirmation superseded before it ran; combinations next
+
+Development only, screen probe seed 51203, adapter seed 82, lean loss, v4's data, against v4's screen adapter
+(`screen_relation_answers_82`). The `--lora-targets` and `--lora-r` options (commit `aca12f9`) leave the defaults as
+they were.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) | Peak GiB |
+|---|---|---|---|---|---|---|---|---|
+| v4 | 76 | 34 | 42 | 37 | 48 | 48 | 232 | 7.12 |
+| fix 6 (R-040) | 84 | 41 | 43 | 36 | 48 | 47 | 235 | |
+| LoRA on attention and MLP (`screen_lora_mlp_82`) | 87 | 39 | 48 | 37 | 48 | 48 | 234 | 7.47 |
+| LoRA rank 32 (`screen_lora_r32_82`) | 86 | 40 | 46 | 43 | 48 | 47 | 233 | 7.22 |
+
+On `older` plus `confirm`, against v4: MLP 1 alone right and 12 alone (p < 0.01); rank 32 2 and 12 (p = 0.013). Over all
+kinds: MLP 6 and 17 (p = 0.035); rank 32 5 and 20 (p < 0.01). Rank 32 also lifts `in_view` from 37 to 43, which no data
+fix has moved. Both fit well within the card (training 1,696 s and 1,367 s).
+
+**R-040's confirmation is superseded before it ran.** Its runs had not started; the queued job was stopped at 20:07.
+Confirming fix 6 on v4's settings would confirm a set already outgrown, so the card goes to combinations first. R-040's
+rule is not applied to anything; fix 6's screen stands as recorded.
+
+**Combinations, next.** Fix 6's data with (a) LoRA on attention and MLP, (b) rank 32, (c) both, each against fix 6's
+screen adapter. The best goes to three seeds under a rule written before those runs, with Sheet A and Sheet B. Fixes 7
+and 8 are still screened on v4's settings against fix 6, as R-042 and R-043 set out, and join the winner if they gain.
