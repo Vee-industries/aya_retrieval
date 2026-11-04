@@ -1,15 +1,33 @@
 # aya_retrieval
 
-**Training a small open model to decide when to search and what to trust.** Tiny Aya is taught to
-search on real lookups and not on statements, to stop and wait for the real search result, and to
-ignore instructions hidden inside the text it retrieves.
+**Teaching a small open model to remember a long chat it can no longer see.** Tiny Aya Global
+(3.35B) is trained with LoRA to search the earlier conversation when, and only when, the answer is
+out of view, to read what comes back, and to answer in its own voice, while staying as coherent as
+the untrained model. The write-up is [`docs/ARTICLE.md`](docs/ARTICLE.md).
 
 Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.ai) (1–14 November
 2026), Track 3, Agentic Fine-tuning. Author: Kevin Vaillancourt.
 
-> **Status: in progress.** [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run and
-> result, each marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this
+> **Status: in progress.** The current adapter is v5 (RECORDS R-061); development numbers only, until
+> the registered final test runs. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
+> and result, each marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this
 > repository is built to.
+
+## Pools
+
+Conversations are built from pools of people, relations, fact types and small talk
+(`src/aya_retrieval/pools.py`). No two pools share any content; tests enforce it.
+
+| Pool | Written by | Used for |
+|---|---|---|
+| `train` | Claude | training |
+| `probe` | Claude | development screens and confirmations |
+| `heldout` | Claude | the registered final test only; sealed |
+| `independent` | a fresh agent, from a brief | the registered final test only; sealed, never read |
+| `hard_dev` | a second fresh agent, same brief | development: a readable twin of `independent` (R-066) |
+
+`src/aya_retrieval/stress.py` makes any pool harder at evaluation: the user's typing style, facts
+corrected later, and longer chats (R-067).
 
 ## Prior work
 
@@ -23,7 +41,7 @@ weights instead. Nothing from that project's code or test sets is used here.
 |---|---|
 | `src/aya_retrieval/` | The package: pinned model, tool prompt, scoring, provenance |
 | `scripts/` | Entry points, one `run_*.py` per experiment; each documents its own usage |
-| `data/` | Test items |
+| `data/` | Training sets and their provenance |
 | `results/` | Results files, each with its own provenance |
 | `tests/` | The test suite |
 

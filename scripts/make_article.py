@@ -19,6 +19,7 @@ from aya_retrieval.report_data import (
     COHERENCE_DIR,
     EVAL_DIR,
     KINDS,
+    RECALL_KINDS,
     SIZES,
     by_kind,
     coherence_by_model_and_kind,
@@ -354,6 +355,45 @@ def false_retrieval_numbers(base, tuned, out) -> None:
     )
 
 
+CROWDED = ("probe_d4_base", "probe_d4_v5_")  # R-065, four decoys a chat, development
+HARD_DEV = ("hd_base", "hd_v5_")  # R-068, the independent pool's twin, development
+
+
+def development_numbers(tuned, out) -> None:
+    """Development checks beyond the probe: the crowded condition and the hard_dev twin."""
+    d4 = {s: eval_rows(f"{CROWDED[1]}{s}", PROBE) for s in SEEDS}
+    one, four = pooled([recall(tuned[s]) for s in SEEDS]), pooled([recall(d4[s]) for s in SEEDS])
+    fr4 = totals(
+        {k: pooled([false_retrieval(f"{CROWDED[1]}{s}", PROBE)[k] for s in SEEDS]) for k in KINDS}
+    )
+    frb = totals(false_retrieval(CROWDED[0], PROBE))
+    out["crowded_text"] = (
+        f"With four decoys a chat instead of one, the adapter keeps {four[0]} of {four[1]} recall "
+        f"answers ({one[0]} with one) and names a wrong person's fact in {fr4[0]} of {fr4[1]} "
+        f"replies; the untrained model does so in {frb[0]} of {frb[1]} (R-065)."
+    )
+    hb = eval_rows(HARD_DEV[0], PROBE)
+    ht = [r for s in SEEDS for r in eval_rows(f"{HARD_DEV[1]}{s}", PROBE)]
+    rb, rt = recall(hb), recall(ht)
+    missed = [r for r in ht if r["kind"] in RECALL_KINDS and not r["correct"]]
+    found = sum(bool(r["found_fact"]) for r in missed)
+    out["hard_dev_text"] = (
+        f"On `hard_dev`, the adapter answers {rt[0]} of {rt[1]} recall questions "
+        f"({100 * rt[0] / rt[1]:.0f}%) against the untrained model's {rb[0]} of {rb[1]} "
+        f"({100 * rb[0] / rb[1]:.0f}%): still {signed(percent_above(rt, rb))}%, but far below its "
+        f"{100 * one[0] / one[1]:.0f}% on the probe. In {found} of its {len(missed)} misses the "
+        "search brought the fact back. The searches show why: the adapter writes the query phrase "
+        "of the nearest training fact type, not words from the question, so a question about where "
+        "someone grew up is searched as a birthday month, and the reply then denies the fact or "
+        "answers the question it searched for (R-068)."
+    )
+    out["hard_dev_abstract"] = (
+        f"On a harder development pool written by an independent agent, recall falls to "
+        f"{100 * rt[0] / rt[1]:.0f}% (untrained: {100 * rb[0] / rb[1]:.0f}%), because the adapter "
+        "searches unfamiliar kinds of fact as if they were ones it was trained on."
+    )
+
+
 def audit_numbers(out) -> None:
     audit = json.loads(AUDIT.read_text(encoding="utf-8"))
     labels = audit["labels"]
@@ -596,6 +636,7 @@ def numbers() -> dict[str, str]:
     kind_numbers(base, tuned, out)
     coherence_numbers(out)
     false_retrieval_numbers(base, tuned, out)
+    development_numbers(tuned, out)
     ablation_numbers(out)
     interval_numbers(base, tuned, out)
     sources_numbers(base, tuned, out)

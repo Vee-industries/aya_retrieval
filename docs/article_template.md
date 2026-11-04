@@ -13,7 +13,7 @@ read what comes back, and to answer in the model's own voice. With only the last
 in view, the adapter answers questions about earlier facts correctly {{tuned_recall_58}}% of the
 time in 58-message chats and {{tuned_recall_419}}% in 419-message chats, against
 {{base_recall_58}}% and {{base_recall_419}}% for the untrained model ({{gain_58}}% and
-{{gain_419}}%). {{coherence_summary}} {{false_retrieval_summary}} Every training change was
+{{gain_419}}%). {{coherence_summary}} {{false_retrieval_summary}} {{hard_dev_abstract}} Every training change was
 screened against a rule written before its run, and the final test was registered in advance and
 then only made harder: a crowded condition with four distracting facts per chat, and a second
 test pool written by an independent agent and never read by the authors. We also report two
@@ -148,6 +148,16 @@ it, in every condition. The held-out pool was written by Claude, the author's AI
 session as the training pool; the independent pool was written by a fresh agent that saw only a brief, an
 avoid-list and a checker, and nobody on the project has read it (R-039).
 
+**Development tests beyond the probe.** Every probe used in development shares the training pool's
+author and style, so three harder checks were added before the final test, none of them deciding a
+version: the crowded condition on the probe; `hard_dev`, a twin of the independent pool written by
+a second fresh agent from the same brief, readable and used for development only (R-066); and
+stress transforms applied to any pool, taken from the failure categories of the author's earlier
+chat engine (its categories only, none of its text): the user's typing style, facts corrected
+later, and 1,000-message chats (R-067). Writing the twin from the independent pool's brief, and
+training on material written to a similar brief, makes the sealed independent pool less
+independent of development than it was; it still shares no content with any other pool.
+
 ## 6. Results
 
 {{results_scope}}
@@ -184,6 +194,13 @@ Right decisions, searching exactly when the answer is out of view: {{decisions_b
 ![False retrieval by kind](../figures/false_retrieval.png)
 
 {{false_retrieval_text}}
+
+### Harder development checks: where it still fails
+
+{{crowded_text}}
+
+{{hard_dev_text}} This is the largest gap found, and the sealed independent pool, written to the
+same brief, is likely to show it; fix 14 (a wider training pool of new fact types) is aimed at it.
 
 ### A second scorer: AuditKIT
 
@@ -279,6 +296,11 @@ run-to-run variation (R-032).
   in 48; on "fact told long ago" lines, three judges gave the same 48 replies 34, 17 and 30, because
   one marked down any reply that opens with a name (R-057). Claims on that kind rest on the pooled,
   paired comparison, where the adapter's lead (130 against 81) is larger than that spread.
+- **Development pools and the sealed one share a brief.** `hard_dev` and the wide training pool
+  were written to briefs like the independent pool's, so the final test's independent condition is
+  less independent of development than when it was registered (R-066, R-069). One writer of the
+  wide pool, since discarded, saw fragments of sealed wording through a checker that reported
+  only counts; that pool was never used (R-070).
 - **Training is not bit-reproducible on this card.** With the same rows and seed, TRL's own first
   gradient norm varied from run to run (R-029), so every claim pools three seeds.
 ## 11. Limitations

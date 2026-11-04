@@ -82,6 +82,7 @@ carry their own provenance (command, git commit, package versions).
 | R-067 | Harder development tests from LLE's failure categories: user typing style, corrections, 1,000-message chats |
 | R-068 | On `hard_dev` v5's recall is 172 of 288: unseen fact types searched with the training pool's query phrases |
 | R-069 | Fix 14: a wide training pool of new fact types by a fresh agent; gate and rule on probe and `hard_dev` first |
+| R-070 | First wide pool discarded (its writer saw sealed fragments via a debug script); checker fixed; docs updated |
 
 ---
 
@@ -2260,3 +2261,25 @@ on the probe pooled at least 273 of 288 (v5's 279 less 6); and on `hard_dev`: re
 coherent at or above base's `three_exchanges` replies (one sheet a seed). It replaces v5 (as v6) only if all pass.
 Labels: `screen_fix14_all_82`, `hd_fix14_82`, `probe15_tuned8x`, `hd_fix14_8x`; adapters
 `adapters/screens/fix14_all_8x`. No held-out or independent run without Kevin.
+
+## R-070 · 2026-11-04 · SPRINT · The first wide pool is discarded: its writer saw fragments of sealed wording; the checker now names only the writer's own lines
+
+The first fresh agent to write `wide` (R-069) passed the checker and reported "a temporary debug copy of the checker's
+two checks" used to find which of its lines clashed. Its transcript shows a script that imported the project's pools
+(sealed ones included) and printed every four-word run its lines shared with them: up to 46 short fragments of other
+pools' wording, some from the held-out and independent pools. It also read the pools in code, against the brief.
+The cause is the checker R-066 and R-069 wrote: it reported only a count of clashing lines, so a writer had to find
+them some other way. The pool would have been training data, so it was deleted unused (with the agent's scratch
+folder); nothing from it entered the repository.
+
+`hard_dev`'s writer was checked the same way: it read only its brief, avoid-list and checker, and ran no code reading
+the project, so `hard_dev` stands.
+
+**Fix.** The wide checker now names the writer's own line that clashes ("reword (shares four words in a row with
+another pool): <the writer's line>"), never the other pool's wording, so there is nothing to look for elsewhere; and
+the brief forbids running any code but the checker or importing the project's modules. A second fresh agent writes
+`wide` with these; its transcript is checked the same way before the pool is used.
+
+**Docs.** The article gains the development checks beyond the probe (section 5), their results (R-065, R-068) in
+section 6 and the abstract, and this incident and the shared brief under threats to validity; the README describes
+the current project, the pools and the stress tests.
