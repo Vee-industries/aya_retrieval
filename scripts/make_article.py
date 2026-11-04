@@ -162,7 +162,7 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "screen_fix6_all_82",
         "screen_more_indirect_82",
         "Fix 6 at rank 32, with MLP, at 3e-4",
-        "best screen; confirming (R-052)",
+        "failed its coherence rule (R-055)",
     ),
     (
         "screen_fix6_r64_82",

@@ -214,6 +214,14 @@ What the path shows:
    friend's "my tutor" turned into "your tutor". Plain answers that name the relation from the
    friend's side closed the gap (**v4**).
 5. {{dropped_fixes}}
+6. **Training harder raised recall and cost coherence on plain chat.** A higher rank, LoRA on the
+   MLP layers and a higher learning rate each gained recall on the screen, and all three together
+   came close to every recall question. Its confirmation failed on the blind check of plain chat
+   lines: told "my tutor has been acting strange lately", it searched and stated a stored fact about
+   the tutor (R-055). The training set had six chat lines against 25 fact templates, so a model
+   trained harder treated any line about a named person as a lookup. Searching in the friend's own
+   words (fix 7) showed the same pull from the other side: recall rose and never-told questions
+   were answered with other people's facts (R-050, R-054).
 
 ## 8. Cost
 
