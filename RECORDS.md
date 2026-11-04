@@ -60,6 +60,7 @@ carry their own provenance (command, git commit, package versions).
 | R-045 | R-038's crowded condition on the probe, development: v4 holds with four decoys |
 | R-046 | Learning rate 3e-4 also beats v4: three ways to train harder all gain; two more combinations queued |
 | R-047 | Fix 6 at rank 32 is the best screen (recall 92 of 96); stronger training costs a few statements on one opening |
+| R-048 | Rank 32 with the MLP layers ties rank 32 alone; rank 32 alone stays the lead |
 
 ---
 
@@ -1580,3 +1581,18 @@ the confirmation rule below this record must hold `statement` and a blind cohere
 (more ways of stating facts, queued) is the data fix aimed at this.
 
 Still to read tonight: fix 6 + rank 32 + MLP, fix 7, fix 8, fix 6 + 3e-4, and fix 6 with all three changes.
+
+## R-048 · 2026-11-03 · SPRINT · Rank 32 with the MLP layers ties rank 32 alone; rank 32 alone stays the lead
+
+Development only, screen probe seed 51203, adapter seed 82, fix 6's data.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) | Train s | Peak GiB |
+|---|---|---|---|---|---|---|---|---|---|
+| fix 6 (R-040) | 84 | 41 | 43 | 36 | 48 | 47 | 235 | | |
+| fix 6 + rank 32 (R-047) | 92 | 45 | 47 | 39 | 48 | 44 | 235 | 1,282 | 7.22 |
+| fix 6 + rank 32 on attention and MLP (`screen_fix6_mlp_r32_82`) | 90 | 42 | 48 | 43 | 48 | 43 | 235 | 1,663 | 7.83 |
+
+Against rank 32 alone: recall 4 and 2 (p = 0.69), all kinds 6 and 7 (p = 1.0), `in_view` 0 and 4 (p = 0.13). Against
+fix 6: recall 3 and 9 (p = 0.15). The MLP layers add no recall, cost 30% more training time and 0.6 GiB more card
+memory, and lose one more statement; the `in_view` gain of 4 is not significant on its own. Rank 32 alone stays the
+lead. Its four `in_view` gains are noted for the confirmation: rank 32 on v4's data also lifted `in_view` (R-044).

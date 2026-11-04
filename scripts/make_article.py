@@ -139,6 +139,12 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "no gain over fix 6 (R-047)",
     ),
     ("screen_fix6_r32_82", "screen_more_indirect_82", "Fix 6 at rank 32", "candidate (R-047)"),
+    (
+        "screen_fix6_mlp_r32_82",
+        "screen_more_indirect_82",
+        "Fix 6 at rank 32 with the MLP layers",
+        "ties rank 32 alone (R-048)",
+    ),
 ]
 KIND_NAMES = {
     "older": "Fact told long ago",

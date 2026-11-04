@@ -244,6 +244,7 @@ over all 240 conversations.
 | Learning rate 3e-4 | 86 (76) | 39 | 235 | 3 / 15 | <0.01 | candidate (R-046) |
 | Fix 6 with LoRA on the MLP layers | 87 (84) | 39 | 235 | 16 / 18 | 0.86 | no gain over fix 6 (R-047) |
 | Fix 6 at rank 32 | 92 (84) | 39 | 235 | 11 / 19 | 0.20 | candidate (R-047) |
+| Fix 6 at rank 32 with the MLP layers | 90 (84) | 43 | 235 | 11 / 20 | 0.15 | ties rank 32 alone (R-048) |
 
 What the path shows:
 
