@@ -260,6 +260,7 @@ over all 240 conversations.
 | Fix 8 data on the lead's settings | 94 (95) | 42 | 232 | 16 / 4 | 0.01 | loses statements (R-056) |
 | Fix 10: fix 9 with judge-vetted chat targets | 96 (94) | 43 | 240 | 2 / 2 | 1.00 | failed coherence at one seed by one reply (R-059) |
 | Fix 11: fix 10 with brief chat targets | 95 (96) | 42 | 240 | 4 / 3 | 1.00 | **v5** (R-061) |
+| Fix 12: v5 with brief, vetted in-view answers | 90 (95) | 45 | 239 | 7 / 5 | 0.77 | dropped at the screen gate (R-063) |
 | Lead's settings, 4 epochs | 93 (95) | 44 | 230 | 13 / 3 | 0.02 | loses statements (R-056) |
 
 What the path shows:
@@ -278,7 +279,7 @@ What the path shows:
    reaction to news, and most scripted answers left the relation out, so the model never saw the
    friend's "my tutor" turned into "your tutor". Plain answers that name the relation from the
    friend's side closed the gap (**v4**).
-5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
+5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results; fix 12: v5 with brief, vetted in-view answers. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
 6. **Training harder raised recall and cost coherence on plain chat.** A higher rank, LoRA on the
    MLP layers and a higher learning rate each gained recall on the screen, and all three together
    came close to every recall question. Its confirmation failed on the blind check of plain chat
