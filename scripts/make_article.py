@@ -155,7 +155,7 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "screen_more_statements_82",
         "screen_more_indirect_82",
         "Fix 8: more ways of stating each fact",
-        "candidate at rank 32 (R-051)",
+        "candidate on the lead's settings (R-054)",
     ),
     ("screen_fix6_lr3e4_82", "screen_more_indirect_82", "Fix 6 at 3e-4", "ties rank 32 (R-052)"),
     (
@@ -169,6 +169,12 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "screen_fix6_r32_82",
         "Fix 6 at rank 64",
         "no gain over rank 32 (R-053)",
+    ),
+    (
+        "screen_never_told_hits_82",
+        "screen_more_indirect_82",
+        "Fix 7b: 7, never-told rows only with results",
+        "dropped on statements (R-054)",
     ),
     (
         "screen_fix6_r32_lr3e4_82",

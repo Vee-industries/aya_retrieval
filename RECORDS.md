@@ -66,6 +66,7 @@ carry their own provenance (command, git commit, package versions).
 | R-051 | Fix 8 is a small, non-significant gain and misses its target; screened again at rank 32 |
 | R-052 | Fix 6 with all three capacity changes is the best screen (95 of 96); R-049 superseded; confirmation rule |
 | R-053 | Rank 64 adds nothing; rank 32 at 3e-4 without MLP fails one statement opening 8 of 10; R-052 stands |
+| R-054 | Fix 7b brings never_told only part way back and loses statements: fix 7 line dropped |
 
 ---
 
@@ -1743,3 +1744,28 @@ Development only, screen probe seed 51203, adapter seed 82, fix 6's data. Both q
 The MLP layers did not add recall on their own (R-047, R-048), but with rank 32 and 3e-4 they are what keeps this
 opening from being read as a question. R-052's lead stands, and its confirmation is next on the card. The "acting
 strange" opening is the one weak spot left on the screen, and R-052's item 3 and Sheet B check it.
+
+## R-054 · 2026-11-04 · SPRINT · Fix 7b brings `never_told` only part of the way back and loses statements: the fix 7 line is dropped; next screens on the lead's settings
+
+Development only, screen probe seed 51203, adapter seed 82, rank 16. Fix 7's build plus `--never-told-hits` (R-050),
+`data/screens/never_told_hits.jsonl`, 800 rows; trained 1,330 s, peak 7.12 GiB.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) | False retrieval (of 240) |
+|---|---|---|---|---|---|---|---|---|
+| base (`screen_base`) | 38 | 33 | 5 | 32 | 46 | 25 | 109 | 9 |
+| fix 6 (R-040) | 84 | 41 | 43 | 36 | 48 | 47 | 235 | 0 |
+| fix 7 (R-050) | 94 | 46 | 48 | 39 | 21 | 44 | 229 | 27 |
+| fix 7b (`screen_never_told_hits_82`) | 95 | 47 | 48 | 38 | 36 | 38 | 222 | 13 (12 `never_told`) |
+
+Against fix 6: recall 0 alone right and 11 (p = 0.001), but `statement` 9 and 0 (p = 0.004) and all kinds 27 and 19.
+Every recall answer it gets right is retrieved (95 of 95). R-050's bar for going forward was `never_told` back at 48
+with no false retrieval. Fix 7b reaches 36, names a wrong value 13 times (base 9), and searches on statements of every
+opening, not one. Dropped, and with it the fix 7 line: training searches in the friend's own words teach the model
+that any line naming a person is a lookup, and showing it more declines fixes only part of that.
+
+The recall gain from searching in the friend's words (95 of 96) equals R-052's lead (95 of 96), which gets there with
+fix 6's keyword searches and no loss on `never_told` or false retrieval.
+
+**Next, on the lead's settings** (rank 32, attention and MLP, 3e-4), against `screen_fix6_all_82`, queued after R-052's
+confirmation: fix 8's data (`fix8_all`), which replaces R-051's plan for fix 8 at rank 32 alone, since rank 32 alone is
+no longer the lead; and fix 6's data at 4 epochs (`fix6_all_e4`).

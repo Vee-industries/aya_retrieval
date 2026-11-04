@@ -246,10 +246,11 @@ over all 240 conversations.
 | Fix 6 at rank 32 | 92 (84) | 39 | 235 | 11 / 19 | 0.20 | beaten (R-052) |
 | Fix 6 at rank 32 with the MLP layers | 90 (84) | 43 | 235 | 11 / 20 | 0.15 | ties rank 32 alone (R-048) |
 | Fix 7: searches in the friend's own words | 94 (84) | 39 | 229 | 36 / 19 | 0.03 | dropped on false retrieval (R-050) |
-| Fix 8: more ways of stating each fact | 86 (84) | 41 | 238 | 9 / 15 | 0.31 | candidate at rank 32 (R-051) |
+| Fix 8: more ways of stating each fact | 86 (84) | 41 | 238 | 9 / 15 | 0.31 | candidate on the lead's settings (R-054) |
 | Fix 6 at 3e-4 | 92 (84) | 41 | 238 | 4 / 16 | 0.01 | ties rank 32 (R-052) |
 | Fix 6 at rank 32, with MLP, at 3e-4 | 95 (84) | 44 | 238 | 4 / 22 | <0.01 | best screen; confirming (R-052) |
 | Fix 6 at rank 64 | 91 (92) | 35 | 235 | 12 / 10 | 0.83 | no gain over rank 32 (R-053) |
+| Fix 7b: 7, never-told rows only with results | 95 (84) | 38 | 222 | 27 / 19 | 0.30 | dropped on statements (R-054) |
 | Fix 6 at rank 32 and 3e-4, attention only | 93 (95) | 42 | 231 | 15 / 4 | 0.02 | loses statements (R-053) |
 
 What the path shows:
@@ -268,7 +269,7 @@ What the path shows:
    reaction to news, and most scripted answers left the relation out, so the model never saw the
    friend's "my tutor" turned into "your tutor". Plain answers that name the relation from the
    friend's side closed the gap (**v4**).
-5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
+5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
 
 ## 8. Cost
 
