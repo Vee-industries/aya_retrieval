@@ -810,4 +810,9 @@ POOLS["independent"] = INDEPENDENT
 from aya_retrieval.pool_hard_dev import HARD_DEV  # noqa: E402
 
 POOLS["hard_dev"] = HARD_DEV
+
+# R-069: a wide training pool of new fact types, by a fresh agent. Training only.
+from aya_retrieval.pool_wide import WIDE  # noqa: E402
+
+POOLS["wide"] = WIDE
 SEALED = ("heldout", "independent")

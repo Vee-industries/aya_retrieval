@@ -1,5 +1,6 @@
 """Conversations must be reproducible, varied, and honest about what is in view."""
 
+import re
 from collections import Counter
 from dataclasses import astuple
 from itertools import combinations
@@ -18,7 +19,7 @@ from aya_retrieval.conversations import (
 )
 from aya_retrieval.pools import HELDOUT, POOLS, PROBE, TRAIN
 
-POOL_NAMES = ("train", "heldout", "probe", "independent", "hard_dev")
+POOL_NAMES = ("train", "heldout", "probe", "independent", "hard_dev", "wide")
 
 
 @pytest.mark.parametrize("pool", POOL_NAMES)
@@ -119,7 +120,11 @@ def test_no_reply_dominates_a_long_conversation(pool):
 
 @pytest.mark.parametrize(
     "first, second",
-    list(combinations((TRAIN, HELDOUT, PROBE, POOLS["independent"], POOLS["hard_dev"]), 2)),
+    list(
+        combinations(
+            (TRAIN, HELDOUT, PROBE, POOLS["independent"], POOLS["hard_dev"], POOLS["wide"]), 2
+        )
+    ),
 )
 def test_the_pools_share_no_content(first, second):
     assert not set(first.people) & set(second.people)
@@ -165,3 +170,21 @@ def test_force_indirect_changes_only_the_question():
         assert plain.exchanges == forced.exchanges and plain.answer == forced.answer
         changed += plain.message != forced.message
     assert changed > 20
+
+
+def four_word_runs(text):
+    words = re.findall(r"[a-z']+|\{[a-z]+\}", text.casefold())
+    return {tuple(words[i : i + 4]) for i in range(len(words) - 3)}
+
+
+def wordings(pool):
+    forms = ("statement", "same_words", "new_words", "indirect", "confirm", "answer")
+    lines = [getattr(t, f) for t in pool.facts.values() for f in forms]
+    return lines + [x for pair in pool.statements for x in pair]
+
+
+@pytest.mark.parametrize("test_pool", ["probe", "heldout", "independent", "hard_dev"])
+def test_the_wide_training_pool_shares_no_four_words_with_a_test_pool(test_pool):
+    theirs = set().union(*(four_word_runs(x) for x in wordings(POOLS[test_pool])))
+    clashes = sum(bool(four_word_runs(x) & theirs) for x in wordings(POOLS["wide"]))
+    assert clashes == 0
