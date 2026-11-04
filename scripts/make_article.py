@@ -132,6 +132,13 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
     ),
     ("screen_lora_r32_82", "screen_relation_answers_82", "LoRA rank 32", "candidate (R-044)"),
     ("screen_lr3e4_82", "screen_relation_answers_82", "Learning rate 3e-4", "candidate (R-046)"),
+    (
+        "screen_fix6_mlp_82",
+        "screen_more_indirect_82",
+        "Fix 6 with LoRA on the MLP layers",
+        "no gain over fix 6 (R-047)",
+    ),
+    ("screen_fix6_r32_82", "screen_more_indirect_82", "Fix 6 at rank 32", "candidate (R-047)"),
 ]
 KIND_NAMES = {
     "older": "Fact told long ago",

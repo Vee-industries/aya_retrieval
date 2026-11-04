@@ -242,6 +242,8 @@ over all 240 conversations.
 | LoRA on the MLP layers too | 87 (76) | 37 | 234 | 6 / 17 | 0.03 | candidate (R-044) |
 | LoRA rank 32 | 86 (76) | 43 | 233 | 5 / 20 | <0.01 | candidate (R-044) |
 | Learning rate 3e-4 | 86 (76) | 39 | 235 | 3 / 15 | <0.01 | candidate (R-046) |
+| Fix 6 with LoRA on the MLP layers | 87 (84) | 39 | 235 | 16 / 18 | 0.86 | no gain over fix 6 (R-047) |
+| Fix 6 at rank 32 | 92 (84) | 39 | 235 | 11 / 19 | 0.20 | candidate (R-047) |
 
 What the path shows:
 
