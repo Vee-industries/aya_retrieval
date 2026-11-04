@@ -74,6 +74,7 @@ carry their own provenance (command, git commit, package versions).
 | R-059 | Fix 10 passes six of seven items (recall 282 of 288); seed 84 statement 45 against 46: v4 stands |
 | R-060 | Fix 11: brief statement targets (hint left out of the row), vetted; rule written before the build |
 | R-061 | **v5**: fix 11 passes all seven items (recall 279 of 288, statement coherent on every seed) |
+| R-062 | Fix 12: brief, vetted in_view targets spliced into v5's set; nine-item rule written before the build |
 
 ---
 
@@ -2039,3 +2040,22 @@ judge disagreement on the same replies. v5's margin over base is one to four lin
 each seed's comparison as the rule asks, and pooled it is 142 against 135.
 
 Next: the write-up moves to v5 (article, figures, AuditKIT run, throughput), then the question of what is left to fix.
+
+## R-062 · 2026-11-04 · SPRINT · Fix 12: brief, vetted `in_view` targets spliced into v5's set; rule written before the build
+
+**Why.** On v5's Sheet B, `in_view` is the kind with the most incoherent replies (119 of 144 coherent; base 99). The
+judges' main reason, on every sheet since R-055, is "drawing a blank on my {relation}'s tattoo" read as wordplay, a
+drawing request or disappointment. `in_view` targets are base's own replies (or its hinted replies), unvetted and
+unshortened, as the statement targets were before fixes 10 and 11.
+
+**Fix 12** (code `f59895c`). `--brief-in-view` asks base for brief `in_view` replies, plain and hinted; the
+instruction is not part of the row. 150 `in_view` rows (seed 71121) and 150 spares (seed 71122) are built alone
+(`--kinds in_view`, v5's other flags), vetted on one blind sheet (shuffle seed 90465, a fresh Sonnet judge), and the
+vetted rows replace the `in_view` rows of v5's set (`vet_statement_targets.py apply --kind in_view --into
+data/screens/vetted_brief.jsonl`), so every other row is v5's: `data/screens/vetted_view.jsonl`.
+
+**Gate and rule, written before the build.** Labels `screen_fix12_all_82` and `probe13_tuned8x`, adapters
+`adapters/screens/fix12_all_8x`, v5's training settings. R-055's screen gate at seed 82. Then R-052's seven items
+against base, unchanged, with Sheet B on every seed, and two items against v5: (8) Sheet B `in_view` pooled coherent
+above v5's 119 of 144, since that is what it is for; (9) recall pooled at least 273 of 288 (v5's 279 less 6). It
+replaces v5 (as v6) only if all nine pass. No held-out or independent run without Kevin.
