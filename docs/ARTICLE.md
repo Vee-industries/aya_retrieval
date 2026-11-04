@@ -246,6 +246,7 @@ over all 240 conversations.
 | Fix 6 at rank 32 | 92 (84) | 39 | 235 | 11 / 19 | 0.20 | candidate (R-047) |
 | Fix 6 at rank 32 with the MLP layers | 90 (84) | 43 | 235 | 11 / 20 | 0.15 | ties rank 32 alone (R-048) |
 | Fix 7: searches in the friend's own words | 94 (84) | 39 | 229 | 36 / 19 | 0.03 | dropped on false retrieval (R-050) |
+| Fix 8: more ways of stating each fact | 86 (84) | 41 | 238 | 9 / 15 | 0.31 | candidate at rank 32 (R-051) |
 
 What the path shows:
 

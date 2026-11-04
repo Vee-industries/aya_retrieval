@@ -63,6 +63,7 @@ carry their own provenance (command, git commit, package versions).
 | R-048 | Rank 32 with the MLP layers ties rank 32 alone; rank 32 alone stays the lead |
 | R-049 | Confirmation rule for fix 6 at rank 32, written before its runs and sheets |
 | R-050 | Fix 7 lifts recall to 94 but answers never-told questions with others' facts: dropped; fix 7b queued |
+| R-051 | Fix 8 is a small, non-significant gain and misses its target; screened again at rank 32 |
 
 ---
 
@@ -1656,3 +1657,22 @@ searches find more facts); the training simply stopped showing the case where th
 returns passages, so all 150 show other people's facts coming back and the reply declining. Screened against fix 7
 and fix 6 on probe seed 51203, after R-049's confirmation runs. It goes forward only if `never_told` is back at fix
 6's level with false retrieval at 0 and recall stays above fix 6.
+
+## R-051 · 2026-11-04 · SPRINT · Fix 8 (more ways of stating each fact) is a small, non-significant gain; it misses its target; screened again at rank 32
+
+Development only, screen probe seed 51203, adapter seed 82, rank 16. Fix 6's build plus `--more-statements` (R-043),
+`data/screens/more_statements.jsonl`, 800 rows; trained 1,290 s, peak 7.12 GiB.
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) | False retrieval | Wrong though retrieved |
+|---|---|---|---|---|---|---|---|---|---|
+| fix 6 (R-040) | 84 | 41 | 43 | 36 | 48 | 47 | 235 | 0 | 5 |
+| fix 8 (`screen_more_statements_82`) | 86 | 42 | 44 | 41 | 47 | 47 | 238 | 1 | 7 |
+
+Against fix 6: recall 5 alone right and 7 (p = 0.77); all kinds 9 and 15 (p = 0.31); `in_view` 3 and 8 (p = 0.23).
+Fix 8 was built for the answers the model got wrong although the search returned the fact (R-043). Those did not fall
+(7 against 5), so it misses its target. The `in_view` gain of 5 is the largest any data fix has made on that kind, but
+it is not significant alone.
+
+Fix 8's data is screened again at rank 32 against fix 6 at rank 32 (queued after fix 7b): R-047 found that rank 32
+loses statements, and more ways of stating facts is the data change most likely to prevent that. It is kept as a
+candidate for that reason only.

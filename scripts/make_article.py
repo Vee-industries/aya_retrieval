@@ -151,6 +151,12 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "Fix 7: searches in the friend's own words",
         "dropped on false retrieval (R-050)",
     ),
+    (
+        "screen_more_statements_82",
+        "screen_more_indirect_82",
+        "Fix 8: more ways of stating each fact",
+        "candidate at rank 32 (R-051)",
+    ),
 ]
 KIND_NAMES = {
     "older": "Fact told long ago",
