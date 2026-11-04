@@ -79,6 +79,7 @@ carry their own provenance (command, git commit, package versions).
 | R-064 | Fix 13 fails the screen gate (recall 91): dropped; in_view changes trade in_view for older; v5 is the final candidate |
 | R-065 | v5 with four decoys (development): recall 277 of 288, false retrieval 0 of 720; style of the independent pool untested |
 | R-066 | Development twin of the independent pool (`hard_dev`), fresh agent, R-039's brief; cost to independence disclosed |
+| R-067 | Harder development tests from LLE's failure categories: user typing style, corrections, 1,000-message chats |
 
 ---
 
@@ -2175,3 +2176,28 @@ off so a failure names the test, never a sealed value.
 
 **Use.** Base and v5 on `hard_dev` (seed 73157, 24 a kind, one and four decoys), development only. If v5 falls there,
 the next fixes are screened on it, with R-055's gate on the probe kept so the probe does not slip.
+
+## R-067 · 2026-11-04 · SPRINT · Harder development tests from LLE's failure categories (categories only, none of its text)
+
+**Why.** Kevin asked for several held-out-style tests to find where the gaps are, and for the categories LLE tracks to
+shape them. A read-only agent listed LLE's failure categories in its own general words, quoting no test, name or value
+(R-066's rule on LLE stands: none of its code or test sets enters this repository). Of its 14 categories, four fit this
+task's five kinds of message: how the real user types; corrections not applied; over-eager corrections (a same-type
+fact about someone else replacing the right one, which R-038's crowded condition already tests); and recall across
+very long chats. The others (web search, pasted-text injection, restarts, questions about the order of talk) are
+outside it.
+
+**`src/aya_retrieval/stress.py`** (tested in `tests/test_stress.py`), applied at evaluation to any pool:
+
+1. **`--user-style`**: every friend line and the final message are typed as the user types, by general traits only:
+   all lower case, names included; commas and exclamation marks dropped; contractions without the apostrophe one time
+   in three; a final full stop dropped, or an ellipsis one time in six; a question mark kept six times in ten.
+2. **`--corrections`**: an `older` or `confirm` fact is restated later, still out of view, with a new value of the
+   same type after an opening that says the earlier one was wrong ("scratch what i told you earlier, "). The new value
+   is the answer and the old one is forbidden.
+3. **`--sizes 1000`**: chats of 1,000 messages.
+
+**Runs, development only** (probe seed 73157, 24 a kind, base and v5's three seeds, labels `st_*`): user style on the
+probe and on `hard_dev`, every kind; corrections on the probe and on `hard_dev`, `older` and `confirm`; 1,000-message
+chats on the probe, `older`, `confirm` and `never_told`. They decide nothing; they show where v5's gaps are, and the
+largest gap is the next fix. Any test here that a fix is aimed at joins the screen gate for that fix.

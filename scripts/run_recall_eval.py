@@ -29,6 +29,7 @@ from aya_retrieval.pools import POOLS, SEALED
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.recall_tool import build_recall_tool, search_finds_fact
 from aya_retrieval.scoring import check_scorer, item_correct, right_decision
+from aya_retrieval.stress import corrected, user_style
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME, system_prompt_with_tools
 
 LOG = logging.getLogger("recall_eval")
@@ -74,6 +75,18 @@ def main() -> None:
     parser.add_argument(
         "--decoys", type=int, default=1, help="same-type facts about other people in each chat"
     )
+    parser.add_argument(
+        "--sizes", type=int, nargs="+", default=list(SIZES), help="chat lengths, in messages"
+    )
+    parser.add_argument("--kinds", nargs="+", default=list(ITEM_KINDS), choices=ITEM_KINDS)
+    parser.add_argument(
+        "--user-style", action="store_true", help="friend lines typed as a real user types (R-067)"
+    )
+    parser.add_argument(
+        "--corrections",
+        action="store_true",
+        help="older and confirm facts corrected later, out of view (R-067)",
+    )
     parser.add_argument("--final", action="store_true", help="needed to read held-out items")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
@@ -91,6 +104,10 @@ def main() -> None:
         "seed": args.seed,
         "pool": args.pool,
         "decoys": args.decoys,
+        "sizes": args.sizes,
+        "kinds": args.kinds,
+        "user_style": args.user_style,
+        "corrections": args.corrections,
         "rows": [],
     }
 
@@ -108,13 +125,19 @@ def main() -> None:
         spent["written"] += len(tokenizer.encode(reply, add_special_tokens=False))
         return reply
 
-    for size in SIZES:
+    for size in args.sizes:
         for kind_number, kind in enumerate(ITEM_KINDS):
+            if kind not in args.kinds:
+                continue
             for number in range(args.items_per_kind):
                 seed = args.seed + size * 1000 + kind_number * 100 + number
                 item = build_item(
                     f"{size}_{kind}_{number:02d}", seed, size, kind, args.pool, args.decoys
                 )
+                if args.corrections:
+                    item = corrected(item, seed, args.pool)
+                if args.user_style:
+                    item = user_style(item, seed)
                 tool = build_recall_tool(item, args.index, match_all=False)
                 ask = {"role": "user", "content": item.message}
                 whole_chat = [
