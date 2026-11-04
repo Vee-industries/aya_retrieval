@@ -59,6 +59,7 @@ carry their own provenance (command, git commit, package versions).
 | R-044 | Capacity screens beat every data fix: LoRA on the MLP layers, and rank 32; R-040's confirmation superseded before it ran; combinations next |
 | R-045 | R-038's crowded condition on the probe, development: v4 holds with four decoys |
 | R-046 | Learning rate 3e-4 also beats v4: three ways to train harder all gain; two more combinations queued |
+| R-047 | Fix 6 at rank 32 is the best screen (recall 92 of 96); stronger training costs a few statements on one opening |
 
 ---
 
@@ -1545,3 +1546,37 @@ learning rate, a higher rank and LoRA on the MLP layers each gain about ten reca
 loses nine (R-040): v4's settings under-train it. Queued after fix 8, against fix 6's screen adapter: fix 6's data at
 learning rate 3e-4 (`fix6_lr3e4`), and with all three changes together (`fix6_all`: rank 32, attention and MLP, 3e-4),
 beside R-044's three combinations. The best goes to three seeds under a rule written first.
+
+## R-047 · 2026-11-03 · SPRINT · Fix 6's data at rank 32 is the best screen yet (recall 92 of 96); every stronger setting costs a few statements, all on one probe opening
+
+Development only, screen probe seed 51203, adapter seed 82, fix 6's data (`data/screens/more_indirect.jsonl`), against
+fix 6's screen adapter (`screen_more_indirect_82`) and v4's (`screen_relation_answers_82`).
+
+| Label | Recall (of 96) | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions (of 240) | Train s | Peak GiB |
+|---|---|---|---|---|---|---|---|---|---|
+| v4 | 76 | 34 | 42 | 37 | 48 | 48 | 232 | | 7.12 |
+| fix 6 (R-040) | 84 | 41 | 43 | 36 | 48 | 47 | 235 | | |
+| fix 6 + LoRA on attention and MLP (`screen_fix6_mlp_82`) | 87 | 42 | 45 | 39 | 48 | 43 | 235 | 1,651 | 7.48 |
+| fix 6 + rank 32 (`screen_fix6_r32_82`) | 92 | 45 | 47 | 39 | 48 | 44 | 235 | 1,282 | 7.22 |
+
+Exact sign tests on conversations one adapter got right and the other wrong:
+
+| Comparison | `older` + `confirm` | All kinds | `statement` |
+|---|---|---|---|
+| rank 32 combination against v4 | 0 and 16 (p < 0.0001) | 8 and 22 (p = 0.016) | 4 and 0 (p = 0.125) |
+| rank 32 combination against fix 6 | 1 and 9 (p = 0.022) | 11 and 19 (p = 0.20) | 3 and 0 (p = 0.25) |
+| MLP combination against v4 | 3 and 14 (p = 0.013) | 14 and 22 (p = 0.24) | 5 and 0 (p = 0.063) |
+| MLP combination against fix 6 | 5 and 8 (p = 0.58) | 16 and 18 (p = 0.86) | 4 and 0 (p = 0.13) |
+
+**Rank 32 adds to fix 6; the MLP layers do not.** On fix 6's data the MLP combination gains 3 recall answers and is
+not separable from fix 6 (p = 0.58). Rank 32 gains 8 (p = 0.022) and gets every recall answer v4 got.
+
+**The cost is on `statement`.** All four statements the rank 32 combination fails are one probe opening, "my {relation}
+has been acting strange lately": it searches ("barber promotion") and recites a stored fact ("Your barber, Beatriz, got a
+lighthouse tattoo."). The MLP combination fails the same opening four times and "texted me out of nowhere" once. Fix 6
+failed it once; v4 never. This opening reads close to a question about the person, and harder training makes the model
+treat it as one. Each loss is small and none is significant alone, but it is the one kind that falls as recall rises, so
+the confirmation rule below this record must hold `statement` and a blind coherence check, not recall alone. Fix 8
+(more ways of stating facts, queued) is the data fix aimed at this.
+
+Still to read tonight: fix 6 + rank 32 + MLP, fix 7, fix 8, fix 6 + 3e-4, and fix 6 with all three changes.
