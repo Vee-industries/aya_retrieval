@@ -86,6 +86,7 @@ carry their own provenance (command, git commit, package versions).
 | R-071 | Fix 14: `hard_dev` recall 58 to 76 at seed 82, fails gate on statements (44) and never_told; fixes 14b, 14c |
 | R-072 | Operational errors not recorded at the time (queue race, untracked files, quoting bug, stalled push) and fixes |
 | R-073 | Fixes 14b and 14c fail on `hard_dev` never_told (32; 14b mends statements, 48); wide training makes the model state another person's fact; over-long rows in fixes 14 to 14c; fix 15 |
+| R-074 | Fix 15 passes its gate (hard_dev recall 81, never_told 46, false retrieval 3); confirmation rule written before seeds 83 and 84 |
 
 ---
 
@@ -2406,3 +2407,42 @@ statement rows; 900 rows (`data/screens/wide_mix_15.jsonl`). R-054 found `--neve
 of the way back when the cause was searching in the friend's words; here the misses come from reading, and more rows
 that show a same-type fact about someone else are the direct remedy. Same gate, label `fix15_all`, plus `hard_dev`
 false retrieval reported against v5's 4.
+
+## R-074 · 2026-11-04 · SPRINT · Fix 15 passes its gate; confirmation rule written before seeds 83 and 84 exist
+
+**Fix 15 at seed 82** (`data/screens/wide_mix_15.jsonl`, 900 rows; trained from 21:43; labels `screen_fix15_all_82`,
+`hd_fix15_all_82`).
+
+| Label | Probe recall (of 96) | Probe `statement` (of 48) | `hard_dev` recall (of 96) | `hard_dev` `never_told` (of 48) | `hard_dev` `statement` | `hard_dev` false retrieval (of 240) |
+|---|---|---|---|---|---|---|
+| v5 | 95 | 48 | 58 | 47 | 48 | 4 |
+| fix 14c | 93 | 47 | 79 | 32 | 46 | 16 |
+| fix 15 | 96 | 48 | 81 | 46 | 48 | 3 |
+
+Gate (R-071): probe recall 96 (92), statement 48 (47), `hard_dev` recall 81 (68), `never_told` 46 (44): **pass**.
+Probe false retrieval 0. On `hard_dev`, recall is 40% above v5's at this seed, with false retrieval 3 against v5's 4.
+The 100 extra `never_told` rows, each showing a same-type fact about someone else, undo what the wide rows did to
+`never_told` (32 to 46) and lose no recall (79 to 81). Fix 15b (R-073's next step, 14b's statement rows) is not run:
+fix 15's statements are already 48 of 48 on both pools.
+
+**Confirmation rule, written before seeds 83 and 84 are trained and before any of fix 15's coherence sheets.** R-069's
+rule with R-071's addition, unchanged, for this setting: seeds 82 (`adapters/screens/fix15_all_82`), 83 and 84,
+trained on `data/screens/wide_mix_15.jsonl` with `--lora-r 32 --lora-targets q_proj k_proj v_proj o_proj gate_proj
+up_proj down_proj --learning-rate 3e-4`, scored on probe seed 73157 as `probe13_tuned8x` and on `hard_dev` seed 73157
+as `hd_fix15_all_8x` (seed 82's `hard_dev` run is the screen's: same adapter, pool, seed and items). It replaces v5
+(as v6) only if all of these pass:
+
+1. On the probe, against base (`probe2_base`), R-052's seven items: recall pooled above 252 of 288; `in_view` pooled
+   at least 110 of 144; `statement` pooled at least 136 of 144; right decisions at least 200 of 240 on every seed;
+   false retrieval pooled at most 39 of 720; Sheet A, pooled `confirm` and pooled `older` plus `confirm` coherent at
+   or above base; Sheet B on every seed, `statement` and `in_view` coherent each at or above base.
+2. Probe recall pooled at least 273 of 288.
+3. `hard_dev` recall pooled at least 202 of 288.
+4. `hard_dev` false retrieval pooled at most 20 of 720.
+5. `hard_dev` `never_told` pooled at least 132 of 144.
+6. `hard_dev` Sheet B (against `hd_base`'s `three_exchanges` replies, one sheet a seed), `statement` and `in_view`
+   pooled coherent at or above base.
+
+Fresh Sonnet judges, one a sheet, rubric and sheet only; shuffle seeds from 90467. No held-out or independent run
+without Kevin. After the confirmation's runs, the queue runs R-067's stress tests on base and v5 seed 82 (and on the
+new version if it passes), then the demo transcripts.
