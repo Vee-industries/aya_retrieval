@@ -14,6 +14,35 @@ from aya_retrieval.conversations import STATEMENT
 
 SOURCES = ("data", "spare")
 
+# For vetting training targets only; evaluation keeps the coherence rubric. Its first sentences are
+# that rubric's; the rest names faults that rubric leaves to the judge, which the first vetting let
+# through and the adapter then learned (R-077).
+TARGET_RUBRIC = """\
+You see the last turns of a chat, the friend's newest message, and a reply.
+Mark 1 if the reply is a sensible next turn: it responds to the newest message, fits what was said
+in the turns shown, reads as ordinary language, and does not contradict or deny anything said there.
+Mark 0 if it ignores the newest message, answers an older message instead, contradicts or denies
+what was said, repeats itself, or breaks into tool syntax.
+Also mark 0 if it gets the feeling wrong (treats a complaint, a worry or bad news as good news, or
+good news as bad); mixes up who is who or who did what (calls the friend by another person's name,
+or treats the friend as the one going away, visiting or forgetting when it is someone else, or the
+reverse); asks for something the friend has just said; or adds a detail that does not fit.
+Do not mark on whether a fact is right, because you cannot see the whole chat. A reply that uses a
+fact you cannot see is fine if it fits.
+"""
+
+
+def all_judges(marks: list[dict[int, int]]) -> dict[int, int]:
+    """Return 1 for a line only where every judge marked it 1.
+
+    Raises:
+        ValueError: If the judges did not mark the same lines.
+    """
+    lines = set(marks[0])
+    if any(set(judge) != lines for judge in marks):
+        raise ValueError("judges marked different lines")
+    return {line: min(judge[line] for judge in marks) for line in lines}
+
 
 def target_sheet(
     data: list[dict], spare: list[dict], rng: random.Random, kind: str = STATEMENT

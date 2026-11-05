@@ -13,6 +13,7 @@ import json
 from pathlib import Path
 
 from aya_retrieval.coherence import RUBRIC
+from aya_retrieval.vetting import TARGET_RUBRIC
 
 
 def render(rows: list[dict], prefix: str = "") -> str:
@@ -34,11 +35,18 @@ def main() -> None:
     parser.add_argument("sheet", type=Path, help="sheet.json from make_coherence_sheet.py")
     parser.add_argument("out", type=Path, help="text file for the judge")
     parser.add_argument("--prefix", default="", help="put before each line number, e.g. A")
+    parser.add_argument(
+        "--rubric",
+        choices=("coherence", "target"),
+        default="coherence",
+        help="the evaluation's rubric, or the stricter one for vetting training targets",
+    )
     args = parser.parse_args()
     rows = json.loads(args.sheet.read_text(encoding="utf-8"))
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(render(rows, args.prefix), encoding="utf-8")
-    (args.out.parent / "rubric.txt").write_text(RUBRIC, encoding="utf-8")
+    rubric = RUBRIC if args.rubric == "coherence" else TARGET_RUBRIC
+    (args.out.parent / "rubric.txt").write_text(rubric, encoding="utf-8")
     print(f"{len(rows)} lines written to {args.out}")
 
 

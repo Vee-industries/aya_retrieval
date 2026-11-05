@@ -19,11 +19,18 @@ from pathlib import Path
 
 from aya_retrieval.conversations import ITEM_KINDS, STATEMENT
 from aya_retrieval.provenance import run_metadata
-from aya_retrieval.vetting import replace_rejected, splice_kind, target_sheet
+from aya_retrieval.vetting import all_judges, replace_rejected, splice_kind, target_sheet
 
 
 def read_rows(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line]
+
+
+def read_spares(paths: list[Path]) -> list[dict]:
+    """Return the spare rows; from several files, each id is prefixed with its file's name."""
+    if len(paths) == 1:
+        return read_rows(paths[0])
+    return [{**row, "id": f"{path.stem}/{row['id']}"} for path in paths for row in read_rows(path)]
 
 
 def main() -> None:
@@ -34,18 +41,22 @@ def main() -> None:
     sheet.add_argument("--out-dir", type=Path, required=True)
     apply = sub.add_parser("apply", help="write the vetted training set")
     apply.add_argument("--key", type=Path, required=True)
-    apply.add_argument("--marks", type=Path, required=True)
+    apply.add_argument(
+        "--marks", type=Path, nargs="+", required=True, help="one file a judge; all must accept"
+    )
     apply.add_argument("--out", type=Path, required=True)
     apply.add_argument(
         "--into", type=Path, help="full training set whose rows of the kind the vetted rows replace"
     )
     for step in (sheet, apply):
         step.add_argument("--data", type=Path, required=True, help="training rows to vet")
-        step.add_argument("--spare", type=Path, required=True, help="spare rows of the kind")
+        step.add_argument(
+            "--spare", type=Path, nargs="+", required=True, help="spare rows of the kind"
+        )
         step.add_argument("--kind", default=STATEMENT, choices=ITEM_KINDS, help="kind to vet")
     args = parser.parse_args()
 
-    data, spare = read_rows(args.data), read_rows(args.spare)
+    data, spare = read_rows(args.data), read_spares(args.spare)
     if args.step == "sheet":
         lines, key = target_sheet(data, spare, random.Random(args.seed), args.kind)
         args.out_dir.mkdir(parents=True, exist_ok=True)
@@ -55,7 +66,10 @@ def main() -> None:
         return
 
     key = json.loads(args.key.read_text(encoding="utf-8"))
-    marks = {int(k): int(v) for k, v in json.loads(args.marks.read_text()).items()}
+    judges = [
+        {int(k): int(v) for k, v in json.loads(path.read_text()).items()} for path in args.marks
+    ]
+    marks = all_judges(judges)
     rows, tally = replace_rejected(data, spare, key, marks, args.kind)
     if args.into:
         rows = splice_kind(read_rows(args.into), rows, args.kind)
@@ -65,9 +79,10 @@ def main() -> None:
     report = {
         "provenance": run_metadata(),
         "data": args.data.as_posix(),
-        "spare": args.spare.as_posix(),
+        "spare": [path.as_posix() for path in args.spare],
         "into": args.into and args.into.as_posix(),
         "marks": marks,
+        "judge_marks": judges if len(judges) > 1 else None,
         "key": key,
         "rows": len(rows),
         "tally": tally,

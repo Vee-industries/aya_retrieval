@@ -2,7 +2,14 @@ import random
 
 import pytest
 
-from aya_retrieval.vetting import replace_rejected, splice_kind, target_sheet
+from aya_retrieval.coherence import RUBRIC
+from aya_retrieval.vetting import (
+    TARGET_RUBRIC,
+    all_judges,
+    replace_rejected,
+    splice_kind,
+    target_sheet,
+)
 
 
 def row(row_id, kind, message, reply="Nice."):
@@ -83,3 +90,16 @@ def test_splice_replaces_only_that_kind_in_place():
     assert out[0] == DATA[0] and [r["id"] for r in out[1:]] == ["statement_9", "statement_8"]
     with pytest.raises(ValueError):
         splice_kind(DATA, new[:1], "statement")
+
+
+def test_a_line_passes_only_if_every_judge_accepts_it():
+    first = {0: 1, 1: 1, 2: 0}
+    second = {0: 1, 1: 0, 2: 0}
+    assert all_judges([first, second]) == {0: 1, 1: 0, 2: 0}
+    with pytest.raises(ValueError):
+        all_judges([first, {0: 1}])
+
+
+def test_the_target_rubric_keeps_the_coherence_rubric_and_adds_to_it():
+    assert TARGET_RUBRIC.startswith(RUBRIC.split("Do not mark")[0])
+    assert "feeling wrong" in TARGET_RUBRIC and "who is who" in TARGET_RUBRIC
