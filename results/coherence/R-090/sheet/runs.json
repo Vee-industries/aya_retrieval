@@ -1,0 +1,12 @@
+{
+ "base": "results/recall_eval/st_cc_base_seed_73157.json:three_exchanges",
+ "v5": "results/recall_eval/st_cc_v5_82_seed_73157.json",
+ "17b": "results/recall_eval/st_cc_fix17b_82_seed_73157.json",
+ "s085": "results/recall_eval/st_cc_fix17b_s085_82_seed_73157.json",
+ "s07": "results/recall_eval/st_cc_fix17b_s07_82_seed_73157.json",
+ "mix03": "results/recall_eval/st_cc_mix_a03_82_seed_73157.json",
+ "mix05": "results/recall_eval/st_cc_mix_a05_82_seed_73157.json",
+ "mix07": "results/recall_eval/st_cc_mix_a07_82_seed_73157.json",
+ "19a": "results/recall_eval/st_cc_fix19a_82_seed_73157.json",
+ "18a": "results/recall_eval/st_cc_fix18a_82_seed_73157.json"
+}
