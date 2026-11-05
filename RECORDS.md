@@ -2349,3 +2349,8 @@ this record for them.
 4. **A stalled push (18:58).** A push to GitHub hung in `send-pack` for about ten minutes. It was stopped and retried
    successfully. A push inside a queue's `&&` chain would hold the GPU the same way, so queues now run
    `timeout 120 git push -q || echo "push failed, continuing"`.
+
+**Fix 14b data.** `wide_chat.jsonl` (seed 71125) and its spares (71126): 81 of the 150 statement lines name a `wide`
+person or relation. Vetting (fresh Sonnet judge, `results/coherence/R-071/`): targets 139 coherent and 11 not, spares
+139 and 11; the 11 were swapped, and the vetted rows spliced into `wide_mix.jsonl` in place of its statement rows.
+All 650 fact rows are fix 14's: `data/screens/wide_mix_b.jsonl`.
