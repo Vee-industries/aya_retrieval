@@ -90,6 +90,7 @@ carry their own provenance (command, git commit, package versions).
 | R-075 | Fix 15 fails R-074 on three coherence items (recall and never_told pass): v5 stands; fix 15b's rule |
 | R-076 | Training put loss on every token of a row, scripted small talk included; fixes 16a and 16b mask it; rule before they exist; demo transcripts |
 | R-077 | Fix 16a: copying gone and hard_dev recall 58 to 70, but plain chat below base; the targets carry the tone errors; 16c (1e-4) |
+| R-078 | Fix 17: plain-chat targets re-vetted on a stricter rubric by two judges; plan and rule before any target changes |
 
 ---
 
@@ -2598,3 +2599,27 @@ time of writing and is scored on the same gate.
 **Next, if neither passes: the targets.** The plain-chat targets are vetted by one judge on the general rubric. A
 stricter pass for who-is-who and tone, before training, is the next fix; it is planned in its own record before any
 target is changed. The stress tests run after 16c.
+
+## R-078 · 2026-11-05 · SPRINT · Fix 17: re-vet the plain-chat targets on a stricter rubric, two judges; plan and rule written before any target changes
+
+**Why.** R-077: the adapter trained with the loss on its targets alone copies them closely, and v5's plain-chat targets
+carry the faults the judges reject (a complaint read as good news, the friend called by another person's name, the
+friend taken for the one who is visiting). The first vetting (R-060) used the coherence rubric, which does not name
+those faults, and one judge.
+
+**The rubric for targets** (`aya_retrieval.vetting.TARGET_RUBRIC`, commit `ec27528`): the coherence rubric's text, plus
+"Also mark 0 if it gets the feeling wrong ...; mixes up who is who or who did what ...; asks for something the friend
+has just said; or adds a detail that does not fit." It is used only to vet training targets; every evaluation sheet
+keeps the coherence rubric. Disclosure, as in R-060: the targets are filtered by the same kind of judge that marks the
+evaluation, now with a stricter instruction than that judge gets.
+
+**The data.** v5's 150 plain-chat targets (`data/screens/vetted_brief.jsonl`) and 300 new spares built the same way
+(`data/screens/strict_spare_1.jsonl`, seed 71127; `strict_spare_2.jsonl`, seed 71128; R-076's queue builds them) go
+on one blind sheet of 450 lines. Two fresh Sonnet judges mark it independently on the target rubric; a line counts as
+coherent only if both mark it 1 (`vet_statement_targets.py apply --marks a b`). Each rejected target is swapped for a
+spare both accepted, as before; every other row of v5's set is unchanged. Output `data/screens/strict_chat.jsonl`.
+
+**Fix 17.** That set, rank 32, attention and MLP, 3 epochs, with the loss setting of whichever of fix 16a (3e-4) and
+fix 16c (1e-4) has more `statement` replies coherent on its seed-82 Sheet B; a tie goes to 16a. Gate, rule and sheets
+as R-076 (label `probe18_tuned82`, `results/coherence/R-079*`). Fix 16b is scored on the same gate. No held-out or
+independent run without Kevin.
