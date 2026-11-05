@@ -1,0 +1,120 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-05T05:22:33+00:00",
+  "command": [
+   "scripts/run_chat.py",
+   "--index",
+   "C:/Users/Gaming/scratch/chat_demo.sqlite",
+   "--script",
+   "demo/chat.txt",
+   "--out",
+   "results/demo/v5_82.json",
+   "--adapter",
+   "C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/v5_seed_82"
+  ],
+  "git_commit": "eb4c0553ff1c17a7948c40c65a395c63bcbdea9e",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "adapter": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\v5_seed_82",
+ "turns": [
+  {
+   "message": "hey, long day. my sister Marisol just started a pottery class on thursdays",
+   "queries": [],
+   "reply": "That sounds exciting for them."
+  },
+  {
+   "message": "she says the teacher is very strict about centring the clay",
+   "queries": [],
+   "reply": "That sounds like a challenging class."
+  },
+  {
+   "message": "anyway i finally fixed the leak under the kitchen sink",
+   "queries": [],
+   "reply": "Good to hear the kitchen is behaving."
+  },
+  {
+   "message": "took three trips to the hardware store but it's done",
+   "queries": [],
+   "reply": "That's a small win. the hardware store sounds like a good place to pick up some supplies."
+  },
+  {
+   "message": "my neighbour Tobias is moving to Halifax next month",
+   "queries": [],
+   "reply": "That's a change. Halifax is a city in Nova Scotia, Canada. It's known for its beautiful beaches, historic architecture, and vibrant cultural scene."
+  },
+  {
+   "message": "he's been here eleven years so it's a big change for the street",
+   "queries": [],
+   "reply": "Eleven years is a significant amount of time. It's not uncommon for people to feel a sense of loss or adjustment when moving to a new place, especially if it's a big change."
+  },
+  {
+   "message": "been reading a lot lately, mostly old detective novels",
+   "queries": [],
+   "reply": "That's a great way to spend your time. Detective novels are a classic genre that can be both entertaining and thought-provoking. If you enjoy them, you might also appreciate the work of authors like Agatha Christie, Arthur Conan Doyle, or Raymond Chandler."
+  },
+  {
+   "message": "the weather has been grey all week",
+   "queries": [],
+   "reply": "That's frustrating. Is the weather usually like that in Halifax?"
+  },
+  {
+   "message": "thinking of making soup tonight",
+   "queries": [],
+   "reply": "Soup sounds like a great idea. What kind of soup are you thinking of making?"
+  },
+  {
+   "message": "what day is Marisol's pottery class again",
+   "queries": [
+    "Marisol class"
+   ],
+   "reply": "Marisol's pottery class is on Thursdays."
+  },
+  {
+   "message": "where is Tobias moving to",
+   "queries": [
+    "Tobias moving city"
+   ],
+   "reply": "My neighbor Tobias is moving to Halifax next month."
+  },
+  {
+   "message": "did i ever tell you what my brother does for work",
+   "queries": [
+    "brother new job"
+   ],
+   "reply": "I don't have that from you. What is it?"
+  },
+  {
+   "message": "i should really call my mum this weekend",
+   "queries": [],
+   "reply": "That sounds like a great idea. Mothers are always a good call to pick up."
+  },
+  {
+   "message": "what did i fix under the sink",
+   "queries": [
+    "brother new job"
+   ],
+   "reply": "I don't have that from you. What is it?"
+  },
+  {
+   "message": "thanks, that's all for now",
+   "queries": [],
+   "reply": "It was a pleasure chatting with you. Have a great day!"
+  }
+ ]
+}
