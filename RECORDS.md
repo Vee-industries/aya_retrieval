@@ -100,6 +100,7 @@ carry their own provenance (command, git commit, package versions).
 | R-085 | Fix 18a and 18c both fail the screen gate on recall; both fix the check set; v5 is below base on it |
 | R-086 | Fix 19: questions asked as statements naming the topic, answered from a search; plan, review and a two-seed gate before the build |
 | R-087 | Fix 20 chosen by a three-lane panel before it was written: half the fact-word dose over all 25 types, run only if 19a fails |
+| R-088 | The compute left, panelled in three rounds to one plan; R-087's ruling replaced; the candidates list starts |
 
 ---
 
@@ -2937,3 +2938,58 @@ counts the items that need no judge).
 decides with the judged sheets. If it fails, fix 20 is built and screened at seeds 82 and 83, and seed 84 follows
 if it passes. Then 19b at seed 82, then the stress tests. Still open for Kevin: what is frozen on Tuesday if no
 candidate passes (R-076's rule as written keeps v5), and the go for the sealed final run.
+
+## R-088 · 2026-11-05 · SPRINT · The compute left, panelled in three rounds to one agreed plan; the candidates list starts
+
+**Why R-087's ruling was replaced.** Its panel was told "about four screens left". Kevin: "you don't understand what 5
+days of compute time means.. ?" and "re-panel with the compute limit known"; the panel is there "to help you come up
+with the fix", and "once the fixes are proposed you'll run them to the panel again as a 2nd iteration and force
+concensus on a plan". Training one candidate normally takes about 30 min (1,632 to 2,077 s for 800 to 900 rows); 17b's
+4,475 s run and 19a's first run slowed when part of their GPU memory was moved to system memory, and 19a's was
+restarted at step 888. One candidate-seed (training plus four scorings) is about 65 min: about 90 before the freeze.
+
+**The panel.** Four fresh Sonnet lanes, each reading only the brief, these records, the failure modes and the code
+named (transcripts checked): fixes for plain chat; fixes for the recall failures; the split of the compute and the
+choice of model; and one arguing against the course and what the runner wants to be true. Round 1: each proposed
+fixes. Round 2: each read all four and gave the plan it would accept. Round 3: a merged plan, accepted by all four
+with three changes, and one seed question settled in a fourth exchange. Briefs and plans in the scratch files
+`panel_r088_*.md` are summarised here.
+
+**Rules agreed.** R-076's rule stands as written; no change of tolerance (one lane proposed one, chosen after 17b's
+one-line miss, and withdrew it). Three judges a sheet are reported with their spread, as information; any change of
+rule is Kevin's, made before results. Ship rule: among recipes that pass R-076's rule at three seeds never used to
+screen them, ship the one with the fewest changes from 17b, unless another's pooled `hard_dev` recall is higher by
+more than 15; the seed shipped is named in this list before its confirmation. Seeds 85 to 87 are reserved for
+confirmation: 17b runs there first (item 3), and any finalist confirms there, paired seed for seed. Every new training
+run saves its epoch-2 checkpoint. Scaled or mixed adapters are dials or diagnostics, not shippable models. The
+write-up gives the number of recipes and candidate-seeds scored on the probe, `hard_dev` and the check set, all
+development evidence, killed and failed runs included.
+
+**The plan, in order** (cs = candidate-seed).
+
+| # | Candidate | Seeds | What changes from 17b |
+|---|---|---|---|
+| 1 | 19a | 82, 83 | R-086 (running) |
+| 2 | 17b scaled 0.85, 0.7 | 82, 83 | LoRA B scaled at load; scoring only |
+| 2 | 17b/18a mixed, a = 0.3, 0.5, 0.7 | 82 | rank-64 adapter, the exact blend of the two deltas; diagnostic |
+| 3 | 17b | 85, 86, 87 | none: how often R-076's item 1g fails |
+| 4 | fix 20 | 82, 83 | R-087's set (25 fact-word lines and 25 indirect questions added) |
+| 5 | 17m | 82, 83 (84 if it passes) | chat rows get loss only on the no-search decision and the end marker |
+| 6 | 17b, 2 epochs | 82, 83 | 2 epochs at 3e-4; then 2 epochs at 2e-4 at 82, 83 |
+| 7 | distinct chat targets | 82, 83 | each pass over the data sees different vetted chat rows; same chat share |
+| 8 | replace, don't add | 82, 83 | fact-word lines in place of 25 of the 150 chat targets; 800 rows |
+| 9 | answer repair | 82, 83 | about 60 found-fact targets replaced by 17b's own replies that give the value and do not echo |
+| 10 | 17c | 82, 83 | 17b's chat targets re-vetted on a who-is-who and tone rubric |
+| 11 | seed 84 | | for each candidate passing `gate_r086.py` |
+| 12 | confirmation | 85, 86, 87 | up to two finalists, R-076's rule as written |
+| 13 | stress tests | | the finalist only |
+| 14 | reserve | | about 25 cs plus about 10 for the card slowing, committed Saturday night |
+
+Cancelled: fix 20 at doses 2 and 3, and 19b (two seeds cannot separate doses; added chat rows cost recall, R-085);
+lr 1e-4 (R-079, R-080); rank 16; the remaining stress tests on base, v5 and 17b (finalist only). In the reserve:
+stitched asked-before rows, with a trigger written now: if the finalist is of the 17b family and its `--asked-before`
+probe `in_view` is below 41 of 48, they are built next, replacing rows. Same-conversation pairs were withdrawn.
+
+**Candidates scored on the development pools before this record**, for the count the write-up gives: every
+`screen_*` label in `results/recall_eval` (fixes 1 to 18), plus 18a and 18c. From here each record that starts a run
+adds its candidates to this list before the result.
