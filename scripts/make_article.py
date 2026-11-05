@@ -277,6 +277,12 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "Fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric",
         "dropped at the screen gate (R-080)",
     ),
+    (
+        "screen_fix17b_82",
+        "screen_fix16a_82",
+        "Fix 17b: fix 16a with the stricter-vetted plain-chat targets",
+        "passed the screen gate; three-seed confirmation running (R-080)",
+    ),
 ]
 KIND_NAMES = {
     "older": "Fact told long ago",

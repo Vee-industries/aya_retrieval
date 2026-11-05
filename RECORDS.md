@@ -92,6 +92,7 @@ carry their own provenance (command, git commit, package versions).
 | R-077 | Fix 16a: copying gone and hard_dev recall 58 to 70, but plain chat below base; the targets carry the tone errors; 16c (1e-4) |
 | R-078 | Fix 17: plain-chat targets re-vetted on a stricter rubric by two judges; plan and rule before any target changes |
 | R-079 | Fixes 16b and 16c fail their gates on counts; strict vetting rejects 15 of v5's 150 chat targets; fix 17 runs at 1e-4 by R-078's rule |
+| R-080 | Fix 17 fails on counts; fix 17b (strict targets, 3e-4) passes R-076's gate; three-seed confirmation queued |
 
 ---
 
@@ -2660,3 +2661,40 @@ store"), "Enjoy your stay!" (to "my sister will be staying with me all week") an
 the same data at 3e-4 (16a's setting), runs after it whatever fix 17 shows: against 16a it changes only the targets,
 so it is the one-variable test of the strict vetting. Same gate (R-076), label `probe19_tuned82`, sheets
 `results/coherence/R-080*`; R-076's three-seed rule if it passes.
+
+## R-080 · 2026-11-05 · SPRINT · Fix 17 fails on counts at 1e-4; fix 17b, the strict targets at 3e-4, passes the counts; its plain-chat sheets
+
+**Seed 82, against R-076's gate** (probe 51203 recall at least 92 and `statement` at least 47; `hard_dev` `never_told`
+at least 44 and false retrieval at most 6):
+
+| Measure | v5 | 16a (v5's targets, 3e-4) | 17 (strict targets, 1e-4) | 17b (strict targets, 3e-4) |
+|---|---|---|---|---|
+| Probe 51203 recall, `statement` | 95, 48 | 96, 48 | **91**, 48 | 94, 48 |
+| `hard_dev` recall | 58 | 70 | 53 | 72 |
+| `hard_dev` `never_told`, false retrieval | 47, 4 | 48, 3 | **41, 16** | 46, 4 |
+| Probe 73157 recall, `in_view`, `statement` | 96, 43, 48 | 96, 44, 48 | 90, 40, 47 | 94, 43, 48 |
+| Gate on counts | | pass | **fail** | pass |
+
+Fix 17 fails as 16c did: the lighter pull at 1e-4 loses recall on the probe and precision on `hard_dev`, so the setting
+R-078's rule picked from 16c's sheet is the weak one on counts. 17b differs from 16a in the 15 swapped targets only.
+Results: `screen_fix17_82`, `hd_fix17_82`, `probe18_tuned82`, `screen_fix17b_82`, `hd_fix17b_82`, `probe19_tuned82`.
+
+**17b's plain-chat sheets** (one fresh Sonnet judge a sheet, each read only its rubric and sheet, transcripts checked;
+replies against base's `three_exchanges` arm):
+
+| Sheet | Shuffle seed | `statement` base, 17b | `in_view` base, 17b |
+|---|---|---|---|
+| Probe 73157 Sheet B (`results/coherence/R-080B/`) | 90481 | 45, **46** | 35, **40** |
+| `hard_dev` Sheet B (`results/coherence/R-080H/`) | 90482 | 42, **44** | 29, **39** |
+
+**17b passes R-076's gate**, the first variant since v5 to do so. With the same loss and learning rate, 16a's
+`statement` count on its Sheet B was 40 against base's 44. The 15 replaced targets are the only difference in training.
+The sheets and judges differ too: R-079 found the same base replies two lines apart under two judges. So 16a's gap of
+four is beyond that spread, and 17b's lead of one is within it.
+
+**Next, under R-076's rule as written** (R-074's items, with `hard_dev` recall pooled at least v5's 172 of 288): seeds 83
+and 84 of 17b are trained and scored on probe 73157 (`probe19_tuned83`, `probe19_tuned84`) and `hard_dev`
+(`hd_fix17b_83`, `hd_fix17b_84`). Sheets A (all three seeds) and B and `hard_dev` B (seeds 83 and 84) then go to fresh
+judges, shuffle seeds from 90483, under `results/coherence/R-081*`. 17b replaces v5 as v6 only if every item passes. The
+stress tests (R-067) resume after the seeds, with 17b at seed 82 added to each trio. No held-out or independent run
+without Kevin.

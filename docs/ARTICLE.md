@@ -290,6 +290,7 @@ over all 240 conversations.
 | Fix 16b: v5 with the loss on all but the scripted small talk | 87 (95) | 44 | 240 | 10 / 4 | 0.18 | dropped at the screen gate (R-079) |
 | Fix 16c: fix 16a at learning rate 1e-4 | 93 (96) | 43 | 238 | 6 / 1 | 0.12 | dropped at the screen gate (R-079) |
 | Fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric | 91 (93) | 45 | 237 | 3 / 2 | 1.00 | dropped at the screen gate (R-080) |
+| Fix 17b: fix 16a with the stricter-vetted plain-chat targets | 94 (96) | 44 | 239 | 6 / 2 | 0.29 | passed the screen gate; three-seed confirmation running (R-080) |
 
 What the path shows:
 
