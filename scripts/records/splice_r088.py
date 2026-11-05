@@ -2,13 +2,15 @@
 
 Usage:
     python scripts/records/splice_r088.py replace    writes data/screens/fix17r.jsonl
-    python scripts/records/splice_r088.py distinct   writes data/screens/fix17d.jsonl
+    python scripts/records/splice_r088.py repair     writes data/screens/fix17p.jsonl
 
 ``replace`` (item 8): 25 of 17b's 150 chat rows, drawn with seed 88, give way to one vetted
 fact-word chat line a type, the same lines as fix 20 (R-087); 800 rows. ``distinct`` (item 7):
 every chat target both R-078 judges accepted, each message and reply once, plus 17b's other rows
-three times over, for one epoch; so each pass sees its search and in-view rows as before and no
-chat target twice.
+three times over, for one epoch (dropped: only 129 such targets exist, a 6% chat share against
+17b's 19%). ``repair`` (item 9): 60 of 17b's ``older`` rows, drawn with seed 89, give way to the
+60 rows of ``data/screens/repair_older.jsonl``, whose answers are 17b's own when they give the
+value and do not echo the message.
 """
 
 import json
@@ -83,6 +85,12 @@ if mode == "replace":
     dropped = set(random.Random(88).sample(chat, len(added)))
     rows = [r for i, r in enumerate(base) if i not in dropped] + added
     out, detail = DATA / "fix17r.jsonl", {"dropped": sorted(base[i]["id"] for i in dropped)}
+elif mode == "repair":
+    older = [i for i, r in enumerate(base) if r["kind"] == "older"]
+    added = [{**r, "id": f"repair/{r['id']}"} for r in read_rows(DATA / "repair_older.jsonl")]
+    dropped = set(random.Random(89).sample(older, len(added)))
+    rows = [r for i, r in enumerate(base) if i not in dropped] + added
+    out, detail = DATA / "fix17p.jsonl", {"dropped": sorted(base[i]["id"] for i in dropped)}
 elif mode == "distinct":
     others = [r for r in base if r["kind"] != STATEMENT]
     chat = strict_targets()
@@ -92,10 +100,10 @@ elif mode == "distinct":
         {"chat_rows": len(chat), "other_rows_per_pass": len(others)},
     )
 else:
-    raise SystemExit("mode is replace or distinct")
+    raise SystemExit("mode is replace, repair or distinct")
 
 out.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n", encoding="utf-8")
 report = {"provenance": run_metadata(), "mode": mode, "base_set": BASE_SET.as_posix(), **detail}
 report["rows"] = len(rows)
 out.with_suffix(".provenance.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
-print(f"{out}: {len(rows)} rows, {detail if mode == 'distinct' else len(detail['dropped'])}")
+print(f"{out}: {len(rows)} rows, {detail.get('chat_rows', len(detail.get('dropped', [])))}")
