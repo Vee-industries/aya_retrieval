@@ -291,7 +291,7 @@ over all 240 conversations.
 | Fix 16b: v5 with the loss on all but the scripted small talk | 87 (95) | 44 | 240 | 10 / 4 | 0.18 | dropped at the screen gate (R-079) |
 | Fix 16c: fix 16a at learning rate 1e-4 | 93 (96) | 43 | 238 | 6 / 1 | 0.12 | dropped at the screen gate (R-079) |
 | Fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric | 91 (93) | 45 | 237 | 3 / 2 | 1.00 | dropped at the screen gate (R-080) |
-| Fix 17b: fix 16a with the stricter-vetted plain-chat targets | 94 (96) | 44 | 239 | 6 / 2 | 0.29 | passed the screen gate; three-seed confirmation running (R-080) |
+| Fix 17b: fix 16a with the stricter-vetted plain-chat targets | 94 (96) | 44 | 239 | 6 / 2 | 0.29 | passed the screen gate; failed confirmation on one sheet by one line (R-082) |
 
 What the path shows:
 
@@ -467,8 +467,14 @@ came from something in the training data.
   at an event the friend never mentioned: "Good luck with your date with Marc." for "Ivan asked me
   to be their plus one". Two judges re-vetted the targets on a stricter rubric that names these
   faults and replaced 15 of 150 (R-078). Trained on them, fix 17b matched or beat the untrained
-  model on both plain-chat sheets at seed 82, with `hard_dev` recall 72 of 96 (R-080); its
-  three-seed confirmation is running.
+  model on both plain-chat sheets at seed 82, with `hard_dev` recall 72 of 96 (R-080). Over three
+  seeds it raised `hard_dev` recall from v5's 172 of 288 to 228 and passed every count, but at one
+  seed it scored one plain-chat line below the untrained model, so by the rule set in advance it
+  does not replace v5 (R-082).
+- **A chat line that names a fact type, read as a question.** Told "Esme forgot my birthday
+  again", fix 17b replied "I don't have that from you. What is it?" at two seeds of three. No
+  plain-chat line in training mentions a birthday or any other fact type, so a fact word on its own
+  reads as a question about it (R-082). Open.
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). Open.

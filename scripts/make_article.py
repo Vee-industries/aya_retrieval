@@ -281,7 +281,7 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "screen_fix17b_82",
         "screen_fix16a_82",
         "Fix 17b: fix 16a with the stricter-vetted plain-chat targets",
-        "passed the screen gate; three-seed confirmation running (R-080)",
+        "passed the screen gate; failed confirmation on one sheet by one line (R-082)",
     ),
 ]
 KIND_NAMES = {

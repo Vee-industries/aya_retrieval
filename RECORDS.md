@@ -94,6 +94,7 @@ carry their own provenance (command, git commit, package versions).
 | R-079 | Fixes 16b and 16c fail their gates on counts; strict vetting rejects 15 of v5's 150 chat targets; fix 17 runs at 1e-4 by R-078's rule |
 | R-080 | Fix 17 fails on counts; fix 17b (strict targets, 3e-4) passes R-076's gate; three-seed confirmation queued |
 | R-081 | The demo's stale search: no training view holds a question; a stress test for a question right after another |
+| R-082 | Fix 17b fails R-076's rule on one item, seed 83's Sheet B `statement` by one line; v5 stands; a chat line naming a fact type read as a question |
 
 ---
 
@@ -2715,3 +2716,44 @@ declines, as the demo's did. Nothing the item is scored on changes; `tests/test_
 every kind, 20 seeds. Runs: probe 73157 and `hard_dev` 73157 on base, v5 seed 82 and fix 17b seed 82, after 17b's
 confirmation seeds. A drop against the same model's plain run is the size of the gap; a training fix comes after,
 planned before code.
+
+## R-082 · 2026-11-05 · SPRINT · Fix 17b fails R-076's rule on one item by one line; v5 stands; a chat line naming a fact type is read as a question
+
+**Seeds 83 and 84** (`fix17b_83`, `fix17b_84`, trained by queue 60 with seed 82's settings; results `probe19_tuned83`,
+`probe19_tuned84`, `hd_fix17b_83`, `hd_fix17b_84`). Six blind sheets, shuffle seeds 90484 to 90489, one fresh Sonnet
+judge each; every transcript checked: each judge read only its own rubric and sheet, and its commands only wrote the
+marks it listed by hand. Sheets in `results/coherence/R-081` (Sheet A, seeds 82 to 84), `R-081B` and `R-081H` (seeds 83
+and 84; seed 82's are R-080's). The folder names were set in R-080 before R-081 became the record of the stress test.
+
+**R-076's rule** (`scripts/records/rule_r080.py`):
+
+| Item | Value | Verdict |
+|---|---|---|
+| 1a probe recall pooled above 252 | 283 | pass |
+| 1b `in_view` pooled at least 110 | 130 | pass |
+| 1c `statement` pooled at least 136 | 142 | pass |
+| 1d right decisions at least 200 every seed | 240, 239, 239 | pass |
+| 1e false retrieval pooled at most 39 | 3 | pass |
+| 1f Sheet A `confirm`, and `older` plus `confirm`, at or above base | 144 vs 141; 265 vs 234 | pass |
+| 1g Sheet B `statement` and `in_view` at or above base, every seed | `statement` 46 vs 45, **44 vs 45**, 45 vs 45; `in_view` 40 vs 35, 42 vs 33, 43 vs 35 | **fail** |
+| 2 probe recall pooled at least 273 | 283 | pass |
+| 3 `hard_dev` recall pooled at least 172 (v5's) | 228 | pass |
+| 4 `hard_dev` false retrieval pooled at most 20 | 17 | pass |
+| 5 `hard_dev` `never_told` pooled at least 132 | 136 | pass |
+| 6 `hard_dev` Sheet B `statement` and `in_view` pooled at or above base | 136 vs 129; 119 vs 100 | pass |
+
+**The rule fails, so v5 stands.** The failing item is one line on one sheet; R-079 found two judges two lines apart on
+the same replies, so this is within the spread of a single judge, but the rule was written before the result and is
+followed. Fix 15 failed the same item at the same seed (R-075). The `hard_dev` false retrieval of 17 is near its limit
+of 20: 4 at seed 82, 13 at seeds 83 and 84 together.
+
+**What the marked-down replies show.** 17b's `statement` replies marked 0: at seeds 83 and 84, "Esme forgot my birthday
+again" is answered "I don't have that from you. What is it?"; at seed 83, "my mentor texted me out of nowhere" (and the
+same line about the barber and the teammate) is answered "That's a bit harsh." and variants. Neither line is in the
+training set: no plain-chat target mentions a birthday or "out of nowhere". The first is a new failure of the kind in
+R-055: a chat line that names a fact type (a birthday) is taken for a question about it. The second reads a neutral
+line as a complaint. Base's marked-down replies are its own known faults (Dmitri as a character in a novel, Gustav as a
+storm).
+
+**Next.** Fix 18 starts from 17b's recipe. Its plan, written before code, waits for R-081's test of a question right
+after another, so both gaps are planned together.
