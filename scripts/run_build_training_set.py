@@ -13,6 +13,7 @@ import dataclasses
 import json
 import logging
 import random
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -81,6 +82,29 @@ def fit_to_copy(model, tokenizer, item: RecallItem, messages: list[dict]) -> str
     if not item_correct(item.kind, reply, item.answer, item.forbidden, calls=0):
         return None
     return reply
+
+
+def echoes(reply: str, message: str, limit: float) -> bool:
+    """Return True if at least ``limit`` of the reply's words come from the friend's message."""
+    words = re.findall(r"[a-z']+", reply.casefold())
+    said = set(re.findall(r"[a-z']+", message.casefold()))
+    return bool(words) and sum(word in said for word in words) / len(words) >= limit
+
+
+def repaired_answer(model, tokenizer, item: RecallItem, output: str, limit: float):
+    """Return the adapter's answer to a real search result, else base's, and which one it is.
+
+    Answer repair (R-088, item 9): the adapter's own reply is kept if it gives the value and does
+    not mostly echo the friend's message; failing that, base's reply on the same test; else None.
+    """
+    reply = base_answer(model, tokenizer, item, output)
+    if reply and not echoes(reply, item.message, limit):
+        return reply, "adapter"
+    with model.disable_adapter():
+        reply = base_answer(model, tokenizer, item, output)
+    if reply and not echoes(reply, item.message, limit):
+        return reply, "base"
+    return None, None
 
 
 def base_reply(model, tokenizer, item: RecallItem, brief: bool = False) -> str | None:
@@ -263,6 +287,17 @@ def main() -> None:
         choices=sorted(TRAIN.facts),
         help="older rows asked in the indirect form, one row a fact type, in order (R-086)",
     )
+    parser.add_argument(
+        "--answer-adapter",
+        type=Path,
+        help="found-fact answers from this adapter, checked for echo, then base's (R-088)",
+    )
+    parser.add_argument(
+        "--echo-limit",
+        type=float,
+        default=0.4,
+        help="with --answer-adapter, the share of a reply's words from the message that rejects it",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -292,6 +327,8 @@ def main() -> None:
         "statement_rows": args.statement_rows,
         "chat_set": args.chat_set,
         "indirect_types": args.indirect_types,
+        "answer_adapter": args.answer_adapter and args.answer_adapter.as_posix(),
+        "echo_limit": args.echo_limit if args.answer_adapter else None,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {
@@ -305,6 +342,11 @@ def main() -> None:
     # Its own stream, so choosing second-search rows leaves every other row as it was.
     second_rng = random.Random(args.seed + 1)
     model, tokenizer = load_model()
+    if args.answer_adapter:
+        from peft import PeftModel
+
+        model = PeftModel.from_pretrained(model, str(args.answer_adapter))
+        model.eval()
 
     rows, tally, passages = [], Counter(), defaultdict(Counter)
     for kind in (kind for kind in ITEM_KINDS if kind in args.kinds):
@@ -343,6 +385,10 @@ def main() -> None:
                 reply = item.reply
                 if found and kind in args.scripted_answers:
                     tally[f"{kind}_scripted_answer"] += 1
+                elif found and kind != NEVER_TOLD and args.answer_adapter:
+                    reply, source = repaired_answer(model, tokenizer, item, output, args.echo_limit)
+                    tally[f"{kind}_{source}_answer" if reply else f"{kind}_scripted_answer"] += 1
+                    reply = reply or item.reply
                 elif found and kind != NEVER_TOLD:
                     reply = base_answer(model, tokenizer, item, output)
                     if reply and item.item_id in rejected:
