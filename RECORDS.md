@@ -89,6 +89,7 @@ carry their own provenance (command, git commit, package versions).
 | R-074 | Fix 15 passes its gate (hard_dev recall 81, never_told 46, false retrieval 3); confirmation rule written before seeds 83 and 84 |
 | R-075 | Fix 15 fails R-074 on three coherence items (recall and never_told pass): v5 stands; fix 15b's rule |
 | R-076 | Training put loss on every token of a row, scripted small talk included; fixes 16a and 16b mask it; rule before they exist; demo transcripts |
+| R-077 | Fix 16a: copying gone and hard_dev recall 58 to 70, but plain chat below base; the targets carry the tone errors; 16c (1e-4) |
 
 ---
 
@@ -2550,3 +2551,50 @@ and decline: a new failure, a search built from an earlier message in view. Base
 
 **Order.** The stress tests (R-067) were started at 00:23 and are paused after `st_style_probe_v5_82` to run 16a and
 16b first; fix 15b (R-075) waits, since a masked loss may change what 15b is for. The remaining stress runs follow.
+
+## R-077 · 2026-11-05 · SPRINT · Fix 16a stops the copying and lifts hard_dev recall, but fails the gate on plain chat; the targets carry the errors; fix 16c
+
+**Fix 16a at seed 82** (v5's data, `--loss-on demonstrated`, trained 00:39 to 01:08; labels `screen_fix16a_82`,
+`hd_fix16a_82`, `probe15_tuned82`). Training: at step 50 the loss on the taught turns is 0.72 with gradient norm 1.26,
+against fix 15's 0.52 and 0.30 over whole rows.
+
+| Measure | v5, seed 82 | fix 16a, seed 82 | Gate |
+|---|---|---|---|
+| Probe 51203 recall, `statement` | 95, 48 | 96, 48 | 92, 47: pass |
+| `hard_dev` recall (of 96) | 58 | **70** | |
+| `hard_dev` `never_told`, `statement`, false retrieval | 47, 48, 4 | 48, 48, 3 | 44, 6: pass |
+| Probe 73157 recall, `in_view`, `statement`, `never_told` | 96, 43, 48, 47 | 96, 44, 48, 48 | |
+| Replies containing a scripted small-talk line, `hard_dev` (of 240) | 1 | **0** | |
+
+Fix 15 had 7 and 8 such replies at seeds 82 and 84; the count is an exact substring match of each reply against the
+127 scripted replies and acknowledgements of the train, probe, `wide` and `hard_dev` pools.
+
+Coherence (fresh Sonnet judges, one a sheet, rubric and sheet only, each transcript checked; shuffle seeds 90476 to
+90478; `results/coherence/R-077*`):
+
+| Sheet | Kind | Base | Fix 16a |
+|---|---|---|---|
+| A | `older` | 31 | **46** |
+| A | `confirm` | 47 | 48 |
+| B | `statement` | 44 | **40** |
+| B | `in_view` | 33 | 37 |
+| `hard_dev` B | `statement` | 43 | **41** |
+| `hard_dev` B | `in_view` | 33 | 42 |
+
+**Gate: fails** on Sheet B `statement` (40 against 44) and `hard_dev` `statement` (41 against 43). Answers to questions
+gain the most on any sheet yet (`older` 46 against 31). The rejected plain-chat replies misread tone or person: "i got
+stuck talking to Dmitri for an hour" gets "That sounds like a fun story."; "Hana forgot my birthday again" gets advice
+on making it up to her. The plain-chat targets carry the same errors, accepted by the vetting judge: "guess who ran into
+Omar at the store" to "That sounds like a fun story. Who did you run into?", "Omar invited me to a party" to "Enjoy the
+party, Omar.", "my sister will be staying with me all week" to "Enjoy your stay!". With the loss on the taught turns
+only, the adapter copies its targets more closely, faults included. The masked loss removes copying from the history;
+it does not mend the targets.
+
+**Fix 16c** (registered in R-076: "if 16a passes the counts but replies read stiff ... 1e-4 is next"). Fix 16a at
+learning rate 1e-4: a lighter pull toward the targets. Same gate as R-076, label `probe17_tuned82`, sheets
+`results/coherence/R-078*`; R-076's three-seed rule if it passes. Fix 16b (`no_history_replies`) was training at the
+time of writing and is scored on the same gate.
+
+**Next, if neither passes: the targets.** The plain-chat targets are vetted by one judge on the general rubric. A
+stricter pass for who-is-who and tone, before training, is the next fix; it is planned in its own record before any
+target is changed. The stress tests run after 16c.
