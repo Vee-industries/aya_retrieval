@@ -88,6 +88,7 @@ carry their own provenance (command, git commit, package versions).
 | R-073 | Fixes 14b and 14c fail on `hard_dev` never_told (32; 14b mends statements, 48); wide training makes the model state another person's fact; over-long rows in fixes 14 to 14c; fix 15 |
 | R-074 | Fix 15 passes its gate (hard_dev recall 81, never_told 46, false retrieval 3); confirmation rule written before seeds 83 and 84 |
 | R-075 | Fix 15 fails R-074 on three coherence items (recall and never_told pass): v5 stands; fix 15b's rule |
+| R-076 | Training put loss on every token of a row, scripted small talk included; fixes 16a and 16b mask it; rule before they exist; demo transcripts |
 
 ---
 
@@ -2506,3 +2507,46 @@ on the screen. Seed 82 is screened on probe 51203 (R-071's gate), `hard_dev` 731
 (`probe14_tuned82`), and its Sheet B and `hard_dev` Sheet B are judged before seeds 83 and 84 are trained. It replaces
 v5 (as v6) only if R-074's rule passes for it unchanged, with labels `probe14_tuned8x` and `hd_fix15b_all_8x`
 (`results/coherence/R-076*`). Queued after the stress tests and demo transcripts (R-074's queue).
+
+## R-076 · 2026-11-05 · SPRINT · Every adapter so far learned the whole row, scripted small talk included; fixes 16a and 16b; rule written before they exist
+
+**The finding.** `run_recall_train.py` passes rows as chat `messages` to TRL 1.7.1's `SFTTrainer` with its defaults
+(`assistant_only_loss` False; no prompt and completion split), so the loss falls on every token of a row: the system
+prompt with the tool description, the friend's lines, the tool's passages, the scripted small-talk replies in view, and
+the turns the row is meant to teach. On v5's 800 rows the taught turns are 26,432 of 655,477 tokens (4.0%). Every
+adapter in these records was trained this way. It explains the copied replies: "Hm, good question, i'd say it depends"
+(R-075, three times at one seed) is a scripted reply in the `wide` pool's history turns, and "Hope my barber settles
+down soon" (R-061) is one of the train pool's acknowledgements. In v5's set the five most repeated history replies
+occur 118 to 161 times each ("Love that for you." 161), in the assistant's slot; the most repeated taught reply
+occurs 16 times. It does not explain everything: "That sounds like a lot of time well spent." (R-075) is in no data file.
+A fresh Sonnet reviewer, asked to argue against the fix, agreed with this reading and the limit, and proposed the
+second variant below.
+
+**The option** (commit `d42eb93`). `--loss-on` with `all` (TRL's default, unchanged, so earlier runs reproduce),
+`demonstrated` (loss only on the assistant turns after the friend's message: each search call and the reply, with their
+end-of-turn markers) or `no_history_replies` (every token but the scripted replies in view). The row is tokenized with
+the chat template, each turn's span found as what its message adds to the conversation before it, and a check refuses
+a template that does not render as a prefix; `tests/test_loss_masks.py` decodes the labelled tokens on Tiny Aya's own
+template. The training report records the choice.
+
+**Fix 16a and 16b, one variable each against v5.** v5's data (`data/screens/vetted_brief.jsonl`) and settings (rank 32,
+attention and MLP, 3e-4, 3 epochs), with `--loss-on demonstrated` (16a) or `--loss-on no_history_replies` (16b).
+Learning rate unchanged for the screen; if 16a passes the counts but replies read stiff or recall drops, 1e-4 is next.
+
+**Gate, at seed 82.** Probe 51203: recall at least 92 of 96 and `statement` at least 47 (R-055). `hard_dev` 73157:
+`never_told` at least 44 and false retrieval at most 6 (v5's 4 plus 2). Probe 73157 (`probe15_tuned82`,
+`probe16_tuned82`): Sheet B `statement` and `in_view` coherent each at or above base; and `hard_dev` Sheet B
+`statement` at or above base. One fresh judge a sheet, shuffle seeds from 90476, `results/coherence/R-077*`.
+
+**Rule, three seeds, for a variant that passes the gate.** R-074's rule with item 3 changed for data that has no `wide`
+rows: `hard_dev` recall pooled at least v5's 172 of 288 instead of 202. It replaces v5 (as v6) only if every item
+passes. No held-out or independent run without Kevin.
+
+**Demo transcripts** (`results/demo/`, `scripts/run_chat.py`, `demo/chat.txt`; base, v5 seed 82, fix 15 seed 82). Both
+adapters search and answer the pottery class (Thursdays) and the move (Halifax), decline the brother's job, and do not
+search on "i should really call my mum this weekend"; base says it has no access to personal information. Asked "what
+did i fix under the sink", both adapters search "brother new job" again, the query of the question two messages back,
+and decline: a new failure, a search built from an earlier message in view. Base invents "a leaky faucet".
+
+**Order.** The stress tests (R-067) were started at 00:23 and are paused after `st_style_probe_v5_82` to run 16a and
+16b first; fix 15b (R-075) waits, since a masked loss may change what 15b is for. The remaining stress runs follow.
