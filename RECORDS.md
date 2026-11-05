@@ -99,6 +99,7 @@ carry their own provenance (command, git commit, package versions).
 | R-084 | A question right after another: the adapters keep recall; base loses plain chat; 17b turns away facts in view after a decline |
 | R-085 | Fix 18a and 18c both fail the screen gate on recall; both fix the check set; v5 is below base on it |
 | R-086 | Fix 19: questions asked as statements naming the topic, answered from a search; plan, review and a two-seed gate before the build |
+| R-087 | Fix 20 chosen by a three-lane panel before it was written: half the fact-word dose over all 25 types, run only if 19a fails |
 
 ---
 
@@ -2902,3 +2903,37 @@ at least 94; `hard_dev` recall pooled at least 17b's 145 (72 and 73); probe 7315
 R-076's rule decides, unchanged. 19b, seed 82 only, is reported against the same single-seed thresholds and goes
 further only if 19a fails the gate and 19b passes it. The check set is development data from R-085 on; only the sealed
 pools are clean evidence.
+
+## R-087 · 2026-11-05 · SPRINT · Fix 20 chosen by a three-lane panel before it was written
+
+Kevin, 2026-11-05: "if 19 fails move onto 20", and "i want you to panel before you write the fix also". From here
+every fix goes to a panel of several lanes before it is written, and its plan is reviewed before code.
+
+**The draft put to the panel.** Training rows with a declined question in view (R-084's failure: 17b turns away
+facts on screen after one), built with the stress test's own `asked_before`. Three fresh Sonnet lanes, each reading
+only the draft, these records, the failure modes and the code named; transcripts checked.
+
+- **Against the draft:** it does not touch the item 17b failed (R-076's rule, Sheet B `statement`, a chat line read
+  as a question); rows with a decline in view only before a found fact teach "a decline in view means answer", and
+  the draft's gate does not look at `statement` or `never_told`; training and test share one function; added rows
+  have cost recall every time (R-085). Do it with changes, only if 19a fails.
+- **Best fix for the time left:** the live trade is chat lines that name a fact type against recall on indirect
+  questions, which decides what ships; the draft's target is outside the rule. If 19a fails: 17b plus half the
+  dose of fact-word chat lines, spread over all 25 types (18a's covered only `animals` to `race`), each paired
+  with an indirect question of the same type. If 19a passes: spend the GPU on its seed 84 confirmation.
+- **Measurement:** the draft's pass would show the template was learned, not the failure fixed; it needs a control,
+  a question placed and answered differently as an out-of-template check, guards on `never_told`, `statement` and
+  false retrieval, and two seeds. The probe and `hard_dev` have now chosen among fixes 14 to 20 and are development
+  evidence only; the write-up says how many candidates were checked on them.
+
+**Ruling.** The lanes agree that fix 20 waits on 19a, and two of three that the asked-before rows need more than
+the days left allow to show anything; it stays an open failure mode, with R-084's numbers. Fix 20 is the second
+lane's: **17b's 800 rows, plus one vetted fact chat line a type (the first both R-083 judges accepted, 25 lines),
+plus one indirect `older` question a type (25 rows, seed 71132, built as in R-086)**, 850 rows, same settings
+(`scripts/records/splice_r087.py`). Gate: R-086's, unchanged, at seeds 82 and 83 (`scripts/records/gate_r086.py`
+counts the items that need no judge).
+
+**Order on the GPU.** 19a at seeds 82 and 83. If 19a passes `gate_r086.py`, seed 84 is trained and R-076's rule
+decides with the judged sheets. If it fails, fix 20 is built and screened at seeds 82 and 83, and seed 84 follows
+if it passes. Then 19b at seed 82, then the stress tests. Still open for Kevin: what is frozen on Tuesday if no
+candidate passes (R-076's rule as written keeps v5), and the go for the sealed final run.
