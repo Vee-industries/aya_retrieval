@@ -102,6 +102,7 @@ carry their own provenance (command, git commit, package versions).
 | R-087 | Fix 20 chosen by a three-lane panel before it was written: half the fact-word dose over all 25 types, run only if 19a fails |
 | R-088 | The compute left, panelled in three rounds to one plan; R-087's ruling replaced; the candidates list starts |
 | R-089 | 19a passes every count but fails the judged check set by one line (a stock reply at seed 83); two planned candidates dropped at build |
+| R-090 | Ten seed-82 models on one blind check-set sheet, three judges: 19a above base with the most recall; the dials trade chat for recall |
 
 ---
 
@@ -3045,3 +3046,35 @@ reserved, other programs' memory pushed training into system memory and steps sl
 
 **Candidates scored since R-088:** 19a at 82 and 83. Next on the backlog: 17b scaled 0.85 and 0.7 (82, 83), 17b and
 18a mixed (82), 17b at 85 to 87, fix 20, 17m, 2 epochs at 3e-4 and 2e-4, 17r, answer repair (17p).
+
+## R-090 · 2026-11-05 · SPRINT · Ten seed-82 models on one blind check-set sheet: 19a is above base with the most recall; scaling and mixing trade one for the other
+
+**Why one sheet.** Two-model sheets put each model before a different judge, and judges differ by one to five
+lines on the same replies (R-085, R-089). `scripts/make_multi_sheet.py` shuffles every model's replies to the same 48
+check-set conversations into one blind sheet (480 lines, shuffle seed 90500), so each judge marks every model. Three
+fresh Sonnet judges, each reading only the rubric and the sheet in five parts, transcripts checked (their code only
+wrote marks they had listed). A diagnostic: it decides no gate. Sheet, key, run list and marks in
+`results/coherence/R-090/`.
+
+**The dials** (R-088 item 2, scoring only; `scripts/make_dial_adapter.py`): 17b with LoRA B scaled by 0.85 and 0.7,
+and 17b and 18a mixed into one rank-64 adapter whose change is exactly `a` times 17b's plus `1 - a` times 18a's.
+
+| Model, seed 82 | Judge 1 | Judge 2 | Judge 3 | Mean | `hard_dev` recall | `hard_dev` `never_told` |
+|---|---|---|---|---|---|---|
+| base | 45 | 42 | 45 | 44.0 | 20 | 39 |
+| v5 | 41 | 38 | 41 | 40.0 | 58 | 47 |
+| 17b | 39 | 42 | 44 | 41.7 | 72 | 46 |
+| 17b scaled 0.85 | 39 | 41 | 44 | 41.3 | 70 | 46 |
+| 17b scaled 0.7 | 44 | 44 | 46 | 44.7 | 70 | 45 |
+| mixed, a = 0.7 | 43 | 42 | 45 | 43.3 | 71 | 47 |
+| mixed, a = 0.5 | 43 | 41 | 43 | 42.3 | 70 | 47 |
+| mixed, a = 0.3 | 46 | 46 | 46 | 46.0 | 66 | 48 |
+| 18a | 47 | 46 | 48 | 47.0 | 56 | 48 |
+| **19a** | **45** | **45** | **46** | **45.3** | **74** | 46 |
+
+**Reading.** Under the same three judges, 19a at seed 82 is at or above base for each judge and has the most `hard_dev`
+recall of any model; its failure in R-089 is the stock reply at seed 83, not seed 82. 17b is below base for two judges
+of three. Moving toward 18a, by mixing or by scaling 17b down, buys plain chat with `hard_dev` recall, nearly in step;
+scaled 0.7 is at base for chat with recall 70, but at seed 83 its `hard_dev` `never_told` fell to 38 of 48 (17b 47),
+so a weaker pull also weakens declining. No dial beats 19a on both. Base's `hard_dev` recall and `never_told` are its
+`tool_loop` arm at seed 73157 (`hd_base`).
