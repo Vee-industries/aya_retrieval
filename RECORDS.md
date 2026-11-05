@@ -84,6 +84,7 @@ carry their own provenance (command, git commit, package versions).
 | R-069 | Fix 14: a wide training pool of new fact types by a fresh agent; gate and rule on probe and `hard_dev` first |
 | R-070 | First wide pool discarded (its writer saw sealed fragments via a debug script); checker fixed; docs updated |
 | R-071 | Fix 14: `hard_dev` recall 58 to 76 at seed 82, fails gate on statements (44) and never_told; fixes 14b, 14c |
+| R-072 | Operational errors not recorded at the time (queue race, untracked files, quoting bug, stalled push) and fixes |
 
 ---
 
@@ -2126,7 +2127,7 @@ have that from you") or said it was not in the results. v5 answered all four. On
 of the turns in view comes with less trust in a search result.
 
 The build step of this queue also retried once on a dirty tree (an article commit of mine at 14:50); the retry
-worked as R-055's fix intended.
+worked as the retry steps intended (R-072 records why they exist).
 
 **Where this leaves the work.** Fixes 12 and 13, the two aimed at v5's largest remaining group of misses, both lose
 more than they gain. v5's misses are 23 of 720 replies on the confirmation probe (3%), and its single-seed screen is
@@ -2328,3 +2329,23 @@ judge, spliced into `wide_mix.jsonl` in place of its `statement` rows: `data/scr
 at least 47, `hard_dev` recall at least 68), plus `hard_dev` `never_told` at least 44 (v5's 47 less 3). The confirmation
 rule is R-069's, with `hard_dev` `never_told` pooled at least 132 of 144 (v5's 141 less 9) added. Labels
 `screen_fix14b_all_82` / `hd_fix14b_82` and `screen_fix14c_all_82` / `hd_fix14c_82`.
+
+## R-072 · 2026-11-04 · SPRINT · Operational errors not recorded when they happened, and their fixes
+
+Four faults in how runs were queued were fixed at the time but not written here; the write-up's errors section cites
+this record for them.
+
+1. **Records racing the queue (2026-11-04, about 02:38).** An R-053 records edit, left uncommitted by a lint failure,
+   landed between a queued confirmation's clean-tree check and the evaluation's own check; the evaluation refused to
+   run ("NO RESULTS seed 82"), the queue stopped, and the next queue started early. Since then every queued step waits
+   for a clean tree before it starts and retries up to three times if its output is missing.
+2. **Untracked files and the clean-tree check (R-060's queue).** The queue's wait counted untracked files, which the
+   repository's `require_clean_tree` ignores, so a freshly built data file would have held the queue for ever. The
+   wait now ignores untracked files too (`git status --untracked-files=no`); it was caught before it cost a run.
+3. **A quoting bug (R-063's queue, 15:05).** The step that spliced fix 13's rows into v5's set was written as
+   Python inside the shell script and broke on its string quoting ("NO SPLICE"). The built rows were sound; the
+   splice was run by hand from its own script file and the queue restarted at training. Splice and gate steps now
+   live in their own script files.
+4. **A stalled push (18:58).** A push to GitHub hung in `send-pack` for about ten minutes. It was stopped and retried
+   successfully. A push inside a queue's `&&` chain would hold the GPU the same way, so queues now run
+   `timeout 120 git push -q || echo "push failed, continuing"`.

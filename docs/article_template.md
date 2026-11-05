@@ -303,7 +303,54 @@ run-to-run variation (R-032).
   only counts; that pool was never used (R-070).
 - **Training is not bit-reproducible on this card.** With the same rows and seed, TRL's own first
   gradient norm varied from run to run (R-029), so every claim pools three seeds.
-## 11. Limitations
+## 11. Errors and corrections
+
+Every error below was found during the work and is recorded where it happened; none is hidden by
+a later result.
+
+**Errors of method.**
+
+- **The first adapter's score was memorised.** It answered 119 of 120 on conversations like its
+  training set and failed on a fresh probe, because in training the number of passages a search
+  returned gave the answer away. Decoy counts now vary per row so the count carries no signal
+  (R-018, R-020).
+- **A plateau called too early.** After two fixes failed, we called v5 final on the strength of
+  the probe alone (R-064). Challenged, we tested harder conditions: the crowded condition held,
+  but the `hard_dev` twin showed recall of 60% against 97% on the probe (R-065, R-068). The probe
+  shared the training pool's author and style and hid the gap.
+- **A screen that counted the wrong thing.** The screen scored plain chat by whether the model
+  searched, not whether its reply made sense, so a stronger adapter passed the screen and failed
+  the blind judge (R-055). Every confirmation since judges plain chat on every seed.
+- **One judge a sheet.** Three judges gave the same 48 untrained replies 34, 17 and 30 on one kind
+  (R-057). Conclusions on that kind rest on pooled, paired comparisons, and section 10 says so.
+- **A checker that pushed a writer to the sealed data.** The checker for an independent writer
+  reported only how many of its lines clashed with other pools, so the writer wrote its own
+  script, which printed fragments of sealed wording. That pool, meant for training, was discarded
+  unused, and the checker now names only the writer's own lines (R-070).
+- **A toolkit defect.** AuditKIT's paired bootstrap does not centre its resamples, so it reports
+  large gains as not significant; we use an exact sign test and a centred bootstrap (section 9,
+  R-031).
+
+**Errors of operation.**
+
+- **Records racing the queue.** A record commit landed between a queued run's clean-tree check and
+  its start; the run refused to start and the next queue jumped ahead. Every queued step now waits
+  for a clean tree and retries (R-072).
+- **Untracked files and the clean-tree check.** The queue counted untracked files as uncommitted;
+  the repository's own check ignores them. Aligned before it cost a run (R-072).
+- **A quoting bug in a queue.** A splice step written inside a shell script broke on its
+  quoting; the step was run by hand and later steps live in their own script files (R-072).
+- **Runs that went online.** TRL sent a usage ping to Hugging Face at the start of each training
+  run; no data left the machine, but runs are now offline by setting (R-056).
+- **A stalled push.** A push to GitHub hung for ten minutes; pushes in queues now have a time
+  limit, so a stall cannot hold the GPU (R-072).
+- **Stopped jobs that kept running.** Stopping a background job did not stop its child script,
+  which ran on beside the next job and slowed training; jobs are now stopped by process,
+  children included (R-029).
+- **Memory.** Training slowed on the 10 GB card until the loss was rewritten to use 2.7 GiB less
+  (section 9).
+
+## 12. Limitations
 
 What this work does not cover, whatever its numbers:
 
@@ -324,7 +371,7 @@ What this work does not cover, whatever its numbers:
 - **One machine.** All training and timing ran on one consumer card; costs elsewhere are estimates
   from measured speed and published prices.
 
-## 12. Future work
+## 13. Future work
 
 - **Facts that change.** Train and test conversations where a fact is told, then corrected, and
   score whether the reply uses the newer one.
@@ -342,7 +389,7 @@ What this work does not cover, whatever its numbers:
   judge.
 - **Upstream fixes.** Offer the memory-lean loss to TRL and the bootstrap fix to AuditKIT.
 
-## 13. Reproduce
+## 14. Reproduce
 
 Everything runs on one 10 GB card. The repository holds the pinned model revision, the data
 builder, training and evaluation scripts, every results file with its provenance (command, commit,
