@@ -87,7 +87,7 @@ carry their own provenance (command, git commit, package versions).
 | R-072 | Operational errors not recorded at the time (queue race, untracked files, quoting bug, stalled push) and fixes |
 | R-073 | Fixes 14b and 14c fail on `hard_dev` never_told (32; 14b mends statements, 48); wide training makes the model state another person's fact; over-long rows in fixes 14 to 14c; fix 15 |
 | R-074 | Fix 15 passes its gate (hard_dev recall 81, never_told 46, false retrieval 3); confirmation rule written before seeds 83 and 84 |
-| R-075 | Fix 15 fails R-074 on Sheet B at seed 83 (statement 43, base 46): v5 stands; fix 15b's rule |
+| R-075 | Fix 15 fails R-074 on three coherence items (recall and never_told pass): v5 stands; fix 15b's rule |
 
 ---
 
@@ -2475,6 +2475,29 @@ reply to the same lines at seeds 83 and 84, and R-061's judges marked those cohe
 disagreement on a borderline reply (R-057). The rule is applied as written. Pooled over the same two seeds, fix 15's
 `statement` coherence is 89 of 96 against v5's 95: it misreads the tone of a complaint about a named person more
 often, which is the plain-chat side of the wide pool's names.
+
+**Seed 84 and the full rule** (`python scripts/records/rule_r074.py`). Seed 84: probe recall 94, `in_view` 41,
+`statement` 48, `never_told` 48; `hard_dev` recall 75, `never_told` 46, `statement` 47. Sheets (base, fix 15): A
+`older` 33, 38, `confirm` 48, 46; B `statement` 45, 48, `in_view` 36, 42; `hard_dev` B `statement` 45, 38, `in_view`
+29, 38. Shuffle seeds 90473 to 90475; each judge read only its rubric and sheet.
+
+| Item | Result | |
+|---|---|---|
+| 1(a) to 1(e): recall, `in_view`, `statement`, decisions, false retrieval | 283, 128, 144, 240 each, 0 | pass |
+| 1(f) Sheet A pooled `confirm`, `older` + `confirm` | 141 against 143; 251 against 240 | **fail** |
+| 1(g) Sheet B every seed | seed 83 `statement` 43 against 46 | **fail** |
+| 2 probe recall pooled at least 273 | 283 | pass |
+| 3 `hard_dev` recall pooled at least 202 | 237 (v5 172: 38% above) | pass |
+| 4 `hard_dev` false retrieval at most 20 | 10 | pass |
+| 5 `hard_dev` `never_told` at least 132 | 136 | pass |
+| 6 `hard_dev` Sheet B pooled | `statement` 124 against 128; `in_view` 119 against 90 | **fail** |
+
+**Fix 15 fails R-074; v5 stands.** Every count passes and every failure is coherence. The clearest is seed 84's
+`hard_dev` plain chat, 38 against base's 45: three replies are "Hm, good question, i'd say it depends", a scripted
+small-talk reply from the `wide` pool's history turns, copied word for word; five misread "my plumber has vanished off
+somewhere warm till next month" (two as the friend leaving: "Enjoy the warmth and relaxation!"); one answers "next
+door are scheming over the hedge" with "That sounds like a lot of noise."; one recites a stored fact on a chat line.
+R-076 traces the copied reply to how training computes its loss.
 
 **Fix 15b, and its rule, written before it is built or trained.** Fix 15's fact rows (`data/screens/wide_mix_15.jsonl`)
 with fix 14b's 150 vetted statement rows (half drawn from `wide`, so plain-chat lines name the wide pool's people;
