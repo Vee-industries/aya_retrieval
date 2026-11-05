@@ -22,6 +22,11 @@ def exchange_doc_id(index: int) -> str:
 
 def build_recall_tool(item: RecallItem, db_path: Path, match_all: bool) -> SearchCorpusTool:
     """Index the item's older exchanges into a fresh database and return the search tool over it."""
+    return build_search_tool(item.older(), db_path, match_all)
+
+
+def build_search_tool(exchanges, db_path: Path, match_all: bool) -> SearchCorpusTool:
+    """Index ``exchanges``, one passage each, into a fresh database and return the search tool."""
     db_path.unlink(missing_ok=True)
     backend = SQLiteFTSBackend(str(db_path), match_all=match_all)
     docs = [
@@ -31,7 +36,7 @@ def build_recall_tool(item: RecallItem, db_path: Path, match_all: bool) -> Searc
             text=f"User: {user}\nAssistant: {assistant}",
             metadata={},
         )
-        for index, (user, assistant) in enumerate(item.older())
+        for index, (user, assistant) in enumerate(exchanges)
     ]
     build_index(backend, docs, chunk_size=CHUNK_SIZE, overlap=0)
     return SearchCorpusTool(backend, top_k=TOP_K)
