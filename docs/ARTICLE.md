@@ -282,6 +282,14 @@ over all 240 conversations.
 | Fix 12: v5 with brief, vetted in-view answers | 90 (95) | 45 | 239 | 7 / 5 | 0.77 | dropped at the screen gate (R-063) |
 | Fix 13: v5 with more indirect in-view questions | 91 (95) | 45 | 240 | 7 / 6 | 1.00 | dropped at the screen gate (R-064) |
 | Lead's settings, 4 epochs | 93 (95) | 44 | 230 | 13 / 3 | 0.02 | loses statements (R-056) |
+| Fix 14: v5 with half its fact rows from 47 new fact types | 92 (95) | 47 | 236 | 11 / 7 | 0.48 | dropped at the screen gate (R-071) |
+| Fix 14c: a quarter of the fact rows from the new fact types | 93 (95) | 43 | 239 | 7 / 5 | 0.77 | dropped at the screen gate (R-073) |
+| Fix 14b: fix 14 with plain-chat lines naming the new pool's people | 92 (92) | 44 | 240 | 9 / 8 | 1.00 | dropped at the screen gate (R-073) |
+| Fix 15: fix 14c with 250 never-told rows that return someone else's fact | 96 (93) | 44 | 240 | 3 / 8 | 0.23 | dropped at confirmation, on plain-chat coherence (R-075) |
+| Fix 16a: v5 with the loss on the taught turns only | 96 (95) | 43 | 240 | 3 / 5 | 0.73 | dropped at the screen gate, on plain-chat coherence (R-077) |
+| Fix 16b: v5 with the loss on all but the scripted small talk | 87 (95) | 44 | 240 | 10 / 4 | 0.18 | dropped at the screen gate (R-079) |
+| Fix 16c: fix 16a at learning rate 1e-4 | 93 (96) | 43 | 238 | 6 / 1 | 0.12 | dropped at the screen gate (R-079) |
+| Fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric | 91 (93) | 45 | 237 | 3 / 2 | 1.00 | dropped at the screen gate (R-080) |
 
 What the path shows:
 
@@ -299,7 +307,7 @@ What the path shows:
    reaction to news, and most scripted answers left the relation out, so the model never saw the
    friend's "my tutor" turned into "your tutor". Plain answers that name the relation from the
    friend's side closed the gap (**v4**).
-5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results; fix 12: v5 with brief, vetted in-view answers; fix 13: v5 with more indirect in-view questions. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
+5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results; fix 12: v5 with brief, vetted in-view answers; fix 13: v5 with more indirect in-view questions; fix 14: v5 with half its fact rows from 47 new fact types; fix 14c: a quarter of the fact rows from the new fact types; fix 14b: fix 14 with plain-chat lines naming the new pool's people; fix 15: fix 14c with 250 never-told rows that return someone else's fact; fix 16a: v5 with the loss on the taught turns only; fix 16b: v5 with the loss on all but the scripted small talk; fix 16c: fix 16a at learning rate 1e-4; fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
 6. **Training harder raised recall and cost coherence on plain chat.** A higher rank, LoRA on the
    MLP layers and a higher learning rate each gained recall on the screen, and all three together
    came close to every recall question. Its confirmation failed on the blind check of plain chat

@@ -229,6 +229,54 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "Lead's settings, 4 epochs",
         "loses statements (R-056)",
     ),
+    (
+        "screen_fix14_all_82",
+        "screen_fix11_all_82",
+        "Fix 14: v5 with half its fact rows from 47 new fact types",
+        "dropped at the screen gate (R-071)",
+    ),
+    (
+        "screen_fix14c_all_82",
+        "screen_fix11_all_82",
+        "Fix 14c: a quarter of the fact rows from the new fact types",
+        "dropped at the screen gate (R-073)",
+    ),
+    (
+        "screen_fix14b_all_82",
+        "screen_fix14_all_82",
+        "Fix 14b: fix 14 with plain-chat lines naming the new pool's people",
+        "dropped at the screen gate (R-073)",
+    ),
+    (
+        "screen_fix15_all_82",
+        "screen_fix14c_all_82",
+        "Fix 15: fix 14c with 250 never-told rows that return someone else's fact",
+        "dropped at confirmation, on plain-chat coherence (R-075)",
+    ),
+    (
+        "screen_fix16a_82",
+        "screen_fix11_all_82",
+        "Fix 16a: v5 with the loss on the taught turns only",
+        "dropped at the screen gate, on plain-chat coherence (R-077)",
+    ),
+    (
+        "screen_fix16b_82",
+        "screen_fix11_all_82",
+        "Fix 16b: v5 with the loss on all but the scripted small talk",
+        "dropped at the screen gate (R-079)",
+    ),
+    (
+        "screen_fix16c_82",
+        "screen_fix16a_82",
+        "Fix 16c: fix 16a at learning rate 1e-4",
+        "dropped at the screen gate (R-079)",
+    ),
+    (
+        "screen_fix17_82",
+        "screen_fix16c_82",
+        "Fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric",
+        "dropped at the screen gate (R-080)",
+    ),
 ]
 KIND_NAMES = {
     "older": "Fact told long ago",
