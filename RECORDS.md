@@ -87,6 +87,7 @@ carry their own provenance (command, git commit, package versions).
 | R-072 | Operational errors not recorded at the time (queue race, untracked files, quoting bug, stalled push) and fixes |
 | R-073 | Fixes 14b and 14c fail on `hard_dev` never_told (32; 14b mends statements, 48); wide training makes the model state another person's fact; over-long rows in fixes 14 to 14c; fix 15 |
 | R-074 | Fix 15 passes its gate (hard_dev recall 81, never_told 46, false retrieval 3); confirmation rule written before seeds 83 and 84 |
+| R-075 | Fix 15 fails R-074 on Sheet B at seed 83 (statement 43, base 46): v5 stands; fix 15b's rule |
 
 ---
 
@@ -2446,3 +2447,39 @@ as `hd_fix15_all_8x` (seed 82's `hard_dev` run is the screen's: same adapter, po
 Fresh Sonnet judges, one a sheet, rubric and sheet only; shuffle seeds from 90467. No held-out or independent run
 without Kevin. After the confirmation's runs, the queue runs R-067's stress tests on base and v5 seed 82 (and on the
 new version if it passes), then the demo transcripts.
+
+## R-075 · 2026-11-04 · SPRINT · Fix 15 fails R-074 at seed 83's Sheet B: v5 stands; fix 15b, rule written before it exists
+
+**Fix 15's confirmation so far** (probe seed 73157, `probe13_tuned8x`; `hard_dev` seed 73157, `hd_fix15_all_8x`;
+seed 84 training at the time of writing). Coherence: one fresh Sonnet judge a sheet, rubric and sheet only, each
+transcript checked (each read only its rubric and sheet and wrote its marks from a list it typed); shuffle seeds 90467
+to 90472; `results/coherence/R-075/`, `R-075B/`, `R-075H/`; `scripts/records/rule_r074.py` computes every item.
+
+| Measure | Seed 82 | Seed 83 |
+|---|---|---|
+| Probe recall (of 96) | 94 | 95 |
+| Probe `in_view`, `statement`, `never_told` (of 48) | 42, 48, 48 | 45, 48, 48 |
+| Probe right decisions (of 240), false retrieval | 240, 0 | 240, 0 |
+| `hard_dev` recall (of 96), `never_told` (of 48) | 81, 46 | 81, 44 |
+| Sheet A `older` / `confirm` coherent, base and fix 15 | 31 / 48, 36 / 48 | 33 / 47, 36 / 47 |
+| Sheet B `statement` / `in_view`, base and fix 15 | 46 / 33, **46** / 38 | 46 / 31, **43** / 35 |
+| `hard_dev` Sheet B `statement` / `in_view`, base and fix 15 | 42 / 30, 45 / 39 | 41 / 31, 41 / 42 |
+
+**Item 1(g) fails at seed 83:** `statement` coherent 43 of 48 against base's 46. R-074 asks for at or above base on
+every seed, so fix 15 cannot replace v5 whatever seed 84 shows; **v5 stands**. Seed 84 is still run and judged so the
+record is complete.
+
+Four of the five rejected replies answer "i got stuck talking to X for an hour" as if the hour were a pleasure ("That
+sounds like a lot of time well spent.", "Hana is a great conversation partner."). v5 gave the same "time well spent"
+reply to the same lines at seeds 83 and 84, and R-061's judges marked those coherent, so part of this is judge
+disagreement on a borderline reply (R-057). The rule is applied as written. Pooled over the same two seeds, fix 15's
+`statement` coherence is 89 of 96 against v5's 95: it misreads the tone of a complaint about a named person more
+often, which is the plain-chat side of the wide pool's names.
+
+**Fix 15b, and its rule, written before it is built or trained.** Fix 15's fact rows (`data/screens/wide_mix_15.jsonl`)
+with fix 14b's 150 vetted statement rows (half drawn from `wide`, so plain-chat lines name the wide pool's people;
+R-071, R-073), 900 rows, `data/screens/wide_mix_15b.jsonl`; same settings. 14b alone took statements from 44 to 48
+on the screen. Seed 82 is screened on probe 51203 (R-071's gate), `hard_dev` 73157 and probe 73157
+(`probe14_tuned82`), and its Sheet B and `hard_dev` Sheet B are judged before seeds 83 and 84 are trained. It replaces
+v5 (as v6) only if R-074's rule passes for it unchanged, with labels `probe14_tuned8x` and `hd_fix15b_all_8x`
+(`results/coherence/R-076*`). Queued after the stress tests and demo transcripts (R-074's queue).
