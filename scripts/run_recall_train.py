@@ -26,9 +26,12 @@ import torch
 from agenttune import create_distill_trainer
 from agenttune.agentic.distill_trainer import _DefaultSFTTrainerFactory
 from huggingface_hub import snapshot_download
+from transformers import AutoTokenizer
 
+from aya_retrieval.conversations import EXCHANGES_IN_VIEW
 from aya_retrieval.demonstrations import as_event_log, kind_balanced_subset
 from aya_retrieval.lean_loss import use_lean_loss
+from aya_retrieval.loss_masks import demonstrated_labels, without_history_replies
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.tool_prompt import system_prompt_with_tools
@@ -41,16 +44,42 @@ SYSTEM_WITH_TOOL = "You are chatting with a friend. You can search the earlier c
 LORA_TARGETS = ["q_proj", "k_proj", "v_proj", "o_proj"]
 
 
-class SystemPromptFactory:
-    """Put the system prompt on every training row before AgentTune's default SFT factory runs."""
+LOSS_ON = {
+    "all": None,
+    "demonstrated": demonstrated_labels,
+    "no_history_replies": without_history_replies,
+}
+# The system turn, the exchanges in view and the friend's message come before what a row teaches.
+FIRST_DEMONSTRATED = 1 + 2 * EXCHANGES_IN_VIEW + 1
 
-    def __init__(self, system: str, default_factory: _DefaultSFTTrainerFactory) -> None:
+
+class SystemPromptFactory:
+    """Put the system prompt on every training row before AgentTune's default SFT factory runs.
+
+    With ``loss_on`` other than ``"all"``, each row is also tokenized here with labels from
+    ``aya_retrieval.loss_masks``; TRL keeps a dataset's own labels. The messages stay on the row
+    because AgentTune's factory reads them before TRL drops the column.
+    """
+
+    def __init__(
+        self, system: str, default_factory: _DefaultSFTTrainerFactory, loss_on: str = "all"
+    ) -> None:
         self.system = system
         self.default_factory = default_factory
+        self.labels = LOSS_ON[loss_on]
 
     def __call__(self, *, model, train_dataset, **kwargs):
         system_turn = {"role": "system", "content": self.system}
         rows = [{"messages": [system_turn, *row["messages"]]} for row in train_dataset]
+        if self.labels:
+            tokenizer = AutoTokenizer.from_pretrained(model)
+            for row in rows:
+                messages = row["messages"]
+                if messages[FIRST_DEMONSTRATED - 1]["role"] != "user":
+                    raise ValueError("a row does not have the expected turns in view")
+                row["input_ids"], row["labels"] = self.labels(
+                    tokenizer, messages, FIRST_DEMONSTRATED
+                )
         return self.default_factory(model=model, train_dataset=rows, **kwargs)
 
 
@@ -67,6 +96,13 @@ def main() -> None:
     parser.add_argument("--lora-r", type=int, default=16, help="LoRA rank; alpha is twice it")
     parser.add_argument(
         "--lora-targets", nargs="+", default=LORA_TARGETS, help="modules the adapter trains"
+    )
+    parser.add_argument(
+        "--loss-on",
+        choices=sorted(LOSS_ON),
+        default="all",
+        help="tokens that carry loss: every one (TRL's default), only the demonstrated turns, "
+        "or all but the scripted replies in view",
     )
     parser.add_argument("--report-name", help="report file name, default seed_<seed>")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
@@ -87,6 +123,7 @@ def main() -> None:
         "grad_accum": args.grad_accum,
         "lora_r": args.lora_r,
         "lora_targets": args.lora_targets,
+        "loss_on": args.loss_on,
         **use_lean_loss(),
     }
     rows = [json.loads(line) for line in args.data.read_text(encoding="utf-8").splitlines()]
@@ -104,7 +141,7 @@ def main() -> None:
         student=snapshot_download(MODEL_ID, revision=MODEL_REVISION, local_files_only=True),
         trajectories=logs,
         trainer_factory=SystemPromptFactory(
-            system_prompt_with_tools(SYSTEM_WITH_TOOL), default_factory
+            system_prompt_with_tools(SYSTEM_WITH_TOOL), default_factory, args.loss_on
         ),
         output_dir=str(args.out_dir),
         num_train_epochs=args.epochs,
