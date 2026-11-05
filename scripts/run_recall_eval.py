@@ -69,6 +69,11 @@ def main() -> None:
     parser.add_argument("--index", type=Path, required=True, help="scratch database path")
     parser.add_argument("--label", required=True, help="names the results file")
     parser.add_argument("--adapter", type=Path, help="adapter to score; omit for the base model")
+    parser.add_argument(
+        "--max-vram-fraction",
+        type=float,
+        help="cap this process's share of card memory, so the card never spills to system memory",
+    )
     parser.add_argument("--arms", nargs="+", default=list(ARMS), choices=ARMS)
     parser.add_argument("--items-per-kind", type=int, default=12)
     parser.add_argument("--pool", default="train", choices=sorted(POOLS))
@@ -124,6 +129,9 @@ def main() -> None:
     }
 
     started = time.time()
+    if args.max_vram_fraction:
+        # A full card spills into system memory and slows every step many times over (R-088).
+        torch.cuda.set_per_process_memory_fraction(args.max_vram_fraction)
     model, tokenizer = load_model()
     if args.adapter:
         model = PeftModel.from_pretrained(model, str(args.adapter))
