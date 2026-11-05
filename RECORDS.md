@@ -91,6 +91,7 @@ carry their own provenance (command, git commit, package versions).
 | R-076 | Training put loss on every token of a row, scripted small talk included; fixes 16a and 16b mask it; rule before they exist; demo transcripts |
 | R-077 | Fix 16a: copying gone and hard_dev recall 58 to 70, but plain chat below base; the targets carry the tone errors; 16c (1e-4) |
 | R-078 | Fix 17: plain-chat targets re-vetted on a stricter rubric by two judges; plan and rule before any target changes |
+| R-079 | Fixes 16b and 16c fail their gates on counts; strict vetting rejects 15 of v5's 150 chat targets; fix 17 runs at 1e-4 by R-078's rule |
 
 ---
 
@@ -2623,3 +2624,37 @@ spare both accepted, as before; every other row of v5's set is unchanged. Output
 fix 16c (1e-4) has more `statement` replies coherent on its seed-82 Sheet B; a tie goes to 16a. Gate, rule and sheets
 as R-076 (label `probe18_tuned82`, `results/coherence/R-079*`). Fix 16b is scored on the same gate. No held-out or
 independent run without Kevin.
+
+## R-079 · 2026-11-05 · SPRINT · Fixes 16b and 16c fail their gates on counts; the strict vetting; fix 17 runs at 1e-4 by R-078's rule
+
+**Seed 82, against R-076's gate** (probe 51203 recall at least 92 and `statement` at least 47; `hard_dev` `never_told`
+at least 44 and false retrieval at most 6):
+
+| Measure | v5 | 16a (3e-4, demonstrated) | 16b (3e-4, no history replies) | 16c (1e-4, demonstrated) |
+|---|---|---|---|---|
+| Probe 51203 recall, `statement` | 95, 48 | 96, 48 | **87**, 48 | 93, 48 |
+| `hard_dev` recall | 58 | 70 | 55 | 48 |
+| `hard_dev` `never_told`, false retrieval | 47, 4 | 48, 3 | 48, 1 | **40, 19** |
+| Probe 73157 recall, `in_view`, `statement` | 96, 43, 48 | 96, 44, 48 | 87, 42, 48 | 91, 41, 47 |
+| Gate on counts | | pass | **fail** (recall) | **fail** (`never_told`, false retrieval) |
+
+16b keeps the loss on the system prompt, the friend's lines and the tool's passages and drops only the scripted replies:
+recall falls. 16c, the lighter pull, loses `hard_dev` precision. Neither needs its other sheets judged to fail.
+
+**16c's Sheet B, judged for R-078's choice of loss** (shuffle seed 90480, one fresh judge, transcript checked,
+`results/coherence/R-077C/`): base `statement` 46, 16c 46; base `in_view` 35, 16c 37. 16a's was 40 (base 44, on its
+own sheet and judge). R-078: fix 17 takes the setting with more `statement` replies coherent on its Sheet B, so **16c's,
+1e-4**, though 16c failed its gate on false retrieval; the rule was written before either result and is followed. Base
+scored 46 on this sheet and 44 on 16a's: the same replies, two judges, two lines apart.
+
+**The strict vetting** (`results/coherence/R-078/`, shuffle seed 90479). Two fresh Sonnet judges, each with its own
+folder, marked the 450-line sheet (v5's 150 plain-chat targets, 300 spares from seeds 71127 and 71128) on the target
+rubric; each read only its rubric and sheet. They agreed on 445 lines; judge 1 accepted 383, judge 2 388. Both accepted
+135 of v5's 150 targets and 248 of 300 spares. The 15 rejected targets include "Enjoy the party, Omar." (to "Omar
+invited me to a party"), "That sounds like a fun story. Who did you run into?" (to "guess who ran into Omar at the
+store"), "Enjoy your stay!" (to "my sister will be staying with me all week") and "Good luck with your date with Marc."
+(to "Ivan asked me to be their plus one"). Swapped for spares both accepted: `data/screens/strict_chat.jsonl` (commit
+`b985f38`), which differs from v5's set in those 15 rows only.
+
+**Fix 17** started training at 03:23 (`--loss-on demonstrated --learning-rate 1e-4`, `strict_chat.jsonl`). If it fails
+on counts as 16c did, the next screen is the same data at 3e-4 (16a's setting), under a rule written before it runs.
