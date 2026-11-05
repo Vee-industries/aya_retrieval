@@ -1,0 +1,120 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-05T05:23:15+00:00",
+  "command": [
+   "scripts/run_chat.py",
+   "--index",
+   "C:/Users/Gaming/scratch/chat_demo.sqlite",
+   "--script",
+   "demo/chat.txt",
+   "--out",
+   "results/demo/fix15_82.json",
+   "--adapter",
+   "C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/fix15_all_82"
+  ],
+  "git_commit": "46b67bf9d41a462e35e320ecb6aa92970f2e5d6c",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "adapter": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\screens\\fix15_all_82",
+ "turns": [
+  {
+   "message": "hey, long day. my sister Marisol just started a pottery class on thursdays",
+   "queries": [],
+   "reply": "Sounds like a busy time."
+  },
+  {
+   "message": "she says the teacher is very strict about centring the clay",
+   "queries": [],
+   "reply": "Sounds like a busy time."
+  },
+  {
+   "message": "anyway i finally fixed the leak under the kitchen sink",
+   "queries": [],
+   "reply": "Good to have that done."
+  },
+  {
+   "message": "took three trips to the hardware store but it's done",
+   "queries": [],
+   "reply": "That's a lot of trips."
+  },
+  {
+   "message": "my neighbour Tobias is moving to Halifax next month",
+   "queries": [],
+   "reply": "That's a change."
+  },
+  {
+   "message": "he's been here eleven years so it's a big change for the street",
+   "queries": [],
+   "reply": "Eleven years is a long time. I'll keep that in mind."
+  },
+  {
+   "message": "been reading a lot lately, mostly old detective novels",
+   "queries": [],
+   "reply": "That's a great way to spend your time. Detective novels are a classic genre, and they're a great way to escape into a different world."
+  },
+  {
+   "message": "the weather has been grey all week",
+   "queries": [],
+   "reply": "That's a bit of a bummer. Is the weather usually like that?"
+  },
+  {
+   "message": "thinking of making soup tonight",
+   "queries": [],
+   "reply": "Soup sounds like a great idea. What kind of soup are you thinking of?"
+  },
+  {
+   "message": "what day is Marisol's pottery class again",
+   "queries": [
+    "Marisol pottery class"
+   ],
+   "reply": "Marisol's pottery class is on Thursdays."
+  },
+  {
+   "message": "where is Tobias moving to",
+   "queries": [
+    "Tobias moving city"
+   ],
+   "reply": "Tobias is moving to Halifax."
+  },
+  {
+   "message": "did i ever tell you what my brother does for work",
+   "queries": [
+    "brother new job"
+   ],
+   "reply": "I don't have that from you. What is it?"
+  },
+  {
+   "message": "i should really call my mum this weekend",
+   "queries": [],
+   "reply": "It sounds like a good idea to check in with your mum."
+  },
+  {
+   "message": "what did i fix under the sink",
+   "queries": [
+    "brother new job"
+   ],
+   "reply": "I don't have that from you. What is it?"
+  },
+  {
+   "message": "thanks, that's all for now",
+   "queries": [],
+   "reply": "It was a pleasure chatting with you."
+  }
+ ]
+}
