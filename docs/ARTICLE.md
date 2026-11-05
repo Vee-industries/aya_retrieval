@@ -405,6 +405,38 @@ hidden by a later result.
   large gains as not significant; we use an exact sign test and a centred bootstrap (section 9,
   R-031).
 
+**Failure modes found in the model.** Each was found by reading replies, not totals, and each
+came from something in the training data.
+
+- **A name became a search instruction.** Trained harder, the adapter treated any line about a
+  named person as a lookup: told "my tutor has been acting strange lately", it searched and
+  stated a stored fact about the tutor (R-055). The training set had six plain-chat lines against
+  25 fact templates. Forty-eight more chat lines fixed the lookups (fix 9). The same bug came back
+  with the wide pool: its names appeared only in rows that need a search, so "i should really
+  call my mentor" was searched as "mentor phone number" (R-071; fix 14b adds the wide pool's
+  people to plain-chat rows).
+- **The untrained model's habits, copied.** Plain-chat targets are the untrained model's own
+  replies, so the adapter learned its weak ones: "Lucia is a great name.", a book character for a
+  friend's name, an earlier topic pulled into a reply (R-057, R-059). Vetting the targets with a
+  blind judge, then asking for brief replies before vetting, removed them (fixes 10 and 11, v5).
+- **Unfamiliar facts forced into familiar ones.** On text written by someone else, the adapter
+  searched for an unfamiliar kind of fact with the query phrase of the nearest training fact type:
+  "where my babysitter came of age" became "babysitter born birthday month". The right passage
+  came back and the reply denied it or answered the question it had searched for (R-068).
+  Training on 47 new fact types lifted recall there from 58 to 76 of 96 at one seed (fix 14,
+  R-071); not yet confirmed.
+- **Another person's fact, stated as the answer.** With the new fact types, a question about a
+  fact never told brought back someone else's fact of that type, and the reply gave it as the
+  answer ("Isolde finished a course in philosophy") (R-071). Open.
+- **A found fact denied.** Shorter in-view answers (fix 12) and more indirect in-view questions
+  (fix 13) each made the model trust the turns in view more and a search result less: searches
+  found the fact and the reply said "I don't have that from you" (R-063, R-064). Both dropped.
+- **Forgetting read as wordplay.** "drawing a blank on my tutor's tattoo", with the tattoo still on
+  screen, is read as a joke, a drawing request or disappointment, by the untrained model and every
+  adapter; it is most of v5's remaining misses on facts in view (R-063). Open.
+- **One sentence, one false denial.** Many found-fact answers opened with the same word as a
+  training sentence meaning "I don't know", and one seed slid from one into the other (v2).
+
 ## 12. Limitations
 
 What this work does not cover, whatever its numbers:
