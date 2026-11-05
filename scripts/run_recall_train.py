@@ -144,6 +144,11 @@ def main() -> None:
         default=[],
         help="also save the adapter after these epochs, under <out-dir>/epoch-<n>",
     )
+    parser.add_argument(
+        "--max-vram-fraction",
+        type=float,
+        help="cap this process's share of card memory, so the card never spills to system memory",
+    )
     parser.add_argument("--report-name", help="report file name, default seed_<seed>")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
@@ -178,6 +183,11 @@ def main() -> None:
     report["rows"] = len(logs)
 
     started = time.time()
+    if args.max_vram_fraction:
+        # At 9.6 of 10 GB reserved, any other program's memory pushed training into system memory
+        # and steps slowed from 1.3 s to 20 s (R-088); the peak in use is 7.8 GB.
+        torch.cuda.set_per_process_memory_fraction(args.max_vram_fraction)
+        report["max_vram_fraction"] = args.max_vram_fraction
     torch.manual_seed(args.seed)
     default_factory = _DefaultSFTTrainerFactory(
         lora_r=args.lora_r, lora_alpha=2 * args.lora_r, lora_targets=args.lora_targets
