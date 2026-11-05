@@ -85,6 +85,7 @@ carry their own provenance (command, git commit, package versions).
 | R-070 | First wide pool discarded (its writer saw sealed fragments via a debug script); checker fixed; docs updated |
 | R-071 | Fix 14: `hard_dev` recall 58 to 76 at seed 82, fails gate on statements (44) and never_told; fixes 14b, 14c |
 | R-072 | Operational errors not recorded at the time (queue race, untracked files, quoting bug, stalled push) and fixes |
+| R-073 | Fix 14c fails on `hard_dev` never_told (32); wide training makes the model state another person's fact; over-long rows in fixes 14 to 14c; fix 15 |
 
 ---
 
@@ -2354,3 +2355,50 @@ this record for them.
 person or relation. Vetting (fresh Sonnet judge, `results/coherence/R-071/`): targets 139 coherent and 11 not, spares
 139 and 11; the 11 were swapped, and the vetted rows spliced into `wide_mix.jsonl` in place of its statement rows.
 All 650 fact rows are fix 14's: `data/screens/wide_mix_b.jsonl`.
+
+## R-073 · 2026-11-04 · SPRINT · Fix 14c fails on `hard_dev` `never_told`: wide training makes the model state another person's fact; three sets had over-long rows; fix 15
+
+**Fix 14c at seed 82** (`data/screens/wide_mix_c.jsonl`, fact rows a quarter from `wide`, v5's statement rows;
+trained 1,648 s, peak 7.83 GiB). Labels `screen_fix14c_all_82` and `hd_fix14c_all_82` (R-071 named the second
+`hd_fix14c_82`; the queue's label carries `_all`, as the gate reads it).
+
+| Label | Probe recall (of 96) | Probe `statement` (of 48) | `hard_dev` recall (of 96) | `hard_dev` `never_told` (of 48) | `hard_dev` false retrieval (of 240) |
+|---|---|---|---|---|---|
+| base (`hd_base`, tool loop) | | | 20 | 39 | 21 |
+| v5 (`screen_fix11_all_82`, `hd_v5_82`) | 95 | 48 | 58 | 47 | 4 |
+| fix 14 (R-071) | 92 | 44 | 76 | 36 | 13 (12 `never_told`) |
+| fix 14c | 93 | 47 | 79 | 32 | 16 (all `never_told`) |
+
+Gate (R-071): probe recall 93 (92), statement 47 (47), `hard_dev` recall 79 (68), `never_told` 32 (44): **fail**.
+Probe false retrieval is 0. On `hard_dev`, recall is 36% above v5's but false retrieval is four times v5's.
+
+**What the 16 `never_told` misses are.** Every one states the decoy's value: the same fact about another person in the
+chat, given as the answer ("i wonder if you got told what my sponsor spent three years on at uni" gets "Lorcan
+finished a course in astronomy", from "Lorcan (my plumber) rang mid-match ..."). Nine are `hard_dev`'s degree type,
+five its housewarming gift. When the search returned passages, v5 answered `never_told` right 22 times of 23; fix 14c
+17 of 33. The wide-trained model finds more and checks less whose fact it found.
+
+**A cause considered and dropped.** The `wide` pool names the person as "my {relation} {person}" in 41 of 47 facts,
+the train pool in 13 of 35, and the degree type uses "{person} (my {relation})". A build option to vary that form
+was written and not used: a fresh Sonnet reviewer, asked to argue against it, pointed out that the gift type shares its
+form with the hometown type, which had no such misses, and the rebuilt misses include decoys in the plain form. The
+misses follow the person, not the form.
+
+**Over-long rows (data defect).** `run_build_training_set.py` wrote its output before its 1,024-token check, and the
+queue took a non-empty file as success. Training cuts rows at 1,024 tokens, so these rows lost the end of their
+answer: fix 14's set and 14b's (which keeps 14's fact rows) 5 rows (`older_0028`, `older_0052`, `older_0150`,
+`confirm_0148`, `never_told_0103`; 1,032 to 1,066 tokens), 14c's 3. Five rows of 800 cannot explain a gap of 12 on
+`never_told`, but the three screens stand as screens of those sets only. Commit `1b184b3`: the build now skips a row
+over the limit (tallied as `{kind}_too_long`) and checks before writing; queues take the provenance file as
+success. Earlier builds had no over-long row, so they rebuild unchanged. The as-trained sets of fixes 14 and 14c are
+committed without provenance files, since their builds stopped at the check.
+
+**Fix 14b** (fix 14's fact rows, statement rows half from `wide`, vetted): training at the time of writing; its result
+is added below.
+
+**Fix 15.** 14c's settings with `never_told` rows raised from 150 to 250, each kept only if its search returns
+passages, all about someone else (`--never-told-hits`, R-050), built at seed 71124 with the fixed build; v5's 150
+statement rows; 900 rows (`data/screens/wide_mix_15.jsonl`). R-054 found `--never-told-hits` brought `never_told` part
+of the way back when the cause was searching in the friend's words; here the misses come from reading, and more rows
+that show a same-type fact about someone else are the direct remedy. Same gate, label `fix15_all`, plus `hard_dev`
+false retrieval reported against v5's 4.
