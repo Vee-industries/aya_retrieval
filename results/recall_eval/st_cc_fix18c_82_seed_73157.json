@@ -1,0 +1,1649 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-05T16:11:40+00:00",
+  "command": [
+   "scripts/run_recall_eval.py",
+   "--seed",
+   "73157",
+   "--pool",
+   "probe",
+   "--items-per-kind",
+   "24",
+   "--index",
+   "C:/Users/Gaming/scratch/eval_stress.sqlite",
+   "--label",
+   "st_cc_fix18c_82",
+   "--arms",
+   "tool_loop",
+   "--kinds",
+   "statement",
+   "--chat-check",
+   "data/check/chat_check.json",
+   "--adapter",
+   "C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/fix18c_82"
+  ],
+  "git_commit": "4e83e47a4abb62750d9bc803026728238b0119df",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+ "adapter": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\screens\\fix18c_82",
+ "seed": 73157,
+ "pool": "probe",
+ "decoys": 1,
+ "sizes": [
+  58,
+  419
+ ],
+ "kinds": [
+  "statement"
+ ],
+ "user_style": false,
+ "corrections": false,
+ "asked_before": false,
+ "chat_check": "data/check/chat_check.json",
+ "rows": [
+  {
+   "id": "58_statement_00",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Lucia got a puppy and is completely smitten",
+   "view": [
+    [
+     "the photocopier cheered me up today",
+     "That's lovely to hear."
+    ],
+    [
+     "really enjoying the courier at the moment",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "my mom asked about the photocopier again",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's adorable! Puppies are so fun and bring so much joy.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 15,
+   "whole_chat_tokens": 1122,
+   "ran_out_of_calls": false,
+   "first_reply": "That's adorable! Puppies are so fun and bring so much joy.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_01",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Kofi is loving the new job so far",
+   "view": [
+    [
+     "the chimney popped into my head earlier",
+     "Funny what pops up."
+    ],
+    [
+     "weird how much of my week is the library",
+     "Quiet days are underrated."
+    ],
+    [
+     "the dryer keeps letting me down",
+     "Sounds like you've had enough of the dryer."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great to hear! New jobs can be a great way to start fresh.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1119,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great to hear! New jobs can be a great way to start fresh.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_02",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Dmitri finally bought a car and it runs great",
+   "view": [
+    [
+     "the garage turned a corner this week",
+     "Sounds like the garage is on the up."
+    ],
+    [
+     "really enjoying my keys at the moment",
+     "That's lovely to hear."
+    ],
+    [
+     "the garage cheered me up today",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news! Dmitri's new car sounds like a fantastic addition to his fleet.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 704,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1114,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news! Dmitri's new car sounds like a fantastic addition to his fleet.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_03",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Dmitri got back from a trip and looks so relaxed",
+   "view": [
+    [
+     "quiet day, mostly the bins",
+     "No problem, what else is new?"
+    ],
+    [
+     "happy to report the photocopier is all good",
+     "Sounds like the photocopier is on the up."
+    ],
+    [
+     "my mom asked about the tram again",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That’s great to hear! Dmitri sounds like he had a good time.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 714,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1130,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s great to hear! Dmitri sounds like he had a good time.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_04",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Kofi has a little one on the way, great news all round",
+   "view": [
+    [
+     "quiet day, mostly my camera",
+     "Funny what pops up."
+    ],
+    [
+     "the wind keeps letting me down",
+     "Sounds like you've had enough of the wind."
+    ],
+    [
+     "the photocopier keeps letting me down",
+     "All evening? I hope the photocopier is sorted now."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news! Kofi's having a little one on the way.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 716,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1124,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news! Kofi's having a little one on the way.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_05",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Farah found a lovely little bakery near the new place",
+   "view": [
+    [
+     "my mom asked about the patio again",
+     "Quiet days are underrated."
+    ],
+    [
+     "really enjoying my skateboard at the moment",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "really enjoying the pharmacy at the moment",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a great find!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 705,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1123,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a great find!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_06",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Hana did brilliantly in the course test, so happy",
+   "view": [
+    [
+     "quiet day, mostly my smoothie",
+     "Anything interesting about my smoothie?"
+    ],
+    [
+     "the garage is testing my patience",
+     "Sounds like you've had enough of the garage."
+    ],
+    [
+     "the basement popped into my head earlier",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news! Well done, Hana.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1109,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news! Well done, Hana.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_07",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Ayaan finished the big race and felt amazing",
+   "view": [
+    [
+     "the fence messed up my whole plan",
+     "Ugh, sorry about the fence."
+    ],
+    [
+     "the escalator cheered me up today",
+     "Great, the escalator deserved a good day."
+    ],
+    [
+     "that's all i've got on the bins",
+     "Quiet days are underrated."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's awesome! Well done, Ayaan.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 711,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1105,
+   "ran_out_of_calls": false,
+   "first_reply": "That's awesome! Well done, Ayaan.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_08",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Chidi sprained an ankle and is stuck on the couch",
+   "view": [
+    [
+     "my mom asked about the sauna again",
+     "Weeks can go that way."
+    ],
+    [
+     "so fed up with my charger right now",
+     "That's rough. What went wrong with my charger?"
+    ],
+    [
+     "the butcher turned a corner this week",
+     "Sounds like the butcher is on the up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a tough day for Chidi. Hope he gets better soon.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 715,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1132,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a tough day for Chidi. Hope he gets better soon.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_09",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Farah hates the commute to work now, it drags",
+   "view": [
+    [
+     "happy to report the modem is all good",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "the patio turned a corner this week",
+     "That's lovely to hear."
+    ],
+    [
+     "the wind went better than expected",
+     "Sounds like the wind is on the up."
+    ]
+   ],
+   "answer": "",
+   "reply": "Commuting can be a real pain. Maybe there's a way to make it better?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 706,
+   "tokens_written": 17,
+   "whole_chat_tokens": 1110,
+   "ran_out_of_calls": false,
+   "first_reply": "Commuting can be a real pain. Maybe there's a way to make it better?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_10",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Chidi is stressed because the landlord ignores the leaking roof",
+   "view": [
+    [
+     "the tram went better than expected",
+     "Sounds like the tram is on the up."
+    ],
+    [
+     "that's all i've got on my couch",
+     "Weeks can go that way."
+    ],
+    [
+     "the library cheered me up today",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds tough. Maybe a little humor can help?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 706,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1101,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds tough. Maybe a little humor can help?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_11",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Ayaan says the cat keeps scratching the sofa to bits",
+   "view": [
+    [
+     "so fed up with the fence right now",
+     "All evening? I hope the fence is sorted now."
+    ],
+    [
+     "another bad day thanks to the pharmacy",
+     "Plans and the pharmacy clearly don't mix."
+    ],
+    [
+     "weird how much of my week is that novel",
+     "Anything interesting about that novel?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a common issue with cats. Maybe you can try to redirect the cat's attention to a scratching post or provide some alternative ways to scratch, like catnip or scratching pads.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 717,
+   "tokens_written": 37,
+   "whole_chat_tokens": 1136,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a common issue with cats. Maybe you can try to redirect the cat's attention to a scratching post or provide some alternative ways to scratch, like catnip or scratching pads.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_12",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Gustav was ill all night after a bad meal out",
+   "view": [
+    [
+     "the wind went better than expected",
+     "Nice one. What changed with the wind?"
+    ],
+    [
+     "another bad day thanks to the sleet",
+     "Plans and the sleet clearly don't mix."
+    ],
+    [
+     "so fed up with the dryer right now",
+     "That's rough. What went wrong with the dryer?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds tough. Did he get any relief?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 715,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1119,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds tough. Did he get any relief?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_13",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Lucia lost the whole garden to the frost, so annoying",
+   "view": [
+    [
+     "weird how much of my week is my neck",
+     "Weeks can go that way."
+    ],
+    [
+     "so fed up with the freezer right now",
+     "Ugh, sorry about the freezer."
+    ],
+    [
+     "the patio messed up my whole plan",
+     "Ugh, sorry about the patio."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds tough.  Frost can be a real pain.  Maybe you can try to replant some of the garden?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 714,
+   "tokens_written": 25,
+   "whole_chat_tokens": 1102,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds tough.  Frost can be a real pain.  Maybe you can try to replant some of the garden?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_14",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Esme got the guitar broken on the bus, gutted",
+   "view": [
+    [
+     "that's all i've got on my neck",
+     "Quiet days are underrated."
+    ],
+    [
+     "so fed up with my smoothie right now",
+     "All evening? I hope my smoothie is sorted now."
+    ],
+    [
+     "another bad day thanks to the bins",
+     "All evening? I hope the bins is sorted now."
+    ]
+   ],
+   "answer": "",
+   "reply": "That’s tough. Guitars are expensive, and a broken one is a bummer.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 718,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1135,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s tough. Guitars are expensive, and a broken one is a bummer.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_15",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Esme is cross about the scuffed furniture after the move",
+   "view": [
+    [
+     "the courier went better than expected",
+     "Nice one. What changed with the courier?"
+    ],
+    [
+     "the garage turned a corner this week",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "really enjoying the butcher at the moment",
+     "Great, the butcher deserved a good day."
+    ]
+   ],
+   "answer": "",
+   "reply": "That’s a tough one. Maybe she can negotiate a replacement or a discount.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 712,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1105,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s a tough one. Maybe she can negotiate a replacement or a discount.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_16",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Ayaan has started making things out of clay for fun",
+   "view": [
+    [
+     "another bad day thanks to the vet",
+     "Ugh, sorry about the vet."
+    ],
+    [
+     "the bins is testing my patience",
+     "Plans and the bins clearly don't mix."
+    ],
+    [
+     "that novel messed up my whole plan",
+     "That's rough. What went wrong with that novel?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a great way to spend the day! What kind of things is Ayaan making?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 713,
+   "tokens_written": 21,
+   "whole_chat_tokens": 1102,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a great way to spend the day! What kind of things is Ayaan making?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_17",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Hana has been drinking a lot of tea lately",
+   "view": [
+    [
+     "my mom asked about the wind again",
+     "What did she want to know about the wind?"
+    ],
+    [
+     "the fence cheered me up today",
+     "Nice one. What changed with the fence?"
+    ],
+    [
+     "the library cheered me up today",
+     "Great, the library deserved a good day."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a good way to start the day. Tea is a great way to stay hydrated and energized.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 712,
+   "tokens_written": 23,
+   "whole_chat_tokens": 1104,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a good way to start the day. Tea is a great way to stay hydrated and energized.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_18",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Lucia is driving the old truck to the family reunion",
+   "view": [
+    [
+     "the courier keeps letting me down",
+     "All evening? I hope the courier is sorted now."
+    ],
+    [
+     "that novel is testing my patience",
+     "All evening? I hope that novel is sorted now."
+    ],
+    [
+     "so fed up with the pharmacy right now",
+     "Plans and the pharmacy clearly don't mix."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a great way to get there!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 716,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1119,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a great way to get there!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_19",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Gustav is renovating the kitchen at the moment",
+   "view": [
+    [
+     "quiet day, mostly the escalator",
+     "Quiet days are underrated."
+    ],
+    [
+     "my neck messed up my whole plan",
+     "Sounds like you've had enough of my neck."
+    ],
+    [
+     "so fed up with the vacuuming right now",
+     "All evening? I hope the vacuuming is sorted now."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a lot of noise.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 715,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1127,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a lot of noise.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_20",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Kofi enrolled in a night course",
+   "view": [
+    [
+     "was reading about the fence at lunch",
+     "What did she want to know about the fence?"
+    ],
+    [
+     "happy to report the sauna is all good",
+     "That's lovely to hear."
+    ],
+    [
+     "my mom asked about my neck again",
+     "Quiet days are underrated."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news! Night courses can be a wonderful way to learn new skills or pursue interests.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 704,
+   "tokens_written": 19,
+   "whole_chat_tokens": 1103,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news! Night courses can be a wonderful way to learn new skills or pursue interests.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_21",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Kofi went to a concert with some friends",
+   "view": [
+    [
+     "another bad day thanks to the patio",
+     "Plans and the patio clearly don't mix."
+    ],
+    [
+     "so fed up with my neck right now",
+     "All evening? I hope my neck is sorted now."
+    ],
+    [
+     "that novel went better than expected",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds fun! Did he enjoy the concert?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 708,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1132,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds fun! Did he enjoy the concert?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_22",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Esme bought a bike for getting around town",
+   "view": [
+    [
+     "really enjoying the dryer at the moment",
+     "Nice one. What changed with the dryer?"
+    ],
+    [
+     "the butcher turned a corner this week",
+     "That's lovely to hear."
+    ],
+    [
+     "the modem went better than expected",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great! Bikes are a fantastic way to get around town.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 702,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1118,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great! Bikes are a fantastic way to get around town.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_23",
+   "size": 58,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "Hana is moving into a smaller flat",
+   "view": [
+    [
+     "that's all i've got on the vacuuming",
+     "Weeks can go that way."
+    ],
+    [
+     "my mom asked about the dryer again",
+     "Anything interesting about the dryer?"
+    ],
+    [
+     "the wind popped into my head earlier",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That’s a great decision.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 702,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1097,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s a great decision.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_00",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my tutor adopted a rescue dog and it's so sweet",
+   "view": [
+    [
+     "my mom asked about the radiator again",
+     "Quiet days are underrated."
+    ],
+    [
+     "that novel turned a corner this week",
+     "Sounds like that novel is on the up."
+    ],
+    [
+     "the vet went better than expected",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's wonderful! Adopting a rescue dog is a great way to give a dog a second chance.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 705,
+   "tokens_written": 20,
+   "whole_chat_tokens": 5349,
+   "ran_out_of_calls": false,
+   "first_reply": "That's wonderful! Adopting a rescue dog is a great way to give a dog a second chance.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_01",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my godfather was given a bigger role in the office and is buzzing",
+   "view": [
+    [
+     "the blender messed up my whole plan",
+     "All evening? I hope the blender is sorted now."
+    ],
+    [
+     "really enjoying the vet at the moment",
+     "That's lovely to hear."
+    ],
+    [
+     "my smoothie popped into my head earlier",
+     "Quiet days are underrated."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news!  A bigger role is always a sign of recognition and a chance to grow.  Enjoy the buzz!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 716,
+   "tokens_written": 25,
+   "whole_chat_tokens": 5436,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news!  A bigger role is always a sign of recognition and a chance to grow.  Enjoy the buzz!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_02",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my mentor passed the driving test and is so proud",
+   "view": [
+    [
+     "spent all evening sorting out the wind",
+     "All evening? I hope the wind is sorted now."
+    ],
+    [
+     "the tram is testing my patience",
+     "Plans and the tram clearly don't mix."
+    ],
+    [
+     "my mom asked about the bins again",
+     "What did she want to know about the bins?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news! Well done to your mentor.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 714,
+   "tokens_written": 10,
+   "whole_chat_tokens": 5410,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news! Well done to your mentor.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_03",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my barber adores the place they just bought, full of light",
+   "view": [
+    [
+     "really enjoying the patio at the moment",
+     "Great, the patio deserved a good day."
+    ],
+    [
+     "the wind cheered me up today",
+     "Sounds like the wind is on the up."
+    ],
+    [
+     "was reading about the radiator at lunch",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a great new place!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 711,
+   "tokens_written": 8,
+   "whole_chat_tokens": 5405,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a great new place!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_04",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my tutor won the local tournament and is glowing",
+   "view": [
+    [
+     "spent all evening sorting out the blender",
+     "That's rough. What went wrong with the blender?"
+    ],
+    [
+     "that novel cheered me up today",
+     "Sounds like that novel is on the up."
+    ],
+    [
+     "the pharmacy popped into my head earlier",
+     "Quiet days are underrated."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news! Well done to your tutor.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 712,
+   "tokens_written": 10,
+   "whole_chat_tokens": 5418,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news! Well done to your tutor.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_05",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my barber got over the flu faster than expected",
+   "view": [
+    [
+     "so fed up with the butcher right now",
+     "Ugh, sorry about the butcher."
+    ],
+    [
+     "was reading about the radiator at lunch",
+     "What did she want to know about the radiator?"
+    ],
+    [
+     "the sauna messed up my whole plan",
+     "Ugh, sorry about the sauna."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news! The barber's recovery is a good sign.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 715,
+   "tokens_written": 13,
+   "whole_chat_tokens": 5429,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news! The barber's recovery is a good sign.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_06",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my mentor welcomed a newborn and everyone is healthy",
+   "view": [
+    [
+     "the modem cheered me up today",
+     "Sounds like the modem is on the up."
+    ],
+    [
+     "the photocopier turned a corner this week",
+     "Nice one. What changed with the photocopier?"
+    ],
+    [
+     "the modem cheered me up today",
+     "Sounds like the modem is on the up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news! A newborn is always a joyful addition to any family.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 716,
+   "tokens_written": 16,
+   "whole_chat_tokens": 5444,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news! A newborn is always a joyful addition to any family.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_07",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my barber made the best soup for the family dinner",
+   "view": [
+    [
+     "happy to report the dryer is all good",
+     "Great, the dryer deserved a good day."
+    ],
+    [
+     "spent all evening sorting out my ankle",
+     "Ugh, sorry about my ankle."
+    ],
+    [
+     "my couch cheered me up today",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds great! Barbers are always a hit with the family.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 708,
+   "tokens_written": 14,
+   "whole_chat_tokens": 5391,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds great! Barbers are always a hit with the family.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_08",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my teammate grumbled about the ride giving up on the road again",
+   "view": [
+    [
+     "that's all i've got on my neck",
+     "Anything interesting about my neck?"
+    ],
+    [
+     "was reading about the basement at lunch",
+     "Quiet days are underrated."
+    ],
+    [
+     "that's all i've got on the patio",
+     "Quiet days are underrated."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a tough ride. Hope they get it fixed soon.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 709,
+   "tokens_written": 14,
+   "whole_chat_tokens": 5419,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a tough ride. Hope they get it fixed soon.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_09",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my classmate has a nasty cold and can't shake it",
+   "view": [
+    [
+     "the basement cheered me up today",
+     "That's lovely to hear."
+    ],
+    [
+     "quiet day, mostly the fence",
+     "Funny what pops up."
+    ],
+    [
+     "quiet day, mostly the garage",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds tough. Hope they feel better soon.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 698,
+   "tokens_written": 10,
+   "whole_chat_tokens": 5447,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds tough. Hope they feel better soon.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_10",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my classmate is anxious about the tests ahead",
+   "view": [
+    [
+     "another bad day thanks to the radiator",
+     "Sounds like you've had enough of the radiator."
+    ],
+    [
+     "the courier turned a corner this week",
+     "Great, the courier deserved a good day."
+    ],
+    [
+     "my mom asked about the photocopier again",
+     "No problem, what else is new?"
+    ]
+   ],
+   "answer": "",
+   "reply": "It sounds like your classmate is feeling stressed about the upcoming tests. Is there anything you can do to help them feel more at ease?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 714,
+   "tokens_written": 28,
+   "whole_chat_tokens": 5419,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your classmate is feeling stressed about the upcoming tests. Is there anything you can do to help them feel more at ease?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_11",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my barber is furious that the shop lost the delivery",
+   "view": [
+    [
+     "happy to report the patio is all good",
+     "Nice one. What changed with the patio?"
+    ],
+    [
+     "happy to report the patio is all good",
+     "Nice one. What changed with the patio?"
+    ],
+    [
+     "spent all evening sorting out the blender",
+     "That's rough. What went wrong with the blender?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a tough situation. How are you feeling about it?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 717,
+   "tokens_written": 14,
+   "whole_chat_tokens": 5445,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a tough situation. How are you feeling about it?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_12",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my teammate is dreading the long drive to the wedding",
+   "view": [
+    [
+     "the photocopier cheered me up today",
+     "Sounds like the photocopier is on the up."
+    ],
+    [
+     "the sauna is testing my patience",
+     "That's rough. What went wrong with the sauna?"
+    ],
+    [
+     "the blender keeps letting me down",
+     "Plans and the blender clearly don't mix."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds tough. Is there anything you can do to make the drive more enjoyable?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 720,
+   "tokens_written": 17,
+   "whole_chat_tokens": 5379,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds tough. Is there anything you can do to make the drive more enjoyable?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_13",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my tutor hurt a knee playing football and is gutted",
+   "view": [
+    [
+     "my keys cheered me up today",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "that's all i've got on the chimney",
+     "Quiet days are underrated."
+    ],
+    [
+     "happy to report my neck is all good",
+     "Great, my neck deserved a good day."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds tough. Hope he’s okay and gets back to playing soon.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 709,
+   "tokens_written": 15,
+   "whole_chat_tokens": 5393,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds tough. Hope he’s okay and gets back to playing soon.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_14",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my godfather can't sleep because of loud music from next door",
+   "view": [
+    [
+     "weird how much of my week is the pharmacy",
+     "No problem, what else is new?"
+    ],
+    [
+     "that's all i've got on the tram",
+     "Anything interesting about the tram?"
+    ],
+    [
+     "so fed up with the library right now",
+     "That's rough. What went wrong with the library?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a tough situation. Maybe you could talk to your godfather about it?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 715,
+   "tokens_written": 18,
+   "whole_chat_tokens": 5372,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a tough situation. Maybe you could talk to your godfather about it?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_15",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my barber is exhausted at the office, the workload keeps growing",
+   "view": [
+    [
+     "another bad day thanks to the pharmacy",
+     "Ugh, sorry about the pharmacy."
+    ],
+    [
+     "happy to report the butcher is all good",
+     "Sounds like the butcher is on the up."
+    ],
+    [
+     "quiet day, mostly the escalator",
+     "Quiet days are underrated."
+    ]
+   ],
+   "answer": "",
+   "reply": "Barbers are always on the go, but it sounds like your barber is feeling the pressure. Maybe a little break or a chat could help?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 713,
+   "tokens_written": 29,
+   "whole_chat_tokens": 5440,
+   "ran_out_of_calls": false,
+   "first_reply": "Barbers are always on the go, but it sounds like your barber is feeling the pressure. Maybe a little break or a chat could help?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_16",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my teammate has taken up keyboard lessons after dinner",
+   "view": [
+    [
+     "that's all i've got on the freezer",
+     "Funny what pops up."
+    ],
+    [
+     "my neck turned a corner this week",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "the chimney went better than expected",
+     "Sounds like the chimney is on the up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That’s a great way to unwind! Keyboard lessons can be a fun way to relax and get creative.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 705,
+   "tokens_written": 22,
+   "whole_chat_tokens": 5338,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s a great way to unwind! Keyboard lessons can be a fun way to relax and get creative.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_17",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my daughter went rambling through the hills with the pooch",
+   "view": [
+    [
+     "my skateboard popped into my head earlier",
+     "What did she want to know about my skateboard?"
+    ],
+    [
+     "the sauna cheered me up today",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "the patio messed up my whole plan",
+     "Ugh, sorry about the patio."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a fun day! Did she see any interesting things?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 713,
+   "tokens_written": 14,
+   "whole_chat_tokens": 5412,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a fun day! Did she see any interesting things?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_18",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my stepsister is busy bubble-wrapping dishes before relocating",
+   "view": [
+    [
+     "happy to report the bins is all good",
+     "Sounds like the bins is on the up."
+    ],
+    [
+     "happy to report that novel is all good",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "so fed up with the pharmacy right now",
+     "That's rough. What went wrong with the pharmacy?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a lot of work. Is she moving to a new place?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 715,
+   "tokens_written": 16,
+   "whole_chat_tokens": 5427,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a lot of work. Is she moving to a new place?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_19",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my teammate went shopping for a winter coat",
+   "view": [
+    [
+     "spent all evening sorting out the sleet",
+     "That's rough. What went wrong with the sleet?"
+    ],
+    [
+     "so fed up with the basement right now",
+     "Ugh, sorry about the basement."
+    ],
+    [
+     "the patio popped into my head earlier",
+     "Weeks can go that way."
+    ]
+   ],
+   "answer": "",
+   "reply": "That’s a great way to start the day!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 712,
+   "tokens_written": 10,
+   "whole_chat_tokens": 5389,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s a great way to start the day!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_20",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my daughter keeps making sourdough loaves",
+   "view": [
+    [
+     "the pharmacy is testing my patience",
+     "All evening? I hope the pharmacy is sorted now."
+    ],
+    [
+     "that's all i've got on the library",
+     "Weeks can go that way."
+    ],
+    [
+     "my smoothie keeps letting me down",
+     "That's rough. What went wrong with my smoothie?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a fun challenge! Sourdough baking can be a bit of a trial-and-error process, but it's also a great way to spend quality time with your daughter.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 711,
+   "tokens_written": 36,
+   "whole_chat_tokens": 5452,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a fun challenge! Sourdough baking can be a bit of a trial-and-error process, but it's also a great way to spend quality time with your daughter.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_21",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my tutor is helping plan a family party",
+   "view": [
+    [
+     "that's all i've got on the basement",
+     "Funny what pops up."
+    ],
+    [
+     "the escalator keeps letting me down",
+     "All evening? I hope the escalator is sorted now."
+    ],
+    [
+     "really enjoying the dryer at the moment",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a great way to spend the day!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 704,
+   "tokens_written": 11,
+   "whole_chat_tokens": 5423,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a great way to spend the day!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_22",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my mentor is crocheting a blanket for a cousin",
+   "view": [
+    [
+     "was reading about the butcher at lunch",
+     "Anything interesting about the butcher?"
+    ],
+    [
+     "my mom asked about the dryer again",
+     "Anything interesting about the dryer?"
+    ],
+    [
+     "the butcher went better than expected",
+     "Sounds like the butcher is on the up."
+    ]
+   ],
+   "answer": "",
+   "reply": "That’s a thoughtful gesture. Crocheting a blanket is a great way to show care and support.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 711,
+   "tokens_written": 21,
+   "whole_chat_tokens": 5404,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s a thoughtful gesture. Crocheting a blanket is a great way to show care and support.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "419_statement_23",
+   "size": 419,
+   "kind": "statement",
+   "arm": "tool_loop",
+   "message": "my godfather booked a holiday by the sea",
+   "view": [
+    [
+     "weird how much of my week is my camera",
+     "What did she want to know about my camera?"
+    ],
+    [
+     "really enjoying the sauna at the moment",
+     "Nice one. What changed with the sauna?"
+    ],
+    [
+     "the chimney turned a corner this week",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a great way to unwind. What are you planning to do?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 712,
+   "tokens_written": 17,
+   "whole_chat_tokens": 5439,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a great way to unwind. What are you planning to do?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  }
+ ],
+ "peak_vram_gib": 6.69,
+ "seconds": 52
+}
