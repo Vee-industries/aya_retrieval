@@ -1,10 +1,11 @@
-"""Fill the article template's numbers from committed results files and write ``docs/ARTICLE.md``.
+"""Fill the article and model card templates from committed results files, and write both.
 
 Usage:
     python scripts/make_article.py
 
-Every ``{{name}}`` in ``docs/article_template.md`` is computed here from files under ``results/``,
-so no number in the article is typed by hand. A placeholder left unfilled stops the script.
+Every ``{{name}}`` in ``docs/article_template.md`` and ``docs/model_card_template.md`` is computed
+here from files under ``results/``, so no number in either is typed by hand. A placeholder left
+unfilled stops the script.
 The current set is v5 on probe seed 73157 (development); the final run swaps in the held-out files.
 """
 
@@ -35,8 +36,11 @@ from aya_retrieval.report_data import (
 )
 from aya_retrieval.stats import bootstrap_gain_interval, exact_sign_test
 
-TEMPLATE = REPO_ROOT / "docs" / "article_template.md"
-OUT = REPO_ROOT / "docs" / "ARTICLE.md"
+DOCS = REPO_ROOT / "docs"
+TEMPLATES = {
+    DOCS / "article_template.md": DOCS / "ARTICLE.md",
+    DOCS / "model_card_template.md": DOCS / "MODEL_CARD.md",
+}
 PROBE = 73157
 SEEDS = (82, 83, 84)
 BASE = "probe2_base"
@@ -659,14 +663,15 @@ def numbers() -> dict[str, str]:
 
 
 def main() -> None:
-    text = TEMPLATE.read_text(encoding="utf-8")
     values = numbers()
-    filled = re.sub(r"\{\{(\w+)\}\}", lambda m: values[m.group(1)], text)
-    left = re.findall(r"\{\{\w+\}\}", filled)
-    if left:
-        raise SystemExit(f"unfilled: {left}")
-    OUT.write_text(filled, encoding="utf-8")
-    print(f"wrote {OUT.relative_to(REPO_ROOT)}")
+    for template, out in TEMPLATES.items():
+        text = template.read_text(encoding="utf-8")
+        filled = re.sub(r"\{\{(\w+)\}\}", lambda m: values[m.group(1)], text)
+        left = re.findall(r"\{\{\w+\}\}", filled)
+        if left:
+            raise SystemExit(f"unfilled in {template.name}: {left}")
+        out.write_text(filled, encoding="utf-8")
+        print(f"wrote {out.relative_to(REPO_ROOT)}")
 
 
 if __name__ == "__main__":
