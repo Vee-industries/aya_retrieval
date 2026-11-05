@@ -21,7 +21,7 @@ from pathlib import Path
 import torch
 from peft import PeftModel
 
-from aya_retrieval.conversations import ITEM_KINDS, OLDER, build_item
+from aya_retrieval.conversations import ITEM_KINDS, OLDER, STATEMENT, build_item
 from aya_retrieval.harness import TurnResult, run_turn, turns_from
 from aya_retrieval.inference import GREEDY, generate_from_messages, prompt_tokens
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION, load_model
@@ -88,6 +88,11 @@ def main() -> None:
         help="older and confirm facts corrected later, out of view (R-067)",
     )
     parser.add_argument(
+        "--chat-check",
+        type=Path,
+        help="JSON list of chat lines; statement items take them in order (R-083)",
+    )
+    parser.add_argument(
         "--asked-before",
         action="store_true",
         help="an earlier question, declined, as the newest exchange in view (R-081)",
@@ -114,6 +119,7 @@ def main() -> None:
         "user_style": args.user_style,
         "corrections": args.corrections,
         "asked_before": args.asked_before,
+        "chat_check": args.chat_check and args.chat_check.as_posix(),
         "rows": [],
     }
 
@@ -131,14 +137,28 @@ def main() -> None:
         spent["written"] += len(tokenizer.encode(reply, add_special_tokens=False))
         return reply
 
-    for size in args.sizes:
+    check_lines = (
+        [row["line"] for row in json.loads(args.chat_check.read_text(encoding="utf-8"))]
+        if args.chat_check
+        else []
+    )
+    for size_number, size in enumerate(args.sizes):
         for kind_number, kind in enumerate(ITEM_KINDS):
             if kind not in args.kinds:
                 continue
             for number in range(args.items_per_kind):
                 seed = args.seed + size * 1000 + kind_number * 100 + number
+                check = number + size_number * args.items_per_kind
                 item = build_item(
-                    f"{size}_{kind}_{number:02d}", seed, size, kind, args.pool, args.decoys
+                    f"{size}_{kind}_{number:02d}",
+                    seed,
+                    size,
+                    kind,
+                    args.pool,
+                    args.decoys,
+                    chat_line=(check_lines[check % len(check_lines)], "")
+                    if check_lines and kind == STATEMENT
+                    else None,
                 )
                 if args.corrections:
                     item = corrected(item, seed, args.pool)
