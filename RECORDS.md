@@ -2656,5 +2656,7 @@ store"), "Enjoy your stay!" (to "my sister will be staying with me all week") an
 (to "Ivan asked me to be their plus one"). Swapped for spares both accepted: `data/screens/strict_chat.jsonl` (commit
 `b985f38`), which differs from v5's set in those 15 rows only.
 
-**Fix 17** started training at 03:23 (`--loss-on demonstrated --learning-rate 1e-4`, `strict_chat.jsonl`). If it fails
-on counts as 16c did, the next screen is the same data at 3e-4 (16a's setting), under a rule written before it runs.
+**Fix 17** started training at 03:23 (`--loss-on demonstrated --learning-rate 1e-4`, `strict_chat.jsonl`). Fix 17b,
+the same data at 3e-4 (16a's setting), runs after it whatever fix 17 shows: against 16a it changes only the targets,
+so it is the one-variable test of the strict vetting. Same gate (R-076), label `probe19_tuned82`, sheets
+`results/coherence/R-080*`; R-076's three-seed rule if it passes.
