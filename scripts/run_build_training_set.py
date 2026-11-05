@@ -352,20 +352,24 @@ def main() -> None:
                 tally[
                     f"{kind}_second_search" if turns is longer else f"{kind}_second_search_skipped"
                 ] += 1
+            if row_tokens(turns, tokenizer) > MAX_ROW_TOKENS:
+                # Training cuts a row at this length, which would drop the end of its answer.
+                tally[f"{kind}_too_long"] += 1
+                continue
             rows.append({"id": item.item_id, "kind": kind, "turns": turns})
             made += 1
         LOG.info("%s done after %d attempts", kind, attempt)
 
     args.index.unlink(missing_ok=True)
-    lines = (json.dumps(row, ensure_ascii=False) for row in rows)
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     report["rows"] = len(rows)
     report["tally"] = dict(tally)
     report["passages_per_kind"] = {kind: dict(counts) for kind, counts in passages.items()}
     report["longest_row_tokens"] = longest_row(rows, tokenizer)
     if report["longest_row_tokens"] > MAX_ROW_TOKENS:
         raise SystemExit(f"a row exceeds {MAX_ROW_TOKENS} tokens, so training would cut its answer")
+    lines = (json.dumps(row, ensure_ascii=False) for row in rows)
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     provenance_path = args.out.with_suffix(".provenance.json")
     provenance_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
     LOG.info("wrote %d rows: %s", len(rows), {**tally, **report["passages_per_kind"]})
