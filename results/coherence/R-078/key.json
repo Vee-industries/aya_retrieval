@@ -1,0 +1,2252 @@
+[
+ {
+  "line": 0,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0036"
+ },
+ {
+  "line": 1,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0029"
+ },
+ {
+  "line": 2,
+  "source": "data",
+  "id": "statement_0043"
+ },
+ {
+  "line": 3,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0099"
+ },
+ {
+  "line": 4,
+  "source": "data",
+  "id": "statement_0141"
+ },
+ {
+  "line": 5,
+  "source": "data",
+  "id": "statement_0105"
+ },
+ {
+  "line": 6,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0100"
+ },
+ {
+  "line": 7,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0132"
+ },
+ {
+  "line": 8,
+  "source": "data",
+  "id": "statement_0148"
+ },
+ {
+  "line": 9,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0083"
+ },
+ {
+  "line": 10,
+  "source": "data",
+  "id": "statement_0069"
+ },
+ {
+  "line": 11,
+  "source": "data",
+  "id": "statement_0025"
+ },
+ {
+  "line": 12,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0117"
+ },
+ {
+  "line": 13,
+  "source": "data",
+  "id": "statement_0071"
+ },
+ {
+  "line": 14,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0068"
+ },
+ {
+  "line": 15,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0067"
+ },
+ {
+  "line": 16,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0102"
+ },
+ {
+  "line": 17,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0005"
+ },
+ {
+  "line": 18,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0028"
+ },
+ {
+  "line": 19,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0139"
+ },
+ {
+  "line": 20,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0109"
+ },
+ {
+  "line": 21,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0082"
+ },
+ {
+  "line": 22,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0061"
+ },
+ {
+  "line": 23,
+  "source": "data",
+  "id": "statement_0091"
+ },
+ {
+  "line": 24,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0003"
+ },
+ {
+  "line": 25,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0023"
+ },
+ {
+  "line": 26,
+  "source": "data",
+  "id": "statement_0084"
+ },
+ {
+  "line": 27,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0051"
+ },
+ {
+  "line": 28,
+  "source": "data",
+  "id": "statement_0009"
+ },
+ {
+  "line": 29,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0112"
+ },
+ {
+  "line": 30,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0097"
+ },
+ {
+  "line": 31,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0028"
+ },
+ {
+  "line": 32,
+  "source": "data",
+  "id": "statement_0026"
+ },
+ {
+  "line": 33,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0025"
+ },
+ {
+  "line": 34,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0042"
+ },
+ {
+  "line": 35,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0128"
+ },
+ {
+  "line": 36,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0068"
+ },
+ {
+  "line": 37,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0064"
+ },
+ {
+  "line": 38,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0039"
+ },
+ {
+  "line": 39,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0075"
+ },
+ {
+  "line": 40,
+  "source": "data",
+  "id": "statement_0059"
+ },
+ {
+  "line": 41,
+  "source": "data",
+  "id": "statement_0007"
+ },
+ {
+  "line": 42,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0036"
+ },
+ {
+  "line": 43,
+  "source": "data",
+  "id": "statement_0122"
+ },
+ {
+  "line": 44,
+  "source": "data",
+  "id": "statement_0089"
+ },
+ {
+  "line": 45,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0145"
+ },
+ {
+  "line": 46,
+  "source": "data",
+  "id": "statement_0021"
+ },
+ {
+  "line": 47,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0123"
+ },
+ {
+  "line": 48,
+  "source": "data",
+  "id": "statement_0058"
+ },
+ {
+  "line": 49,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0009"
+ },
+ {
+  "line": 50,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0008"
+ },
+ {
+  "line": 51,
+  "source": "data",
+  "id": "statement_0010"
+ },
+ {
+  "line": 52,
+  "source": "data",
+  "id": "statement_0075"
+ },
+ {
+  "line": 53,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0081"
+ },
+ {
+  "line": 54,
+  "source": "data",
+  "id": "statement_0096"
+ },
+ {
+  "line": 55,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0037"
+ },
+ {
+  "line": 56,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0047"
+ },
+ {
+  "line": 57,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0101"
+ },
+ {
+  "line": 58,
+  "source": "data",
+  "id": "statement_0017"
+ },
+ {
+  "line": 59,
+  "source": "data",
+  "id": "statement_0061_vetted"
+ },
+ {
+  "line": 60,
+  "source": "data",
+  "id": "statement_0008"
+ },
+ {
+  "line": 61,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0010"
+ },
+ {
+  "line": 62,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0127"
+ },
+ {
+  "line": 63,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0064"
+ },
+ {
+  "line": 64,
+  "source": "data",
+  "id": "statement_0048"
+ },
+ {
+  "line": 65,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0025"
+ },
+ {
+  "line": 66,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0113"
+ },
+ {
+  "line": 67,
+  "source": "data",
+  "id": "statement_0067"
+ },
+ {
+  "line": 68,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0043"
+ },
+ {
+  "line": 69,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0026"
+ },
+ {
+  "line": 70,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0011"
+ },
+ {
+  "line": 71,
+  "source": "data",
+  "id": "statement_0134"
+ },
+ {
+  "line": 72,
+  "source": "data",
+  "id": "statement_0077"
+ },
+ {
+  "line": 73,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0016"
+ },
+ {
+  "line": 74,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0032"
+ },
+ {
+  "line": 75,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0118"
+ },
+ {
+  "line": 76,
+  "source": "data",
+  "id": "statement_0087"
+ },
+ {
+  "line": 77,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0076"
+ },
+ {
+  "line": 78,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0096"
+ },
+ {
+  "line": 79,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0122"
+ },
+ {
+  "line": 80,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0122"
+ },
+ {
+  "line": 81,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0050"
+ },
+ {
+  "line": 82,
+  "source": "data",
+  "id": "statement_0018"
+ },
+ {
+  "line": 83,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0114"
+ },
+ {
+  "line": 84,
+  "source": "data",
+  "id": "statement_0142"
+ },
+ {
+  "line": 85,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0093"
+ },
+ {
+  "line": 86,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0099"
+ },
+ {
+  "line": 87,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0139"
+ },
+ {
+  "line": 88,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0073"
+ },
+ {
+  "line": 89,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0053"
+ },
+ {
+  "line": 90,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0071"
+ },
+ {
+  "line": 91,
+  "source": "data",
+  "id": "statement_0068"
+ },
+ {
+  "line": 92,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0059"
+ },
+ {
+  "line": 93,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0073"
+ },
+ {
+  "line": 94,
+  "source": "data",
+  "id": "statement_0054_vetted"
+ },
+ {
+  "line": 95,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0146"
+ },
+ {
+  "line": 96,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0045"
+ },
+ {
+  "line": 97,
+  "source": "data",
+  "id": "statement_0146"
+ },
+ {
+  "line": 98,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0075"
+ },
+ {
+  "line": 99,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0061"
+ },
+ {
+  "line": 100,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0125"
+ },
+ {
+  "line": 101,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0114"
+ },
+ {
+  "line": 102,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0115"
+ },
+ {
+  "line": 103,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0119"
+ },
+ {
+  "line": 104,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0130"
+ },
+ {
+  "line": 105,
+  "source": "data",
+  "id": "statement_0108"
+ },
+ {
+  "line": 106,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0007"
+ },
+ {
+  "line": 107,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0008"
+ },
+ {
+  "line": 108,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0147"
+ },
+ {
+  "line": 109,
+  "source": "data",
+  "id": "statement_0123"
+ },
+ {
+  "line": 110,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0104"
+ },
+ {
+  "line": 111,
+  "source": "data",
+  "id": "statement_0050_vetted"
+ },
+ {
+  "line": 112,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0046"
+ },
+ {
+  "line": 113,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0053"
+ },
+ {
+  "line": 114,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0149"
+ },
+ {
+  "line": 115,
+  "source": "data",
+  "id": "statement_0023"
+ },
+ {
+  "line": 116,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0021"
+ },
+ {
+  "line": 117,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0043"
+ },
+ {
+  "line": 118,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0058"
+ },
+ {
+  "line": 119,
+  "source": "data",
+  "id": "statement_0139"
+ },
+ {
+  "line": 120,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0094"
+ },
+ {
+  "line": 121,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0009"
+ },
+ {
+  "line": 122,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0016"
+ },
+ {
+  "line": 123,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0100"
+ },
+ {
+  "line": 124,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0066"
+ },
+ {
+  "line": 125,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0027"
+ },
+ {
+  "line": 126,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0136"
+ },
+ {
+  "line": 127,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0047"
+ },
+ {
+  "line": 128,
+  "source": "data",
+  "id": "statement_0072"
+ },
+ {
+  "line": 129,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0149"
+ },
+ {
+  "line": 130,
+  "source": "data",
+  "id": "statement_0031"
+ },
+ {
+  "line": 131,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0085"
+ },
+ {
+  "line": 132,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0014"
+ },
+ {
+  "line": 133,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0131"
+ },
+ {
+  "line": 134,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0054"
+ },
+ {
+  "line": 135,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0123"
+ },
+ {
+  "line": 136,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0136"
+ },
+ {
+  "line": 137,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0137"
+ },
+ {
+  "line": 138,
+  "source": "data",
+  "id": "statement_0100"
+ },
+ {
+  "line": 139,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0092"
+ },
+ {
+  "line": 140,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0078"
+ },
+ {
+  "line": 141,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0019"
+ },
+ {
+  "line": 142,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0096"
+ },
+ {
+  "line": 143,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0110"
+ },
+ {
+  "line": 144,
+  "source": "data",
+  "id": "statement_0128"
+ },
+ {
+  "line": 145,
+  "source": "data",
+  "id": "statement_0126"
+ },
+ {
+  "line": 146,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0065"
+ },
+ {
+  "line": 147,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0030"
+ },
+ {
+  "line": 148,
+  "source": "data",
+  "id": "statement_0001"
+ },
+ {
+  "line": 149,
+  "source": "data",
+  "id": "statement_0000"
+ },
+ {
+  "line": 150,
+  "source": "data",
+  "id": "statement_0022"
+ },
+ {
+  "line": 151,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0090"
+ },
+ {
+  "line": 152,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0052"
+ },
+ {
+  "line": 153,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0121"
+ },
+ {
+  "line": 154,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0049"
+ },
+ {
+  "line": 155,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0124"
+ },
+ {
+  "line": 156,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0071"
+ },
+ {
+  "line": 157,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0092"
+ },
+ {
+  "line": 158,
+  "source": "data",
+  "id": "statement_0004"
+ },
+ {
+  "line": 159,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0037"
+ },
+ {
+  "line": 160,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0041"
+ },
+ {
+  "line": 161,
+  "source": "data",
+  "id": "statement_0103"
+ },
+ {
+  "line": 162,
+  "source": "data",
+  "id": "statement_0101"
+ },
+ {
+  "line": 163,
+  "source": "data",
+  "id": "statement_0062"
+ },
+ {
+  "line": 164,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0097"
+ },
+ {
+  "line": 165,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0015"
+ },
+ {
+  "line": 166,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0006"
+ },
+ {
+  "line": 167,
+  "source": "data",
+  "id": "statement_0037"
+ },
+ {
+  "line": 168,
+  "source": "data",
+  "id": "statement_0137"
+ },
+ {
+  "line": 169,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0084"
+ },
+ {
+  "line": 170,
+  "source": "data",
+  "id": "statement_0024"
+ },
+ {
+  "line": 171,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0069"
+ },
+ {
+  "line": 172,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0024"
+ },
+ {
+  "line": 173,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0106"
+ },
+ {
+  "line": 174,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0052"
+ },
+ {
+  "line": 175,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0135"
+ },
+ {
+  "line": 176,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0045"
+ },
+ {
+  "line": 177,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0120"
+ },
+ {
+  "line": 178,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0060"
+ },
+ {
+  "line": 179,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0084"
+ },
+ {
+  "line": 180,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0001"
+ },
+ {
+  "line": 181,
+  "source": "data",
+  "id": "statement_0143"
+ },
+ {
+  "line": 182,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0051"
+ },
+ {
+  "line": 183,
+  "source": "data",
+  "id": "statement_0038"
+ },
+ {
+  "line": 184,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0065"
+ },
+ {
+  "line": 185,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0145"
+ },
+ {
+  "line": 186,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0001"
+ },
+ {
+  "line": 187,
+  "source": "data",
+  "id": "statement_0118"
+ },
+ {
+  "line": 188,
+  "source": "data",
+  "id": "statement_0020"
+ },
+ {
+  "line": 189,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0017"
+ },
+ {
+  "line": 190,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0105"
+ },
+ {
+  "line": 191,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0029"
+ },
+ {
+  "line": 192,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0079"
+ },
+ {
+  "line": 193,
+  "source": "data",
+  "id": "statement_0102"
+ },
+ {
+  "line": 194,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0031"
+ },
+ {
+  "line": 195,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0027"
+ },
+ {
+  "line": 196,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0018"
+ },
+ {
+  "line": 197,
+  "source": "data",
+  "id": "statement_0064"
+ },
+ {
+  "line": 198,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0024"
+ },
+ {
+  "line": 199,
+  "source": "data",
+  "id": "statement_0127"
+ },
+ {
+  "line": 200,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0046"
+ },
+ {
+  "line": 201,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0102"
+ },
+ {
+  "line": 202,
+  "source": "data",
+  "id": "statement_0121"
+ },
+ {
+  "line": 203,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0116"
+ },
+ {
+  "line": 204,
+  "source": "data",
+  "id": "statement_0117"
+ },
+ {
+  "line": 205,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0106"
+ },
+ {
+  "line": 206,
+  "source": "data",
+  "id": "statement_0125"
+ },
+ {
+  "line": 207,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0115"
+ },
+ {
+  "line": 208,
+  "source": "data",
+  "id": "statement_0132"
+ },
+ {
+  "line": 209,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0022"
+ },
+ {
+  "line": 210,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0113"
+ },
+ {
+  "line": 211,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0022"
+ },
+ {
+  "line": 212,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0063"
+ },
+ {
+  "line": 213,
+  "source": "data",
+  "id": "statement_0073"
+ },
+ {
+  "line": 214,
+  "source": "data",
+  "id": "statement_0053"
+ },
+ {
+  "line": 215,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0013"
+ },
+ {
+  "line": 216,
+  "source": "data",
+  "id": "statement_0111"
+ },
+ {
+  "line": 217,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0095"
+ },
+ {
+  "line": 218,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0020"
+ },
+ {
+  "line": 219,
+  "source": "data",
+  "id": "statement_0116"
+ },
+ {
+  "line": 220,
+  "source": "data",
+  "id": "statement_0092"
+ },
+ {
+  "line": 221,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0086"
+ },
+ {
+  "line": 222,
+  "source": "data",
+  "id": "statement_0015"
+ },
+ {
+  "line": 223,
+  "source": "data",
+  "id": "statement_0045_vetted"
+ },
+ {
+  "line": 224,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0090"
+ },
+ {
+  "line": 225,
+  "source": "data",
+  "id": "statement_0106"
+ },
+ {
+  "line": 226,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0010"
+ },
+ {
+  "line": 227,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0070"
+ },
+ {
+  "line": 228,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0126"
+ },
+ {
+  "line": 229,
+  "source": "data",
+  "id": "statement_0081"
+ },
+ {
+  "line": 230,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0042"
+ },
+ {
+  "line": 231,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0031"
+ },
+ {
+  "line": 232,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0133"
+ },
+ {
+  "line": 233,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0002"
+ },
+ {
+  "line": 234,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0078"
+ },
+ {
+  "line": 235,
+  "source": "data",
+  "id": "statement_0063"
+ },
+ {
+  "line": 236,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0098"
+ },
+ {
+  "line": 237,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0056"
+ },
+ {
+  "line": 238,
+  "source": "data",
+  "id": "statement_0131"
+ },
+ {
+  "line": 239,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0148"
+ },
+ {
+  "line": 240,
+  "source": "data",
+  "id": "statement_0049"
+ },
+ {
+  "line": 241,
+  "source": "data",
+  "id": "statement_0090"
+ },
+ {
+  "line": 242,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0125"
+ },
+ {
+  "line": 243,
+  "source": "data",
+  "id": "statement_0095"
+ },
+ {
+  "line": 244,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0108"
+ },
+ {
+  "line": 245,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0070"
+ },
+ {
+  "line": 246,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0109"
+ },
+ {
+  "line": 247,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0117"
+ },
+ {
+  "line": 248,
+  "source": "data",
+  "id": "statement_0005"
+ },
+ {
+  "line": 249,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0072"
+ },
+ {
+  "line": 250,
+  "source": "data",
+  "id": "statement_0011"
+ },
+ {
+  "line": 251,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0060"
+ },
+ {
+  "line": 252,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0007"
+ },
+ {
+  "line": 253,
+  "source": "data",
+  "id": "statement_0047_vetted"
+ },
+ {
+  "line": 254,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0112"
+ },
+ {
+  "line": 255,
+  "source": "data",
+  "id": "statement_0060"
+ },
+ {
+  "line": 256,
+  "source": "data",
+  "id": "statement_0041"
+ },
+ {
+  "line": 257,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0143"
+ },
+ {
+  "line": 258,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0012"
+ },
+ {
+  "line": 259,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0126"
+ },
+ {
+  "line": 260,
+  "source": "data",
+  "id": "statement_0032"
+ },
+ {
+  "line": 261,
+  "source": "data",
+  "id": "statement_0034"
+ },
+ {
+  "line": 262,
+  "source": "data",
+  "id": "statement_0013"
+ },
+ {
+  "line": 263,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0110"
+ },
+ {
+  "line": 264,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0142"
+ },
+ {
+  "line": 265,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0098"
+ },
+ {
+  "line": 266,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0107"
+ },
+ {
+  "line": 267,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0057"
+ },
+ {
+  "line": 268,
+  "source": "data",
+  "id": "statement_0002_vetted"
+ },
+ {
+  "line": 269,
+  "source": "data",
+  "id": "statement_0109"
+ },
+ {
+  "line": 270,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0069"
+ },
+ {
+  "line": 271,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0032"
+ },
+ {
+  "line": 272,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0133"
+ },
+ {
+  "line": 273,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0080"
+ },
+ {
+  "line": 274,
+  "source": "data",
+  "id": "statement_0115"
+ },
+ {
+  "line": 275,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0118"
+ },
+ {
+  "line": 276,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0111"
+ },
+ {
+  "line": 277,
+  "source": "data",
+  "id": "statement_0083"
+ },
+ {
+  "line": 278,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0015"
+ },
+ {
+  "line": 279,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0093"
+ },
+ {
+  "line": 280,
+  "source": "data",
+  "id": "statement_0097"
+ },
+ {
+  "line": 281,
+  "source": "data",
+  "id": "statement_0028"
+ },
+ {
+  "line": 282,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0020"
+ },
+ {
+  "line": 283,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0091"
+ },
+ {
+  "line": 284,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0124"
+ },
+ {
+  "line": 285,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0135"
+ },
+ {
+  "line": 286,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0000"
+ },
+ {
+  "line": 287,
+  "source": "data",
+  "id": "statement_0079"
+ },
+ {
+  "line": 288,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0076"
+ },
+ {
+  "line": 289,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0034"
+ },
+ {
+  "line": 290,
+  "source": "data",
+  "id": "statement_0094_vetted"
+ },
+ {
+  "line": 291,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0004"
+ },
+ {
+  "line": 292,
+  "source": "data",
+  "id": "statement_0040"
+ },
+ {
+  "line": 293,
+  "source": "data",
+  "id": "statement_0042"
+ },
+ {
+  "line": 294,
+  "source": "data",
+  "id": "statement_0093"
+ },
+ {
+  "line": 295,
+  "source": "data",
+  "id": "statement_0027"
+ },
+ {
+  "line": 296,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0127"
+ },
+ {
+  "line": 297,
+  "source": "data",
+  "id": "statement_0135"
+ },
+ {
+  "line": 298,
+  "source": "data",
+  "id": "statement_0119"
+ },
+ {
+  "line": 299,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0087"
+ },
+ {
+  "line": 300,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0132"
+ },
+ {
+  "line": 301,
+  "source": "data",
+  "id": "statement_0136"
+ },
+ {
+  "line": 302,
+  "source": "data",
+  "id": "statement_0080"
+ },
+ {
+  "line": 303,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0141"
+ },
+ {
+  "line": 304,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0130"
+ },
+ {
+  "line": 305,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0023"
+ },
+ {
+  "line": 306,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0103"
+ },
+ {
+  "line": 307,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0074"
+ },
+ {
+  "line": 308,
+  "source": "data",
+  "id": "statement_0078"
+ },
+ {
+  "line": 309,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0040"
+ },
+ {
+  "line": 310,
+  "source": "data",
+  "id": "statement_0012"
+ },
+ {
+  "line": 311,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0066"
+ },
+ {
+  "line": 312,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0147"
+ },
+ {
+  "line": 313,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0144"
+ },
+ {
+  "line": 314,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0048"
+ },
+ {
+  "line": 315,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0120"
+ },
+ {
+  "line": 316,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0088"
+ },
+ {
+  "line": 317,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0144"
+ },
+ {
+  "line": 318,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0129"
+ },
+ {
+  "line": 319,
+  "source": "data",
+  "id": "statement_0014"
+ },
+ {
+  "line": 320,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0005"
+ },
+ {
+  "line": 321,
+  "source": "data",
+  "id": "statement_0036"
+ },
+ {
+  "line": 322,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0055"
+ },
+ {
+  "line": 323,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0140"
+ },
+ {
+  "line": 324,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0077"
+ },
+ {
+  "line": 325,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0039"
+ },
+ {
+  "line": 326,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0081"
+ },
+ {
+  "line": 327,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0116"
+ },
+ {
+  "line": 328,
+  "source": "data",
+  "id": "statement_0056"
+ },
+ {
+  "line": 329,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0094"
+ },
+ {
+  "line": 330,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0107"
+ },
+ {
+  "line": 331,
+  "source": "data",
+  "id": "statement_0003"
+ },
+ {
+  "line": 332,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0087"
+ },
+ {
+  "line": 333,
+  "source": "data",
+  "id": "statement_0046"
+ },
+ {
+  "line": 334,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0119"
+ },
+ {
+  "line": 335,
+  "source": "data",
+  "id": "statement_0055_vetted"
+ },
+ {
+  "line": 336,
+  "source": "data",
+  "id": "statement_0144"
+ },
+ {
+  "line": 337,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0074"
+ },
+ {
+  "line": 338,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0089"
+ },
+ {
+  "line": 339,
+  "source": "data",
+  "id": "statement_0124"
+ },
+ {
+  "line": 340,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0128"
+ },
+ {
+  "line": 341,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0104"
+ },
+ {
+  "line": 342,
+  "source": "data",
+  "id": "statement_0057"
+ },
+ {
+  "line": 343,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0121"
+ },
+ {
+  "line": 344,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0086"
+ },
+ {
+  "line": 345,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0035"
+ },
+ {
+  "line": 346,
+  "source": "data",
+  "id": "statement_0145"
+ },
+ {
+  "line": 347,
+  "source": "data",
+  "id": "statement_0070"
+ },
+ {
+  "line": 348,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0012"
+ },
+ {
+  "line": 349,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0006"
+ },
+ {
+  "line": 350,
+  "source": "data",
+  "id": "statement_0039"
+ },
+ {
+  "line": 351,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0080"
+ },
+ {
+  "line": 352,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0004"
+ },
+ {
+  "line": 353,
+  "source": "data",
+  "id": "statement_0029"
+ },
+ {
+  "line": 354,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0048"
+ },
+ {
+  "line": 355,
+  "source": "data",
+  "id": "statement_0110"
+ },
+ {
+  "line": 356,
+  "source": "data",
+  "id": "statement_0107"
+ },
+ {
+  "line": 357,
+  "source": "data",
+  "id": "statement_0133"
+ },
+ {
+  "line": 358,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0142"
+ },
+ {
+  "line": 359,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0018"
+ },
+ {
+  "line": 360,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0030"
+ },
+ {
+  "line": 361,
+  "source": "data",
+  "id": "statement_0099"
+ },
+ {
+  "line": 362,
+  "source": "data",
+  "id": "statement_0147"
+ },
+ {
+  "line": 363,
+  "source": "data",
+  "id": "statement_0030"
+ },
+ {
+  "line": 364,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0058"
+ },
+ {
+  "line": 365,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0134"
+ },
+ {
+  "line": 366,
+  "source": "data",
+  "id": "statement_0082"
+ },
+ {
+  "line": 367,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0003"
+ },
+ {
+  "line": 368,
+  "source": "data",
+  "id": "statement_0104"
+ },
+ {
+  "line": 369,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0101"
+ },
+ {
+  "line": 370,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0034"
+ },
+ {
+  "line": 371,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0002"
+ },
+ {
+  "line": 372,
+  "source": "data",
+  "id": "statement_0130"
+ },
+ {
+  "line": 373,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0044"
+ },
+ {
+  "line": 374,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0137"
+ },
+ {
+  "line": 375,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0077"
+ },
+ {
+  "line": 376,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0035"
+ },
+ {
+  "line": 377,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0105"
+ },
+ {
+  "line": 378,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0017"
+ },
+ {
+  "line": 379,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0033"
+ },
+ {
+  "line": 380,
+  "source": "data",
+  "id": "statement_0035"
+ },
+ {
+  "line": 381,
+  "source": "data",
+  "id": "statement_0120"
+ },
+ {
+  "line": 382,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0134"
+ },
+ {
+  "line": 383,
+  "source": "data",
+  "id": "statement_0074"
+ },
+ {
+  "line": 384,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0044"
+ },
+ {
+  "line": 385,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0011"
+ },
+ {
+  "line": 386,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0079"
+ },
+ {
+  "line": 387,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0143"
+ },
+ {
+  "line": 388,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0056"
+ },
+ {
+  "line": 389,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0057"
+ },
+ {
+  "line": 390,
+  "source": "data",
+  "id": "statement_0098"
+ },
+ {
+  "line": 391,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0131"
+ },
+ {
+  "line": 392,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0063"
+ },
+ {
+  "line": 393,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0082"
+ },
+ {
+  "line": 394,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0033"
+ },
+ {
+  "line": 395,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0062"
+ },
+ {
+  "line": 396,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0138"
+ },
+ {
+  "line": 397,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0049"
+ },
+ {
+  "line": 398,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0103"
+ },
+ {
+  "line": 399,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0026"
+ },
+ {
+  "line": 400,
+  "source": "data",
+  "id": "statement_0065"
+ },
+ {
+  "line": 401,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0013"
+ },
+ {
+  "line": 402,
+  "source": "data",
+  "id": "statement_0044_vetted"
+ },
+ {
+  "line": 403,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0054"
+ },
+ {
+  "line": 404,
+  "source": "data",
+  "id": "statement_0086"
+ },
+ {
+  "line": 405,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0129"
+ },
+ {
+  "line": 406,
+  "source": "data",
+  "id": "statement_0113"
+ },
+ {
+  "line": 407,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0085"
+ },
+ {
+  "line": 408,
+  "source": "data",
+  "id": "statement_0140_vetted"
+ },
+ {
+  "line": 409,
+  "source": "data",
+  "id": "statement_0088"
+ },
+ {
+  "line": 410,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0038"
+ },
+ {
+  "line": 411,
+  "source": "data",
+  "id": "statement_0066"
+ },
+ {
+  "line": 412,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0083"
+ },
+ {
+  "line": 413,
+  "source": "data",
+  "id": "statement_0033"
+ },
+ {
+  "line": 414,
+  "source": "data",
+  "id": "statement_0006"
+ },
+ {
+  "line": 415,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0095"
+ },
+ {
+  "line": 416,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0014"
+ },
+ {
+  "line": 417,
+  "source": "data",
+  "id": "statement_0076"
+ },
+ {
+  "line": 418,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0072"
+ },
+ {
+  "line": 419,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0141"
+ },
+ {
+  "line": 420,
+  "source": "data",
+  "id": "statement_0138"
+ },
+ {
+  "line": 421,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0019"
+ },
+ {
+  "line": 422,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0146"
+ },
+ {
+  "line": 423,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0059"
+ },
+ {
+  "line": 424,
+  "source": "data",
+  "id": "statement_0051"
+ },
+ {
+  "line": 425,
+  "source": "data",
+  "id": "statement_0129"
+ },
+ {
+  "line": 426,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0038"
+ },
+ {
+  "line": 427,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0067"
+ },
+ {
+  "line": 428,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0021"
+ },
+ {
+  "line": 429,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0148"
+ },
+ {
+  "line": 430,
+  "source": "data",
+  "id": "statement_0114"
+ },
+ {
+  "line": 431,
+  "source": "data",
+  "id": "statement_0085"
+ },
+ {
+  "line": 432,
+  "source": "data",
+  "id": "statement_0019_vetted"
+ },
+ {
+  "line": 433,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0138"
+ },
+ {
+  "line": 434,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0050"
+ },
+ {
+  "line": 435,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0140"
+ },
+ {
+  "line": 436,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0041"
+ },
+ {
+  "line": 437,
+  "source": "data",
+  "id": "statement_0149"
+ },
+ {
+  "line": 438,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0088"
+ },
+ {
+  "line": 439,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0111"
+ },
+ {
+  "line": 440,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0108"
+ },
+ {
+  "line": 441,
+  "source": "data",
+  "id": "statement_0052"
+ },
+ {
+  "line": 442,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0062"
+ },
+ {
+  "line": 443,
+  "source": "data",
+  "id": "statement_0016_vetted"
+ },
+ {
+  "line": 444,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0091"
+ },
+ {
+  "line": 445,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0040"
+ },
+ {
+  "line": 446,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0000"
+ },
+ {
+  "line": 447,
+  "source": "data",
+  "id": "statement_0112"
+ },
+ {
+  "line": 448,
+  "source": "spare",
+  "id": "strict_spare_1/statement_0055"
+ },
+ {
+  "line": 449,
+  "source": "spare",
+  "id": "strict_spare_2/statement_0089"
+ }
+]
