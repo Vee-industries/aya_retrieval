@@ -477,7 +477,11 @@ came from something in the training data.
   reads as a question about it (R-082). Open.
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
-  (R-076). Open.
+  (R-076). No training row or test item had an earlier question in view (R-081). A stress test
+  that puts one there, declined, cost v5 two to four recall answers of 96 and the untrained model
+  most of its plain chat (31 to 11 of 48 on the probe). Fix 17b kept its recall but turned away
+  facts still on screen after an earlier decline ("You can ask your godfather what he grows"), 43
+  to 37 of 48; v5 did not (R-084). Open.
 - **A found fact denied.** Shorter in-view answers (fix 12) and more indirect in-view questions
   (fix 13) each made the model trust the turns in view more and a search result less: searches
   found the fact and the reply said "I don't have that from you" (R-063, R-064). Both dropped.

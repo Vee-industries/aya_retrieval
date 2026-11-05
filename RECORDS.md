@@ -96,6 +96,7 @@ carry their own provenance (command, git commit, package versions).
 | R-081 | The demo's stale search: no training view holds a question; a stress test for a question right after another |
 | R-082 | Fix 17b fails R-076's rule on one item, seed 83's Sheet B `statement` by one line; v5 stands; a chat line naming a fact type read as a question |
 | R-083 | Fix 18: chat lines that name a fact type in passing, with a control; recipe, review and rule before the build |
+| R-084 | A question right after another: the adapters keep recall; base loses plain chat; 17b turns away facts in view after a decline |
 
 ---
 
@@ -2792,3 +2793,27 @@ accepted control rows. Same settings as 17b.
 least 17b's 72; and the fresh check set's chat lines judged coherent at or above base. 18a counts as a fix only if it
 passes and beats 18c on the check set. **Rule**: R-076's, unchanged, three seeds. No held-out or independent run
 without Kevin.
+
+## R-084 · 2026-11-05 · SPRINT · A question right after another (R-081's test): the adapters keep recall, base loses plain chat, fix 17b turns away facts in view after a decline
+
+Probe 73157 and `hard_dev` 73157, `--asked-before`, against the same model's plain run (`st_asked_<pool>_<model>`,
+queue 61). Recall is `older` plus `confirm`, of 96; the rest of 48.
+
+| Model, pool | Recall, plain to asked | `in_view` | `never_told` | `statement` |
+|---|---|---|---|---|
+| Base, probe | 30 to 28 | 34 to 34 | 42 to 42 | **31 to 11** |
+| v5 seed 82, probe | 96 to 94 | 43 to 43 | 47 to 48 | 48 to 48 |
+| 17b seed 82, probe | 94 to 93 | **43 to 37** | 47 to 48 | 48 to 48 |
+| Base, `hard_dev` | 20 to 16 | 33 to 32 | 39 to 38 | **36 to 18** |
+| v5 seed 82, `hard_dev` | 58 to 54 | 36 to 36 | 47 to 48 | 48 to 48 |
+| 17b seed 82, `hard_dev` | 72 to 69 | **38 to 33** | 46 to 48 | 48 to 48 |
+
+**Reading.** The demo's stale search is not common here: recall falls by one to four answers for both adapters. The
+untrained model loses most of its plain chat, so an earlier question in view is a real condition that the adapters
+handle and base does not. Fix 17b, alone, turns away facts still in view after a declined question: of its six new
+`in_view` misses on the probe, the replies are "You can ask your godfather what he grows." (twice), "You can ask her
+directly.", a guess about spiders, and two that talk around the question; four of the six follow an indirect question
+("i cannot think what my godfather grows", "i forget which language my barber knows"). v5, trained with the loss on
+every token, does not. 17b's loss is on the taught turns only, so the declines it was taught may weigh more against
+the turns in view. Training rows with an earlier question in view (the plan's 18b) are aimed at this; they wait for
+fix 18a and 18c's results, as R-083 set.
