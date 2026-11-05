@@ -404,6 +404,10 @@ hidden by a later result.
 - **A toolkit defect.** AuditKIT's paired bootstrap does not centre its resamples, so it reports
   large gains as not significant; we use an exact sign test and a centred bootstrap (section 9,
   R-031).
+- **A build that wrote before it checked.** The training-set build wrote its file before checking
+  that no row exceeded the 1,024 tokens training keeps, so three screens (fixes 14, 14b and 14c)
+  trained on sets with three to five rows whose answers were cut. The build now skips such rows
+  and checks before writing; those screens are reported as screens of the sets they used (R-073).
 
 **Failure modes found in the model.** Each was found by reading replies, not totals, and each
 came from something in the training data.
@@ -427,7 +431,11 @@ came from something in the training data.
   R-071); not yet confirmed.
 - **Another person's fact, stated as the answer.** With the new fact types, a question about a
   fact never told brought back someone else's fact of that type, and the reply gave it as the
-  answer ("Isolde finished a course in philosophy") (R-071). Open.
+  answer: asked what "my goddaughter" studied, it replied "Isolde finished a course in
+  philosophy", from a line about Isolde, the babysitter (R-071). All 16 such misses at one seed
+  repeat the other person's value. When a search returned passages, v5 declined correctly 22
+  times of 23 and the wide-trained adapter 17 of 33: it finds more and checks less whose fact it
+  found (R-073). Fix 15 shows it more same-type facts about other people; open.
 - **A found fact denied.** Shorter in-view answers (fix 12) and more indirect in-view questions
   (fix 13) each made the model trust the turns in view more and a search result less: searches
   found the fact and the reply said "I don't have that from you" (R-063, R-064). Both dropped.
