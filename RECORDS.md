@@ -85,7 +85,7 @@ carry their own provenance (command, git commit, package versions).
 | R-070 | First wide pool discarded (its writer saw sealed fragments via a debug script); checker fixed; docs updated |
 | R-071 | Fix 14: `hard_dev` recall 58 to 76 at seed 82, fails gate on statements (44) and never_told; fixes 14b, 14c |
 | R-072 | Operational errors not recorded at the time (queue race, untracked files, quoting bug, stalled push) and fixes |
-| R-073 | Fix 14c fails on `hard_dev` never_told (32); wide training makes the model state another person's fact; over-long rows in fixes 14 to 14c; fix 15 |
+| R-073 | Fixes 14b and 14c fail on `hard_dev` never_told (32; 14b mends statements, 48); wide training makes the model state another person's fact; over-long rows in fixes 14 to 14c; fix 15 |
 
 ---
 
@@ -2393,8 +2393,12 @@ over the limit (tallied as `{kind}_too_long`) and checks before writing; queues 
 success. Earlier builds had no over-long row, so they rebuild unchanged. The as-trained sets of fixes 14 and 14c are
 committed without provenance files, since their builds stopped at the check.
 
-**Fix 14b** (fix 14's fact rows, statement rows half from `wide`, vetted): training at the time of writing; its result
-is added below.
+**Fix 14b** (`data/screens/wide_mix_b.jsonl`: fix 14's fact rows, statement rows half from `wide`, vetted; labels
+`screen_fix14b_all_82`, `hd_fix14b_all_82`): probe recall 92 (92), statement 48 (47), `hard_dev` recall 74 (68),
+`never_told` 32 (44): **fail**. False retrieval: probe 5 (4 `never_told`), `hard_dev` 17 (16 `never_told`). The plain-chat
+change works: statements go from fix 14's 44 to 48 of 48, so the wide pool's people in chat lines end the "mentor phone
+number" searches. The fact rows, unchanged from fix 14, keep the `never_told` failure. If fix 15 mends `never_told`,
+its statement rows are the next thing to swap for 14b's.
 
 **Fix 15.** 14c's settings with `never_told` rows raised from 150 to 250, each kept only if its search returns
 passages, all about someone else (`--never-told-hits`, R-050), built at seed 71124 with the fixed build; v5's 150
