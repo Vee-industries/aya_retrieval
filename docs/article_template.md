@@ -105,7 +105,9 @@ trained toward what this kind of judge accepts; the held-out judges are the same
 
 **Training.** LoRA on Tiny Aya Global through AgentTune's distillation trainer (TRL underneath),
 with the loss replaced by an equivalent that uses less memory (section 9). Three training seeds per
-version.
+version. Rows were passed to TRL as chat messages with its defaults, which put the loss on every
+token of a row, not only on the turns it teaches (4% of the tokens): the model also learned to
+write the friend's lines, the tool's passages and the scripted small talk in view (R-076).
 
 **How changes were made.** One change at a time. A change is screened on one training seed against
 its reference on a development probe; if it gains, a rule is written down and then it is trained on
@@ -328,6 +330,9 @@ hidden by a later result.
 - **A toolkit defect.** AuditKIT's paired bootstrap does not centre its resamples, so it reports
   large gains as not significant; we use an exact sign test and a centred bootstrap (section 9,
   R-031).
+- **A training default not checked.** Every adapter through v5 was trained with TRL's default of a
+  loss on every token of a row, found only when replies turned out to be copied from the scripted
+  history (R-076; see the failure modes below).
 - **A build that wrote before it checked.** The training-set build wrote its file before checking
   that no row exceeded the 1,024 tokens training keeps, so three screens (fixes 14, 14b and 14c)
   trained on sets with three to five rows whose answers were cut. The build now skips such rows
@@ -359,7 +364,17 @@ came from something in the training data.
   philosophy", from a line about Isolde, the babysitter (R-071). All 16 such misses at one seed
   repeat the other person's value. When a search returned passages, v5 declined correctly 22
   times of 23 and the wide-trained adapter 17 of 33: it finds more and checks less whose fact it
-  found (R-073). Fix 15 shows it more same-type facts about other people; open.
+  found (R-073). Showing it 100 more same-type facts about other people (fix 15) brought
+  `never_told` back to 136 of 144 over three seeds with recall kept (R-075).
+- **Scripted small talk, copied word for word.** Some plain-chat replies are lines from the
+  scripted small talk that fills each training conversation: "Hm, good question, i'd say it
+  depends", "Hope my barber settles down soon" (R-061, R-075). Training put its loss on every token
+  of a row, and the five most common scripted replies each appear more than 100 times in the
+  assistant's place, against at most 16 for any reply a row teaches (R-076). Fixes 16a and 16b put
+  the loss on the taught turns only, or on all but the scripted replies; open.
+- **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
+  was searched as "brother new job", the query for a question two messages earlier, and declined
+  (R-076). Open.
 - **A found fact denied.** Shorter in-view answers (fix 12) and more indirect in-view questions
   (fix 13) each made the model trust the turns in view more and a search result less: searches
   found the fact and the reply said "I don't have that from you" (R-063, R-064). Both dropped.
