@@ -305,10 +305,8 @@ run-to-run variation (R-032).
   gradient norm varied from run to run (R-029), so every claim pools three seeds.
 ## 11. Errors and corrections
 
-Every error below was found during the work and is recorded where it happened; none is hidden by
-a later result.
-
-**Errors of method.**
+Every error of method below was found during the work and is recorded where it happened; none is
+hidden by a later result.
 
 - **The first adapter's score was memorised.** It answered 119 of 120 on conversations like its
   training set and failed on a fresh probe, because in training the number of passages a search
@@ -330,25 +328,6 @@ a later result.
 - **A toolkit defect.** AuditKIT's paired bootstrap does not centre its resamples, so it reports
   large gains as not significant; we use an exact sign test and a centred bootstrap (section 9,
   R-031).
-
-**Errors of operation.**
-
-- **Records racing the queue.** A record commit landed between a queued run's clean-tree check and
-  its start; the run refused to start and the next queue jumped ahead. Every queued step now waits
-  for a clean tree and retries (R-072).
-- **Untracked files and the clean-tree check.** The queue counted untracked files as uncommitted;
-  the repository's own check ignores them. Aligned before it cost a run (R-072).
-- **A quoting bug in a queue.** A splice step written inside a shell script broke on its
-  quoting; the step was run by hand and later steps live in their own script files (R-072).
-- **Runs that went online.** TRL sent a usage ping to Hugging Face at the start of each training
-  run; no data left the machine, but runs are now offline by setting (R-056).
-- **A stalled push.** A push to GitHub hung for ten minutes; pushes in queues now have a time
-  limit, so a stall cannot hold the GPU (R-072).
-- **Stopped jobs that kept running.** Stopping a background job did not stop its child script,
-  which ran on beside the next job and slowed training; jobs are now stopped by process,
-  children included (R-029).
-- **Memory.** Training slowed on the 10 GB card until the loss was rewritten to use 2.7 GiB less
-  (section 9).
 
 ## 12. Limitations
 
