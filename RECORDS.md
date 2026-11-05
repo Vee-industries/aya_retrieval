@@ -93,6 +93,7 @@ carry their own provenance (command, git commit, package versions).
 | R-078 | Fix 17: plain-chat targets re-vetted on a stricter rubric by two judges; plan and rule before any target changes |
 | R-079 | Fixes 16b and 16c fail their gates on counts; strict vetting rejects 15 of v5's 150 chat targets; fix 17 runs at 1e-4 by R-078's rule |
 | R-080 | Fix 17 fails on counts; fix 17b (strict targets, 3e-4) passes R-076's gate; three-seed confirmation queued |
+| R-081 | The demo's stale search: no training view holds a question; a stress test for a question right after another |
 
 ---
 
@@ -2698,3 +2699,19 @@ and 84 of 17b are trained and scored on probe 73157 (`probe19_tuned83`, `probe19
 judges, shuffle seeds from 90483, under `results/coherence/R-081*`. 17b replaces v5 as v6 only if every item passes. The
 stress tests (R-067) resume after the seeds, with 17b at seed 82 added to each trio. No held-out or independent run
 without Kevin.
+
+## R-081 · 2026-11-05 · SPRINT · The demo's stale search: no training view holds a question; a stress test for a question right after another
+
+**The finding.** In the demo (R-076), "what did i fix under the sink" was searched as "brother new job", the query of the
+question just before it, which was still in view. In fix 17b's training set (`data/screens/strict_chat.jsonl`) 16 of
+the 2,900 friend lines in view contain a question mark; the three exchanges in view are almost always small talk, and
+the evaluation builds its views the same way. So no training row and no test item has an earlier question in view,
+though in a real chat one question often follows another.
+
+**The test** (development only, R-067's family). `aya_retrieval.stress.asked_before` and `run_recall_eval.py
+--asked-before`: the newest exchange in view (the one before it if the item's fact sits there) becomes a question
+about a fact of another type, about a relation and person the conversation never mentions, with a reply that
+declines, as the demo's did. Nothing the item is scored on changes; `tests/test_stress.py` checks this on three pools,
+every kind, 20 seeds. Runs: probe 73157 and `hard_dev` 73157 on base, v5 seed 82 and fix 17b seed 82, after 17b's
+confirmation seeds. A drop against the same model's plain run is the size of the gap; a training fix comes after,
+planned before code.

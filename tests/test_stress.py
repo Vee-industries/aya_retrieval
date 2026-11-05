@@ -1,9 +1,11 @@
 import random
+import re
 
 import pytest
 
-from aya_retrieval.conversations import CONFIRM, IN_VIEW, OLDER, build_item
-from aya_retrieval.stress import corrected, typed, user_style
+from aya_retrieval.conversations import CONFIRM, IN_VIEW, ITEM_KINDS, OLDER, build_item
+from aya_retrieval.pools import POOLS
+from aya_retrieval.stress import asked_before, corrected, typed, user_style
 
 
 def test_typed_lines_are_lower_case_with_sparse_punctuation():
@@ -48,3 +50,29 @@ def test_a_correction_comes_later_out_of_view_and_changes_the_answer(seed, kind,
 def test_other_kinds_are_not_corrected():
     item = build_item("x", 3, 58, IN_VIEW, "probe")
     assert corrected(item, 3, "probe") == item
+
+
+@pytest.mark.parametrize("pool", ["probe", "hard_dev", "train"])
+@pytest.mark.parametrize("kind", ITEM_KINDS)
+@pytest.mark.parametrize("seed", range(20))
+def test_an_earlier_question_declined_sits_in_view_and_nothing_scored_changes(seed, kind, pool):
+    item = build_item("x", seed, 58, kind, pool)
+    asked = asked_before(item, seed, pool)
+    changed = [
+        i for i, (a, b) in enumerate(zip(item.exchanges, asked.exchanges, strict=True)) if a != b
+    ]
+    assert len(changed) == 1 and changed[0] >= len(item.exchanges) - 2
+    assert changed[0] != item.fact_index
+    question, reply = asked.exchanges[changed[0]]
+    assert reply in POOLS[pool].unknown_replies
+    assert (asked.message, asked.answer, asked.forbidden) == (
+        item.message,
+        item.answer,
+        item.forbidden,
+    )
+    others = " ".join([item.message, *(u + " " + r for u, r in item.exchanges)]).casefold()
+    assert not any(
+        re.search(rf"\b{re.escape(v)}\b", question) for v in (item.answer, item.decoy) if v
+    )
+    assert asked.exchanges[item.fact_index] == item.exchanges[item.fact_index]
+    assert question.casefold() not in others

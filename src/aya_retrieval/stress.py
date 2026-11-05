@@ -3,7 +3,7 @@
 Each takes a built ``RecallItem`` and returns a changed copy, so any pool can be tested this way
 without writing a new one. The kinds of difficulty come from the failure categories another chat
 project tracked (its categories only; none of its text): how a real user types, and facts that are
-corrected later.
+corrected later. One comes from this project's own demo chat: a question asked right after another.
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ import dataclasses
 import random
 import re
 
-from aya_retrieval.conversations import CONFIRM, EXCHANGES_IN_VIEW, OLDER, RecallItem
+from aya_retrieval.conversations import ASK_FORMS, CONFIRM, EXCHANGES_IN_VIEW, OLDER, RecallItem
 from aya_retrieval.pools import POOLS
 
 # Contractions typed without the apostrophe, as many people text.
@@ -97,3 +97,30 @@ def corrected(item: RecallItem, seed: int, pool_name: str) -> RecallItem:
         fact_index=fact_index,
         reply=item.reply.replace(item.answer, new),
     )
+
+
+def asked_before(item: RecallItem, seed: int, pool_name: str) -> RecallItem:
+    """Return ``item`` with an earlier question, answered, as the newest exchange in view.
+
+    In real chats one question often follows another, so the last question is still in view when
+    the next arrives. The earlier question asks about a fact of another type, about a relation and
+    person the conversation never mentions, and its reply declines, which is right. If the item's
+    fact sits in the newest exchange, the question goes in the one before it. Nothing the item is
+    scored on changes.
+    """
+    rng = random.Random(seed)
+    pool = POOLS[pool_name]
+    own = next(t for t in pool.facts.values() if item.decoy in t.values)
+    template = rng.choice([t for _, t in sorted(pool.facts.items()) if t is not own])
+    said = " ".join([item.message, *(u + " " + r for u, r in item.exchanges)]).casefold()
+    relation = rng.choice([r for r in pool.relations if r.casefold() not in said])
+    person = rng.choice([p for p in pool.people if p.casefold() not in said])
+    form = getattr(template, rng.choice(ASK_FORMS))
+    question = form.format(relation=relation, person=person)
+
+    exchanges = list(item.exchanges)
+    slot = len(exchanges) - 1
+    if slot == item.fact_index:
+        slot -= 1
+    exchanges[slot] = (question, rng.choice(pool.unknown_replies))
+    return dataclasses.replace(item, exchanges=tuple(exchanges))

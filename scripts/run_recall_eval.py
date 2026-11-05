@@ -29,7 +29,7 @@ from aya_retrieval.pools import POOLS, SEALED
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.recall_tool import build_recall_tool, search_finds_fact
 from aya_retrieval.scoring import check_scorer, item_correct, right_decision
-from aya_retrieval.stress import corrected, user_style
+from aya_retrieval.stress import asked_before, corrected, user_style
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME, system_prompt_with_tools
 
 LOG = logging.getLogger("recall_eval")
@@ -87,6 +87,11 @@ def main() -> None:
         action="store_true",
         help="older and confirm facts corrected later, out of view (R-067)",
     )
+    parser.add_argument(
+        "--asked-before",
+        action="store_true",
+        help="an earlier question, declined, as the newest exchange in view (R-081)",
+    )
     parser.add_argument("--final", action="store_true", help="needed to read held-out items")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
@@ -108,6 +113,7 @@ def main() -> None:
         "kinds": args.kinds,
         "user_style": args.user_style,
         "corrections": args.corrections,
+        "asked_before": args.asked_before,
         "rows": [],
     }
 
@@ -136,6 +142,8 @@ def main() -> None:
                 )
                 if args.corrections:
                     item = corrected(item, seed, args.pool)
+                if args.asked_before:
+                    item = asked_before(item, seed, args.pool)
                 if args.user_style:
                     item = user_style(item, seed)
                 tool = build_recall_tool(item, args.index, match_all=False)
