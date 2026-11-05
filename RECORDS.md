@@ -101,6 +101,7 @@ carry their own provenance (command, git commit, package versions).
 | R-086 | Fix 19: questions asked as statements naming the topic, answered from a search; plan, review and a two-seed gate before the build |
 | R-087 | Fix 20 chosen by a three-lane panel before it was written: half the fact-word dose over all 25 types, run only if 19a fails |
 | R-088 | The compute left, panelled in three rounds to one plan; R-087's ruling replaced; the candidates list starts |
+| R-089 | 19a passes every count but fails the judged check set by one line (a stock reply at seed 83); two planned candidates dropped at build |
 
 ---
 
@@ -2993,3 +2994,54 @@ probe `in_view` is below 41 of 48, they are built next, replacing rows. Same-con
 **Candidates scored on the development pools before this record**, for the count the write-up gives: every
 `screen_*` label in `results/recall_eval` (fixes 1 to 18), plus 18a and 18c. From here each record that starts a run
 adds its candidates to this list before the result.
+
+## R-089 · 2026-11-05 · SPRINT · 19a passes every count but fails the judged check set by one line; two planned candidates dropped at build
+
+**19a at seeds 82 and 83** (R-086's set; backlog runner, `runner.log`). `scripts/records/gate_r086.py fix19a`:
+
+| Item | 19a | Needed | 17b |
+|---|---|---|---|
+| probe 51203 recall, seed 82 | 95 | 94 | 94 |
+| probe 51203 `statement`, seed 82 | 48 | 47 | 48 |
+| `hard_dev` `never_told`, seed 82 | 46 | 44 | 46 |
+| `hard_dev` recall, seeds 82 and 83 | 148 | 145 | 145 |
+| probe 73157 recall, seeds 82 and 83 | 191 | 189 | 189 |
+| `hard_dev` false retrieval, seed 82 | 5 | at most 6 | 4 |
+
+The questions asked as statements undid 18a's loss: `hard_dev` recall 74 at each seed against 18a's 56. Facts in view
+rose too: `hard_dev` `in_view` 40 and 40 against 17b's 38 and 36; probe 46 and 44 against 43.
+
+**Judged items** (`results/coherence/R-089/`; three fresh Sonnet judges a sheet, each in its own folder reading only
+the rubric and the sheet, transcripts checked: every judge's code only wrote marks it had listed by reading). Judge 1
+decides, as written before the marks; judges 2 and 3 give the spread. Base is `three_exchanges`.
+
+| Sheet | Judge 1: base, 19a | Judge 2 | Judge 3 |
+|---|---|---|---|
+| Probe Sheet B `statement` (`probe2_base` vs `probe_fix19a_82`, seed 90496) | 46, 48 | 45, 46 | 45, 46 |
+| Probe Sheet B `in_view` | 35, 41 | 36, 43 | 34, 43 |
+| `hard_dev` Sheet B `statement` (seed 90497) | 44, 46 | 44, 47 | 44, 47 |
+| `hard_dev` Sheet B `in_view` | 29, 35 | 30, 37 | 29, 38 |
+| Check set, seed 82 (seed 90498) | 44, 46 | 44, 47 | 45, 46 |
+| Check set, seed 83 (seed 90499) | 45, **42** | 44, 46 | 45, 44 |
+
+**The check set pooled over both seeds is 88 against base's 89 under judge 1, so 19a fails R-086's gate by one line.**
+Judges 2 and 3 would pass it (93 against 88, 90 against 90). The lines judge 1 marked down at seed 83 are not noise
+alone: five of them are one stock reply, "That sounds like a lot of work ...", to a sprained ankle, a commute, a cat
+scratching the sofa, loud music and a truck; judge 3 marked three of these down too, judge 2 none. The same kind
+of repeated reply as v5's "Hope ... settles down soon" (R-085), at one seed of two. 19a's seed 84 runs from the
+backlog under R-088's item 11 (the unjudged items), as information; it does not go to confirmation.
+
+**Dropped at build, each by the lane that proposed it.** Item 7, distinct chat targets in each pass: R-078's
+accepted pool holds only 117 distinct messages and 129 distinct targets, so a set with no target twice has a 6% chat
+share against 17b's 19% and changes two things at once. Item 10, 17c: two fresh judges re-vetted 17b's 150 chat
+targets and 300 spares on R-078's target rubric (all 450 lines each, agreeing on 439; `results/coherence/R-089V/`)
+and rejected 1 target of 150, so 17c would be 17b with one row changed. A finding, not a candidate: 17b's remaining
+plain-chat faults do not come from faulty targets. Both slots go to the reserve. A first pair of judges on that sheet
+marked only 45 and 46 lines of 450 and were discarded; the sheet was split into five parts and judged again.
+
+**Training speed.** Training runs now cap the process at 85% of card memory (`--max-vram-fraction`): at 9.6 of 10 GB
+reserved, other programs' memory pushed training into system memory and steps slowed from 1.3 s to 20 s. 19a's seed
+83 trained in 28 min under the cap.
+
+**Candidates scored since R-088:** 19a at 82 and 83. Next on the backlog: 17b scaled 0.85 and 0.7 (82, 83), 17b and
+18a mixed (82), 17b at 85 to 87, fix 20, 17m, 2 epochs at 3e-4 and 2e-4, 17r, answer repair (17p).
