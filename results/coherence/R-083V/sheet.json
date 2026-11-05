@@ -1,0 +1,2852 @@
+[
+ {
+  "line": 0,
+  "view": [
+   [
+    "my bike was the best part of my day",
+    "Good to hear my bike is behaving."
+   ],
+   [
+    "i was thinking about the garden on the way home",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i'm actually pretty happy with my knee lately",
+    "Glad my knee worked out."
+   ]
+  ],
+  "message": "Priya is finding the city exhausting",
+  "reply": "That sounds tough. Maybe a bike ride to the garden could help her unwind?"
+ },
+ {
+  "line": 1,
+  "view": [
+   [
+    "the snow let me down this morning",
+    "I'd be fed up with the snow too."
+   ],
+   [
+    "the dishwasher turned out fine in the end",
+    "Glad the dishwasher worked out."
+   ],
+   [
+    "the groceries was acting up again today",
+    "Sorry, the groceries sounds like a real hassle."
+   ]
+  ],
+  "message": "Lena is cleaning the motorbike in the driveway",
+  "reply": "That\u2019s a good thing to do to keep your bike in good shape!"
+ },
+ {
+  "line": 2,
+  "view": [
+   [
+    "that show is getting on my nerves",
+    "That's frustrating. Is that show usually like that?"
+   ],
+   [
+    "good news, the groceries sorted itself out",
+    "Love that for you."
+   ],
+   [
+    "i lost an hour to the stairs today",
+    "Sorry, the stairs sounds like a real hassle."
+   ]
+  ],
+  "message": "my uncle is excited about the long weekend",
+  "reply": "That\u2019s great! The long weekend is a good time for relaxation and fun."
+ },
+ {
+  "line": 3,
+  "view": [
+   [
+    "no complaints about the snow this week",
+    "That's a small win. the snow sounds good."
+   ],
+   [
+    "my glasses came up at dinner",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "the dentist was acting up again today",
+    "Sorry, the dentist sounds like a real hassle."
+   ]
+  ],
+  "message": "Marc is cross they missed the delivery",
+  "reply": "Marc is probably gonna be really frustrated.  Delivery delays can be a real bummer."
+ },
+ {
+  "line": 4,
+  "view": [
+   [
+    "my phone came up at dinner",
+    "What about my phone got you thinking?"
+   ],
+   [
+    "the elevator is getting on my nerves",
+    "Oof. An hour lost to the elevator is no fun."
+   ],
+   [
+    "the stairs turned out fine in the end",
+    "Good to hear the stairs is behaving."
+   ]
+  ],
+  "message": "my brother finally got the car back from the garage",
+  "reply": "That\u2019s great news! \ud83c\udf89 Congrats to your brother."
+ },
+ {
+  "line": 5,
+  "view": [
+   [
+    "i was thinking about the snow on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "someone at work brought up the laundry today",
+    "It does seem to come up a lot."
+   ],
+   [
+    "i lost an hour to my coffee today",
+    "That sounds annoying. Hope my coffee settles down soon."
+   ]
+  ],
+  "message": "my cousin says the promotion came with far too many meetings",
+  "reply": "Sounds like a lot of work."
+ },
+ {
+  "line": 6,
+  "view": [
+   [
+    "funny how the roof keeps coming up",
+    "It does seem to come up a lot."
+   ],
+   [
+    "good news, the gym sorted itself out",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "so the fridge has been a pain all week",
+    "Sorry, the fridge sounds like a real hassle."
+   ]
+  ],
+  "message": "Dana hates being reminded what year they were born",
+  "reply": "Dana's a bit of a time traveler, huh?"
+ },
+ {
+  "line": 7,
+  "view": [
+   [
+    "the mail let me down this morning",
+    "Sorry, the mail sounds like a real hassle."
+   ],
+   [
+    "the mail let me down this morning",
+    "That sounds annoying. Hope the mail settles down soon."
+   ],
+   [
+    "i lost an hour to my knee today",
+    "Oof. An hour lost to my knee is no fun."
+   ]
+  ],
+  "message": "Dana is sick of the noise from upstairs",
+  "reply": "Dana's probably just glad the noise is finally gone."
+ },
+ {
+  "line": 8,
+  "view": [
+   [
+    "funny how my back keeps coming up",
+    "Sure, we can move on from my back."
+   ],
+   [
+    "someone at work brought up the printer today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i'm actually pretty happy with the dentist lately",
+    "Glad the dentist worked out."
+   ]
+  ],
+  "message": "Greta is worn out from the dog barking all night",
+  "reply": "That sounds exhausting. Maybe try earplugs or a white noise machine?"
+ },
+ {
+  "line": 9,
+  "view": [
+   [
+    "funny how the lawn keeps coming up",
+    "Ha, what did they say about the lawn?"
+   ],
+   [
+    "the printer let me down this morning",
+    "I'd be fed up with the printer too."
+   ],
+   [
+    "the bank was acting up again today",
+    "I'd be fed up with the bank too."
+   ]
+  ],
+  "message": "Tomas was at band practice till late",
+  "reply": "That sounds like a long night for Tomas."
+ },
+ {
+  "line": 10,
+  "view": [
+   [
+    "the fridge was acting up again today",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ],
+   [
+    "no complaints about my phone this week",
+    "Good to hear my phone is behaving."
+   ],
+   [
+    "good news, my desk sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "Greta says the baby kept the whole house awake",
+  "reply": "That sounds like a lively morning!"
+ },
+ {
+  "line": 11,
+  "view": [
+   [
+    "good news, the recycling sorted itself out",
+    "That's a small win. the recycling sounds good."
+   ],
+   [
+    "i was thinking about the wifi on the way home",
+    "Ha, what did they say about the wifi?"
+   ],
+   [
+    "my back is getting on my nerves",
+    "I'd be fed up with my back too."
+   ]
+  ],
+  "message": "Greta spent the morning tidying up",
+  "reply": "That sounds like a good start to the day."
+ },
+ {
+  "line": 12,
+  "view": [
+   [
+    "someone at work brought up the parking lot today",
+    "What about the parking lot got you thinking?"
+   ],
+   [
+    "the fridge let me down this morning",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ],
+   [
+    "good news, my desk sorted itself out",
+    "That's a small win. my desk sounds good."
+   ]
+  ],
+  "message": "Omar found an old photo album",
+  "reply": "That sounds interesting. What was in the album?"
+ },
+ {
+  "line": 13,
+  "view": [
+   [
+    "my back was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "the bakery was the best part of my day",
+    "That's a small win. the bakery sounds good."
+   ],
+   [
+    "funny how the rain keeps coming up",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "my sister laughed at my terrible joke",
+  "reply": "That's a bummer, but don't let it get you down. Laughter is a great way to start the day, even if it's from a joke that didn't quite land."
+ },
+ {
+  "line": 14,
+  "view": [
+   [
+    "good news, the groceries sorted itself out",
+    "Love that for you."
+   ],
+   [
+    "i'm actually pretty happy with the stairs lately",
+    "Love that for you."
+   ],
+   [
+    "someone at work brought up the furnace today",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "my roommate is grumpy about being laid up with the injury",
+  "reply": "That\u2019s tough. Maybe a little extra patience from you could help them feel better."
+ },
+ {
+  "line": 15,
+  "view": [
+   [
+    "anyway, enough about the stairs",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the gym let me down this morning",
+    "That's frustrating. Is the gym usually like that?"
+   ],
+   [
+    "not much going on, just dealing with that show",
+    "What about that show got you thinking?"
+   ]
+  ],
+  "message": "Omar and i sat over coffee for ages",
+  "reply": "Sounds like a nice chat. Omar's probably doing great."
+ },
+ {
+  "line": 16,
+  "view": [
+   [
+    "the dentist was acting up again today",
+    "Sorry, the dentist sounds like a real hassle."
+   ],
+   [
+    "the rain was acting up again today",
+    "Sorry, the rain sounds like a real hassle."
+   ],
+   [
+    "the snow is getting on my nerves",
+    "Sorry, the snow sounds like a real hassle."
+   ]
+  ],
+  "message": "my cousin is loving their new hobby",
+  "reply": "That's great to hear! What is their new hobby?"
+ },
+ {
+  "line": 17,
+  "view": [
+   [
+    "i was thinking about my desk on the way home",
+    "Sure, we can move on from my desk."
+   ],
+   [
+    "i'm actually pretty happy with the bakery lately",
+    "Love that for you."
+   ],
+   [
+    "not much going on, just dealing with the kettle",
+    "Sure, we can move on from the kettle."
+   ]
+  ],
+  "message": "Omar is spending the weekend fixing up the boat",
+  "reply": "That sounds like a fun weekend plan!"
+ },
+ {
+  "line": 18,
+  "view": [
+   [
+    "the wifi was acting up again today",
+    "That's frustrating. Is the wifi usually like that?"
+   ],
+   [
+    "the printer came up at dinner",
+    "What about the printer got you thinking?"
+   ],
+   [
+    "i was thinking about the fridge on the way home",
+    "Sure, we can move on from the fridge."
+   ]
+  ],
+  "message": "my coworker had a really good day",
+  "reply": "That's great to hear! What did they do to make it a good day?"
+ },
+ {
+  "line": 19,
+  "view": [
+   [
+    "the rain let me down this morning",
+    "Sorry, the rain sounds like a real hassle."
+   ],
+   [
+    "no complaints about the laundry this week",
+    "That's a small win. the laundry sounds good."
+   ],
+   [
+    "my coffee turned out fine in the end",
+    "Glad my coffee worked out."
+   ]
+  ],
+  "message": "Nell is furious someone dented the car",
+  "reply": "That sounds frustrating.  Maybe someone needs to be held accountable."
+ },
+ {
+  "line": 20,
+  "view": [
+   [
+    "the lawn turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "the printer was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "ugh, my knee is driving me up the wall",
+    "Sorry, my knee sounds like a real hassle."
+   ]
+  ],
+  "message": "Dana says the new neighbours brought biscuits",
+  "reply": "That sounds like a nice surprise!"
+ },
+ {
+  "line": 21,
+  "view": [
+   [
+    "the parking lot is getting on my nerves",
+    "That sounds annoying. Hope the parking lot settles down soon."
+   ],
+   [
+    "the rain came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the snow was acting up again today",
+    "That sounds annoying. Hope the snow settles down soon."
+   ]
+  ],
+  "message": "my cousin is buried in marking for their class",
+  "reply": "That sounds like a lot of work. Hope they get some relief soon."
+ },
+ {
+  "line": 22,
+  "view": [
+   [
+    "not much going on, just dealing with the dentist",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "my bike turned out fine in the end",
+    "That's a small win. my bike sounds good."
+   ],
+   [
+    "my glasses came up at dinner",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "Tomas went to bed early",
+  "reply": "That's good to hear. A good night's sleep is always a win."
+ },
+ {
+  "line": 23,
+  "view": [
+   [
+    "no complaints about the snow this week",
+    "That's a small win. the snow sounds good."
+   ],
+   [
+    "my glasses came up at dinner",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "the dentist was acting up again today",
+    "Sorry, the dentist sounds like a real hassle."
+   ]
+  ],
+  "message": "my aunt is stressed about the rent on the shop",
+  "reply": "That sounds tough. Rent can be a big worry, especially for a shop."
+ },
+ {
+  "line": 24,
+  "view": [
+   [
+    "funny how my back keeps coming up",
+    "Sure, we can move on from my back."
+   ],
+   [
+    "someone at work brought up the printer today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i'm actually pretty happy with the dentist lately",
+    "Glad the dentist worked out."
+   ]
+  ],
+  "message": "my brother loved the concert last night",
+  "reply": "That\u2019s awesome! Concerts are always a blast."
+ },
+ {
+  "line": 25,
+  "view": [
+   [
+    "my back was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "the bakery was the best part of my day",
+    "That's a small win. the bakery sounds good."
+   ],
+   [
+    "funny how the rain keeps coming up",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "Tomas says the shop had its busiest day yet",
+  "reply": "That's great news! A busy day at the bakery is always a good sign."
+ },
+ {
+  "line": 26,
+  "view": [
+   [
+    "anyway, enough about the recycling",
+    "Sure, we can move on from the recycling."
+   ],
+   [
+    "the garden turned out fine in the end",
+    "Love that for you."
+   ],
+   [
+    "i'm actually pretty happy with the stairs lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "Lena had the best sandwich of their life",
+  "reply": "That sounds amazing! What kind of sandwich was it?"
+ },
+ {
+  "line": 27,
+  "view": [
+   [
+    "ugh, my glasses is driving me up the wall",
+    "Oof. An hour lost to my glasses is no fun."
+   ],
+   [
+    "no complaints about that show this week",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "not much going on, just dealing with the mail",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "my aunt says the dentist visit went badly",
+  "reply": "Oh no, that sounds bad. Hope everything turns out okay."
+ },
+ {
+  "line": 28,
+  "view": [
+   [
+    "the dentist came up at dinner",
+    "Sure, we can move on from the dentist."
+   ],
+   [
+    "anyway, enough about the lawn",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "the dishwasher was acting up again today",
+    "That's frustrating. Is the dishwasher usually like that?"
+   ]
+  ],
+  "message": "my cousin found the hospital bracelet from when they were born",
+  "reply": "That's a really interesting discovery. Do you have any other family heirlooms or artifacts?"
+ },
+ {
+  "line": 29,
+  "view": [
+   [
+    "anyway, enough about the kettle",
+    "It does seem to come up a lot."
+   ],
+   [
+    "good news, that show sorted itself out",
+    "Glad that show worked out."
+   ],
+   [
+    "i'm actually pretty happy with the printer lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "Priya took the motorbike out for the first sunny ride",
+  "reply": "That sounds like a great start to a sunny day!"
+ },
+ {
+  "line": 30,
+  "view": [
+   [
+    "not much going on, just dealing with the dentist",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "my bike turned out fine in the end",
+    "That's a small win. my bike sounds good."
+   ],
+   [
+    "my glasses came up at dinner",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "my uncle loves how the fresh paint turned out",
+  "reply": "That's great to hear! Fresh paint always looks good."
+ },
+ {
+  "line": 31,
+  "view": [
+   [
+    "i'm actually pretty happy with that show lately",
+    "That's a small win. that show sounds good."
+   ],
+   [
+    "the fridge is getting on my nerves",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ],
+   [
+    "good news, the bank sorted itself out",
+    "Love that for you."
+   ]
+  ],
+  "message": "my neighbour is staying in tonight",
+  "reply": "That\u2019s great! Hope you get a good night\u2019s rest."
+ },
+ {
+  "line": 32,
+  "view": [
+   [
+    "ugh, the laundry is driving me up the wall",
+    "Sorry, the laundry sounds like a real hassle."
+   ],
+   [
+    "anyway, enough about the lawn",
+    "It does seem to come up a lot."
+   ],
+   [
+    "ugh, the gym is driving me up the wall",
+    "I'd be fed up with the gym too."
+   ]
+  ],
+  "message": "my sister is annoyed the band keeps skipping rehearsal",
+  "reply": "That sounds frustrating. Maybe a little accountability or a reminder about the consequences could help."
+ },
+ {
+  "line": 33,
+  "view": [
+   [
+    "the rain was acting up again today",
+    "I'd be fed up with the rain too."
+   ],
+   [
+    "no complaints about the fridge this week",
+    "Love that for you."
+   ],
+   [
+    "good news, the furnace sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "Yusuf was stocking shelves at the shop all morning",
+  "reply": "Sounds like a hardworking guy."
+ },
+ {
+  "line": 34,
+  "view": [
+   [
+    "the kettle turned out fine in the end",
+    "Love that for you."
+   ],
+   [
+    "the wifi was acting up again today",
+    "That's frustrating. Is the wifi usually like that?"
+   ],
+   [
+    "i lost an hour to my bike today",
+    "Sorry, my bike sounds like a real hassle."
+   ]
+  ],
+  "message": "my roommate is knitting a scarf",
+  "reply": "That\u2019s actually really cool. Knitting is such a relaxing hobby."
+ },
+ {
+  "line": 35,
+  "view": [
+   [
+    "anyway, enough about the elevator",
+    "It does seem to come up a lot."
+   ],
+   [
+    "funny how my laptop keeps coming up",
+    "Sure, we can move on from my laptop."
+   ],
+   [
+    "the laundry is getting on my nerves",
+    "That's frustrating. Is the laundry usually like that?"
+   ]
+  ],
+  "message": "my cousin says the motorbike won't start",
+  "reply": "That sounds like a real problem. Do you have any idea why it won't start?"
+ },
+ {
+  "line": 36,
+  "view": [
+   [
+    "someone at work brought up that show today",
+    "Sure, we can move on from that show."
+   ],
+   [
+    "ugh, the gym is driving me up the wall",
+    "That's frustrating. Is the gym usually like that?"
+   ],
+   [
+    "the lawn turned out fine in the end",
+    "Love that for you."
+   ]
+  ],
+  "message": "my brother is cross the cat knocked over a plant",
+  "reply": "That sounds like a small setback. At least the lawn is still looking good."
+ },
+ {
+  "line": 37,
+  "view": [
+   [
+    "ugh, the laundry is driving me up the wall",
+    "Sorry, the laundry sounds like a real hassle."
+   ],
+   [
+    "anyway, enough about the lawn",
+    "It does seem to come up a lot."
+   ],
+   [
+    "ugh, the gym is driving me up the wall",
+    "I'd be fed up with the gym too."
+   ]
+  ],
+  "message": "Priya finally finished that jigsaw",
+  "reply": "That's great news! Jigsaw puzzles can be so satisfying when they're finally complete."
+ },
+ {
+  "line": 38,
+  "view": [
+   [
+    "i was thinking about my desk on the way home",
+    "Sure, we can move on from my desk."
+   ],
+   [
+    "i'm actually pretty happy with the bakery lately",
+    "Love that for you."
+   ],
+   [
+    "not much going on, just dealing with the kettle",
+    "Sure, we can move on from the kettle."
+   ]
+  ],
+  "message": "my neighbour is cross about a parking ticket",
+  "reply": "That sounds like a tough situation. Maybe you could talk it over with them?"
+ },
+ {
+  "line": 39,
+  "view": [
+   [
+    "i lost an hour to the garden today",
+    "Sorry, the garden sounds like a real hassle."
+   ],
+   [
+    "the elevator came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i lost an hour to the bakery today",
+    "I'd be fed up with the bakery too."
+   ]
+  ],
+  "message": "my roommate is having friends round tonight",
+  "reply": "That sounds like a fun night! Enjoy it."
+ },
+ {
+  "line": 40,
+  "view": [
+   [
+    "i lost an hour to my coffee today",
+    "Oof. An hour lost to my coffee is no fun."
+   ],
+   [
+    "my coffee was acting up again today",
+    "I'd be fed up with my coffee too."
+   ],
+   [
+    "the bank was acting up again today",
+    "Oof. An hour lost to the bank is no fun."
+   ]
+  ],
+  "message": "Priya says the hotel was awful",
+  "reply": "Sounds like a tough experience."
+ },
+ {
+  "line": 41,
+  "view": [
+   [
+    "the kettle turned out fine in the end",
+    "Love that for you."
+   ],
+   [
+    "the wifi was acting up again today",
+    "That's frustrating. Is the wifi usually like that?"
+   ],
+   [
+    "i lost an hour to my bike today",
+    "Sorry, my bike sounds like a real hassle."
+   ]
+  ],
+  "message": "Ivan is thrilled with the new phone",
+  "reply": "That's great news! A new phone can really enhance one's experience."
+ },
+ {
+  "line": 42,
+  "view": [
+   [
+    "the bank was acting up again today",
+    "Oof. An hour lost to the bank is no fun."
+   ],
+   [
+    "the wifi let me down this morning",
+    "That sounds annoying. Hope the wifi settles down soon."
+   ],
+   [
+    "the groceries came up at dinner",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "my uncle got soaked on the way home",
+  "reply": "That sounds like a rough day. Hope he\u2019s okay."
+ },
+ {
+  "line": 43,
+  "view": [
+   [
+    "my bike was acting up again today",
+    "That's frustrating. Is my bike usually like that?"
+   ],
+   [
+    "the mail was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "i'm actually pretty happy with the stairs lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "my sister is tired of the long commute",
+  "reply": "That's tough. Commuting can be a real pain. Maybe there's a way to make it better?"
+ },
+ {
+  "line": 44,
+  "view": [
+   [
+    "the lawn turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "the printer was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "ugh, my knee is driving me up the wall",
+    "Sorry, my knee sounds like a real hassle."
+   ]
+  ],
+  "message": "my neighbour is stuck on a chapter of their novel",
+  "reply": "That sounds frustrating. Maybe a little break and some tea could help them get back on track."
+ },
+ {
+  "line": 45,
+  "view": [
+   [
+    "my laptop was acting up again today",
+    "That sounds annoying. Hope my laptop settles down soon."
+   ],
+   [
+    "the laundry was acting up again today",
+    "That's frustrating. Is the laundry usually like that?"
+   ],
+   [
+    "the dishwasher came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "Ivan spent the day at the museum",
+  "reply": "Sounds like he had a cultural day."
+ },
+ {
+  "line": 46,
+  "view": [
+   [
+    "my bike came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "i was thinking about the elevator on the way home",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the kettle was acting up again today",
+    "Oof. An hour lost to the kettle is no fun."
+   ]
+  ],
+  "message": "my roommate can't believe they won a prize",
+  "reply": "Sounds like a small victory for them."
+ },
+ {
+  "line": 47,
+  "view": [
+   [
+    "my desk let me down this morning",
+    "Sorry, my desk sounds like a real hassle."
+   ],
+   [
+    "good news, the groceries sorted itself out",
+    "Glad the groceries worked out."
+   ],
+   [
+    "no complaints about my bike this week",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "Omar says the queue at the post office was endless",
+  "reply": "Queues at the post office can be a real pain."
+ },
+ {
+  "line": 48,
+  "view": [
+   [
+    "the mail turned out fine in the end",
+    "Good to hear the mail is behaving."
+   ],
+   [
+    "i lost an hour to my coffee today",
+    "I'd be fed up with my coffee too."
+   ],
+   [
+    "the dishwasher let me down this morning",
+    "Oof. An hour lost to the dishwasher is no fun."
+   ]
+  ],
+  "message": "my brother spilled coffee all over their laptop",
+  "reply": "Ugh, that\u2019s a bummer. Laptops are pricey, and coffee is a real pain."
+ },
+ {
+  "line": 49,
+  "view": [
+   [
+    "my bike turned out fine in the end",
+    "Love that for you."
+   ],
+   [
+    "i was thinking about my glasses on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "no complaints about my phone this week",
+    "That's a small win. my phone sounds good."
+   ]
+  ],
+  "message": "my neighbour is proud of the garden this year",
+  "reply": "That's great to hear! A well-maintained garden is always a sign of hard work and dedication."
+ },
+ {
+  "line": 50,
+  "view": [
+   [
+    "the parking lot let me down this morning",
+    "That sounds annoying. Hope the parking lot settles down soon."
+   ],
+   [
+    "ugh, the kettle is driving me up the wall",
+    "I'd be fed up with the kettle too."
+   ],
+   [
+    "the rain was the best part of my day",
+    "That's a small win. the rain sounds good."
+   ]
+  ],
+  "message": "my coworker talks about their hobby nonstop",
+  "reply": "It can be frustrating. Maybe try to change the subject or find a way to engage them in a conversation about something else."
+ },
+ {
+  "line": 51,
+  "view": [
+   [
+    "the dentist came up at dinner",
+    "Sure, we can move on from the dentist."
+   ],
+   [
+    "anyway, enough about the lawn",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "the dishwasher was acting up again today",
+    "That's frustrating. Is the dishwasher usually like that?"
+   ]
+  ],
+  "message": "Lena was out in the garden all day",
+  "reply": "That's great, Lena! Enjoying the garden sounds relaxing."
+ },
+ {
+  "line": 52,
+  "view": [
+   [
+    "the bank was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "good news, the printer sorted itself out",
+    "That's a small win. the printer sounds good."
+   ],
+   [
+    "not much going on, just dealing with the bank",
+    "Sure, we can move on from the bank."
+   ]
+  ],
+  "message": "my uncle says the boat engine died again",
+  "reply": "Oh no, that sounds frustrating.  Is it a big deal?"
+ },
+ {
+  "line": 53,
+  "view": [
+   [
+    "funny how that show keeps coming up",
+    "Ha, what did they say about that show?"
+   ],
+   [
+    "the garden was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "not much going on, just dealing with the mail",
+    "Ha, what did they say about the mail?"
+   ]
+  ],
+  "message": "my uncle is stuck at home with a cold",
+  "reply": "That sounds tough. Maybe he could use a little help with the mail to take his mind off his cold."
+ },
+ {
+  "line": 54,
+  "view": [
+   [
+    "the dentist was acting up again today",
+    "Sorry, the dentist sounds like a real hassle."
+   ],
+   [
+    "the rain was acting up again today",
+    "Sorry, the rain sounds like a real hassle."
+   ],
+   [
+    "the snow is getting on my nerves",
+    "Sorry, the snow sounds like a real hassle."
+   ]
+  ],
+  "message": "Omar is reorganising the kitchen cupboards",
+  "reply": "That sounds like a practical task."
+ },
+ {
+  "line": 55,
+  "view": [
+   [
+    "my desk turned out fine in the end",
+    "Good to hear my desk is behaving."
+   ],
+   [
+    "the snow let me down this morning",
+    "That's frustrating. Is the snow usually like that?"
+   ],
+   [
+    "the printer was acting up again today",
+    "I'd be fed up with the printer too."
+   ]
+  ],
+  "message": "my aunt says the dog finally learned to sit",
+  "reply": "That's great news! A well-trained dog is a happy dog."
+ },
+ {
+  "line": 56,
+  "view": [
+   [
+    "the bank was acting up again today",
+    "Oof. An hour lost to the bank is no fun."
+   ],
+   [
+    "the wifi let me down this morning",
+    "That sounds annoying. Hope the wifi settles down soon."
+   ],
+   [
+    "the groceries came up at dinner",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "Ivan was glued to the phone all evening",
+  "reply": "Sounds like he was busy with something important. Maybe a work call or a personal matter."
+ },
+ {
+  "line": 57,
+  "view": [
+   [
+    "the elevator turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "i lost an hour to the elevator today",
+    "That's frustrating. Is the elevator usually like that?"
+   ],
+   [
+    "ugh, the fridge is driving me up the wall",
+    "That's frustrating. Is the fridge usually like that?"
+   ]
+  ],
+  "message": "my aunt is watching the match tonight",
+  "reply": "That sounds exciting! Enjoy the match, and good luck to your aunt."
+ },
+ {
+  "line": 58,
+  "view": [
+   [
+    "someone at work brought up the parking lot today",
+    "What about the parking lot got you thinking?"
+   ],
+   [
+    "the fridge let me down this morning",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ],
+   [
+    "good news, my desk sorted itself out",
+    "That's a small win. my desk sounds good."
+   ]
+  ],
+  "message": "my brother says the festival was a mud bath",
+  "reply": "That sounds like a wild festival! Did you enjoy it?"
+ },
+ {
+  "line": 59,
+  "view": [
+   [
+    "my bike turned out fine in the end",
+    "Love that for you."
+   ],
+   [
+    "i was thinking about my glasses on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "no complaints about my phone this week",
+    "That's a small win. my phone sounds good."
+   ]
+  ],
+  "message": "Greta says the prize is taking up the whole garage",
+  "reply": "That sounds like a lot of space to fill!"
+ },
+ {
+  "line": 60,
+  "view": [
+   [
+    "funny how the laundry keeps coming up",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "ugh, the wifi is driving me up the wall",
+    "Oof. An hour lost to the wifi is no fun."
+   ],
+   [
+    "so the furnace has been a pain all week",
+    "I'd be fed up with the furnace too."
+   ]
+  ],
+  "message": "my aunt says the new caf\u00e9 is great",
+  "reply": "That\u2019s a good thing! A great caf\u00e9 can be a nice change of pace."
+ },
+ {
+  "line": 61,
+  "view": [
+   [
+    "the wifi was acting up again today",
+    "That's frustrating. Is the wifi usually like that?"
+   ],
+   [
+    "the printer came up at dinner",
+    "What about the printer got you thinking?"
+   ],
+   [
+    "i was thinking about the fridge on the way home",
+    "Sure, we can move on from the fridge."
+   ]
+  ],
+  "message": "Yusuf says the job is wearing them down",
+  "reply": "It sounds like Yusuf is feeling the pressure from the job. Is there anything you can do to support him?"
+ },
+ {
+  "line": 62,
+  "view": [
+   [
+    "the dishwasher is getting on my nerves",
+    "That sounds annoying. Hope the dishwasher settles down soon."
+   ],
+   [
+    "ugh, the snow is driving me up the wall",
+    "That's frustrating. Is the snow usually like that?"
+   ],
+   [
+    "someone at work brought up the stairs today",
+    "Sure, we can move on from the stairs."
+   ]
+  ],
+  "message": "Priya is reading on the balcony",
+  "reply": "That's nice. Balconies are great for reading."
+ },
+ {
+  "line": 63,
+  "view": [
+   [
+    "the snow was the best part of my day",
+    "Good to hear the snow is behaving."
+   ],
+   [
+    "the elevator let me down this morning",
+    "Oof. An hour lost to the elevator is no fun."
+   ],
+   [
+    "ugh, my desk is driving me up the wall",
+    "That sounds annoying. Hope my desk settles down soon."
+   ]
+  ],
+  "message": "my uncle is fed up with the rain",
+  "reply": "Rain can be a real bummer. Maybe a sunny day is in store for you next."
+ },
+ {
+  "line": 64,
+  "view": [
+   [
+    "the gym was acting up again today",
+    "That sounds annoying. Hope the gym settles down soon."
+   ],
+   [
+    "i was thinking about the kettle on the way home",
+    "Sure, we can move on from the kettle."
+   ],
+   [
+    "the dishwasher was acting up again today",
+    "That's frustrating. Is the dishwasher usually like that?"
+   ]
+  ],
+  "message": "my uncle keeps sending me pictures of the city at night",
+  "reply": "That sounds interesting. What kind of city is it?"
+ },
+ {
+  "line": 65,
+  "view": [
+   [
+    "the mail let me down this morning",
+    "Sorry, the mail sounds like a real hassle."
+   ],
+   [
+    "the mail let me down this morning",
+    "That sounds annoying. Hope the mail settles down soon."
+   ],
+   [
+    "i lost an hour to my knee today",
+    "Oof. An hour lost to my knee is no fun."
+   ]
+  ],
+  "message": "my roommate was born in the same hospital as me",
+  "reply": "That's pretty cool. Do you share a room with them?"
+ },
+ {
+  "line": 66,
+  "view": [
+   [
+    "the bank was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "good news, the printer sorted itself out",
+    "That's a small win. the printer sounds good."
+   ],
+   [
+    "not much going on, just dealing with the bank",
+    "Sure, we can move on from the bank."
+   ]
+  ],
+  "message": "Dana was thrilled to see an old friend",
+  "reply": "That's great to hear. Old friends can bring a lot of joy and comfort."
+ },
+ {
+  "line": 67,
+  "view": [
+   [
+    "the rain let me down this morning",
+    "Sorry, the rain sounds like a real hassle."
+   ],
+   [
+    "no complaints about the laundry this week",
+    "That's a small win. the laundry sounds good."
+   ],
+   [
+    "my coffee turned out fine in the end",
+    "Glad my coffee worked out."
+   ]
+  ],
+  "message": "my coworker says the holiday was perfect",
+  "reply": "That sounds great!"
+ },
+ {
+  "line": 68,
+  "view": [
+   [
+    "ugh, the mail is driving me up the wall",
+    "I'd be fed up with the mail too."
+   ],
+   [
+    "no complaints about the kettle this week",
+    "Good to hear the kettle is behaving."
+   ],
+   [
+    "the elevator was the best part of my day",
+    "That's a small win. the elevator sounds good."
+   ]
+  ],
+  "message": "Marc feels great after the weekend away",
+  "reply": "Weekend getaways are a great way to recharge. Marc sounds like he had a good time."
+ },
+ {
+  "line": 69,
+  "view": [
+   [
+    "good news, the groceries sorted itself out",
+    "Love that for you."
+   ],
+   [
+    "i'm actually pretty happy with the stairs lately",
+    "Love that for you."
+   ],
+   [
+    "someone at work brought up the furnace today",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "Tomas finally got some sleep",
+  "reply": "That's great to hear. Goodnight!"
+ },
+ {
+  "line": 70,
+  "view": [
+   [
+    "i'm actually pretty happy with my coffee lately",
+    "Glad my coffee worked out."
+   ],
+   [
+    "the laundry let me down this morning",
+    "Sorry, the laundry sounds like a real hassle."
+   ],
+   [
+    "the roof is getting on my nerves",
+    "That sounds annoying. Hope the roof settles down soon."
+   ]
+  ],
+  "message": "Lena brought me a coffee without being asked",
+  "reply": "That's such a sweet gesture from Lena! Coffee is always a nice surprise."
+ },
+ {
+  "line": 71,
+  "view": [
+   [
+    "the gym let me down this morning",
+    "Sorry, the gym sounds like a real hassle."
+   ],
+   [
+    "anyway, enough about the kettle",
+    "What about the kettle got you thinking?"
+   ],
+   [
+    "i'm actually pretty happy with that show lately",
+    "That's a small win. that show sounds good."
+   ]
+  ],
+  "message": "Tomas says the class finally got the hang of the topic",
+  "reply": "That's great to hear! It's always satisfying when things start to click."
+ },
+ {
+  "line": 72,
+  "view": [
+   [
+    "the recycling let me down this morning",
+    "That's frustrating. Is the recycling usually like that?"
+   ],
+   [
+    "someone at work brought up the kettle today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i'm actually pretty happy with my glasses lately",
+    "Good to hear my glasses is behaving."
+   ]
+  ],
+  "message": "my brother walked by the river this morning",
+  "reply": "That sounds nice. Did he see anything interesting?"
+ },
+ {
+  "line": 73,
+  "view": [
+   [
+    "the recycling let me down this morning",
+    "That's frustrating. Is the recycling usually like that?"
+   ],
+   [
+    "someone at work brought up the kettle today",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i'm actually pretty happy with my glasses lately",
+    "Good to hear my glasses is behaving."
+   ]
+  ],
+  "message": "Dana got the all clear after their injury",
+  "reply": "That's great news! Injuries can be tough, but it's wonderful to hear Dana is doing well."
+ },
+ {
+  "line": 74,
+  "view": [
+   [
+    "my laptop was acting up again today",
+    "That sounds annoying. Hope my laptop settles down soon."
+   ],
+   [
+    "my laptop was the best part of my day",
+    "That's a small win. my laptop sounds good."
+   ],
+   [
+    "so the bus has been a pain all week",
+    "That's frustrating. Is the bus usually like that?"
+   ]
+  ],
+  "message": "my uncle lent me the car for the afternoon",
+  "reply": "That's a nice gesture from your uncle. Enjoy your ride!"
+ },
+ {
+  "line": 75,
+  "view": [
+   [
+    "the elevator turned out fine in the end",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "i lost an hour to the elevator today",
+    "That's frustrating. Is the elevator usually like that?"
+   ],
+   [
+    "ugh, the fridge is driving me up the wall",
+    "That's frustrating. Is the fridge usually like that?"
+   ]
+  ],
+  "message": "Lena is over the moon about the promotion",
+  "reply": "That's wonderful! Lena's excited about the promotion."
+ },
+ {
+  "line": 76,
+  "view": [
+   [
+    "not much going on, just dealing with the rain",
+    "Ha, what did they say about the rain?"
+   ],
+   [
+    "my glasses let me down this morning",
+    "That sounds annoying. Hope my glasses settles down soon."
+   ],
+   [
+    "someone at work brought up the wifi today",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "my neighbour is sorting out the attic",
+  "reply": "That sounds like a lot of work. Hope they get it done soon."
+ },
+ {
+  "line": 77,
+  "view": [
+   [
+    "my phone came up at dinner",
+    "What about my phone got you thinking?"
+   ],
+   [
+    "the elevator is getting on my nerves",
+    "Oof. An hour lost to the elevator is no fun."
+   ],
+   [
+    "the stairs turned out fine in the end",
+    "Good to hear the stairs is behaving."
+   ]
+  ],
+  "message": "Priya spent the evening watching old films",
+  "reply": "That sounds like a cozy way to spend the evening."
+ },
+ {
+  "line": 78,
+  "view": [
+   [
+    "the parking lot is getting on my nerves",
+    "That sounds annoying. Hope the parking lot settles down soon."
+   ],
+   [
+    "the rain came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the snow was acting up again today",
+    "That sounds annoying. Hope the snow settles down soon."
+   ]
+  ],
+  "message": "Tomas hates the new timetable",
+  "reply": "Sounds like a tough situation. Maybe there's a way to make it work for him."
+ },
+ {
+  "line": 79,
+  "view": [
+   [
+    "the parking lot let me down this morning",
+    "That sounds annoying. Hope the parking lot settles down soon."
+   ],
+   [
+    "ugh, the kettle is driving me up the wall",
+    "I'd be fed up with the kettle too."
+   ],
+   [
+    "the rain was the best part of my day",
+    "That's a small win. the rain sounds good."
+   ]
+  ],
+  "message": "Tomas is frustrated with the internet being slow",
+  "reply": "Slow internet can be a real bummer. Maybe it's time to call your ISP or check for updates."
+ },
+ {
+  "line": 80,
+  "view": [
+   [
+    "ugh, the kettle is driving me up the wall",
+    "That sounds annoying. Hope the kettle settles down soon."
+   ],
+   [
+    "good news, the bus sorted itself out",
+    "Glad the bus worked out."
+   ],
+   [
+    "my coffee let me down this morning",
+    "Sorry, my coffee sounds like a real hassle."
+   ]
+  ],
+  "message": "my cousin says the neighbours on their floor are friendly",
+  "reply": "That\u2019s great news! Neighbors who are friendly can make a big difference."
+ },
+ {
+  "line": 81,
+  "view": [
+   [
+    "i lost an hour to my coffee today",
+    "Oof. An hour lost to my coffee is no fun."
+   ],
+   [
+    "my coffee was acting up again today",
+    "I'd be fed up with my coffee too."
+   ],
+   [
+    "the bank was acting up again today",
+    "Oof. An hour lost to the bank is no fun."
+   ]
+  ],
+  "message": "my aunt entered a raffle for a prize at the school fair",
+  "reply": "That sounds exciting! Good luck to your aunt\u2014hope she wins something great."
+ },
+ {
+  "line": 82,
+  "view": [
+   [
+    "my coffee was acting up again today",
+    "Oof. An hour lost to my coffee is no fun."
+   ],
+   [
+    "i was thinking about that show on the way home",
+    "Ha, what did they say about that show?"
+   ],
+   [
+    "the printer let me down this morning",
+    "Sorry, the printer sounds like a real hassle."
+   ]
+  ],
+  "message": "Lena says the neighbours kept them up",
+  "reply": "Sounds like a classic neighbor issue. Maybe they were playing loud music or something."
+ },
+ {
+  "line": 83,
+  "view": [
+   [
+    "the fridge is getting on my nerves",
+    "Oof. An hour lost to the fridge is no fun."
+   ],
+   [
+    "the bus is getting on my nerves",
+    "Sorry, the bus sounds like a real hassle."
+   ],
+   [
+    "good news, the laundry sorted itself out",
+    "Glad the laundry worked out."
+   ]
+  ],
+  "message": "Lena spent a fortune on hobby gear and regrets it",
+  "reply": "That\u2019s tough. Sometimes hobbies can feel like a waste if they don\u2019t pay off. What was she investing in?"
+ },
+ {
+  "line": 84,
+  "view": [
+   [
+    "funny how the lawn keeps coming up",
+    "Ha, what did they say about the lawn?"
+   ],
+   [
+    "the printer let me down this morning",
+    "I'd be fed up with the printer too."
+   ],
+   [
+    "the bank was acting up again today",
+    "I'd be fed up with the bank too."
+   ]
+  ],
+  "message": "my coworker is annoyed the bus was late again",
+  "reply": "I feel you. Late buses are the worst."
+ },
+ {
+  "line": 85,
+  "view": [
+   [
+    "good news, the stairs sorted itself out",
+    "Good to hear the stairs is behaving."
+   ],
+   [
+    "the snow turned out fine in the end",
+    "Good to hear the snow is behaving."
+   ],
+   [
+    "anyway, enough about the groceries",
+    "Sure, we can move on from the groceries."
+   ]
+  ],
+  "message": "Dana stayed up too late again",
+  "reply": "Dana staying up late again?"
+ },
+ {
+  "line": 86,
+  "view": [
+   [
+    "not much going on, just dealing with the rain",
+    "Ha, what did they say about the rain?"
+   ],
+   [
+    "my glasses let me down this morning",
+    "That sounds annoying. Hope my glasses settles down soon."
+   ],
+   [
+    "someone at work brought up the wifi today",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "Priya says the kitten has learned to open doors",
+  "reply": "That's adorable. Maybe the kitten's getting a little too curious about the world."
+ },
+ {
+  "line": 87,
+  "view": [
+   [
+    "ugh, my glasses is driving me up the wall",
+    "Oof. An hour lost to my glasses is no fun."
+   ],
+   [
+    "no complaints about that show this week",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "not much going on, just dealing with the mail",
+    "It does seem to come up a lot."
+   ]
+  ],
+  "message": "Omar has physio twice a week for the injury",
+  "reply": "That's good to hear. Physio can be a bit of a grind, but it's important for recovery."
+ },
+ {
+  "line": 88,
+  "view": [
+   [
+    "someone at work brought up the mail today",
+    "Ha, what did they say about the mail?"
+   ],
+   [
+    "the furnace was acting up again today",
+    "Sorry, the furnace sounds like a real hassle."
+   ],
+   [
+    "my laptop is getting on my nerves",
+    "I'd be fed up with my laptop too."
+   ]
+  ],
+  "message": "Nell came back from the festival buzzing",
+  "reply": "That sounds fun! What did she get up to?"
+ },
+ {
+  "line": 89,
+  "view": [
+   [
+    "funny how the roof keeps coming up",
+    "It does seem to come up a lot."
+   ],
+   [
+    "good news, the gym sorted itself out",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "so the fridge has been a pain all week",
+    "Sorry, the fridge sounds like a real hassle."
+   ]
+  ],
+  "message": "my sister got a lovely letter in the post",
+  "reply": "That sounds nice! What did she get in the letter?"
+ },
+ {
+  "line": 90,
+  "view": [
+   [
+    "the bank is getting on my nerves",
+    "I'd be fed up with the bank too."
+   ],
+   [
+    "i'm actually pretty happy with the laundry lately",
+    "That's a small win. the laundry sounds good."
+   ],
+   [
+    "not much going on, just dealing with my coffee",
+    "Sure, we can move on from my coffee."
+   ]
+  ],
+  "message": "Yusuf says the roof is leaking",
+  "reply": "That's a big issue. Let me know how you want to proceed."
+ },
+ {
+  "line": 91,
+  "view": [
+   [
+    "anyway, enough about my back",
+    "What about my back got you thinking?"
+   ],
+   [
+    "the parking lot was acting up again today",
+    "I'd be fed up with the parking lot too."
+   ],
+   [
+    "i lost an hour to my coffee today",
+    "I'd be fed up with my coffee too."
+   ]
+  ],
+  "message": "my sister says the printer jammed all morning",
+  "reply": "That sounds frustrating. Maybe it's time for a coffee break to clear your mind."
+ },
+ {
+  "line": 92,
+  "view": [
+   [
+    "ugh, the kettle is driving me up the wall",
+    "That sounds annoying. Hope the kettle settles down soon."
+   ],
+   [
+    "good news, the bus sorted itself out",
+    "Glad the bus worked out."
+   ],
+   [
+    "my coffee let me down this morning",
+    "Sorry, my coffee sounds like a real hassle."
+   ]
+  ],
+  "message": "Greta lost their keys again",
+  "reply": "That\u2019s tough. Maybe a key finder app could help?"
+ },
+ {
+  "line": 93,
+  "view": [
+   [
+    "the gym let me down this morning",
+    "Sorry, the gym sounds like a real hassle."
+   ],
+   [
+    "anyway, enough about the kettle",
+    "What about the kettle got you thinking?"
+   ],
+   [
+    "i'm actually pretty happy with that show lately",
+    "That's a small win. that show sounds good."
+   ]
+  ],
+  "message": "my sister heard back about the flat and it's good news",
+  "reply": "That's great news!"
+ },
+ {
+  "line": 94,
+  "view": [
+   [
+    "ugh, my desk is driving me up the wall",
+    "That's frustrating. Is my desk usually like that?"
+   ],
+   [
+    "the recycling was the best part of my day",
+    "Good to hear the recycling is behaving."
+   ],
+   [
+    "funny how my desk keeps coming up",
+    "Ha, what did they say about my desk?"
+   ]
+  ],
+  "message": "Yusuf took me out on the boat and the water was perfect",
+  "reply": "Sounds relaxing! Enjoying the water is a great way to unwind."
+ },
+ {
+  "line": 95,
+  "view": [
+   [
+    "the garden was acting up again today",
+    "Sorry, the garden sounds like a real hassle."
+   ],
+   [
+    "the groceries was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "the laundry was the best part of my day",
+    "That's a small win. the laundry sounds good."
+   ]
+  ],
+  "message": "Omar is making salads for the week",
+  "reply": "That sounds like a great way to start the week!"
+ },
+ {
+  "line": 96,
+  "view": [
+   [
+    "funny how that show keeps coming up",
+    "Ha, what did they say about that show?"
+   ],
+   [
+    "the garden was the best part of my day",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "not much going on, just dealing with the mail",
+    "Ha, what did they say about the mail?"
+   ]
+  ],
+  "message": "Priya was reading their novel out loud to me",
+  "reply": "That sounds like a cozy little moment. Did she read a funny book?"
+ },
+ {
+  "line": 97,
+  "view": [
+   [
+    "the garden was acting up again today",
+    "That sounds annoying. Hope the garden settles down soon."
+   ],
+   [
+    "the groceries was acting up again today",
+    "Sorry, the groceries sounds like a real hassle."
+   ],
+   [
+    "i'm actually pretty happy with the kettle lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "my cousin cleared the snow from the drive",
+  "reply": "That's a relief!  A clear drive is a big win.  Enjoy the sunshine!"
+ },
+ {
+  "line": 98,
+  "view": [
+   [
+    "the groceries was the best part of my day",
+    "Glad the groceries worked out."
+   ],
+   [
+    "the stairs was acting up again today",
+    "Sorry, the stairs sounds like a real hassle."
+   ],
+   [
+    "my coffee came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "my neighbour is fed up with the animals getting out again",
+  "reply": "That sounds like a lot of work for the neighbors."
+ },
+ {
+  "line": 99,
+  "view": [
+   [
+    "my bike was acting up again today",
+    "That's frustrating. Is my bike usually like that?"
+   ],
+   [
+    "the mail was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "i'm actually pretty happy with the stairs lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "Ivan was up early because the cat wanted breakfast",
+  "reply": "That's a cute little story."
+ },
+ {
+  "line": 100,
+  "view": [
+   [
+    "the fridge was acting up again today",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ],
+   [
+    "no complaints about my phone this week",
+    "Good to hear my phone is behaving."
+   ],
+   [
+    "good news, my desk sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "my brother sent me a funny voice note",
+  "reply": "That sounds fun! Enjoy the laughs."
+ },
+ {
+  "line": 101,
+  "view": [
+   [
+    "the fridge is getting on my nerves",
+    "Oof. An hour lost to the fridge is no fun."
+   ],
+   [
+    "the bus is getting on my nerves",
+    "Sorry, the bus sounds like a real hassle."
+   ],
+   [
+    "good news, the laundry sorted itself out",
+    "Glad the laundry worked out."
+   ]
+  ],
+  "message": "my neighbour got tickets to the theatre",
+  "reply": "That\u2019s great news! Theatre tickets are a fantastic treat. Enjoy the show!"
+ },
+ {
+  "line": 102,
+  "view": [
+   [
+    "ugh, the mail is driving me up the wall",
+    "I'd be fed up with the mail too."
+   ],
+   [
+    "no complaints about the kettle this week",
+    "Good to hear the kettle is behaving."
+   ],
+   [
+    "the elevator was the best part of my day",
+    "That's a small win. the elevator sounds good."
+   ]
+  ],
+  "message": "my cousin says their street threw a lovely block party",
+  "reply": "That sounds like a great time! Block parties are always fun."
+ },
+ {
+  "line": 103,
+  "view": [
+   [
+    "not much going on, just dealing with the recycling",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i was thinking about the fridge on the way home",
+    "Ha, what did they say about the fridge?"
+   ],
+   [
+    "not much going on, just dealing with my glasses",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "Priya finished the first draft of their novel",
+  "reply": "That's great news! Well done, Priya."
+ },
+ {
+  "line": 104,
+  "view": [
+   [
+    "good news, my desk sorted itself out",
+    "Nice, that's one less thing to think about."
+   ],
+   [
+    "someone at work brought up the elevator today",
+    "It does seem to come up a lot."
+   ],
+   [
+    "good news, the furnace sorted itself out",
+    "That's a small win. the furnace sounds good."
+   ]
+  ],
+  "message": "Ivan says the animals next door finally settled down",
+  "reply": "That's great news! Animals can be a handful, so it's a relief when they settle down."
+ },
+ {
+  "line": 105,
+  "view": [
+   [
+    "the bakery let me down this morning",
+    "Sorry, the bakery sounds like a real hassle."
+   ],
+   [
+    "the garden was the best part of my day",
+    "That's a small win. the garden sounds good."
+   ],
+   [
+    "someone at work brought up the lawn today",
+    "What about the lawn got you thinking?"
+   ]
+  ],
+  "message": "Nell is helping a friend move house",
+  "reply": "That sounds like a big task. Is she helping with packing, hauling, or something else?"
+ },
+ {
+  "line": 106,
+  "view": [
+   [
+    "funny how the kettle keeps coming up",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "the rain came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "i was thinking about the laundry on the way home",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "my uncle loves the new city so far",
+  "reply": "Sounds like he's having a great time!"
+ },
+ {
+  "line": 107,
+  "view": [
+   [
+    "no complaints about my knee this week",
+    "Love that for you."
+   ],
+   [
+    "the snow was the best part of my day",
+    "Glad the snow worked out."
+   ],
+   [
+    "the bakery turned out fine in the end",
+    "Love that for you."
+   ]
+  ],
+  "message": "Nell is annoyed the shower is cold again",
+  "reply": "That sounds frustrating. Maybe she can adjust the temperature or use a different setting."
+ },
+ {
+  "line": 108,
+  "view": [
+   [
+    "funny how the kettle keeps coming up",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "the rain came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "i was thinking about the laundry on the way home",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "Marc went for a swim before work",
+  "reply": "Marc's laundry is probably still wet."
+ },
+ {
+  "line": 109,
+  "view": [
+   [
+    "funny how the laundry keeps coming up",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "ugh, the wifi is driving me up the wall",
+    "Oof. An hour lost to the wifi is no fun."
+   ],
+   [
+    "so the furnace has been a pain all week",
+    "I'd be fed up with the furnace too."
+   ]
+  ],
+  "message": "Priya got paint all over the carpet",
+  "reply": "Oh no, that\u2019s a mess."
+ },
+ {
+  "line": 110,
+  "view": [
+   [
+    "my desk turned out fine in the end",
+    "Good to hear my desk is behaving."
+   ],
+   [
+    "the snow let me down this morning",
+    "That's frustrating. Is the snow usually like that?"
+   ],
+   [
+    "the printer was acting up again today",
+    "I'd be fed up with the printer too."
+   ]
+  ],
+  "message": "Marc is clearing out the wardrobe",
+  "reply": "That sounds like a lot of work."
+ },
+ {
+  "line": 111,
+  "view": [
+   [
+    "the mail turned out fine in the end",
+    "Good to hear the mail is behaving."
+   ],
+   [
+    "i lost an hour to my coffee today",
+    "I'd be fed up with my coffee too."
+   ],
+   [
+    "the dishwasher let me down this morning",
+    "Oof. An hour lost to the dishwasher is no fun."
+   ]
+  ],
+  "message": "Ivan was in a great mood at lunch",
+  "reply": "That\u2019s great to hear! A good mood can make a big difference in the day."
+ },
+ {
+  "line": 112,
+  "view": [
+   [
+    "not much going on, just dealing with the recycling",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i was thinking about the fridge on the way home",
+    "Ha, what did they say about the fridge?"
+   ],
+   [
+    "not much going on, just dealing with my glasses",
+    "Fair enough, one thing at a time."
+   ]
+  ],
+  "message": "my brother is repainting the fence with a friend",
+  "reply": "That sounds like a good use of your time."
+ },
+ {
+  "line": 113,
+  "view": [
+   [
+    "ugh, my desk is driving me up the wall",
+    "That's frustrating. Is my desk usually like that?"
+   ],
+   [
+    "the recycling was the best part of my day",
+    "Good to hear the recycling is behaving."
+   ],
+   [
+    "funny how my desk keeps coming up",
+    "Ha, what did they say about my desk?"
+   ]
+  ],
+  "message": "my aunt cooked a big pot of stew",
+  "reply": "That sounds like a cozy day!"
+ },
+ {
+  "line": 114,
+  "view": [
+   [
+    "the snow let me down this morning",
+    "I'd be fed up with the snow too."
+   ],
+   [
+    "the dishwasher turned out fine in the end",
+    "Glad the dishwasher worked out."
+   ],
+   [
+    "the groceries was acting up again today",
+    "Sorry, the groceries sounds like a real hassle."
+   ]
+  ],
+  "message": "my neighbour is worried about the exam results",
+  "reply": "Neighbors can be a source of stress, but remember, they care about you. Offer support and let them know you're there for them."
+ },
+ {
+  "line": 115,
+  "view": [
+   [
+    "that show is getting on my nerves",
+    "That's frustrating. Is that show usually like that?"
+   ],
+   [
+    "good news, the groceries sorted itself out",
+    "Love that for you."
+   ],
+   [
+    "i lost an hour to the stairs today",
+    "Sorry, the stairs sounds like a real hassle."
+   ]
+  ],
+  "message": "Ivan is sick of the lift breaking on their floor",
+  "reply": "That sounds like a real pain.  Stairs are a lot more tiring than a lift.  Hope Ivan finds a solution soon."
+ },
+ {
+  "line": 116,
+  "view": [
+   [
+    "the rain was acting up again today",
+    "I'd be fed up with the rain too."
+   ],
+   [
+    "no complaints about the fridge this week",
+    "Love that for you."
+   ],
+   [
+    "good news, the furnace sorted itself out",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "my aunt is sorting old receipts",
+  "reply": "That sounds like a fun project! What are you hoping to find?"
+ },
+ {
+  "line": 117,
+  "view": [
+   [
+    "the garden was acting up again today",
+    "Sorry, the garden sounds like a real hassle."
+   ],
+   [
+    "the groceries was the best part of my day",
+    "Love that for you."
+   ],
+   [
+    "the laundry was the best part of my day",
+    "That's a small win. the laundry sounds good."
+   ]
+  ],
+  "message": "my sister is training for another race",
+  "reply": "That\u2019s awesome! Good luck to your sister\u2014keep cheering her on!"
+ },
+ {
+  "line": 118,
+  "view": [
+   [
+    "someone at work brought up that show today",
+    "Sure, we can move on from that show."
+   ],
+   [
+    "ugh, the gym is driving me up the wall",
+    "That's frustrating. Is the gym usually like that?"
+   ],
+   [
+    "the lawn turned out fine in the end",
+    "Love that for you."
+   ]
+  ],
+  "message": "Ivan got a really kind compliment today",
+  "reply": "That's great to hear! Kindness is always appreciated."
+ },
+ {
+  "line": 119,
+  "view": [
+   [
+    "the groceries was the best part of my day",
+    "Glad the groceries worked out."
+   ],
+   [
+    "the stairs was acting up again today",
+    "Sorry, the stairs sounds like a real hassle."
+   ],
+   [
+    "my coffee came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "Lena says the weather finally turned nice",
+  "reply": "That's great news!  A nice day is always a welcome change."
+ },
+ {
+  "line": 120,
+  "view": [
+   [
+    "someone at work brought up the mail today",
+    "Ha, what did they say about the mail?"
+   ],
+   [
+    "the furnace was acting up again today",
+    "Sorry, the furnace sounds like a real hassle."
+   ],
+   [
+    "my laptop is getting on my nerves",
+    "I'd be fed up with my laptop too."
+   ]
+  ],
+  "message": "my uncle is learning to juggle",
+  "reply": "That's awesome! Juggling is a great way to keep your hands and brain active."
+ },
+ {
+  "line": 121,
+  "view": [
+   [
+    "anyway, enough about the recycling",
+    "Sure, we can move on from the recycling."
+   ],
+   [
+    "the garden turned out fine in the end",
+    "Love that for you."
+   ],
+   [
+    "i'm actually pretty happy with the stairs lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "my cousin cracked their phone screen again",
+  "reply": "Ugh, that\u2019s frustrating. Did they get a new one or just a repair?"
+ },
+ {
+  "line": 122,
+  "view": [
+   [
+    "the snow let me down this morning",
+    "I'd be fed up with the snow too."
+   ],
+   [
+    "i lost an hour to the wifi today",
+    "That sounds annoying. Hope the wifi settles down soon."
+   ],
+   [
+    "good news, the roof sorted itself out",
+    "Good to hear the roof is behaving."
+   ]
+  ],
+  "message": "Ivan went for a long drive to clear their head",
+  "reply": "That sounds like a great way to unwind."
+ },
+ {
+  "line": 123,
+  "view": [
+   [
+    "my laptop was acting up again today",
+    "That sounds annoying. Hope my laptop settles down soon."
+   ],
+   [
+    "my laptop was the best part of my day",
+    "That's a small win. my laptop sounds good."
+   ],
+   [
+    "so the bus has been a pain all week",
+    "That's frustrating. Is the bus usually like that?"
+   ]
+  ],
+  "message": "Priya missed the train by a minute",
+  "reply": "That's a tough situation. Did she manage to get on the next one?"
+ },
+ {
+  "line": 124,
+  "view": [
+   [
+    "anyway, enough about the kettle",
+    "It does seem to come up a lot."
+   ],
+   [
+    "good news, that show sorted itself out",
+    "Glad that show worked out."
+   ],
+   [
+    "i'm actually pretty happy with the printer lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "my neighbour is planting bulbs for the spring",
+  "reply": "That\u2019s great! Bulbs are such a lovely way to add color to your garden."
+ },
+ {
+  "line": 125,
+  "view": [
+   [
+    "the garden was acting up again today",
+    "That sounds annoying. Hope the garden settles down soon."
+   ],
+   [
+    "the groceries was acting up again today",
+    "Sorry, the groceries sounds like a real hassle."
+   ],
+   [
+    "i'm actually pretty happy with the kettle lately",
+    "Love that for you."
+   ]
+  ],
+  "message": "Ivan is limping after the race",
+  "reply": "That sounds like a tough day for Ivan. Hope he's okay and getting the care he needs."
+ },
+ {
+  "line": 126,
+  "view": [
+   [
+    "that show turned out fine in the end",
+    "Good to hear that show is behaving."
+   ],
+   [
+    "the printer was the best part of my day",
+    "Glad the printer worked out."
+   ],
+   [
+    "good news, my knee sorted itself out",
+    "Glad my knee worked out."
+   ]
+  ],
+  "message": "Priya starts the new role after the promotion next week",
+  "reply": "That's exciting for Priya! Best of luck with her new role."
+ },
+ {
+  "line": 127,
+  "view": [
+   [
+    "the dishwasher is getting on my nerves",
+    "That sounds annoying. Hope the dishwasher settles down soon."
+   ],
+   [
+    "ugh, the snow is driving me up the wall",
+    "That's frustrating. Is the snow usually like that?"
+   ],
+   [
+    "someone at work brought up the stairs today",
+    "Sure, we can move on from the stairs."
+   ]
+  ],
+  "message": "my brother walked me down their street to show me around",
+  "reply": "That sounds like a nice gesture. Did he show you any interesting places?"
+ },
+ {
+  "line": 128,
+  "view": [
+   [
+    "i lost an hour to the garden today",
+    "Sorry, the garden sounds like a real hassle."
+   ],
+   [
+    "the elevator came up at dinner",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i lost an hour to the bakery today",
+    "I'd be fed up with the bakery too."
+   ]
+  ],
+  "message": "Yusuf is planning lessons for their class next term",
+  "reply": "That sounds like a good start. What subjects are you thinking of?"
+ },
+ {
+  "line": 129,
+  "view": [
+   [
+    "my coffee was acting up again today",
+    "Oof. An hour lost to my coffee is no fun."
+   ],
+   [
+    "i was thinking about that show on the way home",
+    "Ha, what did they say about that show?"
+   ],
+   [
+    "the printer let me down this morning",
+    "Sorry, the printer sounds like a real hassle."
+   ]
+  ],
+  "message": "my aunt is babysitting all weekend",
+  "reply": "That sounds like a great opportunity to catch up or relax! What are you planning to do?"
+ },
+ {
+  "line": 130,
+  "view": [
+   [
+    "anyway, enough about the stairs",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the gym let me down this morning",
+    "That's frustrating. Is the gym usually like that?"
+   ],
+   [
+    "not much going on, just dealing with that show",
+    "What about that show got you thinking?"
+   ]
+  ],
+  "message": "my neighbour is grumbling about the heating bill",
+  "reply": "That sounds like a common issue. Maybe you can offer some advice or just listen to them vent."
+ },
+ {
+  "line": 131,
+  "view": [
+   [
+    "anyway, enough about my back",
+    "What about my back got you thinking?"
+   ],
+   [
+    "the parking lot was acting up again today",
+    "I'd be fed up with the parking lot too."
+   ],
+   [
+    "i lost an hour to my coffee today",
+    "I'd be fed up with my coffee too."
+   ]
+  ],
+  "message": "Ivan is annoyed about the roadworks on their street",
+  "reply": "Sounds like Ivan's been stuck in traffic again."
+ },
+ {
+  "line": 132,
+  "view": [
+   [
+    "the gym was acting up again today",
+    "That sounds annoying. Hope the gym settles down soon."
+   ],
+   [
+    "i was thinking about the kettle on the way home",
+    "Sure, we can move on from the kettle."
+   ],
+   [
+    "the dishwasher was acting up again today",
+    "That's frustrating. Is the dishwasher usually like that?"
+   ]
+  ],
+  "message": "Tomas burnt the toast again",
+  "reply": "That\u2019s a classic! Toast fires are always a bummer. Next time, maybe try adjusting the heat or using a lower setting."
+ },
+ {
+  "line": 133,
+  "view": [
+   [
+    "anyway, enough about the dentist",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i'm actually pretty happy with the recycling lately",
+    "That's a small win. the recycling sounds good."
+   ],
+   [
+    "i was thinking about my phone on the way home",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "my coworker says the meeting ran two hours over",
+  "reply": "That sounds like a frustrating situation. Do you want to brainstorm how to handle it?"
+ },
+ {
+  "line": 134,
+  "view": [
+   [
+    "my bike came up at dinner",
+    "It does seem to come up a lot."
+   ],
+   [
+    "i was thinking about the elevator on the way home",
+    "It does seem to come up a lot."
+   ],
+   [
+    "the kettle was acting up again today",
+    "Oof. An hour lost to the kettle is no fun."
+   ]
+  ],
+  "message": "Ivan is catching up on emails",
+  "reply": "Sounds like he\u2019s busy. Maybe he should take a break and grab a snack\u2014email fatigue is real."
+ },
+ {
+  "line": 135,
+  "view": [
+   [
+    "that show turned out fine in the end",
+    "Good to hear that show is behaving."
+   ],
+   [
+    "the printer was the best part of my day",
+    "Glad the printer worked out."
+   ],
+   [
+    "good news, my knee sorted itself out",
+    "Glad my knee worked out."
+   ]
+  ],
+  "message": "my uncle is fed up with the washing machine",
+  "reply": "Augh, washing machines can be a pain. Hope your uncle finds a solution soon."
+ },
+ {
+  "line": 136,
+  "view": [
+   [
+    "i'm actually pretty happy with that show lately",
+    "That's a small win. that show sounds good."
+   ],
+   [
+    "the fridge is getting on my nerves",
+    "That sounds annoying. Hope the fridge settles down soon."
+   ],
+   [
+    "good news, the bank sorted itself out",
+    "Love that for you."
+   ]
+  ],
+  "message": "Dana says their band finally got a proper gig",
+  "reply": "That\u2019s awesome! \ud83c\udf89 Good luck to Dana and their band\u2014congrats on finally getting a proper gig!"
+ },
+ {
+  "line": 137,
+  "view": [
+   [
+    "my laptop was acting up again today",
+    "That sounds annoying. Hope my laptop settles down soon."
+   ],
+   [
+    "the laundry was acting up again today",
+    "That's frustrating. Is the laundry usually like that?"
+   ],
+   [
+    "the dishwasher came up at dinner",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "my neighbour beat their best time in the race",
+  "reply": "That's awesome! Well done to your neighbor."
+ },
+ {
+  "line": 138,
+  "view": [
+   [
+    "the bank is getting on my nerves",
+    "I'd be fed up with the bank too."
+   ],
+   [
+    "i'm actually pretty happy with the laundry lately",
+    "That's a small win. the laundry sounds good."
+   ],
+   [
+    "not much going on, just dealing with my coffee",
+    "Sure, we can move on from my coffee."
+   ]
+  ],
+  "message": "my neighbour had a long day at the job",
+  "reply": "That's tough. Neighbors can be a bit of a challenge sometimes."
+ },
+ {
+  "line": 139,
+  "view": [
+   [
+    "i'm actually pretty happy with my coffee lately",
+    "Glad my coffee worked out."
+   ],
+   [
+    "the laundry let me down this morning",
+    "Sorry, the laundry sounds like a real hassle."
+   ],
+   [
+    "the roof is getting on my nerves",
+    "That sounds annoying. Hope the roof settles down soon."
+   ]
+  ],
+  "message": "my roommate is having a lazy morning",
+  "reply": "That can be frustrating. Maybe a little friendly reminder might help them get moving."
+ },
+ {
+  "line": 140,
+  "view": [
+   [
+    "the snow was the best part of my day",
+    "Good to hear the snow is behaving."
+   ],
+   [
+    "the elevator let me down this morning",
+    "Oof. An hour lost to the elevator is no fun."
+   ],
+   [
+    "ugh, my desk is driving me up the wall",
+    "That sounds annoying. Hope my desk settles down soon."
+   ]
+  ],
+  "message": "Yusuf spent the morning feeding the animals",
+  "reply": "That sounds like a peaceful start to the day."
+ },
+ {
+  "line": 141,
+  "view": [
+   [
+    "i was thinking about the snow on the way home",
+    "Fair enough, one thing at a time."
+   ],
+   [
+    "someone at work brought up the laundry today",
+    "It does seem to come up a lot."
+   ],
+   [
+    "i lost an hour to my coffee today",
+    "That sounds annoying. Hope my coffee settles down soon."
+   ]
+  ],
+  "message": "Marc bumped into a teacher from school",
+  "reply": "That's a fun one! Marc's probably thinking about that teacher now."
+ },
+ {
+  "line": 142,
+  "view": [
+   [
+    "anyway, enough about the dentist",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i'm actually pretty happy with the recycling lately",
+    "That's a small win. the recycling sounds good."
+   ],
+   [
+    "i was thinking about my phone on the way home",
+    "Tell me more if you feel like it."
+   ]
+  ],
+  "message": "Dana is still unpacking after the festival",
+  "reply": "That sounds like a lot of work. Is she done yet?"
+ },
+ {
+  "line": 143,
+  "view": [
+   [
+    "the bakery let me down this morning",
+    "Sorry, the bakery sounds like a real hassle."
+   ],
+   [
+    "the garden was the best part of my day",
+    "That's a small win. the garden sounds good."
+   ],
+   [
+    "someone at work brought up the lawn today",
+    "What about the lawn got you thinking?"
+   ]
+  ],
+  "message": "my neighbour is really enjoying the new job",
+  "reply": "That's great to hear! A new job can be a big change, and it's good to see your neighbor thriving."
+ },
+ {
+  "line": 144,
+  "view": [
+   [
+    "the snow let me down this morning",
+    "I'd be fed up with the snow too."
+   ],
+   [
+    "i lost an hour to the wifi today",
+    "That sounds annoying. Hope the wifi settles down soon."
+   ],
+   [
+    "good news, the roof sorted itself out",
+    "Good to hear the roof is behaving."
+   ]
+  ],
+  "message": "my neighbour loves the view from their floor",
+  "reply": "That\u2019s a lucky neighbor! A great view can make a big difference."
+ },
+ {
+  "line": 145,
+  "view": [
+   [
+    "no complaints about my knee this week",
+    "Love that for you."
+   ],
+   [
+    "the snow was the best part of my day",
+    "Glad the snow worked out."
+   ],
+   [
+    "the bakery turned out fine in the end",
+    "Love that for you."
+   ]
+  ],
+  "message": "my aunt spent the weekend choosing paint",
+  "reply": "That sounds like a fun weekend!"
+ },
+ {
+  "line": 146,
+  "view": [
+   [
+    "my bike was the best part of my day",
+    "Good to hear my bike is behaving."
+   ],
+   [
+    "i was thinking about the garden on the way home",
+    "Tell me more if you feel like it."
+   ],
+   [
+    "i'm actually pretty happy with my knee lately",
+    "Glad my knee worked out."
+   ]
+  ],
+  "message": "my roommate finally fixed the leaky tap",
+  "reply": "That's a relief! A fixed tap is a big win."
+ },
+ {
+  "line": 147,
+  "view": [
+   [
+    "anyway, enough about the elevator",
+    "It does seem to come up a lot."
+   ],
+   [
+    "funny how my laptop keeps coming up",
+    "Sure, we can move on from my laptop."
+   ],
+   [
+    "the laundry is getting on my nerves",
+    "That's frustrating. Is the laundry usually like that?"
+   ]
+  ],
+  "message": "Tomas won the pub quiz",
+  "reply": "That's great news! Well done, Tomas."
+ },
+ {
+  "line": 148,
+  "view": [
+   [
+    "my desk let me down this morning",
+    "Sorry, my desk sounds like a real hassle."
+   ],
+   [
+    "good news, the groceries sorted itself out",
+    "Glad the groceries worked out."
+   ],
+   [
+    "no complaints about my bike this week",
+    "Nice, that's one less thing to think about."
+   ]
+  ],
+  "message": "my brother took the dog to the beach",
+  "reply": "That sounds like a great day for the dog!"
+ },
+ {
+  "line": 149,
+  "view": [
+   [
+    "good news, the recycling sorted itself out",
+    "That's a small win. the recycling sounds good."
+   ],
+   [
+    "i was thinking about the wifi on the way home",
+    "Ha, what did they say about the wifi?"
+   ],
+   [
+    "my back is getting on my nerves",
+    "I'd be fed up with my back too."
+   ]
+  ],
+  "message": "my aunt sent me a video of the baby laughing",
+  "reply": "That sounds adorable! Is the baby a relative or a friend?"
+ }
+]
