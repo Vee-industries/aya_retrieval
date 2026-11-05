@@ -4,6 +4,9 @@ A row is the system prompt, the exchanges in view, the friend's message, then wh
 do: a search call, the tool's result and a reply, or a reply alone. TRL's default trains on every
 token of that, so the model also learns to write the friend's lines, the tool's passages and the
 scripted small talk in view. Here only the assistant turns after the friend's message carry loss.
+``decision_labels`` goes further for plain-chat rows (17m, R-088): only a reply's first token,
+which decides between a search and a reply, and its end-of-turn marker carry loss, so the words of
+the reply stay the model's own.
 """
 
 from __future__ import annotations
@@ -62,4 +65,27 @@ def without_history_replies(
     for index, start, end in _assistant_spans(tokenizer, messages, ids):
         if index < first:
             labels[start:end] = [IGNORE] * (end - start)
+    return ids, labels
+
+
+def decision_labels(tokenizer, messages: list[dict], first: int) -> tuple[list[int], list[int]]:
+    """Return the row's token ids and labels, with loss only on the first token and the end-of-turn
+    marker of each assistant turn from ``first`` on.
+
+    Raises:
+        ValueError: As ``demonstrated_labels``.
+    """
+    ids = _ids(tokenizer, messages)
+    labels = [IGNORE] * len(ids)
+    for index, start, end in _assistant_spans(tokenizer, messages, ids):
+        if index < first:
+            continue
+        empty = [*messages[:index], {**messages[index], "content": ""}]
+        marker = next(
+            e - s
+            for i, s, e in _assistant_spans(tokenizer, empty, _ids(tokenizer, empty))
+            if i == index
+        )
+        labels[start] = ids[start]
+        labels[end - marker : end] = ids[end - marker : end]
     return ids, labels

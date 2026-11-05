@@ -26,12 +26,12 @@ import torch
 from agenttune import create_distill_trainer
 from agenttune.agentic.distill_trainer import _DefaultSFTTrainerFactory
 from huggingface_hub import snapshot_download
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, TrainerCallback
 
 from aya_retrieval.conversations import EXCHANGES_IN_VIEW
 from aya_retrieval.demonstrations import as_event_log, kind_balanced_subset
 from aya_retrieval.lean_loss import use_lean_loss
-from aya_retrieval.loss_masks import demonstrated_labels, without_history_replies
+from aya_retrieval.loss_masks import decision_labels, demonstrated_labels, without_history_replies
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.tool_prompt import system_prompt_with_tools
@@ -48,6 +48,8 @@ LOSS_ON = {
     "all": None,
     "demonstrated": demonstrated_labels,
     "no_history_replies": without_history_replies,
+    # 17m (R-088): demonstrated turns, except plain-chat rows, which keep only the decision.
+    "chat_decision": demonstrated_labels,
 }
 # The system turn, the exchanges in view and the friend's message come before what a row teaches.
 FIRST_DEMONSTRATED = 1 + 2 * EXCHANGES_IN_VIEW + 1
@@ -62,25 +64,56 @@ class SystemPromptFactory:
     """
 
     def __init__(
-        self, system: str, default_factory: _DefaultSFTTrainerFactory, loss_on: str = "all"
+        self,
+        system: str,
+        default_factory: _DefaultSFTTrainerFactory,
+        loss_on: str = "all",
+        decision_keys: set[tuple[str, str]] | None = None,
+        callbacks: list | None = None,
     ) -> None:
         self.system = system
         self.default_factory = default_factory
         self.labels = LOSS_ON[loss_on]
+        self.decision_keys = decision_keys or set()
+        self.callbacks = callbacks or []
 
     def __call__(self, *, model, train_dataset, **kwargs):
         system_turn = {"role": "system", "content": self.system}
         rows = [{"messages": [system_turn, *row["messages"]]} for row in train_dataset]
         if self.labels:
             tokenizer = AutoTokenizer.from_pretrained(model)
+            decided = 0
             for row in rows:
                 messages = row["messages"]
                 if messages[FIRST_DEMONSTRATED - 1]["role"] != "user":
                     raise ValueError("a row does not have the expected turns in view")
-                row["input_ids"], row["labels"] = self.labels(
-                    tokenizer, messages, FIRST_DEMONSTRATED
-                )
-        return self.default_factory(model=model, train_dataset=rows, **kwargs)
+                labels = self.labels
+                if row_key(messages[1:]) in self.decision_keys:
+                    labels, decided = decision_labels, decided + 1
+                row["input_ids"], row["labels"] = labels(tokenizer, messages, FIRST_DEMONSTRATED)
+            if decided != len(self.decision_keys):
+                raise ValueError(f"{decided} rows matched {len(self.decision_keys)} chat rows")
+        trainer = self.default_factory(model=model, train_dataset=rows, **kwargs)
+        for callback in self.callbacks:
+            trainer.add_callback(callback)
+        return trainer
+
+
+def row_key(turns: list[dict]) -> tuple[str, str]:
+    """Return a row's friend message and last reply, which name a plain-chat row."""
+    return turns[FIRST_DEMONSTRATED - 2]["content"], turns[-1]["content"]
+
+
+class SaveAtEpochs(TrainerCallback):
+    """Save the adapter at the end of the named epochs, as ``<out-dir>/epoch-<n>`` (R-088)."""
+
+    def __init__(self, out_dir: Path, epochs: list[int]) -> None:
+        self.out_dir, self.epochs = out_dir, set(epochs)
+
+    def on_epoch_end(self, args, state, control, model=None, **kwargs):
+        epoch = round(state.epoch)
+        if epoch in self.epochs:
+            model.save_pretrained(str(self.out_dir / f"epoch-{epoch}"))
 
 
 def main() -> None:
@@ -104,6 +137,13 @@ def main() -> None:
         help="tokens that carry loss: every one (TRL's default), only the demonstrated turns, "
         "or all but the scripted replies in view",
     )
+    parser.add_argument(
+        "--save-epochs",
+        type=int,
+        nargs="+",
+        default=[],
+        help="also save the adapter after these epochs, under <out-dir>/epoch-<n>",
+    )
     parser.add_argument("--report-name", help="report file name, default seed_<seed>")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
@@ -124,12 +164,17 @@ def main() -> None:
         "lora_r": args.lora_r,
         "lora_targets": args.lora_targets,
         "loss_on": args.loss_on,
+        "save_epochs": args.save_epochs,
         **use_lean_loss(),
     }
     rows = [json.loads(line) for line in args.data.read_text(encoding="utf-8").splitlines()]
     if args.fraction < 1:
         rows = kind_balanced_subset(rows, args.fraction, args.seed)
     logs = [as_event_log(row["turns"]) for row in rows]
+    decision_keys = None
+    if args.loss_on == "chat_decision":
+        decision_keys = {row_key(row["turns"]) for row in rows if row["kind"] == "statement"}
+        report["decision_rows"] = len(decision_keys)
     report["rows"] = len(logs)
 
     started = time.time()
@@ -141,7 +186,11 @@ def main() -> None:
         student=snapshot_download(MODEL_ID, revision=MODEL_REVISION, local_files_only=True),
         trajectories=logs,
         trainer_factory=SystemPromptFactory(
-            system_prompt_with_tools(SYSTEM_WITH_TOOL), default_factory, args.loss_on
+            system_prompt_with_tools(SYSTEM_WITH_TOOL),
+            default_factory,
+            args.loss_on,
+            decision_keys,
+            [SaveAtEpochs(args.out_dir, args.save_epochs)] if args.save_epochs else None,
         ),
         output_dir=str(args.out_dir),
         num_train_epochs=args.epochs,

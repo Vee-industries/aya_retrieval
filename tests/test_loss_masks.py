@@ -2,7 +2,12 @@
 
 import pytest
 
-from aya_retrieval.loss_masks import IGNORE, demonstrated_labels, without_history_replies
+from aya_retrieval.loss_masks import (
+    IGNORE,
+    decision_labels,
+    demonstrated_labels,
+    without_history_replies,
+)
 
 
 @pytest.fixture(scope="module")
@@ -61,3 +66,11 @@ def test_two_searches_both_carry_loss(tokenizer):
     ids, labels = demonstrated_labels(tokenizer, messages, FIRST)
     text = labelled_text(tokenizer, ids, labels)
     assert CALL in text and second in text and "Ines plays the cello." in text
+
+
+def test_a_decision_mask_keeps_only_the_first_token_and_the_end_marker(tokenizer):
+    chat = [*MESSAGES[:3], {"role": "user", "content": "my cousin got a cello"}]
+    chat.append({"role": "assistant", "content": "Ha, brilliant, enjoy it."})
+    ids, labels = decision_labels(tokenizer, chat, FIRST)
+    kept = [tokenizer.decode([i]) for i, label in zip(ids, labels, strict=True) if label != IGNORE]
+    assert kept == ["Ha", "<|END_RESPONSE|>", "<|END_OF_TURN_TOKEN|>"]
