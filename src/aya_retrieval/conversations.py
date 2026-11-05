@@ -72,6 +72,7 @@ def build_item(
     more_statements: bool = False,
     more_chat: bool = False,
     force_indirect: bool = False,
+    chat_line: tuple[str, str] | None = None,
 ) -> RecallItem:
     """Return a conversation of about ``messages`` messages ending in a message of ``kind``.
 
@@ -93,6 +94,8 @@ def build_item(
             ``train_phrasings.MORE_CHAT``, from a separate generator.
         force_indirect: Ask in the indirect form whatever the draw; the draw is still made, so
             the rest of the conversation is unchanged.
+        chat_line: A ``statement`` item's line and reply, in place of the drawn one; the draw is
+            still made, so the rest of the conversation is unchanged.
     """
     pool = POOLS[pool_name]
     rng = random.Random(seed)
@@ -153,6 +156,8 @@ def build_item(
         line, reply = rng.choice(pool.statements)
         if more_chat:
             line, reply = random.Random(seed + 4).choice((*pool.statements, *MORE_CHAT))
+        if chat_line:
+            line, reply = chat_line
         message = line.format(relation=relation, person=person)
         answer, query = "", ""
     elif kind == NEVER_TOLD:

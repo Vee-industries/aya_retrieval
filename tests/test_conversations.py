@@ -188,3 +188,11 @@ def test_the_wide_training_pool_shares_no_four_words_with_a_test_pool(test_pool)
     theirs = set().union(*(four_word_runs(x) for x in wordings(POOLS[test_pool])))
     clashes = sum(bool(four_word_runs(x) & theirs) for x in wordings(POOLS["wide"]))
     assert clashes == 0
+
+
+def test_a_fixed_chat_line_changes_only_the_statement_line():
+    for seed in range(50):
+        drawn = build_item("x", seed, 58, "statement", "train")
+        fixed = build_item("x", seed, 58, "statement", "train", chat_line=("{person} hi", "Hey."))
+        assert fixed.exchanges == drawn.exchanges and fixed.reply == "Hey."
+        assert fixed.message.endswith(" hi") and fixed.message != drawn.message

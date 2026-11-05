@@ -1,6 +1,12 @@
 from aya_retrieval.conversations import build_item
 from aya_retrieval.pools import HELDOUT, POOLS, PROBE, TRAIN
-from aya_retrieval.train_phrasings import MORE_CHAT, MORE_INDIRECT, MORE_STATEMENTS
+from aya_retrieval.train_phrasings import (
+    MORE_CHAT,
+    MORE_CHAT_FACTS,
+    MORE_CHAT_PLAIN,
+    MORE_INDIRECT,
+    MORE_STATEMENTS,
+)
 
 PROBE_IDIOMS = ("blank", "tip of my tongue", "cannot think")
 
@@ -112,3 +118,81 @@ def test_more_chat_changes_only_statement_lines():
             else:
                 changed += plain.message != more.message
     assert changed > 100
+
+
+# Each train fact type's topic, as fix 18's chat lines name it (R-083).
+TOPIC_WORDS = {
+    "animals": "animals",
+    "baby": "baby",
+    "band": "band",
+    "birth": "born",
+    "boat": "boat",
+    "car": "car",
+    "cat": "cat",
+    "city": "city",
+    "coffee": "coffee",
+    "dog": "dog",
+    "festival": "festival",
+    "floor": "floor",
+    "genre": "novel",
+    "hobby": "hobby",
+    "injury": "injury",
+    "job": "job",
+    "motorbike": "motorbike",
+    "paint": "paint",
+    "phone": "phone",
+    "prize": "prize",
+    "promotion": "promotion",
+    "race": "race",
+    "shop": "shop",
+    "street": "street",
+    "subject": "class",
+}
+
+
+def chat_lines():
+    return [line for lines in MORE_CHAT_FACTS.values() for line in lines], list(MORE_CHAT_PLAIN)
+
+
+def test_fact_chat_has_three_lines_per_train_fact_type_each_naming_its_topic():
+    assert sorted(MORE_CHAT_FACTS) == sorted(TRAIN.facts) == sorted(TOPIC_WORDS)
+    for kind, lines in MORE_CHAT_FACTS.items():
+        assert len(lines) == 3
+        for line, _ in lines:
+            assert TOPIC_WORDS[kind] in line.replace("kitten", "cat").replace("babysit", "baby ")
+
+
+def test_plain_chat_names_no_fact_topic_of_any_open_pool():
+    topics = set(TOPIC_WORDS.values()) | set(PROBE.facts) | set(POOLS["hard_dev"].facts)
+    for line, _ in MORE_CHAT_PLAIN:
+        assert not set(line.replace(",", "").split()) & topics, line
+
+
+def test_fix18_chat_lines_are_new_well_formed_and_state_no_value():
+    facts, plain = chat_lines()
+    assert len(facts) == len(plain) == 75
+    lines = [line for line, _ in facts + plain]
+    known = {line for line, _ in (*TRAIN.statements, *MORE_CHAT)}
+    assert len(set(lines)) == 150 and not set(lines) & known
+    values = {
+        value.casefold()
+        for pool in (TRAIN, PROBE, POOLS["hard_dev"])
+        for fact in pool.facts.values()
+        for value in fact.values
+    }
+    for line, reply in facts + plain:
+        assert ("{person}" in line) != ("{relation}" in line) and reply
+        assert "?" not in line and "remember" not in line
+        assert line.format(person="Ann", relation="aunt")
+        assert not set(line.split()) & values, line
+    assert sum("{person}" in line for line in lines) in range(70, 81)
+
+
+def test_no_fix18_chat_line_shares_four_words_with_a_test_or_sealed_pool():
+    others = set()
+    for pool in (PROBE, POOLS["hard_dev"], HELDOUT, POOLS["independent"]):
+        for line, _ in pool.statements:
+            others |= four_word_runs(line)
+    facts, plain = chat_lines()
+    for line, _ in facts + plain:
+        assert not four_word_runs(line) & others, line

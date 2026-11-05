@@ -95,6 +95,7 @@ carry their own provenance (command, git commit, package versions).
 | R-080 | Fix 17 fails on counts; fix 17b (strict targets, 3e-4) passes R-076's gate; three-seed confirmation queued |
 | R-081 | The demo's stale search: no training view holds a question; a stress test for a question right after another |
 | R-082 | Fix 17b fails R-076's rule on one item, seed 83's Sheet B `statement` by one line; v5 stands; a chat line naming a fact type read as a question |
+| R-083 | Fix 18: chat lines that name a fact type in passing, with a control; recipe, review and rule before the build |
 
 ---
 
@@ -2757,3 +2758,37 @@ storm).
 
 **Next.** Fix 18 starts from 17b's recipe. Its plan, written before code, waits for R-081's test of a question right
 after another, so both gaps are planned together.
+
+## R-083 · 2026-11-05 · SPRINT · Fix 18: chat lines that name a fact type in passing, with a control; recipe, review and rule written before the build
+
+**Where the gap came from.** R-082's marked-down replies on the probe (seed 73157) and `hard_dev`: a chat line that
+names a fact type is answered as a question about it. Found on development data, so the probe and `hard_dev` are not
+clean evidence for this fix; only the sealed pools are, and they wait for Kevin.
+
+**The recipe, fixed before the lines were written** (`aya_retrieval.train_phrasings`, commit with this record):
+`MORE_CHAT_FACTS`, three lines for each of the train pool's 25 fact types, one good news, one complaint, one neutral;
+each names the type's topic word in passing (dog, car, band, born, class ...), asks nothing, says nothing about
+remembering, and states no value of any open pool's facts; `{person}` and `{relation}` about evenly split. No line
+restates a probe line's situation (no forgotten birthday, no unexpected text). `MORE_CHAT_PLAIN`, the control: 75
+lines with the same moods and split that name no fact topic of the train, probe or `hard_dev` pools. Tests
+(`tests/test_train_phrasings.py`) check all of this, and that no line shares four words in a row with the probe,
+`hard_dev`, held-out or independent chat lines; that test names only the new line on a clash. Writing them, the check
+on values caught three weekday words, which are `hard_dev` values; they were replaced. The builder's `--chat-set
+{facts,plain}` makes statement rows take these lines in order, one row a line; the targets are base's brief replies, as
+for every plain-chat target since fix 11.
+
+**Review before code.** A fresh Sonnet reviewer, asked to argue against the plan, said go with changes; adopted: the
+recipe recorded first; a control; about three lines a type, with results per type; a fresh check set of fact-word chat
+lines, written by another author and never trained on, as a gate item; recall must not fall (a model that learned "a
+fact word means no search" would lose it); the question-right-after-another fix (R-081) kept apart until its test has
+run. Not adopted now: running the sealed pools for 18a, which needs Kevin.
+
+**Builds.** 75 fact rows and 75 control rows (`--kinds statement --chat-set facts|plain --brief-chat`, seed 71129 and
+71130), each target vetted by two fresh judges on the target rubric (R-078's method, both must accept); rejected rows
+are dropped and counted per fact type. 18a is 17b's 800 rows plus the accepted fact rows; 18c is 17b's 800 plus the
+accepted control rows. Same settings as 17b.
+
+**Gate, seed 82, for 18a and 18c alike.** R-076's gate; probe 51203 recall at least 17b's 94 and `hard_dev` recall at
+least 17b's 72; and the fresh check set's chat lines judged coherent at or above base. 18a counts as a fix only if it
+passes and beats 18c on the check set. **Rule**: R-076's, unchanged, three seeds. No held-out or independent run
+without Kevin.

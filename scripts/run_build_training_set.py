@@ -44,6 +44,7 @@ from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.recall_tool import build_recall_tool, search_finds_fact
 from aya_retrieval.scoring import item_correct
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME, system_prompt_with_tools
+from aya_retrieval.train_phrasings import MORE_CHAT_FACTS, MORE_CHAT_PLAIN
 
 LOG = logging.getLogger("build_training_set")
 
@@ -55,6 +56,11 @@ SYSTEM_WITH_TOOL = "You are chatting with a friend. You can search the earlier c
 BRIEF = "Reply briefly, in one or two sentences."
 MAX_TOKENS = 60
 SIZE = 58
+# Fix 18's chat lines (R-083): the fact-word lines, and the control that names no fact type.
+CHAT_SETS = {
+    "facts": [line for lines in MORE_CHAT_FACTS.values() for line in lines],
+    "plain": list(MORE_CHAT_PLAIN),
+}
 ROWS_PER_KIND = {OLDER: 200, CONFIRM: 150, NEVER_TOLD: 150, IN_VIEW: 150, STATEMENT: 150}
 MAX_ROW_TOKENS = 1024
 # Found and not-found rows must return the same numbers of passages, or the count gives the answer.
@@ -246,6 +252,11 @@ def main() -> None:
         default=ROWS_PER_KIND[STATEMENT],
         help="statement rows to make",
     )
+    parser.add_argument(
+        "--chat-set",
+        choices=sorted(CHAT_SETS),
+        help="statement rows take their lines in order from this set, one row a line (R-083)",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -273,6 +284,7 @@ def main() -> None:
         "wide_share": args.wide_share,
         "kinds": args.kinds,
         "statement_rows": args.statement_rows,
+        "chat_set": args.chat_set,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {
@@ -302,6 +314,7 @@ def main() -> None:
                 args.more_statements,
                 args.more_chat,
                 kind == IN_VIEW and random.Random(seed + 5).random() < args.in_view_indirect,
+                CHAT_SETS[args.chat_set][made] if args.chat_set and kind == STATEMENT else None,
             )
             if args.message_queries and item.query:
                 item = dataclasses.replace(item, query=message_words_query(item))
