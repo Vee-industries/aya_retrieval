@@ -73,6 +73,7 @@ def build_item(
     more_chat: bool = False,
     force_indirect: bool = False,
     chat_line: tuple[str, str] | None = None,
+    fact_type: str | None = None,
 ) -> RecallItem:
     """Return a conversation of about ``messages`` messages ending in a message of ``kind``.
 
@@ -96,10 +97,13 @@ def build_item(
             the rest of the conversation is unchanged.
         chat_line: A ``statement`` item's line and reply, in place of the drawn one; the draw is
             still made, so the rest of the conversation is unchanged.
+        fact_type: A key of the pool's facts, in place of the drawn one; the draw is still made.
     """
     pool = POOLS[pool_name]
     rng = random.Random(seed)
     template = pool.facts[rng.choice(sorted(pool.facts))]
+    if fact_type:
+        template = pool.facts[fact_type]
     answer, decoy = rng.sample(template.values, 2)
     relation, decoy_relation, other_relation = rng.sample(pool.relations, 3)
     person, decoy_person, other_person = rng.sample(pool.people, 3)

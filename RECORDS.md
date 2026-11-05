@@ -98,6 +98,7 @@ carry their own provenance (command, git commit, package versions).
 | R-083 | Fix 18: chat lines that name a fact type in passing, with a control; recipe, review and rule before the build |
 | R-084 | A question right after another: the adapters keep recall; base loses plain chat; 17b turns away facts in view after a decline |
 | R-085 | Fix 18a and 18c both fail the screen gate on recall; both fix the check set; v5 is below base on it |
+| R-086 | Fix 19: questions asked as statements naming the topic, answered from a search; plan, review and a two-seed gate before the build |
 
 ---
 
@@ -2871,3 +2872,33 @@ choose, so it is development data from here on.
 18a's fact-word chat rows, each paired with a training row that asks about the same topic indirectly, as `hard_dev`
 does, and is answered from a search, so the rows differ in whether a question is asked, not in the topic word. Same
 gate as R-083. The freeze is Tuesday, November 10.
+
+## R-086 · 2026-11-05 · SPRINT · Fix 19: questions asked as statements naming the topic, answered from a search; plan, review and gate written before the build
+
+**Aim.** R-085: chat rows that name a fact type teach "a statement naming a topic gets a chat reply", and `hard_dev`
+asks its questions that way. Fix 19 adds the contrast: rows that name the same topic in a statement with no question
+mark, asking for the fact, answered from a search. Only whether something is asked separates them from 18a's chat lines.
+
+**Recipe.** 57 `older` rows (`--kinds older --indirect-types ... --more-indirect`, seed 71131), one per fact chat line
+in 18a, of the same fact type and in the same order. Each asks in the indirect form, drawn from the template's own
+and `MORE_INDIRECT`'s phrasings (train pool only), and the found-fact answer is base's reply to the real search
+result (only `confirm` rows get the scripted answer). 17b's set already has 63 indirect `older` rows of 200, so this nearly
+doubles them. `build_item` gains `fact_type` (the draw is still made); a test checks that every type, asked this way,
+gives one of its indirect phrasings with no question mark. 18a's 57 fact lines cover only the first types in build
+order, `animals` to `race`, because R-083's splice kept the first accepted rows; the 57 new rows match them, so
+`shop`, `subject` and the other later types get neither. **19a** is 18a's 857 rows plus these 57; **19b** is 18c's
+857 plus the same 57. Same training settings as 17b.
+
+**Review before code.** A fresh Sonnet reviewer, asked to argue against the plan, said go with changes. Adopted:
+`confirm` rows always use the confirm wording, so forcing the indirect form there does nothing, and the new rows are
+`older` only; screen 19a at two seeds with pooled thresholds, since 17b's `hard_dev` recall alone spans 72 to 83
+across seeds; 19b runs after 19a, not before; report how many indirect rows 17b already has (above). Raised for Kevin
+and not decided here: what is frozen if fix 19 fails, given v5 is below base on the chat check set (R-085); and the go
+for the sealed final run.
+
+**Gate, written before the build.** For 19a, seeds 82 and 83: R-076's gate at seed 82; probe 51203 recall at seed 82
+at least 94; `hard_dev` recall pooled at least 17b's 145 (72 and 73); probe 73157 recall pooled at least 17b's 189
+(94 and 95); the chat check set coherent at or above base, pooled over both seeds. If 19a passes, seed 84 is trained and
+R-076's rule decides, unchanged. 19b, seed 82 only, is reported against the same single-seed thresholds and goes
+further only if 19a fails the gate and 19b passes it. The check set is development data from R-085 on; only the sealed
+pools are clean evidence.

@@ -196,3 +196,24 @@ def test_a_fixed_chat_line_changes_only_the_statement_line():
         fixed = build_item("x", seed, 58, "statement", "train", chat_line=("{person} hi", "Hey."))
         assert fixed.exchanges == drawn.exchanges and fixed.reply == "Hey."
         assert fixed.message.endswith(" hi") and fixed.message != drawn.message
+
+
+def test_a_fixed_fact_type_asked_indirectly_is_a_statement_of_that_type():
+    from aya_retrieval.conversations import build_item
+    from aya_retrieval.train_phrasings import MORE_INDIRECT
+
+    pool = POOLS["train"]
+    for fact_type, template in sorted(pool.facts.items()):
+        forms = (template.indirect, *MORE_INDIRECT.get(template.indirect, ()))
+        for seed in range(8):
+            item = build_item(
+                "x", seed, 58, "older", "train", 1, True, force_indirect=True, fact_type=fact_type
+            )
+            asked = {
+                f.format(relation=r, person=p)
+                for f in forms
+                for r in pool.relations
+                for p in pool.people
+            }
+            assert item.message in asked and "?" not in item.message
+            assert item.answer in template.values

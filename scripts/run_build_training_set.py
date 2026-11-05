@@ -257,6 +257,12 @@ def main() -> None:
         choices=sorted(CHAT_SETS),
         help="statement rows take their lines in order from this set, one row a line (R-083)",
     )
+    parser.add_argument(
+        "--indirect-types",
+        nargs="+",
+        choices=sorted(TRAIN.facts),
+        help="older rows asked in the indirect form, one row a fact type, in order (R-086)",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
@@ -285,6 +291,7 @@ def main() -> None:
         "kinds": args.kinds,
         "statement_rows": args.statement_rows,
         "chat_set": args.chat_set,
+        "indirect_types": args.indirect_types,
     }
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {
@@ -292,6 +299,8 @@ def main() -> None:
         NEVER_TOLD: args.never_told_rows,
         STATEMENT: args.statement_rows,
     }
+    if args.indirect_types:
+        rows_per_kind[OLDER] = len(args.indirect_types)
     rng = random.Random(args.seed)
     # Its own stream, so choosing second-search rows leaves every other row as it was.
     second_rng = random.Random(args.seed + 1)
@@ -313,8 +322,10 @@ def main() -> None:
                 args.more_indirect,
                 args.more_statements,
                 args.more_chat,
-                kind == IN_VIEW and random.Random(seed + 5).random() < args.in_view_indirect,
+                (kind == IN_VIEW and random.Random(seed + 5).random() < args.in_view_indirect)
+                or (kind == OLDER and bool(args.indirect_types)),
                 CHAT_SETS[args.chat_set][made] if args.chat_set and kind == STATEMENT else None,
+                args.indirect_types[made] if args.indirect_types and kind == OLDER else None,
             )
             if args.message_queries and item.query:
                 item = dataclasses.replace(item, query=message_words_query(item))
