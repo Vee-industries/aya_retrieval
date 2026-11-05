@@ -97,6 +97,7 @@ carry their own provenance (command, git commit, package versions).
 | R-082 | Fix 17b fails R-076's rule on one item, seed 83's Sheet B `statement` by one line; v5 stands; a chat line naming a fact type read as a question |
 | R-083 | Fix 18: chat lines that name a fact type in passing, with a control; recipe, review and rule before the build |
 | R-084 | A question right after another: the adapters keep recall; base loses plain chat; 17b turns away facts in view after a decline |
+| R-085 | Fix 18a and 18c both fail the screen gate on recall; both fix the check set; v5 is below base on it |
 
 ---
 
@@ -2817,3 +2818,56 @@ directly.", a guess about spiders, and two that talk around the question; four o
 every token, does not. 17b's loss is on the taught turns only, so the declines it was taught may weigh more against
 the turns in view. Training rows with an earlier question in view (the plan's 18b) are aimed at this; they wait for
 fix 18a and 18c's results, as R-083 set.
+
+## R-085 · 2026-11-05 · SPRINT · Fix 18a and 18c fail the screen gate on recall; both fix the chat check set, where v5 falls below base
+
+**Screens, seed 82** (queue 62; R-083's gate). Recall is `older` plus `confirm`, of 96; the rest of 48. False
+retrieval counted as in R-076.
+
+| Run | Recall | `in_view` | `never_told` | `statement` | False retrieval |
+|---|---|---|---|---|---|
+| 17b, probe 51203 (`screen_fix17b_82`) | 94 | 44 | 45 | 48 | 4 |
+| 18a, probe 51203 | 94 | 41 | 48 | 48 | 1 |
+| 18c, probe 51203 | **92** | 43 | 48 | 48 | 0 |
+| 17b, `hard_dev` 73157 | 72 | 38 | 46 | 48 | 4 |
+| 18a, `hard_dev` 73157 | **56** | 33 | 48 | 48 | 3 |
+| 18c, `hard_dev` 73157 | **66** | 36 | 48 | 48 | 1 |
+| 18a, probe 73157 | 95 | 41 | 48 | 47 | |
+| 18c, probe 73157 | 94 | 41 | 48 | 48 | |
+
+R-083 set probe 51203 recall at least 94 and `hard_dev` recall at least 72. **18a fails on `hard_dev`; 18c fails on
+both.** Neither is a fix, and v5 stands. Their Sheet B and `hard_dev` Sheet B were not judged, since the recall items
+decide.
+
+**Where 18a lost `hard_dev` recall.** It searched 95 of 96 times and found the fact 88 times, against 17b's 94 and 89,
+so the loss is in the reply after the find. Of the 26 answers 17b gave and 18a did not, 15 restate the friend's
+situation instead of the fact ("Your coach Rhys got a job interview.", "Your housemate Delphine hosted a dinner.") and
+11 decline, several with the fact found. `hard_dev` questions are statements with no question mark that name the topic
+("my head has lost what my housemate ladled out for that big dinner"); 18a was taught that a statement naming a topic
+gets a brief chat reply. 18c found the fact 80 times: more chat rows of any kind cost recall here, and rows that name a
+fact type cost more.
+
+**The chat check set** (`data/check/chat_check.json`, 48 lines written blind by another author and never trained on;
+`st_cc_*` runs, probe 73157 conversations with each statement line replaced). One fresh Sonnet judge a sheet, each
+read only its rubric and sheet (transcripts checked); tuned `tool_loop` against base `three_exchanges`, the same 48
+base replies on every sheet. Shuffle seeds 90491 to 90494; sheets, keys and marks in `results/coherence/R-085C/`.
+
+| Sheet | Base | Adapter | Only base | Only adapter |
+|---|---|---|---|---|
+| v5 seed 82 | 44 | **36** | 10 | 2 |
+| 17b seed 82 | 45 | 44 | 3 | 2 |
+| 18a seed 82 | 45 | 48 | 0 | 3 |
+| 18c seed 82 | 45 | 47 | 1 | 3 |
+
+Four judges gave the same base replies 44 or 45, so the judge spread here is about one line. **v5, the current model,
+is eight lines below base on chat lines that name a fact type.** Of its 12 lines marked down, seven echo the friend's
+"my" ("Hope my godfather gets some rest soon.", "That's a small win. my barber sounds good.") and six use one stock
+reply, "That sounds annoying. Hope ... settles down soon.", the scripted small talk R-076 traced to the loss on every
+token (two lines do both). 17b is one line below base, within that spread. 18a beats 18c by one line, also within it, so the gain on the
+check set comes mostly from more vetted chat rows, not from naming the fact type. The check set has now been used to
+choose, so it is development data from here on.
+
+**Next.** The trade is chat rows against recall on indirect questions. Fix 19's plan, to be reviewed before any code:
+18a's fact-word chat rows, each paired with a training row that asks about the same topic indirectly, as `hard_dev`
+does, and is answered from a search, so the rows differ in whether a question is asked, not in the topic word. Same
+gate as R-083. The freeze is Tuesday, November 10.

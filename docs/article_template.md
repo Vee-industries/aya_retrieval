@@ -389,7 +389,14 @@ came from something in the training data.
 - **A chat line that names a fact type, read as a question.** Told "Esme forgot my birthday
   again", fix 17b replied "I don't have that from you. What is it?" at two seeds of three. No
   plain-chat line in training mentions a birthday or any other fact type, so a fact word on its own
-  reads as a question about it (R-082). Open.
+  reads as a question about it (R-082). On 48 fresh chat lines of this kind, written blind by
+  another author and never trained on, v5 kept 36 coherent against the untrained model's 44; it
+  echoes the friend's "my" ("Hope my godfather gets some rest soon") and repeats one stock reply.
+  Fix 17b kept 44 against 45. Adding 57 vetted chat lines that name a fact type (fix 18a) brought
+  this to 48 of 48, and 57 lines that name none (fix 18c, a control) to 47, but both cost recall
+  on questions asked indirectly: `hard_dev` 56 and 66 of 96 against 17b's 72. Fix 18a found the
+  fact as often as 17b, then restated the friend's situation instead of answering ("Your coach
+  Rhys got a job interview.") (R-085). Open.
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test
