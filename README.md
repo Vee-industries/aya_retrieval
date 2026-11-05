@@ -45,6 +45,18 @@ weights instead. Nothing from that project's code or test sets is used here.
 | `data/` | Training sets and their provenance |
 | `results/` | Results files, each with its own provenance |
 | `tests/` | The test suite |
+| `demo/` | The scripted demo conversation; its transcripts are in `results/demo/` |
+| `docs/` | The write-up (`ARTICLE.md`) and model card (`MODEL_CARD.md`), both made from `results/` by `scripts/make_article.py` |
+
+## Chat with it
+
+`scripts/run_chat.py` runs the model, with or without an adapter, in the harness it was tested in:
+the last three exchanges in view, everything older reachable only by search. Each search it makes
+is printed before its reply.
+
+```bash
+../venv/Scripts/python scripts/run_chat.py --adapter ../adapters/v5_seed_82 --index chat.sqlite
+```
 
 ## Setup
 
