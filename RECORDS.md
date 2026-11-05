@@ -83,6 +83,7 @@ carry their own provenance (command, git commit, package versions).
 | R-068 | On `hard_dev` v5's recall is 172 of 288: unseen fact types searched with the training pool's query phrases |
 | R-069 | Fix 14: a wide training pool of new fact types by a fresh agent; gate and rule on probe and `hard_dev` first |
 | R-070 | First wide pool discarded (its writer saw sealed fragments via a debug script); checker fixed; docs updated |
+| R-071 | Fix 14: `hard_dev` recall 58 to 76 at seed 82, fails gate on statements (44) and never_told; fixes 14b, 14c |
 
 ---
 
@@ -2294,3 +2295,36 @@ it shares no four-word wording with any test pool. Fix 14 builds its fact rows a
 **`hard_dev` with four decoys** (`hd_d4_base`, `hd_d4_v5_8x`, finished 18:31): v5's recall is 177 of 288 (one decoy:
 172), base's 20 of 96 (20); false retrieval v5 9 of 720, base 26 of 240. More decoys cost v5 nothing here; R-068's gap
 is the unfamiliar fact types, not the crowding (98 of its 111 recall misses are found-but-wrong).
+
+## R-071 · 2026-11-04 · SPRINT · Fix 14 lifts `hard_dev` recall from 58 to 76 at seed 82 but fails the gate on statements; fixes 14b and 14c
+
+Seed 82, gate at 19:31 (`screen_fix14_all_82` on the probe, 51203; `hd_fix14_82` on `hard_dev`, 73157):
+
+| Seed 82 | Recall | `older` | `confirm` | `in_view` | `never_told` | `statement` | Decisions | False retrieval |
+|---|---|---|---|---|---|---|---|---|
+| Probe: v5 | 95 | 48 | 47 | 42 | 48 | 48 | 240 | 0 |
+| Probe: fix 14 | 92 | 47 | 45 | 47 | 46 | **44** | 236 | 2 |
+| `hard_dev`: v5 | 58 | 33 | 25 | 36 | 47 | 48 | 233 | 4 |
+| `hard_dev`: fix 14 | **76** | 42 | 34 | 40 | **36** | 45 | 236 | 13 |
+
+`hard_dev` recall rises 31% (58 to 76; gate 68) and `in_view` rises on both pools, so training on 47 new fact types
+does teach the model to search for and read unfamiliar facts. Probe recall holds at the gate's floor (92). But
+`statement` is 44 (gate 47): "i should really call my mentor" is searched as "mentor phone number", "my barber
+texted me out of nowhere" gets a stored fact. And `hard_dev` `never_told` falls from 47 to 36: asked what someone
+studied, never said, the search returns another person's degree and the reply states it as theirs ("Isolde finished
+a course in philosophy"); false retrieval rises from 4 to 13. **Fix 14 is not confirmed.** Its statement rows were
+v5's: no `wide` person, relation or topic ever appears in a training line that needs no search, so every `wide` name
+in training meant a lookup.
+
+**Fix 14b.** Fix 14's fact rows, and `statement` rows also drawn half from `wide` (its people, relations and chat
+lines, plus `MORE_CHAT`), brief and vetted as R-058 and R-060: 150 rows (seed 71125) and 150 spares (seed 71126),
+`--kinds statement --wide-share 0.5 --brief-chat --more-chat`, one blind sheet (shuffle seed 90466), a fresh Sonnet
+judge, spliced into `wide_mix.jsonl` in place of its `statement` rows: `data/screens/wide_mix_b.jsonl`.
+
+**Fix 14c.** Fix 14 at a quarter share (`--wide-share 0.25`, fact rows built at seed 71124, spliced into v5's set):
+`data/screens/wide_mix_c.jsonl`. A smaller dose of the same change.
+
+**Gate for both, at seed 82, written before either is built:** R-069's (probe recall at least 92, probe `statement`
+at least 47, `hard_dev` recall at least 68), plus `hard_dev` `never_told` at least 44 (v5's 47 less 3). The confirmation
+rule is R-069's, with `hard_dev` `never_told` pooled at least 132 of 144 (v5's 141 less 9) added. Labels
+`screen_fix14b_all_82` / `hd_fix14b_82` and `screen_fix14c_all_82` / `hd_fix14c_82`.
