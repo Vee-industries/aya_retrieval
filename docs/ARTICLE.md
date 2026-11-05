@@ -231,7 +231,8 @@ Over every kind the adapter names a wrong value in 0.3% of replies against 5.4%,
 With four decoys a chat instead of one, the adapter keeps 277 of 288 recall answers (279 with one) and names a wrong person's fact in 0 of 720 replies; the untrained model does so in 19 of 240 (R-065).
 
 On `hard_dev`, the adapter answers 172 of 288 recall questions (60%) against the untrained model's 20 of 96 (21%): still +187%, but far below its 97% on the probe. In 103 of its 116 misses the search brought the fact back. The searches show why: the adapter writes the query phrase of the nearest training fact type, not words from the question, so a question about where someone grew up is searched as a birthday month, and the reply then denies the fact or answers the question it searched for (R-068). This is the largest gap found, and the sealed independent pool, written to the
-same brief, is likely to show it; fix 14 (a wider training pool of new fact types) is aimed at it.
+same brief, is likely to show it. Fixes 14 to 17b are aimed at it (section 7 and section 11's
+failure modes).
 
 ### A second scorer: AuditKIT
 
@@ -455,8 +456,19 @@ came from something in the training data.
   scripted small talk that fills each training conversation: "Hm, good question, i'd say it
   depends", "Hope my barber settles down soon" (R-061, R-075). Training put its loss on every token
   of a row, and the five most common scripted replies each appear more than 100 times in the
-  assistant's place, against at most 16 for any reply a row teaches (R-076). Fixes 16a and 16b put
-  the loss on the taught turns only, or on all but the scripted replies; open.
+  assistant's place, against at most 16 for any reply a row teaches (R-076). With the loss on the
+  taught turns only (fix 16a), no `hard_dev` reply at seed 82 repeats a scripted line, against one
+  for v5 and up to eight for fix 15, and `hard_dev` recall rose from 58 to 70 of 96 with no new data
+  (R-077).
+- **Faults in the targets, copied more closely.** With the loss on the targets alone, the adapter
+  copies its plain-chat targets more faithfully, faults included, and fix 16a fell below the
+  untrained model on plain chat (R-077). Some targets that the first vetting had accepted read a
+  complaint as good news, call the friend by another person's name, or wish someone a good time
+  at an event the friend never mentioned: "Good luck with your date with Marc." for "Ivan asked me
+  to be their plus one". Two judges re-vetted the targets on a stricter rubric that names these
+  faults and replaced 15 of 150 (R-078). Trained on them, fix 17b matched or beat the untrained
+  model on both plain-chat sheets at seed 82, with `hard_dev` recall 72 of 96 (R-080); its
+  three-seed confirmation is running.
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). Open.
