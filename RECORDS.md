@@ -104,6 +104,7 @@ carry their own provenance (command, git commit, package versions).
 | R-089 | 19a passes every count but fails the judged check set by one line (a stock reply at seed 83); two planned candidates dropped at build |
 | R-090 | Ten seed-82 models on one blind check-set sheet, three judges: 19a above base with the most recall; the dials trade chat for recall |
 | R-091 | 17b at fresh seeds 85 to 87 fails R-076's rule again, under all three judges; at seed 86 it searches on chat lines that name a person |
+| R-092 | 17m passes R-086's whole gate, the first candidate to; fix 20 fails; 17m goes to confirmation at 85 to 87, seed 82 named to ship |
 
 ---
 
@@ -3112,3 +3113,53 @@ is wider than any single-seed screen can resolve, which bears on every screen in
 result says little alone.
 
 **Candidates scored since R-090:** 17b at 85, 86, 87.
+
+## R-092 · 2026-11-05 · SPRINT · 17m passes R-086's whole gate, counts and judged sheets; fix 20 fails; 17m goes to confirmation
+
+**17m** (R-088 item 5): 17b's rows and settings, with `--loss-on chat_decision`: on plain-chat rows only the reply's
+first token and its end-of-turn marker carry loss, so the reply's words stay the model's own; every other row as
+17b. Its first run failed on a check of mine that compared 150 chat rows with their 129 distinct messages; fixed to
+count rows, and a check added that no chat row shares its message and reply with a row of another kind.
+
+`scripts/records/gate_r086.py fix17m`, the items that need no judge:
+
+| Item | 17m | 19a | 17b | Needed |
+|---|---|---|---|---|
+| probe 51203 recall, seed 82 | 95 | 95 | 94 | 94 |
+| probe 51203 `statement`, seed 82 | 48 | 48 | 48 | 47 |
+| `hard_dev` `never_told`, seed 82 | 48 | 46 | 46 | 44 |
+| `hard_dev` recall, seeds 82 and 83 | **157** | 148 | 145 | 145 |
+| probe 73157 recall, seeds 82 and 83 | 192 | 191 | 189 | 189 |
+| `hard_dev` false retrieval, seed 82 | **1** | 5 | 4 | at most 6 |
+
+**Judged** (`results/coherence/R-092/`, shuffle seeds 90510 to 90513; three fresh Sonnet judges, each marking all four
+sheets in its own folder, transcripts checked; judge 1 decides). Base is `three_exchanges`.
+
+| Sheet | Judge 1: base, 17m | Judge 2 | Judge 3 |
+|---|---|---|---|
+| Probe Sheet B `statement` | 45, 48 | 45, 48 | 45, 48 |
+| Probe Sheet B `in_view` | 36, 41 | 35, 41 | 36, 40 |
+| `hard_dev` Sheet B `statement` | 44, 48 | 43, 48 | 43, 48 |
+| `hard_dev` Sheet B `in_view` | 43, 45 | 39, 45 | 41, 44 |
+| Check set, seed 82 | 45, 47 | 45, 47 | 45, 47 |
+| Check set, seed 83 | 45, 43 | 45, 43 | 45, 43 |
+
+**17m passes every item of R-086's gate, under all three judges**: the check set pooled is 90 against base's 90. The
+first candidate to pass both the counts and the judged items. Its misses on the check set at seed 83 are R-091's
+failure, at a lower rate: three of 48 chat lines that name a person were searched and answered with an unrelated fact
+("my tutor hurt a knee playing football and is gutted" got "Your tutor Ayaan got a swallow tattoo last week."); the
+probe's `statement` count at seed 83 is 46.
+
+**Fix 20** (R-087's set: 17b plus one vetted fact-word chat line and one indirect question a type, 25 each) fails the
+gate on four items: probe 51203 `statement` 39 (nine chat lines searched), `hard_dev` recall 125 against 145, probe
+recall 185 against 189. Half of 19a's dose, spread over every type, is worse than 17b; with R-085 and R-089, the
+fact-word lines help only at 19a's full dose and with their matching questions.
+
+**Next, under R-088 as agreed.** 17m's seed 84 (item 11), then confirmation at seeds 85, 86 and 87 (item 12), paired
+seed for seed with 17b's runs there (R-091); R-076's rule as written decides (`scripts/records/rule_r076.py fix17m
+R-093 1 85 86 87`), judge 1 deciding. **Named before confirmation: if 17m passes, the seed shipped is 82.** By R-088's
+ship rule 17m, one change from 17b (the loss on chat rows), is the recipe with the fewest changes among those that pass
+so far. The other screens (2 epochs at two learning rates, 17r, 17p) run after, and any that passes is weighed by the
+same rule.
+
+**Candidates scored since R-091:** fix 20 at 82 and 83; 17m at 82 and 83.
