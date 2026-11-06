@@ -133,3 +133,74 @@ def test_shares_wording_catches_rewordings_and_passes_new_ones():
     assert shares_wording("hang on, i said it WRONG", (" (i said it wrong last time)",))
     assert shares_wording("Scratch THAT, ", TRAIN_CORRECTION_OPENINGS)
     assert not shares_wording("hmm let me redo that one, ", ("wait no, ",))
+
+
+@pytest.mark.parametrize("pool", ["probe", "hard_dev", "train"])
+@pytest.mark.parametrize("kind", [OLDER, CONFIRM])
+@pytest.mark.parametrize("seed", range(30))
+def test_heldout_correction_uses_heldout_wording_in_the_latest_slot(seed, kind, pool):
+    import json
+
+    from aya_retrieval.stress import HELDOUT_CORRECTIONS, corrected_heldout
+
+    wordings = json.loads(HELDOUT_CORRECTIONS.read_text(encoding="utf-8"))
+    item = build_item("x", seed, 58, kind, pool)
+    fixed = corrected_heldout(item, seed, pool)
+    changed = [
+        i for i, (a, b) in enumerate(zip(item.exchanges, fixed.exchanges, strict=True)) if a != b
+    ]
+    line = fixed.exchanges[changed[-1]][0]
+    assert fixed.answer != item.answer and fixed.answer in line and item.answer not in line
+    assert any(line.startswith(w) for w in wordings["openings"]) or any(
+        line.endswith(w) for w in wordings["endings"]
+    )
+    assert item.answer in fixed.forbidden
+
+
+@pytest.mark.parametrize("kind", [OLDER, CONFIRM])
+@pytest.mark.parametrize("seed", range(60))
+def test_training_corrections_never_use_heldout_wordings_or_slot(seed, kind):
+    import json
+
+    from aya_retrieval.stress import (
+        HELDOUT_CORRECTIONS,
+        TRAIN_CORRECTION_ENDINGS,
+        TRAIN_CORRECTION_OPENINGS,
+        corrected_for_training,
+        corrected_heldout,
+        shares_wording,
+    )
+
+    wordings = json.loads(HELDOUT_CORRECTIONS.read_text(encoding="utf-8"))
+    held = (*wordings["openings"], *wordings["endings"])
+    assert not any(
+        shares_wording(w, held) for w in (*TRAIN_CORRECTION_OPENINGS, *TRAIN_CORRECTION_ENDINGS)
+    )
+    item = build_item("x", seed, 58, kind, "train")
+    fixed = corrected_for_training(item, seed, "train")
+    if fixed is None:
+        return
+    held_slot = next(
+        i
+        for i, (a, b) in reversed(
+            list(
+                enumerate(
+                    zip(
+                        item.exchanges,
+                        corrected_heldout(item, seed, "train").exchanges,
+                        strict=True,
+                    )
+                )
+            )
+        )
+        if a != b
+    )
+    slots = [
+        i for i, (a, b) in enumerate(zip(item.exchanges, fixed.exchanges, strict=True)) if a != b
+    ]
+    correction_slot = max(slots)
+    assert correction_slot != held_slot
+    line = fixed.exchanges[correction_slot][0]
+    assert any(line.startswith(w) for w in TRAIN_CORRECTION_OPENINGS) or any(
+        line.endswith(w) for w in TRAIN_CORRECTION_ENDINGS
+    )

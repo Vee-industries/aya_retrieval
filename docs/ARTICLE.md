@@ -402,6 +402,12 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   question in view cost v6 none on the probe and 7 of 96 on `hard_dev`.
   An outside check on a public chat set built by others, LoCoMo (Maharana et al., 2024), is
   registered for the frozen model, with base on the same questions; it decides nothing (R-100).
+  The measurement found one large weakness: when the user corrects a fact later in the chat, v6
+  searches, finds both versions and answers with the old one (5 of 96 right on the probe, against
+  base's 19; R-102). The messy-input plan registered in R-099 would have judged a fix for this on
+  phone typing, which a fix for corrections is not built to change, so the researcher amended that
+  one test before any fix existed: a fix is now judged on corrections worded in ways it never
+  trained on, written by an agent that saw no project file, with every other check unchanged.
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

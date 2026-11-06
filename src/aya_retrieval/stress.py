@@ -12,8 +12,10 @@ no training row may be built with it.
 from __future__ import annotations
 
 import dataclasses
+import json
 import random
 import re
+from pathlib import Path
 
 from aya_retrieval.conversations import ASK_FORMS, CONFIRM, EXCHANGES_IN_VIEW, OLDER, RecallItem
 from aya_retrieval.pools import POOLS
@@ -33,6 +35,8 @@ CORRECTION_OPENINGS = (
     "scratch what i told you earlier, ",
     "actually i mixed that up before, ",
 )
+# The held-out correction wordings (R-102), chosen by `scripts/records/select_r102.py`.
+HELDOUT_CORRECTIONS = Path(__file__).with_name("corrections_heldout.json")
 # Training's own correction wordings (R-102), fixed before the held-out wordings were written.
 # A correction is an opening before the restated fact line, or an ending after it.
 TRAIN_CORRECTION_OPENINGS = (
@@ -141,6 +145,64 @@ def corrected(item: RecallItem, seed: int, pool_name: str) -> RecallItem:
     that says the earlier one was wrong. The new value is the answer; the old one joins the
     forbidden values, so naming it is wrong. Other kinds are returned unchanged.
     """
+    return _corrected(
+        item,
+        seed,
+        pool_name,
+        lambda rng, line: rng.choice(CORRECTION_OPENINGS) + line,
+        lambda rng, later: rng.choice(later),
+    )
+
+
+def corrected_for_training(item: RecallItem, seed: int, pool_name: str) -> RecallItem | None:
+    """Return ``item`` corrected in training's own wordings, or None if it cannot be (R-102).
+
+    The correction is an opening or an ending from training's wordings, placed in any out-of-view
+    slot after the fact except the latest one, which ``corrected_heldout`` uses. None when the
+    latest is the only slot after the fact.
+    """
+    if item.kind not in (OLDER, CONFIRM):
+        return None
+    fixed = _corrected(
+        item,
+        seed,
+        pool_name,
+        lambda rng, line: _worded(rng, line, TRAIN_CORRECTION_OPENINGS, TRAIN_CORRECTION_ENDINGS),
+        lambda rng, later: rng.choice(later[:-1]) if len(later) > 1 else None,
+    )
+    return fixed if fixed is not item else None
+
+
+def corrected_heldout(item: RecallItem, seed: int, pool_name: str) -> RecallItem:
+    """Return an ``older`` or ``confirm`` item corrected in the held-out wordings (R-102).
+
+    Held out of training: the wordings come from ``corrections_heldout.json``, written by an
+    agent that saw no project file, and the correction sits in the latest out-of-view slot after
+    the fact. Other kinds are returned unchanged.
+    """
+    wordings = json.loads(HELDOUT_CORRECTIONS.read_text(encoding="utf-8"))
+    return _corrected(
+        item,
+        seed,
+        pool_name,
+        lambda rng, line: _worded(
+            rng, line, tuple(wordings["openings"]), tuple(wordings["endings"])
+        ),
+        lambda rng, later: later[-1],
+    )
+
+
+def _worded(rng: random.Random, line: str, openings: tuple[str, ...], endings: tuple[str, ...]):
+    """Return ``line`` after an opening or before an ending, each half the time."""
+    return rng.choice(openings) + line if rng.random() < 0.5 else line + rng.choice(endings)
+
+
+def _corrected(item: RecallItem, seed: int, pool_name: str, phrase, place) -> RecallItem:
+    """Return ``item`` with its fact restated later, out of view, with a new value.
+
+    ``phrase(rng, line)`` words the correction; ``place(rng, later)`` picks its slot from the free
+    out-of-view slots after the fact, or returns None to leave ``item`` unchanged.
+    """
     if item.kind not in (OLDER, CONFIRM):
         return item
     rng = random.Random(seed)
@@ -152,7 +214,7 @@ def corrected(item: RecallItem, seed: int, pool_name: str) -> RecallItem:
     spare = [v for v in template.values if v != item.answer and v not in item.forbidden]
     new = rng.choice(spare)
     fact_line, fact_reply = item.exchanges[item.fact_index]
-    correction = rng.choice(CORRECTION_OPENINGS) + fact_line.replace(item.answer, new)
+    correction = phrase(rng, fact_line.replace(item.answer, new))
 
     exchanges = list(item.exchanges)
     last_older = len(exchanges) - EXCHANGES_IN_VIEW - 1
@@ -169,7 +231,10 @@ def corrected(item: RecallItem, seed: int, pool_name: str) -> RecallItem:
         fact_index = rng.choice([i for i in free if i < item.fact_index])
         exchanges[fact_index] = (fact_line, fact_reply)
         later = [item.fact_index]
-    exchanges[rng.choice(later)] = (correction, fact_reply)
+    slot = place(rng, later)
+    if slot is None:
+        return item
+    exchanges[slot] = (correction, fact_reply)
     return dataclasses.replace(
         item,
         exchanges=tuple(exchanges),

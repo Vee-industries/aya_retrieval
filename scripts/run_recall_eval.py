@@ -29,7 +29,13 @@ from aya_retrieval.pools import POOLS, SEALED
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.recall_tool import build_recall_tool, search_finds_fact
 from aya_retrieval.scoring import check_scorer, item_correct, right_decision
-from aya_retrieval.stress import asked_before, corrected, phone_style, user_style
+from aya_retrieval.stress import (
+    asked_before,
+    corrected,
+    corrected_heldout,
+    phone_style,
+    user_style,
+)
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME, system_prompt_with_tools
 
 LOG = logging.getLogger("recall_eval")
@@ -98,6 +104,11 @@ def main() -> None:
         help="older and confirm facts corrected later, out of view (R-067)",
     )
     parser.add_argument(
+        "--corrections-heldout",
+        action="store_true",
+        help="corrections in the held-out wordings, latest out-of-view slot (R-102)",
+    )
+    parser.add_argument(
         "--chat-check",
         type=Path,
         help="JSON list of chat lines; statement items take them in order (R-083)",
@@ -129,6 +140,7 @@ def main() -> None:
         "user_style": args.user_style,
         "phone_style": args.phone_style,
         "corrections": args.corrections,
+        "corrections_heldout": args.corrections_heldout,
         "asked_before": args.asked_before,
         "chat_check": args.chat_check and args.chat_check.as_posix(),
         "rows": [],
@@ -176,6 +188,8 @@ def main() -> None:
                 )
                 if args.corrections:
                     item = corrected(item, seed, args.pool)
+                if args.corrections_heldout:
+                    item = corrected_heldout(item, seed, args.pool)
                 if args.asked_before:
                     item = asked_before(item, seed, args.pool)
                 if args.user_style:

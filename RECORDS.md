@@ -114,6 +114,7 @@ carry their own provenance (command, git commit, package versions).
 | R-099 | Messy chats: the panel's plan before any run (measure first, a held-out phone-typing form, a registered trigger); the headline-number ruling |
 | R-100 | An outside check on LoCoMo after the freeze, agreed by the panel before any data is downloaded |
 | R-101 | Fix C2 removes the slip at both seeds but its hard_dev recall is below v6's (149 vs 157); the second failure ends the track and v6 stands |
+| R-102 | v6's messy-chat battery: corrections cost 187 of 192; Kevin amends R-099 item 6 before any arm exists; held-out correction form and every threshold frozen before the baseline |
 
 ---
 
@@ -3591,3 +3592,73 @@ cause the slips (R-097 item 7).
 
 **Next.** v6's messy-chat battery (R-099) is running; the messy arm, if triggered, sits on v6's set. The GPU time kept
 for C2's seeds 88 to 90 is free.
+
+## R-102 · 2026-11-06 · SPRINT · Battery result; R-099 item 6 amended before any arm exists
+
+**Battery** (R-099 step 1; v6 = 17m, seeds 82 and 83 pooled; messy minus plain, same adapter and items; tool arm):
+
+| Form | probe recall /192 | probe `in_view`, `never_told`, `statement` /96 | `hard_dev` recall /192 | `hard_dev` `in_view`, `never_told`, `statement` /96 |
+|---|---|---|---|---|
+| lower-case typing (`user_style`) | -3 | -1, +2, -1 | -2 | -3, -1, -1 |
+| phone typing (`phone_style`, held out) | **-14** | 0, +2, **-6** | **-25** | -3, +1, -1 |
+| fact corrected later (`corrected`) | **-187** | recall only | **-146** | recall only |
+| earlier question in view (`asked_before`) | -2 | -1, +2, -3 | -7 | **-4**, 0, 0 |
+
+Gaps by R-099's registered trigger: corrections and phone typing on both pools; asked-before on `hard_dev` `in_view`,
+exactly on the line. No gap: lower-case typing. Corrections, read in the replies: the search returns the original and
+the correcting passage, and v6 answers the old value ("Your daughter Gustav got a koi tattoo." when the correction
+said lighthouse). Base on corrections, probe, seed 73157: 19 of 96 recall (v6 at 82: 5), so v6 is 74% below base here;
+base's remaining runs are recorded with the baseline.
+
+**The problem.** R-099 item 6 lets the arm replace v6 only by gaining on the phone form, which correction rows are not
+built to move, so the largest gap found could never ship.
+
+**Panel** (four lanes: fix design, rule integrity, measurement and schedule, against; two rounds; consensus;
+transcripts checked). Round 1: three lanes chose amending item 6 (B); against chose dropping the arm or keeping the
+rule, and accepted B only with the held-out form, thresholds and guards hashed and logged before the arm is built, the
+phone guard at all five seeds, and the held-out wordings from a source other than the builder. Round 2 accepted the
+merged plan with four changes, all taken: every number frozen here before the baseline is scored (lanes 2, 4); the
+blind list supplies the endings by the same rule, and the overlap check works on content words (lane 1); the
+`hard_dev` phone guard at 91 to 93 read on the three-seed mean (lane 3).
+
+**Kevin's decision**: "yeah of course as long as we explain why". The write-up explains the change and why.
+
+**The amendment** (R-099 item 6 only; the trigger, the gap list, every existing gate and seeds 91 to 93 unchanged).
+R-099 item 6 as registered: the arm replaces the shipping candidate only if it passes every existing gate at 82, 83
+and 91 to 93 and gains on the held-out phone form by at least 8 of 192 (probe) or 16 of 192 (`hard_dev`). Amended:
+
+1. **Held-out correction form, `stress.corrected_heldout`.** Training's own wordings were committed first (commit
+   0d73bcb: `TRAIN_CORRECTION_OPENINGS`, the four R-067 openings and five more; `TRAIN_CORRECTION_ENDINGS`, three).
+   Then a fresh agent that saw no project file, no transform and no result wrote 25 openings and 25 endings for
+   correcting an earlier fact when texting, most common first; only 3 of its openings shared no content word with
+   training's, so it was asked once for 25 more openings, read by no one before selection
+   (`results/stress/R-102/blind_wordings.json`; transcripts checked: one write each). `scripts/records/select_r102.py`
+   took the first six of each sharing no content word with training's: openings "hang on, ", "ah i just remembered, ", "sorry brain fart, ", "oh i should say, ", "so i just double checked and ", "thinking about it again, "; endings ", sorry", ", sorry about that", " just so you know", " lol sorry", " i think", ", sorry for the confusion"
+   (`src/aya_retrieval/corrections_heldout.json`). The correction restates the fact with a new value, worded with a
+   held-out opening or ending (half each), in the latest free out-of-view slot after the fact; the old value is never
+   named. Some endings are mild ("i think", "lol sorry"); they were chosen by the rule and stay. sha256 of the source
+   of `corrected_heldout`, `_worded`, `_corrected` and the wordings file: `81b545144c1b5da7f6b622ad68f25c2192b1d6ced00c2564505b862aeea94544`. `corrected` was refactored onto
+   the same helper; it returns identical items on 1,200 checked (probe, `hard_dev`, train; 200 seeds each kind).
+2. **Training transform, `stress.corrected_for_training`**: training's wordings only, any free out-of-view slot after
+   the fact except the latest; tests check no training wording shares a content word with a held-out one.
+3. **Baseline, before any arm row is built**: v6 at 82 and 83, and base, on `corrected_heldout`, both pools, scoring
+   only.
+4. **The arm**: about 170 rows appended to v6's set (`strict_chat.jsonl`), scripted targets, every existing row
+   byte-identical: about 110 `corrected_for_training` rows (`older`, `confirm`); about 30 rows whose search returns a
+   same-type fact about another person introduced by a training correction opening, answered with the asked person's
+   own value, so the opening is not a cue; about 30 `asked_before` rows (no gain claim; `in_view` guarded). Cue
+   balance and decoy counts as R-020 and R-099, counts reported. One dose, one try, 17m's recipe.
+5. **Gain that counts** on `corrected_heldout`, against v6 at the same seeds: pooled over 82 and 83 at least **48 of
+   192 on the probe and 32 of 192 on `hard_dev`**, and above v6 at each seed; at 91, 92 and 93 each seed at least 24
+   of 96 (probe) and 16 of 96 (`hard_dev`) above v6's 82-and-83 mean.
+6. **Guards**: R-086's gate at 82 and 83, R-094's slip gate (pooled over 82, 83, 91, 92, 93), R-097's stop rule,
+   R-076's rule at 91 to 93, all word for word. Phone form: pooled over 82 and 83 not below v6 by more than 8 of 192
+   (probe) or 16 of 192 (`hard_dev`); at 91 to 93 each probe seed within 4 of 96 of v6's 82-and-83 mean, and the
+   `hard_dev` three-seed mean within 8 of 96 of it. R-099's original phone-gain test is reported beside, whatever it
+   shows; plain `corrected` and plain `confirm` reported.
+7. **Frozen.** These numbers do not change after the baseline is seen; if the baseline makes one unreachable, the arm
+   is reported as not shippable and the number stays.
+8. **Clock**: arm not started by Sunday, November 8, 12:00 = dropped; nothing starts after Monday 12:00.
+9. **Write-up**: the amendment, its date and reason; the held-out wordings from a blind agent, the form from the
+   builder after the battery; corrections, phone typing and asked-before reported as measured, base beside them,
+   whatever the arm does.
