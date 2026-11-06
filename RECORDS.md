@@ -108,6 +108,7 @@ carry their own provenance (command, git commit, package versions).
 | R-093 | 17m passes R-076's rule at fresh seeds 85 to 87 under all three judges: it replaces v5 as v6, seed 82 |
 | R-094 | The who-is-who slip: measured, its source found, a gate registered and a fix agreed by the panel before any run; Kevin's ship ruling |
 | R-095 | Fix A (fix17w) clears the slip gate and every count but fails R-086's judged Sheet B by one line under judge 1; fix B queued |
+| R-096 | CuratorKIT's grounding gate over the training answers, three Claude judges: 22 of v6's 350 fail, 14 of them faults the slip pattern misses |
 
 ---
 
@@ -3311,3 +3312,60 @@ search call's full loss, and on the answer only its first token and end-of-turn 
 83, then 87 reported, then 88 to 90 if it passes.
 
 **Candidates scored since R-093:** 17m epoch-2 at 87 and 84 (scoring only); fix17w at 82 and 83.
+
+## R-096 · 2026-11-06 · SPRINT · CuratorKIT's grounding gate over the found-fact training answers, with a Claude judge
+
+**Why CuratorKIT.** The who-is-who slip (R-094) came from training answers that were base's own replies to a search
+result and were not faithful to the passage they answered from: "Marc's sister writes science fiction novels at night."
+where the passage says "my sister, Marc, writes science fiction novels at night". Checking a generated answer against
+the exact source it came from is what CuratorKIT's `HallucinationGate` is for. It gives a check on the training answers
+that is independent of this project's own slip pattern (`scoring.slip_shape`) and of the coherence judges, and it makes
+CuratorKIT the third Lexsi toolkit in the work, as R-002 planned ("CuratorKIT if time allows").
+
+**Why a Claude judge.** The gate needs a judge model. The organisers allow other models for supporting work: "the core
+of the submission should include the cohere's 7 models listed. for any supplemental work like teacher model, validation
+by another model, comparisons etc.. its fine to use others", and for judging "you can use any model , not just the 7"
+(Lexsi Discord, 2026-11-03). The trained model and everything it is scored on stay Tiny Aya. A Claude judge needs no API
+key or payment and leaves the GPU to training; a small local judge would be weak at the distinction that matters here
+(which person holds which relation).
+
+**How the judge is plugged in.** CuratorKIT takes its judge as a backend class (`curatorkit.llm.base.BaseLLM`, one
+method). A Claude agent cannot be called from Python, so `scripts/run_curator_check.py` runs the gate twice. First with
+a backend that records every prompt the gate sends; the same prompts are written as a judge sheet (the gate's own
+instructions once, then each item's source text, question and answer), and every recorded prompt is checked against
+the sheet by its SHA-256 digest: all 377 matched. A fresh Sonnet agent, reading only that sheet, answers each item in
+the gate's JSON format. Then the gate runs again with a backend that replays those answers by digest, so CuratorKIT's
+own prompt, score parsing, threshold (its default, 0.7), rejection reasons and provenance decide every verdict.
+CuratorKIT is installed from the commit in R-003 (`dd9e835`) with `--no-deps`: its four core requirements were already
+in the environment, so nothing else changed.
+
+**What it covers.** v6's 350 found-fact answers (`strict_chat.jsonl`: 200 `older`, 150 `confirm`) and fix17w's 27
+rewritten answers, 377 items. The questions it answers: does the gate reject the 27 slip-shaped answers the pattern
+found; does it reject answers the pattern missed; does it pass the 27 rewrites.
+
+**Limits.** One judge an item, not three. A Claude judge may share blind spots with the Claude judges on the coherence
+sheets, so agreement between them is weaker evidence than agreement with a different model family would be.
+
+**Result** (`results/curator/R-096/`: summary, the rejected answers with each judge's reason, and the judges' verdicts and
+key). Three fresh Sonnet judges, each reading only its sheet in its own folder, transcripts checked; the gate run once
+per judge, an answer rejected when at least two of the three runs reject it (fixed before the second and third judges'
+verdicts were read). The judges rejected 23, 25 and 21 answers; 21 of the 23 rejected by two or more were rejected by
+all three, and 2 answers by one judge only.
+
+- **22 of v6's 350 found-fact answers fail the gate** (6.3%), all `older` answers that are base's own replies.
+  - 8 are slip-shaped ("Marc's sister writes science fiction novels at night.").
+  - 14 are faults `slip_shape` does not cover. Who-is-who where the question names the person, not "my <relation>":
+    "Greta's brother adopted a dog named Pepper." for "what is the name of the dog Greta adopted"; "Yusuf's aunt broke
+    her jaw while skiing."; "Lena's neighbor's kitten is named Noodle." Claims the passage does not make: "Marc's new
+    street, Cedar Court, seems to be a source of frustration for him."; "Glastonbury is a famous music festival, so
+    it's a fantastic o[pportunity] ...". Talk off the point: "Funny how the snow keeps coming up, but at least the
+    florist shop is finally her[e]".
+- **19 of the 27 slip-shaped answers pass**: the gate checks facts against the source, and "My roommate, Omar, writes
+  western novels at night." states the passage's facts in the friend's voice. Grounding and voice are different checks.
+- **26 of fix17w's 27 rewritten answers pass.** The one rejected keeps an embellishment of the original ("Your brother
+  Yusuf is going to Oktoberfest and is having a great time!").
+
+**Reading.** CuratorKIT finds a wider class of faulty training answers than this project's pattern: about one in six
+of the `older` answers that are base's own replies (22 of 140) claims something its passage does not support. That is
+a likely source of v6's who-is-who slips as well as of the slips the pattern counts. A fix built on it (replacing the
+gate's rejections) goes to the panel before it is written.

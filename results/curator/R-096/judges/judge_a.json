@@ -1,0 +1,3105 @@
+{
+ "0": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "1": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "2": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "3": {
+  "grounding_score": 0.75,
+  "supported_claims": [
+   "Ivan, a coworker, has taken up pottery on weekends"
+  ],
+  "unsupported_claims": [
+   "pottery is a great hobby to unwind and get creative"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "4": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "5": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "6": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "7": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "8": {
+  "grounding_score": 0.4,
+  "supported_claims": [
+   "Marc lives on Cedar Court now"
+  ],
+  "unsupported_claims": [
+   "the street seems a source of frustration for him"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "9": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "10": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "11": {
+  "grounding_score": 0.9,
+  "supported_claims": [
+   "Uncle Lena rides a Triumph to work",
+   "user lost an hour to their bike and it is getting on their nerves"
+  ],
+  "unsupported_claims": [
+   "the bike complaints are irrelevant to the uncle's parked vehicle (minor)"
+  ],
+  "verdict": "grounded"
+ },
+ "12": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "13": {
+  "grounding_score": 0.95,
+  "supported_claims": [
+   "Lena (neighbour) keeps ferrets in the yard"
+  ],
+  "unsupported_claims": [
+   "'her' pronoun is an assumption"
+  ],
+  "verdict": "grounded"
+ },
+ "14": {
+  "grounding_score": 0.6,
+  "supported_claims": [
+   "Tomas's new baby is Arlo"
+  ],
+  "unsupported_claims": [
+   "Tomas is having a great time with the baby"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "15": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "16": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "17": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "18": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "19": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "20": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "21": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "22": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "23": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "24": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "25": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "26": {
+  "grounding_score": 0.5,
+  "supported_claims": [
+   "Roommate Tomas was born in November"
+  ],
+  "unsupported_claims": [
+   "November is not too busy with holidays",
+   "plenty of days to celebrate"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "27": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "28": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "29": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "30": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "31": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "32": {
+  "grounding_score": 0.3,
+  "supported_claims": [
+   "Dana's kitten is Tofu"
+  ],
+  "unsupported_claims": [
+   "Dana's coworker is happy with the kitten (relation reversed: Dana is the user's coworker and got the kitten)",
+   "happiness"
+  ],
+  "verdict": "hallucinated"
+ },
+ "33": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "34": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "35": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "36": {
+  "grounding_score": 0.4,
+  "supported_claims": [
+   "Omar broke a forearm skiing"
+  ],
+  "unsupported_claims": [
+   "'Omar's aunt' - Omar is the aunt, not someone's aunt"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "37": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "38": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "39": {
+  "grounding_score": 0.3,
+  "supported_claims": [
+   "a dog named Biscuit was adopted last month"
+  ],
+  "unsupported_claims": [
+   "'Marc's roommate' adopted the dog - Marc is the user's roommate and adopted it"
+  ],
+  "verdict": "hallucinated"
+ },
+ "40": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "41": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "42": {
+  "grounding_score": 0.85,
+  "supported_claims": [
+   "The baby is named Silas"
+  ],
+  "unsupported_claims": [
+   "'beautiful name' is opinion"
+  ],
+  "verdict": "grounded"
+ },
+ "43": {
+  "grounding_score": 0.6,
+  "supported_claims": [
+   "Brother Yusuf got tickets to Oktoberfest"
+  ],
+  "unsupported_claims": [
+   "having a great time"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "44": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "45": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "46": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "47": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "48": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "49": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "50": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "51": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "52": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "53": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "54": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "55": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "56": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "57": {
+  "grounding_score": 0.7,
+  "supported_claims": [
+   "Lena's new street is Birch Lane"
+  ],
+  "unsupported_claims": [
+   "it seems they're settling in well"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "58": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "59": {
+  "grounding_score": 0.4,
+  "supported_claims": [
+   "Kitten named Noodle"
+  ],
+  "unsupported_claims": [
+   "'Lena's neighbor' - Lena is the user's neighbour who has the kitten"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "60": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "61": {
+  "grounding_score": 0.95,
+  "supported_claims": [
+   "Neighbour Greta took up fencing on weekends (implicit)"
+  ],
+  "unsupported_claims": [
+   "names no person; 'great hobby' opinion"
+  ],
+  "verdict": "grounded"
+ },
+ "62": {
+  "grounding_score": 0.95,
+  "supported_claims": [
+   "Uncle Yusuf's place is painted coral"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "63": {
+  "grounding_score": 0.3,
+  "supported_claims": [
+   "Lena, coworker, broke a pelvis skiing"
+  ],
+  "unsupported_claims": [
+   "Lena probably feels relief and frustration",
+   "grateful for support of loved ones",
+   "Greta is a loved one of Lena (Greta is the user's aunt)"
+  ],
+  "verdict": "hallucinated"
+ },
+ "64": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "65": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "66": {
+  "grounding_score": 0.3,
+  "supported_claims": [
+   "a sister named Marc writes science fiction novels at night"
+  ],
+  "unsupported_claims": [
+   "'Marc's sister' - Marc is the sister"
+  ],
+  "verdict": "hallucinated"
+ },
+ "67": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "68": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "69": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "70": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "71": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "72": {
+  "grounding_score": 0.2,
+  "supported_claims": [
+   "a florist shop was opened by uncle Ivan"
+  ],
+  "unsupported_claims": [
+   "the snow keeps coming up (not in source)",
+   "does not state shop kind answer cleanly"
+  ],
+  "verdict": "hallucinated"
+ },
+ "73": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "74": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "75": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "76": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "77": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "78": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "79": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "80": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "81": {
+  "grounding_score": 0.2,
+  "supported_claims": [
+   "Omar won a telescope; Marc won a lawnmower in raffles"
+  ],
+  "unsupported_claims": [
+   "Omar using telescope to explore night sky",
+   "Marc mowing with more enthusiasm",
+   "Marc is not the coworker"
+  ],
+  "verdict": "hallucinated"
+ },
+ "82": {
+  "grounding_score": 0.3,
+  "supported_claims": [
+   "boat name Sea Otter"
+  ],
+  "unsupported_claims": [
+   "'Omar's cousin's boat' - Omar is the cousin"
+  ],
+  "verdict": "hallucinated"
+ },
+ "83": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "84": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "85": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "86": {
+  "grounding_score": 0.6,
+  "supported_claims": [
+   "Omar just started work as a surveyor"
+  ],
+  "unsupported_claims": [
+   "he is finding the job a positive experience"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "87": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "88": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "89": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "90": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "91": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "92": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "93": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "94": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "95": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "96": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "97": {
+  "grounding_score": 0.4,
+  "supported_claims": [
+   "Yusuf broke a jaw skiing"
+  ],
+  "unsupported_claims": [
+   "'Yusuf's aunt' - Yusuf is the aunt"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "98": {
+  "grounding_score": 0.8,
+  "supported_claims": [
+   "Marc started work as a pastry chef"
+  ],
+  "unsupported_claims": [
+   "'fun and exciting change' opinion"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "99": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "100": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "101": {
+  "grounding_score": 0.95,
+  "supported_claims": [
+   "Greta lives on Birch Lane now"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "102": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "103": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "104": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "105": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "106": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "107": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "108": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "109": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "110": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "111": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "112": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "113": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "114": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "115": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "116": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "117": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "118": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "119": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "120": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "121": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "122": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "123": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "124": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "125": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "126": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "127": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "128": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "129": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "130": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "131": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "132": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "133": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "134": {
+  "grounding_score": 0.9,
+  "supported_claims": [
+   "Nell started work as a pastry chef"
+  ],
+  "unsupported_claims": [
+   "'sounds exciting' opinion"
+  ],
+  "verdict": "grounded"
+ },
+ "135": {
+  "grounding_score": 0.9,
+  "supported_claims": [
+   "Cousin Nell rides a Triumph to work",
+   "bike acting up again today"
+  ],
+  "unsupported_claims": [
+   "bike remark irrelevant"
+  ],
+  "verdict": "grounded"
+ },
+ "136": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "137": {
+  "grounding_score": 0.85,
+  "supported_claims": [
+   "Greta opened a candle shop"
+  ],
+  "unsupported_claims": [
+   "wonderful addition to the neighborhood"
+  ],
+  "verdict": "grounded"
+ },
+ "138": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "139": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "140": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "141": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "142": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "143": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "144": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "145": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "146": {
+  "grounding_score": 0.95,
+  "supported_claims": [
+   "Uncle Lena promoted to team lead"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "147": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "148": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "149": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "150": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "151": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "152": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "153": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "154": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "155": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "156": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "157": {
+  "grounding_score": 0.5,
+  "supported_claims": [
+   "Kitten named Pickle belongs to roommate Yusuf"
+  ],
+  "unsupported_claims": [
+   "'Yusuf's roommate, Yusuf' garbled relation"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "158": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "159": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "160": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "161": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "162": {
+  "grounding_score": 0.85,
+  "supported_claims": [
+   "Uncle Priya won a hot tub in a raffle"
+  ],
+  "unsupported_claims": [
+   "a hot tub is a great way to relax"
+  ],
+  "verdict": "grounded"
+ },
+ "163": {
+  "grounding_score": 0.35,
+  "supported_claims": [
+   "Kitten named Mochi"
+  ],
+  "unsupported_claims": [
+   "'Marc's coworker' - Marc is the coworker who got the kitten"
+  ],
+  "verdict": "hallucinated"
+ },
+ "164": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "165": {
+  "grounding_score": 0.6,
+  "supported_claims": [
+   "Lena started work as a welder"
+  ],
+  "unsupported_claims": [
+   "she is enjoying her new role"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "166": {
+  "grounding_score": 0.75,
+  "supported_claims": [
+   "Lena finished a triathlon"
+  ],
+  "unsupported_claims": [
+   "must be proud",
+   "asks a question"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "167": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "168": {
+  "grounding_score": 0.4,
+  "supported_claims": [
+   "Lena started as a court reporter"
+  ],
+  "unsupported_claims": [
+   "court reporters play a crucial part in legal system, documenting proceedings"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "169": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "170": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "171": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "172": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "173": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "174": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "175": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "176": {
+  "grounding_score": 0.45,
+  "supported_claims": [
+   "Dana got tickets to Glastonbury"
+  ],
+  "unsupported_claims": [
+   "Glastonbury is a famous music festival",
+   "chance to make new friends"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "177": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "178": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "179": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "180": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "181": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "182": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "183": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "184": {
+  "grounding_score": 0.3,
+  "supported_claims": [
+   "dog named Clover adopted"
+  ],
+  "unsupported_claims": [
+   "'Marc's brother' - Marc is the brother who adopted the dog"
+  ],
+  "verdict": "hallucinated"
+ },
+ "185": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "186": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "187": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "188": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "All claims match the source text, with the correct person-relation pairing"
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "189": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "You might meet ferrets at your aunt's place."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "190": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Lena was promoted to supervisor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "191": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "It seems like the neighbor, Tomas, keeps goats in the yard."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "192": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Got it! Since your aunt Nell only ever orders a cortado, you could get her a cortado from the cafe."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "193": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Lisbon."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "194": {
+  "grounding_score": 0.2,
+  "supported_claims": [
+   "A dog named Pepper was adopted (by Greta)"
+  ],
+  "unsupported_claims": [
+   "Says Greta's brother adopted the dog; the source says Greta is the brother and Greta adopted Pepper"
+  ],
+  "verdict": "hallucinated"
+ },
+ "195": {
+  "grounding_score": 0.92,
+  "supported_claims": [
+   "Cousin Nell teaches economics at the high school"
+  ],
+  "unsupported_claims": [
+   "'I know' framing is the assistant's own (minor)"
+  ],
+  "verdict": "grounded"
+ },
+ "196": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Ivan's boat is called Blue Heron."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "197": {
+  "grounding_score": 0.92,
+  "supported_claims": [
+   "Brother Tomas teaches economics at the high school"
+  ],
+  "unsupported_claims": [
+   "'I know' framing is the assistant's own (minor)"
+  ],
+  "verdict": "grounded"
+ },
+ "198": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Nell was born in November."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "199": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Greta opened a vintage shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "200": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Dana named the baby Hugo."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "201": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Yusuf only orders a americano."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "202": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Marc rents on the seventh floor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "203": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Tomas teaches economics."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "204": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Marc rides a Yamaha."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "205": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Nell keeps tortoises."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "206": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Tomas broke a collarbone."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "207": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Priya lives on Hazel Drive."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "208": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Marc got tickets to Bonnaroo."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "209": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Dana keeps ferrets."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "210": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Ivan switched to a Motorola."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "211": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Lena writes western novels."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "212": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Lena's dog is called Waffles."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "213": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Ivan's dog is called Waffles."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "214": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Dana won a pinball machine in a raffle."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "215": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Nell lives on Alder Road."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "216": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Priya keeps tortoises."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "217": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Yusuf rides a Yamaha."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "218": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Marc teaches drama."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "219": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Omar bought a green Corolla."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "220": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Marc got tickets to Coachella."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "221": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Yusuf's dog is called Biscuit."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "222": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Tomas only orders a cortado."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "223": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Ivan writes western novels."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "224": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Yusuf broke a pelvis."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "225": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Tomas lives on Birch Lane."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "226": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Tomas opened a comic shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "227": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Greta teaches geometry."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "228": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Ivan keeps rabbits."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "229": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Dana rides a Yamaha."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "230": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Ivan writes western novels."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "231": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Nell keeps goats."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "232": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Nell teaches economics."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "233": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Greta rents on the fifteenth floor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "234": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Nell only orders a flat white."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "235": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Marc's dog is called Pepper."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "236": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Lena has taken up curling."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "237": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Priya's dog is called Clover."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "238": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Ivan named the baby Arlo."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "239": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Tomas got tickets to Glastonbury."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "240": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Tomas teaches physics."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "241": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Greta called the kitten Mochi."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "242": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Omar rides a Ducati."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "243": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Greta has taken up fencing."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "244": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Lena opened a comic shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "245": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Greta has taken up curling."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "246": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Priya opened a cheese shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "247": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Marc named the baby Arlo."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "248": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Ivan opened a cheese shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "249": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Tomas's dog is called Waffles."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "250": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Yusuf's dog is called Juno."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "251": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Priya bought a grey Golf."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "252": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Lena switched to a Galaxy."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "253": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Priya broke a pelvis."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "254": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Omar rents on the twelfth floor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "255": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Lena works as a welder."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "256": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Dana rents on the ninth floor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "257": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Greta broke a thumb."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "258": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Marc switched to a Galaxy."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "259": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Ivan lives on Juniper Way."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "260": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Ivan's house is painted coral."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "261": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Yusuf's boat is called Sea Otter."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "262": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Lena rents on the fifteenth floor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "263": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Marc broke a pelvis."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "264": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Yusuf works as a paramedic."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "265": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Yusuf's boat is called Second Wind."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "266": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Greta writes romance novels."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "267": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Marc finished a relay."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "268": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Priya is moving to Tbilisi."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "269": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Tomas finished a half marathon."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "270": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Tomas's house is painted burgundy."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "271": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Omar bought a red Civic."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "272": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Yusuf named the baby Nora."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "273": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Omar was born in October."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "274": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Nell rents on the seventh floor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "275": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Tomas opened a thrift shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "276": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Marc was born in August."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "277": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Tomas got tickets to Burning Man."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "278": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Lena's house is painted lavender."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "279": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Omar broke a collarbone."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "280": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Dana keeps ferrets."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "281": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Tomas works as a welder."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "282": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Lena won a lawnmower in a raffle."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "283": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Nell's house is painted sage green."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "284": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Greta has taken up bouldering."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "285": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Ivan won a lawnmower in a raffle."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "286": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Tomas only orders a macchiato."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "287": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Priya rents on the twelfth floor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "288": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Omar writes fantasy novels."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "289": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Dana's house is painted mustard."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "290": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Lena rides a Triumph."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "291": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Marc rides a Vespa."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "292": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Priya rents on the third floor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "293": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Nell keeps chickens."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "294": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Marc plays bass in Copper Moon."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "295": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Nell was promoted to head of sales."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "296": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Marc has taken up birdwatching."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "297": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Tomas won a pinball machine in a raffle."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "298": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Priya broke a jaw."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "299": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Greta named the baby Mila."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "300": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Nell writes mystery novels."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "301": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Nell named the baby Esther."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "302": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Priya's dog is called Pepper."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "303": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Yusuf rents on the ninth floor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "304": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Priya opened a candle shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "305": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Yusuf only orders a americano."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "306": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Marc has taken up pottery."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "307": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Omar was born in February."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "308": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Priya works as a surveyor."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "309": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Lena switched to a Fairphone."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "310": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Greta rides a Kawasaki."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "311": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Lena only orders a chai latte."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "312": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Dana lives on Cedar Court."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "313": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Priya works as a welder."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "314": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Tomas named the baby Esther."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "315": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Lena rides a Harley."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "316": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Priya opened a vintage shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "317": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Omar finished a half marathon."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "318": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Priya lives on Cedar Court."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "319": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Omar is moving to Lisbon."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "320": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Priya was promoted to partner."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "321": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Ivan teaches drama."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "322": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Marc lives on Juniper Way."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "323": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Ivan called the kitten Mochi."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "324": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Greta only orders a americano."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "325": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Yusuf bought a white Forester."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "326": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Ivan got tickets to Glastonbury."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "327": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Omar lives on Juniper Way."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "328": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Dana works as a pastry chef."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "329": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Ivan's dog is called Waffles."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "330": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Nell's dog is called Rusty."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "331": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Omar's dog is called Pepper."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "332": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Nell got tickets to Bonnaroo."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "333": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Dana got tickets to Burning Man."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "334": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Greta keeps ferrets."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "335": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Marc broke a thumb."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "336": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Dana rides a Triumph."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "337": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Nell finished a duathlon."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "338": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Lena teaches economics."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "339": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Ivan bought a grey Golf."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "340": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Dana only orders a cortado."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "341": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Omar called the kitten Tofu."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "342": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Greta is moving to Valparaiso."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "343": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Priya won a kayak in a raffle."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "344": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Priya has taken up birdwatching."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "345": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Marc opened a candle shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "346": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Dana bought a blue Tacoma."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "347": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Ivan called the kitten Sprout."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "348": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your uncle Greta finished a relay."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "349": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Dana switched to a Fairphone."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "350": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Omar writes western novels at night."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "351": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Tomas has opened a vintage shop."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "352": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Marc has been promoted to manager."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "353": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Yusuf was promoted to partner."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "354": {
+  "grounding_score": 0.9,
+  "supported_claims": [
+   "Aunt Omar broke a forearm skiing"
+  ],
+  "unsupported_claims": [
+   "'her' pronoun not stated in source (minor)"
+  ],
+  "verdict": "grounded"
+ },
+ "355": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Ivan has taken up pottery on weekends."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "356": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Marc adopted a dog named Biscuit last month."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "357": {
+  "grounding_score": 0.6,
+  "supported_claims": [
+   "Brother Yusuf got tickets to Oktoberfest"
+  ],
+  "unsupported_claims": [
+   "'is having a great time' is not in the source"
+  ],
+  "verdict": "partially_grounded"
+ },
+ "358": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Greta is moving to Hobart in the spring."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "359": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Yusuf had a baby and named them Mila."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "360": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Marc writes science fiction novels at night."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "361": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Yusuf started a new job as a beekeeper."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "362": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Lena bought a red Civic from an auction."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "363": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "The name painted on your cousin Omar's boat is Sea Otter."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "364": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Tomas has been taking up bouldering on weekends."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "365": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Greta finally switched to a Pixel."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "366": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Priya has taken up glassblowing on weekends."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "367": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Tomas is moving to Quebec City in the spring."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "368": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your sister Nell adopted a dog named Clover last month."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "369": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your roommate Yusuf has a kitten named Pickle."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "370": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your aunt Ivan bought a grey Golf from an auction."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "371": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Priya writes fantasy novels at night."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "372": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your coworker Marc just got a kitten named Mochi."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "373": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Dana is moving to Quebec City in the spring."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "374": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your cousin Dana bought a green Corolla from an auction."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "375": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your brother Marc adopted a dog named Clover."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ },
+ "376": {
+  "grounding_score": 1.0,
+  "supported_claims": [
+   "Your neighbour Nell bought a green Corolla from an auction."
+  ],
+  "unsupported_claims": [],
+  "verdict": "grounded"
+ }
+}

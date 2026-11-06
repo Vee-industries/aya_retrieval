@@ -1,0 +1,53 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-06T13:40:22+00:00",
+  "command": [
+   "scripts/run_curator_check.py",
+   "apply",
+   "--responses",
+   "C:/Users/Gaming/scratch/claude/C--Users-Gaming-Desktop-Claude-s-House/389594c2-8513-47d9-80f1-1a28b96837f7/scratchpad/curator_r096/judge_a.json",
+   "C:/Users/Gaming/scratch/claude/C--Users-Gaming-Desktop-Claude-s-House/389594c2-8513-47d9-80f1-1a28b96837f7/scratchpad/curator_r096/judge_b.json",
+   "C:/Users/Gaming/scratch/claude/C--Users-Gaming-Desktop-Claude-s-House/389594c2-8513-47d9-80f1-1a28b96837f7/scratchpad/curator_r096/judge_c.json",
+   "--key",
+   "C:/Users/Gaming/scratch/claude/C--Users-Gaming-Desktop-Claude-s-House/389594c2-8513-47d9-80f1-1a28b96837f7/scratchpad/curator_r096/key.json",
+   "--out-dir",
+   "results/curator/R-096"
+  ],
+  "git_commit": "e913ab1c3fab9a07500f5b6a0864a424330be442",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "toolkit": "CuratorKIT HallucinationGate, default prompt, threshold 0.7",
+ "judge": "Claude (Sonnet) agents, answers replayed through a CuratorKIT BaseLLM backend",
+ "judges": 3,
+ "rule": "rejected when at least 2 of 3 judges' runs reject",
+ "items": 377,
+ "rejected_per_judge": [
+  23,
+  25,
+  21
+ ],
+ "rejected": 23,
+ "rejected_by_set": {
+  "v6": 22,
+  "fix17w": 1
+ },
+ "slip_shaped": 27,
+ "slip_shaped_rejected": 8,
+ "rejected_not_slip_shaped": 15
+}
