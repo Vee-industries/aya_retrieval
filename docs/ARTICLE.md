@@ -393,7 +393,12 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
 
 - **Synthetic conversations.** All chats are generated from templates; real chats are messier. The
   independent pool was written to be harder (run-on messages, texting style, values that are easy to
-  confuse), but it is still templated.
+  confuse), but it is still templated. Messy input is measured on the frozen model, paired against
+  the same items typed cleanly: lower-case texting, facts corrected later, an earlier question still
+  in view, and a phone-typing form (dropped apostrophes, "u" for "you", a slipped letter) that no
+  training row uses. Training on messy rows was registered to happen only if one of these costs at
+  least 8 of 192 recall answers (R-099). Typing style cost v5 at most two answers of 96; an earlier
+  question in view cost v6 none on the probe and 7 of 96 on `hard_dev`.
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
