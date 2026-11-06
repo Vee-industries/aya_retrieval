@@ -16,7 +16,7 @@ CuratorKIT's own score parsing, threshold, rejection reasons and provenance deci
 Usage:
     python scripts/run_curator_check.py sheet --out-dir C:/scratch/curator
     (a fresh judge writes responses.json from judge_sheet.txt)
-    python scripts/run_curator_check.py apply --responses C:/scratch/curator/responses.json \
+    python scripts/run_curator_check.py apply --responses judge1.json judge2.json judge3.json \
         --key C:/scratch/curator/key.json --out-dir results/curator/R-096
 """
 
@@ -138,40 +138,50 @@ def sheet(out_dir: Path) -> None:
     print(f"{len(items)} items; the gate's {len(recorder.prompts)} prompts match the sheet")
 
 
-def apply(responses: Path, key_path: Path, out_dir: Path) -> None:
+def apply(responses: list[Path], key_path: Path, out_dir: Path) -> None:
+    """Run the gate once per judge; an answer is rejected when most judges' runs reject it."""
     key = json.loads(key_path.read_text(encoding="utf-8"))
-    judged = json.loads(responses.read_text(encoding="utf-8"))
-    answers = {k["digest"]: json.dumps(judged[str(k["item"])]) for k in key}
     items = samples()
-    passed, rejected = HallucinationGate(
-        ReplayLLM(answers), threshold=THRESHOLD, concurrency=1
-    ).run(items)
     by_id = {s.id: s for s in items}
-    rows = []
-    for r in rejected:
-        s = by_id[r.id]
-        rows.append(
-            {
-                "id": r.id,
-                "reason": r.rejection_reason,
-                "slip_shape": slip_shape(s.output, s.instruction),
-                "question": s.instruction,
-                "answer": s.output,
-            }
+    reasons = {s.id: [] for s in items}
+    per_judge = []
+    for path in responses:
+        judged = json.loads(path.read_text(encoding="utf-8"))
+        answers = {k["digest"]: json.dumps(judged[str(k["item"])]) for k in key}
+        _, rejected = HallucinationGate(ReplayLLM(answers), threshold=THRESHOLD, concurrency=1).run(
+            items
         )
+        for r in rejected:
+            reasons[r.id].append(r.rejection_reason)
+        per_judge.append(len(rejected))
+    majority = len(responses) // 2 + 1
+    rows = [
+        {
+            "id": i,
+            "judges_rejecting": len(why),
+            "reasons": why,
+            "slip_shape": slip_shape(by_id[i].output, by_id[i].instruction),
+            "question": by_id[i].instruction,
+            "answer": by_id[i].output,
+        }
+        for i, why in reasons.items()
+        if why
+    ]
+    rejected_ids = {r["id"] for r in rows if r["judges_rejecting"] >= majority}
     slips = {s.id for s in items if slip_shape(s.output, s.instruction)}
-    caught = slips & {r["id"] for r in rows}
     summary = {
         "provenance": run_metadata(),
         "toolkit": "CuratorKIT HallucinationGate, default prompt, threshold 0.7",
-        "judge": "Claude (Sonnet) agent, answers replayed through a CuratorKIT BaseLLM backend",
+        "judge": "Claude (Sonnet) agents, answers replayed through a CuratorKIT BaseLLM backend",
+        "judges": len(responses),
+        "rule": f"rejected when at least {majority} of {len(responses)} judges' runs reject",
         "items": len(items),
-        "passed": len(passed),
-        "rejected": len(rejected),
-        "rejected_by_set": {n: sum(r["id"].startswith(n + ":") for r in rows) for n in SETS},
+        "rejected_per_judge": per_judge,
+        "rejected": len(rejected_ids),
+        "rejected_by_set": {n: sum(i.startswith(n + ":") for i in rejected_ids) for n in SETS},
         "slip_shaped": len(slips),
-        "slip_shaped_rejected": len(caught),
-        "rejected_not_slip_shaped": sum(not r["slip_shape"] for r in rows),
+        "slip_shaped_rejected": len(slips & rejected_ids),
+        "rejected_not_slip_shaped": len(rejected_ids - slips),
     }
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "rejected.json").write_text(json.dumps(rows, indent=1), encoding="utf-8")
@@ -185,7 +195,7 @@ def main() -> None:
     s = sub.add_parser("sheet")
     s.add_argument("--out-dir", type=Path, required=True)
     a = sub.add_parser("apply")
-    a.add_argument("--responses", type=Path, required=True)
+    a.add_argument("--responses", type=Path, nargs="+", required=True, help="one file a judge")
     a.add_argument("--key", type=Path, required=True)
     a.add_argument("--out-dir", type=Path, required=True)
     args = parser.parse_args()
