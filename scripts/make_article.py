@@ -301,6 +301,18 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "Fix 19a: fix 18a plus 57 questions on the same topics asked as statements",
         "passed every count at two seeds; failed the judged check set by one line (R-089)",
     ),
+    (
+        "screen_fix20_82",
+        "screen_fix17b_82",
+        "Fix 20: fix 17b plus one fact-word chat line and one such question a fact type",
+        "dropped at the screen gate: nine chat lines searched, hard_dev recall 125 of 145 (R-092)",
+    ),
+    (
+        "screen_fix17m_82",
+        "screen_fix17b_82",
+        "17m: fix 17b with the loss on chat replies only on the decision and the end marker",
+        "passed the whole screen gate at two seeds, counts and judged sheets (R-092)",
+    ),
 ]
 KIND_NAMES = {
     "older": "Fact told long ago",
