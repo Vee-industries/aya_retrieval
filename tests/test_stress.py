@@ -5,7 +5,14 @@ import pytest
 
 from aya_retrieval.conversations import CONFIRM, IN_VIEW, ITEM_KINDS, OLDER, build_item
 from aya_retrieval.pools import POOLS
-from aya_retrieval.stress import asked_before, corrected, typed, user_style
+from aya_retrieval.stress import (
+    asked_before,
+    corrected,
+    phone_style,
+    phone_typed,
+    typed,
+    user_style,
+)
 
 
 def test_typed_lines_are_lower_case_with_sparse_punctuation():
@@ -76,3 +83,44 @@ def test_an_earlier_question_declined_sits_in_view_and_nothing_scored_changes(se
     )
     assert asked.exchanges[item.fact_index] == item.exchanges[item.fact_index]
     assert question.casefold() not in others
+
+
+def adjacent_swap(a: str, b: str) -> bool:
+    diff = [i for i, (x, y) in enumerate(zip(a, b, strict=True)) if x != y]
+    return (
+        len(a) == len(b) and len(diff) == 2 and diff[1] == diff[0] + 1 and a[diff[0]] == b[diff[1]]
+    )
+
+
+def test_phone_typed_drops_apostrophes_shortens_you_and_swaps_one_pair():
+    keep = frozenset({"dana", "sister", "pepper"})
+    line = phone_typed(
+        "Did you know Dana's sister named your puppy Pepper?", random.Random(3), keep
+    )
+    assert "'" not in line and " u " in line and " ur " in line
+    expected = "Did u know Danas sister named ur puppy Pepper?"
+    words, plain = line.split(), expected.split()
+    changed = [(a, b) for a, b in zip(plain, words, strict=True) if a != b]
+    assert len(changed) == 1 and adjacent_swap(*changed[0])
+    assert changed[0][0].casefold() not in keep
+
+
+def test_phone_typed_leaves_kept_and_short_words_alone():
+    rng = random.Random(0)
+    for _ in range(50):
+        assert phone_typed("my sister Dana has a dog", rng, frozenset({"sister"})) == (
+            "my sister Dana has a dog"
+        )
+
+
+@pytest.mark.parametrize("pool", ["probe", "hard_dev"])
+@pytest.mark.parametrize("kind", ITEM_KINDS)
+@pytest.mark.parametrize("seed", range(10))
+def test_phone_style_keeps_the_answer_and_the_replies(seed, kind, pool):
+    item = build_item("x", seed, 58, kind, pool)
+    typed_item = phone_style(item, seed, pool)
+    assert [r for _, r in typed_item.exchanges] == [r for _, r in item.exchanges]
+    assert typed_item.answer == item.answer
+    if item.answer:
+        fact_line = typed_item.exchanges[item.fact_index][0] if item.fact_index is not None else ""
+        assert item.answer in fact_line or item.fact_index is None

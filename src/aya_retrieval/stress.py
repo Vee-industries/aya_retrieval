@@ -4,6 +4,9 @@ Each takes a built ``RecallItem`` and returns a changed copy, so any pool can be
 without writing a new one. The kinds of difficulty come from the failure categories another chat
 project tracked (its categories only; none of its text): how a real user types, and facts that are
 corrected later. One comes from this project's own demo chat: a question asked right after another.
+
+``phone_style`` is held out of training (R-099): it is the measure for training on messy chats, so
+no training row may be built with it.
 """
 
 from __future__ import annotations
@@ -17,6 +20,12 @@ from aya_retrieval.pools import POOLS
 
 # Contractions typed without the apostrophe, as many people text.
 _CONTRACTIONS = re.compile(r"\b(\w+)'(t|s|m|re|ll|ve|d)\b")
+# Phone texting habits ``typed`` never applies (R-099): "u" and "ur" for "you" and "your".
+_SHORT_FORMS = (
+    (re.compile(r"\byou\b", re.IGNORECASE), "u"),
+    (re.compile(r"\byour\b", re.IGNORECASE), "ur"),
+)
+_LONG_WORD = re.compile(r"[A-Za-z]{5,}")
 # Openings for a correction. A correction restates the fact with the new value after one of these.
 CORRECTION_OPENINGS = (
     "oh wait i got that wrong before, ",
@@ -51,6 +60,43 @@ def user_style(item: RecallItem, seed: int) -> RecallItem:
     rng = random.Random(seed)
     exchanges = tuple((typed(user, rng), reply) for user, reply in item.exchanges)
     return dataclasses.replace(item, exchanges=exchanges, message=typed(item.message, rng))
+
+
+def phone_typed(line: str, rng: random.Random, keep: frozenset[str]) -> str:
+    """Return ``line`` as typed fast on a phone: no apostrophes, "u" and "ur", one slipped letter.
+
+    Every apostrophe goes, possessives included ("my sisters dog"). "you" and "your" become "u" and
+    "ur". In one word of five letters or more two neighbouring letters change places, never the
+    first or last letter, and never in a word in ``keep`` (names, relations and fact values).
+    """
+    text = line.replace("'", "").replace("\u2019", "")
+    for pattern, short in _SHORT_FORMS:
+        text = pattern.sub(short, text)
+    words = [m for m in _LONG_WORD.finditer(text) if m.group(0).casefold() not in keep]
+    rng.shuffle(words)
+    for m in words:
+        word = m.group(0)
+        spots = [i for i in range(1, len(word) - 2) if word[i] != word[i + 1]]
+        if spots:
+            i = rng.choice(spots)
+            word = word[:i] + word[i + 1] + word[i] + word[i + 2 :]
+            return text[: m.start()] + word + text[m.end() :]
+    return text
+
+
+def phone_style(item: RecallItem, seed: int, pool_name: str) -> RecallItem:
+    """Return ``item`` with every friend line, and the final message, typed fast on a phone."""
+    rng = random.Random(seed)
+    pool = POOLS[pool_name]
+    values = (v for t in pool.facts.values() for v in t.values)
+    keep = frozenset(
+        w.casefold()
+        for w in (*pool.people, *pool.relations, *" ".join(values).split(), *item.answer.split())
+    )
+    exchanges = tuple((phone_typed(user, rng, keep), reply) for user, reply in item.exchanges)
+    return dataclasses.replace(
+        item, exchanges=exchanges, message=phone_typed(item.message, rng, keep)
+    )
 
 
 def corrected(item: RecallItem, seed: int, pool_name: str) -> RecallItem:

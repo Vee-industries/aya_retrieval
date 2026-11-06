@@ -29,7 +29,7 @@ from aya_retrieval.pools import POOLS, SEALED
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.recall_tool import build_recall_tool, search_finds_fact
 from aya_retrieval.scoring import check_scorer, item_correct, right_decision
-from aya_retrieval.stress import asked_before, corrected, user_style
+from aya_retrieval.stress import asked_before, corrected, phone_style, user_style
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME, system_prompt_with_tools
 
 LOG = logging.getLogger("recall_eval")
@@ -88,6 +88,11 @@ def main() -> None:
         "--user-style", action="store_true", help="friend lines typed as a real user types (R-067)"
     )
     parser.add_argument(
+        "--phone-style",
+        action="store_true",
+        help="friend lines typed fast on a phone; held out of training (R-099)",
+    )
+    parser.add_argument(
         "--corrections",
         action="store_true",
         help="older and confirm facts corrected later, out of view (R-067)",
@@ -122,6 +127,7 @@ def main() -> None:
         "sizes": args.sizes,
         "kinds": args.kinds,
         "user_style": args.user_style,
+        "phone_style": args.phone_style,
         "corrections": args.corrections,
         "asked_before": args.asked_before,
         "chat_check": args.chat_check and args.chat_check.as_posix(),
@@ -174,6 +180,8 @@ def main() -> None:
                     item = asked_before(item, seed, args.pool)
                 if args.user_style:
                     item = user_style(item, seed)
+                if args.phone_style:
+                    item = phone_style(item, seed, args.pool)
                 tool = build_recall_tool(item, args.index, match_all=False)
                 ask = {"role": "user", "content": item.message}
                 whole_chat = [

@@ -111,6 +111,7 @@ carry their own provenance (command, git commit, package versions).
 | R-096 | CuratorKIT's grounding gate over the training answers, three Claude judges: 22 of v6's 350 fail, 14 of them faults the slip pattern misses |
 | R-097 | Fix C agreed by the panel before it was built: fix A's set without CuratorKIT's rejections (C1), scripted fallback (C2), a Monday deadline |
 | R-098 | Fix C1 stops one probe recall answer short of v6; fix C2's 15 scripted answers pass CuratorKIT's acceptance test (15 of 15, controls 22 of 22) and go to seeds 82 and 83 |
+| R-099 | Messy chats: the panel's plan before any run (measure first, a held-out phone-typing form, a registered trigger); the headline-number ruling |
 
 ---
 
@@ -3452,3 +3453,56 @@ written by hand like the others and are used.
 
 **Next** (R-097 steps 2 to 4): `cand fix17z 82` and `83`, queued after the running screen; the same stop rule, then
 R-086's judged sheets, then seeds 88 to 90. Deadline unchanged: nothing starts after Monday, November 9, 12:00.
+
+## R-099 · 2026-11-06 · SPRINT · Messy chats: measure first, train only on a registered gap
+
+**Headline number** (Kevin: "accepted", after this proposal). The write-up's headline is the sealed final run's
+number. Until that run, the development headline is `hard_dev` recall, base 20 to v6 74 of 96 at seed 82 (+270%),
+not the probe's 30 to 96: `hard_dev`'s questions are worded unlike training.
+
+**Request.** Kevin: "can we get some messy proxies in for training?", after hearing that every pool, sealed ones
+included, is template-built, so a pass shows new words in our kind of chat, not real messy chats.
+
+**Evidence in hand** (development, seed 73157, tool arm; paired: one adapter, the same items plain and messy). Typing
+style (R-067): v5 seed 82 probe recall 92 styled (plain about 93 to 96), `hard_dev` 58 against 58; base 30 to 38 on
+the probe. Earlier question in view, v6 seed 82: probe recall 96 against 96, `statement` 48 against 48; `hard_dev`
+recall 67 against 74, `in_view` 36 against 37, `never_told` 47 against 48.
+
+**Panel** (four lanes: data, test integrity, measurement and schedule, against; two rounds; consensus; transcripts
+checked: no lane opened a sealed file). Round 1: data proposed about 150 appended rows built by `stress.py`'s
+transforms on fresh TRAIN items, with cue balance; test integrity required a separate candidate, the friend's messages
+changed only, and a build brief free of the sealed pool's description; measurement put scoring first, with a trigger;
+against argued for measuring the frozen model only, accepting training only on a measured drop. Round 2 accepted the
+merged plan with four changes, all taken.
+
+**Agreed plan.**
+1. **Measure first, scoring only.** v6 at seeds 82 and 83 (and C2 at the same seeds if C2 passes its counts) on the
+   battery: typing style (`--user-style`) and the held-out phone form (`--phone-style`) on the probe and `hard_dev`,
+   every kind; corrections (`--corrections`, `older` and `confirm`) on both; earlier question in view at 83. The
+   1,000-message chats are cut. Queued after C2's seed 83.
+2. **The held-out form, fixed now:** `stress.phone_style` (`phone_typed`): every apostrophe dropped, "you" and "your"
+   as "u" and "ur", and one pair of neighbouring letters swapped in one word of five letters or more, never a name,
+   relation or fact value. `typed` does none of these. It is written by the builder, not blind, and is never used to
+   build a training row; the messy build checks that no row's message equals its `phone_style` form. sha256 of the
+   source of `phone_typed`, `phone_style` and `_SHORT_FORMS`: `cd89c1028f70e34a9b5d18089c34b3cc1812e2461c275f71d79a55de79a4f686`.
+3. **Trigger, registered before the battery runs.** A messy form is a gap only if, paired over seeds 82 and 83 on one
+   pool, it costs at least **8 of 192** recall answers, or at least 4 of 96 on `statement`, `never_told` or
+   `in_view`, against the same adapter on plain items. No gap: no messy training, and the battery goes in the
+   write-up as a finding, base beside it.
+4. **If a gap: one messy arm, one dose, one try.** About 150 appended rows, built by script from fresh TRAIN items
+   through `stress.py`'s transforms, only for the forms that showed a gap; scripted targets; every existing row
+   byte-identical; no `in_view` answer rewritten; no writer agents; inputs TRAIN and `stress.py` only. Cue balance:
+   a question in view on found rows too; correction openings on non-correction rows; style across all five kinds;
+   decoy counts as R-020; counts reported.
+5. **Order and seeds.** C2's gate first, never delayed. The arm sits on the shipping candidate's set (C2's if C2
+   passes, else v6's): seeds 82 and 83 under R-086's gate and R-094's slip gate word for word and R-097's stop rule,
+   then fresh seeds **91 to 93** for R-076's rule (88 to 90 stay C2's).
+6. **Replacement.** The arm replaces the shipping candidate only if it passes every existing gate at 82, 83 and 91 to
+   93 and gains on the held-out phone form, against the shipping candidate at the same seeds on the pool where the
+   trigger fired, by at least **8 of 192** on the probe or **16 of 192** on `hard_dev` (training-seed noise, R-091).
+   Otherwise it is a development finding.
+7. **Clock.** If the battery is not scored and the arm's seed 82 and 83 runs have not started by **Sunday,
+   November 8, 12:00**, the arm is dropped and the battery goes in the write-up. Nothing starts after Monday 12:00.
+8. **Disclose:** messy rows made by script from TRAIN and `stress.py`; those transforms are also development tests;
+   the held-out form was written by the builder; the sealed result is still template-built; no claim of robustness
+   to real chats; every candidate-seed counted.
