@@ -124,3 +124,12 @@ def test_phone_style_keeps_the_answer_and_the_replies(seed, kind, pool):
     if item.answer:
         fact_line = typed_item.exchanges[item.fact_index][0] if item.fact_index is not None else ""
         assert item.answer in fact_line or item.fact_index is None
+
+
+def test_shares_wording_catches_rewordings_and_passes_new_ones():
+    from aya_retrieval.stress import TRAIN_CORRECTION_OPENINGS, content_words, shares_wording
+
+    assert content_words("Wait, NO, it's...") == frozenset({"wait", "no", "s"})
+    assert shares_wording("hang on, i said it WRONG", (" (i said it wrong last time)",))
+    assert shares_wording("Scratch THAT, ", TRAIN_CORRECTION_OPENINGS)
+    assert not shares_wording("hmm let me redo that one, ", ("wait no, ",))

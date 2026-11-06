@@ -33,6 +33,41 @@ CORRECTION_OPENINGS = (
     "scratch what i told you earlier, ",
     "actually i mixed that up before, ",
 )
+# Training's own correction wordings (R-102), fixed before the held-out wordings were written.
+# A correction is an opening before the restated fact line, or an ending after it.
+TRAIN_CORRECTION_OPENINGS = (
+    *CORRECTION_OPENINGS,
+    "wait no, ",
+    "my bad, i told you wrong before, ",
+    "update on something i said a while back, ",
+    "small fix to something i mentioned, ",
+    "i misspoke earlier, ",
+)
+TRAIN_CORRECTION_ENDINGS = (
+    ", i had that wrong before",
+    " (i said it wrong last time)",
+    ", not what i told you earlier",
+)
+# Words two wordings may share and still count as different wordings (R-102).
+_FUNCTION_WORDS = frozenset(
+    "a an and the i me my you your it its that this was is be what about on to of in for so "
+    "just oh well".split()
+)
+
+
+def content_words(wording: str) -> frozenset[str]:
+    """Return the words of ``wording`` that carry meaning, lower case, punctuation dropped."""
+    return frozenset(
+        w for w in re.findall(r"[a-z]+", wording.casefold()) if w not in _FUNCTION_WORDS
+    )
+
+
+def shares_wording(wording: str, others: tuple[str, ...]) -> bool:
+    """Return True if ``wording`` shares a content word with any of ``others``.
+
+    A held-out wording must not be a light rewording of a training one: one shared word is enough.
+    """
+    return any(content_words(wording) & content_words(other) for other in others)
 
 
 def typed(line: str, rng: random.Random) -> str:
