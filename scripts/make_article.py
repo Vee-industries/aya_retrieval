@@ -302,6 +302,18 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "passed every count at two seeds; failed the judged check set by one line (R-089)",
     ),
     (
+        "screen_fix17w_82",
+        "screen_fix17m_82",
+        "Fix A: 17m with its 27 slip-shaped fact answers rewritten as \"Your <relation> <name>\"",
+        "cleared the slip gate and every count; failed a judged sheet by one line (R-095)",
+    ),
+    (
+        "screen_fix17mb_82",
+        "screen_fix17m_82",
+        "Fix B: 17m with base-reply fact answers trained only on their first token",
+        "dropped: hard_dev slips 4 and 6 against at most 3 (R-095)",
+    ),
+    (
         "screen_fix20_82",
         "screen_fix17b_82",
         "Fix 20: fix 17b plus one fact-word chat line and one such question a fact type",
@@ -740,8 +752,9 @@ def numbers() -> dict[str, str]:
         "The held-out run replaces these."
     )
     out["status_line"] = (
-        "Draft. Numbers are development results on the probe pool; the registered held-out run "
-        "replaces them before submission."
+        "Draft. Numbers are development results on the probe pool, for v5; v6 (17m, R-093) passed "
+        "the confirmation rule on 2026-11-06 and replaces them at the freeze, and the registered "
+        "held-out run replaces them before submission."
     )
     return out
 

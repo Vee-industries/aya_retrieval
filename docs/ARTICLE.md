@@ -2,7 +2,7 @@
 
 *Kevin Vaillancourt · Lexsi AI Safety and Alignment Hackathon, Track 3 (Agentic Fine-tuning) · November 2026*
 
-> **Draft. Numbers are development results on the probe pool; the registered held-out run replaces them before submission.**
+> **Draft. Numbers are development results on the probe pool, for v5; v6 (17m, R-093) passed the confirmation rule on 2026-11-06 and replaces them at the freeze, and the registered held-out run replaces them before submission.**
 
 ## Abstract
 
@@ -295,6 +295,8 @@ over all 240 conversations.
 | Fix 18a: fix 17b plus 57 vetted chat lines that name a fact type in passing | 94 (94) | 41 | 240 | 6 / 6 | 1.00 | dropped at the screen gate: hard_dev recall 56 against 72 (R-085) |
 | Fix 18c, control: fix 17b plus 57 vetted chat lines that name no fact type | 92 (94) | 43 | 236 | 5 / 5 | 1.00 | dropped at the screen gate: recall 92 against 94, hard_dev 66 against 72 (R-085) |
 | Fix 19a: fix 18a plus 57 questions on the same topics asked as statements | 95 (94) | 43 | 239 | 3 / 6 | 0.51 | passed every count at two seeds; failed the judged check set by one line (R-089) |
+| Fix A: 17m with its 27 slip-shaped fact answers rewritten as "Your <relation> <name>" | 96 (95) | 44 | 239 | 4 / 3 | 1.00 | cleared the slip gate and every count; failed a judged sheet by one line (R-095) |
+| Fix B: 17m with base-reply fact answers trained only on their first token | 95 (95) | 43 | 240 | 5 / 3 | 0.73 | dropped: hard_dev slips 4 and 6 against at most 3 (R-095) |
 | Fix 20: fix 17b plus one fact-word chat line and one such question a fact type | 93 (94) | 44 | 230 | 14 / 7 | 0.19 | dropped at the screen gate: nine chat lines searched, hard_dev recall 125 of 145 (R-092) |
 | 17m: fix 17b with the loss on chat replies only on the decision and the end marker | 95 (94) | 45 | 240 | 2 / 7 | 0.18 | passed the whole screen gate at two seeds, counts and judged sheets (R-092) |
 
@@ -314,7 +316,7 @@ What the path shows:
    reaction to news, and most scripted answers left the relation out, so the model never saw the
    friend's "my tutor" turned into "your tutor". Plain answers that name the relation from the
    friend's side closed the gap (**v4**).
-5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results; fix 12: v5 with brief, vetted in-view answers; fix 13: v5 with more indirect in-view questions; fix 14: v5 with half its fact rows from 47 new fact types; fix 14c: a quarter of the fact rows from the new fact types; fix 14b: fix 14 with plain-chat lines naming the new pool's people; fix 15: fix 14c with 250 never-told rows that return someone else's fact; fix 16a: v5 with the loss on the taught turns only; fix 16b: v5 with the loss on all but the scripted small talk; fix 16c: fix 16a at learning rate 1e-4; fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric; fix 18a: fix 17b plus 57 vetted chat lines that name a fact type in passing; fix 18c, control: fix 17b plus 57 vetted chat lines that name no fact type; fix 20: fix 17b plus one fact-word chat line and one such question a fact type. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
+5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results; fix 12: v5 with brief, vetted in-view answers; fix 13: v5 with more indirect in-view questions; fix 14: v5 with half its fact rows from 47 new fact types; fix 14c: a quarter of the fact rows from the new fact types; fix 14b: fix 14 with plain-chat lines naming the new pool's people; fix 15: fix 14c with 250 never-told rows that return someone else's fact; fix 16a: v5 with the loss on the taught turns only; fix 16b: v5 with the loss on all but the scripted small talk; fix 16c: fix 16a at learning rate 1e-4; fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric; fix 18a: fix 17b plus 57 vetted chat lines that name a fact type in passing; fix 18c, control: fix 17b plus 57 vetted chat lines that name no fact type; fix B: 17m with base-reply fact answers trained only on their first token; fix 20: fix 17b plus one fact-word chat line and one such question a fact type. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
 6. **Training harder raised recall and cost coherence on plain chat.** A higher rank, LoRA on the
    MLP layers and a higher learning rate each gained recall on the screen, and all three together
    came close to every recall question. Its confirmation failed on the blind check of plain chat
@@ -369,6 +371,17 @@ a step. Retrained with it, v3 differed from its original on 13 of 240 conversati
 run-to-run variation (R-032).
 
 ![Training memory](../figures/training_memory.png)
+
+**CuratorKIT's grounding gate finds faulty training answers our own checks missed.** The gate asks
+a judge whether each answer is supported by the source it came from. We ran it over the 350 training
+answers that follow a search, with Claude judges plugged into CuratorKIT's own backend class: the
+gate's prompts were recorded, answered by three judges in turn, and replayed, so CuratorKIT's
+prompt, parsing and threshold decide every verdict, and the saved verdicts rerun to the same result.
+It rejected 22 answers (21 of them by all three judges): 8 that pin a relation on the wrong person,
+and 14 our pattern check could not see, such as "Greta's brother adopted a dog named Pepper." for
+"the dog Greta adopted", claims the passage does not make, and off-topic talk (R-096). It is an
+audit of the training targets, not an independent test of the model: its judges are the same model
+family as our coherence judges.
 
 ## 10. Threats to validity
 
@@ -506,6 +519,14 @@ came from something in the training data.
   at each of two seeds, above 17b, and kept plain chat above the untrained model at one seed; at
   the other it answered five unrelated complaints with one stock line, "That sounds like a lot of
   work ...", and fell one line short on the check set (R-089). Open.
+- **A relation pinned on the wrong person.** v6's fact answers are right but sometimes say whose
+  relation it is wrongly: "Hana's barber is scared of clowns." for "what is my barber scared of",
+  where the barber is Hana. A pattern check counts 1 to 4 of 96 at five training seeds and 14 at a
+  sixth; the untrained model makes it twice. The source is the training answers that are the
+  untrained model's own replies: 27 of 350 have this shape, and CuratorKIT's gate rejects 22 for
+  this and other faults (R-094, R-096). Rewriting the 27 removed it at every seed tried, including
+  the bad one (2, 1 and 0 of 96), but cost one judged line on facts in view (R-095). A version
+  without the gate's rejections is being screened (R-097).
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test

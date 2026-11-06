@@ -280,6 +280,17 @@ run-to-run variation (R-032).
 
 ![Training memory](../figures/training_memory.png)
 
+**CuratorKIT's grounding gate finds faulty training answers our own checks missed.** The gate asks
+a judge whether each answer is supported by the source it came from. We ran it over the 350 training
+answers that follow a search, with Claude judges plugged into CuratorKIT's own backend class: the
+gate's prompts were recorded, answered by three judges in turn, and replayed, so CuratorKIT's
+prompt, parsing and threshold decide every verdict, and the saved verdicts rerun to the same result.
+It rejected 22 answers (21 of them by all three judges): 8 that pin a relation on the wrong person,
+and 14 our pattern check could not see, such as "Greta's brother adopted a dog named Pepper." for
+"the dog Greta adopted", claims the passage does not make, and off-topic talk (R-096). It is an
+audit of the training targets, not an independent test of the model: its judges are the same model
+family as our coherence judges.
+
 ## 10. Threats to validity
 
 - **Synthetic conversations.** All chats are generated from templates; real chats are messier. The
@@ -416,6 +427,14 @@ came from something in the training data.
   at each of two seeds, above 17b, and kept plain chat above the untrained model at one seed; at
   the other it answered five unrelated complaints with one stock line, "That sounds like a lot of
   work ...", and fell one line short on the check set (R-089). Open.
+- **A relation pinned on the wrong person.** v6's fact answers are right but sometimes say whose
+  relation it is wrongly: "Hana's barber is scared of clowns." for "what is my barber scared of",
+  where the barber is Hana. A pattern check counts 1 to 4 of 96 at five training seeds and 14 at a
+  sixth; the untrained model makes it twice. The source is the training answers that are the
+  untrained model's own replies: 27 of 350 have this shape, and CuratorKIT's gate rejects 22 for
+  this and other faults (R-094, R-096). Rewriting the 27 removed it at every seed tried, including
+  the bad one (2, 1 and 0 of 96), but cost one judged line on facts in view (R-095). A version
+  without the gate's rejections is being screened (R-097).
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test
