@@ -402,6 +402,11 @@ run-to-run variation (R-032).
   only counts; that pool was never used (R-070).
 - **Training is not bit-reproducible on this card.** With the same rows and seed, TRL's own first
   gradient norm varied from run to run (R-029), so every claim pools three seeds.
+- **Seeds differ more than a screen can show.** Trained six times with the same rows, fix 17b's
+  `hard_dev` recall ran from 65 to 83 of 96 and its plain chat fell below the untrained model's at
+  two seeds of six (R-091). A single-seed screen can only rule a change out when the change is
+  large; every candidate that went further was checked at two or three seeds, and the rule that
+  decides needs three.
 ## 11. Errors and corrections
 
 Every error of method below was found during the work and is recorded where it happened; none is
@@ -485,7 +490,9 @@ came from something in the training data.
 - **A chat line that names a fact type, read as a question.** Told "Esme forgot my birthday
   again", fix 17b replied "I don't have that from you. What is it?" at two seeds of three. No
   plain-chat line in training mentions a birthday or any other fact type, so a fact word on its own
-  reads as a question about it (R-082). On 48 fresh chat lines of this kind, written blind by
+  reads as a question about it (R-082). At a sixth seed 17b searched on six chat lines that name a
+  person and answered with an unrelated fact: "i should really call my classmate" got "Hana is your
+  classmate and is terrified of spiders." (R-091). On 48 fresh chat lines of this kind, written blind by
   another author and never trained on, v5 kept 36 coherent against the untrained model's 44; it
   echoes the friend's "my" ("Hope my godfather gets some rest soon") and repeats one stock reply.
   Fix 17b kept 44 against 45. Adding 57 vetted chat lines that name a fact type (fix 18a) brought
