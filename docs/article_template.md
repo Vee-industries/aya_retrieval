@@ -294,11 +294,19 @@ run-to-run variation (R-032).
 - **The coherence judge** sees only the turns in view, so it cannot tell a false "you never told me"
   from a true one; recall is always read beside it. In development, "never told" replies were not
   on a coherence sheet; the final sheets cover every kind.
-- **One judge a sheet.** The untrained model's replies are the same on every sheet of a kind, so
-  its score shows how much judges agree. On plain-chat and in-view lines they agreed within one line
-  in 48; on "fact told long ago" lines, three judges gave the same 48 replies 34, 17 and 30, because
-  one marked down any reply that opens with a name (R-057). Claims on that kind rest on the pooled,
-  paired comparison, where the adapter's lead (130 against 81) is larger than that spread.
+- **Judges disagree by a few lines.** The untrained model's replies are the same on every sheet of a
+  kind, so its score shows how much judges agree. On plain-chat and in-view lines they agreed within
+  one line in 48; on "fact told long ago" lines, three judges gave the same 48 replies 34, 17 and
+  30, because one marked down any reply that opens with a name (R-057). Claims on that kind rest on
+  the pooled, paired comparison, where the adapter's lead (130 against 81) is larger than that
+  spread. Late in development each sheet had three judges, one named in advance to decide; on the
+  same 96 check-set lines they differed by up to five (R-089), so a one-line verdict is close to
+  that spread. To compare candidates, every model's replies went on one blind sheet, so the same
+  judges marked them all (R-090).
+- **Many candidates, one set of development data.** Every change in section 7, and every scaled or
+  mixed adapter tried (R-090), was chosen on the probe, `hard_dev` and, from R-085, the blind chat
+  check set; section 7's table lists each one scored, failed ones included. Those numbers flatter
+  whatever was chosen; only the sealed pools, run once, decide.
 - **Development pools and the sealed one share a brief.** `hard_dev` and the wide training pool
   were written to briefs like the independent pool's, so the final test's independent condition is
   less independent of development than when it was registered (R-066, R-069). One writer of the
@@ -396,7 +404,11 @@ came from something in the training data.
   this to 48 of 48, and 57 lines that name none (fix 18c, a control) to 47, but both cost recall
   on questions asked indirectly: `hard_dev` 56 and 66 of 96 against 17b's 72. Fix 18a found the
   fact as often as 17b, then restated the friend's situation instead of answering ("Your coach
-  Rhys got a job interview.") (R-085). Open.
+  Rhys got a job interview.") (R-085). Pairing each of those lines with a question about the same
+  topic asked as a statement, answered from a search (fix 19a), brought `hard_dev` recall back to 74
+  at each of two seeds, above 17b, and kept plain chat above the untrained model at one seed; at
+  the other it answered five unrelated complaints with one stock line, "That sounds like a lot of
+  work ...", and fell one line short on the check set (R-089). Open.
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test

@@ -292,6 +292,9 @@ over all 240 conversations.
 | Fix 16c: fix 16a at learning rate 1e-4 | 93 (96) | 43 | 238 | 6 / 1 | 0.12 | dropped at the screen gate (R-079) |
 | Fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric | 91 (93) | 45 | 237 | 3 / 2 | 1.00 | dropped at the screen gate (R-080) |
 | Fix 17b: fix 16a with the stricter-vetted plain-chat targets | 94 (96) | 44 | 239 | 6 / 2 | 0.29 | passed the screen gate; failed confirmation on one sheet by one line (R-082) |
+| Fix 18a: fix 17b plus 57 vetted chat lines that name a fact type in passing | 94 (94) | 41 | 240 | 6 / 6 | 1.00 | dropped at the screen gate: hard_dev recall 56 against 72 (R-085) |
+| Fix 18c, control: fix 17b plus 57 vetted chat lines that name no fact type | 92 (94) | 43 | 236 | 5 / 5 | 1.00 | dropped at the screen gate: recall 92 against 94, hard_dev 66 against 72 (R-085) |
+| Fix 19a: fix 18a plus 57 questions on the same topics asked as statements | 95 (94) | 43 | 239 | 3 / 6 | 0.51 | passed every count at two seeds; failed the judged check set by one line (R-089) |
 
 What the path shows:
 
@@ -309,7 +312,7 @@ What the path shows:
    reaction to news, and most scripted answers left the relation out, so the model never saw the
    friend's "my tutor" turned into "your tutor". Plain answers that name the relation from the
    friend's side closed the gap (**v4**).
-5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results; fix 12: v5 with brief, vetted in-view answers; fix 13: v5 with more indirect in-view questions; fix 14: v5 with half its fact rows from 47 new fact types; fix 14c: a quarter of the fact rows from the new fact types; fix 14b: fix 14 with plain-chat lines naming the new pool's people; fix 15: fix 14c with 250 never-told rows that return someone else's fact; fix 16a: v5 with the loss on the taught turns only; fix 16b: v5 with the loss on all but the scripted small talk; fix 16c: fix 16a at learning rate 1e-4; fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
+5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results; fix 12: v5 with brief, vetted in-view answers; fix 13: v5 with more indirect in-view questions; fix 14: v5 with half its fact rows from 47 new fact types; fix 14c: a quarter of the fact rows from the new fact types; fix 14b: fix 14 with plain-chat lines naming the new pool's people; fix 15: fix 14c with 250 never-told rows that return someone else's fact; fix 16a: v5 with the loss on the taught turns only; fix 16b: v5 with the loss on all but the scripted small talk; fix 16c: fix 16a at learning rate 1e-4; fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric; fix 18a: fix 17b plus 57 vetted chat lines that name a fact type in passing; fix 18c, control: fix 17b plus 57 vetted chat lines that name no fact type. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
 6. **Training harder raised recall and cost coherence on plain chat.** A higher rank, LoRA on the
    MLP layers and a higher learning rate each gained recall on the screen, and all three together
    came close to every recall question. Its confirmation failed on the blind check of plain chat
@@ -379,11 +382,19 @@ run-to-run variation (R-032).
 - **The coherence judge** sees only the turns in view, so it cannot tell a false "you never told me"
   from a true one; recall is always read beside it. In development, "never told" replies were not
   on a coherence sheet; the final sheets cover every kind.
-- **One judge a sheet.** The untrained model's replies are the same on every sheet of a kind, so
-  its score shows how much judges agree. On plain-chat and in-view lines they agreed within one line
-  in 48; on "fact told long ago" lines, three judges gave the same 48 replies 34, 17 and 30, because
-  one marked down any reply that opens with a name (R-057). Claims on that kind rest on the pooled,
-  paired comparison, where the adapter's lead (130 against 81) is larger than that spread.
+- **Judges disagree by a few lines.** The untrained model's replies are the same on every sheet of a
+  kind, so its score shows how much judges agree. On plain-chat and in-view lines they agreed within
+  one line in 48; on "fact told long ago" lines, three judges gave the same 48 replies 34, 17 and
+  30, because one marked down any reply that opens with a name (R-057). Claims on that kind rest on
+  the pooled, paired comparison, where the adapter's lead (130 against 81) is larger than that
+  spread. Late in development each sheet had three judges, one named in advance to decide; on the
+  same 96 check-set lines they differed by up to five (R-089), so a one-line verdict is close to
+  that spread. To compare candidates, every model's replies went on one blind sheet, so the same
+  judges marked them all (R-090).
+- **Many candidates, one set of development data.** Every change in section 7, and every scaled or
+  mixed adapter tried (R-090), was chosen on the probe, `hard_dev` and, from R-085, the blind chat
+  check set; section 7's table lists each one scored, failed ones included. Those numbers flatter
+  whatever was chosen; only the sealed pools, run once, decide.
 - **Development pools and the sealed one share a brief.** `hard_dev` and the wide training pool
   were written to briefs like the independent pool's, so the final test's independent condition is
   less independent of development than when it was registered (R-066, R-069). One writer of the
@@ -474,7 +485,18 @@ came from something in the training data.
 - **A chat line that names a fact type, read as a question.** Told "Esme forgot my birthday
   again", fix 17b replied "I don't have that from you. What is it?" at two seeds of three. No
   plain-chat line in training mentions a birthday or any other fact type, so a fact word on its own
-  reads as a question about it (R-082). Open.
+  reads as a question about it (R-082). On 48 fresh chat lines of this kind, written blind by
+  another author and never trained on, v5 kept 36 coherent against the untrained model's 44; it
+  echoes the friend's "my" ("Hope my godfather gets some rest soon") and repeats one stock reply.
+  Fix 17b kept 44 against 45. Adding 57 vetted chat lines that name a fact type (fix 18a) brought
+  this to 48 of 48, and 57 lines that name none (fix 18c, a control) to 47, but both cost recall
+  on questions asked indirectly: `hard_dev` 56 and 66 of 96 against 17b's 72. Fix 18a found the
+  fact as often as 17b, then restated the friend's situation instead of answering ("Your coach
+  Rhys got a job interview.") (R-085). Pairing each of those lines with a question about the same
+  topic asked as a statement, answered from a search (fix 19a), brought `hard_dev` recall back to 74
+  at each of two seeds, above 17b, and kept plain chat above the untrained model at one seed; at
+  the other it answered five unrelated complaints with one stock line, "That sounds like a lot of
+  work ...", and fell one line short on the check set (R-089). Open.
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test
