@@ -103,6 +103,7 @@ carry their own provenance (command, git commit, package versions).
 | R-088 | The compute left, panelled in three rounds to one plan; R-087's ruling replaced; the candidates list starts |
 | R-089 | 19a passes every count but fails the judged check set by one line (a stock reply at seed 83); two planned candidates dropped at build |
 | R-090 | Ten seed-82 models on one blind check-set sheet, three judges: 19a above base with the most recall; the dials trade chat for recall |
+| R-091 | 17b at fresh seeds 85 to 87 fails R-076's rule again, under all three judges; at seed 86 it searches on chat lines that name a person |
 
 ---
 
@@ -3078,3 +3079,36 @@ of three. Moving toward 18a, by mixing or by scaling 17b down, buys plain chat w
 scaled 0.7 is at base for chat with recall 70, but at seed 83 its `hard_dev` `never_told` fell to 38 of 48 (17b 47),
 so a weaker pull also weakens declining. No dial beats 19a on both. Base's `hard_dev` recall and `never_told` are its
 `tool_loop` arm at seed 73157 (`hd_base`).
+
+## R-091 · 2026-11-05 · SPRINT · 17b at fresh seeds 85 to 87 fails R-076's rule again, under all three judges: its plain chat is unstable across seeds
+
+**Why** (R-088, item 3): 17b failed R-076's rule at seeds 82 to 84 by one judged line at seed 83 (R-082); seeds 85 to 87
+show how often that happens. Trained from `strict_chat.jsonl` with 17b's settings (backlog runner, cap on card
+memory); scored on probe and `hard_dev` 73157. Sheets A, B and `hard_dev` B for each seed (shuffle seeds 90501 to
+90509), three fresh Sonnet judges a sheet type, each marking its three seeds in its own folder, transcripts checked.
+`scripts/records/rule_r076.py`, the rule as written for any name, seeds and judge; judge 1 decides.
+
+| 17b, seed | 82 | 83 | 84 | 85 | 86 | 87 |
+|---|---|---|---|---|---|---|
+| Probe recall, of 96 | 94 | 95 | 94 | 96 | 96 | 95 |
+| Probe `statement` (no search on chat), of 48 | 48 | 47 | 47 | 48 | **42** | 48 |
+| `hard_dev` recall, of 96 | 72 | 73 | 83 | 82 | 65 | 77 |
+| `hard_dev` `in_view`, of 48 | 38 | 36 | 41 | 34 | 35 | 32 |
+
+**Rule at seeds 85 to 87**: every count passes (probe recall 287 of 288, `hard_dev` recall 224 against 172, false
+retrieval 0 and 16, `never_told` 137). **Item 1g fails under all three judges**: Sheet B `statement` at seed 86 is 37,
+41 and 37 against base's 44, 45 and 45. Judge 2 also fails item 6 (131 against 135). Sheet A passes under all three
+(older plus confirm 286 against 237 to 240).
+
+**Seed 86's failure.** Six chat lines that name a person or relation were searched, and answered with an unrelated
+fact about that person: "i should really call my classmate" got "Hana is your classmate and is terrified of
+spiders."; "my godfather has been acting strange lately" got "Your godfather Farah speaks fluent Turkish."; "Dmitri
+forgot my birthday again" got "I don't have that from you. What is it?". R-082's failure, worse. 19a, trained with
+fact-word chat lines and matching questions, searched on none of the 96 chat lines at seeds 82 and 83.
+
+**Reading.** 17b's miss at seed 83 was not a judging accident: across six seeds its plain chat falls below base at
+two (83 and 86) and its `hard_dev` recall spans 65 to 83. R-076's rule rejected it correctly. The spread across seeds
+is wider than any single-seed screen can resolve, which bears on every screen in this work: a candidate's seed-82
+result says little alone.
+
+**Candidates scored since R-090:** 17b at 85, 86, 87.
