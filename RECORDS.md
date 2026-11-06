@@ -3343,8 +3343,8 @@ in the environment, so nothing else changed.
 rewritten answers, 377 items. The questions it answers: does the gate reject the 27 slip-shaped answers the pattern
 found; does it reject answers the pattern missed; does it pass the 27 rewrites.
 
-**Limits.** One judge an item, not three. A Claude judge may share blind spots with the Claude judges on the coherence
-sheets, so agreement between them is weaker evidence than agreement with a different model family would be.
+**Limits.** All three judges are Claude models. They may share blind spots with each other and with the Claude judges
+on the coherence sheets, so their agreement is weaker evidence than agreement across model families would be.
 
 **Result** (`results/curator/R-096/`: summary, the rejected answers with each judge's reason, and the judges' verdicts and
 key). Three fresh Sonnet judges, each reading only its sheet in its own folder, transcripts checked; the gate run once
