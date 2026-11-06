@@ -109,6 +109,7 @@ carry their own provenance (command, git commit, package versions).
 | R-094 | The who-is-who slip: measured, its source found, a gate registered and a fix agreed by the panel before any run; Kevin's ship ruling |
 | R-095 | Fix A (fix17w) clears the slip gate and every count but fails R-086's judged Sheet B by one line under judge 1; fix B queued |
 | R-096 | CuratorKIT's grounding gate over the training answers, three Claude judges: 22 of v6's 350 fail, 14 of them faults the slip pattern misses |
+| R-097 | Fix C agreed by the panel before it was built: fix A's set without CuratorKIT's rejections (C1), scripted fallback (C2), a Monday deadline |
 
 ---
 
@@ -3369,3 +3370,39 @@ all three, and 2 answers by one judge only.
 of the `older` answers that are base's own replies (22 of 140) claims something its passage does not support. That is
 a likely source of v6's who-is-who slips as well as of the slips the pattern counts. A fix built on it (replacing the
 gate's rejections) goes to the panel before it is written.
+
+## R-097 · 2026-11-06 · SPRINT · Fix C, agreed by the panel before it was built
+
+Kevin: "Yes, panel it" (a fix built on R-096). The four-lane panel (data, gate risk, measurement, against), three
+rounds, consensus; transcripts checked.
+
+**Round 1 positions.** Data: fix A's set plus at most 23 changed rows, scripted answers, a CuratorKIT re-check with
+hidden controls. Gate risk: changing `older` targets pulls against facts in view (R-063, R-064), the item fix A failed;
+change as few rows as possible, leave every other row byte-identical, read seed 82's counts before judging.
+Measurement: the gates word for word, a one-line miss is a miss, template rewrites only, only seeds 88 to 90 are clean.
+Against: keep v6 and spend the weekend on the write-up; CuratorKIT is an audit, not a pipeline stage.
+
+**Agreed plan.**
+1. **C1 = fix17w (fix A's set) minus 15 rows** (`scripts/records/splice_r097.py`): the 14 `older` answers at least two
+   of R-096's judges rejected that fix A did not rewrite, and fix A's one rejected rewrite. Dropped: `older_0008`,
+   `0014`, `0026`, `0032`, `0043`, `0059`, `0063`, `0072`, `0081`, `0086`, `0097`, `0165`, `0168`, `0176`, `0194`.
+   785 rows (185 `older`); nothing new is written; all 450 `in_view`, `statement` and `never_told` rows are
+   byte-identical to 17m's; `slip_shape` reads 0. No CuratorKIT re-check: the 335 found-fact answers kept are the
+   ones R-096's judges passed (the same judges who chose the drops). 17m's recipe (`--loss-on chat_decision`).
+2. Seed 82, counts only. **Stop rule, not a pass criterion**: if any R-086 count or slip-gate item fails, or probe
+   `in_view` is below 41 (17m's at 82; fix A had 39), no judging; the run is reported and counted, and C2 is built.
+   A stop at 40 is not read as proof that dropping rows hurts.
+3. Seed 83, counts and slips, the same stop rule; then R-086's judged sheets for C1 at 82 and 83 as registered
+   (two-model sheets against base, judge 1 decides, judges 2 and 3 reported), read beside fix A's (R-095).
+4. If C1 passes: seeds 88, 89 and 90 for R-076's rule and the pooled slip gate. A pass there replaces v6 (Kevin's
+   ruling, R-094); otherwise v6 stands.
+5. If C1 stops: **C2** = fix A's set with the same 15 rows given the scripted "Your {relation} {person} ..." answer,
+   built only after a fresh three-judge CuratorKIT acceptance test on one blind sheet: the 15 new answers, the 22
+   original rejections as hidden controls and about 20 passing answers; go only if all 15 pass at 2 of 3 and at
+   least 18 of the 22 controls are rejected (a failed control voids the sheet). Then steps 2 to 4. A second failure
+   ends the track.
+6. **Deadline**: no training or scoring starts after Monday, November 9, 12:00; if C1 or C2 has not finished the whole
+   gate by then, v6 stands. The write-up comes first if GPU time and it compete.
+7. Write-up: CuratorKIT is a data-quality audit and acceptance test on the training targets, with Claude verdicts that
+   are saved and replay to the same result; not an independent check of the model, not a Cohere model, not a training
+   stage; no claim that the faults cause the slips; every candidate-seed counted.
