@@ -115,6 +115,7 @@ carry their own provenance (command, git commit, package versions).
 | R-100 | An outside check on LoCoMo after the freeze, agreed by the panel before any data is downloaded |
 | R-101 | Fix C2 removes the slip at both seeds but its hard_dev recall is below v6's (149 vs 157); the second failure ends the track and v6 stands |
 | R-102 | v6's messy-chat battery: corrections cost 187 of 192; Kevin amends R-099 item 6 before any arm exists; held-out correction form and every threshold frozen before the baseline |
+| R-103 | Kevin's decision: train in steps on top of a fix that failed, instead of restarting from v6; stepping stones and their names; the held-out corrections baseline |
 
 ---
 
@@ -3662,3 +3663,59 @@ and 91 to 93 and gains on the held-out phone form by at least 8 of 192 (probe) o
 9. **Write-up**: the amendment, its date and reason; the held-out wordings from a blind agent, the form from the
    builder after the battery; corrections, phone typing and asked-before reported as measured, base beside them,
    whatever the arm does.
+
+## R-103 · 2026-11-06 · SPRINT · Two-stage training: build on a failed fix instead of restarting from v6
+
+**When.** Friday, November 6, about 18:10, while 6.1 (below) was training and before any of its results existed.
+
+**Who decided.** Kevin, in three messages:
+
+- "train v6 up like you've been doing apply the fix to make it v7 and train v7 on what's fucked up to get a working
+  v7.1 as the final copy instead of 1 step make it 2 steps"
+- "i'm saying "pass it" temporarily then train the passed model instead of retraining the one that just failed"
+- "lets call it 6.1 as the tstepping stone and 6.11 if it's a second stepping stone 6.2 if it's a new stepping stone
+  .21 if the new stepping stone with a second added stepping stone"
+
+**The decision.** A fix that fails a gate is no longer thrown away. It is kept as a stepping stone, and the next step
+trains on top of it, from its saved adapter, on new rows aimed at what it broke. A stepping stone is not a candidate:
+it is not gated and is never shipped. Only the final copy runs the full registered gate, unchanged: R-086's gate at
+seeds 82 and 83, R-094's slip gate, R-097's stop rule and R-076's rule at fresh seeds, plus R-102's corrections measure
+for a copy that carries the corrections fix.
+
+**Why.** Every fix since v6 restarted from v6, so a fix that improved one thing and broke another lost both. Fix C2
+removed the who-is-who slip at both seeds (0 of 96, against v6's 3 and 4) but fell below v6's `hard_dev` recall, and
+was discarded with its gain (R-101); C1 missed by one recall answer (R-098); fix A by one judged line (R-095). Building
+on the stone keeps what it fixed and spends the next step only on what it broke. Training in stages is ordinary
+practice; what keeps it honest here is that the gates do not move and only the final copy is judged by them.
+
+**Names.** A tree off v6; each digit after the point is one training step:
+
+| Name | Meaning |
+|---|---|
+| 6.1 | v6 plus a first stepping stone |
+| 6.11 | 6.1 trained further, a second stone on top of 6.1 |
+| 6.2 | a different first stone, also from v6 |
+| 6.21 | 6.2 trained further |
+
+6.1 is the corrections arm (R-102), internal name `fix17cr`. Internal names (`fixNN`, adapter folders, results files)
+stay as they are; the record gives each stone's tree name beside its internal one. Proposed, not yet ruled: the copy
+that passes the full gate ships as v7.
+
+**Rules for each step**, so stepping does not turn into training on the tests:
+
+1. A step's rows come from the train pool only, built for the kind of failure the stone shows, never from the probe or
+   `hard_dev` questions it got wrong.
+2. Each step's design goes to an adversarial panel and into this record before it trains.
+3. A child trains from its parent's adapter at the same seed (6.11 at seed 82 starts from 6.1's seed-82 adapter), so
+   each seed is its own chain; training scripts gain an option to start from a saved adapter.
+4. Every stone's seeds are counted as development candidates; the confirmation seeds (91 to 93) stay unused until the
+   final copy.
+5. The clock is unchanged: nothing starts after Monday, November 9, 12:00.
+
+**Also recorded: R-102's baseline and one order slip.** `corrected_heldout`, older and confirm, of 96 a seed: v6 1 and 0
+on the probe at seeds 82 and 83 (1 of 192), 5 and 0 on `hard_dev` (5 of 192); base 9 (probe) and 8 (`hard_dev`). So
+6.1 needs at least 49 of 192 on the probe and 37 of 192 on `hard_dev` over 82 and 83 (R-102 item 5). Base on the other
+messy forms (seed 73157): plain corrections 19 (probe) and 7 (`hard_dev`), v6 at 82 5 and 10; phone typing recall 32
+and 20 (plain 30 and 20), v6 at 82 88 and 58. R-102 said the baseline would be scored before any arm row was built;
+the rows were built and committed first (`scripts/records/build_r102.py`, commit c7cdecc), then the baseline was
+scored. The rows were fixed before the baseline existed, so it could not shape them; the order is disclosed.
