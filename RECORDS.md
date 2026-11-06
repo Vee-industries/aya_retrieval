@@ -107,6 +107,7 @@ carry their own provenance (command, git commit, package versions).
 | R-092 | 17m passes R-086's whole gate, the first candidate to; fix 20 fails; 17m goes to confirmation at 85 to 87, seed 82 named to ship |
 | R-093 | 17m passes R-076's rule at fresh seeds 85 to 87 under all three judges: it replaces v5 as v6, seed 82 |
 | R-094 | The who-is-who slip: measured, its source found, a gate registered and a fix agreed by the panel before any run; Kevin's ship ruling |
+| R-095 | Fix A (fix17w) clears the slip gate and every count but fails R-086's judged Sheet B by one line under judge 1; fix B queued |
 
 ---
 
@@ -3260,3 +3261,53 @@ only not below v6's.
    and the reserve allows; never stacked with A.
 6. v6's asked-before stress tests run now (R-088's reserve trigger depends on them); its other stress tests wait until
    this track is decided.
+
+## R-095 · 2026-11-06 · SPRINT · Fix A clears the slip gate but fails R-086's judged Sheet B by one line; fix B next
+
+**Diagnostic** (R-094 step 1): 17m's epoch-2 adapters, scoring only. Seed 87: probe slip 0 (17m at 3 epochs: 14), but
+`hard_dev` recall 63 (78). Seed 84: probe slip 9 (1), probe recall 82 (96), `hard_dev` recall 38 (78). The saved
+epoch-2 adapter is mid-schedule, its recall well short, and its slip count does not fall consistently: stopping early
+is not the lever.
+
+**v6's asked-before tests** (R-088's reserve trigger): 17m seed 82 under `--asked-before`, probe `in_view` 41 of 48,
+`hard_dev` 36. The trigger (below 41) does not fire.
+
+**Fix A, fix17w** (17m's recipe on R-094's set with the 27 slip-shaped answers rewritten), seeds 82 and 83:
+
+| Item | fix17w | 17m (v6) | Needed |
+|---|---|---|---|
+| probe 51203 recall, `statement` (82) | 96, 47 | 95, 48 | 94, 47 |
+| `hard_dev` `never_told`, false retrieval (82) | 47, 6 | 48, 1 | 44, at most 6 |
+| `hard_dev` recall, 82 and 83 | 159 | 157 | 145, and not below v6 |
+| probe 73157 recall, 82 and 83 | 192 | 192 | 189, and not below v6 |
+| probe slips, 82 / 83 | 2 / 1 | 3 / 4 | at most 5 each |
+| `hard_dev` slips, 82 / 83 | 0 / 0 | 0 / 3 | at most 3 each |
+
+Every count and the slip gate pass. At seed 83, fix17w searched on six `hard_dev` chat lines (`statement` 42; 17m 46).
+
+**Judged** (`results/coherence/R-095/`, shuffle seeds 90523 to 90526; three fresh Sonnet judges, own folders,
+transcripts checked; judge 1 decides):
+
+| Sheet | Judge 1: base, fix17w | Judge 2 | Judge 3 |
+|---|---|---|---|
+| Probe Sheet B `statement` | 45, 48 | 46, 48 | 45, 47 |
+| Probe Sheet B `in_view` | **34, 33** | 36, 38 | 36, 39 |
+| `hard_dev` Sheet B `statement` | 42, 47 | 45, 47 | 43, 47 |
+| `hard_dev` Sheet B `in_view` | 37, 41 | 41, 45 | 39, 43 |
+| Check set, seed 82 | 45, 46 | 44, 46 | 43, 47 |
+| Check set, seed 83 | 45, 45 | 44, 46 | 43, 44 |
+
+**fix17w fails R-086's gate by one line**: probe Sheet B `in_view` 33 against base's 34 under judge 1; judges 2 and 3
+would pass it. Eleven of the 15 lines judge 1 marked down are ones two or three judges marked down, most of them
+R-063's "forgetting read as wordplay" ("drawing a blank on my tutor's tattoo" got "That's a unique way to express your
+thoughts."), which every model shows. On the counts, fix17w answers 39 facts in view at seed 82 (17m 41) and 46 at 83
+(17m 45). Under R-094's plan the track stops: seeds 88 to 90 are taken off the backlog; seed 87, already training,
+finishes and is reported (whether a clean set removes the tail).
+
+**Fix B, fix17mb** (R-094 step 5): 17m's rows, `--loss-on chat_answer_decision`. Chat rows keep only the decision, as
+17m; the 140 `older` rows whose answer is base's own reply (not the scripted "Your {relation} {person} ...") keep the
+search call's full loss, and on the answer only its first token and end-of-turn marker
+(`loss_masks.answer_decision_labels`). 290 rows masked: 150 chat and 140 answers. Same gate and slip gate, seeds 82 and
+83, then 87 reported, then 88 to 90 if it passes.
+
+**Candidates scored since R-093:** 17m epoch-2 at 87 and 84 (scoring only); fix17w at 82 and 83.
