@@ -298,6 +298,7 @@ over all 240 conversations.
 | Fix A: 17m with its 27 slip-shaped fact answers rewritten as "Your <relation> <name>" | 96 (95) | 44 | 239 | 4 / 3 | 1.00 | cleared the slip gate and every count; failed a judged sheet by one line (R-095) |
 | Fix B: 17m with base-reply fact answers trained only on their first token | 95 (95) | 43 | 240 | 5 / 3 | 0.73 | dropped: hard_dev slips 4 and 6 against at most 3 (R-095) |
 | Fix C1: fix A's set without the 15 answers CuratorKIT's gate rejected | 96 (95) | 43 | 240 | 4 / 3 | 1.00 | slips 1 and 1 of 96, but probe recall at seeds 82 and 83 one below v6's (191, 192); stopped before judging (R-098) |
+| Fix C2: the same 15 answers scripted, accepted by CuratorKIT's gate first | 96 (95) | 45 | 239 | 2 / 3 | 1.00 | slips 0 and 0 of 96, but hard_dev recall at seeds 82 and 83 below v6's (149, 157); stopped before judging; the track ends and v6 stands (R-101) |
 | Fix 20: fix 17b plus one fact-word chat line and one such question a fact type | 93 (94) | 44 | 230 | 14 / 7 | 0.19 | dropped at the screen gate: nine chat lines searched, hard_dev recall 125 of 145 (R-092) |
 | 17m: fix 17b with the loss on chat replies only on the decision and the end marker | 95 (94) | 45 | 240 | 2 / 7 | 0.18 | passed the whole screen gate at two seeds, counts and judged sheets (R-092) |
 
@@ -540,8 +541,10 @@ came from something in the training data.
   this and other faults (R-094, R-096). Rewriting the 27 removed it at every seed tried, including
   the bad one (2, 1 and 0 of 96), but cost one judged line on facts in view (R-095). Dropping the
   15 answers the gate rejected kept the slip down (1 and 1 of 96) and facts in view up at one seed,
-  but fell one recall answer short of v6 over two seeds and stopped (R-098). A version with those
-  15 answers scripted, accepted by the gate first, is being screened (R-098).
+  but fell one recall answer short of v6 over two seeds and stopped (R-098). With those 15 answers
+  scripted instead, accepted by the gate first, the slip was 0 of 96 at both seeds, but `hard_dev`
+  recall fell below v6's (149 against 157 over two seeds), so it stopped too. The registered plan
+  allowed two tries; v6 ships with this failure (R-101).
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test

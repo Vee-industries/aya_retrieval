@@ -447,8 +447,10 @@ came from something in the training data.
   this and other faults (R-094, R-096). Rewriting the 27 removed it at every seed tried, including
   the bad one (2, 1 and 0 of 96), but cost one judged line on facts in view (R-095). Dropping the
   15 answers the gate rejected kept the slip down (1 and 1 of 96) and facts in view up at one seed,
-  but fell one recall answer short of v6 over two seeds and stopped (R-098). A version with those
-  15 answers scripted, accepted by the gate first, is being screened (R-098).
+  but fell one recall answer short of v6 over two seeds and stopped (R-098). With those 15 answers
+  scripted instead, accepted by the gate first, the slip was 0 of 96 at both seeds, but `hard_dev`
+  recall fell below v6's (149 against 157 over two seeds), so it stopped too. The registered plan
+  allowed two tries; v6 ships with this failure (R-101).
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test

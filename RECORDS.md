@@ -113,6 +113,7 @@ carry their own provenance (command, git commit, package versions).
 | R-098 | Fix C1 stops one probe recall answer short of v6; fix C2's 15 scripted answers pass CuratorKIT's acceptance test (15 of 15, controls 22 of 22) and go to seeds 82 and 83 |
 | R-099 | Messy chats: the panel's plan before any run (measure first, a held-out phone-typing form, a registered trigger); the headline-number ruling |
 | R-100 | An outside check on LoCoMo after the freeze, agreed by the panel before any data is downloaded |
+| R-101 | Fix C2 removes the slip at both seeds but its hard_dev recall is below v6's (149 vs 157); the second failure ends the track and v6 stands |
 
 ---
 
@@ -3560,3 +3561,33 @@ clarity; it accepted a capped version.
    questions", per category, with intervals. Forbidden: robustness to real chats, a ranking against published
    systems (their scores only as context, "not comparable"), anything about the sealed result, any claim that the
    freeze was validated.
+
+## R-101 · 2026-11-06 · SPRINT · Fix C2 stops on hard_dev recall; the track ends and v6 stands
+
+**Fix C2, fix17z** (R-098: fix A's set with the 15 answers C1 dropped given the scripted answer), seeds 82 and 83:
+
+| Item | fix17z | 17m (v6) | Needed |
+|---|---|---|---|
+| probe 51203 recall, `statement` (82) | 96, 48 | 95, 48 | 94, 47 |
+| `hard_dev` `never_told`, false retrieval (82) | 48, 1 | 48, 1 | 44, at most 6 |
+| `hard_dev` recall, 82 and 83 | 77 + 72 = **149** | 74 + 83 = **157** | 145, and **not below v6** |
+| probe 73157 recall, 82 and 83 | 96 + 96 = 192 | 96 + 96 = 192 | 189, and not below v6 |
+| probe slips, 82 / 83 | **0 / 0** | 3 / 4 | at most 5 each |
+| `hard_dev` slips, 82 / 83 | 0 / 0 | 0 / 3 | at most 3 each |
+| probe `in_view`, 82 / 83 (reported) | 44 / 41 | 41 / 45 | 41 at 82 (R-097's stop rule) |
+
+Every R-086 count passes (`scripts/records/gate_r086.py fix17z`). The slip gate's item "probe and `hard_dev` recall not
+below v6's at the same seeds" fails on `hard_dev`, 149 against 157, read pooled over 82 and 83 as in R-095 and R-098.
+Under R-097's stop rule C2 is not judged, and both seeds are counted (development candidates).
+
+**The track ends** (R-097 step 5: "A second failure ends the track"). v6 (17m seed 82) stands as the shipped model and
+its who-is-who slip stays a reported failure mode. Not run: C2's judged sheets and seeds 88 to 90. The fixes' seeds
+in this track, all counted: fix A 82, 83, 87; fix B 82, 83; C1 82, 83; C2 82, 83.
+
+**What the track shows**, reported and not used to choose anything: the slip count at the four C1 and C2 seeds was 1,
+1, 0 and 0 of 96 on the probe (v6 3 and 4 at the same seeds), and 0 on `hard_dev` at all four; recall on `hard_dev`
+moved within R-091's measured seed spread (65 to 83) in both directions. No claim is made that the faulty answers
+cause the slips (R-097 item 7).
+
+**Next.** v6's messy-chat battery (R-099) is running; the messy arm, if triggered, sits on v6's set. The GPU time kept
+for C2's seeds 88 to 90 is free.

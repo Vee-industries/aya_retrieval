@@ -321,6 +321,13 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "stopped before judging (R-098)",
     ),
     (
+        "screen_fix17z_82",
+        "screen_fix17m_82",
+        "Fix C2: the same 15 answers scripted, accepted by CuratorKIT's gate first",
+        "slips 0 and 0 of 96, but hard_dev recall at seeds 82 and 83 below v6's (149, 157); "
+        "stopped before judging; the track ends and v6 stands (R-101)",
+    ),
+    (
         "screen_fix20_82",
         "screen_fix17b_82",
         "Fix 20: fix 17b plus one fact-word chat line and one such question a fact type",
