@@ -112,6 +112,7 @@ carry their own provenance (command, git commit, package versions).
 | R-097 | Fix C agreed by the panel before it was built: fix A's set without CuratorKIT's rejections (C1), scripted fallback (C2), a Monday deadline |
 | R-098 | Fix C1 stops one probe recall answer short of v6; fix C2's 15 scripted answers pass CuratorKIT's acceptance test (15 of 15, controls 22 of 22) and go to seeds 82 and 83 |
 | R-099 | Messy chats: the panel's plan before any run (measure first, a held-out phone-typing form, a registered trigger); the headline-number ruling |
+| R-100 | An outside check on LoCoMo after the freeze, agreed by the panel before any data is downloaded |
 
 ---
 
@@ -3506,3 +3507,56 @@ merged plan with four changes, all taken.
 8. **Disclose:** messy rows made by script from TRAIN and `stress.py`; those transforms are also development tests;
    the held-out form was written by the builder; the sealed result is still template-built; no claim of robustness
    to real chats; every candidate-seed counted.
+
+## R-100 · 2026-11-06 · SPRINT · An outside check on LoCoMo, agreed before any data is downloaded
+
+**Request.** Kevin: "Yes, panel it", to score the frozen model and base on LoCoMo's memory questions (Maharana et al.,
+ACL 2024, arXiv 2402.17753) after the freeze. Every pool of ours, sealed ones included, is built from our templates;
+a public set built by someone else is the outside check. Kevin also: "make sure everything makes it into the write
+up".
+
+**What LoCoMo is** (from its repo and paper, read before the panel; the data not yet downloaded): `data/locomo10.json`,
+10 long two-speaker conversations (paper averages for its 50: 305 turns, 19 sessions, 9,209 tokens), made by
+gpt-3.5-turbo agents and edited by people; questions in the third person with gold answers, evidence turn ids and a
+category 1 to 5 (by its scorer's code: multi-hop, temporal, inference, single-hop, adversarial with no answer); token
+F1 after normalisation; data licence CC BY-NC 4.0.
+
+**Panel** (four lanes: adaptation, validity and claims, measurement and schedule, against; two rounds; consensus;
+transcripts checked). Against argued a 3B-class model trained for first-person template recall will sit near the
+paper's weakest baselines on third-person multi-hop and temporal questions, and that a confusing number costs
+clarity; it accepted a capped version.
+
+**Agreed plan.**
+1. **An outside check, never a decision.** Run on the frozen model; no tuning, prompt edit, candidate, seed or go for
+   the sealed run rests on it. Losses and nulls reported in full.
+2. **Data.** Kevin downloads `locomo10.json`; its sha256 is registered. The data, its questions, answers and turns,
+   and per-item outputs quoting them stay local, out of git. Committed: scripts, the hash, the registration, item ids,
+   aggregate numbers, and a NOTICE line with attribution and the licence.
+3. **Adaptation**, every item a listed deviation: consecutive turns paired as (user, assistant) within each session,
+   speaker names kept in the text; the last three exchanges in view; one passage per older exchange indexed, one
+   index per conversation, top 5; each exchange prefixed with its session date; images as their caption; questions
+   verbatim, third person, as the last user message; system prompts unchanged; a check that no exchange is split by
+   the index's chunk size, counted in the index's own unit.
+4. **Arms**: base with the tool, the frozen model with the tool, base without the tool.
+5. **Sample**, drawn by a registered seed from a hash of the question text before any scoring: 300 questions from
+   categories 1 to 4 in proportion, and 100 from category 5. Budget about 1.5 GPU hours.
+6. **Scoring.** Primary: LoCoMo's token F1 with its own normaliser and category rules, per category and pooled over 1
+   to 4. Category 5 two ways: LoCoMo's refusal check, and a widened list written now from the training pool's own
+   unknown-reply wording (not from any LoCoMo output) together with "the reply does not contain the adversarial
+   answer's tokens". Secondary, mechanical: gold-token recall, evidence recall at 5, search rate. No judges.
+7. **Hypotheses.** H1: the frozen model with the tool above base with the tool on pooled F1 (categories 1 to 4); a gain
+   counts only if the lower bound of a paired bootstrap 95% interval clustered by conversation (10,000 resamples; 10
+   clusters, stated) is above 0, a sign test beside it. H2: the frozen model's category 5 rate on the widened list not
+   more than 5 points below base's, read with its interval, not a pass or fail gate. Results as relative increase
+   over base. **A floor result**, both arms near the paper's weakest baselines, **is uninformative**, stated now.
+8. **Timing.** Converter, scorer and analysis (bootstrap, sign test, tables): CPU only, Nov 7 to 9, the scorer tested
+   on gold-as-answer and on known-wrong answers. A format dry run of 10 base items, ids registered and excluded from
+   the sample, read for format only: no score computed or printed. The registration is committed before the first
+   scored item; not committed by the end of Nov 9, the check is dropped. The GPU run comes after the sealed final run
+   and never delays it; not finished by 08:00 on Nov 12, the write-up says "not completed" and no partial arm is
+   reported.
+9. **Write-up**: its own section, "outside check, not the registered test", never in the sealed table. Allowed: "on an
+   outside chat set built differently from our templates, the frozen model scored X against base's Y on the same
+   questions", per category, with intervals. Forbidden: robustness to real chats, a ranking against published
+   systems (their scores only as context, "not comparable"), anything about the sealed result, any claim that the
+   freeze was validated.
