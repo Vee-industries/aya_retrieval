@@ -31,7 +31,12 @@ from transformers import AutoTokenizer, TrainerCallback
 from aya_retrieval.conversations import EXCHANGES_IN_VIEW
 from aya_retrieval.demonstrations import as_event_log, kind_balanced_subset
 from aya_retrieval.lean_loss import use_lean_loss
-from aya_retrieval.loss_masks import decision_labels, demonstrated_labels, without_history_replies
+from aya_retrieval.loss_masks import (
+    answer_decision_labels,
+    decision_labels,
+    demonstrated_labels,
+    without_history_replies,
+)
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.tool_prompt import system_prompt_with_tools
@@ -50,6 +55,9 @@ LOSS_ON = {
     "no_history_replies": without_history_replies,
     # 17m (R-088): demonstrated turns, except plain-chat rows, which keep only the decision.
     "chat_decision": demonstrated_labels,
+    # Fix B (R-095): 17m, and the found-fact answers that are base's own replies keep only the
+    # decision too; the search before them keeps its full loss.
+    "chat_answer_decision": demonstrated_labels,
 }
 # The system turn, the exchanges in view and the friend's message come before what a row teaches.
 FIRST_DEMONSTRATED = 1 + 2 * EXCHANGES_IN_VIEW + 1
@@ -68,14 +76,14 @@ class SystemPromptFactory:
         system: str,
         default_factory: _DefaultSFTTrainerFactory,
         loss_on: str = "all",
-        decision_keys: set[tuple[str, str]] | None = None,
+        decision_keys: dict[tuple[str, str], object] | None = None,
         decision_rows: int = 0,
         callbacks: list | None = None,
     ) -> None:
         self.system = system
         self.default_factory = default_factory
         self.labels = LOSS_ON[loss_on]
-        self.decision_keys = decision_keys or set()
+        self.decision_keys = decision_keys or {}
         self.decision_rows = decision_rows
         self.callbacks = callbacks or []
 
@@ -89,12 +97,11 @@ class SystemPromptFactory:
                 messages = row["messages"]
                 if messages[FIRST_DEMONSTRATED - 1]["role"] != "user":
                     raise ValueError("a row does not have the expected turns in view")
-                labels = self.labels
-                if row_key(messages[1:]) in self.decision_keys:
-                    labels, decided = decision_labels, decided + 1
+                labels = self.decision_keys.get(row_key(messages[1:]), self.labels)
+                decided += labels is not self.labels
                 row["input_ids"], row["labels"] = labels(tokenizer, messages, FIRST_DEMONSTRATED)
             if decided != self.decision_rows:
-                raise ValueError(f"{decided} rows matched {self.decision_rows} chat rows")
+                raise ValueError(f"{decided} rows matched {self.decision_rows} masked rows")
         trainer = self.default_factory(model=model, train_dataset=rows, **kwargs)
         for callback in self.callbacks:
             trainer.add_callback(callback)
@@ -179,12 +186,20 @@ def main() -> None:
         rows = kind_balanced_subset(rows, args.fraction, args.seed)
     logs = [as_event_log(row["turns"]) for row in rows]
     decision_keys, decision_rows = None, 0
-    if args.loss_on == "chat_decision":
-        chat = [row_key(row["turns"]) for row in rows if row["kind"] == "statement"]
-        decision_keys, decision_rows = set(chat), len(chat)
-        others = {row_key(row["turns"]) for row in rows if row["kind"] != "statement"}
-        if decision_keys & others:
-            raise ValueError("a plain-chat row has the same message and reply as another kind")
+    if args.loss_on in ("chat_decision", "chat_answer_decision"):
+        masked = {
+            row_key(row["turns"]): decision_labels for row in rows if row["kind"] == "statement"
+        }
+        if args.loss_on == "chat_answer_decision":
+            # Scripted found-fact answers open "Your {relation} {person}"; the rest are base's own.
+            for row in rows:
+                if row["kind"] == "older" and not row["turns"][-1]["content"].startswith("Your "):
+                    masked[row_key(row["turns"])] = answer_decision_labels
+        counted = [row for row in rows if row_key(row["turns"]) in masked]
+        others = {row_key(row["turns"]) for row in rows if row not in counted}
+        if set(masked) & others:
+            raise ValueError("a masked row has the same message and reply as an unmasked one")
+        decision_keys, decision_rows = masked, len(counted)
         report["decision_rows"] = decision_rows
     report["rows"] = len(logs)
 

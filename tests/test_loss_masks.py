@@ -4,6 +4,7 @@ import pytest
 
 from aya_retrieval.loss_masks import (
     IGNORE,
+    answer_decision_labels,
     decision_labels,
     demonstrated_labels,
     without_history_replies,
@@ -74,3 +75,13 @@ def test_a_decision_mask_keeps_only_the_first_token_and_the_end_marker(tokenizer
     ids, labels = decision_labels(tokenizer, chat, FIRST)
     kept = [tokenizer.decode([i]) for i, label in zip(ids, labels, strict=True) if label != IGNORE]
     assert kept == ["Ha", "<|END_RESPONSE|>", "<|END_OF_TURN_TOKEN|>"]
+
+
+def test_an_answer_decision_mask_teaches_the_search_in_full_and_the_reply_only_its_decision(
+    tokenizer,
+):
+    ids, labels = answer_decision_labels(tokenizer, MESSAGES, FIRST)
+    text = labelled_text(tokenizer, ids, labels)
+    assert CALL in text and "Ines plays the cello." not in text
+    kept = [tokenizer.decode([i]) for i, label in zip(ids, labels, strict=True) if label != IGNORE]
+    assert kept[-3:] == ["In", "<|END_RESPONSE|>", "<|END_OF_TURN_TOKEN|>"]

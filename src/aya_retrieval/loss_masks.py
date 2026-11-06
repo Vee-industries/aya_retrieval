@@ -89,3 +89,22 @@ def decision_labels(tokenizer, messages: list[dict], first: int) -> tuple[list[i
         labels[start] = ids[start]
         labels[end - marker : end] = ids[end - marker : end]
     return ids, labels
+
+
+def answer_decision_labels(
+    tokenizer, messages: list[dict], first: int
+) -> tuple[list[int], list[int]]:
+    """Return the row's token ids and labels, with the demonstrated turns' loss, except that the
+    last turn, the reply to the search result, keeps loss only on its first token and its
+    end-of-turn marker (fix B, R-095): the search is taught in full and the reply's words stay the
+    model's own.
+
+    Raises:
+        ValueError: As ``demonstrated_labels``.
+    """
+    ids, labels = demonstrated_labels(tokenizer, messages, first)
+    _, decided = decision_labels(tokenizer, messages, first)
+    spans = list(_assistant_spans(tokenizer, messages, ids))
+    _, start, end = spans[-1]
+    labels[start:end] = decided[start:end]
+    return ids, labels
