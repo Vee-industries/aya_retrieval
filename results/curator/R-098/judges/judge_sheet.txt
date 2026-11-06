@@ -1,0 +1,715 @@
+You are an expert fact-checker. Evaluate whether the given answer is fully supported by the source text.
+Each ITEM below gives the source text, the question and the answer. Evaluate each item as these instructions say:
+Evaluate the answer on these dimensions:
+1. Factual accuracy — Are all specific claims (dates, names, numbers, outcomes) directly supported by the source text?
+2. Source grounding — Does every factual claim trace back to the source? Claims from general world knowledge that are NOT in the source must be penalised even if they sound plausible.
+3. No contradiction — Does the answer avoid contradicting any fact stated in the source?
+4. No drift — The answer must not substitute source-specific facts with different facts from outside the source.
+
+IMPORTANT: If the answer contains facts, numbers, names, or claims that cannot be verified from the source text — even if they are generally plausible — treat those as unsupported and lower the score accordingly. An answer that ignores the source and relies on external knowledge should score below 0.5.
+
+Respond in JSON format ONLY:
+{
+  "grounding_score": 0.XX,
+  "supported_claims": ["..."],
+  "unsupported_claims": ["..."],
+  "verdict": "grounded | partially_grounded | hallucinated"
+}
+
+Score guidelines:
+  1.0 = all claims directly supported by the source text
+  0.7-0.9 = mostly grounded, only minor phrasing not verbatim in source
+  0.4-0.6 = some claims supported, others from external knowledge
+  0.0-0.3 = answer relies on external knowledge or contradicts the source
+
+/no_think
+Write one JSON object for the whole sheet, item number to that item's JSON verdict.
+
+ITEM 0
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0005::0 doc_id=exchange_0005 score=7.421]
+User: Dana, the aunt i keep talking about, broke a forearm skiing
+Assistant: How are they finding it?
+
+[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=4.579]
+User: Tomas, the coworker i keep talking about, broke a kneecap skiing
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: what did Dana break skiing
+Answer: Dana broke a forearm skiing.
+
+ITEM 1
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0010::0 doc_id=exchange_0010 score=4.954]
+User: my cousin, Nell, writes mystery novels at night
+Assistant: How are they finding it?
+
+[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=1.948]
+User: my sister, Omar, writes romance novels at night
+Assistant: Oh, that's nice to hear.
+
+[chunk_id=exchange_0008::0 doc_id=exchange_0008 score=1.906]
+User: my roommate, Dana, writes science fiction novels at night
+Assistant: Oh, that's nice to hear.
+Use this result to answer the original question.
+Question: have i told you what my cousin writes
+Answer: Your cousin Nell writes mystery novels.
+
+ITEM 2
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0004::0 doc_id=exchange_0004 score=5.003]
+User: my roommate Marc adopted a dog named Biscuit last month
+Assistant: Good to know.
+
+[chunk_id=exchange_0023::0 doc_id=exchange_0023 score=2.011]
+User: my aunt Greta adopted a dog named Waffles last month
+Assistant: Good to know.
+
+[chunk_id=exchange_0005::0 doc_id=exchange_0005 score=1.886]
+User: my sister Dana adopted a dog named Juno last month
+Assistant: Oh, that's nice to hear.
+Use this result to answer the original question.
+Question: my roommate's dog's name just won't come to me
+Answer: Marc's roommate adopted a dog named Biscuit last month.
+
+ITEM 3
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0019::0 doc_id=exchange_0019 score=2.916]
+User: my cousin Omar just started work as a surveyor
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: what does my cousin do for a living these days
+Answer: It sounds like Omar is finding his new job as a surveyor to be a positive experience.
+
+ITEM 4
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0018::0 doc_id=exchange_0018 score=8.862]
+User: news from my uncle Ivan: they opened a florist shop
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: what kind of shop did Ivan open
+Answer: Your uncle Ivan opened a florist shop.
+
+ITEM 5
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0010::0 doc_id=exchange_0010 score=5.330]
+User: my brother Marc adopted a dog named Clover last month
+Assistant: Thanks for telling me.
+
+[chunk_id=exchange_0016::0 doc_id=exchange_0016 score=2.378]
+User: my coworker Tomas adopted a dog named Pepper last month
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: what do they call that pup over at my brother's place
+Answer: Marc's brother adopted a dog named Clover.
+
+ITEM 6
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0009::0 doc_id=exchange_0009 score=5.517]
+User: my brother, Ivan, writes western novels at night
+Assistant: Thanks for telling me.
+
+[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=2.407]
+User: my coworker, Marc, writes romance novels at night
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: have i told you what my brother writes
+Answer: Your brother Ivan writes western novels.
+
+ITEM 7
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0003::0 doc_id=exchange_0003 score=6.578]
+User: Marc is my cousin, and they rent on the seventh floor
+Assistant: That sounds exciting for them.
+
+[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=3.772]
+User: Dana is my aunt, and they rent on the twelfth floor
+Assistant: How are they finding it?
+
+[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=3.695]
+User: Omar is my neighbour, and they rent on the twentieth floor
+Assistant: Oh, that's nice to hear.
+Use this result to answer the original question.
+Question: have i said what floor my cousin lives on
+Answer: Your cousin Marc rents on the seventh floor.
+
+ITEM 8
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0012::0 doc_id=exchange_0012 score=7.581]
+User: you'll laugh, my uncle Nell won a kayak in a raffle
+Assistant: Good to know.
+
+[chunk_id=exchange_0025::0 doc_id=exchange_0025 score=4.583]
+User: you'll laugh, my cousin Yusuf won a telescope in a raffle
+Assistant: That's a change.
+Use this result to answer the original question.
+Question: what did my uncle get lucky with
+Answer: Your uncle Nell won a kayak in a raffle.
+
+ITEM 9
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0022::0 doc_id=exchange_0022 score=5.699]
+User: news from my brother Yusuf: they got tickets to Oktoberfest
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: what is my brother going to this summer
+Answer: Your brother Yusuf got tickets to Oktoberfest.
+
+ITEM 10
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0022::0 doc_id=exchange_0022 score=5.699]
+User: news from my brother Yusuf: they got tickets to Oktoberfest
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: what is my brother going to this summer
+Answer: My brother Yusuf is going to Oktoberfest and is having a great time!
+
+ITEM 11
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0021::0 doc_id=exchange_0021 score=5.585]
+User: Dana is my coworker and just got a kitten called Tofu
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: what did Dana call the kitten
+Answer: Your coworker Dana called the kitten Tofu.
+
+ITEM 12
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0010::0 doc_id=exchange_0010 score=6.915]
+User: Omar, the aunt i keep talking about, broke a forearm skiing
+Assistant: Good to know.
+
+[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=3.802]
+User: Tomas, the uncle i keep talking about, broke a thumb skiing
+Assistant: How are they finding it?
+
+[chunk_id=exchange_0013::0 doc_id=exchange_0013 score=3.802]
+User: Yusuf, the cousin i keep talking about, broke a pelvis skiing
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: my aunt hurt something skiing and i've lost what
+Answer: It seems like Omar's aunt broke her forearm while skiing.
+
+ITEM 13
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0021::0 doc_id=exchange_0021 score=5.585]
+User: Dana is my coworker and just got a kitten called Tofu
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: what did Dana call the kitten
+Answer: Fun to know! Dana's coworker is happy with their new kitten, Tofu.
+
+ITEM 14
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0015::0 doc_id=exchange_0015 score=8.769]
+User: news from my neighbour Tomas: they opened a florist shop
+Assistant: That's a change.
+Use this result to answer the original question.
+Question: i was going to send people to my neighbour's shop and lost what kind it is
+Answer: Your neighbour Tomas opened a florist shop.
+
+ITEM 15
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0013::0 doc_id=exchange_0013 score=2.838]
+User: you know my uncle Marc? they live on Cedar Court now
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: my uncle's new street has gone right out of my head
+Answer: Your uncle Marc lives on Cedar Court.
+
+ITEM 16
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0008::0 doc_id=exchange_0008 score=4.669]
+User: my brother Nell bought a grey Golf from an auction
+Assistant: Oh, that's nice to hear.
+
+[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=2.002]
+User: my aunt Tomas bought a white Forester from an auction
+Assistant: Good to know.
+
+[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=1.917]
+User: my cousin Lena bought a blue Tacoma from an auction
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: what car did Nell buy at the auction
+Answer: Nell bought a grey Golf from an auction.
+
+ITEM 17
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0005::0 doc_id=exchange_0005 score=7.369]
+User: Lena, the coworker i keep talking about, broke a pelvis skiing
+Assistant: How are they finding it?
+
+[chunk_id=exchange_0019::0 doc_id=exchange_0019 score=4.547]
+User: Greta, the aunt i keep talking about, broke a jaw skiing
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: i should ask how my coworker is healing, what was it they broke
+Answer: Lena, your coworker is likely feeling a mix of relief and frustration, as they navigate the recovery process after a pelvis injury. They might be grateful for the support of their loved ones, like Greta, who also had a skiing-related injury.
+
+ITEM 18
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0000::0 doc_id=exchange_0000 score=5.917]
+User: Omar is my cousin, and their boat is called Sea Otter
+Assistant: Good to know.
+Use this result to answer the original question.
+Question: what name is painted on my cousin's boat
+Answer: The name painted on Omar's cousin's boat is Sea Otter.
+
+ITEM 19
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0005::0 doc_id=exchange_0005 score=5.899]
+User: my brother Greta adopted a dog named Pepper last month
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: what is the name of the dog Greta adopted
+Answer: Your brother Greta's dog is called Pepper.
+
+ITEM 20
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0023::0 doc_id=exchange_0023 score=5.726]
+User: my neighbour, Tomas, had a baby and named them Arlo
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: what did Tomas name the baby
+Answer: Your neighbour Tomas named the baby Arlo.
+
+ITEM 21
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0017::0 doc_id=exchange_0017 score=8.562]
+User: Yusuf, the aunt i keep talking about, broke a jaw skiing
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: what did Yusuf break skiing
+Answer: Yusuf's aunt broke her jaw while skiing.
+
+ITEM 22
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0013::0 doc_id=exchange_0013 score=4.880]
+User: talked to Marc today, my cousin, now promoted to manager
+Assistant: That's a change.
+
+[chunk_id=exchange_0006::0 doc_id=exchange_0006 score=2.005]
+User: talked to Lena today, my brother, now promoted to director
+Assistant: Good to know.
+
+[chunk_id=exchange_0025::0 doc_id=exchange_0025 score=1.880]
+User: talked to Tomas today, my coworker, now promoted to partner
+Assistant: Oh, that's nice to hear.
+Use this result to answer the original question.
+Question: my cousin got a new title and i've lost track of it
+Answer: My cousin, Marc, has been promoted to manager.
+
+ITEM 23
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0023::0 doc_id=exchange_0023 score=5.726]
+User: my neighbour, Tomas, had a baby and named them Arlo
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: what did Tomas name the baby
+Answer: It sounds like Tomas is having a great time with their new baby, Arlo!
+
+ITEM 24
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0019::0 doc_id=exchange_0019 score=2.916]
+User: my cousin Omar just started work as a surveyor
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: what does my cousin do for a living these days
+Answer: Your cousin Omar works as a surveyor.
+
+ITEM 25
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0017::0 doc_id=exchange_0017 score=4.589]
+User: Lena is my neighbour and just got a kitten called Noodle
+Assistant: Oh, that's nice to hear.
+
+[chunk_id=exchange_0008::0 doc_id=exchange_0008 score=1.965]
+User: Nell is my brother and just got a kitten called Mochi
+Assistant: Good to know.
+
+[chunk_id=exchange_0013::0 doc_id=exchange_0013 score=1.923]
+User: Priya is my roommate and just got a kitten called Sprout
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: what's the name of my neighbour's kitten
+Answer: Lena's neighbor's kitten is named Noodle.
+
+ITEM 26
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0011::0 doc_id=exchange_0011 score=5.190]
+User: Yusuf is my roommate and just got a kitten called Pickle
+Assistant: That's a change.
+
+[chunk_id=exchange_0025::0 doc_id=exchange_0025 score=2.316]
+User: Ivan is my neighbour and just got a kitten called Noodle
+Assistant: That's a change.
+Use this result to answer the original question.
+Question: what's the name of my roommate's kitten
+Answer: Yusuf's roommate, Yusuf, has a kitten named Pickle.
+
+ITEM 27
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0013::0 doc_id=exchange_0013 score=2.838]
+User: you know my uncle Marc? they live on Cedar Court now
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: my uncle's new street has gone right out of my head
+Answer: Marc's new street, Cedar Court, seems to be a source of frustration for him.
+
+ITEM 28
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0014::0 doc_id=exchange_0014 score=5.630]
+User: talked to Omar today, my brother, now promoted to team lead
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: what's my brother's title now
+Answer: That's great news! Your brother has been promoted to team lead.
+
+ITEM 29
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0000::0 doc_id=exchange_0000 score=6.519]
+User: Greta is my sister, and they rent on the fifteenth floor
+Assistant: Oh, that's nice to hear.
+
+[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=3.894]
+User: Tomas is my brother, and they rent on the ninth floor
+Assistant: Thanks for telling me.
+
+[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=3.894]
+User: Ivan is my neighbour, and they rent on the seventh floor
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: have i said what floor my sister lives on
+Answer: Your sister Greta rents on the fifteenth floor.
+
+ITEM 30
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0017::0 doc_id=exchange_0017 score=4.589]
+User: Lena is my neighbour and just got a kitten called Noodle
+Assistant: Oh, that's nice to hear.
+
+[chunk_id=exchange_0008::0 doc_id=exchange_0008 score=1.965]
+User: Nell is my brother and just got a kitten called Mochi
+Assistant: Good to know.
+
+[chunk_id=exchange_0013::0 doc_id=exchange_0013 score=1.923]
+User: Priya is my roommate and just got a kitten called Sprout
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: what's the name of my neighbour's kitten
+Answer: Your neighbour Lena called the kitten Noodle.
+
+ITEM 31
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0003::0 doc_id=exchange_0003 score=5.828]
+User: my sister, Marc, writes science fiction novels at night
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: what does my sister write about
+Answer: Marc's sister writes science fiction novels at night.
+
+ITEM 32
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0001::0 doc_id=exchange_0001 score=4.972]
+User: drove past Yusuf's place, my uncle, it's been painted coral
+Assistant: That sounds exciting for them.
+
+[chunk_id=exchange_0022::0 doc_id=exchange_0022 score=2.174]
+User: drove past Lena's place, my roommate, it's been painted sage green
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: how will i spot my uncle's house from the road
+Answer: That's a fun way to spot your uncle's house from the road. If you see a coral-colored house, that's probably your uncle's place.
+
+ITEM 33
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0024::0 doc_id=exchange_0024 score=2.781]
+User: my cousin Lena just started work as a court reporter
+Assistant: Oh, that's nice to hear.
+Use this result to answer the original question.
+Question: what job did Lena start
+Answer: That's great news! Lena's new job as a court reporter is a fascinating and important role. Court reporters play a crucial part in the legal system, ensuring accurate and reliable documentation of court proceedings.
+
+ITEM 34
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0005::0 doc_id=exchange_0005 score=7.369]
+User: Lena, the coworker i keep talking about, broke a pelvis skiing
+Assistant: How are they finding it?
+
+[chunk_id=exchange_0019::0 doc_id=exchange_0019 score=4.547]
+User: Greta, the aunt i keep talking about, broke a jaw skiing
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: i should ask how my coworker is healing, what was it they broke
+Answer: Your coworker Lena broke a pelvis.
+
+ITEM 35
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0019::0 doc_id=exchange_0019 score=5.165]
+User: my neighbour, Priya, writes fantasy novels at night
+Assistant: Good to know.
+
+[chunk_id=exchange_0010::0 doc_id=exchange_0010 score=2.028]
+User: my cousin, Marc, writes romance novels at night
+Assistant: Thanks for telling me.
+
+[chunk_id=exchange_0013::0 doc_id=exchange_0013 score=1.982]
+User: my aunt, Ivan, writes horror novels at night
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: what does my neighbour write about
+Answer: My neighbour, Priya, writes fantasy novels at night.
+
+ITEM 36
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0015::0 doc_id=exchange_0015 score=7.244]
+User: you'll laugh, my coworker Omar won a telescope in a raffle
+Assistant: That sounds exciting for them.
+
+[chunk_id=exchange_0010::0 doc_id=exchange_0010 score=4.470]
+User: you'll laugh, my cousin Marc won a lawnmower in a raffle
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: i was laughing about my coworker's prize and now it's gone
+Answer: You won't believe it, but Omar's been using his new telescope to explore the night sky, and Marc's been mowing his lawn with a lot more enthusiasm.
+
+ITEM 37
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0013::0 doc_id=exchange_0013 score=6.327]
+User: you know my roommate Tomas? they teach economics at the high school
+Assistant: Oh, that's nice to hear.
+
+[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=3.778]
+User: you know my sister Priya? they teach chemistry at the high school
+Assistant: Thanks for telling me.
+
+[chunk_id=exchange_0011::0 doc_id=exchange_0011 score=3.702]
+User: you know my brother Ivan? they teach physics at the high school
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: did i say what my roommate teaches
+Answer: Your roommate Tomas teaches economics.
+
+ITEM 38
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0002::0 doc_id=exchange_0002 score=7.011]
+User: apparently my uncle Yusuf rides a Yamaha to work
+Assistant: Thanks for telling me.
+
+[chunk_id=exchange_0019::0 doc_id=exchange_0019 score=4.151]
+User: apparently my coworker Omar rides a Triumph to work
+Assistant: Good to know.
+
+[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=1.605]
+User: someone at work brought up the gym today
+Assistant: Fair enough, one thing at a time.
+
+[chunk_id=exchange_0024::0 doc_id=exchange_0024 score=1.571]
+User: someone at work brought up the snow today
+Assistant: Ha, what did they say about the snow?
+Use this result to answer the original question.
+Question: did i ever say what my uncle rides
+Answer: Your uncle Yusuf rides a Yamaha.
+
+ITEM 39
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0013::0 doc_id=exchange_0013 score=5.802]
+User: news from my uncle Dana: they got tickets to Glastonbury
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: what did Dana get tickets to
+Answer: Your uncle Dana got tickets to Glastonbury.
+
+ITEM 40
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0015::0 doc_id=exchange_0015 score=7.244]
+User: you'll laugh, my coworker Omar won a telescope in a raffle
+Assistant: That sounds exciting for them.
+
+[chunk_id=exchange_0010::0 doc_id=exchange_0010 score=4.470]
+User: you'll laugh, my cousin Marc won a lawnmower in a raffle
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: i was laughing about my coworker's prize and now it's gone
+Answer: Your coworker Omar won a telescope in a raffle.
+
+ITEM 41
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0002::0 doc_id=exchange_0002 score=5.270]
+User: apparently my neighbour Ivan finished a half marathon on sunday
+Assistant: That's a change.
+
+[chunk_id=exchange_0019::0 doc_id=exchange_0019 score=2.301]
+User: apparently my coworker Omar finished a triathlon on sunday
+Assistant: Oh, that's nice to hear.
+Use this result to answer the original question.
+Question: what did my neighbour run at the weekend
+Answer: Your neighbour Ivan finished a half marathon.
+
+ITEM 42
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0007::0 doc_id=exchange_0007 score=2.817]
+User: for the record my sister Tomas only ever orders a cortado
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: did i mention my sister's usual order
+Answer: Your sister Tomas only orders a cortado.
+
+ITEM 43
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0020::0 doc_id=exchange_0020 score=5.403]
+User: i just learned Tomas was born in November, and that's my roommate
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: when should i plan my roommate's party
+Answer: It seems like your roommate's birthday is in November, which is a great time to plan a party. November is a great month for a party, as it's not too busy with holidays and there are still plenty of days to celebrate.
+
+ITEM 44
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0007::0 doc_id=exchange_0007 score=6.370]
+User: you know my brother Nell? they teach history at the high school
+Assistant: Oh, that's nice to hear.
+
+[chunk_id=exchange_0011::0 doc_id=exchange_0011 score=3.802]
+User: you know my roommate Dana? they teach chemistry at the high school
+Assistant: That's a change.
+
+[chunk_id=exchange_0016::0 doc_id=exchange_0016 score=3.653]
+User: you know my neighbour Marc? they teach drama at the high school
+Assistant: Oh, that's nice to hear.
+Use this result to answer the original question.
+Question: what does Nell teach at the high school
+Answer: Yes, I know your brother Nell. They teach history at the high school.
+
+ITEM 45
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0021::0 doc_id=exchange_0021 score=2.912]
+User: my aunt Lena just started work as a welder
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: what does my aunt do for a living these days
+Answer: It sounds like Lena is enjoying her new role as a welder.
+
+ITEM 46
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0005::0 doc_id=exchange_0005 score=5.899]
+User: my brother Greta adopted a dog named Pepper last month
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: what is the name of the dog Greta adopted
+Answer: Greta's brother adopted a dog named Pepper.
+
+ITEM 47
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0021::0 doc_id=exchange_0021 score=2.912]
+User: my aunt Lena just started work as a welder
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: what does my aunt do for a living these days
+Answer: Your aunt Lena works as a welder.
+
+ITEM 48
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0018::0 doc_id=exchange_0018 score=8.862]
+User: news from my uncle Ivan: they opened a florist shop
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: what kind of shop did Ivan open
+Answer: Funny how the snow keeps coming up, but at least the florist shop is finally here.
+
+ITEM 49
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0017::0 doc_id=exchange_0017 score=8.562]
+User: Yusuf, the aunt i keep talking about, broke a jaw skiing
+Assistant: Thanks for telling me.
+Use this result to answer the original question.
+Question: what did Yusuf break skiing
+Answer: Your aunt Yusuf broke a jaw.
+
+ITEM 50
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0013::0 doc_id=exchange_0013 score=5.802]
+User: news from my uncle Dana: they got tickets to Glastonbury
+Assistant: That sounds exciting for them.
+Use this result to answer the original question.
+Question: what did Dana get tickets to
+Answer: That's great news! Glastonbury is a famous music festival, so it's a fantastic opportunity for Dana to enjoy live music and make new friends.
+
+ITEM 51
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0024::0 doc_id=exchange_0024 score=2.781]
+User: my cousin Lena just started work as a court reporter
+Assistant: Oh, that's nice to hear.
+Use this result to answer the original question.
+Question: what job did Lena start
+Answer: Your cousin Lena works as a court reporter.
+
+ITEM 52
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0003::0 doc_id=exchange_0003 score=4.715]
+User: Marc is my coworker and just got a kitten called Mochi
+Assistant: How are they finding it?
+
+[chunk_id=exchange_0010::0 doc_id=exchange_0010 score=1.977]
+User: Ivan is my cousin and just got a kitten called Sprout
+Assistant: Good to know.
+
+[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=1.857]
+User: Priya is my brother and just got a kitten called Pickle
+Assistant: Oh, that's nice to hear.
+Use this result to answer the original question.
+Question: the kitten's name, my coworker's one, won't surface
+Answer: Marc's coworker just got a kitten named Mochi.
+
+ITEM 53
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0015::0 doc_id=exchange_0015 score=3.031]
+User: my uncle Priya has taken up birdwatching on weekends
+Assistant: Good to know.
+Use this result to answer the original question.
+Question: did i bring up my uncle's new hobby
+Answer: Your uncle Priya has taken up birdwatching.
+
+ITEM 54
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0003::0 doc_id=exchange_0003 score=5.851]
+User: so Omar (my neighbour) finally switched to a Galaxy
+Assistant: That sounds exciting for them.
+
+[chunk_id=exchange_0014::0 doc_id=exchange_0014 score=2.758]
+User: anyway, enough about my phone
+Assistant: What about my phone got you thinking?
+
+[chunk_id=exchange_0016::0 doc_id=exchange_0016 score=2.600]
+User: my phone was the best part of my day
+Assistant: Good to hear my phone is behaving.
+
+[chunk_id=exchange_0025::0 doc_id=exchange_0025 score=1.884]
+User: no complaints about my phone this week
+Assistant: Nice, that's one less thing to think about.
+Use this result to answer the original question.
+Question: the phone my neighbour switched to has slipped my mind
+Answer: Your neighbour Omar switched to a Galaxy.
+
+ITEM 55
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0014::0 doc_id=exchange_0014 score=5.306]
+User: news from my neighbour Marc: they got tickets to Oktoberfest
+Assistant: Thanks for telling me.
+
+[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=2.367]
+User: news from my coworker Yusuf: they got tickets to Coachella
+Assistant: That's a change.
+Use this result to answer the original question.
+Question: my neighbour's festival plans won't come back to me
+Answer: Your neighbour Marc got tickets to Oktoberfest.
+
+ITEM 56
+Source text:
+Tool result for search_corpus: [chunk_id=exchange_0020::0 doc_id=exchange_0020 score=5.403]
+User: i just learned Tomas was born in November, and that's my roommate
+Assistant: How are they finding it?
+Use this result to answer the original question.
+Question: when should i plan my roommate's party
+Answer: Your roommate Tomas was born in November.

@@ -291,6 +291,11 @@ and 14 our pattern check could not see, such as "Greta's brother adopted a dog n
 audit of the training targets, not an independent test of the model: its judges are the same model
 family as our coherence judges.
 
+The same gate then served as an acceptance test for new training answers before any training run
+(R-098): one blind, shuffled sheet held 15 scripted replacements, the 22 rejected answers as hidden
+controls and 20 answers it had passed. Three fresh judges passed all 15 replacements, rejected all
+22 controls again and rejected none of the 20.
+
 ## 10. Threats to validity
 
 - **Synthetic conversations.** All chats are generated from templates; real chats are messier. The
@@ -433,8 +438,10 @@ came from something in the training data.
   sixth; the untrained model makes it twice. The source is the training answers that are the
   untrained model's own replies: 27 of 350 have this shape, and CuratorKIT's gate rejects 22 for
   this and other faults (R-094, R-096). Rewriting the 27 removed it at every seed tried, including
-  the bad one (2, 1 and 0 of 96), but cost one judged line on facts in view (R-095). A version
-  without the gate's rejections is being screened (R-097).
+  the bad one (2, 1 and 0 of 96), but cost one judged line on facts in view (R-095). Dropping the
+  15 answers the gate rejected kept the slip down (1 and 1 of 96) and facts in view up at one seed,
+  but fell one recall answer short of v6 over two seeds and stopped (R-098). A version with those
+  15 answers scripted, accepted by the gate first, is being screened (R-098).
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test

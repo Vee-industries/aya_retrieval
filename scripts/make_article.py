@@ -314,6 +314,13 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
         "dropped: hard_dev slips 4 and 6 against at most 3 (R-095)",
     ),
     (
+        "screen_fix17y_82",
+        "screen_fix17m_82",
+        "Fix C1: fix A's set without the 15 answers CuratorKIT's gate rejected",
+        "slips 1 and 1 of 96, but probe recall at seeds 82 and 83 one below v6's (191, 192); "
+        "stopped before judging (R-098)",
+    ),
+    (
         "screen_fix20_82",
         "screen_fix17b_82",
         "Fix 20: fix 17b plus one fact-word chat line and one such question a fact type",

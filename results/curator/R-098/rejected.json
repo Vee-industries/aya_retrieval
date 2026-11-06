@@ -1,0 +1,266 @@
+[
+ {
+  "id": "v6:older_0039",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.25",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": true,
+  "question": "my roommate's dog's name just won't come to me",
+  "answer": "Marc's roommate adopted a dog named Biscuit last month."
+ },
+ {
+  "id": "v6:older_0086",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.50",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": false,
+  "question": "what does my cousin do for a living these days",
+  "answer": "It sounds like Omar is finding his new job as a surveyor to be a positive experience."
+ },
+ {
+  "id": "v6:older_0184",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.25",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": true,
+  "question": "what do they call that pup over at my brother's place",
+  "answer": "Marc's brother adopted a dog named Clover."
+ },
+ {
+  "id": "v6:older_0043",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.50",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": true,
+  "question": "what is my brother going to this summer",
+  "answer": "My brother Yusuf is going to Oktoberfest and is having a great time!"
+ },
+ {
+  "id": "v6:older_0036",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": true,
+  "question": "my aunt hurt something skiing and i've lost what",
+  "answer": "It seems like Omar's aunt broke her forearm while skiing."
+ },
+ {
+  "id": "v6:older_0032",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.15",
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.20"
+  ],
+  "slip_shape": false,
+  "question": "what did Dana call the kitten",
+  "answer": "Fun to know! Dana's coworker is happy with their new kitten, Tofu."
+ },
+ {
+  "id": "v6:older_0063",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.30"
+  ],
+  "slip_shape": false,
+  "question": "i should ask how my coworker is healing, what was it they broke",
+  "answer": "Lena, your coworker is likely feeling a mix of relief and frustration, as they navigate the recovery process after a pelvis injury. They might be grateful for the support of their loved ones, like Greta, who also had a skiing-related injury."
+ },
+ {
+  "id": "v6:older_0082",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": true,
+  "question": "what name is painted on my cousin's boat",
+  "answer": "The name painted on Omar's cousin's boat is Sea Otter."
+ },
+ {
+  "id": "v6:older_0097",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": false,
+  "question": "what did Yusuf break skiing",
+  "answer": "Yusuf's aunt broke her jaw while skiing."
+ },
+ {
+  "id": "v6:older_0014",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.50",
+   "hallucination_contract_failed:0.50",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": false,
+  "question": "what did Tomas name the baby",
+  "answer": "It sounds like Tomas is having a great time with their new baby, Arlo!"
+ },
+ {
+  "id": "v6:older_0059",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": false,
+  "question": "what's the name of my neighbour's kitten",
+  "answer": "Lena's neighbor's kitten is named Noodle."
+ },
+ {
+  "id": "v6:older_0157",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.50",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": true,
+  "question": "what's the name of my roommate's kitten",
+  "answer": "Yusuf's roommate, Yusuf, has a kitten named Pickle."
+ },
+ {
+  "id": "v6:older_0008",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.45",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.30"
+  ],
+  "slip_shape": false,
+  "question": "my uncle's new street has gone right out of my head",
+  "answer": "Marc's new street, Cedar Court, seems to be a source of frustration for him."
+ },
+ {
+  "id": "v6:older_0066",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": true,
+  "question": "what does my sister write about",
+  "answer": "Marc's sister writes science fiction novels at night."
+ },
+ {
+  "id": "v6:older_0168",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.45",
+   "hallucination_contract_failed:0.50",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": false,
+  "question": "what job did Lena start",
+  "answer": "That's great news! Lena's new job as a court reporter is a fascinating and important role. Court reporters play a crucial part in the legal system, ensuring accurate and reliable documentation of court proceedings."
+ },
+ {
+  "id": "v6:older_0081",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.20",
+   "hallucination_contract_failed:0.10",
+   "hallucination_contract_failed:0.10"
+  ],
+  "slip_shape": false,
+  "question": "i was laughing about my coworker's prize and now it's gone",
+  "answer": "You won't believe it, but Omar's been using his new telescope to explore the night sky, and Marc's been mowing his lawn with a lot more enthusiasm."
+ },
+ {
+  "id": "v6:older_0026",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.50",
+   "hallucination_contract_failed:0.50"
+  ],
+  "slip_shape": false,
+  "question": "when should i plan my roommate's party",
+  "answer": "It seems like your roommate's birthday is in November, which is a great time to plan a party. November is a great month for a party, as it's not too busy with holidays and there are still plenty of days to celebrate."
+ },
+ {
+  "id": "v6:older_0165",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.50",
+   "hallucination_contract_failed:0.50",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": false,
+  "question": "what does my aunt do for a living these days",
+  "answer": "It sounds like Lena is enjoying her new role as a welder."
+ },
+ {
+  "id": "v6:older_0194",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": false,
+  "question": "what is the name of the dog Greta adopted",
+  "answer": "Greta's brother adopted a dog named Pepper."
+ },
+ {
+  "id": "v6:older_0072",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.20",
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.20"
+  ],
+  "slip_shape": false,
+  "question": "what kind of shop did Ivan open",
+  "answer": "Funny how the snow keeps coming up, but at least the florist shop is finally here."
+ },
+ {
+  "id": "v6:older_0176",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.30"
+  ],
+  "slip_shape": false,
+  "question": "what did Dana get tickets to",
+  "answer": "That's great news! Glastonbury is a famous music festival, so it's a fantastic opportunity for Dana to enjoy live music and make new friends."
+ },
+ {
+  "id": "v6:older_0163",
+  "judges_rejecting": 3,
+  "reasons": [
+   "hallucination_contract_failed:0.30",
+   "hallucination_contract_failed:0.40",
+   "hallucination_contract_failed:0.40"
+  ],
+  "slip_shape": true,
+  "question": "the kitten's name, my coworker's one, won't surface",
+  "answer": "Marc's coworker just got a kitten named Mochi."
+ }
+]

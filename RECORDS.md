@@ -110,6 +110,7 @@ carry their own provenance (command, git commit, package versions).
 | R-095 | Fix A (fix17w) clears the slip gate and every count but fails R-086's judged Sheet B by one line under judge 1; fix B queued |
 | R-096 | CuratorKIT's grounding gate over the training answers, three Claude judges: 22 of v6's 350 fail, 14 of them faults the slip pattern misses |
 | R-097 | Fix C agreed by the panel before it was built: fix A's set without CuratorKIT's rejections (C1), scripted fallback (C2), a Monday deadline |
+| R-098 | Fix C1 stops one probe recall answer short of v6; fix C2's 15 scripted answers pass CuratorKIT's acceptance test (15 of 15, controls 22 of 22) and go to seeds 82 and 83 |
 
 ---
 
@@ -3406,3 +3407,48 @@ Against: keep v6 and spend the weekend on the write-up; CuratorKIT is an audit, 
 7. Write-up: CuratorKIT is a data-quality audit and acceptance test on the training targets, with Claude verdicts that
    are saved and replay to the same result; not an independent check of the model, not a Cohere model, not a training
    stage; no claim that the faults cause the slips; every candidate-seed counted.
+
+## R-098 · 2026-11-06 · SPRINT · Fix C1 stops by one recall answer; fix C2 passes its acceptance test
+
+**Fix C1, fix17y** (R-097 step 1: fix A's set without the 15 answers R-096's gate rejected), seeds 82 and 83:
+
+| Item | fix17y | 17m (v6) | Needed |
+|---|---|---|---|
+| probe 51203 recall, `statement` (82) | 96, 48 | 95, 48 | 94, 47 |
+| `hard_dev` `never_told`, false retrieval (82) | 47, 4 | 48, 1 | 44, at most 6 |
+| `hard_dev` recall, 82 and 83 | 74 + 88 = 162 | 74 + 83 = 157 | 145, and not below v6 |
+| probe 73157 recall, 82 and 83 | 96 + 95 = **191** | 96 + 96 = **192** | 189, and **not below v6** |
+| probe slips, 82 / 83 | 1 / 1 | 3 / 4 | at most 5 each |
+| `hard_dev` slips, 82 / 83 | 0 / 0 | 0 / 3 | at most 3 each |
+| probe `in_view`, 82 / 83 (reported) | 44 / 41 | 41 / 45 | 41 at 82 (R-097's stop rule) |
+
+Every R-086 count passes (`scripts/records/gate_r086.py fix17y`). The slip gate's item "probe and `hard_dev` recall
+not below v6's at the same seeds" fails on the probe, 191 against 192, read pooled over 82 and 83 as in R-095. A miss
+by one is a miss: under R-097's stop rule C1 is not judged, and both seeds are counted (development candidates). Slips
+and v6's numbers are recounted by `scoring.slip_shape` over each run's `older` and `confirm` rows; v6's match R-094's.
+The one-answer gap is within the seed spread R-091 measured and is not read as harm from dropping rows.
+
+**Fix C2, fix17z** (R-097 step 5): fix A's set with the same 15 answers replaced by the pool's scripted answer
+(`scripts/records/splice_r098.py`). The value is the one fact value the row's answer names; the person and relation are
+the ones in the search-result chunk that holds it; a row stops the build unless each is found exactly once. All 15
+built ("Your uncle Marc lives on Cedar Court."; "Your roommate Tomas was born in November."); 800 rows; every other row
+byte-identical to fix17w; `slip_shape` reads 0.
+
+**Acceptance test, before any training** (`scripts/run_curator_check.py --test R-098`, `results/curator/R-098/`):
+one blind sheet of 57 items, shuffled with seed 98: the 15 scripted answers, R-096's 22 v6 rejections as hidden
+controls, and 20 answers no R-096 judge rejected (drawn with seed 98). Three fresh Sonnet judges, own folders;
+CuratorKIT's gate replays each judge's verdicts. The changed script replays R-096's saved verdicts to the identical
+rejected list.
+
+| | Rejected (2 of 3) | Needed |
+|---|---|---|
+| Scripted answers | 0 of 15 | 0 |
+| Hidden controls | 22 of 22 | at least 18 |
+| Answers passed before | 0 of 20 | reported |
+
+Each judge's run rejected 22 items. C2 goes. Transcript audit: judges 2 and 3 read their sheet and wrote their file
+only; judge 1 also wrote an empty `/tmp/gen.py` with one shell command and ran nothing else (deleted); its marks were
+written by hand like the others and are used.
+
+**Next** (R-097 steps 2 to 4): `cand fix17z 82` and `83`, queued after the running screen; the same stop rule, then
+R-086's judged sheets, then seeds 88 to 90. Deadline unchanged: nothing starts after Monday, November 9, 12:00.

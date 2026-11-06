@@ -297,6 +297,7 @@ over all 240 conversations.
 | Fix 19a: fix 18a plus 57 questions on the same topics asked as statements | 95 (94) | 43 | 239 | 3 / 6 | 0.51 | passed every count at two seeds; failed the judged check set by one line (R-089) |
 | Fix A: 17m with its 27 slip-shaped fact answers rewritten as "Your <relation> <name>" | 96 (95) | 44 | 239 | 4 / 3 | 1.00 | cleared the slip gate and every count; failed a judged sheet by one line (R-095) |
 | Fix B: 17m with base-reply fact answers trained only on their first token | 95 (95) | 43 | 240 | 5 / 3 | 0.73 | dropped: hard_dev slips 4 and 6 against at most 3 (R-095) |
+| Fix C1: fix A's set without the 15 answers CuratorKIT's gate rejected | 96 (95) | 43 | 240 | 4 / 3 | 1.00 | slips 1 and 1 of 96, but probe recall at seeds 82 and 83 one below v6's (191, 192); stopped before judging (R-098) |
 | Fix 20: fix 17b plus one fact-word chat line and one such question a fact type | 93 (94) | 44 | 230 | 14 / 7 | 0.19 | dropped at the screen gate: nine chat lines searched, hard_dev recall 125 of 145 (R-092) |
 | 17m: fix 17b with the loss on chat replies only on the decision and the end marker | 95 (94) | 45 | 240 | 2 / 7 | 0.18 | passed the whole screen gate at two seeds, counts and judged sheets (R-092) |
 
@@ -382,6 +383,11 @@ and 14 our pattern check could not see, such as "Greta's brother adopted a dog n
 "the dog Greta adopted", claims the passage does not make, and off-topic talk (R-096). It is an
 audit of the training targets, not an independent test of the model: its judges are the same model
 family as our coherence judges.
+
+The same gate then served as an acceptance test for new training answers before any training run
+(R-098): one blind, shuffled sheet held 15 scripted replacements, the 22 rejected answers as hidden
+controls and 20 answers it had passed. Three fresh judges passed all 15 replacements, rejected all
+22 controls again and rejected none of the 20.
 
 ## 10. Threats to validity
 
@@ -525,8 +531,10 @@ came from something in the training data.
   sixth; the untrained model makes it twice. The source is the training answers that are the
   untrained model's own replies: 27 of 350 have this shape, and CuratorKIT's gate rejects 22 for
   this and other faults (R-094, R-096). Rewriting the 27 removed it at every seed tried, including
-  the bad one (2, 1 and 0 of 96), but cost one judged line on facts in view (R-095). A version
-  without the gate's rejections is being screened (R-097).
+  the bad one (2, 1 and 0 of 96), but cost one judged line on facts in view (R-095). Dropping the
+  15 answers the gate rejected kept the slip down (1 and 1 of 96) and facts in view up at one seed,
+  but fell one recall answer short of v6 over two seeds and stopped (R-098). A version with those
+  15 answers scripted, accepted by the gate first, is being screened (R-098).
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test
