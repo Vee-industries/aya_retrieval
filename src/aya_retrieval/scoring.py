@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 
 from agenttune.agentic.rollout_engines.rollout_factory import extract_tool_calls_from_text
 
@@ -94,3 +95,24 @@ def clean_call_count(rows: list[dict]) -> dict[str, int]:
     """Return how many searching rows were a clean call, out of how many searched."""
     searching = [row for row in rows if row["searched"]]
     return {"clean": sum(clean_call(row["reply"]) for row in searching), "of": len(searching)}
+
+
+def slip_shape(reply: str, message: str) -> bool:
+    """Return True if the reply pins the friend's relation on the wrong person or on the speaker.
+
+    The who-is-who slip (R-094): "Hana's barber is scared of clowns." for "what is my barber scared
+    of", where the barber is Hana. The relation is the word after "my" in the friend's message; the
+    shapes are "<Name>'s <relation>" (not counted when the friend's message has the same words), a
+    sentence that opens "My <relation>", and "who is my". The scorer passes such replies when they
+    name the value, so this counts them apart.
+    """
+    said = message.casefold()
+    if re.search(r"\bwho is my\b", reply, re.IGNORECASE):
+        return True
+    for relation in re.findall(r"\bmy ([a-z]+)", said):
+        if re.search(rf"(?:^|[.!?]\s+)My {relation}\b", reply):
+            return True
+        for hit in re.finditer(rf"\b[A-Z][a-z]+'s {relation}\b", reply):
+            if hit.group(0).casefold() not in said:
+                return True
+    return False

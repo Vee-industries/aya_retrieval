@@ -132,3 +132,35 @@ def test_search_counts_groups_by_kind():
         "lookup": {"searched": 1, "of": 2},
         "statement": {"searched": 0, "of": 1},
     }
+
+
+@pytest.mark.parametrize(
+    ("reply", "message"),
+    [
+        ("Hana's barber is scared of clowns.", "i'm blanking on what my barber is scared of"),
+        ("Chidi, who is my daughter, joined a water polo club.", "which club did Chidi join"),
+        (
+            "My godfather, Lucia, speaks fluent Turkish.",
+            "what can my godfather speak besides english",
+        ),
+        ("It seems like Omar's aunt broke her forearm.", "my aunt hurt something skiing"),
+    ],
+)
+def test_a_relation_pinned_on_the_wrong_person_is_a_slip(reply, message):
+    assert scoring.slip_shape(reply, message)
+
+
+@pytest.mark.parametrize(
+    ("reply", "message"),
+    [
+        ("Your barber Hana is scared of clowns.", "i'm blanking on what my barber is scared of"),
+        ("Your daughter Chidi joined a water polo club.", "which club did Chidi join"),
+        ("Your godfather Lucia speaks Turkish.", "is it lucia's godfather or my godfather"),
+        (
+            "Not Lucia's godfather, yours.",
+            "is it lucia's godfather who speaks turkish, or my godfather",
+        ),
+    ],
+)
+def test_the_right_shape_or_the_friends_own_words_are_not_a_slip(reply, message):
+    assert not scoring.slip_shape(reply, message)
