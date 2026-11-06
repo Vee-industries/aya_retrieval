@@ -69,12 +69,14 @@ class SystemPromptFactory:
         default_factory: _DefaultSFTTrainerFactory,
         loss_on: str = "all",
         decision_keys: set[tuple[str, str]] | None = None,
+        decision_rows: int = 0,
         callbacks: list | None = None,
     ) -> None:
         self.system = system
         self.default_factory = default_factory
         self.labels = LOSS_ON[loss_on]
         self.decision_keys = decision_keys or set()
+        self.decision_rows = decision_rows
         self.callbacks = callbacks or []
 
     def __call__(self, *, model, train_dataset, **kwargs):
@@ -91,8 +93,8 @@ class SystemPromptFactory:
                 if row_key(messages[1:]) in self.decision_keys:
                     labels, decided = decision_labels, decided + 1
                 row["input_ids"], row["labels"] = labels(tokenizer, messages, FIRST_DEMONSTRATED)
-            if decided != len(self.decision_keys):
-                raise ValueError(f"{decided} rows matched {len(self.decision_keys)} chat rows")
+            if decided != self.decision_rows:
+                raise ValueError(f"{decided} rows matched {self.decision_rows} chat rows")
         trainer = self.default_factory(model=model, train_dataset=rows, **kwargs)
         for callback in self.callbacks:
             trainer.add_callback(callback)
@@ -176,10 +178,14 @@ def main() -> None:
     if args.fraction < 1:
         rows = kind_balanced_subset(rows, args.fraction, args.seed)
     logs = [as_event_log(row["turns"]) for row in rows]
-    decision_keys = None
+    decision_keys, decision_rows = None, 0
     if args.loss_on == "chat_decision":
-        decision_keys = {row_key(row["turns"]) for row in rows if row["kind"] == "statement"}
-        report["decision_rows"] = len(decision_keys)
+        chat = [row_key(row["turns"]) for row in rows if row["kind"] == "statement"]
+        decision_keys, decision_rows = set(chat), len(chat)
+        others = {row_key(row["turns"]) for row in rows if row["kind"] != "statement"}
+        if decision_keys & others:
+            raise ValueError("a plain-chat row has the same message and reply as another kind")
+        report["decision_rows"] = decision_rows
     report["rows"] = len(logs)
 
     started = time.time()
@@ -200,6 +206,7 @@ def main() -> None:
             default_factory,
             args.loss_on,
             decision_keys,
+            decision_rows,
             [SaveAtEpochs(args.out_dir, args.save_epochs)] if args.save_epochs else None,
         ),
         output_dir=str(args.out_dir),
