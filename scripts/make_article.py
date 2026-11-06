@@ -304,7 +304,7 @@ SCREENS = [  # label, its reference, what changed, outcome (the record that deci
     (
         "screen_fix17w_82",
         "screen_fix17m_82",
-        "Fix A: 17m with its 27 slip-shaped fact answers rewritten as \"Your <relation> <name>\"",
+        'Fix A: 17m with its 27 slip-shaped fact answers rewritten as "Your <relation> <name>"',
         "cleared the slip gate and every count; failed a judged sheet by one line (R-095)",
     ),
     (
