@@ -105,6 +105,7 @@ carry their own provenance (command, git commit, package versions).
 | R-090 | Ten seed-82 models on one blind check-set sheet, three judges: 19a above base with the most recall; the dials trade chat for recall |
 | R-091 | 17b at fresh seeds 85 to 87 fails R-076's rule again, under all three judges; at seed 86 it searches on chat lines that name a person |
 | R-092 | 17m passes R-086's whole gate, the first candidate to; fix 20 fails; 17m goes to confirmation at 85 to 87, seed 82 named to ship |
+| R-093 | 17m passes R-076's rule at fresh seeds 85 to 87 under all three judges: it replaces v5 as v6, seed 82 |
 
 ---
 
@@ -3163,3 +3164,44 @@ so far. The other screens (2 epochs at two learning rates, 17r, 17p) run after, 
 same rule.
 
 **Candidates scored since R-091:** fix 20 at 82 and 83; 17m at 82 and 83.
+
+## R-093 · 2026-11-06 · SPRINT · 17m passes R-076's rule at fresh seeds 85 to 87, under all three judges: v6
+
+**Confirmation** (R-088 item 12): 17m trained at seeds 85, 86 and 87, never used to screen it, paired seed for seed
+with 17b's runs there (R-091). Sheets A, B and `hard_dev` B for each seed (shuffle seeds 90514 to 90522); three fresh
+Sonnet judges a sheet type, each marking its three seeds in its own folder, transcripts checked (every judge read only
+its own folder; their code only wrote marks they had listed). `scripts/records/rule_r076.py fix17m R-093 <judge> 85 86
+87`; judge 1 decides.
+
+| Item | 17m, seeds 85 to 87 | Needed | 17b, same seeds |
+|---|---|---|---|
+| 1a probe recall pooled | 288 | above 252 | 287 |
+| 1b `in_view` pooled | 125 | 110 | 120 |
+| 1c `statement` pooled | 143 | 136 | 138 |
+| 1d right decisions, each seed | 239, 240, 240 | 200 | 240, 234, 240 |
+| 1e false retrieval pooled | 2 | at most 39 | 0 |
+| 1f Sheet A, judge 1: confirm; older plus confirm | 144 vs 141; 265 vs 228 | at or above base | 144 vs 141; 286 vs 240 |
+| 1g Sheet B, judge 1: `statement`, `in_view` per seed | 47/46, 41/35; 46/46, 40/35; 46/46, 41/35 | at or above base, each seed | **fail**: 37 vs 44 at 86 |
+| 2 probe recall pooled | 288 | 273 | 287 |
+| 3 `hard_dev` recall pooled | **249** | 172 | 224 |
+| 4 `hard_dev` false retrieval pooled | 4 | at most 20 | 16 |
+| 5 `hard_dev` `never_told` pooled | 143 | 132 | 137 |
+| 6 `hard_dev` Sheet B, judge 1: `statement`, `in_view` | 137 vs 129, 127 vs 99 | at or above base | 131 vs 129, 101 vs 93 |
+
+**RULE: PASS under judge 1, and under judges 2 and 3.** Item 1g is the closest: at seed 86, 17m's `statement` equals
+base's (46 against 46 under each judge). By R-088's ship rule 17m, one change from 17b,
+replaces v5 as **v6, shipped at seed 82** as named in R-092 before these results. Against v5 at its own seeds (R-076),
+`hard_dev` recall pooled rises from 172 to 249 of 288.
+
+**Failure seen at seed 87.** On Sheet A, judge 1 marked down 15 of 17m's 48 "fact told long ago" answers at seed 87
+(judges 2 and 3: 15 and 6), against 2 and 6 at seeds 85 and 86. The fact is right and the relation is pinned on the
+wrong person: "i'm blanking on what my barber is scared of" got "Hana's barber is scared of clowns." (should be "your
+barber Hana"); "which club did Chidi join" got "Chidi, who is my daughter, joined a water polo club this month." The
+item passes on the pooled count; the failure goes in the write-up. 17m's chat replies are the base model's own words
+by design, so its plain chat sits at base's level rather than above it.
+
+**Still to run under R-088**: 2 epochs at 3e-4 and 2e-4, 17r, answer repair (17p). Any that passes the screen and then
+confirmation is weighed against 17m by the ship rule (fewest changes from 17b, unless pooled `hard_dev` recall is
+higher by more than 15). Freeze Tuesday; the sealed final run on Kevin's go.
+
+**Candidates scored since R-092:** 17m at 84, 85, 86, 87.
