@@ -27,3 +27,22 @@ def test_one_changed_update_weight_counts_as_moved(tmp_path):
 def test_a_file_with_no_update_weights_is_an_error(tmp_path):
     with pytest.raises(ValueError, match="lora_B"):
         adapter_moved(_adapter(tmp_path, lora_A=torch.ones(2, 2)))
+
+
+def test_a_run_that_kept_its_start_adapter_did_not_change(tmp_path):
+    from aya_retrieval.training_checks import adapter_changed
+
+    start = _adapter(tmp_path, lora_B=torch.ones(2, 2))
+    (tmp_path / "end").mkdir()
+    same = _adapter(tmp_path / "end", lora_B=torch.ones(2, 2))
+    assert not adapter_changed(same, start)
+
+
+def test_one_changed_weight_counts_as_changed_from_the_start(tmp_path):
+    from aya_retrieval.training_checks import adapter_changed
+
+    start = _adapter(tmp_path, lora_B=torch.ones(2, 2))
+    moved = torch.ones(2, 2)
+    moved[1, 0] = 1.000001
+    (tmp_path / "end").mkdir()
+    assert adapter_changed(_adapter(tmp_path / "end", lora_B=moved), start)

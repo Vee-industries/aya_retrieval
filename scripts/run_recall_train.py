@@ -28,6 +28,7 @@ from agenttune.agentic.distill_trainer import _DefaultSFTTrainerFactory
 from huggingface_hub import snapshot_download
 from transformers import AutoTokenizer, TrainerCallback
 
+from aya_retrieval.adapters import load_lora_weights
 from aya_retrieval.conversations import EXCHANGES_IN_VIEW
 from aya_retrieval.demonstrations import as_event_log, kind_balanced_subset
 from aya_retrieval.lean_loss import use_lean_loss
@@ -40,7 +41,7 @@ from aya_retrieval.loss_masks import (
 from aya_retrieval.models import MODEL_ID, MODEL_REVISION
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.tool_prompt import system_prompt_with_tools
-from aya_retrieval.training_checks import adapter_moved
+from aya_retrieval.training_checks import adapter_changed, adapter_moved
 
 LOG = logging.getLogger("recall_train")
 
@@ -79,8 +80,11 @@ class SystemPromptFactory:
         decision_keys: dict[tuple[str, str], object] | None = None,
         decision_rows: int = 0,
         callbacks: list | None = None,
+        init_adapter: Path | None = None,
     ) -> None:
         self.system = system
+        self.init_adapter = init_adapter
+        self.loaded = 0
         self.default_factory = default_factory
         self.labels = LOSS_ON[loss_on]
         self.decision_keys = decision_keys or {}
@@ -103,6 +107,9 @@ class SystemPromptFactory:
             if decided != self.decision_rows:
                 raise ValueError(f"{decided} rows matched {self.decision_rows} masked rows")
         trainer = self.default_factory(model=model, train_dataset=rows, **kwargs)
+        if self.init_adapter:
+            # A stepping stone's next step starts where the stone ended (R-103).
+            self.loaded = load_lora_weights(trainer.model, self.init_adapter)
         for callback in self.callbacks:
             trainer.add_callback(callback)
         return trainer
@@ -158,6 +165,11 @@ def main() -> None:
         type=float,
         help="cap this process's share of card memory, so the card never spills to system memory",
     )
+    parser.add_argument(
+        "--init-adapter",
+        type=Path,
+        help="start from this saved adapter instead of a fresh one: a stepping stone's next step",
+    )
     parser.add_argument("--report-name", help="report file name, default seed_<seed>")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
@@ -179,6 +191,7 @@ def main() -> None:
         "lora_targets": args.lora_targets,
         "loss_on": args.loss_on,
         "save_epochs": args.save_epochs,
+        "init_adapter": args.init_adapter and args.init_adapter.as_posix(),
         **use_lean_loss(),
     }
     rows = [json.loads(line) for line in args.data.read_text(encoding="utf-8").splitlines()]
@@ -213,17 +226,19 @@ def main() -> None:
     default_factory = _DefaultSFTTrainerFactory(
         lora_r=args.lora_r, lora_alpha=2 * args.lora_r, lora_targets=args.lora_targets
     )
+    factory = SystemPromptFactory(
+        system_prompt_with_tools(SYSTEM_WITH_TOOL),
+        default_factory,
+        args.loss_on,
+        decision_keys,
+        decision_rows,
+        [SaveAtEpochs(args.out_dir, args.save_epochs)] if args.save_epochs else None,
+        args.init_adapter,
+    )
     trainer = create_distill_trainer(
         student=snapshot_download(MODEL_ID, revision=MODEL_REVISION, local_files_only=True),
         trajectories=logs,
-        trainer_factory=SystemPromptFactory(
-            system_prompt_with_tools(SYSTEM_WITH_TOOL),
-            default_factory,
-            args.loss_on,
-            decision_keys,
-            decision_rows,
-            [SaveAtEpochs(args.out_dir, args.save_epochs)] if args.save_epochs else None,
-        ),
+        trainer_factory=factory,
         output_dir=str(args.out_dir),
         num_train_epochs=args.epochs,
         learning_rate=args.learning_rate,
@@ -240,9 +255,17 @@ def main() -> None:
 
     report["train_peak_vram_gib"] = round(torch.cuda.max_memory_allocated() / 2**30, 2)
     report["train_seconds"] = round(time.time() - started)
-    report["adapter_moved"] = adapter_moved(args.out_dir / "adapter_model.safetensors")
+    final = args.out_dir / "adapter_model.safetensors"
+    report["adapter_moved"] = adapter_moved(final)
     if not report["adapter_moved"]:
         raise RuntimeError("the adapter did not move, so this run cannot be reported")
+    if args.init_adapter:
+        report["init_tensors_loaded"] = factory.loaded
+        report["adapter_changed"] = adapter_changed(
+            final, args.init_adapter / "adapter_model.safetensors"
+        )
+        if not factory.loaded or not report["adapter_changed"]:
+            raise RuntimeError("the run did not start from, or did not change, its start adapter")
     name = args.report_name or f"seed_{args.seed}"
     out = REPO_ROOT / "results" / "recall_train" / f"{name}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
