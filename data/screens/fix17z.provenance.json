@@ -1,0 +1,90 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-06T17:10:24+00:00",
+  "command": [
+   "scripts/records/splice_r098.py"
+  ],
+  "git_commit": "bc023d9fa035f1ca2ad924dcd78d722f355b37a7",
+  "git_dirty": true,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "base_set": "data/screens/fix17w.jsonl",
+ "rewritten": {
+  "older_0008": {
+   "before": "Marc's new street, Cedar Court, seems to be a source of frustration for him.",
+   "after": "Your uncle Marc lives on Cedar Court."
+  },
+  "older_0014": {
+   "before": "It sounds like Tomas is having a great time with their new baby, Arlo!",
+   "after": "Your neighbour Tomas named the baby Arlo."
+  },
+  "older_0026": {
+   "before": "It seems like your roommate's birthday is in November, which is a great time to plan a party. November is a great month for a party, as it's not too busy with holidays and there are still plenty of days to celebrate.",
+   "after": "Your roommate Tomas was born in November."
+  },
+  "older_0032": {
+   "before": "Fun to know! Dana's coworker is happy with their new kitten, Tofu.",
+   "after": "Your coworker Dana called the kitten Tofu."
+  },
+  "older_0043": {
+   "before": "Your brother Yusuf is going to Oktoberfest and is having a great time!",
+   "after": "Your brother Yusuf got tickets to Oktoberfest."
+  },
+  "older_0059": {
+   "before": "Lena's neighbor's kitten is named Noodle.",
+   "after": "Your neighbour Lena called the kitten Noodle."
+  },
+  "older_0063": {
+   "before": "Lena, your coworker is likely feeling a mix of relief and frustration, as they navigate the recovery process after a pelvis injury. They might be grateful for the support of their loved ones, like Greta, who also had a skiing-related injury.",
+   "after": "Your coworker Lena broke a pelvis."
+  },
+  "older_0072": {
+   "before": "Funny how the snow keeps coming up, but at least the florist shop is finally here.",
+   "after": "Your uncle Ivan opened a florist shop."
+  },
+  "older_0081": {
+   "before": "You won't believe it, but Omar's been using his new telescope to explore the night sky, and Marc's been mowing his lawn with a lot more enthusiasm.",
+   "after": "Your coworker Omar won a telescope in a raffle."
+  },
+  "older_0086": {
+   "before": "It sounds like Omar is finding his new job as a surveyor to be a positive experience.",
+   "after": "Your cousin Omar works as a surveyor."
+  },
+  "older_0097": {
+   "before": "Yusuf's aunt broke her jaw while skiing.",
+   "after": "Your aunt Yusuf broke a jaw."
+  },
+  "older_0165": {
+   "before": "It sounds like Lena is enjoying her new role as a welder.",
+   "after": "Your aunt Lena works as a welder."
+  },
+  "older_0168": {
+   "before": "That's great news! Lena's new job as a court reporter is a fascinating and important role. Court reporters play a crucial part in the legal system, ensuring accurate and reliable documentation of court proceedings.",
+   "after": "Your cousin Lena works as a court reporter."
+  },
+  "older_0176": {
+   "before": "That's great news! Glastonbury is a famous music festival, so it's a fantastic opportunity for Dana to enjoy live music and make new friends.",
+   "after": "Your uncle Dana got tickets to Glastonbury."
+  },
+  "older_0194": {
+   "before": "Greta's brother adopted a dog named Pepper.",
+   "after": "Your brother Greta's dog is called Pepper."
+  }
+ },
+ "rows": 800
+}

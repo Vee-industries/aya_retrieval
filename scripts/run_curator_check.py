@@ -13,11 +13,17 @@ sheet, so the judge sees exactly what the gate asked.
 ``apply``: runs the gate again with a backend that replays the judge's answer to each prompt, so
 CuratorKIT's own score parsing, threshold, rejection reasons and provenance decide the verdicts.
 
+``--test`` picks the items. ``R-096`` (the default) is every found-fact training answer. ``R-098``
+is fix C2's acceptance test: one shuffled blind sheet of the 15 scripted answers, R-096's 22
+rejected answers as hidden controls, and 20 answers no R-096 judge rejected. C2 goes only if all 15
+pass and at least 18 of the 22 controls are rejected again; fewer voids the sheet.
+
 Usage:
     python scripts/run_curator_check.py sheet --out-dir C:/scratch/curator
     (a fresh judge writes responses.json from judge_sheet.txt)
     python scripts/run_curator_check.py apply --responses judge1.json judge2.json judge3.json \
         --key C:/scratch/curator/key.json --out-dir results/curator/R-096
+    python scripts/run_curator_check.py --test R-098 sheet --out-dir C:/scratch/curator_r098
 """
 
 from __future__ import annotations
@@ -25,6 +31,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import random
 from pathlib import Path
 
 from curatorkit.gates.hallucination import _DEFAULT_GROUNDING_PROMPT, HallucinationGate
@@ -35,8 +42,15 @@ from aya_retrieval.provenance import run_metadata
 from aya_retrieval.scoring import slip_shape
 
 DATA = Path("data/screens")
-SETS = {"v6": DATA / "strict_chat.jsonl", "fix17w": DATA / "fix17w.jsonl"}
+SETS = {
+    "v6": DATA / "strict_chat.jsonl",
+    "fix17w": DATA / "fix17w.jsonl",
+    "fix17z": DATA / "fix17z.jsonl",
+}
 THRESHOLD = 0.7  # CuratorKIT's default
+R096_REJECTED = Path("results/curator/R-096/rejected.json")
+R097_DROPPED = DATA / "fix17y.provenance.json"
+ACCEPTANCE_SEED, PASSING, CONTROLS_NEEDED = 98, 20, 18
 
 
 def digest(text: str) -> str:
@@ -57,18 +71,39 @@ def tool_result(turns):
     )
 
 
-def samples() -> list[DataSample]:
-    """v6's found-fact answers, and fix17w's only where it rewrote one."""
-    v6 = {}
-    for line in SETS["v6"].read_text(encoding="utf-8").splitlines():
-        row = json.loads(line)
-        if row["kind"] in ("older", "confirm"):
-            v6[row["id"]] = row
+def found_fact_rows(name: str) -> dict[str, dict]:
+    rows = (json.loads(line) for line in SETS[name].read_text(encoding="utf-8").splitlines())
+    return {row["id"]: row for row in rows if row["kind"] in ("older", "confirm")}
+
+
+def samples(test: str) -> list[DataSample]:
+    """The items one test checks."""
+    if test == "R-098":
+        return acceptance_samples()
+    v6 = found_fact_rows("v6")
     out = [sample("v6", row) for row in v6.values()]
-    for line in SETS["fix17w"].read_text(encoding="utf-8").splitlines():
-        row = json.loads(line)
+    for row in found_fact_rows("fix17w").values():
         if row["id"] in v6 and row["turns"][-1]["content"] != v6[row["id"]]["turns"][-1]["content"]:
             out.append(sample("fix17w", row))
+    return out
+
+
+def acceptance_samples() -> list[DataSample]:
+    """Fix C2's 15 scripted answers, R-096's 22 rejections and 20 answers it passed, shuffled."""
+    v6, fix17z = found_fact_rows("v6"), found_fact_rows("fix17z")
+    changed = json.loads(R097_DROPPED.read_text(encoding="utf-8"))["dropped"]
+    r096 = json.loads(R096_REJECTED.read_text(encoding="utf-8"))
+    controls = sorted(
+        r["id"].split(":", 1)[1]
+        for r in r096
+        if r["judges_rejecting"] >= 2 and r["id"].startswith("v6:")
+    )
+    flagged = {r["id"].split(":", 1)[1] for r in r096}
+    rng = random.Random(ACCEPTANCE_SEED)
+    passing = rng.sample(sorted(set(v6) - flagged - set(changed)), PASSING)
+    out = [sample("fix17z", fix17z[i]) for i in changed]
+    out += [sample("v6", v6[i]) for i in controls + passing]
+    rng.shuffle(out)
     return out
 
 
@@ -107,8 +142,8 @@ class ReplayLLM(BaseLLM):
         return LLMResponse(text=self.answers[digest(messages[-1]["content"])], model=self.model)
 
 
-def sheet(out_dir: Path) -> None:
-    items = samples()
+def sheet(test: str, out_dir: Path) -> None:
+    items = samples(test)
     key = []
     for n, s in enumerate(items):
         prompt = _DEFAULT_GROUNDING_PROMPT.format(
@@ -138,10 +173,31 @@ def sheet(out_dir: Path) -> None:
     print(f"{len(items)} items; the gate's {len(recorder.prompts)} prompts match the sheet")
 
 
-def apply(responses: list[Path], key_path: Path, out_dir: Path) -> None:
+def acceptance(rejected_ids: set[str], items: list[DataSample]) -> dict:
+    """R-098's go rule: every scripted answer passes and the controls are rejected again."""
+    changed = json.loads(R097_DROPPED.read_text(encoding="utf-8"))["dropped"]
+    r096 = json.loads(R096_REJECTED.read_text(encoding="utf-8"))
+    controls = {r["id"] for r in r096 if r["judges_rejecting"] >= 2 and r["id"].startswith("v6:")}
+    passing = {s.id for s in items if s.id.startswith("v6:")} - controls
+    scripted_rejected = sorted(
+        i for i in rejected_ids if i.split(":", 1)[1] in changed and i.startswith("fix17z:")
+    )
+    controls_rejected = len(controls & rejected_ids)
+    return {
+        "scripted_rejected": scripted_rejected,
+        "controls_rejected": f"{controls_rejected} of {len(controls)}",
+        "passing_rejected": sorted(passing & rejected_ids),
+        "sheet_valid": controls_rejected >= CONTROLS_NEEDED,
+        "go": controls_rejected >= CONTROLS_NEEDED and not scripted_rejected,
+    }
+
+
+def apply(test: str, responses: list[Path], key_path: Path, out_dir: Path) -> None:
     """Run the gate once per judge; an answer is rejected when most judges' runs reject it."""
     key = json.loads(key_path.read_text(encoding="utf-8"))
-    items = samples()
+    items = samples(test)
+    if [k["id"] for k in key] != [s.id for s in items]:
+        raise SystemExit("the key's items differ from this test's items")
     by_id = {s.id: s for s in items}
     reasons = {s.id: [] for s in items}
     per_judge = []
@@ -171,6 +227,7 @@ def apply(responses: list[Path], key_path: Path, out_dir: Path) -> None:
     slips = {s.id for s in items if slip_shape(s.output, s.instruction)}
     summary = {
         "provenance": run_metadata(),
+        "test": test,
         "toolkit": "CuratorKIT HallucinationGate, default prompt, threshold 0.7",
         "judge": "Claude (Sonnet) agents, answers replayed through a CuratorKIT BaseLLM backend",
         "judges": len(responses),
@@ -183,6 +240,8 @@ def apply(responses: list[Path], key_path: Path, out_dir: Path) -> None:
         "slip_shaped_rejected": len(slips & rejected_ids),
         "rejected_not_slip_shaped": len(rejected_ids - slips),
     }
+    if test == "R-098":
+        summary["acceptance"] = acceptance(rejected_ids, items)
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "rejected.json").write_text(json.dumps(rows, indent=1), encoding="utf-8")
     (out_dir / "summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
@@ -191,6 +250,7 @@ def apply(responses: list[Path], key_path: Path, out_dir: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--test", choices=("R-096", "R-098"), default="R-096")
     sub = parser.add_subparsers(dest="step", required=True)
     s = sub.add_parser("sheet")
     s.add_argument("--out-dir", type=Path, required=True)
@@ -200,9 +260,9 @@ def main() -> None:
     a.add_argument("--out-dir", type=Path, required=True)
     args = parser.parse_args()
     if args.step == "sheet":
-        sheet(args.out_dir)
+        sheet(args.test, args.out_dir)
     else:
-        apply(args.responses, args.key, args.out_dir)
+        apply(args.test, args.responses, args.key, args.out_dir)
 
 
 if __name__ == "__main__":
