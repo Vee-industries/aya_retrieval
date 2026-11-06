@@ -106,6 +106,7 @@ carry their own provenance (command, git commit, package versions).
 | R-091 | 17b at fresh seeds 85 to 87 fails R-076's rule again, under all three judges; at seed 86 it searches on chat lines that name a person |
 | R-092 | 17m passes R-086's whole gate, the first candidate to; fix 20 fails; 17m goes to confirmation at 85 to 87, seed 82 named to ship |
 | R-093 | 17m passes R-076's rule at fresh seeds 85 to 87 under all three judges: it replaces v5 as v6, seed 82 |
+| R-094 | The who-is-who slip: measured, its source found, a gate registered and a fix agreed by the panel before any run; Kevin's ship ruling |
 
 ---
 
@@ -3205,3 +3206,57 @@ confirmation is weighed against 17m by the ship rule (fewest changes from 17b, u
 higher by more than 15). Freeze Tuesday; the sealed final run on Kevin's go.
 
 **Candidates scored since R-092:** 17m at 84, 85, 86, 87.
+
+## R-094 · 2026-11-06 · SPRINT · The who-is-who slip: source, a registered gate and a panelled fix, before any run
+
+Kevin: "don't love that weak spot", then "panel a fix". The same four-lane panel as R-088 (targets, training,
+measurement, against), three rounds, consensus; transcripts checked (one lane listed `data/screens` with sealed names
+filtered out and read nothing sealed).
+
+**The slip.** A fact answer that names the right value but pins the friend's relation on the wrong person or on the
+speaker: "Hana's barber is scared of clowns." for "i'm blanking on what my barber is scared of"; "Chidi, who is my
+daughter, joined a water polo club"; "My godfather, Lucia, speaks fluent Turkish." `item_correct` passes these, since
+the value is there.
+
+**Measure, registered now.** `scoring.slip_shape(reply, message)`: the relation is the word after "my" in the friend's
+message; a slip is "<Name>'s <relation>" (unless the friend's own message has those words), a sentence opening
+"My <relation>", or "who is my". Known-bad and known-good cases in `tests/test_scoring.py`. Calibrated once against
+judge 1 on 17m's Sheet A at seeds 85 to 87 (R-093), 17m's lines only: flagged and marked 0, 17; flagged and marked 1,
+0; not flagged and marked 0, 6 (other faults); not flagged and marked 1, 265. No false hits; it finds 17 of the 23
+answers judge 1 marked down.
+
+Counts on probe 73157 `older` and `confirm` (of 96): base 2; v5 1, 1, 1; 17b 4, 1, 11, 5, 1, 10 (seeds 82 to 87); 17m
+3, 4, 1, 1, 2, **14** (82 to 87). `hard_dev`: base 1; v5 1, 0, 0; 17m 0, 3, 3, 4, 6, 6. The shipped seed 82 is at
+base's rate on the probe; seed 87 is the tail.
+
+**Source.** Every `confirm` target in 17b's set (`strict_chat.jsonl`, which 17m uses) is the scripted "Your
+{relation} {person} ...". Of 200 `older` targets, 140 are base's own replies to the search result; `slip_shape` flags
+27 of them ("My roommate, Omar, writes western novels at night."; "Marc's sister writes science fiction novels at
+night."). The slip's rate in replies (about 3% at most seeds) is below its rate in targets (27 of 350 found-fact targets, 8%), so cleaning
+targets may lower the typical seed and not remove the tail.
+
+**Gate, registered before any run** (R-076 and R-086 unchanged; v6 stays valid):
+- probe slip count at most 5 of 96 at every seed;
+- pooled over the gate and confirmation seeds (82, 83, 88, 89, 90) at most 8 of 480;
+- `hard_dev` slip count at most 3 a seed;
+- probe and `hard_dev` recall not below v6's at the same seeds;
+- Sheet A judged slips reported, not gated.
+
+**Kevin's ruling, before any result**: "given the near impossibility of the getting better by another 15 lets consider
+that metric solved". R-088's ship rule no longer needs a fix to beat v6's pooled `hard_dev` recall by 15: a fix that
+passes R-086's gate at 82 and 83, R-076's rule at fresh seeds 88 to 90 and this slip gate replaces v6, with recall
+only not below v6's.
+
+**The plan, agreed by all four lanes.**
+1. Diagnostic, scoring only: 17m's epoch-2 adapters (saved under R-088) at seeds 87 and 84, slip counted.
+2. **Fix A, fix17w**: 17m's recipe on a set with no slip-shaped target. `scripts/records/splice_r094.py` rewrites each
+   flagged answer's subject to "Your <relation> <name>", the name taken from the fact the search returned; the rest of
+   the answer is kept, and a row stops the build if the rewrite still slips or drops the name. All 27 rewrote cleanly
+   ("My aunt finally switched to a Pixel." to "Your aunt Greta finally switched to a Pixel."); 800 rows, 0 slip-shaped.
+3. fix17w at seeds 82 and 83 against R-086 and the slip gate; it stops if either fails. Then seed 87 once, reported,
+   chosen because 17m failed there, kept out of the pooled count; only a clear regression (above 17m's 14) stops it.
+4. If it survives: seeds 88, 89 and 90 for R-076's rule and the slip gate.
+5. Fix B, a loss mask on the `older` base-reply rows (only the first token and end marker carry loss), only if A fails
+   and the reserve allows; never stacked with A.
+6. v6's asked-before stress tests run now (R-088's reserve trigger depends on them); its other stress tests wait until
+   this track is decided.
