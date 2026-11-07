@@ -435,6 +435,11 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   6.111 kept the slips at or near zero but lost recall on both sets (189 of 192 on the probe, 153 on
   `hard_dev` against v6's 157), so the extra epoch did not help; 6.2, the from-scratch run fixed in
   advance, is the next try (R-108).
+  6.2 passed every check at the development seeds: every probe recall question answered, no who-is-who
+  slip at either seed, `hard_dev` recall 166 against v6's 157, held-out corrections 192 and 169 of 192
+  where v6 answered 1 and 5, and the coherence sheets under the deciding judge; one of the two other
+  judges would have failed one sheet by two lines. It is the eighth copy tried at those seeds; fresh
+  seeds decide (R-109).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

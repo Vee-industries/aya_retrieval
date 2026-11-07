@@ -121,6 +121,7 @@ carry their own provenance (command, git commit, package versions).
 | R-106 | 6.11 (`fix17cr11`) and its control: slips 0 everywhere, corrections kept, `hard_dev` above v6; probe recall 190 against v6's 192 fails R-094; the swap, not the extra epoch, removed the slips |
 | R-107 | 6.111: one more epoch on 6.11's own set, no data added; 6.2 fixed now as the next try; v6 trained at 91 to 93 so R-094's recall line is read at the same seeds |
 | R-108 | 6.111 (`fix17cr111`) fails R-094's recall line on both sets (probe 189, `hard_dev` 153 against v6's 192 and 157); 6.2 (`fix17cs2`) queued as R-107 fixed; the 6.1 and 6.11 fresh-seed pre-training dropped |
+| R-109 | 6.2 (`fix17cs2`) passes every registered line at 82 and 83, counts, judged sheets (judge 1) and R-102's bar; judge 2 would fail one sheet; fresh seeds 91 to 93 queued |
 
 ---
 
@@ -3941,3 +3942,60 @@ chat_decision`) at 82 and 83, then its held-out corrections and phone-typing for
 chain (R-107 rule 3); with 6.111 failed no chain uses them, so those six runs are dropped and 6.2 is pre-trained at 91
 to 93 instead, unscored. v6 at 91 to 93 stays (R-107 rule 4). Nothing at 91 to 93 is scored until a copy passes at 82
 and 83. These change what runs, not any line of the gate.
+
+## R-109 · 2026-11-07 · SPRINT · 6.2 passes the whole gate at 82 and 83; fresh seeds next
+
+**What ran** (R-107 rule 2, unchanged): 6.2 = `fix17cs2`, `data/screens/fix17cr11.jsonl` (970 rows) trained from
+scratch like v6, 3 epochs at 3e-4, `--loss-on chat_decision`, seeds 82 and 83, then its held-out corrections and
+phone-typing forms. Scored 03:52 and 04:41 Saturday; the messy forms by 05:40.
+
+**Counts** (`scripts/records/stone_report.py fix17cs2`, `scripts/records/gate_r086.py fix17cs2`; older and confirm, of
+96 a seed):
+
+| Measure | Base | v6 at 82, 83 | 6.2 at 82, 83 |
+|---|---|---|---|
+| Plain recall, probe | 30 | 96, 96 | 96, 96 |
+| Plain recall, `hard_dev` | 20 | 74, 83 | 85, 81 |
+| Slips, probe | 2 | 3, 4 | 0, 0 |
+| Slips, `hard_dev` | 1 | 0, 3 | 0, 0 |
+| Screen recall (seed 82) | | 95 | 96 |
+| Held-out corrections, probe | 9 | 1, 0 | 96, 96 |
+| Held-out corrections, `hard_dev` | 8 | 5, 0 | 85, 84 |
+| Phone typing recall, probe | 32 | 88, 90 | 87, 89 |
+| Phone typing recall, `hard_dev` | 20 | 58, 74 | 77, 73 |
+
+- R-086's unjudged lines all pass: screen recall 96 (needs 94), statement 48 (47), `hard_dev` never_told 48 (44),
+  `hard_dev` recall pooled 166 (145), probe recall pooled 192 (189), false retrieval 1 (at most 6).
+- R-094 passes: slips 0 at every seed on both sets; probe recall 192 against v6's 192, `hard_dev` 166 against 157.
+- R-097's stop rule passes: probe `in_view` 45 and 43 (below 41 stops).
+- R-102 passes: held-out corrections 192 and 169 of 192 against v6's 1 and 5 (needs v6 + 48 and v6 + 32, and above v6
+  at each seed); phone typing 176 and 150 against v6's 178 and 132 (within 8 and 16).
+
+Against base, pooled over both seeds: probe recall +220% (192 against 60), `hard_dev` recall +315% (166 against 40),
+held-out corrections +967% on the probe (192 against 18) and +956% on `hard_dev` (169 against 16).
+
+**Judged** (`results/coherence/R-109/`, shuffle seeds 90530 to 90533; three fresh Sonnet judges, each marking all four
+sheets in its own folder under R-095's rubric and brief; base is `three_exchanges`; judge 1 decides). Transcripts
+audited: each judge read only its own folder's rubric and sheets, and its one script wrote marks it had listed line by
+line.
+
+| Sheet | Judge 1: base, 6.2 | Judge 2 | Judge 3 |
+|---|---|---|---|
+| Probe Sheet B `statement` | 45, 46 | 44, 47 | 44, 46 |
+| Probe Sheet B `in_view` | 35, 40 | 35, 45 | 33, 43 |
+| `hard_dev` Sheet B `statement` | 45, 48 | 45, 48 | 45, 47 |
+| `hard_dev` Sheet B `in_view` | 38, 39 | **43, 41** | 40, 46 |
+| Check set, seed 82 | 44, 44 | 45, 44 | 45, 44 |
+| Check set, seed 83 | 44, 47 | 45, 47 | 45, 47 |
+
+**6.2 passes every judged item under judge 1**, the registered decider (check set pooled 91 against base's 88), and
+under judge 3. **Judge 2 would fail one item**: `hard_dev` Sheet B `in_view`, 41 against base's 43. The rule is not
+changed; the split is reported, as R-095 reported fix17w's (where judge 1 failed it and judges 2 and 3 passed it).
+
+**6.2 is the first copy since v6 to pass every registered line at 82 and 83**, and the eighth candidate read there
+since R-093 (R-107 rule 1). By R-105 rule 2 this is development evidence only; seeds 91 to 93 decide.
+
+**Next.** At 91, 92 and 93: 6.2 trained from scratch with the same recipe and scored on the plain sets, the held-out
+corrections and the phone form; v6 at the same seeds (R-107 rule 4); then R-076's rule with Sheets A, B and h judged
+by fresh judges, R-094's slip gate pooled over 82, 83 and 91 to 93, and R-102's seed-91-to-93 items. The 6.1 and 6.11
+chain is not used. 6.111's remaining messy-form runs follow, reported only.
