@@ -369,6 +369,9 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   6.3 failed at the development seeds: at one seed it answered 7 questions in the form "Ayaan, who
   is my teammate, speaks fluent Korean.", copying a stored line's wording, and it still answered
   "Esme forgot my birthday again" with a search 3 times (R-116).
+  The next try, 6.31, again from scratch, gives its question-as-statement rows one fixed answer
+  form ("Your sister Tomas keeps geckos.") and adds 24 chats where someone else forgets or loses
+  something and the reply needs no search (R-117).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

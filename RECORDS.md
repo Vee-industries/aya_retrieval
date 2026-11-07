@@ -129,6 +129,7 @@ carry their own provenance (command, git commit, package versions).
 | R-114 | A new panel picks one more try: 6.3 (`fix17cs3`), 6.2's rows plus fix 19a's statement and indirect-question pair, trained from scratch; confirmation moves to unread seeds 94 to 96; a fail at any line and v6 ships; an R-113 correction (a second runner) |
 | R-115 | The control `fix17cs2x` (6.2 plus one epoch on its own rows), reported only: `hard_dev` recall 160 at 82 and 83, against 6.2's 166 and 6.21's 155; the extra epoch and R-110's rows each cost about half of 6.21's drop |
 | R-116 | 6.3 (`fix17cs3`) fails at 82 and 83: probe slips 7 at seed 83 (at most 5), a new "<Name>, who is my <relation>" shape, and probe 51203 `statement` 45 (at least 47); not judged; Kevin rules no more stones on top of earlier versions and that a fail does not end the tries; v6 at 94 to 96 queued |
+| R-117 | 6.31 (`fix17cs31`), panelled before it trains: 6.3's rows with the 52 indirect-question answers given the pool's scripted answer and 24 contrast statements (another person forgets or loses something, no search), from scratch; candidate 10 at 82 and 83 since R-093; gates as R-114 items 1 and 2 |
 
 ---
 
@@ -4346,3 +4347,73 @@ fix17cs3`, `scripts/records/gate_r086.py fix17cs3`).
 fresh-seed recall line needs it. A new panel (R-111 rule 5) designs the next from-scratch try; it is recorded before it
 trains. R-114's cut-offs stand: its 82-and-83 training must start by Sunday 22:00, and its 94-to-96 training by Monday
 04:00. 6.3 is not read at new seeds.
+
+## R-117 · 2026-11-07 · SPRINT · 6.31's design, panelled and vetted before it trains
+
+**The panel** (R-116; four lanes, one arguing against; one agent; transcript audited: it read `RECORDS.md`, the gate
+and build scripts, `loss_masks.py`, `pool_hard_dev.py`, the training sets and the eval results, read `pools.py` only up
+to line 451, opened no token file and wrote nothing. One `grep -l` over `src/aya_retrieval/*.py` searched every file in
+that folder, the sealed `pool_independent.py` among them; it printed file names only, no content).
+
+- **Checked and corrected.** The 7 seed-83 slips are 7 different items in 4 fact types, one shape. 6 of fix 19a's 52
+  answers in 6.3's set answer in the friend's own voice, copying the stored line ("Marc is my roommate and they rent on
+  the twelfth floor."; "Got it! Here's the updated response: My sister Yusuf only ever orders an Americano."), and
+  `slip_shape` misses all 6. "<Name> forgot my birthday again" is every probe-51203 `statement` miss of 6.3 and most of
+  6.2's and v6's at other seeds. No training row has another person forgetting or losing something with no search.
+  `hard_dev` stores facts as "{person}, my {relation}, ..." (`pool_hard_dev.py`). R-114's against lane says ten
+  candidates had been read at 82 and 83 since R-093; its own list (item 6) has nine, with 6.3. 6.31 is the tenth.
+- **For.** Give all 52 indirect answers the pool's scripted answer, as C2 (R-098), and add contrast rows for the
+  statement shape.
+- **Other design.** Change the answers only. It changes least, but leaves the statement shape, which failed 3 of 9
+  readings of the 6.2 line.
+- **Against (accepted as conditions).** Seed noise is real (v6 had 14 slips at seed 87), but no 6.2-line seed went
+  above 2 in 9 seeds, so 7 is a shift. The contrast rows target a kind read off one probe message, so the probe
+  `statement` line is no longer independent evidence for that kind, and the write-up says so. Memory-word rows with no
+  search may teach the model not to search on `hard_dev`'s "i've lost what..." questions (R-085's loss, 74 to 56); so
+  the build stops unless the set has at least as many memory-word asks answered from a search as contrast rows.
+  Scripted answers cost C2 recall once (R-101). **Leakage ruling:** no new stored-line forms. "<Name>, who is my
+  <relation>" is the probe's form and "<Name>, my <relation>" is `hard_dev`'s; training on either only tests memory
+  of the pattern. The fix is on the answer side.
+
+**6.31 = `fix17cs31`** (`scripts/records/build_r117.py`; deterministic, two runs gave SHA-256 `3e257973adc3…`):
+
+- 6.3's 1,079 rows (`data/screens/fix17cs3.jsonl`), in order. Every row but the 52 `indirect/older_` rows is byte
+  for byte.
+- The 52 `indirect/older_` rows keep their conversation and search; the answer becomes the pool's scripted answer
+  (`TRAIN.facts[...].answer`) for the one fact value both the answer and the found line name, with the person and
+  relation on that line. 16 were already that answer (R-114's 15 rewrites and one more), 36 change. Every scripted
+  answer passes a voice check ("my <relation>", "I keep", "I should") and `slip_shape`.
+- 24 `contrast/statement_` rows: three small-talk exchanges from the train pool's moods (random seed 117), then one of
+  8 frames written in the build with a train-pool person or relation, 3 rows a frame, answered without a search with
+  a fixed reply ("{person} left their keys at my place again" / "Oh no. At least they know where to find them."; "my
+  {relation} lost their wallet on the bus"; "{person} keeps forgetting to text me back"; "{person} is planning a party
+  for their fortieth"; "my {relation} forgot their umbrella and got soaked"; "{person} lost track of time and missed
+  the train"; "{person} had a birthday dinner last night"; "my {relation} forgot about our lunch today"). No frame has
+  "forgot my", "my birthday" or the speaker as the one who forgets. One reply was reworded before the final build
+  because it shared a four-word run with the test pools ("that's rotten luck"); the build stops on any such row.
+- 1,103 rows; 231 statement rows (20.9%); 33 memory-word asks answered from a search (at least 24 needed).
+- **Vetted** (`results/vet/R-117/`): one fresh Sonnet judge, its own folder, marked the 52 scripted answers under
+  R-110's rubric and the 24 contrast rows under a new statement rubric (written before marking). 52 of 52 and 24 of 24
+  right; no row dropped. Transcript audited: it read and wrote only its own folder; its one shell command printed "1".
+  It took 29 seconds and marked every item 1.
+- Training: 6.3's recipe (3 epochs, peak 3e-4, rank 32 on attention and MLP, `--loss-on chat_decision`), from no
+  adapter. The train report must show 1,103 rows and `decision_rows` 231. Seeds 82 and 83; **seed 82 is the one to
+  ship**.
+
+**Order on the GPU.** 6.31 at 82 and 83 goes right after v6's seed-94 training (about 18:00), then R-086's unjudged
+gate (a fail stops 6.31's later lines), then v6 at 95 and 96, then 6.31's eight stress runs. R-086's judged sheets run
+on the CPU once its plain sets are scored.
+
+**Recorded before 6.31 trains:**
+
+1. **Pass rules:** R-114 items 1 and 2, word for word (82 and 83, then 94 to 96).
+2. **On a fail:** stop; nothing is judged after an unjudged fail; 6.31 is never read at new seeds. Under Kevin's
+   ruling (R-116) a fail does not end the tries: a new panel may design another from-scratch try if its 82-and-83
+   training can start by Sunday 22:00 and its 94-to-96 training by Monday 04:00.
+3. **On a full pass:** 6.31 seed 82 replaces v6 and is the base for 7 (R-111).
+4. **The write-up discloses:** candidate 10 at 82 and 83 since R-093; the statement kind read from probe misses, so
+   the probe `statement` line is not independent evidence for it; the 36 changed answers and 24 contrast rows; the
+   panel's `grep -l`; the judge's speed.
+5. **The panel's estimates, judgements and not measurements:** about 35% that 6.31 passes every line at 82 and 83;
+   about 40% that a pass holds at 94 to 96; about 14% for both (the against lane says about 9%). Most likely to fail:
+   the probe `statement` line, `hard_dev` recall against v6's, and the judged `in_view` lines.

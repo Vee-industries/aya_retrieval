@@ -1,0 +1,304 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-07T22:09:25+00:00",
+  "command": [
+   "scripts/records/build_r117.py",
+   "--vet",
+   "results/vet/R-117"
+  ],
+  "git_commit": "08edc3e0baadb88e4e841837ed858b2b094178e0",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "base_set": "data/screens/fix17cs3.jsonl",
+ "base_sha256": "d849a148c41a0f02cb4ccbfe69b031787560b3cb4bfc1cd71d54b34daebcf067",
+ "out_sha256": "3e257973adc3f8569ee700d0fbdd1299679505ef7e46235d394dff525739f415",
+ "rows": 1103,
+ "appended": 24,
+ "statement_rows": 231,
+ "memory_word_asks_searched": 33,
+ "kinds": {
+  "confirm": 230,
+  "in_view": 150,
+  "never_told": 160,
+  "older": 332,
+  "statement": 231
+ },
+ "rewritten": [
+  {
+   "id": "indirect/older_0000",
+   "from": "It sounds like your sister keeps geckos in the yard.",
+   "to": "Your sister Tomas keeps geckos."
+  },
+  {
+   "id": "indirect/older_0001",
+   "from": "Lena keeps ferrets in her yard.",
+   "to": "Your neighbour Lena keeps ferrets."
+  },
+  {
+   "id": "indirect/older_0002",
+   "from": "It sounds like your neighbour, Tomas, keeps goats in the yard.",
+   "to": "Your neighbour Tomas keeps goats."
+  },
+  {
+   "id": "indirect/older_0003",
+   "from": "Oh, I see! Silas is the new baby name for your sister.",
+   "to": "Your sister Tomas named the baby Silas."
+  },
+  {
+   "id": "indirect/older_0004",
+   "from": "Your uncle Priya plays bass in The Lanterns.",
+   "to": "Your uncle Priya plays bass in The Lanterns."
+  },
+  {
+   "id": "indirect/older_0005",
+   "from": "Your coworker Marc plays bass in Copper Moon.",
+   "to": "Your coworker Marc plays bass in Copper Moon."
+  },
+  {
+   "id": "indirect/older_0006",
+   "from": "Your aunt Tomas plays bass in Copper Moon.",
+   "to": "Your aunt Tomas plays bass in Copper Moon."
+  },
+  {
+   "id": "indirect/older_0007",
+   "from": "That's great to know! Your brother was born in November.",
+   "to": "Your brother Omar was born in November."
+  },
+  {
+   "id": "indirect/older_0008",
+   "from": "Your brother Priya's boat is called Blue Heron.",
+   "to": "Your brother Priya's boat is called Blue Heron."
+  },
+  {
+   "id": "indirect/older_0010",
+   "from": "Your coworker Marc has a boat named \"Second Wind\".",
+   "to": "Your coworker Marc's boat is called Second Wind."
+  },
+  {
+   "id": "indirect/older_0011",
+   "from": "Your brother Yusuf bought a green Corolla from an auction.",
+   "to": "Your brother Yusuf bought a green Corolla."
+  },
+  {
+   "id": "indirect/older_0012",
+   "from": "Your cousin Omar drives a red Civic.",
+   "to": "Your cousin Omar bought a red Civic."
+  },
+  {
+   "id": "indirect/older_0013",
+   "from": "Your uncle Marc bought a green Corolla.",
+   "to": "Your uncle Marc bought a green Corolla."
+  },
+  {
+   "id": "indirect/older_0015",
+   "from": "Your coworker Marc just got a kitten named Mochi.",
+   "to": "Your coworker Marc called the kitten Mochi."
+  },
+  {
+   "id": "indirect/older_0016",
+   "from": "Your sister Tomas is moving to Oslo in the spring.",
+   "to": "Your sister Tomas is moving to Oslo."
+  },
+  {
+   "id": "indirect/older_0017",
+   "from": "Your aunt Ivan is moving to Valparaiso in the spring.",
+   "to": "Your aunt Ivan is moving to Valparaiso."
+  },
+  {
+   "id": "indirect/older_0018",
+   "from": "That's great to hear! Your neighbour Greta is moving to Quebec City in the spring.",
+   "to": "Your neighbour Greta is moving to Quebec City."
+  },
+  {
+   "id": "indirect/older_0019",
+   "from": "Got it! Here\u2019s the updated response:\n\nMy sister Yusuf only ever orders an Americano.",
+   "to": "Your sister Yusuf only orders a americano."
+  },
+  {
+   "id": "indirect/older_0022",
+   "from": "Pepper is the dog adopted by Tomas last month.",
+   "to": "Your neighbour Tomas's dog is called Pepper."
+  },
+  {
+   "id": "indirect/older_0023",
+   "from": "Your uncle Yusuf adopted a dog named Waffles last month.",
+   "to": "Your uncle Yusuf's dog is called Waffles."
+  },
+  {
+   "id": "indirect/older_0024",
+   "from": "Your aunt Omar adopted a dog named Clover last month.",
+   "to": "Your aunt Omar's dog is called Clover."
+  },
+  {
+   "id": "indirect/older_0025",
+   "from": "That's great news! Bonnaroo sounds like a fantastic festival.",
+   "to": "Your aunt Dana got tickets to Bonnaroo."
+  },
+  {
+   "id": "indirect/older_0026",
+   "from": "Your roommate Ivan got tickets to Glastonbury.",
+   "to": "Your roommate Ivan got tickets to Glastonbury."
+  },
+  {
+   "id": "indirect/older_0027",
+   "from": "Marc is my roommate and they rent on the twelfth floor.",
+   "to": "Your roommate Marc rents on the twelfth floor."
+  },
+  {
+   "id": "indirect/older_0028",
+   "from": "Nell is my brother, and they rent on the twelfth floor.",
+   "to": "Your brother Nell rents on the twelfth floor."
+  },
+  {
+   "id": "indirect/older_0029",
+   "from": "Tomas is my cousin, and they rent on the seventh floor.",
+   "to": "Your cousin Tomas rents on the seventh floor."
+  },
+  {
+   "id": "indirect/older_0030",
+   "from": "Your brother Priya writes mystery novels.",
+   "to": "Your brother Priya writes mystery novels."
+  },
+  {
+   "id": "indirect/older_0031",
+   "from": "Your brother Yusuf writes western novels.",
+   "to": "Your brother Yusuf writes western novels."
+  },
+  {
+   "id": "indirect/older_0032",
+   "from": "Your brother Ivan writes horror novels at night.",
+   "to": "Your brother Ivan writes horror novels."
+  },
+  {
+   "id": "indirect/older_0033",
+   "from": "That's great to hear! Bouldering sounds like a fun and challenging weekend activity for Tomas.",
+   "to": "Your sister Tomas has taken up bouldering."
+  },
+  {
+   "id": "indirect/older_0034",
+   "from": "Your cousin Greta has taken up glassblowing on weekends.",
+   "to": "Your cousin Greta has taken up glassblowing."
+  },
+  {
+   "id": "indirect/older_0035",
+   "from": "Your cousin Lena has taken up bouldering on weekends.",
+   "to": "Your cousin Lena has taken up bouldering."
+  },
+  {
+   "id": "indirect/older_0036",
+   "from": "Marc, the neighbour I keep talking about, broke a forearm skiing.",
+   "to": "Your neighbour Marc broke a forearm."
+  },
+  {
+   "id": "indirect/older_0037",
+   "from": "Your cousin Nell broke a forearm.",
+   "to": "Your cousin Nell broke a forearm."
+  },
+  {
+   "id": "indirect/older_0038",
+   "from": "Oh, that\u2019s a tough one. The pelvis is a complex and vital bone, so any break can be serious. It\u2019s likely causing a lot of pain and discomfort, and they\u2019ll need to get it checked out by a doctor to make sure it\u2019s healing properly.",
+   "to": "Your sister Nell broke a pelvis."
+  },
+  {
+   "id": "indirect/older_0039",
+   "from": "That's great news! Dana's new job as a pastry chef sounds like a fantastic opportunity.",
+   "to": "Your brother Dana works as a pastry chef."
+  },
+  {
+   "id": "indirect/older_0040",
+   "from": "Your uncle Greta has started a new job as a beekeeper.",
+   "to": "Your uncle Greta works as a beekeeper."
+  },
+  {
+   "id": "indirect/older_0041",
+   "from": "Your brother Nell rides a Yamaha.",
+   "to": "Your brother Nell rides a Yamaha."
+  },
+  {
+   "id": "indirect/older_0042",
+   "from": "Your coworker Priya rides a Kawasaki.",
+   "to": "Your coworker Priya rides a Kawasaki."
+  },
+  {
+   "id": "indirect/older_0044",
+   "from": "Your aunt Lena's house is painted sage green.",
+   "to": "Your aunt Lena's house is painted sage green."
+  },
+  {
+   "id": "indirect/older_0045",
+   "from": "They found it! Lena's house was painted mustard.",
+   "to": "Your coworker Lena's house is painted mustard."
+  },
+  {
+   "id": "indirect/older_0046",
+   "from": "Marc switched to an iPhone.",
+   "to": "Your uncle Marc switched to a iPhone."
+  },
+  {
+   "id": "indirect/older_0047",
+   "from": "Got it! Lena switched to a Motorola phone.",
+   "to": "Your neighbour Lena switched to a Motorola."
+  },
+  {
+   "id": "indirect/older_0048",
+   "from": "Yusuf finally switched to an iPhone, so I should be happy about that.",
+   "to": "Your aunt Yusuf switched to a iPhone."
+  },
+  {
+   "id": "indirect/older_0049",
+   "from": "Your neighbour Greta won a telescope in a raffle.",
+   "to": "Your neighbour Greta won a telescope in a raffle."
+  },
+  {
+   "id": "indirect/older_0050",
+   "from": "Your uncle Yusuf won a lawnmower in a raffle.",
+   "to": "Your uncle Yusuf won a lawnmower in a raffle."
+  },
+  {
+   "id": "indirect/older_0051",
+   "from": "Your coworker Lena was promoted to partner.",
+   "to": "Your coworker Lena was promoted to partner."
+  },
+  {
+   "id": "indirect/older_0052",
+   "from": "Congratulations to your aunt on her promotion to director! That's a great achievement.",
+   "to": "Your aunt Omar was promoted to director."
+  },
+  {
+   "id": "indirect/older_0053",
+   "from": "Congratulations to your neighbour, Dana, on their promotion to team lead! That's a great achievement.",
+   "to": "Your neighbour Dana was promoted to team lead."
+  },
+  {
+   "id": "indirect/older_0054",
+   "from": "Your sister Marc finished a relay.",
+   "to": "Your sister Marc finished a relay."
+  },
+  {
+   "id": "indirect/older_0055",
+   "from": "Your uncle Dana finished a 10k on Sunday.",
+   "to": "Your uncle Dana finished a 10k."
+  },
+  {
+   "id": "indirect/older_0056",
+   "from": "Your cousin Ivan finished a 5k on Sunday.",
+   "to": "Your cousin Ivan finished a 5k."
+  }
+ ]
+}

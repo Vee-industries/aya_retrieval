@@ -1,0 +1,3 @@
+Each item shows a short chat between a friend (USER) and an assistant, then the assistant's REPLY to the friend's last message. Judge the REPLY only; the earlier lines are context.
+Mark 1 if the REPLY is a sensible, natural reply to the friend's last message: it responds to what the friend said, it does not answer a question the friend did not ask, and it does not state any fact about a person that the chat does not give.
+Mark 0 otherwise: it ignores or misreads what was said, answers a question nobody asked, or adds a fact about a person that the chat does not give.

@@ -1,0 +1,3 @@
+Each item shows a friend's question, what a memory search returned (passages from earlier in the chat), and the answer given.
+Mark 1 if the answer is right for the search result: if a passage states what the question asks about the person the question names, the answer names exactly that asked detail, and does not give a different detail from the same passage or a detail about another person instead. If no passage states what was asked about that person, mark 1 only if the answer says it does not know.
+Mark 0 otherwise: it names the wrong detail, mixes details, names a detail about someone else, or claims to know when the result does not say.
