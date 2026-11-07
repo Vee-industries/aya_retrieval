@@ -338,6 +338,9 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   with nothing added, because rows aimed at the two missed questions would be built from the
   development questions themselves; if it fails, a single from-scratch run of 6.11's rows comes next,
   chosen before the result. Each try at the development seeds is counted and reported (R-107).
+  6.111 kept the slips at or near zero but lost recall on both sets (189 of 192 on the probe, 153 on
+  `hard_dev` against v6's 157), so the extra epoch did not help; 6.2, the from-scratch run fixed in
+  advance, is the next try (R-108).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

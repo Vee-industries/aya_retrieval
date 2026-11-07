@@ -120,6 +120,7 @@ carry their own provenance (command, git commit, package versions).
 | R-105 | 6.11's design, panelled before it trains: 6.1 plus fix C2's 41 answers, one epoch at 1e-4 from 6.1's adapter, with a control; the fresh-seed chain; no 6.111 without a new panel |
 | R-106 | 6.11 (`fix17cr11`) and its control: slips 0 everywhere, corrections kept, `hard_dev` above v6; probe recall 190 against v6's 192 fails R-094; the swap, not the extra epoch, removed the slips |
 | R-107 | 6.111: one more epoch on 6.11's own set, no data added; 6.2 fixed now as the next try; v6 trained at 91 to 93 so R-094's recall line is read at the same seeds |
+| R-108 | 6.111 (`fix17cr111`) fails R-094's recall line on both sets (probe 189, `hard_dev` 153 against v6's 192 and 157); 6.2 (`fix17cs2`) queued as R-107 fixed; the 6.1 and 6.11 fresh-seed pre-training dropped |
 
 ---
 
@@ -3906,3 +3907,37 @@ passing every line at 82 and 83 at 20 to 30%, a judgement, not a measurement.
 
 **Clock.** 6.111 at 82 and 83 by about 03:30, its messy forms by about 05:00, then v6 and the pre-trained chain at
 91 to 93. If 6.111 fails, 6.2 replaces it in the queue.
+
+## R-108 · 2026-11-07 · SPRINT · 6.111 fails two lines; 6.2 runs as fixed in R-107
+
+**What ran** (R-107's design, unchanged): 6.111 (`fix17cr111`), one epoch at a peak of 1e-4 from 6.11's adapter on
+6.11's own 970 rows, seeds 82 and 83, scored about 02:50 Saturday. Counts from `scripts/records/stone_report.py` and
+`scripts/records/gate_r086.py` (older and confirm, of 96 a seed):
+
+| Measure | v6 at 82, 83 | 6.11 | 6.111 |
+|---|---|---|---|
+| Plain recall, probe | 96, 96 | 95, 95 | 93, 96 |
+| Plain recall, `hard_dev` | 74, 83 | 85, 75 | 84, 69 |
+| Slips, probe | 3, 4 | 0, 0 | 0, 1 |
+| Slips, `hard_dev` | 0, 3 | 0, 0 | 0, 0 |
+| Screen recall (seed 82) | | 95 | 94 |
+
+**Against the gate.** R-086's unjudged lines all pass (screen recall 94, statement 48, `hard_dev` never_told 46,
+`hard_dev` recall pooled 153, probe recall pooled 189, false retrieval 3). R-094's slip lines all pass. **Two lines
+fail:** probe recall pooled 189 against v6's 192, and `hard_dev` recall pooled 153 against v6's 157. The extra epoch
+moved both recall sets down from 6.11 (190 to 189, 160 to 153); seed 83's `hard_dev` misses are mostly "found the
+fact, answered without the detail asked" (15 of 27). The three probe misses at seed 82: no search for "drawing a blank
+on my daughter's tattoo"; a search for "sister tickets festival" on a stepsister question that found nothing; and one
+reply that is a malformed tool call naming a tool that does not exist (`search_cuphor`), which the tool loop did not
+run. The messy-form runs were not needed for the verdict; they are moved behind 6.2's and run when the queue reaches
+them, reported and not gated.
+
+**Next, as R-107 rule 2 fixed before this result:** 6.2 = `fix17cs2`, `data/screens/fix17cr11.jsonl` (v6's 800 rows
+with fix C2's 41 answers, plus 6.1's 170 rows) trained from scratch like v6 (3 epochs, 3e-4, `--loss-on
+chat_decision`) at 82 and 83, then its held-out corrections and phone-typing forms, under the same full gate. No
+6.1111 is built. 6.2 is the eighth candidate read at 82 and 83 since R-093.
+
+**Queue changes, made after this result.** 6.1 and 6.11 were to be pre-trained at 91 to 93 for 6.111's fresh-seed
+chain (R-107 rule 3); with 6.111 failed no chain uses them, so those six runs are dropped and 6.2 is pre-trained at 91
+to 93 instead, unscored. v6 at 91 to 93 stays (R-107 rule 4). Nothing at 91 to 93 is scored until a copy passes at 82
+and 83. These change what runs, not any line of the gate.
