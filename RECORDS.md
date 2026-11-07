@@ -128,6 +128,7 @@ carry their own provenance (command, git commit, package versions).
 | R-113 | 6.21 (`fix17cs21`) fails R-094's recall line at 82 and 83 (`hard_dev` 155 against v6's 157); it is not judged or taken to 91 to 93; neither 6.2 nor 6.21 is a base for 7, so a new panel decides the next step (R-111 rule 5) |
 | R-114 | A new panel picks one more try: 6.3 (`fix17cs3`), 6.2's rows plus fix 19a's statement and indirect-question pair, trained from scratch; confirmation moves to unread seeds 94 to 96; a fail at any line and v6 ships; an R-113 correction (a second runner) |
 | R-115 | The control `fix17cs2x` (6.2 plus one epoch on its own rows), reported only: `hard_dev` recall 160 at 82 and 83, against 6.2's 166 and 6.21's 155; the extra epoch and R-110's rows each cost about half of 6.21's drop |
+| R-116 | 6.3 (`fix17cs3`) fails at 82 and 83: probe slips 7 at seed 83 (at most 5), a new "<Name>, who is my <relation>" shape, and probe 51203 `statement` 45 (at least 47); not judged; Kevin rules no more stones on top of earlier versions and that a fail does not end the tries; v6 at 94 to 96 queued |
 
 ---
 
@@ -4300,3 +4301,48 @@ runner until about 13:42 (R-114). Scored by 14:57 Saturday (`scripts/records/sto
 control 160, 6.21 155. The extra epoch alone cost 6; R-110's rows cost 5 more. The "answered without the asked detail"
 kind rose with the epoch alone (18 to 21) and further with the rows (29). Two seeds, so this is a direction, not a
 measured size. It is consistent with R-114's choice to train 6.3 from scratch rather than add an epoch.
+
+## R-116 · 2026-11-07 · SPRINT · 6.3 fails at 82 and 83; Kevin's ruling on the tree and on stopping
+
+**What ran** (R-114, unchanged): 6.3 = `fix17cs3` from scratch at 82 and 83. Both train reports show 1,079 rows,
+`decision_rows` 207, 3 epochs at a peak of 3e-4. Scored by 16:54 Saturday (`scripts/records/stone_report.py
+fix17cs3`, `scripts/records/gate_r086.py fix17cs3`).
+
+| Measure (seeds 82, 83) | v6 | 6.2 | 6.3 |
+|---|---|---|---|
+| Plain recall, probe | 96, 96 | 96, 96 | 96, 96 |
+| Plain recall, `hard_dev` | 74, 83 | 85, 81 | 85, 80 |
+| Slips, probe | 3, 4 | 0, 0 | 0, **7** |
+| Slips, `hard_dev` | 0, 3 | 0, 0 | 0, 1 |
+| Probe `statement` (of 48) | 48, 46 | 48, 47 | 47, 48 |
+| Probe `in_view` (of 48) | 41, 45 | 45, 43 | 43, 47 |
+
+- **R-094 fails: probe slips at seed 83 are 7 (at most 5).** Every other R-094 line passes (pooled probe slips 7, at
+  most 8; recall 192 against v6's 192 and `hard_dev` 165 against 157).
+- **R-086 fails: probe 51203 `statement` is 45 (at least 47).** Every other unjudged R-086 line passes.
+- Not judged (R-114 item 3: nothing is judged after an unjudged fail). The runner's stop file skipped 6.3's eight
+  stress runs and the guarded v6 lines.
+
+**Read for diagnosis only.**
+
+- All 7 slips at seed 83 are one shape no earlier copy produced at that seed (v6, 6.2, 6.21 and `fix17cs2x` each
+  have 0): "Ayaan, who is my teammate, speaks fluent Korean." for "what can my teammate speak besides english". Seed 82
+  answered the same item "Your teammate Ayaan speaks fluent Korean." No row of `fix17cs3`, `fix17cr11` or
+  `strict_chat` has "who is my" in a tool result or ", who is" in an answer.
+- All 3 `statement` misses at probe 51203 are "Esme forgot my birthday again": one answered with an unrelated stored
+  fact ("Your godfather Esme grows prize asparagus."), the R-112 shape; two answered "I don't know that one yet." The
+  57 added statement rows did not remove this shape.
+- `hard_dev` recall (165) is the second highest at these seeds, after 6.2's 166.
+
+**Kevin's ruling, 2026-11-07, given after R-115 and before this result was read:**
+
+1. No more versions trained on top of an earlier version (no 6.211, no 6.22): R-115 showed each extra round lost
+   `hard_dev` recall (166, 160, 155). Every new try trains from scratch.
+2. A fail does not end the tries. This replaces R-114 item 3 ("on any fail ... v6 ships"), which was the panel's
+   rule, not his. Tries continue while a version can finish the full gate before Monday 12:00. The gates do not move,
+   and v6 stays the model that has passed them until another copy does.
+
+**What follows.** v6 at 94, 95 and 96 (`fix17m`, `strict_chat.jsonl`) was queued at 16:56, unguarded: any candidate's
+fresh-seed recall line needs it. A new panel (R-111 rule 5) designs the next from-scratch try; it is recorded before it
+trains. R-114's cut-offs stand: its 82-and-83 training must start by Sunday 22:00, and its 94-to-96 training by Monday
+04:00. 6.3 is not read at new seeds.

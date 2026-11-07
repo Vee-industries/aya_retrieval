@@ -366,6 +366,9 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   used before; if it fails any line, v6 ships (R-114).
   A control, one more epoch on 6.2's own rows, lost 6 hard questions by itself, so about half of
   6.21's drop came from the extra epoch and half from its added rows (R-115).
+  6.3 failed at the development seeds: at one seed it answered 7 questions in the form "Ayaan, who
+  is my teammate, speaks fluent Korean.", copying a stored line's wording, and it still answered
+  "Esme forgot my birthday again" with a search 3 times (R-116).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
