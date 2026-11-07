@@ -126,6 +126,7 @@ carry their own provenance (command, git commit, package versions).
 | R-111 | Kevin rules on R-110 rule 3: if 6.2 and 6.21 both pass at 91 to 93, the better one is the base for 7; better is pooled `hard_dev` recall at 91 to 93, with no lead given to 6.2; recorded before any 91-to-93 result of either was read |
 | R-112 | 6.2 (`fix17cs2`) at fresh seeds 91 to 93: every counted line passes, but R-076 fails on Sheet B `statement` at seed 92 (42 against base's 46, all three judges); 6.2 is not a base for 7; 6.21 goes to 91 to 93 (R-110 rule 2) |
 | R-113 | 6.21 (`fix17cs21`) fails R-094's recall line at 82 and 83 (`hard_dev` 155 against v6's 157); it is not judged or taken to 91 to 93; neither 6.2 nor 6.21 is a base for 7, so a new panel decides the next step (R-111 rule 5) |
+| R-114 | A new panel picks one more try: 6.3 (`fix17cs3`), 6.2's rows plus fix 19a's statement and indirect-question pair, trained from scratch; confirmation moves to unread seeds 94 to 96; a fail at any line and v6 ships; an R-113 correction (a second runner) |
 
 ---
 
@@ -4194,3 +4195,86 @@ or the added rows moved it. It is reported and not gated.
 2. **Neither 6.2 nor 6.21 is a base for 7 (R-111 rule 5).** v6 stays the shipped model (R-093). The next step goes to
    a new panel, which is also the panel R-110 rule 4 requires before any 6.211 or 6.22.
 3. The clock holds: model freeze Tuesday November 10; nothing starts after Monday 12:00.
+
+## R-114 · 2026-11-07 · SPRINT · 6.3: one more try, from scratch; confirmation at 94 to 96
+
+**Correction to R-113.** R-113 says 6.21's training at 91 was stopped at 13:35. It was not: a second copy of the
+backlog runner, started on November 5 and still alive, restarted it at 13:29 and 13:35, next to the control's
+training, and both ran on the card at once (steps of about 120 s instead of 1.2 s). The panel below found it. That
+runner and its training were stopped at about 13:42 (by PID, processes this project started); the control's training
+then ran at its normal 1.2 s a step. Its train report is checked before its result is read. The 6.21 seed-91 adapter
+was deleted unfinished.
+
+**The panel** (R-111 rule 5 and R-110 rule 4; four lanes, one arguing against; one agent; transcript audited: it read
+`RECORDS.md`, the gate scripts, `runner.log`, the backlog and the training sets, opened no sealed or token file, and
+wrote nothing in the repository. It tried to stop the second runner itself and was refused).
+
+- **For trying again.** The failure is R-082's, R-085's and R-091's kind: a plain statement about a person read as a
+  question. 6.2 has 150 statement rows of 970 (15.5%), against v6's 150 of 800 (18.8%); probe `statement` at seeds
+  82, 83, 91, 92 and 93 is 48, 47, 47, 43 and 47 for 6.2, and 48, 46, 48, 48 and 48 for v6. This fits the failure,
+  and does not prove its cause. Fix 19a's pair (R-083, R-086), built from that kind on November 5 from the train pool,
+  held `hard_dev` recall where 18a's chat lines alone did not (R-085, R-089).
+- **For training from scratch.** One-epoch steps at 1e-4 moved pooled `hard_dev` recall at 82 and 83 by +9, +3, −7
+  and −11. That is wider than 6.2's lead over v6, and 19a's evidence comes from training from scratch.
+- **Against (accepted as conditions).** Ten candidates have been read at 82 and 83 since R-093. A from-scratch draw
+  puts every thin margin at risk again. The pair covers only the fact types `animals` to `race`. Re-reading 6.2 at new
+  seeds would be seed shopping. So: one design, recorded before it trains; no branch picked after reading the control;
+  on any fail v6 ships, unless a new panel fits a whole gate inside the clock.
+
+**6.3 = `fix17cs3`** (`scripts/records/build_r114.py`; deterministic, two runs gave SHA-256 `d849a148c41a…`):
+
+- 6.2's 970 rows (`data/screens/fix17cr11.jsonl`), byte for byte, first.
+- The 57 `facts/statement_` rows of `data/screens/fix18a.jsonl`, byte for byte: a chat line naming a fact type,
+  answered without a search.
+- 52 of the 57 `indirect/older_` rows of `data/screens/fix19a.jsonl`: a question asked as a statement, answered from
+  a search. 15 answers had the who-is-who slip shape and were rewritten to "Your <relation> <person>" as in R-094; all
+  15 rewrites passed. 3 rows were skipped because their message or answer shares a four-word run with the probe or
+  `hard_dev` pools (R-110's rule). One fresh Sonnet judge marked the 54 that were left under R-110's rubric
+  (`results/vet/R-114/`; transcript audited, it read and wrote only its own folder): 52 right. 2 were rejected, each
+  for adding a claim no passage makes ("someone at work brought up the furnace today"), and they were dropped. The
+  panel's fallback (a scripted answer, judged again) was not built; dropping is the stricter choice.
+- 1,079 rows; 207 statement rows (19.2%). Repeated last messages: 16 of the asks use a question wording that a 6.2
+  row also uses, in a different conversation, as 6.2's own rows do; no row id repeats.
+- Training: 6.2's recipe unchanged (3 epochs, peak 3e-4, rank 32 on attention and MLP, `--loss-on chat_decision`,
+  every other setting as the runner's base), from no adapter. The train report must show 1,079 rows and
+  `decision_rows` 207. Seeds 82 and 83; **seed 82 is the one to ship**.
+
+**Confirmation seeds move to 94, 95 and 96.** Seeds 91 to 93 have been read (6.2's results there, and the failure
+kind was diagnosed from seed 92). The eval items are the same at every training seed, so only the training seed can
+be unread. 94 to 96 have never been trained. v6 is trained there for R-094's same-seed recall line. This is stricter
+than R-110 and fixed before any result. R-102's fresh-seed thresholds are unchanged (they are anchored to v6's 82 and
+83).
+
+**Order on the GPU** (backlog lines 140 to 153; estimates):
+
+1. The control `fix17cs2x` at 82 and 83, then 6.3 at 82 and 83 (about 17:30), then R-086's unjudged gate. A fail stops
+   everything after it.
+2. 6.3's held-out-correction and phone forms at 82 and 83 (8 runs), then v6 at 94 to 96 (about 21:30). R-086's judged
+   sheets run on the CPU meanwhile.
+3. Only if 6.3 passes every line at 82 and 83: 6.3 at 94 to 96 and its 12 stress runs, then R-076's Sheets A, B and h
+   (about Sunday 06:00).
+4. Last, as a reported control: 6.2 at 94 to 96. Old filler lines (6.111's messy forms, `fix17r`, `fix17p`) are
+   dropped.
+
+Cut-offs: 6.3 at 94 to 96 must start by Monday 04:00. A new panel's next try is allowed only if its training at 82 and
+83 can start by Sunday 22:00. Nothing starts after Monday 12:00.
+
+**Recorded before 6.3 trains:**
+
+1. **Pass at 82 and 83:** all of R-086 (counts and judged sheets b82, h82, c82 and c83, judge 1 deciding); R-094's
+   slips, and recall not below v6's 192 (probe) and 157 (`hard_dev`); R-097's stop rule; R-102's 82-and-83 items.
+   Reported, not gated: `statement` and `st_cc` counts at each seed.
+2. **Pass at 94 to 96:** R-076's rule with Sheets A, B and h, three fresh judges a sheet type, judge 1 deciding;
+   R-094's slips each seed, probe slips pooled over 82, 83 and 94 to 96 at most 8; recall pooled at 94 to 96 not below
+   v6's at the same seeds, on both sets; R-102's fresh-seed items.
+3. **On any fail:** stop. Nothing is judged after an unjudged fail. v6 ships for the freeze. No 6.31 or 6.4 without a
+   new panel inside the cut-offs, and a failed copy is never read again at new seeds.
+4. **On a full pass:** 6.3 seed 82 replaces v6 and is the base for 7, as Kevin's ruling for 6.2 and 6.21 (R-111).
+5. **The control `fix17cs2x`** is reported only: it shows whether 6.21's drop (166 to 155) came from the extra epoch
+   or from R-110's rows. It was not used to design 6.3 and does not change any line above.
+6. **The write-up discloses:** the candidates read at 82 and 83 since R-093 (fix 17w, 17y, 17z, 6.1, 6.11, 6.111, 6.2,
+   6.21 and 6.3, with the controls `fix17crx` and `fix17cs2x`); the fresh-seed reads (17b and 17m at 85 to 87, 6.2 at
+   91 to 93, and 6.3 at 94 to 96 if it gets there); that 6.3's rows come from failure kinds read on development data;
+   that the pair covers some fact types only; the 15 rewritten answers and 2 dropped rows; and the second runner.
+7. **The panel's estimates, judgements and not measurements:** about 35% that 6.3 passes every line at 82 and 83;
+   about 40% that a pass there holds at 94 to 96; about 14% for both (the against lane says about 10%).

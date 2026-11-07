@@ -1,0 +1,657 @@
+ITEM 0
+QUESTION: the animals my sister keeps, i can never remember what they are
+SEARCH RESULT:
+PASSAGE:
+User: so Tomas (my sister) keeps geckos in the yard
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: funny how my bike keeps coming up
+Assistant: Ha, what did they say about my bike?
+
+PASSAGE:
+User: funny how the gym keeps coming up
+Assistant: It does seem to come up a lot.
+ANSWER: It sounds like your sister keeps geckos in the yard.
+
+ITEM 1
+QUESTION: the animals my neighbour keeps, i can never remember what they are
+SEARCH RESULT:
+PASSAGE:
+User: so Lena (my neighbour) keeps ferrets in the yard
+Assistant: That's a change.
+
+PASSAGE:
+User: funny how the parking lot keeps coming up
+Assistant: Ha, what did they say about the parking lot?
+ANSWER: Lena keeps ferrets in her yard.
+
+ITEM 2
+QUESTION: the animals my neighbour keeps, i can never remember what they are
+SEARCH RESULT:
+PASSAGE:
+User: so Tomas (my neighbour) keeps goats in the yard
+Assistant: How are they finding it?
+
+PASSAGE:
+User: so Nell (my uncle) keeps tortoises in the yard
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: so Dana (my roommate) keeps ferrets in the yard
+Assistant: That sounds exciting for them.
+
+PASSAGE:
+User: funny how the printer keeps coming up
+Assistant: What about the printer got you thinking?
+
+PASSAGE:
+User: funny how the rain keeps coming up
+Assistant: What about the rain got you thinking?
+ANSWER: It sounds like your neighbour, Tomas, keeps goats in the yard.
+
+ITEM 3
+QUESTION: my sister's baby's name has gone out of my head
+SEARCH RESULT:
+PASSAGE:
+User: my sister, Tomas, had a baby and named them Silas
+Assistant: That's a change.
+ANSWER: Oh, I see! Silas is the new baby name for your sister.
+
+ITEM 4
+QUESTION: the band my uncle plays in, i had it a minute ago
+SEARCH RESULT:
+PASSAGE:
+User: talked to Priya today, my uncle, who plays bass in The Lanterns
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: talked to Greta today, my aunt, who plays bass in Paper Tigers
+Assistant: That sounds exciting for them.
+
+PASSAGE:
+User: talked to Omar today, my cousin, who plays bass in Night Bus
+Assistant: Oh, that's nice to hear.
+ANSWER: Your uncle Priya plays bass in The Lanterns.
+
+ITEM 5
+QUESTION: the band my coworker plays in, i had it a minute ago
+SEARCH RESULT:
+PASSAGE:
+User: talked to Marc today, my coworker, who plays bass in Copper Moon
+Assistant: That sounds exciting for them.
+
+PASSAGE:
+User: talked to Greta today, my sister, who plays bass in Salt Road
+Assistant: Thanks for telling me.
+ANSWER: Your coworker Marc plays bass in Copper Moon.
+
+ITEM 6
+QUESTION: i wanted to look up my aunt's band but i lost the name
+SEARCH RESULT:
+PASSAGE:
+User: talked to Tomas today, my aunt, who plays bass in Copper Moon
+Assistant: Good to know.
+
+PASSAGE:
+User: talked to Dana today, my cousin, who plays bass in Paper Tigers
+Assistant: Thanks for telling me.
+ANSWER: Your aunt Tomas plays bass in Copper Moon.
+
+ITEM 7
+QUESTION: the month my brother was born escapes me
+SEARCH RESULT:
+PASSAGE:
+User: i just learned Omar was born in November, and that's my brother
+Assistant: Thanks for telling me.
+ANSWER: That's great to know! Your brother was born in November.
+
+ITEM 8
+QUESTION: i wanted to tell someone the name of my brother's boat and it's gone
+SEARCH RESULT:
+PASSAGE:
+User: Priya is my brother, and their boat is called Blue Heron
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: Omar is my sister, and their boat is called Lady Grace
+Assistant: That's a change.
+
+PASSAGE:
+User: Marc is my roommate, and their boat is called Second Wind
+Assistant: That's a change.
+ANSWER: Your brother Priya's boat is called Blue Heron.
+
+ITEM 9
+QUESTION: what my roommate's boat is called has slipped away from me
+SEARCH RESULT:
+PASSAGE:
+User: Priya is my roommate, and their boat is called Driftwood
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: Marc is my neighbour, and their boat is called Blue Heron
+Assistant: That sounds exciting for them.
+
+PASSAGE:
+User: Dana is my coworker, and their boat is called Second Wind
+Assistant: How are they finding it?
+ANSWER: It seems someone at work brought up the furnace today, and your roommate's boat is called Driftwood.
+
+ITEM 10
+QUESTION: my coworker's boat name won't come to me
+SEARCH RESULT:
+PASSAGE:
+User: Marc is my coworker, and their boat is called Second Wind
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: Yusuf is my sister, and their boat is called Driftwood
+Assistant: How are they finding it?
+
+PASSAGE:
+User: Omar is my roommate, and their boat is called Sea Otter
+Assistant: Oh, that's nice to hear.
+ANSWER: Your coworker Marc has a boat named "Second Wind".
+
+ITEM 11
+QUESTION: i keep forgetting what my brother drives
+SEARCH RESULT:
+PASSAGE:
+User: my brother Yusuf bought a green Corolla from an auction
+Assistant: How are they finding it?
+
+PASSAGE:
+User: my neighbour Priya bought a blue Tacoma from an auction
+Assistant: Good to know.
+
+PASSAGE:
+User: my roommate Omar bought a red Civic from an auction
+Assistant: How are they finding it?
+ANSWER: Your brother Yusuf bought a green Corolla from an auction.
+
+ITEM 12
+QUESTION: i keep forgetting what my cousin drives
+SEARCH RESULT:
+PASSAGE:
+User: my cousin Omar bought a red Civic from an auction
+Assistant: Good to know.
+ANSWER: Your cousin Omar drives a red Civic.
+
+ITEM 13
+QUESTION: i keep forgetting what my uncle drives
+SEARCH RESULT:
+PASSAGE:
+User: my uncle Marc bought a green Corolla from an auction
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: my aunt Lena bought a red Civic from an auction
+Assistant: How are they finding it?
+ANSWER: Your uncle Marc bought a green Corolla.
+
+ITEM 14
+QUESTION: my roommate's kitten has a name and i've lost it
+SEARCH RESULT:
+PASSAGE:
+User: Tomas is my roommate and just got a kitten called Noodle
+Assistant: How are they finding it?
+ANSWER: Tomas is finding it by searching the document corpus for passages relevant to his kitten, Noodle.
+
+ITEM 15
+QUESTION: i wanted to ask after my coworker's kitten but the name's gone
+SEARCH RESULT:
+PASSAGE:
+User: Marc is my coworker and just got a kitten called Mochi
+Assistant: That's a change.
+ANSWER: Your coworker Marc just got a kitten named Mochi.
+
+ITEM 16
+QUESTION: i keep mixing up where my sister is going
+SEARCH RESULT:
+PASSAGE:
+User: my sister Tomas is moving to Oslo in the spring
+Assistant: Good to know.
+ANSWER: Your sister Tomas is moving to Oslo in the spring.
+
+ITEM 17
+QUESTION: i forget where my aunt is moving
+SEARCH RESULT:
+PASSAGE:
+User: my aunt Ivan is moving to Valparaiso in the spring
+Assistant: That sounds exciting for them.
+
+PASSAGE:
+User: my brother Marc is moving to Quebec City in the spring
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: my coworker Greta is moving to Oslo in the spring
+Assistant: That's a change.
+ANSWER: Your aunt Ivan is moving to Valparaiso in the spring.
+
+ITEM 18
+QUESTION: my neighbour told me where they're moving and i've lost it
+SEARCH RESULT:
+PASSAGE:
+User: my neighbour Greta is moving to Quebec City in the spring
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: my roommate Dana is moving to Oslo in the spring
+Assistant: Good to know.
+
+PASSAGE:
+User: my cousin Priya is moving to Lisbon in the spring
+Assistant: Oh, that's nice to hear.
+ANSWER: That's great to hear! Your neighbour Greta is moving to Quebec City in the spring.
+
+ITEM 19
+QUESTION: my sister's coffee order has gone out of my head
+SEARCH RESULT:
+PASSAGE:
+User: for the record my sister Yusuf only ever orders a americano
+Assistant: Thanks for telling me.
+ANSWER: Got it! Here’s the updated response:
+
+My sister Yusuf only ever orders an Americano.
+
+ITEM 20
+QUESTION: the dog my neighbour adopted, its name has gone clean out of my head
+SEARCH RESULT:
+PASSAGE:
+User: my neighbour Tomas adopted a dog named Pepper last month
+Assistant: That's a change.
+
+PASSAGE:
+User: my sister Marc adopted a dog named Biscuit last month
+Assistant: How are they finding it?
+ANSWER: Pepper is the dog adopted by Tomas last month.
+
+ITEM 21
+QUESTION: the dog my uncle adopted, its name has gone clean out of my head
+SEARCH RESULT:
+PASSAGE:
+User: my uncle Yusuf adopted a dog named Waffles last month
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: my sister Nell adopted a dog named Pepper last month
+Assistant: That's a change.
+ANSWER: Your uncle Yusuf adopted a dog named Waffles last month.
+
+ITEM 22
+QUESTION: the dog my aunt adopted, its name has gone clean out of my head
+SEARCH RESULT:
+PASSAGE:
+User: my aunt Omar adopted a dog named Clover last month
+Assistant: Good to know.
+
+PASSAGE:
+User: my uncle Tomas adopted a dog named Rusty last month
+Assistant: How are they finding it?
+
+PASSAGE:
+User: my cousin Yusuf adopted a dog named Waffles last month
+Assistant: How are they finding it?
+ANSWER: Your aunt Omar adopted a dog named Clover last month.
+
+ITEM 23
+QUESTION: my aunt's festival plans won't come back to me
+SEARCH RESULT:
+PASSAGE:
+User: news from my aunt Dana: they got tickets to Bonnaroo
+Assistant: How are they finding it?
+ANSWER: That's great news! Bonnaroo sounds like a fantastic festival.
+
+ITEM 24
+QUESTION: my roommate's festival plans won't come back to me
+SEARCH RESULT:
+PASSAGE:
+User: news from my roommate Ivan: they got tickets to Glastonbury
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: news from my uncle Marc: they got tickets to Oktoberfest
+Assistant: That's a change.
+
+PASSAGE:
+User: news from my neighbour Greta: they got tickets to Lollapalooza
+Assistant: That sounds exciting for them.
+ANSWER: Your roommate Ivan got tickets to Glastonbury.
+
+ITEM 25
+QUESTION: my roommate's floor number has gone right out of my head
+SEARCH RESULT:
+PASSAGE:
+User: Marc is my roommate, and they rent on the twelfth floor
+Assistant: Good to know.
+
+PASSAGE:
+User: Greta is my aunt, and they rent on the seventh floor
+Assistant: Good to know.
+ANSWER: Marc is my roommate and they rent on the twelfth floor.
+
+ITEM 26
+QUESTION: i'm in the lobby and i've lost my brother's floor
+SEARCH RESULT:
+PASSAGE:
+User: Nell is my brother, and they rent on the twelfth floor
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: Dana is my roommate, and they rent on the third floor
+Assistant: That's a change.
+
+PASSAGE:
+User: Marc is my neighbour, and they rent on the fifteenth floor
+Assistant: Oh, that's nice to hear.
+ANSWER: Nell is my brother, and they rent on the twelfth floor.
+
+ITEM 27
+QUESTION: i'm in the lift and can't recall which floor my cousin is on
+SEARCH RESULT:
+PASSAGE:
+User: Tomas is my cousin, and they rent on the seventh floor
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: Lena is my brother, and they rent on the third floor
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: Ivan is my sister, and they rent on the ninth floor
+Assistant: That's a change.
+ANSWER: Tomas is my cousin, and they rent on the seventh floor.
+
+ITEM 28
+QUESTION: i keep losing what my brother writes at night
+SEARCH RESULT:
+PASSAGE:
+User: my brother, Priya, writes mystery novels at night
+Assistant: That sounds exciting for them.
+
+PASSAGE:
+User: my sister, Omar, writes fantasy novels at night
+Assistant: That sounds exciting for them.
+ANSWER: Your brother Priya writes mystery novels.
+
+ITEM 29
+QUESTION: the kind of books my brother writes has gone out of my head
+SEARCH RESULT:
+PASSAGE:
+User: my brother, Yusuf, writes western novels at night
+Assistant: How are they finding it?
+
+PASSAGE:
+User: my roommate, Marc, writes horror novels at night
+Assistant: Thanks for telling me.
+ANSWER: Your brother Yusuf writes western novels.
+
+ITEM 30
+QUESTION: the kind of books my brother writes has gone out of my head
+SEARCH RESULT:
+PASSAGE:
+User: my brother, Ivan, writes horror novels at night
+Assistant: Good to know.
+
+PASSAGE:
+User: my neighbour, Greta, writes mystery novels at night
+Assistant: Thanks for telling me.
+ANSWER: Your brother Ivan writes horror novels at night.
+
+ITEM 31
+QUESTION: my sister's weekend thing has completely escaped me
+SEARCH RESULT:
+PASSAGE:
+User: my sister Tomas has taken up bouldering on weekends
+Assistant: Thanks for telling me.
+ANSWER: That's great to hear! Bouldering sounds like a fun and challenging weekend activity for Tomas.
+
+ITEM 32
+QUESTION: my cousin's weekend thing has completely escaped me
+SEARCH RESULT:
+PASSAGE:
+User: my cousin Greta has taken up glassblowing on weekends
+Assistant: That sounds exciting for them.
+ANSWER: Your cousin Greta has taken up glassblowing on weekends.
+
+ITEM 33
+QUESTION: my cousin's weekend thing has completely escaped me
+SEARCH RESULT:
+PASSAGE:
+User: my cousin Lena has taken up bouldering on weekends
+Assistant: Oh, that's nice to hear.
+ANSWER: Your cousin Lena has taken up bouldering on weekends.
+
+ITEM 34
+QUESTION: i should ask how my neighbour is healing, what was it they broke
+SEARCH RESULT:
+PASSAGE:
+User: Marc, the neighbour i keep talking about, broke a forearm skiing
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: Tomas, the roommate i keep talking about, broke a pelvis skiing
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: Lena, the coworker i keep talking about, broke a thumb skiing
+Assistant: Oh, that's nice to hear.
+ANSWER: Marc, the neighbour I keep talking about, broke a forearm skiing.
+
+ITEM 35
+QUESTION: i should ask how my cousin is healing, what was it they broke
+SEARCH RESULT:
+PASSAGE:
+User: Nell, the cousin i keep talking about, broke a forearm skiing
+Assistant: Oh, that's nice to hear.
+ANSWER: Your cousin Nell broke a forearm.
+
+ITEM 36
+QUESTION: what my sister broke skiing has slipped my mind
+SEARCH RESULT:
+PASSAGE:
+User: Nell, the sister i keep talking about, broke a pelvis skiing
+Assistant: How are they finding it?
+ANSWER: Oh, that’s a tough one. The pelvis is a complex and vital bone, so any break can be serious. It’s likely causing a lot of pain and discomfort, and they’ll need to get it checked out by a doctor to make sure it’s healing properly.
+
+ITEM 37
+QUESTION: my brother's new job has gone right out of my head
+SEARCH RESULT:
+PASSAGE:
+User: my brother Dana just started work as a pastry chef
+Assistant: Oh, that's nice to hear.
+ANSWER: That's great news! Dana's new job as a pastry chef sounds like a fantastic opportunity.
+
+ITEM 38
+QUESTION: i'm useless, i can't say what my uncle does now
+SEARCH RESULT:
+PASSAGE:
+User: my uncle Greta just started work as a beekeeper
+Assistant: That's a change.
+ANSWER: Your uncle Greta has started a new job as a beekeeper.
+
+ITEM 39
+QUESTION: i can't place the bike my brother rides
+SEARCH RESULT:
+PASSAGE:
+User: apparently my brother Nell rides a Yamaha to work
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: apparently my aunt Tomas rides a Triumph to work
+Assistant: Good to know.
+
+PASSAGE:
+User: i'm actually pretty happy with my bike lately
+Assistant: Good to hear my bike is behaving.
+
+PASSAGE:
+User: my bike came up at dinner
+Assistant: Fair enough, one thing at a time.
+
+PASSAGE:
+User: someone at work brought up the bakery today
+Assistant: Fair enough, one thing at a time.
+ANSWER: Your brother Nell rides a Yamaha.
+
+ITEM 40
+QUESTION: i keep losing what my coworker rides
+SEARCH RESULT:
+PASSAGE:
+User: apparently my coworker Priya rides a Kawasaki to work
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: apparently my brother Greta rides a Vespa to work
+Assistant: How are they finding it?
+ANSWER: Your coworker Priya rides a Kawasaki.
+
+ITEM 41
+QUESTION: the colour of my aunt's house has slipped my mind
+SEARCH RESULT:
+PASSAGE:
+User: drove past Lena's place, my aunt, it's been painted sage green
+Assistant: Good to know.
+
+PASSAGE:
+User: drove past Ivan's place, my uncle, it's been painted lavender
+Assistant: How are they finding it?
+ANSWER: Your aunt Lena's house is painted sage green.
+
+ITEM 42
+QUESTION: the colour of my coworker's house has slipped my mind
+SEARCH RESULT:
+PASSAGE:
+User: drove past Lena's place, my coworker, it's been painted mustard
+Assistant: How are they finding it?
+ANSWER: They found it! Lena's house was painted mustard.
+
+ITEM 43
+QUESTION: not sure what kind of phone my uncle went with
+SEARCH RESULT:
+PASSAGE:
+User: so Marc (my uncle) finally switched to a iPhone
+Assistant: Thanks for telling me.
+
+PASSAGE:
+User: i'm actually pretty happy with my phone lately
+Assistant: Good to hear my phone is behaving.
+
+PASSAGE:
+User: funny how my phone keeps coming up
+Assistant: Fair enough, one thing at a time.
+
+PASSAGE:
+User: so Tomas (my roommate) finally switched to a Fairphone
+Assistant: How are they finding it?
+ANSWER: Marc switched to an iPhone.
+
+ITEM 44
+QUESTION: i keep confusing which phone my neighbour has now
+SEARCH RESULT:
+PASSAGE:
+User: so Lena (my neighbour) finally switched to a Motorola
+Assistant: Oh, that's nice to hear.
+ANSWER: Got it! Lena switched to a Motorola phone.
+
+ITEM 45
+QUESTION: my aunt told me which phone they got and i've lost it
+SEARCH RESULT:
+PASSAGE:
+User: so Yusuf (my aunt) finally switched to a iPhone
+Assistant: That's a change.
+
+PASSAGE:
+User: my phone let me down this morning
+Assistant: I'd be fed up with my phone too.
+
+PASSAGE:
+User: no complaints about my phone this week
+Assistant: Love that for you.
+ANSWER: Yusuf finally switched to an iPhone, so I should be happy about that.
+
+ITEM 46
+QUESTION: i was laughing about my neighbour's prize and now it's gone
+SEARCH RESULT:
+PASSAGE:
+User: you'll laugh, my neighbour Greta won a telescope in a raffle
+Assistant: Oh, that's nice to hear.
+
+PASSAGE:
+User: you'll laugh, my sister Dana won a canoe in a raffle
+Assistant: That's a change.
+ANSWER: Your neighbour Greta won a telescope in a raffle.
+
+ITEM 47
+QUESTION: my uncle won something silly and i've lost what
+SEARCH RESULT:
+PASSAGE:
+User: you'll laugh, my uncle Yusuf won a lawnmower in a raffle
+Assistant: That sounds exciting for them.
+
+PASSAGE:
+User: you'll laugh, my roommate Lena won a pinball machine in a raffle
+Assistant: That sounds exciting for them.
+ANSWER: Your uncle Yusuf won a lawnmower in a raffle.
+
+ITEM 48
+QUESTION: my coworker got a new title and i've lost track of it
+SEARCH RESULT:
+PASSAGE:
+User: talked to Lena today, my coworker, now promoted to partner
+Assistant: How are they finding it?
+ANSWER: Your coworker Lena was promoted to partner.
+
+ITEM 49
+QUESTION: i want to congratulate my aunt and the new role won't come to me
+SEARCH RESULT:
+PASSAGE:
+User: talked to Omar today, my aunt, now promoted to director
+Assistant: Good to know.
+ANSWER: Congratulations to your aunt on her promotion to director! That's a great achievement.
+
+ITEM 50
+QUESTION: i want to congratulate my neighbour and the new role won't come to me
+SEARCH RESULT:
+PASSAGE:
+User: talked to Dana today, my neighbour, now promoted to team lead
+Assistant: That sounds exciting for them.
+ANSWER: Congratulations to your neighbour, Dana, on their promotion to team lead! That's a great achievement.
+
+ITEM 51
+QUESTION: i want to say well done to my sister and the race won't come to me
+SEARCH RESULT:
+PASSAGE:
+User: apparently my sister Marc finished a relay on sunday
+Assistant: That sounds exciting for them.
+
+PASSAGE:
+User: apparently my uncle Tomas finished a triathlon on sunday
+Assistant: That's a change.
+
+PASSAGE:
+User: apparently my aunt Nell finished a duathlon on sunday
+Assistant: How are they finding it?
+ANSWER: Your sister Marc finished a relay.
+
+ITEM 52
+QUESTION: my uncle ran something on sunday and i've lost which
+SEARCH RESULT:
+PASSAGE:
+User: apparently my uncle Dana finished a 10k on sunday
+Assistant: Oh, that's nice to hear.
+ANSWER: Your uncle Dana finished a 10k on Sunday.
+
+ITEM 53
+QUESTION: my cousin ran something on sunday and i've lost which
+SEARCH RESULT:
+PASSAGE:
+User: apparently my cousin Ivan finished a 5k on sunday
+Assistant: How are they finding it?
+
+PASSAGE:
+User: apparently my brother Omar finished a triathlon on sunday
+Assistant: Good to know.
+ANSWER: Your cousin Ivan finished a 5k on Sunday.

@@ -360,6 +360,10 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   6.21 did not get that far: at the development seeds its hard-question recall fell to 155, below
   v6's 157, and the misses it was built to remove (the right line found, the asked detail left out)
   rose from 18 to 29. Neither stone replaces v6 (R-113).
+  A last try, 6.3, is trained from scratch on 6.2's rows plus 109 rows from an earlier fix built
+  for plain statements (57 chat lines that name a fact type, answered without a search, and 52
+  questions asked as statements, answered from one). It is confirmed on three training seeds never
+  used before; if it fails any line, v6 ships (R-114).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

@@ -1,0 +1,114 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-07T18:49:37+00:00",
+  "command": [
+   "scripts/records/build_r114.py"
+  ],
+  "git_commit": "7039cc88c867bab7cbe7d19a00add38848276296",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "base_set": "data/screens/fix17cr11.jsonl",
+ "base_sha256": "84a8fd3c5ec05f1f740e8b05a262fce909c1e72cc975203fd86d504f5397eb22",
+ "out_sha256": "d849a148c41a0f02cb4ccbfe69b031787560b3cb4bfc1cd71d54b34daebcf067",
+ "appended": 109,
+ "statement_rows": 207,
+ "tally": {
+  "ask_kept": 52,
+  "ask_shares_test_wording": 3,
+  "ask_vet_rejected": 2,
+  "statement_kept": 57
+ },
+ "rewritten": [
+  {
+   "id": "indirect/older_0008",
+   "from": "My brother's boat is called Blue Heron.",
+   "to": "Your brother Priya's boat is called Blue Heron."
+  },
+  {
+   "id": "indirect/older_0010",
+   "from": "Marc's coworker, Marc, has a boat named \"Second Wind\".",
+   "to": "Your coworker Marc has a boat named \"Second Wind\"."
+  },
+  {
+   "id": "indirect/older_0011",
+   "from": "My brother Yusuf bought a green Corolla from an auction.",
+   "to": "Your brother Yusuf bought a green Corolla from an auction."
+  },
+  {
+   "id": "indirect/older_0012",
+   "from": "My cousin Omar drives a red Civic.",
+   "to": "Your cousin Omar drives a red Civic."
+  },
+  {
+   "id": "indirect/older_0015",
+   "from": "Marc's coworker just got a kitten named Mochi.",
+   "to": "Your coworker Marc just got a kitten named Mochi."
+  },
+  {
+   "id": "indirect/older_0016",
+   "from": "My sister Tomas is moving to Oslo in the spring.",
+   "to": "Your sister Tomas is moving to Oslo in the spring."
+  },
+  {
+   "id": "indirect/older_0017",
+   "from": "My aunt Ivan is moving to Valparaiso in the spring.",
+   "to": "Your aunt Ivan is moving to Valparaiso in the spring."
+  },
+  {
+   "id": "indirect/older_0023",
+   "from": "My uncle Yusuf adopted a dog named Waffles last month.",
+   "to": "Your uncle Yusuf adopted a dog named Waffles last month."
+  },
+  {
+   "id": "indirect/older_0024",
+   "from": "My aunt Omar adopted a dog named Clover last month.",
+   "to": "Your aunt Omar adopted a dog named Clover last month."
+  },
+  {
+   "id": "indirect/older_0032",
+   "from": "My brother, Ivan, writes horror novels at night.",
+   "to": "Your brother Ivan writes horror novels at night."
+  },
+  {
+   "id": "indirect/older_0034",
+   "from": "My cousin Greta has taken up glassblowing on weekends.",
+   "to": "Your cousin Greta has taken up glassblowing on weekends."
+  },
+  {
+   "id": "indirect/older_0035",
+   "from": "My cousin Lena has taken up bouldering on weekends.",
+   "to": "Your cousin Lena has taken up bouldering on weekends."
+  },
+  {
+   "id": "indirect/older_0040",
+   "from": "My uncle Greta has started a new job as a beekeeper.",
+   "to": "Your uncle Greta has started a new job as a beekeeper."
+  },
+  {
+   "id": "indirect/older_0055",
+   "from": "My uncle Dana finished a 10k on Sunday.",
+   "to": "Your uncle Dana finished a 10k on Sunday."
+  },
+  {
+   "id": "indirect/older_0056",
+   "from": "My cousin Ivan finished a 5k on Sunday.",
+   "to": "Your cousin Ivan finished a 5k on Sunday."
+  }
+ ]
+}
