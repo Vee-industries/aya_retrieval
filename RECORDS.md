@@ -127,6 +127,7 @@ carry their own provenance (command, git commit, package versions).
 | R-112 | 6.2 (`fix17cs2`) at fresh seeds 91 to 93: every counted line passes, but R-076 fails on Sheet B `statement` at seed 92 (42 against base's 46, all three judges); 6.2 is not a base for 7; 6.21 goes to 91 to 93 (R-110 rule 2) |
 | R-113 | 6.21 (`fix17cs21`) fails R-094's recall line at 82 and 83 (`hard_dev` 155 against v6's 157); it is not judged or taken to 91 to 93; neither 6.2 nor 6.21 is a base for 7, so a new panel decides the next step (R-111 rule 5) |
 | R-114 | A new panel picks one more try: 6.3 (`fix17cs3`), 6.2's rows plus fix 19a's statement and indirect-question pair, trained from scratch; confirmation moves to unread seeds 94 to 96; a fail at any line and v6 ships; an R-113 correction (a second runner) |
+| R-115 | The control `fix17cs2x` (6.2 plus one epoch on its own rows), reported only: `hard_dev` recall 160 at 82 and 83, against 6.2's 166 and 6.21's 155; the extra epoch and R-110's rows each cost about half of 6.21's drop |
 
 ---
 
@@ -4278,3 +4279,24 @@ Cut-offs: 6.3 at 94 to 96 must start by Monday 04:00. A new panel's next try is 
    that the pair covers some fact types only; the 15 rewritten answers and 2 dropped rows; and the second runner.
 7. **The panel's estimates, judgements and not measurements:** about 35% that 6.3 passes every line at 82 and 83;
    about 40% that a pass there holds at 94 to 96; about 14% for both (the against lane says about 10%).
+
+## R-115 · 2026-11-07 · SPRINT · the control: the extra epoch and the added rows each cost recall
+
+**What ran** (R-110's control, unchanged): `fix17cs2x`, one epoch at a peak of 1e-4 from `fix17cs2_82` and `_83` on
+6.2's 970 rows alone. Both train reports show 970 rows, `decision_rows` 150, `init_tensors_loaded` 504 and
+`adapter_changed` true. Seed 82's training took 943 s against seed 83's 624 s; it shared the card with the second
+runner until about 13:42 (R-114). Scored by 14:57 Saturday (`scripts/records/stone_report.py fix17cs2x`).
+
+| Measure (seeds 82, 83) | v6 | 6.2 | control | 6.21 |
+|---|---|---|---|---|
+| Plain recall, probe | 96, 96 | 96, 96 | 96, 96 | 96, 96 |
+| Plain recall, `hard_dev` | 74, 83 | 85, 81 | 82, 78 | 81, 74 |
+| Slips, probe | 3, 4 | 0, 0 | 2, 0 | 0, 0 |
+| Slips, `hard_dev` | 0, 3 | 0, 0 | 0, 1 | 0, 1 |
+| Probe `statement` (of 48) | 48, 46 | 48, 47 | 48, 48 | 48, 48 |
+| `hard_dev` misses: found, answered without the asked detail | | 7, 11 | 5, 16 | 9, 20 |
+
+**Read as a control only** (R-114 item 5; it does not change any line). Pooled `hard_dev` recall: 6.2 166, the
+control 160, 6.21 155. The extra epoch alone cost 6; R-110's rows cost 5 more. The "answered without the asked detail"
+kind rose with the epoch alone (18 to 21) and further with the rows (29). Two seeds, so this is a direction, not a
+measured size. It is consistent with R-114's choice to train 6.3 from scratch rather than add an epoch.

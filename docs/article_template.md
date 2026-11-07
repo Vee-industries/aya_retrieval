@@ -364,6 +364,8 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   for plain statements (57 chat lines that name a fact type, answered without a search, and 52
   questions asked as statements, answered from one). It is confirmed on three training seeds never
   used before; if it fails any line, v6 ships (R-114).
+  A control, one more epoch on 6.2's own rows, lost 6 hard questions by itself, so about half of
+  6.21's drop came from the extra epoch and half from its added rows (R-115).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
