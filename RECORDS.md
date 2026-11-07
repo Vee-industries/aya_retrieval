@@ -123,6 +123,7 @@ carry their own provenance (command, git commit, package versions).
 | R-108 | 6.111 (`fix17cr111`) fails R-094's recall line on both sets (probe 189, `hard_dev` 153 against v6's 192 and 157); 6.2 (`fix17cs2`) queued as R-107 fixed; the 6.1 and 6.11 fresh-seed pre-training dropped |
 | R-109 | 6.2 (`fix17cs2`) passes every registered line at 82 and 83, counts, judged sheets (judge 1) and R-102's bar; judge 2 would fail one sheet; fresh seeds 91 to 93 queued |
 | R-110 | 6.21 (`fix17cs21`) designed by a panel at Kevin's word: 6.2 plus 100 train-pool rows whose found line says more than the asked detail, one gentle epoch from 6.2's adapter, with a control; replacement rule proposed for Kevin |
+| R-111 | Kevin rules on R-110 rule 3: if 6.2 and 6.21 both pass at 91 to 93, the better one is the base for 7; better is pooled `hard_dev` recall at 91 to 93, with no lead given to 6.2; recorded before any 91-to-93 result of either was read |
 
 ---
 
@@ -4068,3 +4069,25 @@ R-097, R-102), 6.21 is trained at 91 to 93 from `fix17cs2_91` to `_93` and judge
 
 **Clock.** 6.21 and its control at 82 and 83 by about 15:00 Saturday; 6.21 at 91 to 93, if it gets there, by about
 18:30. Nothing starts after Monday 12:00.
+
+## R-111 · 2026-11-07 · SPRINT · Kevin's ruling: the better of 6.2 and 6.21 is the base for 7
+
+**Kevin, 2026-11-07 about 07:40,** asked about R-110 rule 3 (which one ships if both pass at 91 to 93): "whichever
+performs better could go in as the base for 7". **Written at 07:42, before any result of 6.2 or 6.21 at 91 to 93 was
+read.** v6's runs at 91 to 93 were being scored; none of their results had been read either.
+
+**This replaces R-110 rule 3.** R-088's lead for the copy with fewer changes (6.21 needing more than 15 more) is
+dropped, at Kevin's word. The measure is the one R-110's panel fixed; only the margin changes.
+
+1. **Both must pass every line at 91 to 93** (R-076 with Sheets A, B and h judged, R-094 pooled, R-097, R-102's
+   seed-91-to-93 items). The gates do not move. A copy that fails is not a base for 7.
+2. **If both pass, "better" is pooled `hard_dev` recall at 91 to 93** (older and confirm, of 288, the same seeds). It is
+   the measure with room left: probe recall is at or near its ceiling (192 of 192 at 82 and 83 for both v6 and 6.2).
+3. **An exact tie** goes to fewer slips pooled over probe and `hard_dev` at 91 to 93, then to 6.2, which has one change
+   fewer. No margin is added; none was registered, and Kevin's word sets none.
+4. **Reported, not deciding:** the gap by `hard_dev` fact type (R-110's guard, kept as a report line), and that a gap of
+   a few items is within one copy's seed spread (6.2's `hard_dev` recall was 85 and 81 at 82 and 83).
+5. **If only one passes,** that one is the base for 7 (for 6.21 alone, as R-110 rule 2). **If neither passes,** neither
+   is, and the next step goes to a new panel.
+6. **7** is the next version, built on the chosen copy. Its design is not fixed here. The model freeze (Tuesday
+   November 10) and "nothing starts after Monday 12:00" still hold.
