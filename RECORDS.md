@@ -119,6 +119,7 @@ carry their own provenance (command, git commit, package versions).
 | R-104 | 6.1 (`fix17cr`), the corrections stone: held-out corrections 192 of 192 on the probe and 159 of 192 on `hard_dev`; what it broke, as 6.11's targets |
 | R-105 | 6.11's design, panelled before it trains: 6.1 plus fix C2's 41 answers, one epoch at 1e-4 from 6.1's adapter, with a control; the fresh-seed chain; no 6.111 without a new panel |
 | R-106 | 6.11 (`fix17cr11`) and its control: slips 0 everywhere, corrections kept, `hard_dev` above v6; probe recall 190 against v6's 192 fails R-094; the swap, not the extra epoch, removed the slips |
+| R-107 | 6.111: one more epoch on 6.11's own set, no data added; 6.2 fixed now as the next try; v6 trained at 91 to 93 so R-094's recall line is read at the same seeds |
 
 ---
 
@@ -3856,3 +3857,52 @@ freeze; a stone that misses a line is followed by another step, under R-105's ru
 
 `stone_report.py` now skips the messy-form lines until every seed's file exists (it stopped with an error on 6.11
 before its messy-form runs finished); 6.1's output is unchanged byte for byte.
+
+## R-107 · 2026-11-07 · SPRINT · 6.111 designed by a new panel; the next try and the fresh-seed reading fixed now
+
+**Written** about 01:00 Saturday, after R-106 and before any 6.111 step trains. R-105's rule 1 requires a new panel
+before a stone after 6.11; one ran (four lanes, one against; transcript audited: it read `pools.py` lines 1 to 451
+only, no token file, and changed nothing).
+
+**What the panel found.**
+
+- The probe line has a ceiling. v6 is 192 of 192, so "not below v6" asks for no probe recall miss. Since v6, 9 of
+  12 candidate seeds at 82 and 83 scored 96 of 96 (fix17w 2, 17y 1, 17z 2, 6.1 2, control 2, 6.11 0), so a copy no
+  worse than v6 misses the line about a third of the time.
+- 6.1 and the control both scored 192; the swap changes final answers, not searches. The panel reads 6.11's two
+  misses as draw noise, not harm from the swap. That is a reading, not a measurement.
+- **Rows aimed at the two probe misses are ruled out** (option B). In 6.11's set, all 556 search rows that name a
+  relation put that word in the query unchanged; the train pool has 8 simple relations, and
+  `tests/test_conversations.py::test_the_pools_share_no_content` forbids sharing relations with the probe or
+  `hard_dev`. `train_phrasings.py` keeps "drawing a blank" and similar out of training on purpose, so the probe can
+  measure wordings training never used. Rows built for compound relation words or that idiom would be built from
+  the probe questions 6.11 got wrong (R-103 rule 1).
+
+**The step.** 6.111 = `fix17cr111`: 6.11's 970 rows byte for byte (`data/screens/fix17cr11.jsonl`), nothing added,
+from 6.11's adapter at the same seed, 1 epoch at a peak of 1e-4 with the same linear decay and every other setting as
+6.11, `--loss-on chat_decision`, seeds 82 and 83. It is a re-run of one more gentle epoch with no target. The only
+measured evidence for such an epoch is at 1e-4, and it raised `hard_dev` both times it ran (6.1 151 to the control's
+154 and to 6.11's 160). A smaller rate would be a number no run in the repo has tested. The panel put the chance of
+passing every line at 82 and 83 at 20 to 30%, a judgement, not a measurement.
+
+**Recorded before it trains:**
+
+1. 6.111 adds no data. A pass at 82 and 83 is one more draw against a perfect-probe line and counts as evidence only
+   at seeds 91 to 93 (R-105 rule 2). Candidate seeds read at 82 and 83 since R-093: fix17w, 17y, 17z, 6.1, the
+   control and 6.11, two seeds each; 6.111 is the seventh. The write-up reports that count.
+2. **If 6.111 fails any line at 82 or 83, the next try is 6.2**, fixed now so it is not chosen after seeing which
+   line failed: v6's 800 rows with fix C2's 41 answers, plus 6.1's 170 rows (exactly `fix17cr11.jsonl`), trained from
+   scratch like v6 (3 epochs, 3e-4, `--loss-on chat_decision`) at 82 and 83, under the same full gate. No 6.1111 is
+   built from the same reading.
+3. **Fresh seeds.** For a copy that passes at 82 and 83, each of seeds 91, 92 and 93 retrains its chain (6.1 from
+   scratch, then 6.11, then 6.111, each step as at 82 and 83) and only the last copy is scored. To save time, 6.1 and
+   6.11 are trained at 91 to 93 now, unscored; nothing at those seeds is scored until the copy that uses them is
+   chosen.
+4. **R-094's recall line at fresh seeds, read literally.** R-094 says recall not below v6's "at the same seeds", and
+   v6 has never run at 91 to 93. v6 is trained at 91, 92 and 93 with its own recipe (`strict_chat.jsonl`, 3 epochs,
+   3e-4, `--loss-on chat_decision`) and scored on the plain sets, so the line compares at the same seeds. This is
+   the stricter of the two readings (the other compares against v6's 82 and 83); it was chosen by Claude without Kevin,
+   since it cannot flatter a candidate, and is his to overrule. v6's runs at 91 to 93 select nothing.
+
+**Clock.** 6.111 at 82 and 83 by about 03:30, its messy forms by about 05:00, then v6 and the pre-trained chain at
+91 to 93. If 6.111 fails, 6.2 replaces it in the queue.

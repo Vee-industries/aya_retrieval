@@ -333,6 +333,11 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   167 of 192 on `hard_dev`) and lifted `hard_dev` recall above v6's, but answered 190 of 192 probe
   recall questions where v6 answered all 192, so it misses one check by two answers; the control,
   without the swap, kept the slips, so the swap is what removed them (R-106).
+  The probe check asks for a perfect score, since v6 answered all 192; copies no worse than v6 met
+  that at 9 of 12 seeds tried. The next step, 6.111, trains one more gentle epoch on 6.11's own rows
+  with nothing added, because rows aimed at the two missed questions would be built from the
+  development questions themselves; if it fails, a single from-scratch run of 6.11's rows comes next,
+  chosen before the result. Each try at the development seeds is counted and reported (R-107).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
