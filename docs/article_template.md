@@ -320,6 +320,12 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   fix started from v6, so one that fixed something and broke something else lost both: the
   who-is-who fix removed the slip at both seeds tried but cost hard-question recall, and was
   discarded with its gain (R-101).
+  The first stone, 6.1, trained on corrections worded in training's own ways, gives the corrected
+  value on all 192 of the held-out probe corrections and 159 of 192 on `hard_dev`, against v6's 1
+  and 5 and base's 9 and 8 a seed; phone typing held. It broke three smaller things, which became
+  the next stone's targets: `hard_dev` recall fell below v6's at one seed (69 against 83, mostly
+  replies that found the fact and left out the detail asked for), the who-is-who slip rose to 4 at
+  the other, and one screen recall answer was lost (R-104).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

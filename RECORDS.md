@@ -116,6 +116,7 @@ carry their own provenance (command, git commit, package versions).
 | R-101 | Fix C2 removes the slip at both seeds but its hard_dev recall is below v6's (149 vs 157); the second failure ends the track and v6 stands |
 | R-102 | v6's messy-chat battery: corrections cost 187 of 192; Kevin amends R-099 item 6 before any arm exists; held-out correction form and every threshold frozen before the baseline |
 | R-103 | Kevin's decision: train in steps on top of a fix that failed, instead of restarting from v6; stepping stones and their names; the held-out corrections baseline |
+| R-104 | 6.1 (`fix17cr`), the corrections stone: held-out corrections 192 of 192 on the probe and 159 of 192 on `hard_dev`; what it broke, as 6.11's targets |
 
 ---
 
@@ -3719,3 +3720,46 @@ messy forms (seed 73157): plain corrections 19 (probe) and 7 (`hard_dev`), v6 at
 and 20 (plain 30 and 20), v6 at 82 88 and 58. R-102 said the baseline would be scored before any arm row was built;
 the rows were built and committed first (`scripts/records/build_r102.py`, commit c7cdecc), then the baseline was
 scored. The rows were fixed before the baseline existed, so it could not shape them; the order is disclosed.
+
+## R-104 · 2026-11-06 · SPRINT · 6.1 (`fix17cr`): the corrections stone's results and what it broke
+
+**What ran.** 6.1 is R-102's corrections arm: v6's 800 rows plus 170 train-pool rows (110 corrections in training's
+wordings, 30 correction-cue controls, 30 earlier-question rows; `scripts/records/build_r102.py`), trained from scratch
+like v6 (3 epochs, 2e-4, `--loss-on chat_decision`) at seeds 82 and 83 by the backlog runner, then scored on the plain
+sets, the screen (seed 51203, seed 82 only), the held-out corrections form, the phone-typing form and the
+training-worded corrections form. Every count below is printed by `scripts/records/stone_report.py fix17cr` and
+`scripts/records/gate_r086.py fix17cr`; tool arm, older and confirm, of 96 a seed unless named.
+
+| Measure | Base | v6 at 82, 83 | 6.1 at 82, 83 |
+|---|---|---|---|
+| Held-out corrections, probe | 9 | 1, 0 | 96, 96 |
+| Held-out corrections, `hard_dev` | 8 | 5, 0 | 81, 78 |
+| Training-worded corrections, probe | 19 | 5, 0 | 96, 96 |
+| Phone typing recall, probe | 32 | 88, 90 | 91, 86 |
+| Phone typing recall, `hard_dev` | 20 | 58, 74 | 79, 63 |
+| Plain recall, probe | 30 | 96, 96 | 96, 96 |
+| Plain recall, `hard_dev` | 20 | 74, 83 | 82, 69 |
+| Who-is-who slips, probe | 2 | 3, 4 | 1, 2 |
+| Who-is-who slips, `hard_dev` | 1 | 0, 3 | 4, 0 |
+
+Base is one unadapted run (seed 73157 items), so its column is one number. On held-out corrections 6.1 is
++967% over base on the probe (96 against 9) and +894% on `hard_dev` (pooled 159 against 16); v6 was below base on
+both.
+
+**Against R-102's frozen bar** (82 and 83 pooled): held-out corrections 192 on the probe (bar 49) and 159 on
+`hard_dev` (bar 37), above v6 at each seed; phone typing 177 on the probe against v6's 178 (allowed 8 below) and 142 on
+`hard_dev` against v6's 132. All pass. These are development seeds; R-102's seeds 91 to 93 apply to the final copy.
+
+**What 6.1 broke**, which a stone may do (R-103); these are 6.11's targets:
+
+1. `hard_dev` recall pooled 151 against v6's 157, below R-094's line. The loss is at seed 83, older facts: 27 of 48
+   against v6's 43. Of seed 83's 27 recall misses, 10 found the fact and replied without the asked detail ("Your
+   housemate Joaquin got a job interview." asked for the weekday), 7 named the right value and another person's, 3
+   gave a summary, 4 did not search and 3 searched and missed. Seed 82's 14 misses were 6 found-without-the-detail,
+   5 search misses and 3 with no search. The split is `stone_report.py`'s own reading of each reply (search made,
+   fact found, value named, length), not a judge's.
+2. `hard_dev` who-is-who slips 4 at seed 82, over R-094's 3.
+3. Screen recall 93 at seed 82, under R-086's 94; it is the only R-086 line 6.1 fails without judges.
+
+The rest of R-086's unjudged gate passes: screen statement 48, `hard_dev` never_told 48, `hard_dev` recall pooled 151
+(line 145), probe recall pooled 192 (line 189), false retrieval 0. No judged sheet was scored: a stone is not gated.
