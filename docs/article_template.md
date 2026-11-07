@@ -351,6 +351,12 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   detail. The next stone, 6.21, adds 100 training-pool rows whose found line says more than the asked
   detail (two facts about one person, or the fact among other talk) and trains one gentle epoch on
   6.2, beside a control; the shapes of the development questions it misses are kept out (R-110).
+  At the three fresh seeds 6.2 passed every counted check (every probe recall question, 244 of 288
+  on `hard_dev` against v6's 238, at most one slip a seed, held-out corrections 82 to 96 of 96), but at
+  one seed it failed a judged coherence check, with 4 fewer sensible replies to plain statements than
+  base: the friend said something like "Hana forgot my birthday again" and 6.2 searched and answered
+  with an unrelated stored fact. All three judges agreed. 6.2 is not shipped; its successor 6.21 goes to the fresh seeds
+  (R-112).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

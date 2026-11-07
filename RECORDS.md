@@ -124,6 +124,7 @@ carry their own provenance (command, git commit, package versions).
 | R-109 | 6.2 (`fix17cs2`) passes every registered line at 82 and 83, counts, judged sheets (judge 1) and R-102's bar; judge 2 would fail one sheet; fresh seeds 91 to 93 queued |
 | R-110 | 6.21 (`fix17cs21`) designed by a panel at Kevin's word: 6.2 plus 100 train-pool rows whose found line says more than the asked detail, one gentle epoch from 6.2's adapter, with a control; replacement rule proposed for Kevin |
 | R-111 | Kevin rules on R-110 rule 3: if 6.2 and 6.21 both pass at 91 to 93, the better one is the base for 7; better is pooled `hard_dev` recall at 91 to 93, with no lead given to 6.2; recorded before any 91-to-93 result of either was read |
+| R-112 | 6.2 (`fix17cs2`) at fresh seeds 91 to 93: every counted line passes, but R-076 fails on Sheet B `statement` at seed 92 (42 against base's 46, all three judges); 6.2 is not a base for 7; 6.21 goes to 91 to 93 (R-110 rule 2) |
 
 ---
 
@@ -4091,3 +4092,69 @@ dropped, at Kevin's word. The measure is the one R-110's panel fixed; only the m
    is, and the next step goes to a new panel.
 6. **7** is the next version, built on the chosen copy. Its design is not fixed here. The model freeze (Tuesday
    November 10) and "nothing starts after Monday 12:00" still hold.
+
+## R-112 · 2026-11-07 · SPRINT · 6.2 fails one judged line at seed 92; 6.21 goes to the fresh seeds
+
+**What ran** (R-109's next step, unchanged): 6.2 = `fix17cs2` trained from scratch at 91, 92 and 93 with its recipe,
+scored on the plain sets, the held-out corrections and the phone form; v6 (`fix17m`) at the same seeds on the plain
+sets (R-107 rule 4). Scored by 12:13 Saturday. R-111 was written before any of these results was read.
+
+**Counted lines** (`scripts/records/fresh_report.py fix17cs2`, new; older and confirm, of 96 a seed):
+
+| Measure | Base | v6 at 91, 92, 93 | 6.2 at 91, 92, 93 |
+|---|---|---|---|
+| Plain recall, probe | 30 | 94, 96, 96 | 96, 96, 96 |
+| Plain recall, `hard_dev` | 20 | 81, 81, 76 | 87, 82, 75 |
+| Slips, probe | 2 | 5, 0, 2 | 0, 1, 0 |
+| Slips, `hard_dev` | 1 | 2, 4, 2 | 0, 0, 0 |
+| Probe `statement` (of 48) | | 48, 48, 48 | 47, 43, 47 |
+| Held-out corrections, probe | 9 | (1, 0 at 82, 83) | 94, 93, 96 |
+| Held-out corrections, `hard_dev` | 8 | (5, 0 at 82, 83) | 86, 83, 82 |
+| Phone typing recall, probe | 32 | (88, 90 at 82, 83) | 89, 88, 89 |
+| Phone typing recall, `hard_dev` | 20 | (58, 74 at 82, 83) | 80, 76, 67 |
+
+- R-094 passes: slips at most 1 a seed on either set; probe slips pooled over 82, 83 and 91 to 93 are 1 (at most 8);
+  recall pooled at 91 to 93 not below v6 at the same seeds (probe 288 against 286, `hard_dev` 244 against 238).
+- R-102's seed-91-to-93 items pass: held-out corrections at least 24.5 (probe) and 18.5 (`hard_dev`) every seed;
+  phone probe every seed within 4 of v6's 89; phone `hard_dev` three-seed mean 74.3 against v6's 66.
+- R-076's counted items pass: probe recall 288, `in_view` 125, `statement` 137 (needs 136), right decisions 239, 235
+  and 239, false retrieval 0; `hard_dev` recall 244, false retrieval 5, `never_told` 140.
+
+Against base, pooled over the three seeds: probe recall +220% (288 against 90), `hard_dev` recall +307% (244 against
+60), held-out corrections +948% on the probe (283 against 27) and +946% on `hard_dev` (251 against 24).
+
+**Judged** (`results/coherence/R-112/`, shuffle seeds 90534 to 90542; Sheet A against base's `tool_loop` replies,
+Sheets B and `hard_dev` B against base's `three_exchanges`, as R-093; three fresh Sonnet judges a sheet type, each
+marking its three seeds in its own folder under R-095's rubric and brief; judge 1 decides). Transcripts audited:
+every judge read only its own folder's rubric and sheets, and its code wrote only marks it had listed line by line.
+Two notes: the Sheet A judge 2 marked exactly 18 zeros on each of its three sheets (the marks differ on 34 and 36
+lines, so they were not copied); the `hard_dev` judge 1 created an empty file one folder up and deleted it at once.
+
+| Item | Judge 1 | Judge 2 | Judge 3 |
+|---|---|---|---|
+| 1f Sheet A confirm; older plus confirm, 6.2 vs base | 144 vs 141; 287 vs 237 | 144 vs 141; 288 vs 234 | 144 vs 141; 287 vs 238 |
+| 1g Sheet B `statement`, seeds 91, 92, 93 | 47/46, **42/46**, 47/46 | 47/46, **42/46**, 47/46 | 47/45, **42/45**, 46/45 |
+| 1g Sheet B `in_view`, seeds 91, 92, 93 | 41/34, 41/34, 44/34 | 43/36, 39/36, 42/36 | 43/35, 38/35, 42/35 |
+| 6 `hard_dev` Sheet B, pooled `statement`; `in_view` | 135 vs 132; 132 vs 123 | 134 vs 132; 127 vs 114 | 135 vs 129; 132 vs 120 |
+
+**6.2 fails R-076 item 1g at seed 92**, under all three judges: 42 coherent `statement` replies against base's 46 (the
+rule needs at or above base at every seed). Every other item passes under every judge. The rule is not changed.
+
+**What failed, read for diagnosis only.** 5 of seed 92's 6 judged `statement` failures and the 1 each at 91 and 93
+are one shape: the friend states something with no question ("Hana forgot my birthday again", "i should really call my
+barber"), 6.2 searches ("Hana born birthday month") and answers with an unrelated stored fact about that person ("Your
+barber Hana grows prize zucchini."). Four of seed 92's are the "forgot my birthday" statement; its sixth is a reply
+with no search ("It sounds like you're trying to remember something about your godfather."). v6 answered all 48
+statements at every fresh seed. No row is built from these items (R-103 rule 1).
+
+**What follows, as fixed before this result:**
+
+1. 6.2 is not a base for 7 (R-111 rule 1).
+2. 6.21 goes to 91 to 93 through 6.2's adapters there (R-110 rule 2); the write-up says two related candidates were
+   read on the confirmation seeds. If 6.21 passes every line at 82, 83 and 91 to 93, it replaces v6 and is the base
+   for 7 (R-111 rule 5).
+3. To save time, 6.21 is trained at 91, 92 and 93 now, right after its 82 and 83 runs, and **not scored** until it has
+   passed at 82 and 83 (R-108). Its held-out and phone runs at 82 and 83 were moved ahead of its control, which is
+   reported and not gated. These change the order on the GPU, not any line of the gate.
+4. 6.21's rows were built before this result and do not touch the statement shape; whether one gentle epoch on them
+   moves it is read at 91 to 93, not assumed.
