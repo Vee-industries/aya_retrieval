@@ -117,6 +117,7 @@ carry their own provenance (command, git commit, package versions).
 | R-102 | v6's messy-chat battery: corrections cost 187 of 192; Kevin amends R-099 item 6 before any arm exists; held-out correction form and every threshold frozen before the baseline |
 | R-103 | Kevin's decision: train in steps on top of a fix that failed, instead of restarting from v6; stepping stones and their names; the held-out corrections baseline |
 | R-104 | 6.1 (`fix17cr`), the corrections stone: held-out corrections 192 of 192 on the probe and 159 of 192 on `hard_dev`; what it broke, as 6.11's targets |
+| R-105 | 6.11's design, panelled before it trains: 6.1 plus fix C2's 41 answers, one epoch at 1e-4 from 6.1's adapter, with a control; the fresh-seed chain; no 6.111 without a new panel |
 
 ---
 
@@ -3725,7 +3726,7 @@ scored. The rows were fixed before the baseline existed, so it could not shape t
 
 **What ran.** 6.1 is R-102's corrections arm: v6's 800 rows plus 170 train-pool rows (110 corrections in training's
 wordings, 30 correction-cue controls, 30 earlier-question rows; `scripts/records/build_r102.py`), trained from scratch
-like v6 (3 epochs, 2e-4, `--loss-on chat_decision`) at seeds 82 and 83 by the backlog runner, then scored on the plain
+like v6 (3 epochs, 3e-4, `--loss-on chat_decision`; corrected from 2e-4 in R-105) at seeds 82 and 83 by the backlog runner, then scored on the plain
 sets, the screen (seed 51203, seed 82 only), the held-out corrections form, the phone-typing form and the
 training-worded corrections form. Every count below is printed by `scripts/records/stone_report.py fix17cr` and
 `scripts/records/gate_r086.py fix17cr`; tool arm, older and confirm, of 96 a seed unless named.
@@ -3763,3 +3764,48 @@ both.
 
 The rest of R-086's unjudged gate passes: screen statement 48, `hard_dev` never_told 48, `hard_dev` recall pooled 151
 (line 145), probe recall pooled 192 (line 189), false retrieval 0. No judged sheet was scored: a stone is not gated.
+
+## R-105 · 2026-11-06 · SPRINT · 6.11's design: 6.1 plus the who-is-who answers, one gentle epoch on top
+
+**Written** about 20:35, after 6.1's results (R-104) and before any 6.11 row is trained. One adversarial panel of four
+lanes, one arguing against, reviewed the plan (agent transcript audited: it read no sealed file and changed nothing).
+
+**Data.** 6.11 = `fix17cr11` = 6.1's 970 rows with fix C2's 41 rewritten final answers swapped in
+(`scripts/records/build_r105.py`; the build stops unless each swapped row keeps its id, kind and every turn but the
+last, and every other row is 6.1's byte for byte). No rows are added. Both sources are built from the train pool only
+(R-098, R-102). Why this swap: all 4 of 6.1's `hard_dev` slips at seed 82 are the friend's-voice echo ("My goddaughter
+Delphine collected the keys...") that fix C2's rewrites remove, and fix C2 and its parents (17w, 17y) had 0 `hard_dev`
+slips at every seed they ran.
+
+**Training.** From 6.1's adapter at the same seed (`--init-adapter adapters/screens/fix17cr_<seed>`, R-103), seeds 82
+and 83, `--loss-on chat_decision`, **1 epoch at a peak learning rate of 1e-4**, the same linear decay to 0 and every
+other setting as 6.1. Why: every run in the family is 3 epochs at 3e-4 decaying linearly, so its last epoch already
+ran from 1e-4 to 0; one epoch at 1e-4 repeats one more such epoch. R-095 shows one such epoch can move both targets
+(17m at seed 84: `hard_dev` recall 38 to 78 and probe slips 9 to 1 over its last epoch). A fresh epoch at 3e-4 on a
+trained adapter would add a third of a whole run's learning; earlier 4-epoch runs lost statements (R-040, R-056). No
+earlier run in the repo continues from a saved adapter, so the evidence for this choice is thin; it is the smallest
+step the R-095 numbers show can still change slips and recall.
+
+**Control**, reported and not gated: `fix17crx` = 6.1 with the same one epoch on its own unchanged set, at seeds 83
+and 82. Without it, a 6.11 pass could be one more epoch, not the swap; R-095 shows a final epoch varies a lot by seed.
+
+**What the panel expects.** The swap should remove the seed-82 slips. It probably does not fix seed 83's `hard_dev`
+recall: fix C2 also misses about half the seed-83 items 6.1 misses and v6 gets right. No rows were added for seed
+83's misses (found the fact, left out the detail asked for): rows shaped by what `hard_dev` got wrong would break
+R-103's rule 1 in spirit.
+
+**How 6.11 is judged.** It is a candidate for the final copy, so at 82 and 83 it runs the full registered gate:
+R-086 (with its judged sheets), R-094's slip gate and recall line, R-097's stop rule and R-102's corrections measure,
+unchanged. If it passes, the fresh-seed chain is: 6.1 trained from scratch at seeds 91, 92 and 93, not scored, then
+6.11 trained from each, then R-076's rule and R-102's seed-91-to-93 items on 6.11 only.
+
+**Two rules added before training, at the panel's against-lane's request:**
+
+1. If 6.11 fails, no further stone (6.111) is built from the same seed-82/83 reading without a new panel and record,
+   so the tree does not turn into repeated draws against the gate.
+2. Two of 6.1's three misses are one answer (screen 93 against 94) and one slip (4 against 3); a pass at 82 and 83 by
+   such margins is read as development noise until seeds 91 to 93 confirm it. Only those seeds count as evidence.
+
+**Correction.** R-104 said 6.1 trained at 2e-4, as did the panel's brief; the training reports
+(`results/recall_train/fix17cr_82.json`, `fix17m_82.json`) show 3e-4, the runner's setting. R-104 is corrected in
+place. Nothing was trained or scored on the wrong figure.
