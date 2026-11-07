@@ -88,15 +88,24 @@ def line(text, ok):
     print(f"{'PASS' if ok else 'FAIL'}  {text}")
 
 
+def scored(*stems):
+    """Return True if every seed's file exists for these sets; otherwise say the section waits."""
+    ready = all(table[st][f"{m}_{s}"] for st in stems for m in ("fix17m", name) for s in SEEDS)
+    if not ready:
+        print("  not scored at every seed yet; skipped")
+    return ready
+
+
 print("\nR-102, held-out corrections and phone guard (82 + 83 pooled, of 192)")
-for stem, gain in (("st_fixh_probe", 48), ("st_fixh_hd", 32)):
+FIXH, PHONE = ("st_fixh_probe", "st_fixh_hd"), ("st_phone_probe", "st_phone_hd")
+for stem, gain in zip(FIXH, (48, 32), strict=True) if scored(*FIXH) else ():
     stone, v6 = pooled(stem, name), pooled(stem, "fix17m")
     line(f"{stem} {stone} at least v6's {v6} + {gain}", stone >= v6 + gain)
     each = all(
         table[stem][f"{name}_{s}"]["recall"] > table[stem][f"fix17m_{s}"]["recall"] for s in SEEDS
     )
     line(f"{stem} above v6 at each seed", each)
-for stem, room in (("st_phone_probe", 8), ("st_phone_hd", 16)):
+for stem, room in zip(PHONE, (8, 16), strict=True) if scored(*PHONE) else ():
     stone, v6 = pooled(stem, name), pooled(stem, "fix17m")
     line(f"{stem} {stone} not below v6's {v6} by more than {room}", stone >= v6 - room)
 

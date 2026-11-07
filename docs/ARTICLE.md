@@ -423,6 +423,10 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   The second stone, 6.11, keeps 6.1's rows, swaps in the who-is-who fix's 41 answers, and trains one
   more gentle epoch from 6.1's saved weights, beside a control that trains the same epoch without the
   swap; it is judged by the full set of checks, and only fresh seeds count as evidence (R-105).
+  6.11 removed the who-is-who slip at every seed, kept the corrections gain (190 of 192 on the probe,
+  167 of 192 on `hard_dev`) and lifted `hard_dev` recall above v6's, but answered 190 of 192 probe
+  recall questions where v6 answered all 192, so it misses one check by two answers; the control,
+  without the swap, kept the slips, so the swap is what removed them (R-106).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

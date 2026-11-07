@@ -118,6 +118,7 @@ carry their own provenance (command, git commit, package versions).
 | R-103 | Kevin's decision: train in steps on top of a fix that failed, instead of restarting from v6; stepping stones and their names; the held-out corrections baseline |
 | R-104 | 6.1 (`fix17cr`), the corrections stone: held-out corrections 192 of 192 on the probe and 159 of 192 on `hard_dev`; what it broke, as 6.11's targets |
 | R-105 | 6.11's design, panelled before it trains: 6.1 plus fix C2's 41 answers, one epoch at 1e-4 from 6.1's adapter, with a control; the fresh-seed chain; no 6.111 without a new panel |
+| R-106 | 6.11 (`fix17cr11`) and its control: slips 0 everywhere, corrections kept, `hard_dev` above v6; probe recall 190 against v6's 192 fails R-094; the swap, not the extra epoch, removed the slips |
 
 ---
 
@@ -3809,3 +3810,49 @@ unchanged. If it passes, the fresh-seed chain is: 6.1 trained from scratch at se
 **Correction.** R-104 said 6.1 trained at 2e-4, as did the panel's brief; the training reports
 (`results/recall_train/fix17cr_82.json`, `fix17m_82.json`) show 3e-4, the runner's setting. R-104 is corrected in
 place. Nothing was trained or scored on the wrong figure.
+
+## R-106 · 2026-11-07 · SPRINT · 6.11 misses one line by two answers; the control credits the swap
+
+**What ran** (R-105's design, unchanged): 6.11 (`fix17cr11`) and the control (`fix17crx`), each one epoch at a peak of
+1e-4 from 6.1's adapter at the same seed; the runner's reports confirm `init_tensors_loaded` 504 and
+`adapter_changed` true at every seed. `--loss-on chat_decision` keeps full loss on older rows, so the 41 swapped
+answers were trained (only statement rows are cut to the decision). 6.11 then ran the held-out corrections and
+phone-typing forms at both seeds. Counts from `scripts/records/stone_report.py` and `scripts/records/gate_r086.py`
+(older and confirm, of 96 a seed):
+
+| Measure | v6 at 82, 83 | 6.1 | 6.11 | Control |
+|---|---|---|---|---|
+| Plain recall, probe | 96, 96 | 96, 96 | 95, 95 | 96, 96 |
+| Plain recall, `hard_dev` | 74, 83 | 82, 69 | 85, 75 | 86, 68 |
+| Slips, probe | 3, 4 | 1, 2 | 0, 0 | 1, 1 |
+| Slips, `hard_dev` | 0, 3 | 4, 0 | 0, 0 | 6, 2 |
+| Screen recall (seed 82) | | 93 | 95 | 95 |
+| Held-out corrections, probe | 1, 0 | 96, 96 | 95, 95 | |
+| Held-out corrections, `hard_dev` | 5, 0 | 81, 78 | 85, 82 | |
+| Phone typing recall, probe | 88, 90 | 91, 86 | 92, 87 | |
+| Phone typing recall, `hard_dev` | 58, 74 | 79, 63 | 74, 69 | |
+
+**6.11 against the gate at 82 and 83.** R-086's unjudged lines all pass (screen recall 95, statement 48, `hard_dev`
+never_told 45, `hard_dev` recall pooled 160, probe recall pooled 190, false retrieval 3). R-094's slip lines all
+pass (0 at every seed on both sets) and `hard_dev` recall is 160 against v6's 157. R-102's bar passes (held-out
+corrections 190 and 167 of 192; phone typing 179 and 143 against v6's 178 and 132). **One line fails: probe recall
+pooled 190 against v6's 192** (R-094, "not below v6"). v6 answered every probe recall question at both seeds, so the
+line asks for none missed. 6.11's two misses: at seed 82 it searched "sister steps" for a question about a
+stepsister and found nothing; at seed 83 it did not search for a vaguely worded question ("drawing a blank on my
+classmate's tattoo"). By R-105's rule 2 a result this close is read as noise until fresh seeds; the gate is not
+changed, and the judged sheets were not scored for a copy that fails an unjudged line.
+
+**The control** fails twice (`hard_dev` slips 6 at seed 82, `hard_dev` recall 154), so the extra epoch alone does not
+remove the slips: the swap is what took them from 6 and 2 to 0 and 0 and lifted `hard_dev` recall from 154 to 160.
+The control kept the probe at 192; the swap may have cost the two probe answers, or they may be the noise one epoch
+adds (R-095).
+
+**Corrections survive the step:** 6.11 keeps 6.1's gain on held-out corrections (+956% over base on the probe, 190
+against 18 pooled; +944% on `hard_dev`, 167 against 16).
+
+**Kevin, 2026-11-06 about 22:40,** after 6.11's plain counts: "there is no standing yet". No copy is final before the
+freeze; a stone that misses a line is followed by another step, under R-105's rule that each needs a new panel.
+**Next:** that panel (R-107) designs the step after 6.11.
+
+`stone_report.py` now skips the messy-form lines until every seed's file exists (it stopped with an error on 6.11
+before its messy-form runs finished); 6.1's output is unchanged byte for byte.
