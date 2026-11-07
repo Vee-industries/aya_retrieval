@@ -1,0 +1,1304 @@
+ITEM 0
+QUESTION: what did my aunt get lucky with
+SEARCH RESULT:
+PASSAGE:
+User: you'll laugh, my aunt Dana won a canoe in a raffle, oh and news from my aunt Dana: they opened a thrift shop
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: you'll laugh, my coworker Priya won a kayak in a raffle
+Assistant: Oh, that's nice to hear.
+ANSWER: Your aunt Dana won a canoe in a raffle.
+
+ITEM 1
+QUESTION: did i mention my uncle's race
+SEARCH RESULT:
+PASSAGE:
+User: apparently my uncle Nell finished a duathlon on sunday, oh and drove past Nell's place, my uncle, it's been painted lavender
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: apparently my cousin Omar finished a relay on sunday
+Assistant: Oh, that's nice to hear.
+ANSWER: Your uncle Nell finished a duathlon.
+
+ITEM 2
+QUESTION: my coworker is off to some festival and i forget which
+SEARCH RESULT:
+PASSAGE:
+User: so Ivan (my coworker) keeps chickens in the yard, oh and news from my coworker Ivan: they got tickets to Coachella
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: news from my roommate Lena: they got tickets to Oktoberfest
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: news from my uncle Dana: they got tickets to Glastonbury
+Assistant: How are they finding it?
+ANSWER: Your coworker Ivan got tickets to Coachella.
+
+ITEM 3
+QUESTION: did i tell you about my brother's promotion
+SEARCH RESULT:
+PASSAGE:
+User: my brother Tomas is moving to Valparaiso in the spring, and talked to Tomas today, my brother, now promoted to manager
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: talked to Omar today, my sister, now promoted to partner
+Assistant: Good to know.
+ANSWER: Your brother Tomas was promoted to manager.
+
+ITEM 4
+QUESTION: what colour did Greta paint the house
+SEARCH RESULT:
+PASSAGE:
+User: drove past Greta's place, my aunt, it's been painted sage green, oh and Greta is my aunt and just got a kitten called Sprout
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: drove past Marc's place, my neighbour, it's been painted mustard
+Assistant: That's a change.
+ANSWER: Your aunt Greta's house is painted sage green.
+
+ITEM 5
+QUESTION: did i mention my sister's race
+SEARCH RESULT:
+PASSAGE:
+User: apparently my sister Ivan finished a 5k on sunday. also news from my sister Ivan: they opened a cheese shop
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: apparently my roommate Nell finished a relay on sunday
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: apparently my aunt Yusuf finished a duathlon on sunday
+Assistant: Oh, that's nice to hear.
+ANSWER: Your sister Ivan finished a 5k.
+
+ITEM 6
+QUESTION: the name of my uncle's band is gone from my head
+SEARCH RESULT:
+PASSAGE:
+User: Yusuf, the uncle i keep talking about, broke a collarbone skiing, and talked to Yusuf today, my uncle, who plays bass in Salt Road
+Assistant: That's a change.
+ANSWER: Your uncle Yusuf plays bass in Salt Road.
+
+ITEM 7
+QUESTION: did i ever say when my aunt was born
+SEARCH RESULT:
+PASSAGE:
+User: my aunt Marc bought a red Civic from an auction, and i just learned Marc was born in November, and that's my aunt
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: i just learned Dana was born in October, and that's my uncle
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: i just learned Priya was born in July, and that's my coworker
+Assistant: That sounds exciting for them.
+ANSWER: Your aunt Marc was born in November.
+
+ITEM 8
+QUESTION: i keep meaning to visit my uncle's shop, what kind was it again
+SEARCH RESULT:
+PASSAGE:
+User: news from my uncle Dana: they opened a candle shop. also you know my uncle Dana? they live on Birch Lane now
+Assistant: That's a change.
+ANSWER: Your uncle Dana opened a candle shop.
+
+ITEM 9
+QUESTION: did i tell you what my uncle opened
+SEARCH RESULT:
+PASSAGE:
+User: news from my uncle Ivan: they opened a candle shop, and my uncle Ivan just started work as a welder
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: news from my cousin Lena: they opened a vintage shop
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: news from my sister Nell: they opened a thrift shop
+Assistant: Oh, that's nice to hear.
+ANSWER: Your uncle Ivan opened a candle shop.
+
+ITEM 10
+QUESTION: how far up do i go to reach my neighbour's flat
+SEARCH RESULT:
+PASSAGE:
+User: apparently my neighbour Omar rides a Yamaha to work. also Omar is my neighbour, and they rent on the seventh floor
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: Priya is my coworker, and they rent on the twelfth floor
+Assistant: That's a change.
+ANSWER: Your neighbour Omar rents on the seventh floor.
+
+ITEM 11
+QUESTION: did i mention the colour of my uncle's house
+SEARCH RESULT:
+PASSAGE:
+User: i just learned Priya was born in November, and that's my uncle. also drove past Priya's place, my uncle, it's been painted teal
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: drove past Dana's place, my cousin, it's been painted sage green
+Assistant: Thanks for telling me.
+ANSWER: Your uncle Priya's house is painted teal.
+
+ITEM 12
+QUESTION: my coworker got a new title and i've lost track of it
+SEARCH RESULT:
+PASSAGE:
+User: talked to Marc today, my coworker, now promoted to team lead, and drove past Marc's place, my coworker, it's been painted coral
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: talked to Tomas today, my neighbour, now promoted to supervisor
+Assistant: How are they finding it?
+ANSWER: Your coworker Marc was promoted to team lead.
+
+ITEM 13
+QUESTION: have i told you what street my coworker lives on
+SEARCH RESULT:
+PASSAGE:
+User: you know my coworker Greta? they live on Birch Lane now, and talked to Greta today, my coworker, who plays bass in Copper Moon
+Assistant: Oh, that's nice to hear.
+ANSWER: Your coworker Greta lives on Birch Lane.
+
+ITEM 14
+QUESTION: what's my uncle driving around in now
+SEARCH RESULT:
+PASSAGE:
+User: talked to Ivan today, my uncle, now promoted to head of sales, and my uncle Ivan bought a grey Golf from an auction
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: my brother Omar bought a green Corolla from an auction
+Assistant: That sounds exciting for them.
+ANSWER: Your uncle Ivan bought a grey Golf.
+
+ITEM 15
+QUESTION: have i told you what street my roommate lives on
+SEARCH RESULT:
+PASSAGE:
+User: Marc, the roommate i keep talking about, broke a jaw skiing. also you know my roommate Marc? they live on Cedar Court now
+Assistant: Oh, that's nice to hear.
+ANSWER: Your roommate Marc lives on Cedar Court.
+
+ITEM 16
+QUESTION: i want to send a gift but i forget my cousin's baby's name
+SEARCH RESULT:
+PASSAGE:
+User: my cousin, Lena, had a baby and named them Mila, oh and you know my cousin Lena? they teach drama at the high school
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: my brother, Ivan, had a baby and named them Silas
+Assistant: Oh, that's nice to hear.
+ANSWER: Your cousin Lena named the baby Mila.
+
+ITEM 17
+QUESTION: did i tell you about my sister's new job
+SEARCH RESULT:
+PASSAGE:
+User: my sister Tomas just started work as a court reporter, and apparently my sister Tomas rides a Kawasaki to work
+Assistant: How are they finding it?
+ANSWER: Your sister Tomas works as a court reporter.
+
+ITEM 18
+QUESTION: where is my neighbour headed once winter is over
+SEARCH RESULT:
+PASSAGE:
+User: apparently my neighbour Yusuf finished a duathlon on sunday. also my neighbour Yusuf is moving to Quebec City in the spring
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: my uncle Greta is moving to Hobart in the spring
+Assistant: That's a change.
+ANSWER: Your neighbour Yusuf is moving to Quebec City.
+
+ITEM 19
+QUESTION: have i ever told you about my aunt's boat
+SEARCH RESULT:
+PASSAGE:
+User: so Priya (my aunt) finally switched to a Motorola. also Priya is my aunt, and their boat is called Sea Otter
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: Lena is my brother, and their boat is called Lady Grace
+Assistant: That sounds exciting for them.
+ANSWER: Your aunt Priya's boat is called Sea Otter.
+
+ITEM 20
+QUESTION: i can't remember what my sister's dog is called
+SEARCH RESULT:
+PASSAGE:
+User: my sister Yusuf adopted a dog named Pepper last month. also Yusuf is my sister and just got a kitten called Sprout
+Assistant: Thanks for telling me.
+ANSWER: Your sister Yusuf's dog is called Pepper.
+
+ITEM 21
+QUESTION: have i told you about my cousin's car
+SEARCH RESULT:
+PASSAGE:
+User: my cousin Nell bought a red Civic from an auction, and my cousin Nell just started work as a court reporter
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: my aunt Marc bought a white Forester from an auction
+Assistant: How are they finding it?
+ANSWER: Your cousin Nell bought a red Civic.
+
+ITEM 22
+QUESTION: how will i spot my brother's house from the road
+SEARCH RESULT:
+PASSAGE:
+User: so Priya (my brother) finally switched to a Galaxy, oh and drove past Priya's place, my brother, it's been painted coral
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: drove past Yusuf's place, my aunt, it's been painted lavender
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: drove past Dana's place, my sister, it's been painted sage green
+Assistant: Oh, that's nice to hear.
+ANSWER: Your brother Priya's house is painted coral.
+
+ITEM 23
+QUESTION: did i ever say what my sister rides
+SEARCH RESULT:
+PASSAGE:
+User: my sister Tomas is moving to Hobart in the spring, and apparently my sister Tomas rides a Triumph to work
+Assistant: Oh, that's nice to hear.
+ANSWER: Your sister Tomas rides a Triumph.
+
+ITEM 24
+QUESTION: what job did Priya start
+SEARCH RESULT:
+PASSAGE:
+User: my coworker Priya just started work as a paramedic, and news from my coworker Priya: they opened a cheese shop
+Assistant: How are they finding it?
+ANSWER: Your coworker Priya works as a paramedic.
+
+ITEM 25
+QUESTION: did i ever mention my brother's band
+SEARCH RESULT:
+PASSAGE:
+User: talked to Priya today, my brother, who plays bass in Night Bus. also Priya is my brother and just got a kitten called Pickle
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: talked to Tomas today, my roommate, who plays bass in Copper Moon
+Assistant: That sounds exciting for them.
+ANSWER: Your brother Priya plays bass in Night Bus.
+
+ITEM 26
+QUESTION: what does my sister do for a living these days
+SEARCH RESULT:
+PASSAGE:
+User: my sister Priya adopted a dog named Rusty last month, and my sister Priya just started work as a paramedic
+Assistant: Oh, that's nice to hear.
+ANSWER: Your sister Priya works as a paramedic.
+
+ITEM 27
+QUESTION: did i ever say what my coworker rides
+SEARCH RESULT:
+PASSAGE:
+User: Tomas is my coworker and just got a kitten called Sprout, oh and apparently my coworker Tomas rides a Triumph to work
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: my bike came up at dinner
+Assistant: Ha, what did they say about my bike?
+
+
+  PASSAGE:
+User: apparently my sister Priya rides a Kawasaki to work
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: apparently my roommate Yusuf rides a Yamaha to work
+Assistant: How are they finding it?
+ANSWER: Your coworker Tomas rides a Triumph.
+
+ITEM 28
+QUESTION: what's my cousin's title now
+SEARCH RESULT:
+PASSAGE:
+User: talked to Nell today, my cousin, now promoted to head of sales. also apparently my cousin Nell rides a Vespa to work
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: talked to Yusuf today, my roommate, now promoted to team lead
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: talked to Greta today, my neighbour, now promoted to partner
+Assistant: How are they finding it?
+ANSWER: Your cousin Nell was promoted to head of sales.
+
+ITEM 29
+QUESTION: did i mention my roommate's move
+SEARCH RESULT:
+PASSAGE:
+User: my roommate Lena is moving to Hobart in the spring, oh and talked to Lena today, my roommate, who plays bass in Salt Road
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: my aunt Nell is moving to Quebec City in the spring
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: my brother Ivan is moving to Oslo in the spring
+Assistant: How are they finding it?
+ANSWER: Your roommate Lena is moving to Hobart.
+
+ITEM 30
+QUESTION: the name of my cousin's kitten escapes me
+SEARCH RESULT:
+PASSAGE:
+User: news from my cousin Tomas: they got tickets to Coachella, oh and Tomas is my cousin and just got a kitten called Tofu
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: Yusuf is my coworker and just got a kitten called Mochi
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: Ivan is my neighbour and just got a kitten called Sprout
+Assistant: How are they finding it?
+ANSWER: Your cousin Tomas called the kitten Tofu.
+
+ITEM 31
+QUESTION: have i said anything about my cousin's baby
+SEARCH RESULT:
+PASSAGE:
+User: my cousin Nell just started work as a welder, and my cousin, Nell, had a baby and named them Silas
+Assistant: Oh, that's nice to hear.
+ANSWER: Your cousin Nell named the baby Silas.
+
+ITEM 32
+QUESTION: i should ask how my brother is healing, what was it they broke
+SEARCH RESULT:
+PASSAGE:
+User: Dana, the brother i keep talking about, broke a kneecap skiing, and drove past Dana's place, my brother, it's been painted lavender
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: Yusuf, the coworker i keep talking about, broke a collarbone skiing
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: Marc, the cousin i keep talking about, broke a forearm skiing
+Assistant: How are they finding it?
+ANSWER: Your brother Dana broke a kneecap.
+
+ITEM 33
+QUESTION: did i say what my neighbour won
+SEARCH RESULT:
+PASSAGE:
+User: you'll laugh, my neighbour Lena won a canoe in a raffle, oh and Lena, the neighbour i keep talking about, broke a thumb skiing
+Assistant: Oh, that's nice to hear.
+ANSWER: Your neighbour Lena won a canoe in a raffle.
+
+ITEM 34
+QUESTION: what month was Lena born in
+SEARCH RESULT:
+PASSAGE:
+User: my cousin Lena bought a green Corolla from an auction. also i just learned Lena was born in October, and that's my cousin
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: i just learned Nell was born in March, and that's my neighbour
+Assistant: That sounds exciting for them.
+ANSWER: Your cousin Lena was born in October.
+
+ITEM 35
+QUESTION: did i say what my roommate broke
+SEARCH RESULT:
+PASSAGE:
+User: my roommate, Yusuf, had a baby and named them Mila, and Yusuf, the roommate i keep talking about, broke a jaw skiing
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: Dana, the sister i keep talking about, broke a collarbone skiing
+Assistant: That sounds exciting for them.
+ANSWER: Your roommate Yusuf broke a jaw.
+
+ITEM 36
+QUESTION: i keep forgetting what my sister drives
+SEARCH RESULT:
+PASSAGE:
+User: my sister Dana bought a white Forester from an auction, and my sister Dana just started work as a paramedic
+Assistant: Thanks for telling me.
+ANSWER: Your sister Dana bought a white Forester.
+
+ITEM 37
+QUESTION: did i tell you what my cousin opened
+SEARCH RESULT:
+PASSAGE:
+User: news from my cousin Marc: they opened a comic shop, and apparently my cousin Marc finished a relay on sunday
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: news from my aunt Lena: they opened a vintage shop
+Assistant: Good to know.
+ANSWER: Your cousin Marc opened a comic shop.
+
+ITEM 38
+QUESTION: my roommate is off to some festival and i forget which
+SEARCH RESULT:
+PASSAGE:
+User: so Omar (my roommate) keeps chickens in the yard, oh and news from my roommate Omar: they got tickets to Lollapalooza
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: news from my brother Tomas: they got tickets to Coachella
+Assistant: How are they finding it?
+ANSWER: Your roommate Omar got tickets to Lollapalooza.
+
+ITEM 39
+QUESTION: did i say what my cousin won
+SEARCH RESULT:
+PASSAGE:
+User: Lena, the cousin i keep talking about, broke a kneecap skiing. also you'll laugh, my cousin Lena won a hot tub in a raffle
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: you'll laugh, my roommate Dana won a kayak in a raffle
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: you'll laugh, my aunt Omar won a lawnmower in a raffle
+Assistant: That's a change.
+ANSWER: Your cousin Lena won a hot tub in a raffle.
+
+ITEM 40
+QUESTION: what does my cousin sell these days
+SEARCH RESULT:
+PASSAGE:
+User: news from my cousin Omar: they opened a candle shop, oh and my bike turned out fine in the end
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: news from my sister Tomas: they opened a vintage shop
+Assistant: That's a change.
+ANSWER: Your cousin Omar opened a candle shop.
+
+ITEM 41
+QUESTION: did i ever say what my sister rides
+SEARCH RESULT:
+PASSAGE:
+User: apparently my sister Yusuf rides a Triumph to work, and not much going on, just dealing with my coffee
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: apparently my uncle Omar rides a Vespa to work
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: i lost an hour to my bike today
+Assistant: That's frustrating. Is my bike usually like that?
+
+
+  PASSAGE:
+User: my bike came up at dinner
+Assistant: Tell me more if you feel like it.
+ANSWER: Your sister Yusuf rides a Triumph.
+
+ITEM 42
+QUESTION: what my brother's boat is called has slipped away from me
+SEARCH RESULT:
+PASSAGE:
+User: the wifi turned out fine in the end, and Marc is my brother, and their boat is called Driftwood. also anyway, enough about the recycling
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: Greta is my uncle, and their boat is called Second Wind
+Assistant: That sounds exciting for them.
+ANSWER: Your brother Marc's boat is called Driftwood.
+
+ITEM 43
+QUESTION: did i ever say when my sister was born
+SEARCH RESULT:
+PASSAGE:
+User: funny how the groceries keeps coming up. also i just learned Greta was born in August, and that's my sister. also so the dishwasher has been a pain all week
+Assistant: How are they finding it?
+ANSWER: Your sister Greta was born in August.
+
+ITEM 44
+QUESTION: what name is painted on my coworker's boat
+SEARCH RESULT:
+PASSAGE:
+User: anyway, enough about the groceries, oh and Marc is my coworker, and their boat is called Second Wind
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: Omar is my sister, and their boat is called Lady Grace
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: Lena is my aunt, and their boat is called Blue Heron
+Assistant: Thanks for telling me.
+ANSWER: Your coworker Marc's boat is called Second Wind.
+
+ITEM 45
+QUESTION: did i tell you what my brother opened
+SEARCH RESULT:
+PASSAGE:
+User: i'm actually pretty happy with the dentist lately. also the printer turned out fine in the end. also news from my brother Marc: they opened a florist shop
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: news from my coworker Nell: they opened a candle shop
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: news from my roommate Dana: they opened a comic shop
+Assistant: That's a change.
+ANSWER: Your brother Marc opened a florist shop.
+
+ITEM 46
+QUESTION: there was something my sister won, what was that
+SEARCH RESULT:
+PASSAGE:
+User: you'll laugh, my sister Yusuf won a hot tub in a raffle, oh and that show turned out fine in the end
+Assistant: Good to know.
+ANSWER: Your sister Yusuf won a hot tub in a raffle.
+
+ITEM 47
+QUESTION: have i ever told you about my aunt's boat
+SEARCH RESULT:
+PASSAGE:
+User: Greta is my aunt, and their boat is called Driftwood, and the lawn turned out fine in the end
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: Priya is my coworker, and their boat is called Lady Grace
+Assistant: How are they finding it?
+ANSWER: Your aunt Greta's boat is called Driftwood.
+
+ITEM 48
+QUESTION: what name is painted on my cousin's boat
+SEARCH RESULT:
+PASSAGE:
+User: i'm actually pretty happy with the stairs lately, oh and Omar is my cousin, and their boat is called Second Wind, oh and good news, the laundry sorted itself out
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: Greta is my neighbour, and their boat is called Lady Grace
+Assistant: Oh, that's nice to hear.
+ANSWER: Your cousin Omar's boat is called Second Wind.
+
+ITEM 49
+QUESTION: did i ever tell you about my neighbour's dog
+SEARCH RESULT:
+PASSAGE:
+User: no complaints about the bank this week. also my neighbour Dana adopted a dog named Waffles last month. also the dishwasher came up at dinner
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: my brother Nell adopted a dog named Juno last month
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: my coworker Tomas adopted a dog named Rusty last month
+Assistant: How are they finding it?
+ANSWER: Your neighbour Dana's dog is called Waffles.
+
+ITEM 50
+QUESTION: what did Nell name the baby
+SEARCH RESULT:
+PASSAGE:
+User: no complaints about the kettle this week. also that show came up at dinner, oh and my aunt, Nell, had a baby and named them Arlo
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: my uncle, Tomas, had a baby and named them Mila
+Assistant: That's a change.
+ANSWER: Your aunt Nell named the baby Arlo.
+
+ITEM 51
+QUESTION: did i mention the colour of my uncle's house
+SEARCH RESULT:
+PASSAGE:
+User: my desk came up at dinner. also i lost an hour to the furnace today, and drove past Lena's place, my uncle, it's been painted lavender
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: drove past Tomas's place, my sister, it's been painted coral
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: drove past Priya's place, my aunt, it's been painted burgundy
+Assistant: How are they finding it?
+ANSWER: Your uncle Lena's house is painted lavender.
+
+ITEM 52
+QUESTION: what did Lena break skiing
+SEARCH RESULT:
+PASSAGE:
+User: Lena, the cousin i keep talking about, broke a kneecap skiing, and so the roof has been a pain all week
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: Priya, the coworker i keep talking about, broke a pelvis skiing
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: Omar, the aunt i keep talking about, broke a collarbone skiing
+Assistant: That's a change.
+ANSWER: Your cousin Lena broke a kneecap.
+
+ITEM 53
+QUESTION: have i ever told you about my sister's boat
+SEARCH RESULT:
+PASSAGE:
+User: Dana is my sister, and their boat is called Second Wind. also i'm actually pretty happy with the dishwasher lately. also not much going on, just dealing with my phone
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: Marc is my cousin, and their boat is called Blue Heron
+Assistant: Good to know.
+ANSWER: Your sister Dana's boat is called Second Wind.
+
+ITEM 54
+QUESTION: what did Ivan get tickets to
+SEARCH RESULT:
+PASSAGE:
+User: the dishwasher was acting up again today. also news from my aunt Ivan: they got tickets to Bonnaroo, and so my phone has been a pain all week
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: news from my coworker Tomas: they got tickets to Glastonbury
+Assistant: How are they finding it?
+ANSWER: Your aunt Ivan got tickets to Bonnaroo.
+
+ITEM 55
+QUESTION: did i ever say when my sister was born
+SEARCH RESULT:
+PASSAGE:
+User: i'm actually pretty happy with the roof lately. also i just learned Greta was born in October, and that's my sister, and the furnace let me down this morning
+Assistant: How are they finding it?
+ANSWER: Your sister Greta was born in October.
+
+ITEM 56
+QUESTION: i forget where my sister is moving
+SEARCH RESULT:
+PASSAGE:
+User: my knee came up at dinner, oh and my sister Tomas is moving to Oslo in the spring
+Assistant: That sounds exciting for them.
+ANSWER: Your sister Tomas is moving to Oslo.
+
+ITEM 57
+QUESTION: did i mention my brother's race
+SEARCH RESULT:
+PASSAGE:
+User: the bus came up at dinner. also not much going on, just dealing with the laundry, and apparently my brother Ivan finished a relay on sunday
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: apparently my uncle Yusuf finished a 5k on sunday
+Assistant: That's a change.
+ANSWER: Your brother Ivan finished a relay.
+
+ITEM 58
+QUESTION: what does Dana teach at the high school
+SEARCH RESULT:
+PASSAGE:
+User: you know my coworker Dana? they teach economics at the high school. also i was thinking about my desk on the way home, and so the garden has been a pain all week
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: you know my neighbour Nell? they teach chemistry at the high school
+Assistant: That's a change.
+ANSWER: Your coworker Dana teaches economics.
+
+ITEM 59
+QUESTION: did i mention the tickets my uncle got
+SEARCH RESULT:
+PASSAGE:
+User: news from my uncle Tomas: they got tickets to Lollapalooza, and not much going on, just dealing with the furnace. also the laundry was acting up again today
+Assistant: Oh, that's nice to hear.
+ANSWER: Your uncle Tomas got tickets to Lollapalooza.
+
+ITEM 60
+QUESTION: what race did Ivan finish on sunday
+SEARCH RESULT:
+PASSAGE:
+User: the groceries is getting on my nerves. also apparently my roommate Ivan finished a 10k on sunday, oh and i'm actually pretty happy with my coffee lately
+Assistant: Oh, that's nice to hear.
+ANSWER: Your roommate Ivan finished a 10k.
+
+ITEM 61
+QUESTION: did i mention my uncle's race
+SEARCH RESULT:
+PASSAGE:
+User: anyway, enough about the wifi, and apparently my uncle Priya finished a 5k on sunday. also my glasses let me down this morning
+Assistant: How are they finding it?
+ANSWER: Your uncle Priya finished a 5k.
+
+ITEM 62
+QUESTION: the name of my neighbour's band is gone from my head
+SEARCH RESULT:
+PASSAGE:
+User: i lost an hour to my bike today, oh and talked to Priya today, my neighbour, who plays bass in Salt Road
+Assistant: That sounds exciting for them.
+ANSWER: Your neighbour Priya plays bass in Salt Road.
+
+ITEM 63
+QUESTION: did i say what my sister broke
+SEARCH RESULT:
+PASSAGE:
+User: my desk is getting on my nerves, and someone at work brought up the elevator today. also Nell, the sister i keep talking about, broke a jaw skiing
+Assistant: That's a change.
+ANSWER: Your sister Nell broke a jaw.
+
+ITEM 64
+QUESTION: what name is painted on my uncle's boat
+SEARCH RESULT:
+PASSAGE:
+User: Priya is my uncle, and their boat is called Second Wind, oh and i lost an hour to the dentist today
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: Tomas is my sister, and their boat is called Sea Otter
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: Dana is my brother, and their boat is called Blue Heron
+Assistant: Thanks for telling me.
+ANSWER: Your uncle Priya's boat is called Second Wind.
+
+ITEM 65
+QUESTION: did i tell you about my coworker's promotion
+SEARCH RESULT:
+PASSAGE:
+User: talked to Tomas today, my coworker, now promoted to manager. also i'm actually pretty happy with my knee lately
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: talked to Priya today, my aunt, now promoted to head of sales
+Assistant: How are they finding it?
+ANSWER: Your coworker Tomas was promoted to manager.
+
+ITEM 66
+QUESTION: what does Dana teach at the high school
+SEARCH RESULT:
+PASSAGE:
+User: i'm actually pretty happy with my desk lately. also you know my brother Dana? they teach drama at the high school. also no complaints about the bakery this week
+Assistant: That's a change.
+ANSWER: Your brother Dana teaches drama.
+
+ITEM 67
+QUESTION: have i told you what my neighbour writes
+SEARCH RESULT:
+PASSAGE:
+User: the dishwasher turned out fine in the end. also my neighbour, Omar, writes horror novels at night, and funny how my back keeps coming up
+Assistant: That sounds exciting for them.
+ANSWER: Your neighbour Omar writes horror novels.
+
+ITEM 68
+QUESTION: i meant to congratulate my sister but what was the race
+SEARCH RESULT:
+PASSAGE:
+User: i was thinking about my laptop on the way home, and apparently my sister Dana finished a 10k on sunday
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: apparently my coworker Nell finished a duathlon on sunday
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: apparently my roommate Lena finished a 5k on sunday
+Assistant: How are they finding it?
+ANSWER: Your sister Dana finished a 10k.
+
+ITEM 69
+QUESTION: did i say what my coworker won
+SEARCH RESULT:
+PASSAGE:
+User: i lost an hour to the dishwasher today, oh and you'll laugh, my coworker Ivan won a lawnmower in a raffle
+Assistant: Thanks for telling me.
+ANSWER: Your coworker Ivan won a lawnmower in a raffle.
+
+ITEM 70
+QUESTION: what band does Greta play bass in
+SEARCH RESULT:
+PASSAGE:
+User: talked to Greta today, my coworker, who plays bass in The Lanterns, oh and not much going on, just dealing with the wifi, oh and good news, the wifi sorted itself out
+Assistant: Oh, that's nice to hear.
+ANSWER: Your coworker Greta plays bass in The Lanterns.
+
+ITEM 71
+QUESTION: did i mention my sister's move
+SEARCH RESULT:
+PASSAGE:
+User: my sister Greta is moving to Lisbon in the spring, and i was thinking about the groceries on the way home
+Assistant: Good to know.
+ANSWER: Your sister Greta is moving to Lisbon.
+
+ITEM 72
+QUESTION: the animals my sister keeps, i can never remember what they are
+SEARCH RESULT:
+PASSAGE:
+User: good news, my laptop sorted itself out, and so Ivan (my sister) keeps tortoises in the yard. also the furnace is getting on my nerves
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: so Omar (my coworker) keeps chickens in the yard
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: so Nell (my uncle) keeps geckos in the yard
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: funny how the elevator keeps coming up
+Assistant: Sure, we can move on from the elevator.
+ANSWER: Your sister Ivan keeps tortoises.
+
+ITEM 73
+QUESTION: did i mention my cousin's move
+SEARCH RESULT:
+PASSAGE:
+User: funny how the garden keeps coming up, and my cousin Ivan is moving to Valparaiso in the spring. also the laundry is getting on my nerves
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: my uncle Dana is moving to Hobart in the spring
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: my coworker Priya is moving to Lisbon in the spring
+Assistant: Thanks for telling me.
+ANSWER: Your cousin Ivan is moving to Valparaiso.
+
+ITEM 74
+QUESTION: what did Lena break skiing
+SEARCH RESULT:
+PASSAGE:
+User: someone at work brought up the furnace today, oh and i'm actually pretty happy with the dentist lately, and Lena, the brother i keep talking about, broke a forearm skiing
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: Nell, the uncle i keep talking about, broke a jaw skiing
+Assistant: Oh, that's nice to hear.
+ANSWER: Your brother Lena broke a forearm.
+
+ITEM 75
+QUESTION: did i tell you about my sister's new job
+SEARCH RESULT:
+PASSAGE:
+User: i'm actually pretty happy with the elevator lately. also my sister Dana just started work as a pastry chef
+Assistant: That sounds exciting for them.
+ANSWER: Your sister Dana works as a pastry chef.
+
+ITEM 76
+QUESTION: what does my uncle write about
+SEARCH RESULT:
+PASSAGE:
+User: my uncle, Priya, writes romance novels at night, and i was thinking about the parking lot on the way home
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: my aunt, Nell, writes western novels at night
+Assistant: Oh, that's nice to hear.
+ANSWER: Your uncle Priya writes romance novels.
+
+ITEM 77
+QUESTION: did i ever say when my coworker was born
+SEARCH RESULT:
+PASSAGE:
+User: i just learned Dana was born in July, and that's my coworker, and no complaints about the dishwasher this week
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: i just learned Lena was born in February, and that's my cousin
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: i just learned Nell was born in August, and that's my brother
+Assistant: That sounds exciting for them.
+ANSWER: Your coworker Dana was born in July.
+
+ITEM 78
+QUESTION: what month was Lena born in
+SEARCH RESULT:
+PASSAGE:
+User: good news, the bus sorted itself out, and i just learned Lena was born in March, and that's my roommate, and i'm actually pretty happy with the bus lately
+Assistant: Thanks for telling me.
+ANSWER: Your roommate Lena was born in March.
+
+ITEM 79
+QUESTION: did i mention the tickets my cousin got
+SEARCH RESULT:
+PASSAGE:
+User: i'm actually pretty happy with the bank lately. also news from my cousin Omar: they got tickets to Coachella. also i lost an hour to the recycling today
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: news from my brother Dana: they got tickets to Glastonbury
+Assistant: That sounds exciting for them.
+ANSWER: Your cousin Omar got tickets to Coachella.
+
+ITEM 80
+QUESTION: did i say what my uncle broke
+SEARCH RESULT:
+PASSAGE:
+User: Nell, the neighbour i keep talking about, broke a jaw skiing. also you'll laugh, my neighbour Nell won a canoe in a raffle
+Assistant: Oh, that's nice to hear.
+ANSWER: Haven't heard about that. Tell me about it?
+
+ITEM 81
+QUESTION: have i ever told you about my aunt's boat
+SEARCH RESULT:
+PASSAGE:
+User: Dana is my neighbour, and their boat is called Sea Otter
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: Lena is my uncle, and their boat is called Second Wind
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: anyway, enough about the dishwasher. also Greta is my cousin, and their boat is called Blue Heron, and someone at work brought up the snow today
+Assistant: Good to know.
+ANSWER: I don't have that from you. What is it?
+
+ITEM 82
+QUESTION: did i ever say when my cousin was born
+SEARCH RESULT:
+PASSAGE:
+User: i just learned Yusuf was born in November, and that's my uncle
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: i just learned Priya was born in July, and that's my neighbour
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: i just learned Ivan was born in August, and that's my sister, oh and my sister, Ivan, writes mystery novels at night
+Assistant: That's a change.
+ANSWER: I don't see it, so I'd only be guessing.
+
+ITEM 83
+QUESTION: how far up do i go to reach my aunt's flat
+SEARCH RESULT:
+PASSAGE:
+User: Dana is my neighbour, and they rent on the third floor
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: no complaints about the kettle this week. also Omar is my cousin, and they rent on the fifteenth floor. also no complaints about the groceries this week
+Assistant: Thanks for telling me.
+ANSWER: I don't have that from you. What is it?
+
+ITEM 84
+QUESTION: have i said anything about my aunt's baby
+SEARCH RESULT:
+PASSAGE:
+User: my uncle, Tomas, had a baby and named them Esther
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: my brother, Dana, had a baby and named them Silas, oh and news from my brother Dana: they got tickets to Oktoberfest
+Assistant: That's a change.
+ANSWER: I don't know that one yet.
+
+ITEM 85
+QUESTION: what classes does my uncle run
+SEARCH RESULT:
+PASSAGE:
+User: you know my cousin Omar? they teach chemistry at the high school
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: you know my neighbour Ivan? they teach drama at the high school, oh and the dentist let me down this morning, oh and the groceries was acting up again today
+Assistant: That's a change.
+ANSWER: No, I don't think you've told me.
+
+ITEM 86
+QUESTION: my neighbour is off to some festival and i forget which
+SEARCH RESULT:
+PASSAGE:
+User: news from my roommate Greta: they got tickets to Coachella
+Assistant: That's a change.
+
+
+  PASSAGE:
+User: news from my coworker Marc: they got tickets to Burning Man
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: news from my uncle Tomas: they got tickets to Bonnaroo, oh and so Tomas (my uncle) keeps tortoises in the yard
+Assistant: Thanks for telling me.
+ANSWER: You may not have mentioned it to me.
+
+ITEM 87
+QUESTION: have i told you about my coworker's animals
+SEARCH RESULT:
+PASSAGE:
+User: so Priya (my cousin) keeps tortoises in the yard, oh and funny how my bike keeps coming up
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: so Omar (my uncle) keeps chickens in the yard
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: so Dana (my brother) keeps ferrets in the yard
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: funny how the kettle keeps coming up
+Assistant: What about the kettle got you thinking?
+ANSWER: Not that I can see. What's the story?
+
+ITEM 88
+QUESTION: what kind of shop did Omar open
+SEARCH RESULT:
+PASSAGE:
+User: news from my uncle Priya: they opened a comic shop
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: news from my brother Dana: they opened a cheese shop. also my brother Dana is moving to Tbilisi in the spring
+Assistant: Oh, that's nice to hear.
+ANSWER: I checked and you haven't told me that.
+
+ITEM 89
+QUESTION: have i told you what my roommate writes
+SEARCH RESULT:
+PASSAGE:
+User: no complaints about the recycling this week, and my coworker, Lena, writes romance novels at night. also the recycling turned out fine in the end
+Assistant: How are they finding it?
+ANSWER: I don't have that from you. What is it?
+
+ITEM 90
+QUESTION: did i tell you what my brother opened
+SEARCH RESULT:
+PASSAGE:
+User: news from my uncle Lena: they opened a thrift shop
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: news from my aunt Marc: they opened a candle shop
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: news from my cousin Tomas: they opened a florist shop, and my cousin, Tomas, writes western novels at night
+Assistant: That's a change.
+ANSWER: I checked and you haven't told me that.
+
+ITEM 91
+QUESTION: which floor does Greta rent on
+SEARCH RESULT:
+PASSAGE:
+User: my laptop came up at dinner, oh and Dana is my coworker, and they rent on the fifteenth floor
+Assistant: That sounds exciting for them.
+ANSWER: Haven't heard about that. Tell me about it?
+
+ITEM 92
+QUESTION: how did my uncle get hurt on the slopes
+SEARCH RESULT:
+PASSAGE:
+User: Dana, the neighbour i keep talking about, broke a jaw skiing
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: Nell, the brother i keep talking about, broke a thumb skiing. also talked to Nell today, my brother, now promoted to director
+Assistant: Good to know.
+ANSWER: Not that I can see. What's the story?
+
+ITEM 93
+QUESTION: who does my cousin gig with
+SEARCH RESULT:
+PASSAGE:
+User: talked to Dana today, my uncle, who plays bass in Night Bus
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: the kettle was acting up again today. also talked to Omar today, my aunt, who plays bass in Salt Road. also good news, the groceries sorted itself out
+Assistant: That sounds exciting for them.
+ANSWER: Not that I can see. What's the story?
+
+ITEM 94
+QUESTION: i was telling someone about my uncle's novels, what genre are they
+SEARCH RESULT:
+PASSAGE:
+User: my aunt, Nell, writes romance novels at night
+Assistant: Thanks for telling me.
+
+
+  PASSAGE:
+User: my roommate, Marc, writes fantasy novels at night
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: my brother, Lena, writes mystery novels at night. also my brother Lena has taken up fencing on weekends
+Assistant: That's a change.
+ANSWER: Nothing on that here. Did you mean someone else?
+
+ITEM 95
+QUESTION: did i ever say what my cousin rides
+SEARCH RESULT:
+PASSAGE:
+User: my back came up at dinner, oh and apparently my sister Greta rides a Vespa to work, and the furnace turned out fine in the end
+Assistant: Oh, that's nice to hear.
+
+
+  PASSAGE:
+User: someone at work brought up my phone today
+Assistant: Tell me more if you feel like it.
+ANSWER: I checked and you haven't told me that.
+
+ITEM 96
+QUESTION: did i ever tell you about my cousin's dog
+SEARCH RESULT:
+PASSAGE:
+User: my neighbour Omar adopted a dog named Clover last month
+Assistant: How are they finding it?
+
+
+  PASSAGE:
+User: my roommate Nell adopted a dog named Biscuit last month
+Assistant: That sounds exciting for them.
+
+
+  PASSAGE:
+User: my coworker Marc adopted a dog named Rusty last month, oh and my coworker, Marc, had a baby and named them Hugo
+Assistant: How are they finding it?
+ANSWER: I don't know that one yet.
+
+ITEM 97
+QUESTION: how far up do i go to reach my coworker's flat
+SEARCH RESULT:
+PASSAGE:
+User: Priya is my cousin, and they rent on the twelfth floor
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: Yusuf is my neighbour, and they rent on the fifteenth floor, oh and the stairs turned out fine in the end
+Assistant: That's a change.
+ANSWER: I don't know that one yet.
+
+ITEM 98
+QUESTION: did i say what my uncle broke
+SEARCH RESULT:
+PASSAGE:
+User: Lena, the neighbour i keep talking about, broke a thumb skiing, oh and my neighbour Lena has taken up bouldering on weekends
+Assistant: That sounds exciting for them.
+ANSWER: I searched and there's nothing on that.
+
+ITEM 99
+QUESTION: did i tell you my neighbour got a kitten
+SEARCH RESULT:
+PASSAGE:
+User: Omar is my brother and just got a kitten called Tofu
+Assistant: Good to know.
+
+
+  PASSAGE:
+User: my knee is getting on my nerves, oh and Dana is my coworker and just got a kitten called Pickle
+Assistant: How are they finding it?
+ANSWER: Haven't heard about that. Tell me about it?

@@ -122,6 +122,7 @@ carry their own provenance (command, git commit, package versions).
 | R-107 | 6.111: one more epoch on 6.11's own set, no data added; 6.2 fixed now as the next try; v6 trained at 91 to 93 so R-094's recall line is read at the same seeds |
 | R-108 | 6.111 (`fix17cr111`) fails R-094's recall line on both sets (probe 189, `hard_dev` 153 against v6's 192 and 157); 6.2 (`fix17cs2`) queued as R-107 fixed; the 6.1 and 6.11 fresh-seed pre-training dropped |
 | R-109 | 6.2 (`fix17cs2`) passes every registered line at 82 and 83, counts, judged sheets (judge 1) and R-102's bar; judge 2 would fail one sheet; fresh seeds 91 to 93 queued |
+| R-110 | 6.21 (`fix17cs21`) designed by a panel at Kevin's word: 6.2 plus 100 train-pool rows whose found line says more than the asked detail, one gentle epoch from 6.2's adapter, with a control; replacement rule proposed for Kevin |
 
 ---
 
@@ -3999,3 +4000,71 @@ since R-093 (R-107 rule 1). By R-105 rule 2 this is development evidence only; s
 corrections and the phone form; v6 at the same seeds (R-107 rule 4); then R-076's rule with Sheets A, B and h judged
 by fresh judges, R-094's slip gate pooled over 82, 83 and 91 to 93, and R-102's seed-91-to-93 items. The 6.1 and 6.11
 chain is not used. 6.111's remaining messy-form runs follow, reported only.
+
+## R-110 · 2026-11-07 · SPRINT · 6.21's design: found lines that say more than the asked detail
+
+**Kevin, 2026-11-07 about 05:55,** after 6.2 passed every line at 82 and 83: "a candidate for 6.21 either way".
+6.21 is built on 6.2 whether or not 6.2 passes at 91 to 93. One panel of four lanes, one arguing against, designed it
+(transcript audited: it read `pools.py` lines 1 to 451 only, its one outline of that file filtered to lines below 452
+before display, no token file; it wrote only in its scratch folder).
+
+**What the panel found.**
+
+- In 6.2's set all 350 found-fact answers name the found value, and the 110 correction answers name the new value; but
+  every passage is one short fact line (1,252 of 1,475 passage lines are 40 to 80 characters). No row shows a line
+  that holds two facts, or a fact among other talk. `hard_dev` states facts in long run-on lines on purpose.
+- Read for diagnosis only (no row was built from them): 6.2's `hard_dev` misses of the kind "found the fact, answered
+  without the asked detail" come from three `hard_dev` fact types; 13 of 19 are one of them (a dinner hosted, the
+  dish not named), 5 another (an interview, the weekday not named). The same items fail at both seeds, and `hard_dev`
+  is scored on the same items (probe seed 73157) at every training seed, so seeds 91 to 93 read them again. **The
+  multi-detail form was chosen after reading `hard_dev` misses by kind**; it is a failure kind (R-103 rule 1), and
+  the shapes of the missed template (an event first and its value at the end: hosted, served, booked, dishes,
+  weekdays) are kept out.
+- Ruled out: phone-typed rows (R-099: `phone_style` never enters training; it is the held-out measure) and a gentle
+  epoch with no data (6.11 and 6.111 show it is a re-draw).
+
+**Data.** 6.21 = `fix17cs21`: 6.2's 970 rows byte for byte (`data/screens/fix17cr11.jsonl`) plus 100 rows from
+`scripts/records/build_r110.py` (train pool only, fresh conversations, the real search tool, scripted answers):
+
+- 40 `two`: the fact line also states a second fact of another type about the same person; the question asks one,
+  the asked fact first in 20 and second in 20; `older` and `confirm` alternate.
+- 40 `runon`: the fact line joined with one or two of the pool's small-talk lines, the fact first, in the middle or
+  last (about a third each).
+- 20 `never`: `never_told` questions whose returned passages include such a line about another person, so a long
+  passage is not a cue that the answer is there.
+- Decoy counts as R-020 (0 to 2 found, 1 to 3 not found). Coffee orders are left out (no food or weekday values).
+
+**Vetting.** The build stops if an answer leaves out the asked value, names the line's other value, or has the
+who-is-who slip shape, or if 6.2's rows change; a row whose search does not return its changed line (1), whose
+row is over 1,024 tokens (1), or whose changed line shares a four-word run with the probe or `hard_dev` pools (9) is
+skipped. Two of the pool's own small-talk lines and three of its fact wordings already share such a run with those
+pools, in 6.2's rows; the panel's rule (no shared run) was applied as a skip, so the step adds none. The build is
+deterministic (two runs, same SHA-256 `f62f0c9b7171…`). No phone-typing or held-out correction form is used. One fresh Sonnet judge, reading only the 100 rows' questions, search results and answers (`results/vet/R-110/`), marked all 100 as naming exactly the asked detail, or saying it does not know where nothing was found; transcript audited (it read its two files whole and wrote only its marks).
+
+**Training.** From `adapters/screens/fix17cs2_<seed>` (`--init-adapter`), 1 epoch at a peak of 1e-4 with linear decay
+to 0, `--loss-on chat_decision`, every other setting as 6.2; the report must show `init_tensors_loaded` 504 and
+`adapter_changed` true. Seeds 82 and 83. **Control** `fix17cs2x`: the same epoch on 6.2's 970 rows alone, at 82 and
+83, reported and not gated.
+
+**Order on the GPU.** v6 and 6.2 at 91 to 93 are not pre-empted. Then 6.21 at 82 and 83, the control, and 6.21's
+held-out corrections and phone forms. If 6.21 passes the whole gate there (R-086 counts and judged sheets, R-094,
+R-097, R-102), 6.21 is trained at 91 to 93 from `fix17cs2_91` to `_93` and judged as 6.2 is.
+
+**Recorded before it trains:**
+
+1. 6.21 is the ninth candidate read at 82 and 83 since R-093; its control is counted beside it. A pass there is
+   development evidence only (R-105 rule 2).
+2. **If 6.2 fails at 91 to 93**, 6.21 goes to 91 to 93 through 6.2's adapters there (R-103 rule 3); the write-up
+   says two related candidates were read on the confirmation seeds. If 6.21 passes, it replaces v6 (R-094's ruling).
+3. **If both pass at 91 to 93: proposed, for Kevin to rule before any 91-to-93 result is read.** R-088's ship rule
+   as written: 6.21 has one more change than 6.2, so 6.2 ships unless 6.21's pooled `hard_dev` recall at 91 to 93
+   (of 288, the same seeds) is higher by more than 15. The against lane adds a guard, which the others accept: a
+   gain that comes mostly from one `hard_dev` fact type does not count, and any gain is reported by fact type.
+4. No 6.211 or 6.22 is built from this reading without a new panel.
+5. The panel's estimates, judgements and not measurements: about 30% that 6.21 passes every line at 82 and 83, about
+   50% that a pass there holds at 91 to 93. The lines most likely to fail at 91 to 93, for 6.2 or 6.21, are judged
+   (`hard_dev` Sheet B `in_view`, 39 against base's 38 under judge 1) and the phone guard; neither can be trained for
+   without moving a gate.
+
+**Clock.** 6.21 and its control at 82 and 83 by about 15:00 Saturday; 6.21 at 91 to 93, if it gets there, by about
+18:30. Nothing starts after Monday 12:00.

@@ -440,6 +440,11 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   where v6 answered 1 and 5, and the coherence sheets under the deciding judge; one of the two other
   judges would have failed one sheet by two lines. It is the eighth copy tried at those seeds; fresh
   seeds decide (R-109).
+  Every passage in 6.2's training set is one short fact line, while the development set states facts
+  in long run-on lines, and most of 6.2's remaining misses find the right line and leave out the asked
+  detail. The next stone, 6.21, adds 100 training-pool rows whose found line says more than the asked
+  detail (two facts about one person, or the fact among other talk) and trains one gentle epoch on
+  6.2, beside a control; the shapes of the development questions it misses are kept out (R-110).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
