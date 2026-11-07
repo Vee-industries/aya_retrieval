@@ -125,6 +125,7 @@ carry their own provenance (command, git commit, package versions).
 | R-110 | 6.21 (`fix17cs21`) designed by a panel at Kevin's word: 6.2 plus 100 train-pool rows whose found line says more than the asked detail, one gentle epoch from 6.2's adapter, with a control; replacement rule proposed for Kevin |
 | R-111 | Kevin rules on R-110 rule 3: if 6.2 and 6.21 both pass at 91 to 93, the better one is the base for 7; better is pooled `hard_dev` recall at 91 to 93, with no lead given to 6.2; recorded before any 91-to-93 result of either was read |
 | R-112 | 6.2 (`fix17cs2`) at fresh seeds 91 to 93: every counted line passes, but R-076 fails on Sheet B `statement` at seed 92 (42 against base's 46, all three judges); 6.2 is not a base for 7; 6.21 goes to 91 to 93 (R-110 rule 2) |
+| R-113 | 6.21 (`fix17cs21`) fails R-094's recall line at 82 and 83 (`hard_dev` 155 against v6's 157); it is not judged or taken to 91 to 93; neither 6.2 nor 6.21 is a base for 7, so a new panel decides the next step (R-111 rule 5) |
 
 ---
 
@@ -4158,3 +4159,38 @@ statements at every fresh seed. No row is built from these items (R-103 rule 1).
    reported and not gated. These change the order on the GPU, not any line of the gate.
 4. 6.21's rows were built before this result and do not touch the statement shape; whether one gentle epoch on them
    moves it is read at 91 to 93, not assumed.
+
+## R-113 · 2026-11-07 · SPRINT · 6.21 fails R-094 at 82 and 83; neither stone is a base for 7
+
+**What ran** (R-110, unchanged): 6.21 = `fix17cs21`, one epoch at a peak of 1e-4 from `fix17cs2_82` and `_83` on 6.2's
+970 rows plus R-110's 100 rows. Both train reports show 1,070 rows, `init_tensors_loaded` 504 and `adapter_changed`
+true. Scored by 13:27 Saturday (`scripts/records/stone_report.py fix17cs21`, `scripts/records/gate_r086.py fix17cs21`).
+
+| Measure (seeds 82, 83) | Base | v6 | 6.2 | 6.21 |
+|---|---|---|---|---|
+| Plain recall, probe | 30 | 96, 96 | 96, 96 | 96, 96 |
+| Plain recall, `hard_dev` | 20 | 74, 83 | 85, 81 | 81, 74 |
+| Slips, probe | 2 | 3, 4 | 0, 0 | 0, 0 |
+| Slips, `hard_dev` | 1 | 0, 3 | 0, 0 | 0, 1 |
+| Probe `statement` (of 48) | 31 | 48, 46 | 48, 47 | 48, 48 |
+| Probe `in_view` (of 48) | 34 | 41, 45 | 45, 43 | 44, 46 |
+| `hard_dev` misses: found, answered without the asked detail | | | 7, 11 | 9, 20 |
+
+- R-086's unjudged gate passes (probe 51203 recall 96, statement 48; `hard_dev` recall pooled 155, at least 145).
+- R-094's slip lines and probe recall line pass (slips 0 and 1; probe 192 against v6's 192).
+- **R-094's `hard_dev` recall line fails: 155 against v6's 157.** The gate does not move. 6.21 is 11 below 6.2 at the
+  same seeds (166).
+
+**Read for diagnosis only.** R-110's rows targeted the "found the line, answered without the asked detail" kind. At these
+seeds that kind rose from 18 misses (6.2) to 29 (6.21), 20 of them at seed 83. The rows did not fix the kind they aimed
+at. The control (`fix17cs2x`, the same epoch on 6.2's rows alone) is running now and will show whether the epoch itself
+or the added rows moved it. It is reported and not gated.
+
+**What follows, as fixed before this result:**
+
+1. 6.21 is not judged and does not go to 91 to 93 (R-108: a stone is scored at fresh seeds only after it passes at
+   82 and 83). Its training at 91 was stopped at 13:35, and its eleven remaining lines (training at 91 to 93, held-out
+   and phone forms at 82 and 83) were skipped. The control runs next, unchanged.
+2. **Neither 6.2 nor 6.21 is a base for 7 (R-111 rule 5).** v6 stays the shipped model (R-093). The next step goes to
+   a new panel, which is also the panel R-110 rule 4 requires before any 6.211 or 6.22.
+3. The clock holds: model freeze Tuesday November 10; nothing starts after Monday 12:00.

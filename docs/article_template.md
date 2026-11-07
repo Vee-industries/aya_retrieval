@@ -357,6 +357,9 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   base: the friend said something like "Hana forgot my birthday again" and 6.2 searched and answered
   with an unrelated stored fact. All three judges agreed. 6.2 is not shipped; its successor 6.21 goes to the fresh seeds
   (R-112).
+  6.21 did not get that far: at the development seeds its hard-question recall fell to 155, below
+  v6's 157, and the misses it was built to remove (the right line found, the asked detail left out)
+  rose from 18 to 29. Neither stone replaces v6 (R-113).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
