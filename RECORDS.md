@@ -149,6 +149,7 @@ carry their own provenance (command, git commit, package versions).
 | R-134 | Panel of experts (six Opus experts, two rounds, a chair, a unanimous vote): 6.38 (`fix17cs38`) rewrites the final answer of 28 in-view rows that deflect, nothing else; registered before any row is built; candidate 17 since R-093 |
 | R-135 | 6.38's set built and frozen (`fix17cs38.jsonl`, sha256 `f4daff77...` after R-136's rebuild): all 28 targets pass every R-134 rule and the blind judge (28 of 28; the 28 old targets, hidden controls, 0 of 28); queued at 82 and 83 |
 | R-136 | 6.38's first set had doubled line endings (2,160 lines, 1,066 blank) and failed to load at 82 and 83; rebuilt with the same 28 answers (sha256 `f4daff77...`); a test now reads every training set as the trainer does |
+| R-137 | Prompted-baseline control registered before it runs: base with two fixed prompts (A rules; B rules and four made-up worked examples), probe and `hard_dev`, everything else identical; reported, not gated; per-run scores reported beside pooled counts |
 
 ---
 
@@ -5122,3 +5123,40 @@ is committed. R-134's later 6.38 lines (266 to 297) are stopped by `r134_stop_38
 cannot run out of order; 6.37's plain scoring at 97 to 99 (lines 276 to 278) is unguarded and runs. 6.38's lines are
 queued again after them, in R-134's order, with the stop file `r136_stop_38`. The timeline still meets R-134's clock:
 82-and-83 training before 22:00, fresh-seed training before Monday 04:00.
+
+## R-137 · 2026-11-08 · SPRINT · Prompted-baseline control, registered before it runs
+
+**Why.** An outside reviewer (passed on by Kevin) asked how much of the gain comes from the LoRA and how much a better
+prompt alone could buy. Checked first: base and every adapter run on identical items (240 of 240 match on message,
+answer and view, probe and `hard_dev`), the same system prompt, tool, result format and decoding (greedy, 60 tokens);
+the prompt and tool code did not change between base's runs and 6.37's. Split by search (seed 73157 items): base
+searches 37 of 96 probe recall questions and is right on 30 of those 37, 0 of the 59 it does not search; 6.37 at 94 to
+96 searches 287 of 288 and is right on all 287. `hard_dev`: base searches 58 of 96 and is right on 20; 6.37 searches 283
+of 288 and is right on 247. Base with no tool: 1 and 0 of 96. No prompt-only baseline was ever run.
+
+**Kevin, 2026-11-08:** "yeah add the prompted baseline control". The reviewer's conditions, all taken: keep the tool,
+decoding, token budget and test cases identical; the same prompt variants on both test sets, fixed before any result;
+general instructions and a few representative examples from outside the evaluation set, not tuned to its questions.
+
+**The control.** `scripts/run_recall_eval.py --system-prompt-file` (new; default unchanged) replaces only the tool
+arm's opening line ("You are chatting with a friend. You can search the earlier conversation."); the tool schema and
+calling format follow it unchanged. Two prompts, written once, committed here before any run:
+- **A, rules** (`results/control/R-137/prompt_a.txt`, sha256 of the stripped text
+  `333b7319bae3940c4485ad8536bfec948a516226284fffed551f1a2d21296ee0`): five general rules: search when a fact told
+  earlier is not in view; answer the exact detail and whose it is; say plainly when nothing is found; answer from view
+  without searching; reply naturally to plain chat.
+- **B, rules and examples** (`prompt_b.txt`, `d4d81aaa814654b11c4425db18624fbd49df720cf13303c2a4928c170a4dc4f0`): A and
+  four worked examples with made-up names and facts (a search and its answer, a fact in view, a search that finds
+  nothing, plain chat), in the harness's exact call and result formats. Neither prompt shares a four-word run with the
+  probe or `hard_dev` pools (`build_r110.TEST_GRAMS`); two phrases in B that did ("that's a lovely", "hope the rest
+  of") were reworded before this record.
+
+**Runs** (base, no adapter, `--arms tool_loop`, probe and `hard_dev`, seed 73157, 24 items a kind: the same 240 items
+each as every recall result): four runs, queued before 6.38's judged hold so the card works while the judges mark.
+**Reported, not gated:** per kind, searched and right-when-searched for recall, and right decisions on `in_view`,
+`never_told` and `statement` (a prompt that buys searches by over-searching shows there), against base's default
+prompt and 6.37. Base's runs are deterministic (greedy, one model), so one run each.
+
+**Statistics, adopted for the write-up** (the reviewer's last point): pooled counts over training seeds are three or
+five runs over the same questions, not independent cases; every pooled count is reported with its per-run scores and
+their spread.
