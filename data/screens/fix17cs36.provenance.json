@@ -1,0 +1,44 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-08T07:19:29+00:00",
+  "command": [
+   "scripts/records/build_r122.py",
+   "fix17cs36",
+   "--drop",
+   "maybe_contrast"
+  ],
+  "git_commit": "c25721352d46b9a846e21a33ef1c70c62b7d88b0",
+  "git_dirty": true,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "base_set": "data/screens/fix17cs31.jsonl",
+ "base_sha256": "3e257973adc3f8569ee700d0fbdd1299679505ef7e46235d394dff525739f415",
+ "out_sha256": "349c9d32aa841f18b836743242ae3dcded9d6c68a627df3ec961942787593154",
+ "rows": 1097,
+ "dropped": {
+  "maybe_contrast": 6
+ },
+ "statement_rows": 225,
+ "kinds": {
+  "confirm": 230,
+  "in_view": 150,
+  "never_told": 160,
+  "older": 332,
+  "statement": 225
+ }
+}

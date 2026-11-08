@@ -136,6 +136,7 @@ carry their own provenance (command, git commit, package versions).
 | R-121 | 6.32 fails at 82 and 83: `hard_dev` recall pooled 133 (floor 145, v6 157), probe recall pooled 190, probe slips 6 at 82; both copies with the 72 scripted in-view rows lose found-fact detail, so the rows are the cause |
 | R-122 | 6.33 (`fix17cs33`, 6.31 less the 15 memory-word contrast rows), then 6.34 (both removals) or 6.35 (less the 22 "It sounds like" in-view rows), all from scratch, nothing added; candidates 13 and 14 since R-093; pick rule fixed before any result |
 | R-123 | 6.33 fails at 82 and 83: probe recall pooled 191, one below v6's 192, on a new question (a search for "sister steps out"); the tattoo miss is gone and every other counted line passes; 6.34 trains as ruled |
+| R-124 | 6.36 (`fix17cs36`, 6.31 less the 6 contrast rows whose reply has "Maybe"), trained only if 6.34 fails; chosen after 6.33's result, over 6.35; the stepsister miss is one question, not a pattern |
 
 ---
 
@@ -4637,3 +4638,43 @@ no-search shape R-122 removed. v6 has no probe recall miss at 83. Reported, not 
 
 **Under R-122:** 6.33 stops; its stress lines are skipped (`r122_stop_33`), nothing of it is judged. It failed a line
 other than the statement line, so 6.34 (both removals) trains next (from 02:13), as ruled.
+
+## R-124 · 2026-11-08 · SPRINT · 6.36, the third removal try, chosen after 6.33's result
+
+**Why.** R-122 left the third try open ("the other of B and C, or dropping only the 6 contrast rows whose reply has
+'Maybe'"). 6.33's result (R-123) came in before 6.34's, so the choice was panelled again now.
+
+**The panel** (four lanes, one arguing against; one agent; transcript audited: 16 tool calls, it read `RECORDS.md`
+from R-116, `fix17cs31.jsonl`, `fix17cs33.jsonl` and probe results, opened no sealed or token file, did not search
+`src/`, ran no git, GPU or eval). Against its brief it wrote 9 short analysis scripts into the session's scratch
+folder, none in the repo; I read them (no sealed, token or pool reads, no writes) and deleted them.
+
+- **Against 6.35 (B).** B keeps all 15 memory-word contrast rows. The tattoo question is missed at seed 83 by 6.31,
+  6.311 and 6.32, three separate trainings that have those rows, and by none of the other 38 probe files of the 6.x
+  line. B changes only in-view rows.
+- **For 6.36 (D2).** Its 6 rows (`contrast/statement_0006` to `0008`, "keeps forgetting to text me back -> That can
+  be annoying. Maybe they've just been busy.", and `0021` to `0023`, "forgot about our lunch -> That's a letdown.
+  Maybe you can pick another day.") are the nearest in shape to 6.31's miss. It keeps the "left their keys" and
+  "birthday dinner" frames nearest the Esme statement line and the 22 in-view rows. Risk: 9 memory-word rows stay;
+  the tattoo miss may come back.
+- **Against.** Probe recall sits at its ceiling: v6 has 96 in 10 of 12 files, and each miss since has been a
+  different question. Even a clean copy fails this line by chance about a quarter of the time, so a third small
+  removal is a new draw, not a fix. 6.33's `hard_dev` margin is 3 (160 against 157).
+- **The stepsister miss is one question, not a pattern.** Across 792 stepsister recall queries in the 6.x line, 3
+  dropped the word, all on `58_older_17` ("what freaks my stepsister out"), 3 files in 72. Stepsister items miss 4
+  of 418 against 16 of 3,230 for the rest, not a significant gap. The training set has no step-, in-law or half-
+  relation and no query with one, so there is no row to duplicate; new rows cost detail (R-121).
+- **Ruling.** 6.36 = D2.
+
+**The set** (`scripts/records/build_r122.py`, group `maybe_contrast`, count 6): `fix17cs36`, 1,097 rows, SHA-256
+`349c9d32...`; 6.31's other rows byte for byte, in order. Rebuilding 6.33 to 6.35 after adding the group gave the
+same SHA-256 for each. 6.31's recipe from no adapter.
+
+**Order on the GPU** (backlog lines 196 to 198, 215 to 222): after 6.34's gate, 6.36 at 82 and 83 only if 6.34 failed,
+then its gate (a fail stops its stress lines). If 6.34 passed, 6.36 is not trained.
+
+**Recorded before its result:** R-122's pass rules and pick rule hold, with 6.36 last in the tie order (6.33, 6.34,
+6.35, 6.36). Candidates 13 to 15 since R-093. The write-up adds that 6.36 was chosen after 6.33's result, that 6.31's
+and 6.33's misses are different questions on a line at its ceiling, and that the training set has no step-relation
+rows. The panel's estimates, judgements and not measurements: 6.36 passes at 82 and 83 about 33%; 6.35 about 12%; a
+pass here holding at 94 to 96 about 40%.

@@ -1,17 +1,19 @@
 """R-122: 6.31's set with rows removed, for a from-scratch try.
 
-Usage: python scripts/records/build_r122.py NAME --drop memory_contrast|sounds_like [...]
+Usage: python scripts/records/build_r122.py NAME --drop GROUP [GROUP ...]
 
 6.31 failed by one probe question (R-119): "drawing a blank on my daughter's tattoo" got no search
 and a reply of sympathy ("That can be frustrating. Maybe you could try to remember..."). R-117's
 contrast rows answer statements with a memory word in that same voice ("Tomas keeps forgetting to
 text me back -> That can be annoying. Maybe they've just been busy."). 6.311 and 6.32 added 72
 scripted in-view rows and lost found-fact detail (R-120, R-121), so this try adds nothing and only
-removes. Two groups can be removed:
+removes. Three groups can be removed:
 
 - ``memory_contrast``: the R-117 ``contrast/statement_`` rows whose message has a memory word
   (lost, forgetting, forgot); 15 rows;
 - ``sounds_like``: the ``in_view`` rows whose answer opens "It sounds like"; 22 rows.
+- ``maybe_contrast``: the R-117 ``contrast/statement_`` rows whose reply has "Maybe", the nearest
+  shape to 6.31's miss ("That can be annoying. Maybe they've just been busy."); 6 rows (R-124).
 
 Every other row is kept byte for byte, in order. The build stops if a group's count differs from
 the one recorded in R-122.
@@ -42,6 +44,12 @@ GROUPS = {
     "sounds_like": (
         22,
         lambda r: r["kind"] == "in_view" and r["turns"][-1]["content"].startswith("It sounds like"),
+    ),
+    "maybe_contrast": (
+        6,
+        lambda r: (
+            r["id"].startswith("contrast/statement_") and "Maybe" in r["turns"][-1]["content"]
+        ),
     ),
 }
 
