@@ -131,6 +131,7 @@ carry their own provenance (command, git commit, package versions).
 | R-116 | 6.3 (`fix17cs3`) fails at 82 and 83: probe slips 7 at seed 83 (at most 5), a new "<Name>, who is my <relation>" shape, and probe 51203 `statement` 45 (at least 47); not judged; Kevin rules no more stones on top of earlier versions and that a fail does not end the tries; v6 at 94 to 96 queued |
 | R-117 | 6.31 (`fix17cs31`), panelled before it trains: 6.3's rows with the 52 indirect-question answers given the pool's scripted answer and 24 contrast statements (another person forgets or loses something, no search), from scratch; candidate 10 at 82 and 83 since R-093; gates as R-114 items 1 and 2 |
 | R-118 | 6.311 (`fix17cs311`, one epoch on top of 6.31) and 6.32 (`fix17cs32`, from scratch), each with 72 new in-view rows answered with the scripted answer; candidates 11 and 12 since R-093; the dilution diagnosis checked and rejected; which copy goes to 94 to 96 fixed before any result |
+| R-119 | 6.31 fails at 82 and 83: probe recall pooled 191, one below v6's 192 (R-094); every other counted line passes; its stress lines stop; R-118's two copies go on |
 
 ---
 
@@ -4483,3 +4484,26 @@ runs. R-086's judged sheets run on the CPU once a copy's plain sets are scored.
    answers are new; the pick among copies at 82 and 83.
 5. **The panel's estimates, judgements and not measurements,** pass at 82 and 83: 6.32 about 30%; 6.311 about 20%
    (the against lane says 12%); `in_view` up by 4 or more for either copy about 50%.
+
+## R-119 · 2026-11-07 · SPRINT · 6.31 fails R-094's probe recall line by one
+
+Both train reports show 1,103 rows and `decision_rows` 231. R-086's unjudged gate passes every line (probe 51203
+recall 95, `statement` 48; `hard_dev` `never_told` at 82 48; `hard_dev` recall pooled 163; probe recall pooled 191
+against its floor of 189; false retrieval at 82 0). R-094:
+
+| Line (seeds 82, 83) | v6 | 6.31 | Rule | |
+|---|---|---|---|---|
+| probe slips | 3, 4 | 0, 0 | at most 5 a seed, 8 pooled | PASS |
+| `hard_dev` slips | 0, 3 | 0, 0 | at most 3 a seed | PASS |
+| `hard_dev` recall pooled | 157 | 163 | not below v6's | PASS |
+| **probe recall pooled** | **192** | **191** | **not below v6's** | **FAIL** |
+
+The one miss is probe item `58_older_00` at seed 83, "drawing a blank on my daughter's tattoo": no search and a
+reply of sympathy ("That can be frustrating. Maybe you could try to remember the details..."). This is the shape
+R-118's panel traced to the in-view targets and R-117's contrast rows. Reported, not gated: `hard_dev` `in_view` 32
+and 38 (v6 37, 37); probe `in_view` 42 and 43 (v6 41, 45).
+
+**Under R-117 item 2:** 6.31 stops. Its eight stress lines are skipped (`r117_stop`), nothing of it is judged, and
+it is never read at new seeds. It drops out of R-118's pick; R-118's lines and rules are otherwise unchanged. 6.311
+still trains on 6.31's adapters, as R-118 recorded, and if 6.311 is the copy picked, 6.31 is trained at 94 to 96 only
+as its parent. With the stress lines skipped, 6.311 starts after v6 at 95 and 96 (about 21:30).
