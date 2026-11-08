@@ -142,6 +142,7 @@ carry their own provenance (command, git commit, package versions).
 | R-127 | 6.37 (`fix17cs37`, 6.31 less the 9 wallet, umbrella and lost-track contrast rows), from scratch; candidate 16 since R-093; the panel's base rate: a copy with no defect misses one probe question in 192 about 28% of the time |
 | R-128 | 6.37 passes R-086 (counts and judged sheets, all three judges), R-094 and R-097 at 82 and 83: probe recall pooled 192, `hard_dev` 163, no slips; it is R-122's pick and goes to 94 to 96; R-102 follows its stress runs |
 | R-129 | 6.37 passes R-102 at 82 and 83 (held-out corrections 192 and 167 of 192 against v6's 1 and 5; phone typing 176 and 147 against v6's 178 and 132): every registered line at 82 and 83 passes; 94 training from 08:45 |
+| R-130 | 6.37 at fresh seeds 94 to 96: R-076's rule passes under all three judges; R-094 passes (probe recall 287 against v6's 287, `hard_dev` 247 against 237); R-102's fresh-seed items wait on its stress runs |
 
 ---
 
@@ -4842,3 +4843,57 @@ Slips are 0 in all eight runs (v6: 3 and 5 on held-out corrections, probe). **Ev
 passes** (R-086 counts and judged sheets, R-094, R-097, R-102), so `r128_stop_37` is not touched and 6.37 trains at
 94 from 08:45, then 95 and 96, then its twelve stress runs. Reported, not gated: of 6.37's `hard_dev` recall misses,
 19 of 23 at seed 82 and 3 of 6 at 83 found the line and answered without the asked detail.
+
+## R-130 · 2026-11-08 · SPRINT · 6.37 at 94 to 96: R-076's rule and R-094 pass
+
+The three train reports show 1,094 rows and `decision_rows` 222. Training ran from 08:45 to 11:22 (backlog lines 234
+to 236). v6 at 94 to 96 was trained earlier as the comparison (R-116); it was not itself gated here.
+
+**R-094** passes:
+
+| Line (seeds 94, 95, 96) | v6 | 6.37 | Rule | |
+|---|---|---|---|---|
+| probe recall | 96, 96, 95 (287) | 96, 95, 96 (287) | pooled not below v6's | PASS |
+| `hard_dev` recall | 74, 81, 82 (237) | 77, 87, 83 (247) | pooled not below v6's | PASS |
+| probe slips | | 0, 0, 2 | at most 5 a seed | PASS |
+| `hard_dev` slips | | 3, 0, 1 | at most 3 a seed | PASS |
+| probe slips pooled over 82, 83, 94 to 96 | | 2 | at most 8 | PASS |
+
+`hard_dev` slips at 94 are 3, at the limit. Reported, not gated: probe `in_view` 45, 39, 42 (v6 41, 47, 42);
+`hard_dev` `in_view` 43, 36, 39 (v6 40, 36, 38). Against base, pooled over the three seeds: probe recall +219% (287
+against 90), `hard_dev` recall +312% (247 against 60).
+
+**R-076's rule** (`scripts/records/rule_r076.py fix17cs37 R-130 <judge> 94 95 96`). The counted items all pass:
+recall pooled 287 (above 252 and at least 273), `in_view` pooled 126 (110), `statement` 144 (136), right decisions
+240, 239, 240 (200 each seed), false retrieval 0 (39); `hard_dev` recall 247 (172), false retrieval 6 (20),
+`never_told` 138 (132).
+
+**Judged** (`results/coherence/R-130/`, shuffle seeds 90547 to 90555, in the order A, B, h for each of 94, 95, 96;
+sheets built as R-112's, which I rebuilt from its inputs byte for byte to confirm the method; Sheet A against base's
+`tool_loop` replies, Sheets B and `hard_dev` B against base's `three_exchanges`; three fresh Sonnet judges a sheet
+type, each marking its three seeds in its own folder under R-095's rubric; judge 1 decides). Transcripts audited: each
+of the nine read only its own folder's rubric and three sheets, covered every line of each, and wrote only its three
+marks files, by heredoc; some ran one count over their own marks files afterwards. The three Sheet A judges gave the
+same mark on every one of the 576 lines; none opened another judge's folder.
+
+| Item | Judge 1 | Judge 2 | Judge 3 |
+|---|---|---|---|
+| Sheet A `confirm`, pooled: 6.37, base | 144, 141 | 144, 141 | 144, 141 |
+| Sheet A `older` + `confirm`, pooled | 287, 231 | 287, 231 | 287, 231 |
+| Sheet B `statement` at 94, 95, 96: 6.37 / base | 48/44, 48/44, 46/44 | 48/46, 48/46, 46/46 | 48/45, 48/45, 46/45 |
+| Sheet B `in_view` at 94, 95, 96: 6.37 / base | 39/34, 38/34, 39/34 | 40/34, 36/34, **34/34** | 42/35, 41/35, 40/35 |
+| `hard_dev` Sheet B `statement`, pooled | 136, 132 | 139, 129 | 143, 132 |
+| `hard_dev` Sheet B `in_view`, pooled | 129, 105 | 130, 105 | 131, 105 |
+| **R-076's rule** | **PASS** | **PASS** | **PASS** |
+
+Judge 2's Sheet B `in_view` at 96 is a tie, which the rule ("at or above base every seed") passes. Sheet B at every
+seed is the item 6.2 failed at 92 (R-112).
+
+**Still to read:** R-102's fresh-seed items, from the twelve stress runs on the GPU now (backlog lines 237 to 248):
+each seed at least 24 of 96 (probe) and 16 of 96 (`hard_dev`) above v6's 82-and-83 mean on held-out corrections, and
+the phone guard. If they pass, R-114 item 2 is met in full and 6.37 seed 82 replaces v6 and is the base for 7 (R-111).
+
+**Kevin, 2026-11-08 about 08:55,** on what follows a fail: "yeah run it by the panel and shit. you guys can choose the
+best candidate to train". If 6.37 fails, a panel picks the next candidate, from scratch or on top, and it trains
+without a further check with him; seeds 94 to 96 are then spent and a copy designed after reading them is confirmed
+at fresh seeds.

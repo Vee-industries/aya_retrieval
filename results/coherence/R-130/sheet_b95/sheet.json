@@ -1,0 +1,3650 @@
+[
+ {
+  "line": 0,
+  "view": [
+   [
+    "Gustav, who is my teammate, is terrified of clowns",
+    "That's cool."
+   ],
+   [
+    "my mom asked about the pharmacy again",
+    "Funny what pops up."
+   ],
+   [
+    "happy to report my keys is all good",
+    "Great, my keys deserved a good day."
+   ]
+  ],
+  "message": "what is Gustav terrified of",
+  "reply": "Gustav is terrified of clowns."
+ },
+ {
+  "line": 1,
+  "view": [
+   [
+    "my mom asked about the wind again",
+    "What did she want to know about the wind?"
+   ],
+   [
+    "the fence cheered me up today",
+    "Nice one. What changed with the fence?"
+   ],
+   [
+    "the library cheered me up today",
+    "Great, the library deserved a good day."
+   ]
+  ],
+  "message": "i should really call my classmate",
+  "reply": "That might be a good idea."
+ },
+ {
+  "line": 2,
+  "view": [
+   [
+    "Esme, who is my daughter, is terrified of thunderstorms",
+    "Thanks for the update."
+   ],
+   [
+    "another bad day thanks to the blender",
+    "That's rough. What went wrong with the blender?"
+   ],
+   [
+    "another bad day thanks to my couch",
+    "That's rough. What went wrong with my couch?"
+   ]
+  ],
+  "message": "what is Esme terrified of",
+  "reply": "Esme is terrified of thunderstorms."
+ },
+ {
+  "line": 3,
+  "view": [
+   [
+    "weird how much of my week is the garage",
+    "Anything interesting about the garage?"
+   ],
+   [
+    "my mom asked about the escalator again",
+    "What did she want to know about the escalator?"
+   ],
+   [
+    "Kofi, who is my stepsister, speaks fluent Swahili",
+    "That's cool."
+   ]
+  ],
+  "message": "what can my stepsister speak besides english",
+  "reply": "Kofi speaks Swahili fluently, which is a Bantu language primarily spoken in Tanzania, Kenya, and Uganda."
+ },
+ {
+  "line": 4,
+  "view": [
+   [
+    "weird how much of my week is the tram",
+    "Quiet days are underrated."
+   ],
+   [
+    "Ayaan, who is my mentor, joined a archery club this month",
+    "Oh wow, okay."
+   ],
+   [
+    "the escalator messed up my whole plan",
+    "Plans and the escalator clearly don't mix."
+   ]
+  ],
+  "message": "where does my mentor go after work these days",
+  "reply": "It sounds like your mentor is an adventurous soul."
+ },
+ {
+  "line": 5,
+  "view": [
+   [
+    "so fed up with the fence right now",
+    "All evening? I hope the fence is sorted now."
+   ],
+   [
+    "another bad day thanks to the pharmacy",
+    "Plans and the pharmacy clearly don't mix."
+   ],
+   [
+    "weird how much of my week is that novel",
+    "Anything interesting about that novel?"
+   ]
+  ],
+  "message": "my mentor texted me out of nowhere",
+  "reply": "Sounds like a bit of a shock."
+ },
+ {
+  "line": 6,
+  "view": [
+   [
+    "my mom asked about the patio again",
+    "Quiet days are underrated."
+   ],
+   [
+    "really enjoying my skateboard at the moment",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "really enjoying the pharmacy at the moment",
+    "Enjoy it while it lasts."
+   ]
+  ],
+  "message": "my stepsister texted me out of nowhere",
+  "reply": "It sounds like your stepsister is trying to connect with you. Maybe she wants to catch up or just say hi. How are you feeling about it?"
+ },
+ {
+  "line": 7,
+  "view": [
+   [
+    "that's all i've got on the wind",
+    "Quiet days are underrated."
+   ],
+   [
+    "Ayaan, who is my godfather, grows prize asparagus out back",
+    "Thanks for the update."
+   ],
+   [
+    "another bad day thanks to the sleet",
+    "Sounds like you've had enough of the sleet."
+   ]
+  ],
+  "message": "i cannot think what my godfather grows",
+  "reply": "Ayaan grows prize asparagus."
+ },
+ {
+  "line": 8,
+  "view": [
+   [
+    "Chidi, who is my barber, speaks fluent Korean",
+    "Sounds like quite the news."
+   ],
+   [
+    "really enjoying the freezer at the moment",
+    "Nice one. What changed with the freezer?"
+   ],
+   [
+    "happy to report the blender is all good",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "i forget which language my barber knows",
+  "reply": "Chidi is a name that can be associated with various languages. In English, it means \"child\" or \"son.\" In other languages, it can have different meanings. For example, in Korean, it can be associated with the name \"Jihye\" or \"Jihyeong.\""
+ },
+ {
+  "line": 9,
+  "view": [
+   [
+    "my smoothie messed up my whole plan",
+    "All evening? I hope my smoothie is sorted now."
+   ],
+   [
+    "Gustav, who is my stepsister, is terrified of thunderstorms",
+    "Sounds like quite the news."
+   ],
+   [
+    "my mom asked about the escalator again",
+    "Weeks can go that way."
+   ]
+  ],
+  "message": "what freaks my stepsister out the most",
+  "reply": "Thunderstorms, apparently."
+ },
+ {
+  "line": 10,
+  "view": [
+   [
+    "happy to report the dryer is all good",
+    "Great, the dryer deserved a good day."
+   ],
+   [
+    "spent all evening sorting out my ankle",
+    "Ugh, sorry about my ankle."
+   ],
+   [
+    "my couch cheered me up today",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "i got stuck talking to Dmitri for an hour",
+  "reply": "That sounds like a fun and engaging conversation. Dmitri is a character from the book \"The Brothers Karamazov\" by Fyodor Dostoevsky, and he often appears in discussions about morality, faith, and the human condition. It's great that you were able to connect with him and"
+ },
+ {
+  "line": 11,
+  "view": [
+   [
+    "the pharmacy is testing my patience",
+    "All evening? I hope the pharmacy is sorted now."
+   ],
+   [
+    "that's all i've got on the library",
+    "Weeks can go that way."
+   ],
+   [
+    "my smoothie keeps letting me down",
+    "That's rough. What went wrong with my smoothie?"
+   ]
+  ],
+  "message": "my daughter has been acting strange lately",
+  "reply": "That's concerning. Can you tell me more about what she's been doing?"
+ },
+ {
+  "line": 12,
+  "view": [
+   [
+    "the modem cheered me up today",
+    "Sounds like the modem is on the up."
+   ],
+   [
+    "the photocopier turned a corner this week",
+    "Nice one. What changed with the photocopier?"
+   ],
+   [
+    "the modem cheered me up today",
+    "Sounds like the modem is on the up."
+   ]
+  ],
+  "message": "my mentor has been acting strange lately",
+  "reply": "It might be a good idea to talk to them about it."
+ },
+ {
+  "line": 13,
+  "view": [
+   [
+    "the courier keeps letting me down",
+    "All evening? I hope the courier is sorted now."
+   ],
+   [
+    "that novel is testing my patience",
+    "All evening? I hope that novel is sorted now."
+   ],
+   [
+    "so fed up with the pharmacy right now",
+    "Plans and the pharmacy clearly don't mix."
+   ]
+  ],
+  "message": "Lucia and i grabbed coffee this morning",
+  "reply": "That sounds like a great start to the day."
+ },
+ {
+  "line": 14,
+  "view": [
+   [
+    "Chidi, who is my barber, speaks fluent Korean",
+    "Sounds like quite the news."
+   ],
+   [
+    "really enjoying the freezer at the moment",
+    "Nice one. What changed with the freezer?"
+   ],
+   [
+    "happy to report the blender is all good",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "i forget which language my barber knows",
+  "reply": "It sounds like you're trying to remember which language your barber, Chidi, speaks fluently. Can you give me a hint? Is it a specific language, or something more general?"
+ },
+ {
+  "line": 15,
+  "view": [
+   [
+    "quiet day, mostly my smoothie",
+    "Anything interesting about my smoothie?"
+   ],
+   [
+    "the garage is testing my patience",
+    "Sounds like you've had enough of the garage."
+   ],
+   [
+    "the basement popped into my head earlier",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "Hana and i grabbed coffee this morning",
+  "reply": "That sounds like a nice start to the day. Did you have a good conversation?"
+ },
+ {
+  "line": 16,
+  "view": [
+   [
+    "my mom asked about the pharmacy again",
+    "Weeks can go that way."
+   ],
+   [
+    "Beatriz, who is my daughter, is terrified of pigeons",
+    "What do you make of that?"
+   ],
+   [
+    "happy to report my couch is all good",
+    "Sounds like my couch is on the up."
+   ]
+  ],
+  "message": "what freaks my daughter out the most",
+  "reply": "Pigeons, that's what freaks your daughter out the most."
+ },
+ {
+  "line": 17,
+  "view": [
+   [
+    "quiet day, mostly the escalator",
+    "Quiet days are underrated."
+   ],
+   [
+    "my neck messed up my whole plan",
+    "Sounds like you've had enough of my neck."
+   ],
+   [
+    "so fed up with the vacuuming right now",
+    "All evening? I hope the vacuuming is sorted now."
+   ]
+  ],
+  "message": "i should really call my mentor",
+  "reply": "That might be a good idea."
+ },
+ {
+  "line": 18,
+  "view": [
+   [
+    "another bad day thanks to the patio",
+    "Plans and the patio clearly don't mix."
+   ],
+   [
+    "so fed up with my neck right now",
+    "All evening? I hope my neck is sorted now."
+   ],
+   [
+    "that novel went better than expected",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "Kofi and i grabbed coffee this morning",
+  "reply": "Sounds like a nice start to the day. Did you enjoy your coffee?"
+ },
+ {
+  "line": 19,
+  "view": [
+   [
+    "quiet day, mostly my camera",
+    "Funny what pops up."
+   ],
+   [
+    "the wind keeps letting me down",
+    "Sounds like you've had enough of the wind."
+   ],
+   [
+    "the photocopier keeps letting me down",
+    "All evening? I hope the photocopier is sorted now."
+   ]
+  ],
+  "message": "Kofi and i grabbed coffee this morning",
+  "reply": "That sounds like a nice start to the day."
+ },
+ {
+  "line": 20,
+  "view": [
+   [
+    "the pharmacy is testing my patience",
+    "All evening? I hope the pharmacy is sorted now."
+   ],
+   [
+    "that's all i've got on the library",
+    "Weeks can go that way."
+   ],
+   [
+    "my smoothie keeps letting me down",
+    "That's rough. What went wrong with my smoothie?"
+   ]
+  ],
+  "message": "my daughter has been acting strange lately",
+  "reply": "That can be concerning. Have you noticed any other changes in her behavior or health?"
+ },
+ {
+  "line": 21,
+  "view": [
+   [
+    "quiet day, mostly the fence",
+    "Anything interesting about the fence?"
+   ],
+   [
+    "the photocopier turned a corner this week",
+    "Sounds like the photocopier is on the up."
+   ],
+   [
+    "Farah, who is my mentor, got a thistle tattoo last week",
+    "What do you make of that?"
+   ]
+  ],
+  "message": "what tattoo did Farah get",
+  "reply": "Farah got a thistle tattoo last week."
+ },
+ {
+  "line": 22,
+  "view": [
+   [
+    "another bad day thanks to the vet",
+    "Ugh, sorry about the vet."
+   ],
+   [
+    "the bins is testing my patience",
+    "Plans and the bins clearly don't mix."
+   ],
+   [
+    "that novel messed up my whole plan",
+    "That's rough. What went wrong with that novel?"
+   ]
+  ],
+  "message": "i should really call my mentor",
+  "reply": "Yeah, that sounds like a good idea. Mentors are great for navigating those kinds of situations. What can you tell me about the novel?"
+ },
+ {
+  "line": 23,
+  "view": [
+   [
+    "weird how much of my week is my camera",
+    "No problem, what else is new?"
+   ],
+   [
+    "Beatriz, who is my tutor, speaks fluent Turkish",
+    "That's cool."
+   ],
+   [
+    "quiet day, mostly the butcher",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "what language does Beatriz speak",
+  "reply": "Beatriz speaks English, as I am an AI assistant."
+ },
+ {
+  "line": 24,
+  "view": [
+   [
+    "so fed up with the library right now",
+    "Ugh, sorry about the library."
+   ],
+   [
+    "was reading about the freezer at lunch",
+    "Anything interesting about the freezer?"
+   ],
+   [
+    "Gustav, who is my mentor, grows prize strawberries out back",
+    "What do you make of that?"
+   ]
+  ],
+  "message": "what does Gustav grow out back",
+  "reply": "He grows prize strawberries."
+ },
+ {
+  "line": 25,
+  "view": [
+   [
+    "my mom asked about the sleet again",
+    "Anything interesting about the sleet?"
+   ],
+   [
+    "the butcher went better than expected",
+    "Sounds like the butcher is on the up."
+   ],
+   [
+    "Kofi, who is my stepsister, joined a rowing club this month",
+    "What do you make of that?"
+   ]
+  ],
+  "message": "which club did Kofi join",
+  "reply": "Kofi joined a rowing club this month."
+ },
+ {
+  "line": 26,
+  "view": [
+   [
+    "so fed up with the fence right now",
+    "All evening? I hope the fence is sorted now."
+   ],
+   [
+    "another bad day thanks to the pharmacy",
+    "Plans and the pharmacy clearly don't mix."
+   ],
+   [
+    "weird how much of my week is that novel",
+    "Anything interesting about that novel?"
+   ]
+  ],
+  "message": "my mentor texted me out of nowhere",
+  "reply": "That sounds like a good thing. Mentors are always a great source of support and guidance. Is there anything specific you wanted to talk about?"
+ },
+ {
+  "line": 27,
+  "view": [
+   [
+    "was reading about the pharmacy at lunch",
+    "Anything interesting about the pharmacy?"
+   ],
+   [
+    "weird how much of my week is my skateboard",
+    "What did she want to know about my skateboard?"
+   ],
+   [
+    "Kofi, who is my tutor, got a anchor tattoo last week",
+    "Didn't see that coming."
+   ]
+  ],
+  "message": "drawing a blank on my tutor's tattoo",
+  "reply": "That's a unique way to express your thoughts. If you'd like to discuss more about Kofi's tattoo or any other topic, feel free to share."
+ },
+ {
+  "line": 28,
+  "view": [
+   [
+    "the chimney turned a corner this week",
+    "That's lovely to hear."
+   ],
+   [
+    "Ayaan, who is my godfather, grows prize chillies out back",
+    "That's cool."
+   ],
+   [
+    "the dryer cheered me up today",
+    "Nice one. What changed with the dryer?"
+   ]
+  ],
+  "message": "i cannot think what my godfather grows",
+  "reply": "You said he grows prize chillies, so that's a good start."
+ },
+ {
+  "line": 29,
+  "view": [
+   [
+    "the basement cheered me up today",
+    "That's lovely to hear."
+   ],
+   [
+    "quiet day, mostly the fence",
+    "Funny what pops up."
+   ],
+   [
+    "quiet day, mostly the garage",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "my classmate has been acting strange lately",
+  "reply": "It can be tough when someone you know is acting different. Have you thought about what might be going on?"
+ },
+ {
+  "line": 30,
+  "view": [
+   [
+    "spent all evening sorting out the sleet",
+    "That's rough. What went wrong with the sleet?"
+   ],
+   [
+    "so fed up with the basement right now",
+    "Ugh, sorry about the basement."
+   ],
+   [
+    "the patio popped into my head earlier",
+    "Weeks can go that way."
+   ]
+  ],
+  "message": "my teammate texted me out of nowhere",
+  "reply": "That can be a bit of a shock."
+ },
+ {
+  "line": 31,
+  "view": [
+   [
+    "the chimney is testing my patience",
+    "Ugh, sorry about the chimney."
+   ],
+   [
+    "Ayaan, who is my godfather, is terrified of clowns",
+    "Thanks for the update."
+   ],
+   [
+    "the vet keeps letting me down",
+    "Ugh, sorry about the vet."
+   ]
+  ],
+  "message": "i'm blanking on what my godfather is scared of",
+  "reply": "Clowns are a common source of fear for many people, especially children. If your godfather is terrified of clowns, it's likely that he's been exposed to clowns in a way that has made him uncomfortable or scared."
+ },
+ {
+  "line": 32,
+  "view": [
+   [
+    "really enjoying the freezer at the moment",
+    "Great, the freezer deserved a good day."
+   ],
+   [
+    "Chidi, who is my classmate, got a koi tattoo last week",
+    "Thanks for the update."
+   ],
+   [
+    "my skateboard turned a corner this week",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "drawing a blank on my classmate's tattoo",
+  "reply": "That's a bit of a sad one.  Drawing a blank on a tattoo is a common way to express disappointment or frustration. It's a bit of a quirky way to show your feelings."
+ },
+ {
+  "line": 33,
+  "view": [
+   [
+    "the photocopier cheered me up today",
+    "That's lovely to hear."
+   ],
+   [
+    "really enjoying the courier at the moment",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "my mom asked about the photocopier again",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "i got stuck talking to Lucia for an hour",
+  "reply": "That sounds like a fun conversation. Was it a good chat?"
+ },
+ {
+  "line": 34,
+  "view": [
+   [
+    "Lucia, who is my daughter, is terrified of deep water",
+    "That's cool."
+   ],
+   [
+    "so fed up with the sauna right now",
+    "Sounds like you've had enough of the sauna."
+   ],
+   [
+    "weird how much of my week is the patio",
+    "No problem, what else is new?"
+   ]
+  ],
+  "message": "what is Lucia terrified of",
+  "reply": "Lucia is terrified of deep water."
+ },
+ {
+  "line": 35,
+  "view": [
+   [
+    "Lucia, who is my teammate, grows prize strawberries out back",
+    "Sounds like quite the news."
+   ],
+   [
+    "was reading about my smoothie at lunch",
+    "No problem, what else is new?"
+   ],
+   [
+    "weird how much of my week is my charger",
+    "What did she want to know about my charger?"
+   ]
+  ],
+  "message": "i cannot think what my teammate grows",
+  "reply": "Prize strawberries are a great choice. They're delicious, and people will be excited to try them."
+ },
+ {
+  "line": 36,
+  "view": [
+   [
+    "the pharmacy keeps letting me down",
+    "That's rough. What went wrong with the pharmacy?"
+   ],
+   [
+    "Ayaan, who is my mentor, is terrified of thunderstorms",
+    "Thanks for the update."
+   ],
+   [
+    "weird how much of my week is the vet",
+    "Weeks can go that way."
+   ]
+  ],
+  "message": "what freaks my mentor out the most",
+  "reply": "It sounds like your mentor is quite sensitive to thunderstorms."
+ },
+ {
+  "line": 37,
+  "view": [
+   [
+    "my mom asked about the radiator again",
+    "Quiet days are underrated."
+   ],
+   [
+    "that novel turned a corner this week",
+    "Sounds like that novel is on the up."
+   ],
+   [
+    "the vet went better than expected",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "my tutor texted me out of nowhere",
+  "reply": "It sounds like your tutor is checking in. Is there anything you need help with?"
+ },
+ {
+  "line": 38,
+  "view": [
+   [
+    "Chidi, who is my classmate, speaks fluent Welsh",
+    "Sounds like quite the news."
+   ],
+   [
+    "my mom asked about my camera again",
+    "No problem, what else is new?"
+   ],
+   [
+    "really enjoying the basement at the moment",
+    "Nice one. What changed with the basement?"
+   ]
+  ],
+  "message": "what language does Chidi speak",
+  "reply": "Chidi speaks fluent Welsh."
+ },
+ {
+  "line": 39,
+  "view": [
+   [
+    "happy to report the bins is all good",
+    "Sounds like the bins is on the up."
+   ],
+   [
+    "happy to report that novel is all good",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "so fed up with the pharmacy right now",
+    "That's rough. What went wrong with the pharmacy?"
+   ]
+  ],
+  "message": "Hana and i grabbed coffee this morning",
+  "reply": "That's great! Did you enjoy your coffee?"
+ },
+ {
+  "line": 40,
+  "view": [
+   [
+    "Hana, who is my tutor, joined a handball club this month",
+    "Didn't see that coming."
+   ],
+   [
+    "quiet day, mostly my charger",
+    "Quiet days are underrated."
+   ],
+   [
+    "my skateboard went better than expected",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "where does my tutor go after work these days",
+  "reply": "It sounds like your tutor is enjoying her handball club.  Is there anything specific you'd like to know or talk about regarding her experience or the club?"
+ },
+ {
+  "line": 41,
+  "view": [
+   [
+    "happy to report the patio is all good",
+    "Nice one. What changed with the patio?"
+   ],
+   [
+    "happy to report the patio is all good",
+    "Nice one. What changed with the patio?"
+   ],
+   [
+    "spent all evening sorting out the blender",
+    "That's rough. What went wrong with the blender?"
+   ]
+  ],
+  "message": "my barber texted me out of nowhere",
+  "reply": "That's a bit of a shock."
+ },
+ {
+  "line": 42,
+  "view": [
+   [
+    "the basement cheered me up today",
+    "That's lovely to hear."
+   ],
+   [
+    "quiet day, mostly the fence",
+    "Funny what pops up."
+   ],
+   [
+    "quiet day, mostly the garage",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "my classmate has been acting strange lately",
+  "reply": "It could be a lot of things. Maybe they're feeling stressed or anxious about something."
+ },
+ {
+  "line": 43,
+  "view": [
+   [
+    "that's all i've got on the basement",
+    "Funny what pops up."
+   ],
+   [
+    "the escalator keeps letting me down",
+    "All evening? I hope the escalator is sorted now."
+   ],
+   [
+    "really enjoying the dryer at the moment",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "my tutor has been acting strange lately",
+  "reply": "That can be a bit of a worry. If your tutor has been acting strange, it's a good idea to talk to them about it. You could ask them if they're feeling okay or if there's something specific that's bothering them."
+ },
+ {
+  "line": 44,
+  "view": [
+   [
+    "Ayaan, who is my mentor, got a thistle tattoo last week",
+    "What do you make of that?"
+   ],
+   [
+    "really enjoying the radiator at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "weird how much of my week is the chimney",
+    "No problem, what else is new?"
+   ]
+  ],
+  "message": "what tattoo did Ayaan get",
+  "reply": "Ayaan got a thistle tattoo last week."
+ },
+ {
+  "line": 45,
+  "view": [
+   [
+    "Lucia, who is my stepsister, grows prize asparagus out back",
+    "Thanks for the update."
+   ],
+   [
+    "another bad day thanks to the radiator",
+    "Plans and the radiator clearly don't mix."
+   ],
+   [
+    "spent all evening sorting out my camera",
+    "All evening? I hope my camera is sorted now."
+   ]
+  ],
+  "message": "what does Lucia grow out back",
+  "reply": "Lucia grows prize asparagus out back."
+ },
+ {
+  "line": 46,
+  "view": [
+   [
+    "the photocopier cheered me up today",
+    "Sounds like the photocopier is on the up."
+   ],
+   [
+    "the sauna is testing my patience",
+    "That's rough. What went wrong with the sauna?"
+   ],
+   [
+    "the blender keeps letting me down",
+    "Plans and the blender clearly don't mix."
+   ]
+  ],
+  "message": "i got stuck talking to Esme for an hour",
+  "reply": "That sounds like a long and potentially frustrating conversation. Was it a pleasant or a challenging talk?"
+ },
+ {
+  "line": 47,
+  "view": [
+   [
+    "Esme, who is my daughter, grows prize strawberries out back",
+    "What do you make of that?"
+   ],
+   [
+    "my skateboard popped into my head earlier",
+    "Anything interesting about my skateboard?"
+   ],
+   [
+    "quiet day, mostly the fence",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "what's growing behind my daughter's house",
+  "reply": "Esme's prize strawberries."
+ },
+ {
+  "line": 48,
+  "view": [
+   [
+    "my mom asked about the blender again",
+    "No problem, what else is new?"
+   ],
+   [
+    "my camera is testing my patience",
+    "Ugh, sorry about my camera."
+   ],
+   [
+    "Kofi, who is my teammate, grows prize chillies out back",
+    "Didn't see that coming."
+   ]
+  ],
+  "message": "what's growing behind my teammate's house",
+  "reply": "That's a fun detail.  Is it a garden, or something else?"
+ },
+ {
+  "line": 49,
+  "view": [
+   [
+    "so fed up with the escalator right now",
+    "All evening? I hope the escalator is sorted now."
+   ],
+   [
+    "weird how much of my week is the sleet",
+    "What did she want to know about the sleet?"
+   ],
+   [
+    "Chidi, who is my daughter, joined a rowing club this month",
+    "Thanks for the update."
+   ]
+  ],
+  "message": "where does my daughter go after work these days",
+  "reply": "She goes to the rowing club after work."
+ },
+ {
+  "line": 50,
+  "view": [
+   [
+    "that novel turned a corner this week",
+    "Great, that novel deserved a good day."
+   ],
+   [
+    "Lucia, who is my classmate, joined a handball club this month",
+    "Sounds like quite the news."
+   ],
+   [
+    "spent all evening sorting out the tram",
+    "Ugh, sorry about the tram."
+   ]
+  ],
+  "message": "it's on the tip of my tongue which club my classmate joined",
+  "reply": "Handball club, huh? That's a fun name. I can try to help you remember it. Is there anything specific about the club that stands out to you?"
+ },
+ {
+  "line": 51,
+  "view": [
+   [
+    "happy to report the bins is all good",
+    "Sounds like the bins is on the up."
+   ],
+   [
+    "happy to report that novel is all good",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "so fed up with the pharmacy right now",
+    "That's rough. What went wrong with the pharmacy?"
+   ]
+  ],
+  "message": "Hana and i grabbed coffee this morning",
+  "reply": "That sounds like a nice start to the day."
+ },
+ {
+  "line": 52,
+  "view": [
+   [
+    "the chimney turned a corner this week",
+    "That's lovely to hear."
+   ],
+   [
+    "Ayaan, who is my godfather, grows prize chillies out back",
+    "That's cool."
+   ],
+   [
+    "the dryer cheered me up today",
+    "Nice one. What changed with the dryer?"
+   ]
+  ],
+  "message": "i cannot think what my godfather grows",
+  "reply": "Prize chillies are a great choice. They're a type of chilli that are known for their intense heat and flavor. If you're looking for a challenge, you might enjoy growing other types of chillies, such as habaneros or scotch bonnets."
+ },
+ {
+  "line": 53,
+  "view": [
+   [
+    "really enjoying the patio at the moment",
+    "Great, the patio deserved a good day."
+   ],
+   [
+    "the wind cheered me up today",
+    "Sounds like the wind is on the up."
+   ],
+   [
+    "was reading about the radiator at lunch",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "Lucia and i grabbed coffee this morning",
+  "reply": "That sounds like a lovely start to the day. What did you both talk about?"
+ },
+ {
+  "line": 54,
+  "view": [
+   [
+    "my mom asked about the sauna again",
+    "Weeks can go that way."
+   ],
+   [
+    "so fed up with my charger right now",
+    "That's rough. What went wrong with my charger?"
+   ],
+   [
+    "the butcher turned a corner this week",
+    "Sounds like the butcher is on the up."
+   ]
+  ],
+  "message": "i should really call my mentor",
+  "reply": "It's always a good idea to reach out to your mentor when you need guidance or advice. What can you tell them about?"
+ },
+ {
+  "line": 55,
+  "view": [
+   [
+    "the courier went better than expected",
+    "Nice one. What changed with the courier?"
+   ],
+   [
+    "the garage turned a corner this week",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "really enjoying the butcher at the moment",
+    "Great, the butcher deserved a good day."
+   ]
+  ],
+  "message": "Esme and i grabbed coffee this morning",
+  "reply": "That sounds like a nice start to the day."
+ },
+ {
+  "line": 56,
+  "view": [
+   [
+    "quiet day, mostly the bins",
+    "No problem, what else is new?"
+   ],
+   [
+    "happy to report the photocopier is all good",
+    "Sounds like the photocopier is on the up."
+   ],
+   [
+    "my mom asked about the tram again",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "i got stuck talking to Dmitri for an hour",
+  "reply": "That sounds like a long conversation."
+ },
+ {
+  "line": 57,
+  "view": [
+   [
+    "the wind went better than expected",
+    "Nice one. What changed with the wind?"
+   ],
+   [
+    "another bad day thanks to the sleet",
+    "Plans and the sleet clearly don't mix."
+   ],
+   [
+    "so fed up with the dryer right now",
+    "That's rough. What went wrong with the dryer?"
+   ]
+  ],
+  "message": "i got stuck talking to Gustav for an hour",
+  "reply": "That sounds like a long and potentially frustrating conversation."
+ },
+ {
+  "line": 58,
+  "view": [
+   [
+    "weird how much of my week is my camera",
+    "No problem, what else is new?"
+   ],
+   [
+    "Beatriz, who is my tutor, speaks fluent Turkish",
+    "That's cool."
+   ],
+   [
+    "quiet day, mostly the butcher",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "what language does Beatriz speak",
+  "reply": "Beatriz speaks fluent Turkish."
+ },
+ {
+  "line": 59,
+  "view": [
+   [
+    "Ayaan, who is my mentor, got a thistle tattoo last week",
+    "What do you make of that?"
+   ],
+   [
+    "really enjoying the radiator at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "weird how much of my week is the chimney",
+    "No problem, what else is new?"
+   ]
+  ],
+  "message": "what tattoo did Ayaan get",
+  "reply": "Ayaan got a thistle tattoo."
+ },
+ {
+  "line": 60,
+  "view": [
+   [
+    "my mom asked about the sleet again",
+    "Anything interesting about the sleet?"
+   ],
+   [
+    "the butcher went better than expected",
+    "Sounds like the butcher is on the up."
+   ],
+   [
+    "Kofi, who is my stepsister, joined a rowing club this month",
+    "What do you make of that?"
+   ]
+  ],
+  "message": "which club did Kofi join",
+  "reply": "Kofi joined a rowing club this month."
+ },
+ {
+  "line": 61,
+  "view": [
+   [
+    "the tram went better than expected",
+    "Sounds like the tram is on the up."
+   ],
+   [
+    "that's all i've got on my couch",
+    "Weeks can go that way."
+   ],
+   [
+    "the library cheered me up today",
+    "Enjoy it while it lasts."
+   ]
+  ],
+  "message": "i should really call my stepsister",
+  "reply": "That might be a good idea."
+ },
+ {
+  "line": 62,
+  "view": [
+   [
+    "the escalator keeps letting me down",
+    "Ugh, sorry about the escalator."
+   ],
+   [
+    "Esme, who is my godfather, joined a water polo club this month",
+    "Oh wow, okay."
+   ],
+   [
+    "really enjoying the chimney at the moment",
+    "Sounds like the chimney is on the up."
+   ]
+  ],
+  "message": "it's on the tip of my tongue which club my godfather joined",
+  "reply": "That's a fun way to describe it. If your godfather joined a water polo club, it's likely that he's getting in a bit of a workout and having a great time."
+ },
+ {
+  "line": 63,
+  "view": [
+   [
+    "Dmitri, who is my teammate, grows prize chillies out back",
+    "Thanks for the update."
+   ],
+   [
+    "happy to report my camera is all good",
+    "Sounds like my camera is on the up."
+   ],
+   [
+    "really enjoying the basement at the moment",
+    "Sounds like the basement is on the up."
+   ]
+  ],
+  "message": "what's growing behind my teammate's house",
+  "reply": "Behind Dmitri's house, you're growing prize chili peppers."
+ },
+ {
+  "line": 64,
+  "view": [
+   [
+    "the pharmacy cheered me up today",
+    "Sounds like the pharmacy is on the up."
+   ],
+   [
+    "the bins cheered me up today",
+    "That's lovely to hear."
+   ],
+   [
+    "Esme, who is my godfather, speaks fluent Welsh",
+    "Thanks for the update."
+   ]
+  ],
+  "message": "what language does Esme speak",
+  "reply": "Esme speaks fluent Welsh."
+ },
+ {
+  "line": 65,
+  "view": [
+   [
+    "quiet day, mostly the bins",
+    "No problem, what else is new?"
+   ],
+   [
+    "happy to report the photocopier is all good",
+    "Sounds like the photocopier is on the up."
+   ],
+   [
+    "my mom asked about the tram again",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "i got stuck talking to Dmitri for an hour",
+  "reply": "That sounds like a long chat. Was it about the tram, or something else?"
+ },
+ {
+  "line": 66,
+  "view": [
+   [
+    "the escalator keeps letting me down",
+    "Ugh, sorry about the escalator."
+   ],
+   [
+    "Esme, who is my godfather, joined a water polo club this month",
+    "Oh wow, okay."
+   ],
+   [
+    "really enjoying the chimney at the moment",
+    "Sounds like the chimney is on the up."
+   ]
+  ],
+  "message": "it's on the tip of my tongue which club my godfather joined",
+  "reply": "That's a clever play on words.  If you're on the tip of your tongue, it might mean you're close to remembering the name of the club your godfather joined. Can you think of any clues or hints that might help you recall the name?"
+ },
+ {
+  "line": 67,
+  "view": [
+   [
+    "weird how much of my week is my camera",
+    "What did she want to know about my camera?"
+   ],
+   [
+    "really enjoying the sauna at the moment",
+    "Nice one. What changed with the sauna?"
+   ],
+   [
+    "the chimney turned a corner this week",
+    "Enjoy it while it lasts."
+   ]
+  ],
+  "message": "Hana and i grabbed coffee this morning",
+  "reply": "That sounds like a lovely start to the day. What did you both order?"
+ },
+ {
+  "line": 68,
+  "view": [
+   [
+    "quiet day, mostly the fence",
+    "Anything interesting about the fence?"
+   ],
+   [
+    "the photocopier turned a corner this week",
+    "Sounds like the photocopier is on the up."
+   ],
+   [
+    "Farah, who is my mentor, got a thistle tattoo last week",
+    "What do you make of that?"
+   ]
+  ],
+  "message": "what tattoo did Farah get",
+  "reply": "Farah got a thistle tattoo."
+ },
+ {
+  "line": 69,
+  "view": [
+   [
+    "my smoothie messed up my whole plan",
+    "All evening? I hope my smoothie is sorted now."
+   ],
+   [
+    "Gustav, who is my stepsister, is terrified of thunderstorms",
+    "Sounds like quite the news."
+   ],
+   [
+    "my mom asked about the escalator again",
+    "Weeks can go that way."
+   ]
+  ],
+  "message": "what freaks my stepsister out the most",
+  "reply": "It sounds like your stepsister is a bit of a storm enthusiast.  Thunderstorms can be quite intense, and it's not uncommon for people to feel a bit of a thrill or even a sense of wonder when they experience them.  Do you think she's been trying to get more out of the weather"
+ },
+ {
+  "line": 70,
+  "view": [
+   [
+    "the butcher messed up my whole plan",
+    "Ugh, sorry about the butcher."
+   ],
+   [
+    "another bad day thanks to the wind",
+    "Ugh, sorry about the wind."
+   ],
+   [
+    "Kofi, who is my barber, joined a rowing club this month",
+    "Oh wow, okay."
+   ]
+  ],
+  "message": "which club did Kofi join",
+  "reply": "Kofi joined a rowing club this month."
+ },
+ {
+  "line": 71,
+  "view": [
+   [
+    "another bad day thanks to the vet",
+    "Ugh, sorry about the vet."
+   ],
+   [
+    "the bins is testing my patience",
+    "Plans and the bins clearly don't mix."
+   ],
+   [
+    "that novel messed up my whole plan",
+    "That's rough. What went wrong with that novel?"
+   ]
+  ],
+  "message": "i should really call my mentor",
+  "reply": "That might be a good idea."
+ },
+ {
+  "line": 72,
+  "view": [
+   [
+    "really enjoying the bins at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "Kofi, who is my barber, is terrified of spiders",
+    "Thanks for the update."
+   ],
+   [
+    "was reading about the chimney at lunch",
+    "Anything interesting about the chimney?"
+   ]
+  ],
+  "message": "what freaks my barber out the most",
+  "reply": "That's a good question.  What freaks your barber out the most?"
+ },
+ {
+  "line": 73,
+  "view": [
+   [
+    "that's all i've got on my neck",
+    "Quiet days are underrated."
+   ],
+   [
+    "so fed up with my smoothie right now",
+    "All evening? I hope my smoothie is sorted now."
+   ],
+   [
+    "another bad day thanks to the bins",
+    "All evening? I hope the bins is sorted now."
+   ]
+  ],
+  "message": "Esme forgot my birthday again",
+  "reply": "That's a bit of a bummer."
+ },
+ {
+  "line": 74,
+  "view": [
+   [
+    "Lucia, who is my stepsister, grows prize asparagus out back",
+    "Thanks for the update."
+   ],
+   [
+    "another bad day thanks to the radiator",
+    "Plans and the radiator clearly don't mix."
+   ],
+   [
+    "spent all evening sorting out my camera",
+    "All evening? I hope my camera is sorted now."
+   ]
+  ],
+  "message": "what does Lucia grow out back",
+  "reply": "Lucia grows prize asparagus out back."
+ },
+ {
+  "line": 75,
+  "view": [
+   [
+    "spent all evening sorting out the wind",
+    "All evening? I hope the wind is sorted now."
+   ],
+   [
+    "the tram is testing my patience",
+    "Plans and the tram clearly don't mix."
+   ],
+   [
+    "my mom asked about the bins again",
+    "What did she want to know about the bins?"
+   ]
+  ],
+  "message": "i got stuck talking to Hana for an hour",
+  "reply": "That sounds like a fun but exhausting conversation. Did you get to the point you wanted to get to?"
+ },
+ {
+  "line": 76,
+  "view": [
+   [
+    "really enjoying the freezer at the moment",
+    "Great, the freezer deserved a good day."
+   ],
+   [
+    "Chidi, who is my classmate, got a koi tattoo last week",
+    "Thanks for the update."
+   ],
+   [
+    "my skateboard turned a corner this week",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "drawing a blank on my classmate's tattoo",
+  "reply": "That's a bit of a bummer. Maybe you can try to make a guess or ask Chidi for a hint."
+ },
+ {
+  "line": 77,
+  "view": [
+   [
+    "was reading about the fence at lunch",
+    "What did she want to know about the fence?"
+   ],
+   [
+    "happy to report the sauna is all good",
+    "That's lovely to hear."
+   ],
+   [
+    "my mom asked about my neck again",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "my mentor texted me out of nowhere",
+  "reply": "That sounds like a great way to start the day. Is there anything you'd like to talk about or ask?"
+ },
+ {
+  "line": 78,
+  "view": [
+   [
+    "the butcher messed up my whole plan",
+    "Ugh, sorry about the butcher."
+   ],
+   [
+    "weird how much of my week is the freezer",
+    "Weeks can go that way."
+   ],
+   [
+    "Ayaan, who is my tutor, joined a handball club this month",
+    "Thanks for the update."
+   ]
+  ],
+  "message": "which club did Ayaan join",
+  "reply": "Ayaan joined a handball club this month."
+ },
+ {
+  "line": 79,
+  "view": [
+   [
+    "spent all evening sorting out the modem",
+    "Ugh, sorry about the modem."
+   ],
+   [
+    "Kofi, who is my barber, got a compass tattoo last week",
+    "Didn't see that coming."
+   ],
+   [
+    "the fence went better than expected",
+    "Enjoy it while it lasts."
+   ]
+  ],
+  "message": "drawing a blank on my barber's tattoo",
+  "reply": "That's a bit of a bummer."
+ },
+ {
+  "line": 80,
+  "view": [
+   [
+    "the courier keeps letting me down",
+    "All evening? I hope the courier is sorted now."
+   ],
+   [
+    "that novel is testing my patience",
+    "All evening? I hope that novel is sorted now."
+   ],
+   [
+    "so fed up with the pharmacy right now",
+    "Plans and the pharmacy clearly don't mix."
+   ]
+  ],
+  "message": "Lucia and i grabbed coffee this morning",
+  "reply": "That's great! Coffee is a classic pick-me-up. How was your morning?"
+ },
+ {
+  "line": 81,
+  "view": [
+   [
+    "was reading about the fence at lunch",
+    "What did she want to know about the fence?"
+   ],
+   [
+    "happy to report the sauna is all good",
+    "That's lovely to hear."
+   ],
+   [
+    "my mom asked about my neck again",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "my mentor texted me out of nowhere",
+  "reply": "That can be a bit of a shock."
+ },
+ {
+  "line": 82,
+  "view": [
+   [
+    "the photocopier cheered me up today",
+    "Sounds like the photocopier is on the up."
+   ],
+   [
+    "the sauna is testing my patience",
+    "That's rough. What went wrong with the sauna?"
+   ],
+   [
+    "the blender keeps letting me down",
+    "Plans and the blender clearly don't mix."
+   ]
+  ],
+  "message": "i got stuck talking to Esme for an hour",
+  "reply": "That sounds like a long and winding conversation."
+ },
+ {
+  "line": 83,
+  "view": [
+   [
+    "Lucia, who is my daughter, is terrified of deep water",
+    "That's cool."
+   ],
+   [
+    "so fed up with the sauna right now",
+    "Sounds like you've had enough of the sauna."
+   ],
+   [
+    "weird how much of my week is the patio",
+    "No problem, what else is new?"
+   ]
+  ],
+  "message": "what is Lucia terrified of",
+  "reply": "Lucia is terrified of deep water."
+ },
+ {
+  "line": 84,
+  "view": [
+   [
+    "the vacuuming popped into my head earlier",
+    "What did she want to know about the vacuuming?"
+   ],
+   [
+    "really enjoying the vacuuming at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "Kofi, who is my tutor, grows prize asparagus out back",
+    "Oh wow, okay."
+   ]
+  ],
+  "message": "what does Kofi grow out back",
+  "reply": "Kofi grows prize asparagus out back."
+ },
+ {
+  "line": 85,
+  "view": [
+   [
+    "my keys cheered me up today",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "that's all i've got on the chimney",
+    "Quiet days are underrated."
+   ],
+   [
+    "happy to report my neck is all good",
+    "Great, my neck deserved a good day."
+   ]
+  ],
+  "message": "my tutor has been acting strange lately",
+  "reply": "It sounds like your tutor might be feeling a bit off."
+ },
+ {
+  "line": 86,
+  "view": [
+   [
+    "really enjoying the dryer at the moment",
+    "Nice one. What changed with the dryer?"
+   ],
+   [
+    "the butcher turned a corner this week",
+    "That's lovely to hear."
+   ],
+   [
+    "the modem went better than expected",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "i should really call my godfather",
+  "reply": "That sounds like a great idea."
+ },
+ {
+  "line": 87,
+  "view": [
+   [
+    "my mom asked about my charger again",
+    "Funny what pops up."
+   ],
+   [
+    "Farah, who is my teammate, speaks fluent Welsh",
+    "Thanks for the update."
+   ],
+   [
+    "the sauna keeps letting me down",
+    "That's rough. What went wrong with the sauna?"
+   ]
+  ],
+  "message": "what language does Farah speak",
+  "reply": "Farah speaks Welsh."
+ },
+ {
+  "line": 88,
+  "view": [
+   [
+    "Gustav, who is my teammate, is terrified of clowns",
+    "That's cool."
+   ],
+   [
+    "my mom asked about the pharmacy again",
+    "Funny what pops up."
+   ],
+   [
+    "happy to report my keys is all good",
+    "Great, my keys deserved a good day."
+   ]
+  ],
+  "message": "what is Gustav terrified of",
+  "reply": "Gustav is terrified of clowns."
+ },
+ {
+  "line": 89,
+  "view": [
+   [
+    "the photocopier cheered me up today",
+    "That's lovely to hear."
+   ],
+   [
+    "really enjoying the courier at the moment",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "my mom asked about the photocopier again",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "i got stuck talking to Lucia for an hour",
+  "reply": "That sounds like a bit of a conversation pitfall."
+ },
+ {
+  "line": 90,
+  "view": [
+   [
+    "Hana, who is my tutor, joined a handball club this month",
+    "Didn't see that coming."
+   ],
+   [
+    "quiet day, mostly my charger",
+    "Quiet days are underrated."
+   ],
+   [
+    "my skateboard went better than expected",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "where does my tutor go after work these days",
+  "reply": "That's a great question.  It sounds like your tutor is enjoying her new hobby.  Do you think she might be taking a break from her studies to pursue her passion?"
+ },
+ {
+  "line": 91,
+  "view": [
+   [
+    "my mom asked about the pharmacy again",
+    "Weeks can go that way."
+   ],
+   [
+    "Beatriz, who is my daughter, is terrified of pigeons",
+    "What do you make of that?"
+   ],
+   [
+    "happy to report my couch is all good",
+    "Sounds like my couch is on the up."
+   ]
+  ],
+  "message": "what freaks my daughter out the most",
+  "reply": "That's a great start. Now, let's talk about what might be causing your daughter to be scared of pigeons. Are there any specific things that trigger her fear?"
+ },
+ {
+  "line": 92,
+  "view": [
+   [
+    "happy to report my neck is all good",
+    "That's lovely to hear."
+   ],
+   [
+    "my neck popped into my head earlier",
+    "What did she want to know about my neck?"
+   ],
+   [
+    "Beatriz, who is my classmate, speaks fluent Korean",
+    "That's cool."
+   ]
+  ],
+  "message": "what language does Beatriz speak",
+  "reply": "Beatriz speaks fluent Korean."
+ },
+ {
+  "line": 93,
+  "view": [
+   [
+    "happy to report the modem is all good",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "the patio turned a corner this week",
+    "That's lovely to hear."
+   ],
+   [
+    "the wind went better than expected",
+    "Sounds like the wind is on the up."
+   ]
+  ],
+  "message": "my stepsister texted me out of nowhere",
+  "reply": "That can be a bit of a shock."
+ },
+ {
+  "line": 94,
+  "view": [
+   [
+    "Beatriz, who is my mentor, is terrified of thunderstorms",
+    "Thanks for the update."
+   ],
+   [
+    "really enjoying my smoothie at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "so fed up with my camera right now",
+    "That's rough. What went wrong with my camera?"
+   ]
+  ],
+  "message": "i'm blanking on what my mentor is scared of",
+  "reply": "That's a great question. It's always nice to know what your mentor is scared of, especially if you're trying to be a good mentee. If you'd like, you could ask your mentor if they could tell you what they're scared of."
+ },
+ {
+  "line": 95,
+  "view": [
+   [
+    "my camera messed up my whole plan",
+    "All evening? I hope my camera is sorted now."
+   ],
+   [
+    "the chimney turned a corner this week",
+    "That's lovely to hear."
+   ],
+   [
+    "Beatriz, who is my teammate, grows prize pumpkins out back",
+    "What do you make of that?"
+   ]
+  ],
+  "message": "what does Beatriz grow out back",
+  "reply": "Beatriz grows prize pumpkins out back."
+ },
+ {
+  "line": 96,
+  "view": [
+   [
+    "weird how much of my week is the library",
+    "Weeks can go that way."
+   ],
+   [
+    "spent all evening sorting out my ankle",
+    "Plans and my ankle clearly don't mix."
+   ],
+   [
+    "Gustav, who is my daughter, got a koi tattoo last week",
+    "Didn't see that coming."
+   ]
+  ],
+  "message": "drawing a blank on my daughter's tattoo",
+  "reply": "That's a tough one. Maybe you could try to make it a fun, memorable design that reflects her personality or interests. Or, if you're feeling creative, you could even try to draw a blank on the tattoo yourself!"
+ },
+ {
+  "line": 97,
+  "view": [
+   [
+    "another bad day thanks to the patio",
+    "Plans and the patio clearly don't mix."
+   ],
+   [
+    "so fed up with my neck right now",
+    "All evening? I hope my neck is sorted now."
+   ],
+   [
+    "that novel went better than expected",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "Kofi and i grabbed coffee this morning",
+  "reply": "That sounds like a great start to the day."
+ },
+ {
+  "line": 98,
+  "view": [
+   [
+    "happy to report my neck is all good",
+    "That's lovely to hear."
+   ],
+   [
+    "my neck popped into my head earlier",
+    "What did she want to know about my neck?"
+   ],
+   [
+    "Beatriz, who is my classmate, speaks fluent Korean",
+    "That's cool."
+   ]
+  ],
+  "message": "what language does Beatriz speak",
+  "reply": "Beatriz speaks fluent Korean."
+ },
+ {
+  "line": 99,
+  "view": [
+   [
+    "that's all i've got on the vacuuming",
+    "Weeks can go that way."
+   ],
+   [
+    "my mom asked about the dryer again",
+    "Anything interesting about the dryer?"
+   ],
+   [
+    "the wind popped into my head earlier",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "Hana forgot my birthday again",
+  "reply": "That can be frustrating."
+ },
+ {
+  "line": 100,
+  "view": [
+   [
+    "that's all i've got on the freezer",
+    "Funny what pops up."
+   ],
+   [
+    "my neck turned a corner this week",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "the chimney went better than expected",
+    "Sounds like the chimney is on the up."
+   ]
+  ],
+  "message": "i should really call my teammate",
+  "reply": "Yeah, it's always good to check in with your teammate. Maybe they can help with something or just catch you up on what's going on."
+ },
+ {
+  "line": 101,
+  "view": [
+   [
+    "the bins went better than expected",
+    "Great, the bins deserved a good day."
+   ],
+   [
+    "Beatriz, who is my stepsister, grows prize chillies out back",
+    "What do you make of that?"
+   ],
+   [
+    "my camera turned a corner this week",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "i cannot think what my stepsister grows",
+  "reply": "Chillies are a good guess, but what about other types of vegetables or herbs? Maybe something unique like peppers, tomatoes, or even a rare variety of beans?"
+ },
+ {
+  "line": 102,
+  "view": [
+   [
+    "that's all i've got on the wind",
+    "Quiet days are underrated."
+   ],
+   [
+    "Ayaan, who is my godfather, grows prize asparagus out back",
+    "Thanks for the update."
+   ],
+   [
+    "another bad day thanks to the sleet",
+    "Sounds like you've had enough of the sleet."
+   ]
+  ],
+  "message": "i cannot think what my godfather grows",
+  "reply": "That's a tough one. Maybe you could ask Ayaan to tell you more about his asparagus. Or, if you're feeling creative, you could try to grow asparagus yourself and see if it helps you feel more positive."
+ },
+ {
+  "line": 103,
+  "view": [
+   [
+    "weird how much of my week is the pharmacy",
+    "No problem, what else is new?"
+   ],
+   [
+    "that's all i've got on the tram",
+    "Anything interesting about the tram?"
+   ],
+   [
+    "so fed up with the library right now",
+    "That's rough. What went wrong with the library?"
+   ]
+  ],
+  "message": "Dmitri and i grabbed coffee this morning",
+  "reply": "That's a nice start to the day."
+ },
+ {
+  "line": 104,
+  "view": [
+   [
+    "the garage turned a corner this week",
+    "Sounds like the garage is on the up."
+   ],
+   [
+    "really enjoying my keys at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "the garage cheered me up today",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "Dmitri forgot my birthday again",
+  "reply": "I'm sorry to hear that Dmitri forgot your birthday."
+ },
+ {
+  "line": 105,
+  "view": [
+   [
+    "really enjoying the dryer at the moment",
+    "Nice one. What changed with the dryer?"
+   ],
+   [
+    "the butcher turned a corner this week",
+    "That's lovely to hear."
+   ],
+   [
+    "the modem went better than expected",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "i should really call my godfather",
+  "reply": "That sounds like a great idea. Is there something specific you'd like to talk about or plan?"
+ },
+ {
+  "line": 106,
+  "view": [
+   [
+    "that's all i've got on the basement",
+    "Funny what pops up."
+   ],
+   [
+    "the escalator keeps letting me down",
+    "All evening? I hope the escalator is sorted now."
+   ],
+   [
+    "really enjoying the dryer at the moment",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "my tutor has been acting strange lately",
+  "reply": "It sounds like you're going through a tough time with your tutor. Is there something specific that's been bothering you? I'm here to listen and offer support if you'd like to talk about it."
+ },
+ {
+  "line": 107,
+  "view": [
+   [
+    "another bad day thanks to the pharmacy",
+    "Ugh, sorry about the pharmacy."
+   ],
+   [
+    "happy to report the butcher is all good",
+    "Sounds like the butcher is on the up."
+   ],
+   [
+    "quiet day, mostly the escalator",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "i should really call my barber",
+  "reply": "A quick visit to the barber can be a great way to start the day.  A fresh cut and a good conversation can be a nice change of pace."
+ },
+ {
+  "line": 108,
+  "view": [
+   [
+    "happy to report the modem is all good",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "the patio turned a corner this week",
+    "That's lovely to hear."
+   ],
+   [
+    "the wind went better than expected",
+    "Sounds like the wind is on the up."
+   ]
+  ],
+  "message": "my stepsister texted me out of nowhere",
+  "reply": "That's a bit unexpected. Was it a surprise?"
+ },
+ {
+  "line": 109,
+  "view": [
+   [
+    "spent all evening sorting out the blender",
+    "That's rough. What went wrong with the blender?"
+   ],
+   [
+    "that novel cheered me up today",
+    "Sounds like that novel is on the up."
+   ],
+   [
+    "the pharmacy popped into my head earlier",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "Gustav forgot my birthday again",
+  "reply": "That sounds like a bit of a bummer."
+ },
+ {
+  "line": 110,
+  "view": [
+   [
+    "that novel turned a corner this week",
+    "Great, that novel deserved a good day."
+   ],
+   [
+    "Lucia, who is my classmate, joined a handball club this month",
+    "Sounds like quite the news."
+   ],
+   [
+    "spent all evening sorting out the tram",
+    "Ugh, sorry about the tram."
+   ]
+  ],
+  "message": "it's on the tip of my tongue which club my classmate joined",
+  "reply": "That's a tough one. Handball clubs are usually quite specific, so it's a bit of a challenge to guess. But, if I had to take a guess, I would say Lucia joined a handball club that is popular in her area, and she might have been looking for a way to stay"
+ },
+ {
+  "line": 111,
+  "view": [
+   [
+    "Lucia, who is my teammate, grows prize strawberries out back",
+    "Sounds like quite the news."
+   ],
+   [
+    "was reading about my smoothie at lunch",
+    "No problem, what else is new?"
+   ],
+   [
+    "weird how much of my week is my charger",
+    "What did she want to know about my charger?"
+   ]
+  ],
+  "message": "i cannot think what my teammate grows",
+  "reply": "Prize strawberries are a bit of a stretch, but maybe it's a metaphor for something else? Or perhaps it's a unique way to describe a special project or task that Lucia is working on."
+ },
+ {
+  "line": 112,
+  "view": [
+   [
+    "Esme, who is my daughter, is terrified of thunderstorms",
+    "Thanks for the update."
+   ],
+   [
+    "another bad day thanks to the blender",
+    "That's rough. What went wrong with the blender?"
+   ],
+   [
+    "another bad day thanks to my couch",
+    "That's rough. What went wrong with my couch?"
+   ]
+  ],
+  "message": "what is Esme terrified of",
+  "reply": "Esme is terrified of thunderstorms."
+ },
+ {
+  "line": 113,
+  "view": [
+   [
+    "weird how much of my week is the garage",
+    "Anything interesting about the garage?"
+   ],
+   [
+    "my mom asked about the escalator again",
+    "What did she want to know about the escalator?"
+   ],
+   [
+    "Kofi, who is my stepsister, speaks fluent Swahili",
+    "That's cool."
+   ]
+  ],
+  "message": "what can my stepsister speak besides english",
+  "reply": "Kofi can speak Swahili besides English."
+ },
+ {
+  "line": 114,
+  "view": [
+   [
+    "quiet day, mostly my camera",
+    "Funny what pops up."
+   ],
+   [
+    "the wind keeps letting me down",
+    "Sounds like you've had enough of the wind."
+   ],
+   [
+    "the photocopier keeps letting me down",
+    "All evening? I hope the photocopier is sorted now."
+   ]
+  ],
+  "message": "Kofi and i grabbed coffee this morning",
+  "reply": "That's great! Coffee is a great way to start the day."
+ },
+ {
+  "line": 115,
+  "view": [
+   [
+    "that's all i've got on the freezer",
+    "Funny what pops up."
+   ],
+   [
+    "my neck turned a corner this week",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "the chimney went better than expected",
+    "Sounds like the chimney is on the up."
+   ]
+  ],
+  "message": "i should really call my teammate",
+  "reply": "That might be a good idea."
+ },
+ {
+  "line": 116,
+  "view": [
+   [
+    "the chimney popped into my head earlier",
+    "Funny what pops up."
+   ],
+   [
+    "weird how much of my week is the library",
+    "Quiet days are underrated."
+   ],
+   [
+    "the dryer keeps letting me down",
+    "Sounds like you've had enough of the dryer."
+   ]
+  ],
+  "message": "Kofi and i grabbed coffee this morning",
+  "reply": "That's great! Coffee is a classic pick-me-up."
+ },
+ {
+  "line": 117,
+  "view": [
+   [
+    "another bad day thanks to the pharmacy",
+    "Ugh, sorry about the pharmacy."
+   ],
+   [
+    "happy to report the butcher is all good",
+    "Sounds like the butcher is on the up."
+   ],
+   [
+    "quiet day, mostly the escalator",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "i should really call my barber",
+  "reply": "That might be a good idea."
+ },
+ {
+  "line": 118,
+  "view": [
+   [
+    "so fed up with the library right now",
+    "Ugh, sorry about the library."
+   ],
+   [
+    "was reading about the freezer at lunch",
+    "Anything interesting about the freezer?"
+   ],
+   [
+    "Gustav, who is my mentor, grows prize strawberries out back",
+    "What do you make of that?"
+   ]
+  ],
+  "message": "what does Gustav grow out back",
+  "reply": "Prize strawberries, which is quite an impressive claim."
+ },
+ {
+  "line": 119,
+  "view": [
+   [
+    "that's all i've got on my neck",
+    "Anything interesting about my neck?"
+   ],
+   [
+    "was reading about the basement at lunch",
+    "Quiet days are underrated."
+   ],
+   [
+    "that's all i've got on the patio",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "my teammate texted me out of nowhere",
+  "reply": "It sounds like your teammate might have been feeling stressed or overwhelmed. Sometimes, people reach out for support when they're not feeling their best. Would you like to talk about it?"
+ },
+ {
+  "line": 120,
+  "view": [
+   [
+    "was reading about the butcher at lunch",
+    "Anything interesting about the butcher?"
+   ],
+   [
+    "my mom asked about the dryer again",
+    "Anything interesting about the dryer?"
+   ],
+   [
+    "the butcher went better than expected",
+    "Sounds like the butcher is on the up."
+   ]
+  ],
+  "message": "Kofi forgot my birthday again",
+  "reply": "That must be frustrating."
+ },
+ {
+  "line": 121,
+  "view": [
+   [
+    "so fed up with the escalator right now",
+    "All evening? I hope the escalator is sorted now."
+   ],
+   [
+    "weird how much of my week is the sleet",
+    "What did she want to know about the sleet?"
+   ],
+   [
+    "Chidi, who is my daughter, joined a rowing club this month",
+    "Thanks for the update."
+   ]
+  ],
+  "message": "where does my daughter go after work these days",
+  "reply": "Chidi, it's great to hear that she's joined a rowing club. It's a fantastic way to stay active and healthy. As for where she goes after work, it might be helpful to ask her directly or look into her schedule to see if there's any information available."
+ },
+ {
+  "line": 122,
+  "view": [
+   [
+    "happy to report the patio is all good",
+    "Nice one. What changed with the patio?"
+   ],
+   [
+    "happy to report the patio is all good",
+    "Nice one. What changed with the patio?"
+   ],
+   [
+    "spent all evening sorting out the blender",
+    "That's rough. What went wrong with the blender?"
+   ]
+  ],
+  "message": "my barber texted me out of nowhere",
+  "reply": "That's a bit unexpected. Was it a surprise?"
+ },
+ {
+  "line": 123,
+  "view": [
+   [
+    "Dmitri, who is my teammate, grows prize chillies out back",
+    "Thanks for the update."
+   ],
+   [
+    "happy to report my camera is all good",
+    "Sounds like my camera is on the up."
+   ],
+   [
+    "really enjoying the basement at the moment",
+    "Sounds like the basement is on the up."
+   ]
+  ],
+  "message": "what's growing behind my teammate's house",
+  "reply": "That's a great observation. Prize chillies are a type of chili pepper that are known for their intense heat and flavor. It's possible that your teammate is growing prize chillies behind their house."
+ },
+ {
+  "line": 124,
+  "view": [
+   [
+    "spent all evening sorting out the modem",
+    "Ugh, sorry about the modem."
+   ],
+   [
+    "Kofi, who is my barber, got a compass tattoo last week",
+    "Didn't see that coming."
+   ],
+   [
+    "the fence went better than expected",
+    "Enjoy it while it lasts."
+   ]
+  ],
+  "message": "drawing a blank on my barber's tattoo",
+  "reply": "That sounds like a real bummer.  Tattoos can be a lot of work, and it's not uncommon for them to turn out a bit different than what you initially envisioned.  Do you have any ideas for what you might want to do about it?  Maybe a touch-up or"
+ },
+ {
+  "line": 125,
+  "view": [
+   [
+    "so fed up with the butcher right now",
+    "Ugh, sorry about the butcher."
+   ],
+   [
+    "was reading about the radiator at lunch",
+    "What did she want to know about the radiator?"
+   ],
+   [
+    "the sauna messed up my whole plan",
+    "Ugh, sorry about the sauna."
+   ]
+  ],
+  "message": "Hana forgot my birthday again",
+  "reply": "That sounds really frustrating."
+ },
+ {
+  "line": 126,
+  "view": [
+   [
+    "my camera messed up my whole plan",
+    "All evening? I hope my camera is sorted now."
+   ],
+   [
+    "the chimney turned a corner this week",
+    "That's lovely to hear."
+   ],
+   [
+    "Beatriz, who is my teammate, grows prize pumpkins out back",
+    "What do you make of that?"
+   ]
+  ],
+  "message": "what does Beatriz grow out back",
+  "reply": "Beatriz grows prize pumpkins out back."
+ },
+ {
+  "line": 127,
+  "view": [
+   [
+    "quiet day, mostly the escalator",
+    "Quiet days are underrated."
+   ],
+   [
+    "my neck messed up my whole plan",
+    "Sounds like you've had enough of my neck."
+   ],
+   [
+    "so fed up with the vacuuming right now",
+    "All evening? I hope the vacuuming is sorted now."
+   ]
+  ],
+  "message": "i should really call my mentor",
+  "reply": "Maybe a quick call to your mentor would be a good idea. They might have some advice or insights that can help you navigate this situation."
+ },
+ {
+  "line": 128,
+  "view": [
+   [
+    "happy to report the dryer is all good",
+    "Great, the dryer deserved a good day."
+   ],
+   [
+    "spent all evening sorting out my ankle",
+    "Ugh, sorry about my ankle."
+   ],
+   [
+    "my couch cheered me up today",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "i got stuck talking to Dmitri for an hour",
+  "reply": "That sounds like a bit of a conversation."
+ },
+ {
+  "line": 129,
+  "view": [
+   [
+    "the tram went better than expected",
+    "Sounds like the tram is on the up."
+   ],
+   [
+    "that's all i've got on my couch",
+    "Weeks can go that way."
+   ],
+   [
+    "the library cheered me up today",
+    "Enjoy it while it lasts."
+   ]
+  ],
+  "message": "i should really call my stepsister",
+  "reply": "That sounds like a great idea. Family connections are important, and reaching out to your stepsister can be a nice way to reconnect and catch up."
+ },
+ {
+  "line": 130,
+  "view": [
+   [
+    "weird how much of my week is my camera",
+    "What did she want to know about my camera?"
+   ],
+   [
+    "really enjoying the sauna at the moment",
+    "Nice one. What changed with the sauna?"
+   ],
+   [
+    "the chimney turned a corner this week",
+    "Enjoy it while it lasts."
+   ]
+  ],
+  "message": "Hana and i grabbed coffee this morning",
+  "reply": "That sounds like a great start to the day."
+ },
+ {
+  "line": 131,
+  "view": [
+   [
+    "the vacuuming popped into my head earlier",
+    "What did she want to know about the vacuuming?"
+   ],
+   [
+    "really enjoying the vacuuming at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "Kofi, who is my tutor, grows prize asparagus out back",
+    "Oh wow, okay."
+   ]
+  ],
+  "message": "what does Kofi grow out back",
+  "reply": "Kofi grows prize asparagus."
+ },
+ {
+  "line": 132,
+  "view": [
+   [
+    "weird how much of my week is my neck",
+    "Weeks can go that way."
+   ],
+   [
+    "so fed up with the freezer right now",
+    "Ugh, sorry about the freezer."
+   ],
+   [
+    "the patio messed up my whole plan",
+    "Ugh, sorry about the patio."
+   ]
+  ],
+  "message": "Lucia and i grabbed coffee this morning",
+  "reply": "That's great! Coffee is a classic way to start the day. How was your coffee?"
+ },
+ {
+  "line": 133,
+  "view": [
+   [
+    "the wind went better than expected",
+    "Nice one. What changed with the wind?"
+   ],
+   [
+    "another bad day thanks to the sleet",
+    "Plans and the sleet clearly don't mix."
+   ],
+   [
+    "so fed up with the dryer right now",
+    "That's rough. What went wrong with the dryer?"
+   ]
+  ],
+  "message": "i got stuck talking to Gustav for an hour",
+  "reply": "That sounds like a long and frustrating experience.  Gustav is a powerful storm system, and it's not uncommon for them to bring strong winds and sleet.  I hope you're safe and dry now.  If you need any more help or just want to talk about it, I'm here to listen."
+ },
+ {
+  "line": 134,
+  "view": [
+   [
+    "another bad day thanks to the radiator",
+    "Sounds like you've had enough of the radiator."
+   ],
+   [
+    "the courier turned a corner this week",
+    "Great, the courier deserved a good day."
+   ],
+   [
+    "my mom asked about the photocopier again",
+    "No problem, what else is new?"
+   ]
+  ],
+  "message": "Farah and i grabbed coffee this morning",
+  "reply": "That sounds like a nice start to the day."
+ },
+ {
+  "line": 135,
+  "view": [
+   [
+    "the courier went better than expected",
+    "Nice one. What changed with the courier?"
+   ],
+   [
+    "the garage turned a corner this week",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "really enjoying the butcher at the moment",
+    "Great, the butcher deserved a good day."
+   ]
+  ],
+  "message": "Esme and i grabbed coffee this morning",
+  "reply": "That sounds like a lovely start to the day. What did you order?"
+ },
+ {
+  "line": 136,
+  "view": [
+   [
+    "spent all evening sorting out the wind",
+    "All evening? I hope the wind is sorted now."
+   ],
+   [
+    "the tram is testing my patience",
+    "Plans and the tram clearly don't mix."
+   ],
+   [
+    "my mom asked about the bins again",
+    "What did she want to know about the bins?"
+   ]
+  ],
+  "message": "i got stuck talking to Hana for an hour",
+  "reply": "That sounds like a long and interesting conversation."
+ },
+ {
+  "line": 137,
+  "view": [
+   [
+    "the blender messed up my whole plan",
+    "All evening? I hope the blender is sorted now."
+   ],
+   [
+    "really enjoying the vet at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "my smoothie popped into my head earlier",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "my godfather has been acting strange lately",
+  "reply": "It sounds like you're dealing with some complex emotions."
+ },
+ {
+  "line": 138,
+  "view": [
+   [
+    "the vacuuming turned a corner this week",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "my mom asked about the pharmacy again",
+    "Funny what pops up."
+   ],
+   [
+    "Esme, who is my classmate, got a swallow tattoo last week",
+    "Thanks for the update."
+   ]
+  ],
+  "message": "drawing a blank on my classmate's tattoo",
+  "reply": "That's a bit of a problem. If you're having trouble with Esme's tattoo, it might be a good idea to talk to her or the person who got the tattoo. They might be able to help you understand what the tattoo means or how to draw it."
+ },
+ {
+  "line": 139,
+  "view": [
+   [
+    "Ayaan, who is my classmate, joined a archery club this month",
+    "Didn't see that coming."
+   ],
+   [
+    "happy to report the vacuuming is all good",
+    "Great, the vacuuming deserved a good day."
+   ],
+   [
+    "spent all evening sorting out my neck",
+    "Ugh, sorry about my neck."
+   ]
+  ],
+  "message": "it's on the tip of my tongue which club my classmate joined",
+  "reply": "It sounds like your classmate is enjoying the archery club. If you want to join, you might want to consider the benefits of the activity, such as improving your focus, building your confidence, and making new friends."
+ },
+ {
+  "line": 140,
+  "view": [
+   [
+    "my mom asked about the patio again",
+    "Quiet days are underrated."
+   ],
+   [
+    "really enjoying my skateboard at the moment",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "really enjoying the pharmacy at the moment",
+    "Enjoy it while it lasts."
+   ]
+  ],
+  "message": "my stepsister texted me out of nowhere",
+  "reply": "That can be a bit of a shock."
+ },
+ {
+  "line": 141,
+  "view": [
+   [
+    "the vacuuming turned a corner this week",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "my mom asked about the pharmacy again",
+    "Funny what pops up."
+   ],
+   [
+    "Esme, who is my classmate, got a swallow tattoo last week",
+    "Thanks for the update."
+   ]
+  ],
+  "message": "drawing a blank on my classmate's tattoo",
+  "reply": "That's a clever way to respond. Drawing a blank on someone's tattoo is a playful way to avoid the topic. It's a lighthearted way to steer the conversation away from the tattoo."
+ },
+ {
+  "line": 142,
+  "view": [
+   [
+    "my mom asked about my charger again",
+    "Funny what pops up."
+   ],
+   [
+    "Farah, who is my teammate, speaks fluent Welsh",
+    "Thanks for the update."
+   ],
+   [
+    "the sauna keeps letting me down",
+    "That's rough. What went wrong with the sauna?"
+   ]
+  ],
+  "message": "what language does Farah speak",
+  "reply": "Farah speaks fluent Welsh."
+ },
+ {
+  "line": 143,
+  "view": [
+   [
+    "my mom asked about the wind again",
+    "What did she want to know about the wind?"
+   ],
+   [
+    "the fence cheered me up today",
+    "Nice one. What changed with the fence?"
+   ],
+   [
+    "the library cheered me up today",
+    "Great, the library deserved a good day."
+   ]
+  ],
+  "message": "i should really call my classmate",
+  "reply": "Calling your classmate sounds like a good idea. What can you tell me about the reason you're considering calling them?"
+ },
+ {
+  "line": 144,
+  "view": [
+   [
+    "the butcher messed up my whole plan",
+    "Ugh, sorry about the butcher."
+   ],
+   [
+    "weird how much of my week is the freezer",
+    "Weeks can go that way."
+   ],
+   [
+    "Ayaan, who is my tutor, joined a handball club this month",
+    "Thanks for the update."
+   ]
+  ],
+  "message": "which club did Ayaan join",
+  "reply": "Ayaan joined a handball club this month."
+ },
+ {
+  "line": 145,
+  "view": [
+   [
+    "so fed up with the butcher right now",
+    "Ugh, sorry about the butcher."
+   ],
+   [
+    "was reading about the radiator at lunch",
+    "What did she want to know about the radiator?"
+   ],
+   [
+    "the sauna messed up my whole plan",
+    "Ugh, sorry about the sauna."
+   ]
+  ],
+  "message": "Hana forgot my birthday again",
+  "reply": "That sounds really frustrating.  It's not fair that someone you care about would forget an important date like your birthday.  Do you want to talk about it?"
+ },
+ {
+  "line": 146,
+  "view": [
+   [
+    "weird how much of my week is the pharmacy",
+    "No problem, what else is new?"
+   ],
+   [
+    "that's all i've got on the tram",
+    "Anything interesting about the tram?"
+   ],
+   [
+    "so fed up with the library right now",
+    "That's rough. What went wrong with the library?"
+   ]
+  ],
+  "message": "Dmitri and i grabbed coffee this morning",
+  "reply": "That's great! Dmitri and you grabbing coffee together sounds like a nice start to the day. What did you guys talk about?"
+ },
+ {
+  "line": 147,
+  "view": [
+   [
+    "Chidi, who is my classmate, got a lighthouse tattoo last week",
+    "Oh wow, okay."
+   ],
+   [
+    "weird how much of my week is the pharmacy",
+    "Quiet days are underrated."
+   ],
+   [
+    "my charger popped into my head earlier",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "what tattoo did Chidi get",
+  "reply": "Chidi got a lighthouse tattoo last week."
+ },
+ {
+  "line": 148,
+  "view": [
+   [
+    "spent all evening sorting out the blender",
+    "That's rough. What went wrong with the blender?"
+   ],
+   [
+    "that novel cheered me up today",
+    "Sounds like that novel is on the up."
+   ],
+   [
+    "the pharmacy popped into my head earlier",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "Gustav forgot my birthday again",
+  "reply": "That must be frustrating."
+ },
+ {
+  "line": 149,
+  "view": [
+   [
+    "my mom asked about the radiator again",
+    "Quiet days are underrated."
+   ],
+   [
+    "that novel turned a corner this week",
+    "Sounds like that novel is on the up."
+   ],
+   [
+    "the vet went better than expected",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "my tutor texted me out of nowhere",
+  "reply": "That might be a bit of a shock."
+ },
+ {
+  "line": 150,
+  "view": [
+   [
+    "the garage turned a corner this week",
+    "Sounds like the garage is on the up."
+   ],
+   [
+    "really enjoying my keys at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "the garage cheered me up today",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "Dmitri forgot my birthday again",
+  "reply": "That can be a bit of a bummer."
+ },
+ {
+  "line": 151,
+  "view": [
+   [
+    "my skateboard popped into my head earlier",
+    "What did she want to know about my skateboard?"
+   ],
+   [
+    "the sauna cheered me up today",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "the patio messed up my whole plan",
+    "Ugh, sorry about the patio."
+   ]
+  ],
+  "message": "my daughter texted me out of nowhere",
+  "reply": "That can be a bit of a shock."
+ },
+ {
+  "line": 152,
+  "view": [
+   [
+    "Chidi, who is my classmate, speaks fluent Welsh",
+    "Sounds like quite the news."
+   ],
+   [
+    "my mom asked about my camera again",
+    "No problem, what else is new?"
+   ],
+   [
+    "really enjoying the basement at the moment",
+    "Nice one. What changed with the basement?"
+   ]
+  ],
+  "message": "what language does Chidi speak",
+  "reply": "Chidi speaks fluent Welsh."
+ },
+ {
+  "line": 153,
+  "view": [
+   [
+    "that's all i've got on my neck",
+    "Anything interesting about my neck?"
+   ],
+   [
+    "was reading about the basement at lunch",
+    "Quiet days are underrated."
+   ],
+   [
+    "that's all i've got on the patio",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "my teammate texted me out of nowhere",
+  "reply": "That can be a bit of a shock."
+ },
+ {
+  "line": 154,
+  "view": [
+   [
+    "the modem cheered me up today",
+    "Sounds like the modem is on the up."
+   ],
+   [
+    "the photocopier turned a corner this week",
+    "Nice one. What changed with the photocopier?"
+   ],
+   [
+    "the modem cheered me up today",
+    "Sounds like the modem is on the up."
+   ]
+  ],
+  "message": "my mentor has been acting strange lately",
+  "reply": "It sounds like your mentor might be going through a tough time. Is there anything specific that's been bothering them?"
+ },
+ {
+  "line": 155,
+  "view": [
+   [
+    "the chimney popped into my head earlier",
+    "Funny what pops up."
+   ],
+   [
+    "weird how much of my week is the library",
+    "Quiet days are underrated."
+   ],
+   [
+    "the dryer keeps letting me down",
+    "Sounds like you've had enough of the dryer."
+   ]
+  ],
+  "message": "Kofi and i grabbed coffee this morning",
+  "reply": "That sounds like a nice start to the day."
+ },
+ {
+  "line": 156,
+  "view": [
+   [
+    "spent all evening sorting out the sleet",
+    "That's rough. What went wrong with the sleet?"
+   ],
+   [
+    "so fed up with the basement right now",
+    "Ugh, sorry about the basement."
+   ],
+   [
+    "the patio popped into my head earlier",
+    "Weeks can go that way."
+   ]
+  ],
+  "message": "my teammate texted me out of nowhere",
+  "reply": "That can be frustrating. Did your teammate say something specific?"
+ },
+ {
+  "line": 157,
+  "view": [
+   [
+    "that's all i've got on the vacuuming",
+    "Weeks can go that way."
+   ],
+   [
+    "my mom asked about the dryer again",
+    "Anything interesting about the dryer?"
+   ],
+   [
+    "the wind popped into my head earlier",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "Hana forgot my birthday again",
+  "reply": "That must be frustrating."
+ },
+ {
+  "line": 158,
+  "view": [
+   [
+    "weird how much of my week is the tram",
+    "Quiet days are underrated."
+   ],
+   [
+    "Ayaan, who is my mentor, joined a archery club this month",
+    "Oh wow, okay."
+   ],
+   [
+    "the escalator messed up my whole plan",
+    "Plans and the escalator clearly don't mix."
+   ]
+  ],
+  "message": "where does my mentor go after work these days",
+  "reply": "It sounds like your mentor is enjoying the archery club."
+ },
+ {
+  "line": 159,
+  "view": [
+   [
+    "the chimney is testing my patience",
+    "Ugh, sorry about the chimney."
+   ],
+   [
+    "Ayaan, who is my godfather, is terrified of clowns",
+    "Thanks for the update."
+   ],
+   [
+    "the vet keeps letting me down",
+    "Ugh, sorry about the vet."
+   ]
+  ],
+  "message": "i'm blanking on what my godfather is scared of",
+  "reply": "Ayaan is scared of clowns."
+ },
+ {
+  "line": 160,
+  "view": [
+   [
+    "quiet day, mostly my smoothie",
+    "Anything interesting about my smoothie?"
+   ],
+   [
+    "the garage is testing my patience",
+    "Sounds like you've had enough of the garage."
+   ],
+   [
+    "the basement popped into my head earlier",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "Hana and i grabbed coffee this morning",
+  "reply": "That sounds like a nice start to the day."
+ },
+ {
+  "line": 161,
+  "view": [
+   [
+    "Esme, who is my daughter, grows prize strawberries out back",
+    "What do you make of that?"
+   ],
+   [
+    "my skateboard popped into my head earlier",
+    "Anything interesting about my skateboard?"
+   ],
+   [
+    "quiet day, mostly the fence",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "what's growing behind my daughter's house",
+  "reply": "Prize strawberries, huh? That's a great choice. They\u2019re a bit of a commitment, but the reward is well worth it."
+ },
+ {
+  "line": 162,
+  "view": [
+   [
+    "weird how much of my week is my neck",
+    "Weeks can go that way."
+   ],
+   [
+    "so fed up with the freezer right now",
+    "Ugh, sorry about the freezer."
+   ],
+   [
+    "the patio messed up my whole plan",
+    "Ugh, sorry about the patio."
+   ]
+  ],
+  "message": "Lucia and i grabbed coffee this morning",
+  "reply": "That sounds like a nice start to the day."
+ },
+ {
+  "line": 163,
+  "view": [
+   [
+    "was reading about the radiator at lunch",
+    "Weeks can go that way."
+   ],
+   [
+    "happy to report the courier is all good",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "Chidi, who is my stepsister, is terrified of spiders",
+    "Didn't see that coming."
+   ]
+  ],
+  "message": "what is Chidi terrified of",
+  "reply": "Chidi is terrified of spiders."
+ },
+ {
+  "line": 164,
+  "view": [
+   [
+    "Ayaan, who is my classmate, joined a archery club this month",
+    "Didn't see that coming."
+   ],
+   [
+    "happy to report the vacuuming is all good",
+    "Great, the vacuuming deserved a good day."
+   ],
+   [
+    "spent all evening sorting out my neck",
+    "Ugh, sorry about my neck."
+   ]
+  ],
+  "message": "it's on the tip of my tongue which club my classmate joined",
+  "reply": "Ayaan joined an archery club."
+ },
+ {
+  "line": 165,
+  "view": [
+   [
+    "Beatriz, who is my tutor, joined a water polo club this month",
+    "Oh wow, okay."
+   ],
+   [
+    "that novel cheered me up today",
+    "Great, that novel deserved a good day."
+   ],
+   [
+    "the vacuuming cheered me up today",
+    "Sounds like the vacuuming is on the up."
+   ]
+  ],
+  "message": "where does my tutor go after work these days",
+  "reply": "Beatriz's water polo club is a great way to stay active and social."
+ },
+ {
+  "line": 166,
+  "view": [
+   [
+    "happy to report the dryer is all good",
+    "That's lovely to hear."
+   ],
+   [
+    "happy to report the photocopier is all good",
+    "Nice one. What changed with the photocopier?"
+   ],
+   [
+    "Esme, who is my teammate, speaks fluent Tagalog",
+    "Sounds like quite the news."
+   ]
+  ],
+  "message": "i forget which language my teammate knows",
+  "reply": "Esme is your teammate who speaks fluent Tagalog."
+ },
+ {
+  "line": 167,
+  "view": [
+   [
+    "was reading about the radiator at lunch",
+    "Weeks can go that way."
+   ],
+   [
+    "happy to report the courier is all good",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "Chidi, who is my stepsister, is terrified of spiders",
+    "Didn't see that coming."
+   ]
+  ],
+  "message": "what is Chidi terrified of",
+  "reply": "Chidi is terrified of spiders."
+ },
+ {
+  "line": 168,
+  "view": [
+   [
+    "the pharmacy keeps letting me down",
+    "That's rough. What went wrong with the pharmacy?"
+   ],
+   [
+    "Ayaan, who is my mentor, is terrified of thunderstorms",
+    "Thanks for the update."
+   ],
+   [
+    "weird how much of my week is the vet",
+    "Weeks can go that way."
+   ]
+  ],
+  "message": "what freaks my mentor out the most",
+  "reply": "Thunderstorms, especially the loud, chaotic ones."
+ },
+ {
+  "line": 169,
+  "view": [
+   [
+    "Beatriz, who is my tutor, joined a water polo club this month",
+    "Oh wow, okay."
+   ],
+   [
+    "that novel cheered me up today",
+    "Great, that novel deserved a good day."
+   ],
+   [
+    "the vacuuming cheered me up today",
+    "Sounds like the vacuuming is on the up."
+   ]
+  ],
+  "message": "where does my tutor go after work these days",
+  "reply": "It sounds like your tutor, Beatriz, is enjoying her water polo club."
+ },
+ {
+  "line": 170,
+  "view": [
+   [
+    "really enjoying the bins at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "Kofi, who is my barber, is terrified of spiders",
+    "Thanks for the update."
+   ],
+   [
+    "was reading about the chimney at lunch",
+    "Anything interesting about the chimney?"
+   ]
+  ],
+  "message": "what freaks my barber out the most",
+  "reply": "Spiders are a common fear among people, and it's not uncommon for barbers to be intimidated by them."
+ },
+ {
+  "line": 171,
+  "view": [
+   [
+    "my keys cheered me up today",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "that's all i've got on the chimney",
+    "Quiet days are underrated."
+   ],
+   [
+    "happy to report my neck is all good",
+    "Great, my neck deserved a good day."
+   ]
+  ],
+  "message": "my tutor has been acting strange lately",
+  "reply": "That sounds concerning. Have you noticed any specific changes in their behavior or approach?"
+ },
+ {
+  "line": 172,
+  "view": [
+   [
+    "the fence messed up my whole plan",
+    "Ugh, sorry about the fence."
+   ],
+   [
+    "the escalator cheered me up today",
+    "Great, the escalator deserved a good day."
+   ],
+   [
+    "that's all i've got on the bins",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "Ayaan and i grabbed coffee this morning",
+  "reply": "That's a nice start to the day. Coffee is a great way to kick things off."
+ },
+ {
+  "line": 173,
+  "view": [
+   [
+    "the blender messed up my whole plan",
+    "All evening? I hope the blender is sorted now."
+   ],
+   [
+    "really enjoying the vet at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "my smoothie popped into my head earlier",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "my godfather has been acting strange lately",
+  "reply": "That's concerning. If your godfather has been acting strange, it's important to take it seriously and consider seeking professional help. If you're worried about his well-being, you might want to talk to him directly and express your concerns. If you're not comfortable doing that, you could also consider reaching out to a"
+ },
+ {
+  "line": 174,
+  "view": [
+   [
+    "the butcher messed up my whole plan",
+    "Ugh, sorry about the butcher."
+   ],
+   [
+    "another bad day thanks to the wind",
+    "Ugh, sorry about the wind."
+   ],
+   [
+    "Kofi, who is my barber, joined a rowing club this month",
+    "Oh wow, okay."
+   ]
+  ],
+  "message": "which club did Kofi join",
+  "reply": "Kofi joined a rowing club this month."
+ },
+ {
+  "line": 175,
+  "view": [
+   [
+    "another bad day thanks to the radiator",
+    "Sounds like you've had enough of the radiator."
+   ],
+   [
+    "the courier turned a corner this week",
+    "Great, the courier deserved a good day."
+   ],
+   [
+    "my mom asked about the photocopier again",
+    "No problem, what else is new?"
+   ]
+  ],
+  "message": "Farah and i grabbed coffee this morning",
+  "reply": "That's nice. Did you have a good conversation?"
+ },
+ {
+  "line": 176,
+  "view": [
+   [
+    "was reading about the pharmacy at lunch",
+    "Anything interesting about the pharmacy?"
+   ],
+   [
+    "weird how much of my week is my skateboard",
+    "What did she want to know about my skateboard?"
+   ],
+   [
+    "Kofi, who is my tutor, got a anchor tattoo last week",
+    "Didn't see that coming."
+   ]
+  ],
+  "message": "drawing a blank on my tutor's tattoo",
+  "reply": "That's a clever play on words.  Drawing a blank on a tattoo is a humorous way to express that you're not sure what to say or think about Kofi's new tattoo. It's a lighthearted way to acknowledge the tattoo without saying anything specific."
+ },
+ {
+  "line": 177,
+  "view": [
+   [
+    "my mom asked about the blender again",
+    "No problem, what else is new?"
+   ],
+   [
+    "my camera is testing my patience",
+    "Ugh, sorry about my camera."
+   ],
+   [
+    "Kofi, who is my teammate, grows prize chillies out back",
+    "Didn't see that coming."
+   ]
+  ],
+  "message": "what's growing behind my teammate's house",
+  "reply": "Chili peppers."
+ },
+ {
+  "line": 178,
+  "view": [
+   [
+    "Beatriz, who is my mentor, is terrified of thunderstorms",
+    "Thanks for the update."
+   ],
+   [
+    "really enjoying my smoothie at the moment",
+    "That's lovely to hear."
+   ],
+   [
+    "so fed up with my camera right now",
+    "That's rough. What went wrong with my camera?"
+   ]
+  ],
+  "message": "i'm blanking on what my mentor is scared of",
+  "reply": "Beatriz is scared of thunderstorms."
+ },
+ {
+  "line": 179,
+  "view": [
+   [
+    "was reading about the butcher at lunch",
+    "Anything interesting about the butcher?"
+   ],
+   [
+    "my mom asked about the dryer again",
+    "Anything interesting about the dryer?"
+   ],
+   [
+    "the butcher went better than expected",
+    "Sounds like the butcher is on the up."
+   ]
+  ],
+  "message": "Kofi forgot my birthday again",
+  "reply": "That sounds like a bit of a birthday blues."
+ },
+ {
+  "line": 180,
+  "view": [
+   [
+    "the pharmacy cheered me up today",
+    "Sounds like the pharmacy is on the up."
+   ],
+   [
+    "the bins cheered me up today",
+    "That's lovely to hear."
+   ],
+   [
+    "Esme, who is my godfather, speaks fluent Welsh",
+    "Thanks for the update."
+   ]
+  ],
+  "message": "what language does Esme speak",
+  "reply": "Esme speaks fluent Welsh."
+ },
+ {
+  "line": 181,
+  "view": [
+   [
+    "that's all i've got on my skateboard",
+    "No problem, what else is new?"
+   ],
+   [
+    "Esme, who is my teammate, got a anchor tattoo last week",
+    "Sounds like quite the news."
+   ],
+   [
+    "the vacuuming keeps letting me down",
+    "That's rough. What went wrong with the vacuuming?"
+   ]
+  ],
+  "message": "what's the new ink on my teammate",
+  "reply": "That's a great news! Esme's anchor tattoo is a classic and a great choice. It's a symbol of strength, stability, and resilience, which are all valuable traits for a teammate."
+ },
+ {
+  "line": 182,
+  "view": [
+   [
+    "Chidi, who is my classmate, got a lighthouse tattoo last week",
+    "Oh wow, okay."
+   ],
+   [
+    "weird how much of my week is the pharmacy",
+    "Quiet days are underrated."
+   ],
+   [
+    "my charger popped into my head earlier",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "what tattoo did Chidi get",
+  "reply": "A lighthouse tattoo."
+ },
+ {
+  "line": 183,
+  "view": [
+   [
+    "really enjoying the patio at the moment",
+    "Great, the patio deserved a good day."
+   ],
+   [
+    "the wind cheered me up today",
+    "Sounds like the wind is on the up."
+   ],
+   [
+    "was reading about the radiator at lunch",
+    "Funny what pops up."
+   ]
+  ],
+  "message": "Lucia and i grabbed coffee this morning",
+  "reply": "That sounds like a nice start to the day."
+ },
+ {
+  "line": 184,
+  "view": [
+   [
+    "happy to report the dryer is all good",
+    "That's lovely to hear."
+   ],
+   [
+    "happy to report the photocopier is all good",
+    "Nice one. What changed with the photocopier?"
+   ],
+   [
+    "Esme, who is my teammate, speaks fluent Tagalog",
+    "Sounds like quite the news."
+   ]
+  ],
+  "message": "i forget which language my teammate knows",
+  "reply": "It sounds like you're trying to remember which language your teammate, Esme, speaks fluently. Can you give me a hint? Is it a specific dialect, or something else?"
+ },
+ {
+  "line": 185,
+  "view": [
+   [
+    "my skateboard popped into my head earlier",
+    "What did she want to know about my skateboard?"
+   ],
+   [
+    "the sauna cheered me up today",
+    "Enjoy it while it lasts."
+   ],
+   [
+    "the patio messed up my whole plan",
+    "Ugh, sorry about the patio."
+   ]
+  ],
+  "message": "my daughter texted me out of nowhere",
+  "reply": "That can be a bit surprising. Was there something specific she wanted to talk about?"
+ },
+ {
+  "line": 186,
+  "view": [
+   [
+    "weird how much of my week is the library",
+    "Weeks can go that way."
+   ],
+   [
+    "spent all evening sorting out my ankle",
+    "Plans and my ankle clearly don't mix."
+   ],
+   [
+    "Gustav, who is my daughter, got a koi tattoo last week",
+    "Didn't see that coming."
+   ]
+  ],
+  "message": "drawing a blank on my daughter's tattoo",
+  "reply": "That's a tough one.  It's not a good idea to draw on a tattoo, as it can cause damage to the skin and the ink. It's also not a good idea to make fun of or tease someone about their tattoo, as it can be hurtful and disrespectful."
+ },
+ {
+  "line": 187,
+  "view": [
+   [
+    "the fence messed up my whole plan",
+    "Ugh, sorry about the fence."
+   ],
+   [
+    "the escalator cheered me up today",
+    "Great, the escalator deserved a good day."
+   ],
+   [
+    "that's all i've got on the bins",
+    "Quiet days are underrated."
+   ]
+  ],
+  "message": "Ayaan and i grabbed coffee this morning",
+  "reply": "Sounds like a nice start to the day."
+ },
+ {
+  "line": 188,
+  "view": [
+   [
+    "that's all i've got on my neck",
+    "Quiet days are underrated."
+   ],
+   [
+    "so fed up with my smoothie right now",
+    "All evening? I hope my smoothie is sorted now."
+   ],
+   [
+    "another bad day thanks to the bins",
+    "All evening? I hope the bins is sorted now."
+   ]
+  ],
+  "message": "Esme forgot my birthday again",
+  "reply": "That's a tough one.  I know how much you value your birthday celebrations.  I'm really sorry to hear that Esme forgot about it.  Maybe you can talk to her about it and see if there's a way to make it right?  Sometimes, a little conversation can go a long way"
+ },
+ {
+  "line": 189,
+  "view": [
+   [
+    "the bins went better than expected",
+    "Great, the bins deserved a good day."
+   ],
+   [
+    "Beatriz, who is my stepsister, grows prize chillies out back",
+    "What do you make of that?"
+   ],
+   [
+    "my camera turned a corner this week",
+    "That's lovely to hear."
+   ]
+  ],
+  "message": "i cannot think what my stepsister grows",
+  "reply": "That's a bit of a mystery. Prize chillies are a type of chili pepper, so it's possible that your stepsister is growing a variety of chillies. Maybe she's experimenting with different flavors or sizes."
+ },
+ {
+  "line": 190,
+  "view": [
+   [
+    "that's all i've got on my skateboard",
+    "No problem, what else is new?"
+   ],
+   [
+    "Esme, who is my teammate, got a anchor tattoo last week",
+    "Sounds like quite the news."
+   ],
+   [
+    "the vacuuming keeps letting me down",
+    "That's rough. What went wrong with the vacuuming?"
+   ]
+  ],
+  "message": "what's the new ink on my teammate",
+  "reply": "Esme got an anchor tattoo."
+ },
+ {
+  "line": 191,
+  "view": [
+   [
+    "my mom asked about the sauna again",
+    "Weeks can go that way."
+   ],
+   [
+    "so fed up with my charger right now",
+    "That's rough. What went wrong with my charger?"
+   ],
+   [
+    "the butcher turned a corner this week",
+    "Sounds like the butcher is on the up."
+   ]
+  ],
+  "message": "i should really call my mentor",
+  "reply": "That sounds like a good idea."
+ }
+]

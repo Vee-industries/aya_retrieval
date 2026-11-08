@@ -395,6 +395,9 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   6.37 passed every counted and judged line at seeds 82 and 83, all three judges agreeing, and is
   being confirmed at fresh seeds 94 to 96 (R-128).
   It also kept answering with corrected facts and with phone-style typing (R-129).
+  At fresh seeds 94 to 96 it matched v6's recall on the probe (287 each) and beat it on the
+  harder set (247 against 237), and every coherence sheet was at or above base under all three
+  judges (R-130).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
