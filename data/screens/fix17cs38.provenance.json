@@ -1,13 +1,13 @@
 {
  "provenance": {
-  "utc_time": "2026-11-08T20:10:57+00:00",
+  "utc_time": "2026-11-08T21:38:28+00:00",
   "command": [
    "scripts/records/build_r134.py",
    "--vet",
    "results/vet/R-134"
   ],
-  "git_commit": "bcbf449214e092d107ac6d9d135f11b546f619a9",
-  "git_dirty": false,
+  "git_commit": "f2083354b626d590548e2766f55f061f7f2205a9",
+  "git_dirty": true,
   "toolkit_commits": {
    "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
    "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
@@ -27,8 +27,8 @@
  },
  "base_set": "data/screens/fix17cs37.jsonl",
  "base_sha256": "04df294ac875f7f0d80126c8661de116193b06ded31acf384a76a7ad0088afbf",
- "out_sha256": "572623ca702e33a78003786276c7265064e58f8fb544d8474ecf142f960b4c18",
- "unchanged_sha256": "61729f2cef4e223ddd8d9c0b80f8ae357a51e44b24135b3985d8351690e5277e",
+ "out_sha256": "f4daff77e63b33db7268be155ef850e07e255dfb564064cc6dad945fbe180edc",
+ "unchanged_sha256": "f5b26c8484897c6c9e242e9ab00adb3c46d00e86beb309585eeef0ee6d026ce1",
  "rows": 1094,
  "changed": [
   "in_view_0000",

@@ -147,7 +147,8 @@ carry their own provenance (command, git commit, package versions).
 | R-132 | Panel on 7: no 7; 6.37 seed 82 ships for the freeze. The one design the data supports (removing the 22 "It sounds like" in-view rows) was already run as 6.34 and lowered `hard_dev` in-view 78 to 69 |
 | R-133 | 6.37's battery at 82 and 83: corrections fixed (probe +0, `hard_dev` -1 of 192; v6 -187, -146); a new gap on lower-case typing, facts in view (probe -8, `hard_dev` -5 of 96; v6 -1, -3); Kevin reopens 7 with a panel of experts, two rounds, a chair and a unanimous vote |
 | R-134 | Panel of experts (six Opus experts, two rounds, a chair, a unanimous vote): 6.38 (`fix17cs38`) rewrites the final answer of 28 in-view rows that deflect, nothing else; registered before any row is built; candidate 17 since R-093 |
-| R-135 | 6.38's set built and frozen (`fix17cs38.jsonl`, sha256 `572623ca...`): all 28 targets pass every R-134 rule and the blind judge (28 of 28; the 28 old targets, hidden controls, 0 of 28); queued at 82 and 83 |
+| R-135 | 6.38's set built and frozen (`fix17cs38.jsonl`, sha256 `f4daff77...` after R-136's rebuild): all 28 targets pass every R-134 rule and the blind judge (28 of 28; the 28 old targets, hidden controls, 0 of 28); queued at 82 and 83 |
+| R-136 | 6.38's first set had doubled line endings (2,160 lines, 1,066 blank) and failed to load at 82 and 83; rebuilt with the same 28 answers (sha256 `f4daff77...`); a test now reads every training set as the trainer does |
 
 ---
 
@@ -5075,7 +5076,8 @@ targets, in 1 to 4 rows each, and appear 10, 9, 14, 4 and 8 times in 6.37's 66 i
 `04df294a...`): 1,094 rows (`confirm` 230, `in_view` 150, `never_told` 160, `older` 332, `statement` 222), 28 final
 answers changed, every other line byte-identical (the build checks it; sha256 of the 1,066 unchanged lines
 `61729f2c...`). Out: `data/screens/fix17cs38.jsonl`, sha256
-`572623ca702e33a78003786276c7265064e58f8fb544d8474ecf142f960b4c18`, frozen here.
+`572623ca702e33a78003786276c7265064e58f8fb544d8474ecf142f960b4c18` as first written; that file was broken and was
+rebuilt to `f4daff77e63b33db7268be155ef850e07e255dfb564064cc6dad945fbe180edc` (R-136).
 
 **The rules were checked against known-bad input first:** run on the 28 old targets, `check` rejects all 28 (18 with
 the value not in the first sentence, 8 not opening with the name or value, 2 with a question), and it rejects a
@@ -5096,3 +5098,27 @@ sheet and wrote only `marks.json`, by heredoc.
 later 6.38 line), the eight R-102 stress runs, `decide_r134.py` again, 6.37's plain scoring at 97 to 99, then 6.38 at
 97 to 99 with its stress runs, and the four lower-case runs at 82 and 83 (reported only). R-086's judged sheets run on
 the CPU once 82 and 83 are scored; a judged fail stops the 97-to-99 lines by the same stop file.
+
+## R-136 · 2026-11-08 · SPRINT · 6.38's set: doubled line endings, rebuilt
+
+6.37's training at 97 to 99 ran 34 minutes a seed (not the 52 assumed in R-134), so 6.38 at 82 started at 16:33. All
+three tries at 82, and the first two at 83, stopped at once: `run_recall_train.py` reads `--data` with
+`read_text().splitlines()`, and line 1 of what it got was empty. No adapter was made and nothing was scored.
+
+**Cause.** `fix17cs37.jsonl`'s working copy is CRLF (git stores it LF, `core.autocrlf` true). `build_r134.py` kept each
+unchanged line with its own `\r\n` and wrote with `Path.write_text`, which on Windows turns `\n` into `\r\n`: the
+1,066 unchanged lines ended `\r\r\n` and read back as 2,160 lines, 1,066 of them blank. The 28 changed rows were
+written correctly. The build's own checks compared lines in memory and did not read the file back.
+
+**Fix.** The build now drops line endings on reading, writes `\n` bytes, and stops unless the written file reads back
+as 1,094 lines. It accepts 6.37's set as checked out (sha256 `04df294a...`) or as git stores it (`7b0183de...`). Rebuilt
+with the same 28 answers: 1,094 lines, none blank, no CR; exactly 28 rows differ from 6.37's, each in its final turn
+only; sha256 `f4daff77e63b33db7268be155ef850e07e255dfb564064cc6dad945fbe180edc`; the vet sheet rebuilt byte for byte,
+so R-135's marks stand. `tests/test_screen_sets.py` (new) reads every `data/screens/*.jsonl` as the trainer does and
+fails on a blank line or a non-JSON line; checked first against the broken file, which it rejects.
+
+**Queue.** Line 265 (6.38 at 83) was waiting for a clean tree on its third try and trains on the rebuilt set once this
+is committed. R-134's later 6.38 lines (266 to 297) are stopped by `r134_stop_38`, touched by hand at 16:37 so they
+cannot run out of order; 6.37's plain scoring at 97 to 99 (lines 276 to 278) is unguarded and runs. 6.38's lines are
+queued again after them, in R-134's order, with the stop file `r136_stop_38`. The timeline still meets R-134's clock:
+82-and-83 training before 22:00, fresh-seed training before Monday 04:00.

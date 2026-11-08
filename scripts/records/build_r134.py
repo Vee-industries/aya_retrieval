@@ -39,7 +39,7 @@ from build_r110 import MAX_ROW_TOKENS, TEST_GRAMS, four_grams, row_tokens  # noq
 
 DATA = Path("data/screens")
 BASE_SET = DATA / "fix17cs37.jsonl"
-BASE_SHA = "04df294a"
+BASE_SHA = ("04df294a", "7b0183de")  # 6.37's set as checked out with CRLF, and as git stores it
 OUT = DATA / "fix17cs38.jsonl"
 # Row id suffix: (the value as the chat states it, the new final answer).
 TARGETS = {
@@ -117,7 +117,8 @@ def main() -> None:
     base_bytes = BASE_SET.read_bytes()
     if not hashlib.sha256(base_bytes).hexdigest().startswith(BASE_SHA):
         raise SystemExit(f"{BASE_SET} is not 6.37's set")
-    lines = [line for line in base_bytes.decode("utf-8").splitlines(keepends=True) if line]
+    # Endings dropped: the working copy may be CRLF; the set is written with "\n", as git stores it.
+    lines = [line for line in base_bytes.decode("utf-8").splitlines() if line]
     rows = [json.loads(line) for line in lines]
     by_id = {r["id"]: r for r in rows}
     targets = {f"in_view_{k}": v for k, v in TARGETS.items() if k not in args.keep_old}
@@ -142,8 +143,10 @@ def main() -> None:
         new = {**row, "turns": [*row["turns"][:-1], {**row["turns"][-1], "content": target}]}
         if row_tokens(new["turns"], tokenizer) > MAX_ROW_TOKENS:
             raise SystemExit(f"{row['id']}: over {MAX_ROW_TOKENS} tokens")
-        out_lines.append(json.dumps(new, ensure_ascii=False) + "\n")
-    OUT.write_text("".join(out_lines), encoding="utf-8")
+        out_lines.append(json.dumps(new, ensure_ascii=False))
+    OUT.write_bytes("".join(f"{line}\n" for line in out_lines).encode("utf-8"))
+    if len(OUT.read_text(encoding="utf-8").splitlines()) != len(rows):
+        raise SystemExit(f"{OUT} does not read back as {len(rows)} lines")
     kept = [x for x, y in zip(lines, out_lines, strict=True) if x == y]
     if len(kept) != len(lines) - len(targets):
         raise SystemExit("a row outside the 28 changed")
@@ -168,7 +171,9 @@ def main() -> None:
         "base_set": BASE_SET.as_posix(),
         "base_sha256": hashlib.sha256(base_bytes).hexdigest(),
         "out_sha256": hashlib.sha256(OUT.read_bytes()).hexdigest(),
-        "unchanged_sha256": hashlib.sha256("".join(kept).encode("utf-8")).hexdigest(),
+        "unchanged_sha256": hashlib.sha256(
+            "".join(f"{x}\n" for x in kept).encode("utf-8")
+        ).hexdigest(),
         "rows": len(all_rows),
         "changed": sorted(targets),
         "kept_old": sorted(f"in_view_{k}" for k in args.keep_old),
