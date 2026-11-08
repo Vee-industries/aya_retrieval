@@ -138,6 +138,8 @@ carry their own provenance (command, git commit, package versions).
 | R-123 | 6.33 fails at 82 and 83: probe recall pooled 191, one below v6's 192, on a new question (a search for "sister steps out"); the tattoo miss is gone and every other counted line passes; 6.34 trains as ruled |
 | R-124 | 6.36 (`fix17cs36`, 6.31 less the 6 contrast rows whose reply has "Maybe"), trained only if 6.34 fails; chosen after 6.33's result, over 6.35; the stepsister miss is one question, not a pattern |
 | R-125 | 6.34 fails at 82 and 83: probe 51203 `statement` 45 (floor 47; it searches "forgot my birthday") and probe recall pooled 191 (a second stepsister query split, on a new question); 6.36 trains as queued |
+| R-126 | 6.36 fails at 82 and 83: probe 51203 `statement` 40 (floor 47) and probe recall pooled 191 (the tattoo miss is back); four removal copies, each one probe question short |
+| R-127 | 6.37 (`fix17cs37`, 6.31 less the 9 wallet, umbrella and lost-track contrast rows), from scratch; candidate 16 since R-093; the panel's base rate: a copy with no defect misses one probe question in 192 about 28% of the time |
 
 ---
 
@@ -4705,3 +4707,68 @@ split is not confined to one question. The training set has no step-relation row
 
 **Under R-122 and R-124:** 6.34 stops; its stress lines are skipped (`r122_stop_next`), nothing of it is judged.
 6.36 began training at 82 at 04:06, as queued.
+
+## R-126 · 2026-11-08 · SPRINT · 6.36 fails: the tattoo miss returns and the statement line falls
+
+Both train reports show 1,097 rows. R-086's unjudged gate fails one line and R-094 one:
+
+| Copy (removed from 6.31) | probe recall | probe 51203 `statement` | `hard_dev` recall | Probe recall miss |
+|---|---|---|---|---|
+| v6 | 96, 96 (192) | 48 | 74, 83 (157) | none |
+| 6.31 (none) | 96, 95 (191) | 48 | 82, 81 (163) | tattoo, no search |
+| 6.33 (15 memory-word contrast rows) | 96, 95 (191) | 48 | 73, 87 (160) | stepsister query split |
+| 6.34 (those 15 and 22 "It sounds like") | 95, 96 (191) | 45 | 80, 83 (163) | stepsister query split |
+| 6.36 (6 "Maybe" contrast rows) | 96, 95 (191) | **40** | 83, 76 (159) | tattoo, no search |
+
+Floors: probe recall pooled not below 192, `statement` at least 47, `hard_dev` recall pooled not below 157. Slips:
+probe 1 and 0, `hard_dev` 0 and 0 (pass).
+
+**The tattoo miss** ("drawing a blank on my daughter's tattoo", seed 83, no search, "That can be a bit of a bummer.
+Do you have any other ideas for a tattoo?") came back. Every copy that keeps the "lost" and "forgot" contrast rows
+misses it at 83 (6.31, 6.311, 6.32, 6.36), and both copies without them (6.33, 6.34) answer it.
+
+**The statement line** fell to 40: 8 "X forgot my birthday again" lines (Esme, Ayaan, Chidi, Kofi) got a search
+("Esme born birthday month") and a found fact as the reply ("Your godfather Esme grows prize asparagus."). The 6 rows
+removed include the 3 "forgot about our lunch" rows (another person forgot a plan with the speaker), the frame nearest
+"forgot my birthday"; R-124's panel had named the "left their keys" and "birthday dinner" frames as the nearest. I
+did not check that claim against the rows before queuing 6.36.
+
+**Under R-122 and R-124:** 6.36 stops; its stress lines are skipped (`r122_stop_36`), nothing of it is judged. The
+next try is panelled (R-127).
+
+## R-127 · 2026-11-08 · SPRINT · 6.37: 6.31 less the wallet, umbrella and lost-track rows
+
+**The panel** (four lanes, one arguing against; one agent; transcript audited: 14 tool calls, it read `RECORDS.md`,
+`build_r122.py`, `fix17cs31.jsonl` and results, wrote no file, opened no sealed or token file (one glob skips names
+with "token"), did not search `src/`, ran no git, GPU or eval). I checked its 9 row ids against the set before the
+build.
+
+- **The data.** The 24 contrast rows are 8 frames of 3: keys (0-2), lost wallet (3-5), keeps forgetting to text
+  (6-8), party (9-11), forgot umbrella (12-14), lost track of time (15-17), birthday dinner (18-20), forgot lunch
+  (21-23). The tattoo question is missed at seed 83 by all four copies that keep wallet, umbrella and lost-track
+  (6.31, 6.311, 6.32, 6.36) and by none of v6 (12 files), the 6.2 line (11), 6.33 or 6.34, which drop them. On the
+  statement line the only items that fail are 8 "X forgot my birthday again" lines; copies with the text and lunch
+  rows (6.31, 6.311, 6.32) fail none; copies without them fail 3 (6.3), 0 (6.33), 3 (6.34), 8 (6.36), 4 (`fix17r`).
+- **For 6.37.** It is the one cell left: 6.31 has both groups (tattoo miss, `statement` 48), 6.36 only wallet,
+  umbrella and lost-track (miss, 40), 6.33 neither (no tattoo miss, 48); 6.37 keeps text and lunch (with keys,
+  party and dinner) and drops the other three.
+- **Other.** Dropping 12 and keeping only lunch, or doubling lunch: the same bet with less statement cover.
+- **Against.** Every edit is a new draw. The tattoo evidence is 4 misses against 0 at one seed, and the replies
+  differ ("Maybe you could...", "bit of a problem", "bit of a bummer"), so the mechanism is not shown. The statement
+  line moved 48 to 45 and 48 to 40 on small edits. Stepsister query splits cost 6.33 and 6.34 a point each (7 of 39
+  near-v6 files without contrast rows miss a stepsister item). The `hard_dev` margin is 3 to 6.
+- **Base rate.** A copy with no real defect misses at least one of the 96 probe recall questions in 11% to 20% of
+  files, so about 21% to 36% for the pair at 82 and 83 (central 28%), close to R-124's "about a quarter".
+- **Ruling.** 6.37.
+
+**The set** (`build_r122.py`, group `wallet_umbrella_time`, count 9: `contrast/statement_0003` to `0005` and
+`0012` to `0017`): `fix17cs37`, 1,094 rows, SHA-256 `04df294a...`; 6.31's other rows byte for byte, in order; 6.33
+to 6.36 rebuild to the same SHA-256. 6.31's recipe from no adapter. Backlog lines 223 to 233: 82 and 83 (from 06:05),
+its gate (a fail stops its stress lines), its eight stress runs.
+
+**Recorded before its result:** R-122's pass rules and pick rule hold (6.37 is the only copy still in it). The
+panel's estimates, judgements and not measurements: tattoo answered 0.65, no other probe recall miss 0.72,
+`statement` at least 47 0.78, `hard_dev` at least 157 0.82, all four about 0.30; a pass holding at 94 to 96 about
+0.4. The panel's view that further edits after 6.37 are mostly draws is recorded; under Kevin's ruling (R-116) the
+tries go on while a copy can finish the full gate before Monday 12:00, and the next step is panelled with 6.37's
+result. The write-up adds candidate 16, the 2x2 of frames, and the base rate.

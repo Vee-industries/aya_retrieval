@@ -7,13 +7,16 @@ and a reply of sympathy ("That can be frustrating. Maybe you could try to rememb
 contrast rows answer statements with a memory word in that same voice ("Tomas keeps forgetting to
 text me back -> That can be annoying. Maybe they've just been busy."). 6.311 and 6.32 added 72
 scripted in-view rows and lost found-fact detail (R-120, R-121), so this try adds nothing and only
-removes. Three groups can be removed:
+removes. Four groups can be removed:
 
 - ``memory_contrast``: the R-117 ``contrast/statement_`` rows whose message has a memory word
   (lost, forgetting, forgot); 15 rows;
 - ``sounds_like``: the ``in_view`` rows whose answer opens "It sounds like"; 22 rows.
 - ``maybe_contrast``: the R-117 ``contrast/statement_`` rows whose reply has "Maybe", the nearest
   shape to 6.31's miss ("That can be annoying. Maybe they've just been busy."); 6 rows (R-124).
+- ``wallet_umbrella_time``: the R-117 ``contrast/statement_`` rows "lost their wallet on the bus",
+  "forgot their umbrella and got soaked" and "lost track of time and missed the train", kept by
+  every copy that missed the tattoo question and removed from both that did not; 9 rows (R-127).
 
 Every other row is kept byte for byte, in order. The build stops if a group's count differs from
 the one recorded in R-122.
@@ -49,6 +52,16 @@ GROUPS = {
         6,
         lambda r: (
             r["id"].startswith("contrast/statement_") and "Maybe" in r["turns"][-1]["content"]
+        ),
+    ),
+    "wallet_umbrella_time": (
+        9,
+        lambda r: (
+            r["id"].startswith("contrast/statement_")
+            and any(
+                w in r["turns"][-2]["content"]
+                for w in ("lost their wallet", "forgot their umbrella", "lost track of time")
+            )
         ),
     ),
 }
