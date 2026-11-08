@@ -146,6 +146,7 @@ carry their own provenance (command, git commit, package versions).
 | R-131 | 6.37 passes R-102's fresh-seed items at 94 to 96 (held-out corrections 96, 95, 93 and 83, 83, 77 of 96; phone guard held), so R-114 item 2 is met in full: 6.37 seed 82 replaces v6 and is the base for 7; R-130's slip counts corrected to R-094's count, no verdict changes |
 | R-132 | Panel on 7: no 7; 6.37 seed 82 ships for the freeze. The one design the data supports (removing the 22 "It sounds like" in-view rows) was already run as 6.34 and lowered `hard_dev` in-view 78 to 69 |
 | R-133 | 6.37's battery at 82 and 83: corrections fixed (probe +0, `hard_dev` -1 of 192; v6 -187, -146); a new gap on lower-case typing, facts in view (probe -8, `hard_dev` -5 of 96; v6 -1, -3); Kevin reopens 7 with a panel of experts, two rounds, a chair and a unanimous vote |
+| R-134 | Panel of experts (six Opus experts, two rounds, a chair, a unanimous vote): 6.38 (`fix17cs38`) rewrites the final answer of 28 in-view rows that deflect, nothing else; registered before any row is built; candidate 17 since R-093 |
 
 ---
 
@@ -5003,3 +5004,66 @@ panel"; "all the agents vote on the chairs fix. unanimity required". The permiss
 5. Every transcript is audited before its output is used. A unanimous pick is registered here before its rows are
    built, then gated as R-114 at 82 and 83 and at unread seeds 97 to 99, with 6.37 trained at 97 to 99 for the
    same-seed lines.
+
+## R-134 · 2026-11-08 · SPRINT · The panel of experts: 6.38, registered before any row is built
+
+Run as R-133 registered. Everything the panel read and wrote is in `results/panels/R-134/`: the shared brief, the six
+round-1 and six round-2 reports, the chair's design and the six votes. Transcripts audited, every agent: all calls
+read-only; none opened a sealed file or a seed 97 to 99 result. The recipe expert's glob matched
+`probe2_base_tokens_seed_73157.json`, an eval results file the brief's over-broad "token" rule named; it printed four
+counts from it and used none. One retrieval read was `sed -n 1,451p src/aya_retrieval/pools.py`, inside the allowed
+range.
+
+**Round 1** (independent): training data, a rewrite of 28 deflecting in-view targets (about 20%); dialogue, a rewrite
+of 44 by base resampling (15%); retrieval, a swap of 40 found-fact rows for "event, then value" lines (15%); recipe,
+no recipe change helps, the fault is the targets (5%); statistics, no 7 (about 3% for an exact clone of 6.37 to pass
+the full gate); against, no 7 (5%), but the deflecting in-view targets at full loss are the probable source.
+**Round 2** (each read all six): five converged on the 28-row rewrite; retrieval kept its swap. Corrections the
+experts found in each other's reports: dialogue's 44 rows included 12 targets that already state the value; at 82
+and 83, 12 of 14 `hard_dev` in-view misses open "It sounds like" (not 11). **Chair** (fresh Opus): read all 150
+in-view targets; all 28 deflect (about 22 name the value, but inside a hint request, a puzzle, a feeling, "lost" read
+as losing a thing, a referral or a denial); 0124 and 0143 are bad targets but their wording is in none of the 66
+in-view misses, so they and 0105 and 0110 stay. **Vote: 6 of 6 yes.** Retrieval dropped its swap-only condition (its
+rows were shaped on three `hard_dev` fact types that 97 to 99 score again). Estimates at the vote: 5% to 7% that 6.38
+replaces 6.37.
+
+**The copied-phrase evidence** (training data and chair, checked by statistics): five phrases occur only in `in_view`
+targets, in 1 to 4 rows each, and appear 10, 9, 14, 4 and 8 times in 6.37's 66 in-view misses (probe and
+`hard_dev`, seeds 82, 83, 94 to 96); "a bit lost or confused" comes from one row (0122) and appears in 9.
+
+**6.38 (`fix17cs38`), registered:**
+1. **Rows.** The final assistant turn of `in_view_` 0000 0015 0027 0036 0057 0058 0059 0060 0064 0077 0079 0085 0086
+   0088 0094 0098 0099 0103 0120 0121 0122 0130 0132 0134 0136 0139 0145 0146, and nothing else; 1,094 rows, same
+   order, ids and kinds, 150 `in_view`. Built by `scripts/records/build_r134.py` from `fix17cs37.jsonl` (sha256
+   `04df294a...`).
+2. **Targets** hand-written by the main session in a dictionary in the script (id to value and target). The writer
+   has read the `hard_dev` and battery misses, and those items are scored again. The build stops on any target that
+   breaks a rule: the value (case ignored) is in the row's fact turn and in the first sentence, with the person's
+   name; it opens with the name or the value, never "Your" or "My"; no "?"; none of hint, remember, recall, feeling,
+   lost, confused, "ask ", "tell me more", "something else", "it sounds like", "it seems like", "tough one", "i
+   don't", "didn't", "you can"; at most one more sentence, word for word in another `in_view` target; `slip_shape`
+   false; no four-word run shared with the probe or `hard_dev` pools (`build_r110.TEST_GRAMS`); the row at most
+   1,024 tokens.
+3. **Vetting.** One fresh blind Sonnet judge marks the 28 new targets under `results/vet/R-118/rubric.txt`, with the
+   28 old targets shuffled in as hidden controls (reported, not gated). A rejected target is rewritten once and
+   marked by a second fresh judge; if it fails again the old target stays, and the build report names it. The set is
+   frozen (sha256 recorded and committed) before training.
+4. **Recipe:** 6.37's exactly, from scratch, through the runner's same `train` line (rank 32, attention and MLP, 3e-4,
+   3 epochs, epoch-2 save, `--loss-on chat_decision`). The train report must show 1,094 rows and `decision_rows` 222.
+5. **Comparison.** At 82 and 83 the recall reference is 6.37's 192 (probe) and 163 (`hard_dev`), stricter than v6's
+   192 and 157. At 97 to 99: 6.37 retrained from its byte-identical set (training since 14:50, queued first and alone
+   on the card); pooled three-seed sums on probe and `hard_dev` recall, ties pass; 6.37's files there are scored by
+   script and not read until 6.38's are done; if they do not finish by Monday 12:00, 6.38 fails; they do not
+   re-decide 6.37's shipping.
+6. **Gates.** At 82 and 83: R-086 whole (unjudged lines and judged sheets, three fresh judges, judge 1 deciding),
+   R-094 (slips, recall against item 5's reference), R-097, R-102's 82-and-83 items. At 97 to 99: R-076's rule with
+   Sheets A, B and h, R-094's slips (probe pooled over 82, 83 and 97 to 99 at most 8), item 5's recall line, R-102's
+   fresh-seed items. **Any failed line stops the try; there is no 6.39.** On a full pass 6.38 seed 82 replaces 6.37.
+7. **Clock.** 82-and-83 training starts before 22:00 (latest safe start for 82: 21:08); fresh-seed training before
+   Monday 04:00; nothing after Monday 12:00. Reported, not gated: `hard_dev` found-but-wrong at 82 and 83 against
+   6.37's 22 (retrieval's request), in-view and lower-case in-view against 6.37's own seeds, with no gain claimed below
+   +3 a seed (statistics).
+8. **Write-up:** candidate 17 since R-093; targets hand-written after reading misses on items that 82, 83 and 97 to 99
+   score again, so in-view gains are not independent evidence (only the sealed pool after the freeze is); the
+   copied-phrase evidence; the four bad rows left unchanged; the in-view and lower-case results whatever they show; on
+   a fail, 6.37 ships and the deflecting targets are the probable cause.

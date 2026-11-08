@@ -1,0 +1,11 @@
+Round 2 of the panel: read all six round-1 reports, then revise or defend your proposal.
+
+The six reports are in C:/Users/Gaming/scratch/claude/C--Users-Gaming-Desktop-Claude-s-House/389594c2-8513-47d9-80f1-1a28b96837f7/scratchpad/panel7_r1/ (data.md, retrieval.md, recipe.md, dialogue.md, stats.md, against.md). You may read those six files. Every rule in your brief still holds: write nothing, open no forbidden file, read no seed 97, 98 or 99 result.
+
+In short: the data and dialogue experts both propose rewriting the in-view targets that deflect (data: 28 rows, hand-written direct answers; dialogue: 44 rows, base's own resampled replies filtered by the scorer and opener rules, kept only if a judge passes them). Retrieval proposes swapping 40 found-fact rows for "event, then value" lines. Recipe, statistics and against propose no 7; recipe and against both agree the deflecting in-view targets at full loss are the source.
+
+Check the other experts' claims you can check from the files (row counts, ids, numbers), and say where you find one wrong. Then return, under 450 words:
+1. Your final position: one fix (name it from the reports, or a merged version, stated precisely enough to code), or no 7.
+2. The strongest objection to it from the other reports, and your answer.
+3. Any change to your probability, with the reason.
+4. What you would need to see in the chair's final design to vote yes.

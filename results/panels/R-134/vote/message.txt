@@ -1,0 +1,12 @@
+Vote: the chair's final design for 6.38 is ready; vote yes or no on it.
+
+Read it here (you may read this one file): C:/Users/Gaming/scratch/claude/C--Users-Gaming-Desktop-Claude-s-House/389594c2-8513-47d9-80f1-1a28b96837f7/scratchpad/panel7_chair.md
+
+Kevin's rule: 6.38 trains only if all six experts vote yes. Every brief rule still holds (write nothing, no forbidden file, no seed 97 to 99 result).
+
+One correction from the main session to the chair's timeline: 6.37 at 97 started training at 14:50, and each run takes about 52 minutes, so 6.37's three runs at 97 to 99 end about 17:26, not 19:05. That only adds slack. The runner uses the same train command for 6.38 as for 6.37 (the same `--lora-targets` variable), so the recipe is byte-identical.
+
+Reply under 200 words:
+- First line exactly "VOTE: YES" or "VOTE: NO".
+- Your reason, judged against your own round-2 yes conditions.
+- If NO: the single smallest change to this design that would turn your vote into YES, and whether you think that change would cost another expert's vote.
