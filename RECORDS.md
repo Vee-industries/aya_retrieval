@@ -135,6 +135,7 @@ carry their own provenance (command, git commit, package versions).
 | R-120 | 6.311 fails at 82 and 83: in-view rises (probe 48 and 48, `hard_dev` 42 and 37) but `hard_dev` recall pooled falls to 122 against v6's 157 and 6.31's 163 |
 | R-121 | 6.32 fails at 82 and 83: `hard_dev` recall pooled 133 (floor 145, v6 157), probe recall pooled 190, probe slips 6 at 82; both copies with the 72 scripted in-view rows lose found-fact detail, so the rows are the cause |
 | R-122 | 6.33 (`fix17cs33`, 6.31 less the 15 memory-word contrast rows), then 6.34 (both removals) or 6.35 (less the 22 "It sounds like" in-view rows), all from scratch, nothing added; candidates 13 and 14 since R-093; pick rule fixed before any result |
+| R-123 | 6.33 fails at 82 and 83: probe recall pooled 191, one below v6's 192, on a new question (a search for "sister steps out"); the tattoo miss is gone and every other counted line passes; 6.34 trains as ruled |
 
 ---
 
@@ -4614,3 +4615,25 @@ then each copy's eight stress runs.
    among copies at 82 and 83.
 5. **The panel's estimates, judgements and not measurements,** of a full pass at 82 and 83: 6.33 about 45%; 6.34
    about 38%; 6.35 about 25%; at least one of 6.33 and 6.34 about 60%; a pass here holding at 94 to 96 about 40%.
+
+## R-123 · 2026-11-08 · SPRINT · 6.33 fails R-094's probe recall line by one, on a new question
+
+Both train reports show 1,088 rows and `decision_rows` 216. R-086's unjudged gate passes every line (probe 51203
+recall 96, `statement` 48; `hard_dev` `never_told` at 82 45; `hard_dev` recall pooled 160; probe recall pooled 191
+against its floor of 189; false retrieval at 82 3). R-094:
+
+| Line (seeds 82, 83) | v6 | 6.31 | 6.33 | Rule | |
+|---|---|---|---|---|---|
+| probe slips | 3, 4 | 0, 0 | 0, 0 | at most 5 a seed, 8 pooled | PASS |
+| `hard_dev` slips | 0, 3 | 0, 0 | 0, 0 | at most 3 a seed | PASS |
+| `hard_dev` recall pooled | 157 | 163 | 160 (73, 87) | not below v6's | PASS |
+| **probe recall pooled** | **192** | **191** | **191 (96, 95)** | **not below v6's** | **FAIL** |
+
+6.31's miss ("drawing a blank on my daughter's tattoo", no search, sympathy) is gone at 83. The one miss is a new
+question, probe `58_older_17` at seed 83, "what freaks my stepsister out the most": it searched "sister steps out",
+found nothing and said it did not know (answer: deep water). This is a query that splits "stepsister", not the
+no-search shape R-122 removed. v6 has no probe recall miss at 83. Reported, not gated: `hard_dev` `in_view` 44 and
+34 (v6 37, 37); probe `in_view` 42 and 40 (v6 41, 45).
+
+**Under R-122:** 6.33 stops; its stress lines are skipped (`r122_stop_33`), nothing of it is judged. It failed a line
+other than the statement line, so 6.34 (both removals) trains next (from 02:13), as ruled.

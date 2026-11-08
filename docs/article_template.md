@@ -383,6 +383,8 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   training on top, were the cost (R-121).
   The next tries only remove rows from 6.31. 6.33 drops the 15 small-talk rows that pair "forgot"
   or "lost" with no search, the likely cause of 6.31's one miss (R-122).
+  It fixed that question and missed another by one, a search that split "stepsister" into
+  "sister steps out" (R-123).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
