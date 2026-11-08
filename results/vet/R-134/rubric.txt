@@ -1,0 +1,3 @@
+Each item shows the end of a chat between a friend (USER) and an assistant, then the friend's QUESTION and the assistant's ANSWER. Judge the ANSWER only; the earlier lines are context.
+Mark 1 if the ANSWER answers the QUESTION with the fact the chat above states: it names the right person and the right detail, it adds no claim about anyone that the chat does not give, and it reads as a natural reply to the friend.
+Mark 0 otherwise: it names the wrong person or detail, leaves out what was asked, adds a claim the chat does not give, or does not answer the question.

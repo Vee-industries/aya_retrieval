@@ -147,6 +147,7 @@ carry their own provenance (command, git commit, package versions).
 | R-132 | Panel on 7: no 7; 6.37 seed 82 ships for the freeze. The one design the data supports (removing the 22 "It sounds like" in-view rows) was already run as 6.34 and lowered `hard_dev` in-view 78 to 69 |
 | R-133 | 6.37's battery at 82 and 83: corrections fixed (probe +0, `hard_dev` -1 of 192; v6 -187, -146); a new gap on lower-case typing, facts in view (probe -8, `hard_dev` -5 of 96; v6 -1, -3); Kevin reopens 7 with a panel of experts, two rounds, a chair and a unanimous vote |
 | R-134 | Panel of experts (six Opus experts, two rounds, a chair, a unanimous vote): 6.38 (`fix17cs38`) rewrites the final answer of 28 in-view rows that deflect, nothing else; registered before any row is built; candidate 17 since R-093 |
+| R-135 | 6.38's set built and frozen (`fix17cs38.jsonl`, sha256 `572623ca...`): all 28 targets pass every R-134 rule and the blind judge (28 of 28; the 28 old targets, hidden controls, 0 of 28); queued at 82 and 83 |
 
 ---
 
@@ -5067,3 +5068,31 @@ targets, in 1 to 4 rows each, and appear 10, 9, 14, 4 and 8 times in 6.37's 66 i
    score again, so in-view gains are not independent evidence (only the sealed pool after the freeze is); the
    copied-phrase evidence; the four bad rows left unchanged; the in-view and lower-case results whatever they show; on
    a fail, 6.37 ships and the deflecting targets are the probable cause.
+
+## R-135 · 2026-11-08 · SPRINT · 6.38's set: built, vetted, frozen
+
+`PYTHONPATH=src python scripts/records/build_r134.py --vet results/vet/R-134` from `fix17cs37.jsonl` (sha256
+`04df294a...`): 1,094 rows (`confirm` 230, `in_view` 150, `never_told` 160, `older` 332, `statement` 222), 28 final
+answers changed, every other line byte-identical (the build checks it; sha256 of the 1,066 unchanged lines
+`61729f2c...`). Out: `data/screens/fix17cs38.jsonl`, sha256
+`572623ca702e33a78003786276c7265064e58f8fb544d8474ecf142f960b4c18`, frozen here.
+
+**The rules were checked against known-bad input first:** run on the 28 old targets, `check` rejects all 28 (18 with
+the value not in the first sentence, 8 not opening with the name or value, 2 with a question), and it rejects a
+"Your brother Ivan ..." opener, a reply without the value, an added question and an added sentence not found in
+another in-view target. All 28 new targets passed on the first build; none was rewritten.
+
+The new targets are one plain sentence stating the fact as the chat gives it ("Priya writes fantasy novels at
+night.", "Tomas rents on the twentieth floor."), three with one more sentence copied from another in-view target
+("5k is a solid achievement.", "That's a big promotion.", "That's a pretty cool prize!").
+
+**Vetted** (`results/vet/R-134/`: `items.txt`, `key.json`, `marks.json`, `rubric.txt` = R-118's): one fresh Sonnet
+judge, its own folder, the 28 new and 28 old answers shuffled together (random seed 134), blind to which is which.
+New: 28 of 28 marked 1. Old (hidden controls, reported only): 0 of 28. Transcript audited: it read its rubric and
+sheet and wrote only `marks.json`, by heredoc.
+
+**Queued** (backlog lines 264 on): 6.38 at 82 and 83 (`cand`, the runner's same `train` line as 6.37), then
+`decide_r134.py` (R-086 unjudged, R-094 with item 5's 6.37 reference, R-097, and R-102 once scored; a FAIL stops every
+later 6.38 line), the eight R-102 stress runs, `decide_r134.py` again, 6.37's plain scoring at 97 to 99, then 6.38 at
+97 to 99 with its stress runs, and the four lower-case runs at 82 and 83 (reported only). R-086's judged sheets run on
+the CPU once 82 and 83 are scored; a judged fail stops the 97-to-99 lines by the same stop file.
