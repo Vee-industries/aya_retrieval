@@ -392,6 +392,8 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   The rows split into frames: the "lost wallet", "forgot umbrella" and "lost track of time" ones
   go with the tattoo miss, the "forgetting to text" and "forgot lunch" ones with the birthday
   lines. 6.37 drops only the first three (R-127).
+  6.37 passed every counted and judged line at seeds 82 and 83, all three judges agreeing, and is
+  being confirmed at fresh seeds 94 to 96 (R-128).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

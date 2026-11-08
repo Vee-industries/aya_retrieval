@@ -140,6 +140,7 @@ carry their own provenance (command, git commit, package versions).
 | R-125 | 6.34 fails at 82 and 83: probe 51203 `statement` 45 (floor 47; it searches "forgot my birthday") and probe recall pooled 191 (a second stepsister query split, on a new question); 6.36 trains as queued |
 | R-126 | 6.36 fails at 82 and 83: probe 51203 `statement` 40 (floor 47) and probe recall pooled 191 (the tattoo miss is back); four removal copies, each one probe question short |
 | R-127 | 6.37 (`fix17cs37`, 6.31 less the 9 wallet, umbrella and lost-track contrast rows), from scratch; candidate 16 since R-093; the panel's base rate: a copy with no defect misses one probe question in 192 about 28% of the time |
+| R-128 | 6.37 passes R-086 (counts and judged sheets, all three judges), R-094 and R-097 at 82 and 83: probe recall pooled 192, `hard_dev` 163, no slips; it is R-122's pick and goes to 94 to 96; R-102 follows its stress runs |
 
 ---
 
@@ -4772,3 +4773,55 @@ panel's estimates, judgements and not measurements: tattoo answered 0.65, no oth
 0.4. The panel's view that further edits after 6.37 are mostly draws is recorded; under Kevin's ruling (R-116) the
 tries go on while a copy can finish the full gate before Monday 12:00, and the next step is panelled with 6.37's
 result. The write-up adds candidate 16, the 2x2 of frames, and the base rate.
+
+## R-128 · 2026-11-08 · SPRINT · 6.37 passes R-086 whole, R-094 and R-097 at 82 and 83
+
+Both train reports show 1,094 rows and `decision_rows` 222 (6.31's 231 less the 9 dropped contrast rows).
+
+**R-086's unjudged lines** all pass: probe 51203 recall 94 (needs 94), `statement` 48 (47); `hard_dev` `never_told`
+at 82 48 (44); `hard_dev` recall pooled 163 (145); probe 73157 recall pooled 192 (189); false retrieval at 82 1 (at
+most 6). **R-094** passes: slips 0 at every seed on both sets; probe recall pooled 192 against v6's 192, `hard_dev`
+163 against 157. **R-097's stop rule** passes: probe `in_view` 44 and 44 (below 41 stops).
+
+| Line (seeds 82, 83) | base | v6 | 6.37 |
+|---|---|---|---|
+| probe recall | 30 | 96, 96 | 96, 96 |
+| probe `in_view` | 34 | 41, 45 | 44, 44 |
+| probe `statement` | 31 | 48, 46 | 48, 48 |
+| `hard_dev` recall | 20 | 74, 83 | 73, 90 |
+| `hard_dev` `in_view` | 33 | 37, 37 | 42, 40 |
+| slips, probe and `hard_dev` (both seeds summed; base one run) | 2, 1 | 7, 3 | 0, 0 |
+
+The tattoo question (`58_older_00`) is answered at both seeds, the first copy that keeps the text and lunch contrast
+rows to do so; no stepsister question is split. Against base, pooled over both seeds: probe recall +220% (192 against
+60), `hard_dev` recall +308% (163 against 40).
+
+**Judged** (`results/coherence/R-128/`, shuffle seeds 90543 to 90546; sheets built as R-109's, which I rebuilt from
+its inputs byte for byte to confirm the method; three fresh Sonnet judges, each marking all four sheets in its own
+folder under R-095's rubric; base is `three_exchanges`; judge 1 decides). Transcripts audited: each judge read only
+its rubric and four sheets, covered every line, and wrote only its four marks files, by heredoc; judges 2 and 3 ran
+one count over their own marks files afterwards.
+
+| Sheet | Judge 1: base, 6.37 | Judge 2 | Judge 3 |
+|---|---|---|---|
+| Probe Sheet B `statement` | 46, 48 | 46, 48 | 45, 48 |
+| Probe Sheet B `in_view` | 34, 39 | 35, 41 | 34, 40 |
+| `hard_dev` Sheet B `statement` | 44, 44 | 44, 44 | 44, 46 |
+| `hard_dev` Sheet B `in_view` | 35, 46 | 39, 46 | 35, 46 |
+| Check set, seed 82 | 45, 48 | 45, 47 | 45, 48 |
+| Check set, seed 83 | 45, 48 | 45, 48 | 45, 48 |
+
+**6.37 passes every judged item under all three judges**, the first copy to do so since 6.2 (R-109), where judge 2
+split. `hard_dev` Sheet B `statement` is a tie at 44 under judges 1 and 2; the rule is "at or above base".
+
+**Under R-122's pick rule** 6.37 is the only copy that passed R-086 unjudged and R-094, so it goes to 94 to 96.
+**Still to read at 82 and 83:** R-102's items, from the eight stress runs on the GPU now (backlog lines 226 to 233).
+Queued after them (lines 234 to 248): 6.37 at 94, 95 and 96, then held-out corrections and the phone form at each. A
+fail on R-102 at 82 and 83 touches `r128_stop_37` and stops every line from 234 on. At 94 to 96 R-114 item 2 decides:
+R-076's rule with Sheets A, B and h (three fresh judges a sheet type, judge 1 deciding), R-094's slips, recall pooled
+not below v6's at 94 to 96, and R-102's fresh-seed items. On a full pass 6.37 seed 82 replaces v6 and is the base for
+7 (R-111).
+
+The write-up discloses that 6.37 is candidate 16 since R-093 and that it was picked by R-122's rule among five copies
+read at 82 and 83; at 82 and 83 its rows came from failure kinds read on development data, so these lines are not
+independent evidence for it; 94 to 96 are.
