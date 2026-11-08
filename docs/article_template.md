@@ -377,6 +377,8 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   call), and 6.32, from scratch. Which goes on was fixed before either was read (R-118).
   6.31 itself fell one question short of v6 on the probe's recall (191 against 192): the missed
   question got sympathy instead of a search (R-119).
+  6.311 answered every probe in-view question, but its recall of searched facts on the harder set
+  fell from 163 to 122: it found the line and then gave only the kind of fact, not the detail (R-120).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

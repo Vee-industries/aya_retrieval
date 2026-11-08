@@ -132,6 +132,7 @@ carry their own provenance (command, git commit, package versions).
 | R-117 | 6.31 (`fix17cs31`), panelled before it trains: 6.3's rows with the 52 indirect-question answers given the pool's scripted answer and 24 contrast statements (another person forgets or loses something, no search), from scratch; candidate 10 at 82 and 83 since R-093; gates as R-114 items 1 and 2 |
 | R-118 | 6.311 (`fix17cs311`, one epoch on top of 6.31) and 6.32 (`fix17cs32`, from scratch), each with 72 new in-view rows answered with the scripted answer; candidates 11 and 12 since R-093; the dilution diagnosis checked and rejected; which copy goes to 94 to 96 fixed before any result |
 | R-119 | 6.31 fails at 82 and 83: probe recall pooled 191, one below v6's 192 (R-094); every other counted line passes; its stress lines stop; R-118's two copies go on |
+| R-120 | 6.311 fails at 82 and 83: in-view rises (probe 48 and 48, `hard_dev` 42 and 37) but `hard_dev` recall pooled falls to 122 against v6's 157 and 6.31's 163 |
 
 ---
 
@@ -4507,3 +4508,24 @@ and 38 (v6 37, 37); probe `in_view` 42 and 43 (v6 41, 45).
 it is never read at new seeds. It drops out of R-118's pick; R-118's lines and rules are otherwise unchanged. 6.311
 still trains on 6.31's adapters, as R-118 recorded, and if 6.311 is the copy picked, 6.31 is trained at 94 to 96 only
 as its parent. With the stress lines skipped, 6.311 starts after v6 at 95 and 96 (about 21:30).
+
+## R-120 · 2026-11-07 · SPRINT · 6.311 fixes in-view and loses `hard_dev` recall
+
+Both train reports show 288 rows, `init_tensors_loaded` 504 and `adapter_changed` true.
+
+| Line (seeds 82, 83) | v6 | 6.31 | 6.311 |
+|---|---|---|---|
+| probe `in_view` | 41, 45 | 42, 43 | 48, 48 |
+| `hard_dev` `in_view` | 37, 37 | 32, 38 | 42, 37 |
+| probe recall | 96, 96 | 96, 95 | 96, 95 |
+| `hard_dev` recall | 74, 83 | 82, 81 | 65, 57 |
+| slips, probe and `hard_dev` | 7, 3 | 0, 0 | 0, 0 |
+
+R-086's unjudged gate fails one line (`hard_dev` recall pooled 122, floor 145); R-094 fails two (probe recall pooled
+191 against v6's 192; `hard_dev` recall pooled 122 against 157). The 39 `hard_dev` recall misses at seed 83 (6.31: 15)
+mostly search and then answer with the fact type but not the detail ("Your housemate Gideon hosted dinner.", "Your
+housemate Joaquin got a job interview."); 3 do not search. This is R-115's and R-063's pattern: the step on top bought
+in-view answers and cost found-fact recall.
+
+**Under R-118:** 6.311 stops; its gate line (backlog line 172) stops its stress lines, and nothing of it is judged.
+6.32 (from scratch, the same 72 rows) is training at 82 now and goes on as recorded.
