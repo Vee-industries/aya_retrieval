@@ -141,6 +141,7 @@ carry their own provenance (command, git commit, package versions).
 | R-126 | 6.36 fails at 82 and 83: probe 51203 `statement` 40 (floor 47) and probe recall pooled 191 (the tattoo miss is back); four removal copies, each one probe question short |
 | R-127 | 6.37 (`fix17cs37`, 6.31 less the 9 wallet, umbrella and lost-track contrast rows), from scratch; candidate 16 since R-093; the panel's base rate: a copy with no defect misses one probe question in 192 about 28% of the time |
 | R-128 | 6.37 passes R-086 (counts and judged sheets, all three judges), R-094 and R-097 at 82 and 83: probe recall pooled 192, `hard_dev` 163, no slips; it is R-122's pick and goes to 94 to 96; R-102 follows its stress runs |
+| R-129 | 6.37 passes R-102 at 82 and 83 (held-out corrections 192 and 167 of 192 against v6's 1 and 5; phone typing 176 and 147 against v6's 178 and 132): every registered line at 82 and 83 passes; 94 training from 08:45 |
 
 ---
 
@@ -4825,3 +4826,19 @@ not below v6's at 94 to 96, and R-102's fresh-seed items. On a full pass 6.37 se
 The write-up discloses that 6.37 is candidate 16 since R-093 and that it was picked by R-122's rule among five copies
 read at 82 and 83; at 82 and 83 its rows came from failure kinds read on development data, so these lines are not
 independent evidence for it; 94 to 96 are.
+
+## R-129 · 2026-11-08 · SPRINT · 6.37 passes R-102 at 82 and 83
+
+The eight stress runs (backlog lines 226 to 233) finished at 08:45. Pooled over 82 and 83, of 192:
+
+| Line | base (one run) | v6 | 6.37 | Rule | |
+|---|---|---|---|---|---|
+| Held-out corrections, probe | 9 | 1 (1, 0) | 192 (96, 96) | at least v6 + 48, above v6 each seed | PASS |
+| Held-out corrections, `hard_dev` | 8 | 5 (5, 0) | 167 (81, 86) | at least v6 + 32, above v6 each seed | PASS |
+| Phone typing recall, probe | 32 | 178 (88, 90) | 176 (87, 89) | not below v6 by more than 8 | PASS |
+| Phone typing recall, `hard_dev` | 20 | 132 (58, 74) | 147 (67, 80) | not below v6 by more than 16 | PASS |
+
+Slips are 0 in all eight runs (v6: 3 and 5 on held-out corrections, probe). **Every line registered for 82 and 83
+passes** (R-086 counts and judged sheets, R-094, R-097, R-102), so `r128_stop_37` is not touched and 6.37 trains at
+94 from 08:45, then 95 and 96, then its twelve stress runs. Reported, not gated: of 6.37's `hard_dev` recall misses,
+19 of 23 at seed 82 and 3 of 6 at 83 found the line and answered without the asked detail.
