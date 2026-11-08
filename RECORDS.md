@@ -133,6 +133,8 @@ carry their own provenance (command, git commit, package versions).
 | R-118 | 6.311 (`fix17cs311`, one epoch on top of 6.31) and 6.32 (`fix17cs32`, from scratch), each with 72 new in-view rows answered with the scripted answer; candidates 11 and 12 since R-093; the dilution diagnosis checked and rejected; which copy goes to 94 to 96 fixed before any result |
 | R-119 | 6.31 fails at 82 and 83: probe recall pooled 191, one below v6's 192 (R-094); every other counted line passes; its stress lines stop; R-118's two copies go on |
 | R-120 | 6.311 fails at 82 and 83: in-view rises (probe 48 and 48, `hard_dev` 42 and 37) but `hard_dev` recall pooled falls to 122 against v6's 157 and 6.31's 163 |
+| R-121 | 6.32 fails at 82 and 83: `hard_dev` recall pooled 133 (floor 145, v6 157), probe recall pooled 190, probe slips 6 at 82; both copies with the 72 scripted in-view rows lose found-fact detail, so the rows are the cause |
+| R-122 | 6.33 (`fix17cs33`, 6.31 less the 15 memory-word contrast rows), then 6.34 (both removals) or 6.35 (less the 22 "It sounds like" in-view rows), all from scratch, nothing added; candidates 13 and 14 since R-093; pick rule fixed before any result |
 
 ---
 
@@ -4529,3 +4531,86 @@ in-view answers and cost found-fact recall.
 
 **Under R-118:** 6.311 stops; its gate line (backlog line 172) stops its stress lines, and nothing of it is judged.
 6.32 (from scratch, the same 72 rows) is training at 82 now and goes on as recorded.
+
+## R-121 · 2026-11-08 · SPRINT · 6.32 fails: the scripted in-view rows cost found-fact detail
+
+Both train reports show 1,175 rows and `decision_rows` 231.
+
+| Line (seeds 82, 83) | v6 | 6.31 | 6.311 | 6.32 |
+|---|---|---|---|---|
+| probe `in_view` | 41, 45 | 42, 43 | 48, 48 | 43, 44 |
+| `hard_dev` `in_view` | 37, 37 | 32, 38 | 42, 37 | 32, 39 |
+| probe recall | 96, 96 | 96, 95 | 96, 95 | 96, 94 |
+| `hard_dev` recall | 74, 83 | 82, 81 | 65, 57 | 57, 76 |
+| probe slips | 3, 4 | 0, 0 | 0, 0 | 6, 0 |
+| `hard_dev` slips | 0, 3 | 0, 0 | 0, 0 | 0, 0 |
+
+R-086's unjudged gate fails one line (`hard_dev` recall pooled 133, floor 145); R-094 fails three (probe slips at 82,
+6 against 5; probe recall pooled 190 against v6's 192; `hard_dev` recall pooled 133 against 157). Of the 39 `hard_dev`
+recall misses at seed 82, 33 search, find the line and answer with the fact's event but not the asked detail ("Your
+coach Lorcan hosted dinner." for what was in the pot, borscht; "Your plumber Nadia collected keys." for the noisy
+creatures, canaries); at 83, 8 of 20.
+
+**What this shows.** 6.311 (on top) and 6.32 (from scratch) share only the 72 scripted in-view rows, and both lose
+the asked detail on found facts; 6.31, without them, does not (163). So the cost comes from the rows, not from
+training on top. Their one-sentence "Your {relation} {person} {fact}." answers, given with no search, teach a short
+answer shape that the model also uses after a search, where it keeps the event and drops the detail. In-view answers
+rose for neither copy on `hard_dev` (6.32 32 and 39 against 6.31's 32 and 38).
+
+**Under R-118:** 6.32 stops; its gate line stopped its stress lines, and nothing of it is judged. None of 6.31, 6.311
+and 6.32 passes R-114 item 1, so none goes to 94 to 96. A further
+from-scratch try is panelled next (R-122).
+
+## R-122 · 2026-11-08 · SPRINT · 6.33 to 6.35: removals from 6.31, from scratch
+
+**Why.** 6.31 missed by one probe question (R-119); 6.311 and 6.32 added 72 scripted in-view rows and lost found-fact
+detail (R-120, R-121). These tries add nothing and only remove rows from 6.31.
+
+**The panel** (four lanes, one arguing against; one agent; transcript audited: 19 tool calls, it read `RECORDS.md`,
+training sets, results and `stone_report.py`, did not search `src/`, opened no sealed or token file, wrote nothing,
+ran no git, GPU or eval).
+
+- **For removing the 15 memory-word contrast rows (A).** The probe recall miss "drawing a blank on my daughter's
+  tattoo" at seed 83 is the first no-search probe recall miss in the 6.2 line (96 in all 11 files of 6.2, 6.21, 6.2x
+  and 6.3). Every copy with R-117's contrast rows misses it at 83: 6.31, 6.311 and 6.32, two of them separate
+  trainings. The contrast rows teach that a memory word with another person in it gets no search ("Tomas keeps
+  forgetting to text me back -> That can be annoying. Maybe they've just been busy."). A keeps 9 contrast rows,
+  among them the two frames nearest the Esme statement line ("left their keys at my place again", "had a birthday
+  dinner last night").
+- **For removing the 22 "It sounds like" in-view rows (B, or both = C).** 13 of 6.31's 16 `hard_dev` `in_view`
+  misses at 82 open "It sounds like". Against: v6 and 6.2 carry the same 22 rows; 6.31's `hard_dev` `in_view` 32 sits
+  inside the earlier spread (32 to 37); the line is not gated; B does not touch the gated miss; in-view edits moved
+  found-fact recall before (R-063, R-064).
+- **Against.** A still needs no probe recall miss in 192 (v6 had one in 2 of 14 seeds). The exposure is the probe
+  51203 statement line: 6.3, which had no contrast rows, scored 45 (floor 47), searching on all 3 "Esme forgot my
+  birthday again" lines. About 4 of 20 earlier candidates missed a "forgot my birthday" line. `hard_dev` should not
+  move: its no-search misses are the "cuppa" items in every model.
+- **Ruling.** Train A first; then C, or B instead if A fails only the statement line (B keeps the contrast rows).
+  A third try (the other of B and C, or dropping only the 6 contrast rows whose reply has "Maybe") only if time
+  allows and none has passed.
+
+**The sets** (`scripts/records/build_r122.py`; 6.31's other rows byte for byte, in order; the build stops if a
+group's count is not 15 or 22; two runs of 6.33 gave the same SHA-256):
+
+| Copy | Set | Rows | Removed | SHA-256 |
+|---|---|---|---|---|
+| 6.33 (A) | `fix17cs33` | 1,088 | 15 memory-word contrast rows | `23f50ed7...` |
+| 6.34 (C) | `fix17cs34` | 1,066 | both groups | `fa0f5e12...` |
+| 6.35 (B) | `fix17cs35` | 1,081 | 22 "It sounds like" in-view rows | `8f8059f6...` |
+
+6.31's recipe from no adapter. **Order on the GPU** (backlog lines 190 to 211): 6.33 at 82 and 83 (from 00:15), its
+gate (R-086 unjudged and R-094; a fail stops its stress lines), then 6.34 or 6.35 at 82 and 83 as ruled, its gate,
+then each copy's eight stress runs.
+
+**Recorded before any result:**
+
+1. **Pass rules:** R-114 items 1 and 2, word for word, for each copy.
+2. **Which goes to 94 to 96:** of the copies that pass R-086's unjudged gate and R-094 at 82 and 83, the one with the
+   highest pooled `hard_dev` recall; a tie goes to fewer changes, in the order 6.33, 6.34, 6.35. Only that copy is
+   read at 94 to 96. Nothing starts after Monday 12:00.
+3. **On a full pass:** that copy's seed 82 replaces v6 and is the base for 7 (R-111).
+4. **The write-up discloses:** candidates 13 and 14 (15 if a third runs) since R-093; that R-117's contrast rows were
+   a patch fitted to one probe line; that the 6.31 miss is a "drawing a blank" form no training row has; the pick
+   among copies at 82 and 83.
+5. **The panel's estimates, judgements and not measurements,** of a full pass at 82 and 83: 6.33 about 45%; 6.34
+   about 38%; 6.35 about 25%; at least one of 6.33 and 6.34 about 60%; a pass here holding at 94 to 96 about 40%.

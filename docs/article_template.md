@@ -379,6 +379,10 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   question got sympathy instead of a search (R-119).
   6.311 answered every probe in-view question, but its recall of searched facts on the harder set
   fell from 163 to 122: it found the line and then gave only the kind of fact, not the detail (R-120).
+  6.32, the same rows from scratch, lost the detail too (133): the short scripted answers, not the
+  training on top, were the cost (R-121).
+  The next tries only remove rows from 6.31. 6.33 drops the 15 small-talk rows that pair "forgot"
+  or "lost" with no search, the likely cause of 6.31's one miss (R-122).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
