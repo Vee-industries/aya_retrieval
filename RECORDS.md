@@ -145,6 +145,7 @@ carry their own provenance (command, git commit, package versions).
 | R-130 | 6.37 at fresh seeds 94 to 96: R-076's rule passes under all three judges; R-094 passes (probe recall 287 against v6's 287, `hard_dev` 247 against 237); R-102's fresh-seed items wait on its stress runs |
 | R-131 | 6.37 passes R-102's fresh-seed items at 94 to 96 (held-out corrections 96, 95, 93 and 83, 83, 77 of 96; phone guard held), so R-114 item 2 is met in full: 6.37 seed 82 replaces v6 and is the base for 7; R-130's slip counts corrected to R-094's count, no verdict changes |
 | R-132 | Panel on 7: no 7; 6.37 seed 82 ships for the freeze. The one design the data supports (removing the 22 "It sounds like" in-view rows) was already run as 6.34 and lowered `hard_dev` in-view 78 to 69 |
+| R-133 | 6.37's battery at 82 and 83: corrections fixed (probe +0, `hard_dev` -1 of 192; v6 -187, -146); a new gap on lower-case typing, facts in view (probe -8, `hard_dev` -5 of 96; v6 -1, -3); Kevin reopens 7 with a panel of experts, two rounds, a chair and a unanimous vote |
 
 ---
 
@@ -4963,3 +4964,42 @@ in `pools.py`, so no sealed line reached it.
 corrections, lower-case typing; backlog lines 249 to 260, finishing about 15:05) are reported in the write-up. If one
 shows a failure not seen before, a new panel may reopen 7, in time for its 82-and-83 training to start by Sunday
 22:00 (R-114's cut-off, restated in R-116). The write-up adds the in-view result above as an open item.
+
+## R-133 · 2026-11-08 · SPRINT · 6.37's battery; a new in-view gap; Kevin's panel of experts
+
+The twelve battery runs (backlog lines 249 to 260) ran from 13:05 to 14:48. Read with
+`PYTHONPATH=src python scripts/records/battery_report.py <name>` (new; R-099 item 3's trigger: messy minus plain, same
+adapter and items, tool arm, pooled over 82 and 83; a gap is at least 8 of 192 recall or 4 of 96 on `in_view`,
+`never_told` or `statement`). Run on `fix17m` it reproduces R-102's battery table for v6 line for line.
+
+| Form | probe recall /192 | probe `in_view`, `never_told`, `statement` /96 | `hard_dev` recall /192 | `hard_dev` `in_view`, `never_told`, `statement` /96 |
+|---|---|---|---|---|
+| lower-case typing (`user_style`) | -3 (v6 -3) | **-8**, 0, 0 (v6 -1, +2, -1) | +3 (v6 -2) | **-5**, 0, 0 (v6 -3, -1, -1) |
+| phone typing (held out) | **-16** (v6 -14) | **-5**, 0, 0 (v6 0, +2, -6) | **-16** (v6 -25) | -3, +1, 0 (v6 -3, +1, -1) |
+| fact corrected later | 0 (v6 -187) | recall only | -1 (v6 -146) | recall only |
+| earlier question in view | 0 (v6 -2) | -1, 0, -1 (v6 -1, +2, -3) | -4 (v6 -7) | 0, -1, 0 (v6 **-4**, 0, 0) |
+
+New against v6: lower-case typing now costs facts in view on both pools, and phone typing costs them on the probe.
+Gone: the correction gap (R-129's held-out result, here on training's wordings too) and asked-before on `hard_dev`.
+The lower-case in-view answers lost (19 over the four runs, 6 gained) are all unsearched; they deflect ("You can ask
+your godfather about it.") or open "It sounds like" (11 of 19), the same failure as R-132's `hard_dev` in-view misses.
+Reported for the write-up; R-099 trained no arm on lower-case typing, and the battery is not a gate.
+
+**Kevin, 2026-11-08,** after R-132: "you have my permission, once this last battery of tests finishes to assemble an
+extensive and varied panel of experts to discuss fixes"; "then repanel the panel with the new information from the
+panel"; "all the agents vote on the chairs fix. unanimity required". The permission covers the agents' usage.
+
+**The panel, registered before it runs:**
+1. **Round 1:** six Opus experts, in parallel, each from one field, each writing nothing: training data; retrieval
+   and tool use; training recipe (loss masking, epochs, rates); dialogue and coherence; evaluation and statistics;
+   and one arguing that 6.37 ships unchanged. Each gets the same brief (the state above, the gates, the clock, the
+   sealed files) and returns a reading, one concrete fix or none, the line it moves, the line it risks, and a
+   probability that it replaces 6.37.
+2. **Round 2:** each expert reads all six round-1 reports and revises or defends its proposal.
+3. **Chair:** one fresh Opus agent reads the six round-2 reports and picks one fix, or none.
+4. **Vote:** the six experts vote on the chair's pick; it trains only on six yes votes. On a split vote the chair
+   revises against the objections and the six vote again, while 82-and-83 training can still start by Sunday 22:00
+   (R-114). No unanimous pick by then: no 7, and 6.37 ships (R-132).
+5. Every transcript is audited before its output is used. A unanimous pick is registered here before its rows are
+   built, then gated as R-114 at 82 and 83 and at unread seeds 97 to 99, with 6.37 trained at 97 to 99 for the
+   same-seed lines.
