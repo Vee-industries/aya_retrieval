@@ -766,8 +766,8 @@ def numbers() -> dict[str, str]:
         "The held-out run replaces these."
     )
     out["status_line"] = (
-        "Draft. Numbers are development results on the probe pool, for v5; v6 (17m, R-093) passed "
-        "the confirmation rule on 2026-11-06 and replaces them at the freeze, and the registered "
+        "Draft. Numbers are development results on the probe pool, for v5; 6.37 (fix17cs37 seed "
+        "82, R-131) replaced v6 on 2026-11-08 and replaces them at the freeze, and the registered "
         "held-out run replaces them before submission."
     )
     return out

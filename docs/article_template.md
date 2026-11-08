@@ -398,6 +398,8 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   At fresh seeds 94 to 96 it matched v6's recall on the probe (287 each) and beat it on the
   harder set (247 against 237), and every coherence sheet was at or above base under all three
   judges (R-130).
+  It kept the corrected facts and the phone-typing answers at those seeds too, so 6.37 replaced
+  v6 as the copy that ships (R-131).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
@@ -540,7 +542,9 @@ came from something in the training data.
   but fell one recall answer short of v6 over two seeds and stopped (R-098). With those 15 answers
   scripted instead, accepted by the gate first, the slip was 0 of 96 at both seeds, but `hard_dev`
   recall fell below v6's (149 against 157 over two seeds), so it stopped too. The registered plan
-  allowed two tries; v6 ships with this failure (R-101).
+  allowed two tries; v6 shipped with this failure (R-101). 6.37, which replaced v6, made it once
+  in 480 probe answers over five seeds and never on `hard_dev`; v6 made it 16 times in 288 probe
+  answers at the fresh seeds 94 to 96 (R-131).
 - **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
   was searched as "brother new job", the query for a question two messages earlier, and declined
   (R-076). No training row or test item had an earlier question in view (R-081). A stress test

@@ -21,7 +21,7 @@ something older, it calls a `search_corpus` tool over the earlier conversation, 
 back, and answers; when the fact was never told, it says so; when the user is just chatting, it
 does not search.
 
-Draft. Numbers are development results on the probe pool, for v5; v6 (17m, R-093) passed the confirmation rule on 2026-11-06 and replaces them at the freeze, and the registered held-out run replaces them before submission.
+Draft. Numbers are development results on the probe pool, for v5; 6.37 (fix17cs37 seed 82, R-131) replaced v6 on 2026-11-08 and replaces them at the freeze, and the registered held-out run replaces them before submission.
 
 ## Results
 

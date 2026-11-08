@@ -143,6 +143,7 @@ carry their own provenance (command, git commit, package versions).
 | R-128 | 6.37 passes R-086 (counts and judged sheets, all three judges), R-094 and R-097 at 82 and 83: probe recall pooled 192, `hard_dev` 163, no slips; it is R-122's pick and goes to 94 to 96; R-102 follows its stress runs |
 | R-129 | 6.37 passes R-102 at 82 and 83 (held-out corrections 192 and 167 of 192 against v6's 1 and 5; phone typing 176 and 147 against v6's 178 and 132): every registered line at 82 and 83 passes; 94 training from 08:45 |
 | R-130 | 6.37 at fresh seeds 94 to 96: R-076's rule passes under all three judges; R-094 passes (probe recall 287 against v6's 287, `hard_dev` 247 against 237); R-102's fresh-seed items wait on its stress runs |
+| R-131 | 6.37 passes R-102's fresh-seed items at 94 to 96 (held-out corrections 96, 95, 93 and 83, 83, 77 of 96; phone guard held), so R-114 item 2 is met in full: 6.37 seed 82 replaces v6 and is the base for 7; R-130's slip counts corrected to R-094's count, no verdict changes |
 
 ---
 
@@ -4855,11 +4856,11 @@ to 236). v6 at 94 to 96 was trained earlier as the comparison (R-116); it was no
 |---|---|---|---|---|
 | probe recall | 96, 96, 95 (287) | 96, 95, 96 (287) | pooled not below v6's | PASS |
 | `hard_dev` recall | 74, 81, 82 (237) | 77, 87, 83 (247) | pooled not below v6's | PASS |
-| probe slips | | 0, 0, 2 | at most 5 a seed | PASS |
-| `hard_dev` slips | | 3, 0, 1 | at most 3 a seed | PASS |
-| probe slips pooled over 82, 83, 94 to 96 | | 2 | at most 8 | PASS |
+| probe slips | | 0, 0, 1 (corrected, R-131) | at most 5 a seed | PASS |
+| `hard_dev` slips | | 0, 0, 0 (corrected, R-131) | at most 3 a seed | PASS |
+| probe slips pooled over 82, 83, 94 to 96 | | 1 (corrected, R-131) | at most 8 | PASS |
 
-`hard_dev` slips at 94 are 3, at the limit. Reported, not gated: probe `in_view` 45, 39, 42 (v6 41, 47, 42);
+`hard_dev` slips at 94 were first written here as 3, at the limit; that count took every kind of question, not R-094's `older` and `confirm` (R-131). Reported, not gated: probe `in_view` 45, 39, 42 (v6 41, 47, 42);
 `hard_dev` `in_view` 43, 36, 39 (v6 40, 36, 38). Against base, pooled over the three seeds: probe recall +219% (287
 against 90), `hard_dev` recall +312% (247 against 60).
 
@@ -4897,3 +4898,33 @@ the phone guard. If they pass, R-114 item 2 is met in full and 6.37 seed 82 repl
 best candidate to train". If 6.37 fails, a panel picks the next candidate, from scratch or on top, and it trains
 without a further check with him; seeds 94 to 96 are then spent and a copy designed after reading them is confirmed
 at fresh seeds.
+
+## R-131 · 2026-11-08 · SPRINT · 6.37 passes R-102 at 94 to 96 and replaces v6
+
+The twelve stress runs (backlog lines 237 to 248) ran from 11:22 to 12:58. Read with
+`PYTHONPATH=src python scripts/records/fresh_report.py fix17cs37 94 95 96`; the script now takes its fresh seeds as
+arguments (91 to 93 when none are given, so earlier reads are unchanged).
+
+**R-102's fresh-seed items** (R-102 items 5 and 6, anchored to v6's 82-and-83 mean) all pass:
+
+| Item (seeds 94, 95, 96, of 96) | v6, 82-and-83 mean | 6.37 | Rule | |
+|---|---|---|---|---|
+| held-out corrections, probe | 0.5 | 96, 95, 93 | each seed at least 24 above | PASS |
+| held-out corrections, `hard_dev` | 2.5 | 83, 83, 77 | each seed at least 16 above | PASS |
+| phone typing, probe | 89 | 91, 85, 85 | each seed within 4 | PASS |
+| phone typing, `hard_dev` | 66 | 60, 77, 72 (mean 69.7) | three-seed mean within 8 | PASS |
+
+Phone typing on the probe at 95 and 96 is 85, on the line (89 less 4). Against base (one run each, seed 73157, so
+three times base's count), pooled over the three seeds: held-out corrections probe +952% (284 against 27), `hard_dev`
++913% (243 against 24); phone typing probe +172% (261 against 96), `hard_dev` +248% (209 against 60).
+
+**R-114 item 2 is met in full:** R-076's rule and R-094 (R-130) and R-102's fresh-seed items (here). With R-128 and
+R-129 at 82 and 83, **6.37 seed 82 (`fix17cs37_82`) replaces v6 and is the base for 7 (R-111).** 7's design is not
+fixed; the model freeze (Tuesday November 10) and "nothing starts after Monday 12:00" hold.
+
+**Correction to R-130.** R-130's slip counts took `slip_shape` over every kind of question in the run. R-094 registers
+the count on `older` and `confirm` (of 96). On R-094's count 6.37's slips at 94 to 96 are probe 0, 0, 1 and
+`hard_dev` 0, 0, 0, and probe pooled over 82, 83 and 94 to 96 is 1 (R-130 wrote 0, 0, 2; 3, 0, 1; 2). Every line passes
+on both counts, so no verdict changes. R-130's rows are corrected in place and marked. R-128's counts at 82 and 83 (0
+at every seed) were already R-094's. Reported, not gated: v6 at 94 to 96 on R-094's count, probe 7, 2, 7 and
+`hard_dev` 2, 2, 6, above R-094's per-seed lines at three of the six; v6 was the comparison here, not a candidate.

@@ -1,11 +1,12 @@
-"""A candidate's unjudged lines at the fresh seeds 91 to 93 (R-094, R-102, R-111).
+"""A candidate's unjudged lines at fresh seeds, 91 to 93 unless given (R-094, R-102, R-111).
 
-Usage: python scripts/records/fresh_report.py <name>     e.g. fix17cs2 (6.2)
+Usage: python scripts/records/fresh_report.py <name> [seed ...]     e.g. fix17cs2 (6.2), or
+       fix17cs37 94 95 96 (6.37, R-131)
 
 Prints recall (older + confirm), each kind and the who-is-who slips for the plain probe and
-hard_dev sets and the messy forms at 91, 92 and 93, beside v6 (fix17m) at the same seeds where v6
-ran; then R-094's slip gate (per seed, and the probe pooled over 82, 83, 91, 92 and 93) and recall
-line against v6 at the same seeds, R-102's seed-91-to-93 items against v6's 82-and-83 mean, and
+hard_dev sets and the messy forms at the fresh seeds, beside v6 (fix17m) at the same seeds where
+v6 ran; then R-094's slip gate (per seed, and the probe pooled over 82, 83 and the fresh seeds) and
+recall line against v6 at the same seeds, R-102's fresh-seed items against v6's 82-and-83 mean, and
 the hard_dev recall that R-111 compares. R-076's rule, with its judged sheets, is
 scripts/records/rule_r076.py.
 """
@@ -19,7 +20,8 @@ from aya_retrieval.scoring import slip_shape
 
 EVAL = Path("results/recall_eval")
 RECALL = ("older", "confirm")
-FRESH = (91, 92, 93)
+FRESH = tuple(int(s) for s in sys.argv[2:]) or (91, 92, 93)
+SPAN = f"{FRESH[0]} to {FRESH[-1]}"
 GATE = (82, 83)
 SETS = {
     "probe": "plain, probe",
@@ -80,13 +82,13 @@ for stem, each_max in (("probe", 5), ("hd", 3)):
         slips = recall(stem, name, s, "slips")
         line(f"{stem} slips at seed {s} {slips} at most {each_max}", slips <= each_max)
 pooled_slips = sum(recall("probe", name, s, "slips") for s in GATE + FRESH)
-line(f"probe slips pooled over 82, 83, 91 to 93 {pooled_slips} at most 8", pooled_slips <= 8)
+line(f"probe slips pooled over 82, 83, {SPAN} {pooled_slips} at most 8", pooled_slips <= 8)
 for stem in ("probe", "hd"):
     stone = sum(recall(stem, name, s) for s in FRESH)
     v6 = sum(recall(stem, "fix17m", s) for s in FRESH)
-    line(f"{stem} recall pooled at 91 to 93 {stone} not below v6's {v6}", stone >= v6)
+    line(f"{stem} recall pooled at {SPAN} {stone} not below v6's {v6}", stone >= v6)
 
-print("\nR-102 at 91 to 93, against v6's 82-and-83 mean (of 96)")
+print(f"\nR-102 at {SPAN}, against v6's 82-and-83 mean (of 96)")
 for stem, gain in (("st_fixh_probe", 24), ("st_fixh_hd", 16)):
     mean = sum(recall(stem, "fix17m", s) for s in GATE) / len(GATE)
     for s in FRESH:
@@ -101,4 +103,4 @@ got = sum(recall("st_phone_hd", name, s) for s in FRESH) / len(FRESH)
 line(f"st_phone_hd three-seed mean {got:.2f} within 8 of {mean:g}", got >= mean - 8)
 
 hd = sum(recall("hd", name, s) for s in FRESH)
-print(f"\nR-111: hard_dev recall pooled at 91 to 93: {hd} of 288")
+print(f"\nR-111: hard_dev recall pooled at {SPAN}: {hd} of {96 * len(FRESH)}")
