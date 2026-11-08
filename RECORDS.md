@@ -144,6 +144,7 @@ carry their own provenance (command, git commit, package versions).
 | R-129 | 6.37 passes R-102 at 82 and 83 (held-out corrections 192 and 167 of 192 against v6's 1 and 5; phone typing 176 and 147 against v6's 178 and 132): every registered line at 82 and 83 passes; 94 training from 08:45 |
 | R-130 | 6.37 at fresh seeds 94 to 96: R-076's rule passes under all three judges; R-094 passes (probe recall 287 against v6's 287, `hard_dev` 247 against 237); R-102's fresh-seed items wait on its stress runs |
 | R-131 | 6.37 passes R-102's fresh-seed items at 94 to 96 (held-out corrections 96, 95, 93 and 83, 83, 77 of 96; phone guard held), so R-114 item 2 is met in full: 6.37 seed 82 replaces v6 and is the base for 7; R-130's slip counts corrected to R-094's count, no verdict changes |
+| R-132 | Panel on 7: no 7; 6.37 seed 82 ships for the freeze. The one design the data supports (removing the 22 "It sounds like" in-view rows) was already run as 6.34 and lowered `hard_dev` in-view 78 to 69 |
 
 ---
 
@@ -4928,3 +4929,37 @@ the count on `older` and `confirm` (of 96). On R-094's count 6.37's slips at 94 
 on both counts, so no verdict changes. R-130's rows are corrected in place and marked. R-128's counts at 82 and 83 (0
 at every seed) were already R-094's. Reported, not gated: v6 at 94 to 96 on R-094's count, probe 7, 2, 7 and
 `hard_dev` 2, 2, 6, above R-094's per-seed lines at three of the six; v6 was the comparison here, not a candidate.
+
+## R-132 · 2026-11-08 · SPRINT · Panel on 7: no 7, 6.37 ships
+
+R-111 makes the copy that replaces v6 the base for 7 and leaves 7's design open. Under Kevin's ruling of 08:55 (R-130)
+the panel picks without a further check with him. Kevin allowed the panel to start over the usage line (2026-11-08
+about 13:10: "Start it now").
+
+**Panel** (one Opus agent, four lanes in turn: design, rule integrity, schedule, against; it wrote nothing).
+Transcript audited: 22 read-only calls (record ranges, result files, the training set, `build_r122.py`,
+`run_recall_train.py`, the article's open items, `fresh_r131.txt`). One `grep -rn` over `src` and `scripts` was
+filtered after the fact for the independent pool; I checked that the searched word occurs in neither sealed file nor
+in `pools.py`, so no sealed line reached it.
+
+**Verdict: no 7.** The reasons, with the numbers I recounted:
+
+1. **`hard_dev` in-view.** 6.37 misses 40 of 240 `hard_dev` in-view items over seeds 82, 83 and 94 to 96, and 32 of
+   the 40 replies open "It sounds like". `fix17cs37.jsonl` has 150 in-view rows; 22 open that way. Removing those 22
+   rows is R-122's `sounds_like` group, already run as 6.34 (6.33 less those rows, R-125): over 82 and 83 the opener
+   went from 18 and 16 replies to 0 and 1, but `hard_dev` in-view correct fell from 78 to 69 (6.37: 82); the misses
+   moved to searches and to denials of the fact in view, R-063's and R-064's pattern. Probe in-view: 6.33 82, 6.34 82,
+   6.37 88.
+2. **Found fact, detail left out.** The panel counts this as 25 of 6.37's 41 `hard_dev` recall misses at 94 to 96.
+   The one targeted try (R-110's rows) cost recall (R-115), and a rule built from these replies would be fitted to
+   the `hard_dev` items it is then confirmed on.
+3. **Against lane's strongest point**, which decided it: the only design the data supports has been run and made the
+   target line worse; any other change is a new draw (candidate 17 since R-093) that must beat 6.37's `hard_dev`
+   recall at the same seeds, where 6.37 ranges 73 to 90 a seed. The schedule lane found a full 7 gate (with 6.37 and v6
+   trained at 97 to 99 for the same-seed lines) would finish about 07:00 to 09:45 Monday, so the clock is not the
+   reason.
+
+**What follows.** 6.37 seed 82 ships for the freeze. Its remaining battery forms at 82 and 83 (asked-before, plain
+corrections, lower-case typing; backlog lines 249 to 260, finishing about 15:05) are reported in the write-up. If one
+shows a failure not seen before, a new panel may reopen 7, in time for its 82-and-83 training to start by Sunday
+22:00 (R-114's cut-off, restated in R-116). The write-up adds the in-view result above as an open item.

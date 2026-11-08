@@ -652,6 +652,11 @@ came from something in the training data.
 - **Forgetting read as wordplay.** "drawing a blank on my tutor's tattoo", with the tattoo still on
   screen, is read as a joke, a drawing request or disappointment, by the untrained model and every
   adapter; it is most of v5's remaining misses on facts in view (R-063). Open.
+- **"It sounds like" on facts in view.** On the harder set, 32 of 6.37's 40 misses on facts in
+  view, over five seeds, open "It sounds like" and talk about the feeling instead of the fact.
+  Removing the 22 training answers that open that way (6.34) removed the opener but not the
+  misses: correct answers fell from 78 to 69 over two seeds, the misses moving to searches and to
+  denials of the fact on screen. No version 7 was trained (R-132). Open.
 - **One sentence, one false denial.** Many found-fact answers opened with the same word as a
   training sentence meaning "I don't know", and one seed slid from one into the other (v2).
 
