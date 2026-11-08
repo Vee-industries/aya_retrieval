@@ -385,6 +385,8 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   or "lost" with no search, the likely cause of 6.31's one miss (R-122).
   It fixed that question and missed another by one, a search that split "stepsister" into
   "sister steps out" (R-123).
+  6.34, with the in-view rows also removed, began searching on "Esme forgot my birthday again"
+  and split "stepsister" on a second question (R-125).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;

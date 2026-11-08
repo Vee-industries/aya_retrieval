@@ -137,6 +137,7 @@ carry their own provenance (command, git commit, package versions).
 | R-122 | 6.33 (`fix17cs33`, 6.31 less the 15 memory-word contrast rows), then 6.34 (both removals) or 6.35 (less the 22 "It sounds like" in-view rows), all from scratch, nothing added; candidates 13 and 14 since R-093; pick rule fixed before any result |
 | R-123 | 6.33 fails at 82 and 83: probe recall pooled 191, one below v6's 192, on a new question (a search for "sister steps out"); the tattoo miss is gone and every other counted line passes; 6.34 trains as ruled |
 | R-124 | 6.36 (`fix17cs36`, 6.31 less the 6 contrast rows whose reply has "Maybe"), trained only if 6.34 fails; chosen after 6.33's result, over 6.35; the stepsister miss is one question, not a pattern |
+| R-125 | 6.34 fails at 82 and 83: probe 51203 `statement` 45 (floor 47; it searches "forgot my birthday") and probe recall pooled 191 (a second stepsister query split, on a new question); 6.36 trains as queued |
 
 ---
 
@@ -4678,3 +4679,29 @@ then its gate (a fail stops its stress lines). If 6.34 passed, 6.36 is not train
 and 6.33's misses are different questions on a line at its ceiling, and that the training set has no step-relation
 rows. The panel's estimates, judgements and not measurements: 6.36 passes at 82 and 83 about 33%; 6.35 about 12%; a
 pass here holding at 94 to 96 about 40%.
+
+## R-125 · 2026-11-08 · SPRINT · 6.34 fails the statement line and probe recall by one
+
+Both train reports show 1,066 rows. R-086's unjudged gate fails one line and R-094 one:
+
+| Line (seeds 82, 83) | v6 | 6.33 | 6.34 | Rule | |
+|---|---|---|---|---|---|
+| **probe 51203 `statement`** | 48 | 48 | **45** | **at least 47** | **FAIL** |
+| **probe recall pooled** | **192** | 191 | **191 (95, 96)** | **not below v6's** | **FAIL** |
+| `hard_dev` recall pooled | 157 | 160 | 163 (80, 83) | not below v6's | PASS |
+| probe slips | 3, 4 | 0, 0 | 0, 1 | at most 5 a seed, 8 pooled | PASS |
+| `hard_dev` slips | 0, 3 | 0, 0 | 0, 0 | at most 3 a seed | PASS |
+
+**The statement misses** are the shape R-117's contrast rows were added for, and the risk R-122's panel named for
+removing all 15 memory-word rows: "Esme forgot my birthday again" (twice) and "Ayaan forgot my birthday again" each
+got a search ("Esme born birthday month") and a found fact as the reply ("Your godfather Esme is terrified of
+clowns."). 6.33 had the same 15 rows removed and scored 48, so the line moved with the second removal or with the
+seed draw; one pair of copies cannot say which.
+
+**The probe recall miss** is `58_older_20` at seed 82, "what's growing behind my stepsister's house": it searched
+"sister house colour painted", found nothing and said it did not know (answer: chillies). R-124's panel had counted
+the stepsister query split on one question only (`58_older_17`, 3 files in 72); this is a second question, so the
+split is not confined to one question. The training set has no step-relation rows (R-124).
+
+**Under R-122 and R-124:** 6.34 stops; its stress lines are skipped (`r122_stop_next`), nothing of it is judged.
+6.36 began training at 82 at 04:06, as queued.
