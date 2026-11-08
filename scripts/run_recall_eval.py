@@ -12,6 +12,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
 import time
@@ -47,8 +48,8 @@ SYSTEM = "You are chatting with a friend."
 SYSTEM_WITH_TOOL = "You are chatting with a friend. You can search the earlier conversation."
 
 
-def run_arm(arm: str, item, generate, tool) -> TurnResult:
-    """Return one arm's result on one conversation."""
+def run_arm(arm: str, item, generate, tool, with_tool: str = SYSTEM_WITH_TOOL) -> TurnResult:
+    """Return one arm's result on one conversation; ``with_tool`` opens the tool arms' prompt."""
 
     def search(query: str) -> str:
         result = tool.execute(query)
@@ -60,7 +61,7 @@ def run_arm(arm: str, item, generate, tool) -> TurnResult:
         reply = generate([{"role": "system", "content": SYSTEM}, *turns_from(exchanges), ask])
         return TurnResult(reply=reply, transcript=[reply])
 
-    system = system_prompt_with_tools(SYSTEM_WITH_TOOL)
+    system = system_prompt_with_tools(with_tool)
     if arm == "always_search":
         call = json.dumps([{"tool_name": SEARCH_TOOL_NAME, "parameters": {"query": item.message}}])
         replies = iter([call])
@@ -114,6 +115,11 @@ def main() -> None:
         help="JSON list of chat lines; statement items take them in order (R-083)",
     )
     parser.add_argument(
+        "--system-prompt-file",
+        type=Path,
+        help="text that replaces the tool arms' opening line, before the tool schema (R-137)",
+    )
+    parser.add_argument(
         "--asked-before",
         action="store_true",
         help="an earlier question, declined, as the newest exchange in view (R-081)",
@@ -145,6 +151,11 @@ def main() -> None:
         "chat_check": args.chat_check and args.chat_check.as_posix(),
         "rows": [],
     }
+    with_tool = SYSTEM_WITH_TOOL
+    if args.system_prompt_file:
+        with_tool = args.system_prompt_file.read_text(encoding="utf-8").strip()
+        report["system_prompt_file"] = args.system_prompt_file.as_posix()
+        report["system_prompt_sha256"] = hashlib.sha256(with_tool.encode("utf-8")).hexdigest()
 
     started = time.time()
     if args.max_vram_fraction:
@@ -208,7 +219,7 @@ def main() -> None:
                     if arm == "whole_chat" and kind != OLDER:
                         continue
                     spent.clear()
-                    result = run_arm(arm, item, generate, tool)
+                    result = run_arm(arm, item, generate, tool, with_tool)
                     calls = len(result.queries)
                     report["rows"].append(
                         {
