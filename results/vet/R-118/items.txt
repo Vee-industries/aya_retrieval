@@ -1,0 +1,719 @@
+ITEM 0
+USER: my bike was the best part of my day
+ASSISTANT: Love that for you.
+USER: anyway, enough about the bakery
+ASSISTANT: Tell me more if you feel like it.
+USER: Greta, the sister i keep talking about, broke a forearm skiing
+ASSISTANT: That's a change.
+QUESTION: i'm calling my sister later and can't recall the injury
+ANSWER: Your sister Greta broke a forearm.
+
+ITEM 1
+USER: the rain turned out fine in the end
+ASSISTANT: That's a small win. the rain sounds good.
+USER: my aunt, Nell, writes science fiction novels at night
+ASSISTANT: That sounds exciting for them.
+USER: i'm actually pretty happy with my phone lately
+ASSISTANT: Good to hear my phone is behaving.
+QUESTION: i keep losing what my aunt writes at night
+ANSWER: Your aunt Nell writes science fiction novels.
+
+ITEM 2
+USER: the dishwasher came up at dinner
+ASSISTANT: Sure, we can move on from the dishwasher.
+USER: not much going on, just dealing with my back
+ASSISTANT: Ha, what did they say about my back?
+USER: you'll laugh, my coworker Nell won a lawnmower in a raffle
+ASSISTANT: That sounds exciting for them.
+QUESTION: my coworker won something silly and i've lost what
+ANSWER: Your coworker Nell won a lawnmower in a raffle.
+
+ITEM 3
+USER: drove past Nell's place, my brother, it's been painted lavender
+ASSISTANT: That sounds exciting for them.
+USER: the gym is getting on my nerves
+ASSISTANT: That's frustrating. Is the gym usually like that?
+USER: my laptop came up at dinner
+ASSISTANT: Sure, we can move on from my laptop.
+QUESTION: i'm trying to picture my brother's house, what colour is it
+ANSWER: Your brother Nell's house is painted lavender.
+
+ITEM 4
+USER: the bakery was the best part of my day
+ASSISTANT: Good to hear the bakery is behaving.
+USER: Marc is my aunt, and they rent on the twelfth floor
+ASSISTANT: Oh, that's nice to hear.
+USER: no complaints about my desk this week
+ASSISTANT: That's a small win. my desk sounds good.
+QUESTION: i'm in the lobby and i've lost my aunt's floor
+ANSWER: Your aunt Marc rents on the twelfth floor.
+
+ITEM 5
+USER: so Nell (my coworker) keeps geckos in the yard
+ASSISTANT: How are they finding it?
+USER: not much going on, just dealing with the dentist
+ASSISTANT: What about the dentist got you thinking?
+USER: good news, the fridge sorted itself out
+ASSISTANT: Glad the fridge worked out.
+QUESTION: what my coworker keeps in the yard has gone out of my head
+ANSWER: Your coworker Nell keeps geckos.
+
+ITEM 6
+USER: the dishwasher came up at dinner
+ASSISTANT: Ha, what did they say about the dishwasher?
+USER: my roommate, Nell, had a baby and named them Silas
+ASSISTANT: Thanks for telling me.
+USER: someone at work brought up the kettle today
+ASSISTANT: Fair enough, one thing at a time.
+QUESTION: the name my roommate picked for the baby escapes me now
+ANSWER: Your roommate Nell named the baby Silas.
+
+ITEM 7
+USER: my phone was the best part of my day
+ASSISTANT: Glad my phone worked out.
+USER: ugh, the roof is driving me up the wall
+ASSISTANT: That sounds annoying. Hope the roof settles down soon.
+USER: so Lena (my uncle) finally switched to a Fairphone
+ASSISTANT: How are they finding it?
+QUESTION: not sure what kind of phone my uncle went with
+ANSWER: Your uncle Lena switched to a Fairphone.
+
+ITEM 8
+USER: apparently my uncle Omar finished a 10k on sunday
+ASSISTANT: That sounds exciting for them.
+USER: the snow turned out fine in the end
+ASSISTANT: Love that for you.
+USER: not much going on, just dealing with my bike
+ASSISTANT: Ha, what did they say about my bike?
+QUESTION: my uncle ran something on sunday and i've lost which
+ANSWER: Your uncle Omar finished a 10k.
+
+ITEM 9
+USER: apparently my uncle Tomas finished a relay on sunday
+ASSISTANT: Thanks for telling me.
+USER: the lawn was the best part of my day
+ASSISTANT: Love that for you.
+USER: no complaints about that show this week
+ASSISTANT: That's a small win. that show sounds good.
+QUESTION: i meant to congratulate my uncle but what was the race
+ANSWER: Your uncle Tomas finished a relay.
+
+ITEM 10
+USER: so the kettle has been a pain all week
+ASSISTANT: That sounds annoying. Hope the kettle settles down soon.
+USER: my uncle, Greta, writes fantasy novels at night
+ASSISTANT: How are they finding it?
+USER: i was thinking about the laundry on the way home
+ASSISTANT: Tell me more if you feel like it.
+QUESTION: the kind of books my uncle writes has gone out of my head
+ANSWER: Your uncle Greta writes fantasy novels.
+
+ITEM 11
+USER: the furnace was acting up again today
+ASSISTANT: I'd be fed up with the furnace too.
+USER: talked to Dana today, my coworker, who plays bass in Salt Road
+ASSISTANT: Oh, that's nice to hear.
+USER: good news, the recycling sorted itself out
+ASSISTANT: Good to hear the recycling is behaving.
+QUESTION: i wanted to look up my coworker's band but i lost the name
+ANSWER: Your coworker Dana plays bass in Salt Road.
+
+ITEM 12
+USER: my desk turned out fine in the end
+ASSISTANT: Love that for you.
+USER: my brother Yusuf bought a white Forester from an auction
+ASSISTANT: That's a change.
+USER: so the dishwasher has been a pain all week
+ASSISTANT: I'd be fed up with the dishwasher too.
+QUESTION: i was telling a friend about my brother's car and lost the model
+ANSWER: Your brother Yusuf bought a white Forester.
+
+ITEM 13
+USER: anyway, enough about the fridge
+ASSISTANT: Ha, what did they say about the fridge?
+USER: funny how my back keeps coming up
+ASSISTANT: It does seem to come up a lot.
+USER: Dana is my uncle, and they rent on the seventh floor
+ASSISTANT: Good to know.
+QUESTION: my uncle's floor number has gone right out of my head
+ANSWER: Your uncle Dana rents on the seventh floor.
+
+ITEM 14
+USER: drove past Yusuf's place, my cousin, it's been painted coral
+ASSISTANT: Thanks for telling me.
+USER: anyway, enough about that show
+ASSISTANT: It does seem to come up a lot.
+USER: i lost an hour to the furnace today
+ASSISTANT: Sorry, the furnace sounds like a real hassle.
+QUESTION: my cousin repainted and i've lost the colour
+ANSWER: Your cousin Yusuf's house is painted coral.
+
+ITEM 15
+USER: Omar is my brother, and their boat is called Lady Grace
+ASSISTANT: Oh, that's nice to hear.
+USER: anyway, enough about my laptop
+ASSISTANT: Tell me more if you feel like it.
+USER: not much going on, just dealing with the bus
+ASSISTANT: It does seem to come up a lot.
+QUESTION: what my brother's boat is called has slipped away from me
+ANSWER: Your brother Omar's boat is called Lady Grace.
+
+ITEM 16
+USER: not much going on, just dealing with the wifi
+ASSISTANT: It does seem to come up a lot.
+USER: my aunt Lena adopted a dog named Waffles last month
+ASSISTANT: That's a change.
+USER: the stairs came up at dinner
+ASSISTANT: Sure, we can move on from the stairs.
+QUESTION: the dog my aunt adopted, its name has gone clean out of my head
+ANSWER: Your aunt Lena's dog is called Waffles.
+
+ITEM 17
+USER: my glasses was the best part of my day
+ASSISTANT: Nice, that's one less thing to think about.
+USER: good news, the printer sorted itself out
+ASSISTANT: Good to hear the printer is behaving.
+USER: i just learned Omar was born in October, and that's my cousin
+ASSISTANT: That's a change.
+QUESTION: my cousin's birthday month is on the edge of my memory
+ANSWER: Your cousin Omar was born in October.
+
+ITEM 18
+USER: i lost an hour to my knee today
+ASSISTANT: I'd be fed up with my knee too.
+USER: i lost an hour to the kettle today
+ASSISTANT: That's frustrating. Is the kettle usually like that?
+USER: Marc, the aunt i keep talking about, broke a jaw skiing
+ASSISTANT: How are they finding it?
+QUESTION: my aunt hurt something skiing and i've lost what
+ANSWER: Your aunt Marc broke a jaw.
+
+ITEM 19
+USER: someone at work brought up my glasses today
+ASSISTANT: Tell me more if you feel like it.
+USER: i just learned Greta was born in October, and that's my neighbour
+ASSISTANT: That sounds exciting for them.
+USER: the parking lot turned out fine in the end
+ASSISTANT: Nice, that's one less thing to think about.
+QUESTION: i'm planning something for my neighbour and the month won't come
+ANSWER: Your neighbour Greta was born in October.
+
+ITEM 20
+USER: the bank was acting up again today
+ASSISTANT: That's frustrating. Is the bank usually like that?
+USER: apparently my roommate Yusuf finished a duathlon on sunday
+ASSISTANT: Thanks for telling me.
+USER: my knee came up at dinner
+ASSISTANT: It does seem to come up a lot.
+QUESTION: the race my roommate finished has gone right out of my head
+ANSWER: Your roommate Yusuf finished a duathlon.
+
+ITEM 21
+USER: ugh, my knee is driving me up the wall
+ASSISTANT: Sorry, my knee sounds like a real hassle.
+USER: the parking lot is getting on my nerves
+ASSISTANT: That's frustrating. Is the parking lot usually like that?
+USER: apparently my cousin Ivan finished a 5k on sunday
+ASSISTANT: Good to know.
+QUESTION: i meant to congratulate my cousin but what was the race
+ANSWER: Your cousin Ivan finished a 5k.
+
+ITEM 22
+USER: talked to Nell today, my neighbour, now promoted to supervisor
+ASSISTANT: Thanks for telling me.
+USER: the wifi was acting up again today
+ASSISTANT: Sorry, the wifi sounds like a real hassle.
+USER: good news, the gym sorted itself out
+ASSISTANT: Love that for you.
+QUESTION: my neighbour got a new title and i've lost track of it
+ANSWER: Your neighbour Nell was promoted to supervisor.
+
+ITEM 23
+USER: i'm actually pretty happy with the elevator lately
+ASSISTANT: That's a small win. the elevator sounds good.
+USER: talked to Priya today, my roommate, now promoted to head of sales
+ASSISTANT: That sounds exciting for them.
+USER: so my phone has been a pain all week
+ASSISTANT: Oof. An hour lost to my phone is no fun.
+QUESTION: my roommate's promotion, the title escapes me
+ANSWER: Your roommate Priya was promoted to head of sales.
+
+ITEM 24
+USER: the groceries turned out fine in the end
+ASSISTANT: Glad the groceries worked out.
+USER: apparently my roommate Ivan rides a Ducati to work
+ASSISTANT: That sounds exciting for them.
+USER: funny how the parking lot keeps coming up
+ASSISTANT: What about the parking lot got you thinking?
+QUESTION: i keep losing what my roommate rides
+ANSWER: Your roommate Ivan rides a Ducati.
+
+ITEM 25
+USER: my roommate Omar bought a green Corolla from an auction
+ASSISTANT: Oh, that's nice to hear.
+USER: my back turned out fine in the end
+ASSISTANT: Love that for you.
+USER: not much going on, just dealing with the mail
+ASSISTANT: Tell me more if you feel like it.
+QUESTION: the car my roommate bought won't come back to me
+ANSWER: Your roommate Omar bought a green Corolla.
+
+ITEM 26
+USER: the roof was acting up again today
+ASSISTANT: Sorry, the roof sounds like a real hassle.
+USER: ugh, the groceries is driving me up the wall
+ASSISTANT: That sounds annoying. Hope the groceries settles down soon.
+USER: Dana, the sister i keep talking about, broke a kneecap skiing
+ASSISTANT: Thanks for telling me.
+QUESTION: my sister hurt something skiing and i've lost what
+ANSWER: Your sister Dana broke a kneecap.
+
+ITEM 27
+USER: ugh, my back is driving me up the wall
+ASSISTANT: I'd be fed up with my back too.
+USER: Greta is my neighbour and just got a kitten called Tofu
+ASSISTANT: Thanks for telling me.
+USER: not much going on, just dealing with the laundry
+ASSISTANT: Tell me more if you feel like it.
+QUESTION: the kitten's name, my neighbour's one, won't surface
+ANSWER: Your neighbour Greta called the kitten Tofu.
+
+ITEM 28
+USER: my knee came up at dinner
+ASSISTANT: Fair enough, one thing at a time.
+USER: anyway, enough about my coffee
+ASSISTANT: Fair enough, one thing at a time.
+USER: my aunt Lena just started work as a court reporter
+ASSISTANT: Oh, that's nice to hear.
+QUESTION: my aunt's new job has gone right out of my head
+ANSWER: Your aunt Lena works as a court reporter.
+
+ITEM 29
+USER: my back turned out fine in the end
+ASSISTANT: Good to hear my back is behaving.
+USER: i'm actually pretty happy with the groceries lately
+ASSISTANT: Good to hear the groceries is behaving.
+USER: my sister, Yusuf, writes fantasy novels at night
+ASSISTANT: Thanks for telling me.
+QUESTION: my sister's novels, the genre won't come to me
+ANSWER: Your sister Yusuf writes fantasy novels.
+
+ITEM 30
+USER: someone at work brought up the parking lot today
+ASSISTANT: Sure, we can move on from the parking lot.
+USER: my neighbour Tomas is moving to Valparaiso in the spring
+ASSISTANT: That's a change.
+USER: anyway, enough about the dentist
+ASSISTANT: Ha, what did they say about the dentist?
+QUESTION: the city my neighbour is moving to has slipped my mind
+ANSWER: Your neighbour Tomas is moving to Valparaiso.
+
+ITEM 31
+USER: apparently my roommate Dana rides a Vespa to work
+ASSISTANT: How are they finding it?
+USER: i was thinking about the lawn on the way home
+ASSISTANT: Fair enough, one thing at a time.
+USER: no complaints about my desk this week
+ASSISTANT: That's a small win. my desk sounds good.
+QUESTION: i can't place the bike my roommate rides
+ANSWER: Your roommate Dana rides a Vespa.
+
+ITEM 32
+USER: the lawn let me down this morning
+ASSISTANT: I'd be fed up with the lawn too.
+USER: news from my uncle Priya: they got tickets to Coachella
+ASSISTANT: That sounds exciting for them.
+USER: my knee came up at dinner
+ASSISTANT: It does seem to come up a lot.
+QUESTION: my uncle is off to some festival and i forget which
+ANSWER: Your uncle Priya got tickets to Coachella.
+
+ITEM 33
+USER: so Ivan (my roommate) keeps goats in the yard
+ASSISTANT: How are they finding it?
+USER: no complaints about the wifi this week
+ASSISTANT: Glad the wifi worked out.
+USER: the dentist was acting up again today
+ASSISTANT: Oof. An hour lost to the dentist is no fun.
+QUESTION: what my roommate keeps in the yard has gone out of my head
+ANSWER: Your roommate Ivan keeps goats.
+
+ITEM 34
+USER: so Yusuf (my brother) keeps rabbits in the yard
+ASSISTANT: How are they finding it?
+USER: ugh, my coffee is driving me up the wall
+ASSISTANT: That's frustrating. Is my coffee usually like that?
+USER: i was thinking about that show on the way home
+ASSISTANT: Sure, we can move on from that show.
+QUESTION: the animals my brother keeps, i can never remember what they are
+ANSWER: Your brother Yusuf keeps rabbits.
+
+ITEM 35
+USER: someone at work brought up the fridge today
+ASSISTANT: Tell me more if you feel like it.
+USER: my neighbour Tomas bought a green Corolla from an auction
+ASSISTANT: That sounds exciting for them.
+USER: good news, the elevator sorted itself out
+ASSISTANT: That's a small win. the elevator sounds good.
+QUESTION: the car my neighbour bought won't come back to me
+ANSWER: Your neighbour Tomas bought a green Corolla.
+
+ITEM 36
+USER: my laptop is getting on my nerves
+ASSISTANT: That's frustrating. Is my laptop usually like that?
+USER: the furnace came up at dinner
+ASSISTANT: Ha, what did they say about the furnace?
+USER: my coworker, Ivan, had a baby and named them Nora
+ASSISTANT: Good to know.
+QUESTION: i want to send a gift but i forget my coworker's baby's name
+ANSWER: Your coworker Ivan named the baby Nora.
+
+ITEM 37
+USER: my roommate Priya bought a grey Golf from an auction
+ASSISTANT: That sounds exciting for them.
+USER: good news, the laundry sorted itself out
+ASSISTANT: Nice, that's one less thing to think about.
+USER: the laundry is getting on my nerves
+ASSISTANT: That's frustrating. Is the laundry usually like that?
+QUESTION: my roommate's auction car, i can't for the life of me recall it
+ANSWER: Your roommate Priya bought a grey Golf.
+
+ITEM 38
+USER: so Nell (my brother) keeps tortoises in the yard
+ASSISTANT: How are they finding it?
+USER: no complaints about the furnace this week
+ASSISTANT: That's a small win. the furnace sounds good.
+USER: no complaints about the kettle this week
+ASSISTANT: Love that for you.
+QUESTION: my brother's animals, i've lost what they are
+ANSWER: Your brother Nell keeps tortoises.
+
+ITEM 39
+USER: my coffee is getting on my nerves
+ASSISTANT: That sounds annoying. Hope my coffee settles down soon.
+USER: i was thinking about my laptop on the way home
+ASSISTANT: What about my laptop got you thinking?
+USER: you know my uncle Priya? they live on Juniper Way now
+ASSISTANT: How are they finding it?
+QUESTION: my uncle's new street has gone right out of my head
+ANSWER: Your uncle Priya lives on Juniper Way.
+
+ITEM 40
+USER: my laptop came up at dinner
+ASSISTANT: What about my laptop got you thinking?
+USER: Yusuf is my uncle, and they rent on the ninth floor
+ASSISTANT: How are they finding it?
+USER: i'm actually pretty happy with the elevator lately
+ASSISTANT: Nice, that's one less thing to think about.
+QUESTION: i'm in the lift and can't recall which floor my uncle is on
+ANSWER: Your uncle Yusuf rents on the ninth floor.
+
+ITEM 41
+USER: good news, the rain sorted itself out
+ASSISTANT: Nice, that's one less thing to think about.
+USER: i'm actually pretty happy with the bus lately
+ASSISTANT: Nice, that's one less thing to think about.
+USER: news from my brother Yusuf: they opened a vintage shop
+ASSISTANT: That's a change.
+QUESTION: my brother's new shop has slipped my mind
+ANSWER: Your brother Yusuf opened a vintage shop.
+
+ITEM 42
+USER: someone at work brought up the wifi today
+ASSISTANT: Sure, we can move on from the wifi.
+USER: funny how the parking lot keeps coming up
+ASSISTANT: What about the parking lot got you thinking?
+USER: Nell is my neighbour, and they rent on the twentieth floor
+ASSISTANT: That's a change.
+QUESTION: i'm in the lobby and i've lost my neighbour's floor
+ANSWER: Your neighbour Nell rents on the twentieth floor.
+
+ITEM 43
+USER: i lost an hour to the rain today
+ASSISTANT: I'd be fed up with the rain too.
+USER: my laptop was the best part of my day
+ASSISTANT: That's a small win. my laptop sounds good.
+USER: you know my brother Yusuf? they teach physics at the high school
+ASSISTANT: Oh, that's nice to hear.
+QUESTION: i was asked what my brother teaches and i had nothing
+ANSWER: Your brother Yusuf teaches physics.
+
+ITEM 44
+USER: you know my sister Greta? they teach economics at the high school
+ASSISTANT: Good to know.
+USER: ugh, my phone is driving me up the wall
+ASSISTANT: Sorry, my phone sounds like a real hassle.
+USER: i lost an hour to my back today
+ASSISTANT: That sounds annoying. Hope my back settles down soon.
+QUESTION: i was asked what my sister teaches and i had nothing
+ANSWER: Your sister Greta teaches economics.
+
+ITEM 45
+USER: my coffee was acting up again today
+ASSISTANT: Sorry, my coffee sounds like a real hassle.
+USER: ugh, my desk is driving me up the wall
+ASSISTANT: That's frustrating. Is my desk usually like that?
+USER: my neighbour Priya just started work as a welder
+ASSISTANT: How are they finding it?
+QUESTION: remind me what my neighbour does for work
+ANSWER: Your neighbour Priya works as a welder.
+
+ITEM 46
+USER: funny how the printer keeps coming up
+ASSISTANT: It does seem to come up a lot.
+USER: my cousin Lena has taken up birdwatching on weekends
+ASSISTANT: Good to know.
+USER: someone at work brought up that show today
+ASSISTANT: Ha, what did they say about that show?
+QUESTION: what my cousin took up lately has gone fuzzy
+ANSWER: Your cousin Lena has taken up birdwatching.
+
+ITEM 47
+USER: drove past Nell's place, my cousin, it's been painted teal
+ASSISTANT: That sounds exciting for them.
+USER: the printer turned out fine in the end
+ASSISTANT: That's a small win. the printer sounds good.
+USER: ugh, the laundry is driving me up the wall
+ASSISTANT: That sounds annoying. Hope the laundry settles down soon.
+QUESTION: what colour my cousin's place is now won't come to me
+ANSWER: Your cousin Nell's house is painted teal.
+
+ITEM 48
+USER: good news, that show sorted itself out
+ASSISTANT: Good to hear that show is behaving.
+USER: apparently my roommate Marc finished a 10k on sunday
+ASSISTANT: Good to know.
+USER: my desk was the best part of my day
+ASSISTANT: Glad my desk worked out.
+QUESTION: i want to say well done to my roommate and the race won't come to me
+ANSWER: Your roommate Marc finished a 10k.
+
+ITEM 49
+USER: someone at work brought up the printer today
+ASSISTANT: Sure, we can move on from the printer.
+USER: so the dishwasher has been a pain all week
+ASSISTANT: I'd be fed up with the dishwasher too.
+USER: Ivan, the aunt i keep talking about, broke a forearm skiing
+ASSISTANT: That's a change.
+QUESTION: i should ask how my aunt is healing, what was it they broke
+ANSWER: Your aunt Ivan broke a forearm.
+
+ITEM 50
+USER: i was thinking about the rain on the way home
+ASSISTANT: Sure, we can move on from the rain.
+USER: my bike was acting up again today
+ASSISTANT: Oof. An hour lost to my bike is no fun.
+USER: apparently my coworker Tomas rides a Kawasaki to work
+ASSISTANT: Oh, that's nice to hear.
+QUESTION: i keep losing what my coworker rides
+ANSWER: Your coworker Tomas rides a Kawasaki.
+
+ITEM 51
+USER: i just learned Tomas was born in August, and that's my sister
+ASSISTANT: Good to know.
+USER: good news, the gym sorted itself out
+ASSISTANT: That's a small win. the gym sounds good.
+USER: anyway, enough about the wifi
+ASSISTANT: Ha, what did they say about the wifi?
+QUESTION: the month my sister was born escapes me
+ANSWER: Your sister Tomas was born in August.
+
+ITEM 52
+USER: talked to Omar today, my sister, now promoted to team lead
+ASSISTANT: That's a change.
+USER: funny how the snow keeps coming up
+ASSISTANT: Tell me more if you feel like it.
+USER: the mail is getting on my nerves
+ASSISTANT: I'd be fed up with the mail too.
+QUESTION: my sister got a new title and i've lost track of it
+ANSWER: Your sister Omar was promoted to team lead.
+
+ITEM 53
+USER: Greta, the coworker i keep talking about, broke a forearm skiing
+ASSISTANT: That's a change.
+USER: funny how the stairs keeps coming up
+ASSISTANT: Tell me more if you feel like it.
+USER: my glasses came up at dinner
+ASSISTANT: Fair enough, one thing at a time.
+QUESTION: my coworker hurt something skiing and i've lost what
+ANSWER: Your coworker Greta broke a forearm.
+
+ITEM 54
+USER: anyway, enough about the parking lot
+ASSISTANT: Tell me more if you feel like it.
+USER: talked to Dana today, my aunt, now promoted to manager
+ASSISTANT: Thanks for telling me.
+USER: not much going on, just dealing with the elevator
+ASSISTANT: What about the elevator got you thinking?
+QUESTION: my aunt's promotion, the title escapes me
+ANSWER: Your aunt Dana was promoted to manager.
+
+ITEM 55
+USER: so the elevator has been a pain all week
+ASSISTANT: I'd be fed up with the elevator too.
+USER: Marc, the coworker i keep talking about, broke a thumb skiing
+ASSISTANT: Oh, that's nice to hear.
+USER: the garden let me down this morning
+ASSISTANT: That sounds annoying. Hope the garden settles down soon.
+QUESTION: my coworker hurt something skiing and i've lost what
+ANSWER: Your coworker Marc broke a thumb.
+
+ITEM 56
+USER: my brother Dana bought a blue Tacoma from an auction
+ASSISTANT: How are they finding it?
+USER: i'm actually pretty happy with the bank lately
+ASSISTANT: Good to hear the bank is behaving.
+USER: no complaints about the bakery this week
+ASSISTANT: That's a small win. the bakery sounds good.
+QUESTION: i was telling a friend about my brother's car and lost the model
+ANSWER: Your brother Dana bought a blue Tacoma.
+
+ITEM 57
+USER: my laptop let me down this morning
+ASSISTANT: I'd be fed up with my laptop too.
+USER: the groceries came up at dinner
+ASSISTANT: Fair enough, one thing at a time.
+USER: my aunt Greta just started work as a court reporter
+ASSISTANT: How are they finding it?
+QUESTION: someone asked about my aunt's work and i had nothing
+ANSWER: Your aunt Greta works as a court reporter.
+
+ITEM 58
+USER: so the elevator has been a pain all week
+ASSISTANT: Oof. An hour lost to the elevator is no fun.
+USER: my coffee let me down this morning
+ASSISTANT: Oof. An hour lost to my coffee is no fun.
+USER: news from my cousin Yusuf: they opened a vintage shop
+ASSISTANT: That sounds exciting for them.
+QUESTION: the shop my cousin opened, i can't recall what it sells
+ANSWER: Your cousin Yusuf opened a vintage shop.
+
+ITEM 59
+USER: anyway, enough about the groceries
+ASSISTANT: Sure, we can move on from the groceries.
+USER: funny how the lawn keeps coming up
+ASSISTANT: Tell me more if you feel like it.
+USER: talked to Tomas today, my brother, now promoted to team lead
+ASSISTANT: Oh, that's nice to hear.
+QUESTION: i want to congratulate my brother and the new role won't come to me
+ANSWER: Your brother Tomas was promoted to team lead.
+
+ITEM 60
+USER: i was thinking about the bakery on the way home
+ASSISTANT: Fair enough, one thing at a time.
+USER: drove past Tomas's place, my coworker, it's been painted mustard
+ASSISTANT: That's a change.
+USER: not much going on, just dealing with the lawn
+ASSISTANT: It does seem to come up a lot.
+QUESTION: the colour of my coworker's house has slipped my mind
+ANSWER: Your coworker Tomas's house is painted mustard.
+
+ITEM 61
+USER: i lost an hour to the parking lot today
+ASSISTANT: That's frustrating. Is the parking lot usually like that?
+USER: the groceries turned out fine in the end
+ASSISTANT: Good to hear the groceries is behaving.
+USER: my coworker Lena has taken up glassblowing on weekends
+ASSISTANT: Oh, that's nice to hear.
+QUESTION: i was trying to think of what my coworker does on weekends
+ANSWER: Your coworker Lena has taken up glassblowing.
+
+ITEM 62
+USER: i'm actually pretty happy with my knee lately
+ASSISTANT: Good to hear my knee is behaving.
+USER: my coffee came up at dinner
+ASSISTANT: Sure, we can move on from my coffee.
+USER: drove past Marc's place, my neighbour, it's been painted mustard
+ASSISTANT: Thanks for telling me.
+QUESTION: the colour of my neighbour's house has slipped my mind
+ANSWER: Your neighbour Marc's house is painted mustard.
+
+ITEM 63
+USER: so the wifi has been a pain all week
+ASSISTANT: I'd be fed up with the wifi too.
+USER: so that show has been a pain all week
+ASSISTANT: Sorry, that show sounds like a real hassle.
+USER: talked to Marc today, my coworker, who plays bass in Salt Road
+ASSISTANT: That's a change.
+QUESTION: i wanted to look up my coworker's band but i lost the name
+ANSWER: Your coworker Marc plays bass in Salt Road.
+
+ITEM 64
+USER: not much going on, just dealing with the recycling
+ASSISTANT: Tell me more if you feel like it.
+USER: someone at work brought up the printer today
+ASSISTANT: Fair enough, one thing at a time.
+USER: Greta is my cousin and just got a kitten called Pickle
+ASSISTANT: How are they finding it?
+QUESTION: my cousin's kitten has a name and i've lost it
+ANSWER: Your cousin Greta called the kitten Pickle.
+
+ITEM 65
+USER: for the record my neighbour Greta only ever orders a cortado
+ASSISTANT: Good to know.
+USER: the bank turned out fine in the end
+ASSISTANT: Glad the bank worked out.
+USER: the elevator came up at dinner
+ASSISTANT: Ha, what did they say about the elevator?
+QUESTION: i'm ordering for my neighbour and the drink won't come to me
+ANSWER: Your neighbour Greta only orders a cortado.
+
+ITEM 66
+USER: no complaints about the bank this week
+ASSISTANT: Good to hear the bank is behaving.
+USER: you know my coworker Yusuf? they live on Hazel Drive now
+ASSISTANT: How are they finding it?
+USER: the snow let me down this morning
+ASSISTANT: That's frustrating. Is the snow usually like that?
+QUESTION: where my coworker lives now just won't come to me
+ANSWER: Your coworker Yusuf lives on Hazel Drive.
+
+ITEM 67
+USER: news from my roommate Marc: they got tickets to Oktoberfest
+ASSISTANT: Good to know.
+USER: so the snow has been a pain all week
+ASSISTANT: Oof. An hour lost to the snow is no fun.
+USER: ugh, my coffee is driving me up the wall
+ASSISTANT: Sorry, my coffee sounds like a real hassle.
+QUESTION: i've lost which festival my roommate is going to
+ANSWER: Your roommate Marc got tickets to Oktoberfest.
+
+ITEM 68
+USER: not much going on, just dealing with my coffee
+ASSISTANT: It does seem to come up a lot.
+USER: apparently my coworker Priya rides a Triumph to work
+ASSISTANT: That sounds exciting for them.
+USER: that show was the best part of my day
+ASSISTANT: That's a small win. that show sounds good.
+QUESTION: i can't place the bike my coworker rides
+ANSWER: Your coworker Priya rides a Triumph.
+
+ITEM 69
+USER: the bank was the best part of my day
+ASSISTANT: Good to hear the bank is behaving.
+USER: the lawn was the best part of my day
+ASSISTANT: Love that for you.
+USER: my brother, Ivan, writes romance novels at night
+ASSISTANT: How are they finding it?
+QUESTION: i keep losing what my brother writes at night
+ANSWER: Your brother Ivan writes romance novels.
+
+ITEM 70
+USER: that show turned out fine in the end
+ASSISTANT: Love that for you.
+USER: the bank was acting up again today
+ASSISTANT: Sorry, the bank sounds like a real hassle.
+USER: i just learned Nell was born in August, and that's my aunt
+ASSISTANT: That's a change.
+QUESTION: when my aunt was born has gone right out of my head
+ANSWER: Your aunt Nell was born in August.
+
+ITEM 71
+USER: someone at work brought up the rain today
+ASSISTANT: Sure, we can move on from the rain.
+USER: someone at work brought up my phone today
+ASSISTANT: Tell me more if you feel like it.
+USER: news from my sister Yusuf: they opened a candle shop
+ASSISTANT: Thanks for telling me.
+QUESTION: my sister's new shop has slipped my mind
+ANSWER: Your sister Yusuf opened a candle shop.

@@ -130,6 +130,7 @@ carry their own provenance (command, git commit, package versions).
 | R-115 | The control `fix17cs2x` (6.2 plus one epoch on its own rows), reported only: `hard_dev` recall 160 at 82 and 83, against 6.2's 166 and 6.21's 155; the extra epoch and R-110's rows each cost about half of 6.21's drop |
 | R-116 | 6.3 (`fix17cs3`) fails at 82 and 83: probe slips 7 at seed 83 (at most 5), a new "<Name>, who is my <relation>" shape, and probe 51203 `statement` 45 (at least 47); not judged; Kevin rules no more stones on top of earlier versions and that a fail does not end the tries; v6 at 94 to 96 queued |
 | R-117 | 6.31 (`fix17cs31`), panelled before it trains: 6.3's rows with the 52 indirect-question answers given the pool's scripted answer and 24 contrast statements (another person forgets or loses something, no search), from scratch; candidate 10 at 82 and 83 since R-093; gates as R-114 items 1 and 2 |
+| R-118 | 6.311 (`fix17cs311`, one epoch on top of 6.31) and 6.32 (`fix17cs32`, from scratch), each with 72 new in-view rows answered with the scripted answer; candidates 11 and 12 since R-093; the dilution diagnosis checked and rejected; which copy goes to 94 to 96 fixed before any result |
 
 ---
 
@@ -4417,3 +4418,68 @@ on the CPU once its plain sets are scored.
 5. **The panel's estimates, judgements and not measurements:** about 35% that 6.31 passes every line at 82 and 83;
    about 40% that a pass holds at 94 to 96; about 14% for both (the against lane says about 9%). Most likely to fail:
    the probe `statement` line, `hard_dev` recall against v6's, and the judged `in_view` lines.
+
+## R-118 · 2026-11-07 · SPRINT · 6.311 and 6.32: scripted in-view rows, on top and from scratch
+
+**Why.** 6.31 at seed 82 (R-117) passed every counted line read so far, but answered fewer `in_view` items (the
+fact is still in the chat, so no search is needed) than v6 at 82: `hard_dev` 32 against 37, probe 51203 42 against 45.
+All 16 `hard_dev` misses have one shape: no search (right), then a reply of sympathy that names no fact ("It sounds
+like you're feeling a bit lost or confused about your coach's job interview."). 7 of v6's 11 misses have the same
+shape; v5 had it too (R-063). **Kevin's ask:** "that's why i want to do the 6.311 because it'll give us that extra
+layer on top to take care of in view hopefuly". 6.311 is trained on top of 6.31, against R-116's ruling (no versions
+on top of earlier ones), at Kevin's word.
+
+**The panel** (four lanes, one arguing against; one agent; transcript audited: 25 tool calls, it read `RECORDS.md`,
+the build, train and builder scripts, training sets and results, searched `src/` only with
+`--exclude=pool_independent.py`, opened no sealed or token file, wrote only in scratch, used no GPU).
+
+- **Checked and rejected: dilution.** My first diagnosis was that 6.31's 150 `in_view` rows (v6's own) are a smaller
+  share of a larger set (13.6% of 1,103 against v6's 18.8% of 800). The share does not track the score: `hard_dev`
+  `in_view` at 82 and 83 is 37, 37 for v6 (18.8%), 39, 40 for 6.2 (15.5%), 38, 34 for 6.3 (13.9%), and 32 at 82 for
+  6.31 (13.6%). 6.3 and 6.31 have the same share.
+- **More likely causes.** 26 of the 150 `in_view` targets, base's own replies kept since v6 because they name the
+  value somewhere, open "It sounds like..." ("It sounds like you're trying to remember what your aunt ran. Was it a
+  5k?"). R-117's 24 contrast rows pair a memory word with a reply that names no fact, 15 of them.
+- **For 6.311.** Cheap at 82 and 83, keeps 6.31's lead (`hard_dev` recall 82 against 74 at seed 82, probe slips 0
+  against 3), a narrow step.
+- **Other: 6.32 from scratch.** Follows R-116; cheaper to confirm at 94 to 96 (6.311 there needs 6.31 trained there
+  first).
+- **Against.** Steps on top moved pooled `hard_dev` recall by +9, +3, −7 and −11, and the extra epoch alone cost 6
+  (R-115). Twice before, changing the in-view rows gained 3 in-view answers and lost 5 or 6 found-fact answers (R-063,
+  R-064). 6.3's `hard_dev` `in_view` moved 38 to 34 between seeds, so 6.31's drop is about 1.5 seed spreads. More rows
+  that answer a memory-word ask from the chat may bring back R-112's shape. Base-written rows add more "It sounds like"
+  targets, so the rows are scripted.
+- **Ruling.** Build scripted rows on the CPU; train both; fix which copy goes forward now.
+
+**The rows** (`scripts/records/build_r118.py`; deterministic, two runs gave the same SHA-256 for both sets): 72 fresh
+train-pool conversations (seeds from 118,000,001, clear of every builder's), the fact among the last exchanges,
+asked in an indirect form (the template's own or `train_phrasings.MORE_INDIRECT`), answered with the pool's scripted
+answer ("Your sister Greta broke a forearm.") and no search. 1 conversation was skipped for sharing a four-word run
+with the probe or `hard_dev` pools. Every answer names the value and passes `slip_shape` and R-117's voice check; no
+row repeats one of 6.31's. **Vetted** (`results/vet/R-118/`): one fresh Sonnet judge, its own folder, marked the 72 answers under a new in-view rubric written before marking: 72 of 72 right; it noted that 2 leave out a detail the question did not ask ("from an auction") and 1 gives all the chat holds ("opened a vintage shop" for what the shop sells). Transcript audited: it read and wrote only its own folder. It took 39 seconds.
+
+- **6.32 = `fix17cs32`:** 6.31's 1,103 rows byte for byte, then the 72: 1,175 rows, `in_view` 222 (18.9%). 6.31's
+  recipe from no adapter. The train report must show 1,175 rows and `decision_rows` 231.
+- **6.311 = `fix17cs311`:** 216 of 6.31's rows (19.6% of each kind, largest remainder, random seed 311), then the 72:
+  288 rows. One epoch at peak 5e-5 (half of 6.21's) on top of `fix17cs31_<seed>`, `--loss-on chat_decision`, at 82
+  on 6.31's seed-82 adapter and at 83 on its seed-83 one. The train report must show 288 rows, `init_tensors_loaded`
+  504 and `adapter_changed` true.
+
+**Order on the GPU** (backlog lines 168 to 189): after 6.31's eight stress runs, 6.311 at 82 and 83, then 6.32 at 82
+and 83, then R-086's unjudged gate for each (a fail stops that copy's later lines), then each copy's eight stress
+runs. R-086's judged sheets run on the CPU once a copy's plain sets are scored.
+
+**Recorded before either trains:**
+
+1. **Pass rules:** R-114 items 1 and 2, word for word, for each copy.
+2. **Which goes to 94 to 96:** of 6.31, 6.311 and 6.32, the copies that pass R-114 item 1; of those, the one with the
+   highest pooled `hard_dev` recall at 82 and 83; a tie goes to the copy with fewer changes, in the order 6.31, 6.32,
+   6.311. Only that copy is read at 94 to 96. If it is 6.311, 6.31 is trained at 94 to 96 first. The 94-to-96
+   training starts by Monday 04:00.
+3. **On a full pass:** that copy's seed 82 replaces v6 and is the base for 7 (R-111).
+4. **The write-up discloses:** candidates 11 and 12 since R-093; that 6.311 goes against R-116's ruling, at Kevin's
+   word, and its replay share; that the in-view kind was read from `hard_dev`, probe and screen misses, so those
+   `in_view` lines are not independent evidence for it; the rejected dilution diagnosis; that the scripted in-view
+   answers are new; the pick among copies at 82 and 83.
+5. **The panel's estimates, judgements and not measurements,** pass at 82 and 83: 6.32 about 30%; 6.311 about 20%
+   (the against lane says 12%); `in_view` up by 4 or more for either copy about 50%.

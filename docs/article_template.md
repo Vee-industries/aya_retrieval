@@ -372,6 +372,9 @@ controls and 20 answers it had passed. Three fresh judges passed all 15 replacem
   The next try, 6.31, again from scratch, gives its question-as-statement rows one fixed answer
   form ("Your sister Tomas keeps geckos.") and adds 24 chats where someone else forgets or loses
   something and the reply needs no search (R-117).
+  6.31 answered fewer questions whose answer is still in the chat; it offered sympathy instead.
+  Two copies add 72 such chats answered plainly: 6.311, one short epoch on top of 6.31 (Kevin's
+  call), and 6.32, from scratch. Which goes on was fixed before either was read (R-118).
 - **One author for train and held-out.** The held-out pool shares no content with training but was
   written by the same assistant; condition C and D's independent pool exists for this reason.
 - **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
