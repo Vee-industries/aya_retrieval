@@ -153,6 +153,7 @@ carry their own provenance (command, git commit, package versions).
 | R-138 | Kevin: 6.38 is the last try. Break tests registered before they run: four harder conditions at a new seed (74001) on 6.37, 6.38 and base; a break must be confirmed at 75001 before any targeted fix, which is judged at 75002 on a held-out form where one exists; go/no-go Mon 09:00 |
 | R-139 | Rigor additions, registered before any is computed: one primary development comparison (R-016's test) with Holm on a named secondary family; a five-way failure breakdown; recall by distance and crowding; an independent development set written blind to the generator (report only); Kevin's blind check of 50 scored answers |
 | R-140 | 6.38 fails R-134 on one line (`hard_dev` recall pooled over 82 and 83: 157 against 6.37's 163) and passes the other sixteen; 6.37 ships; Kevin's last try is spent; the GPU time freed goes to 6.37's missing stress runs at seeds 97 to 99 |
+| R-141 | R-139 items 1 to 3: the primary and all eight secondary tests favour 6.37 (Holm); but the 96 recall questions come from only 5 fact templates on probe and 8 on `hard_dev`, so the item-level p-values overstate the evidence; template-resampled intervals still exclude zero; 6.37's main `hard_dev` failure is finding the fact and answering wrong; seed 82 is the lowest of eight seeds there |
 
 ---
 
@@ -5312,3 +5313,62 @@ queue had no guard and were given one by hand.
 **Freed GPU time** (about three and a half hours) goes to R-139: 6.37's held-out corrections and phone runs at seeds
 97 to 99 (twelve runs), so every condition has eight training seeds. R-138's break tests run as queued: 6.37's, then
 base's; 6.38's are skipped by the same stop file.
+
+## R-141 · 2026-11-08 · SPRINT · R-139's development analysis, items 1 to 3
+
+`scripts/records/rigor_r139.py`, output `results/analysis/R-139/dev_rigor.json`, run once at 19:50 after R-139's
+amendment was committed. Nothing in R-139 was changed after this run.
+
+**Primary** (`hard_dev` recall, 6.37 seed 82 against base, 96 items): base alone right on 4, 6.37 alone right on 57;
+exact sign test p = 4.9e-13, below R-016's 0.01.
+
+**Secondary** (Holm at 0.05, all eight significant, each 6.37 seed 82 against base on the same items):
+
+| Test | Base alone right | 6.37 alone right | Items | p |
+|---|---|---|---|---|
+| probe recall | 0 | 66 | 96 | 2.7e-20 |
+| held-out corrections, probe | 0 | 87 | 96 | 1.3e-26 |
+| held-out corrections, `hard_dev` | 2 | 75 | 96 | 4.0e-20 |
+| phone typing, probe | 0 | 55 | 96 | 5.6e-17 |
+| phone typing, `hard_dev` | 2 | 49 | 96 | 1.2e-12 |
+| right decision, `in_view` (both sets) | 0 | 20 | 96 | 1.9e-06 |
+| right decision, `never_told` (both sets) | 0 | 48 | 96 | 7.1e-15 |
+| right decision, `statement` (both sets) | 0 | 29 | 96 | 3.7e-09 |
+
+**The finding that limits all of the above: few fact templates.** The 96 recall questions on probe are built from 5
+fact templates, and those on `hard_dev` from 8. The sign test treats each question as independent; questions from
+one template are not, so **the p-values above overstate the evidence** and are reported as computed, with this
+caveat beside them. The template-resampled intervals are the measure that respects the dependence. With 5 and 8
+groups a percentile bootstrap is itself rough, and it is reported as rough, not as exact coverage.
+
+**Across training seeds** (recall of 96; gain = 6.37's rate pooled over the seeds minus base's, 95% interval
+resampling templates):
+
+| Condition | Base | 6.37 per seed (82, 83, 94 to 99) | Range | Gain [interval] | Templates |
+|---|---|---|---|---|---|
+| probe | 30 | 96, 96, 96, 95, 96, 96, 95, 96 | 95 to 96 | +0.685 [+0.578, +0.845] | 5 |
+| `hard_dev` | 20 | 73, 90, 77, 87, 83, 79, 80, 76 | 73 to 90 | +0.632 [+0.521, +0.759] | 8 |
+| held-out corrections, probe | 9 | 96, 96, 96, 95, 93 (82 to 96 only) | 93 to 96 | +0.898 [+0.791, +0.986] | 5 |
+| held-out corrections, `hard_dev` | 8 | 81, 86, 83, 83, 77 (82 to 96 only) | 77 to 86 | +0.771 [+0.650, +0.870] | 8 |
+| phone typing, probe | 32 | 87, 89, 91, 85, 85 (82 to 96 only) | 85 to 91 | +0.577 [+0.501, +0.673] | 5 |
+| phone typing, `hard_dev` | 20 | 67, 80, 60, 77, 72 (82 to 96 only) | 60 to 80 | +0.533 [+0.389, +0.681] | 8 |
+
+The seed spread on `hard_dev` is 17 answers of 96 (73 to 90): training seed alone moves the score that much. **The
+shipping copy, seed 82, is the lowest of the eight on `hard_dev` recall.** It was chosen before seeds 94 to 99 existed,
+because the gates are set at 82 and 83. Reported, not acted on: picking a seed by its development score would be
+selection on the development set, and which adapters enter the sealed run is R-016's and Kevin's call.
+
+**Failure stages of wrong recall answers** (R-139 item 2; plain sets):
+- probe: base 66 wrong (59 never searched, 3 searched and missed, 1 named a wrong value, 3 found and still wrong);
+  6.37 at eight seeds: 2 wrong in all (one never searched, one search missed).
+- `hard_dev`: base 76 wrong (38 never searched, 7 missed, 9 named a wrong value, 21 found and still wrong, 1 ran out of
+  calls). 6.37 at seed 82: 23 wrong, of which **18 found the fact and still answered wrong**, 3 missed, 1 never
+  searched, 1 named a wrong value. Over the eight seeds the same stage leads at six of them (3 to 18 a seed). So
+  6.37's remaining `hard_dev` gap is mostly not search; it is reading or wording the answer from a result that holds
+  it. This set cannot be a source of training rows (R-138), so it is reported as the main limit, and R-139's
+  independent set will show whether the same stage leads there.
+
+**Distance** (R-139 item 3; quarter 0 = told earliest): on probe 6.37 is at or near full in every quarter at both
+sizes. On `hard_dev`, 419-message chats, the earliest quarter is the weakest at most seeds (7 to 10 of 13, against 11
+to 13 of 14 in the latest); in 58-message chats there is no such pattern. A mild fall with distance in long chats,
+descriptive, on 10 to 15 items a cell. Crowding (1 against 4 decoys) waits for R-138's `d4` runs.
