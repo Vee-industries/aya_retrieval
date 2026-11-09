@@ -6,8 +6,6 @@ Why: the scorer calls a reply right when it contains the answer and no wrong val
 50 replies right or wrong without seeing the model or the scorer's verdict (sheet.json). His marks
 (marks.json) were saved before key.json was read. Agreement and Cohen's kappa say how far the
 scorer's verdicts can be trusted; each disagreement is listed so its cause can be read.
-corrections.json holds marks Kevin changed after seeing the disagreements, each with its reason;
-agreement is reported both as first marked and as corrected.
 
 Writes results/human_check/R-139/agreement.json.
 """
@@ -32,9 +30,7 @@ def main() -> None:
     sheet = {e["n"]: e for e in json.loads((DIR / "sheet.json").read_text(encoding="utf-8"))}
     key = {e["n"]: e for e in json.loads((DIR / "key.json").read_text(encoding="utf-8"))}
     raw = json.loads((DIR / "marks.json").read_text(encoding="utf-8"))
-    first = {int(n): m.lower() == "r" for n, m in raw.items()}
-    fixes = json.loads((DIR / "corrections.json").read_text(encoding="utf-8"))
-    marks = first | {int(n): c["now"].lower() == "r" for n, c in fixes.items()}
+    marks = {int(n): m.lower() == "r" for n, m in raw.items()}
     assert sorted(marks) == sorted(sheet) == sorted(key) == list(range(1, 51))
     ns = sorted(marks)
     kevin = [marks[n] for n in ns]
@@ -57,8 +53,6 @@ def main() -> None:
     report = {
         "n": len(ns),
         "agree": sum(k == s for k, s in zip(kevin, scorer, strict=True)),
-        "agree_as_first_marked": sum(first[n] == key[n]["scorer"] for n in ns),
-        "corrections": fixes,
         "kappa": round(kappa(kevin, scorer), 3),
         "kevin_right_scorer_right": table[(True, True)],
         "kevin_right_scorer_wrong": table[(True, False)],

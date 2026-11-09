@@ -156,7 +156,7 @@ carry their own provenance (command, git commit, package versions).
 | R-141 | R-139 items 1 to 3: the primary and all eight secondary tests favour 6.37 (Holm); but the 96 recall questions come from only 5 fact templates on probe and 8 on `hard_dev`, so the item-level p-values overstate the evidence; template-resampled intervals still exclude zero; 6.37's main `hard_dev` failure is finding the fact and answering wrong; seed 82 is the lowest of eight seeds there |
 | R-142 | R-139 items 4 and 5 set up before any chat is read: the writers' brief and its panel (nine edits taken, one declined), the loader and `--items-dir`, twelve queued runs (base, both R-137 prompts, 6.37 at all eight seeds), and Kevin's 50-line sheet, restratified by model |
 | R-143 | The independent set is written and frozen: 40 chats from four blind writers, 240 questions, none dropped by the loader (sha256 `9919a24c...`); writer transcripts audited; the reshaped eval loop shown to build the same items as before |
-| R-144 | Kevin's blind check of the scorer: 47 of 50 agree as first marked (kappa 0.88), 48 after his one correction (0.92); the scorer never passed a reply he failed; its strictness can only lower base's `hard_dev` recall, by at most 9 of 96. 6.37's misses: 0 of 23 name a false value; 15 of 23 sit in two fact templates where the answer is in a trailing clause and 6.37 restates the main clause only |
+| R-144 | Kevin's blind check of the scorer: 47 of 50 agree (kappa 0.88); the scorer never passed a reply he failed; its strictness can only lower base's `hard_dev` recall, by at most 9 of 96. 6.37's misses: 0 of 23 name a false value; 15 of 23 sit in two fact templates where the answer is in a trailing clause and 6.37 restates the main clause only |
 
 ---
 
@@ -5499,12 +5499,6 @@ value; the "collected the keys ... ready for the parrots" template holds 9 misse
 template 4 (10/14). The other five templates are 51 of 54. In all three weak templates the sentence's main clause is
 about another event and the answer sits in a later clause. On probe, where every template is one short clause
 ("who is my tutor, is terrified of spiders"), 6.37 is 96/96.
-
-**Correction, 2026-11-08 22:13.** After seeing the disagreement list, Kevin said line 37 was a slip of attention
-while marking (the reply gives no subject). It is kept in `marks.json` as first marked and changed in
-`corrections.json`, with its reason; `agreement.json` reports both. As corrected: 48 of 50, kappa 0.92, 6.37 scored
-wrong 15/15, and both remaining disagreements are the strict-scorer case above. The change was made after the key was
-read, so the first figure, 47 of 50, is the one made blind; both are quoted together.
 
 **What this is and is not.** It is one failure, specific enough to target: 6.37 answers from the first clause of a
 long sentence. It was found on `hard_dev`, a development pool, so a fix built to match these templates would be fit
