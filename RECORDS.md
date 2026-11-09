@@ -173,6 +173,7 @@ carry their own provenance (command, git commit, package versions).
 | R-158 | 7.1 on the second independent set (report only, registered first): it searches tag questions 40 and 39 of 40 (6.37 12 and 7) and every right answer is found by search (18 and 18; 6.37 6 and 4), but recall is not higher (51 and 52 against 53 and 53): it corrects more false claims (7 and 5 of 20 against 3 and 1) and confirms fewer true ones (11 and 13 against 16 and 16) |
 | R-159 | The freeze panel (three Opus lanes, audited): two say freeze 6.37 now; the third would run a 7.2 (7.1 with tag-question searches in the claim's own words) on a new third set, but only if Kevin overrides R-156's reading and the pass rule is rewritten before training; Kevin decides; the prompted-baseline control on the second set registered, report only |
 | R-160 | **The model is frozen: 6.37 (`fix17cs37` seed 82)**, on Kevin's word after the panel; `results/freeze/sealed_manifest.json` written at commit 2b04826 and checked; every frozen hash matches R-154's trial manifest; no 7.2; the sealed run waits for Kevin's go |
+| R-161 | R-159's prompted-baseline control on the second set (report only): both R-137 prompts lower base's recall (18 and 20 of 120 against 27), as on the first set (19 and 15 against 26); 6.37 seed 82's 53 is above each (sign test p below 0.000001) |
 
 ---
 
@@ -6241,3 +6242,26 @@ manifest; its judged sheets end with `judges` on every judge transcript (R-154).
 registered (R-159's prompted-baseline control on the second set) change nothing that ships. The write-up and model
 card are rebuilt for 6.37, leading with the independent sets (R-157 limits, R-159's split of recall into `older` and
 `confirm` and the candidate ledger).
+
+## R-161 · 2026-11-09 · SPRINT · The prompted-baseline control on the second set
+
+**Result** (R-159's registration; `blind2_base_prompta` and `blind2_base_promptb`, both on the frozen second set,
+nothing dropped; finished 15:01). Recall (`older` and `confirm`, of 120), with the first set beside it (R-146):
+
+| Run | First set | Second set |
+|---|---|---|
+| base | 26 | 27 |
+| base, prompt A (rules) | 19 | 18 |
+| base, prompt B (rules and four worked examples) | 15 | 20 |
+| 6.37 seed 82 | 39 | 53 |
+
+- On the second set the prompts make base search less, not more: `older` searched 7 and 4 of 80 against base's 40,
+  and `older` right 2 and 3 against 12. `confirm` right moves little (16 and 17 against 15); `never_told` (37 and 35 against 32) and
+  `statement` (40 and 40 against 39) rise a little, the kinds where not searching is right.
+- 6.37 seed 82 against each prompt, recall: prompt A alone right on 4, 6.37 alone on 39 (exact sign test
+  p = 3.1e-8); prompt B alone 5, 6.37 alone 38 (p = 2.5e-7). On the first set: 8 against 28 (p = 0.0012) and 8
+  against 32 (p = 0.00018).
+
+**Reading.** On both independent sets a written prompt alone does not buy the gain; both prompts lower base's recall.
+The adapter's gain is not a prompting effect that a better system prompt would match, at least for these two prompts
+(the limit: two fixed prompts, not a search over prompts). Report only; the frozen model is unchanged (R-160).
