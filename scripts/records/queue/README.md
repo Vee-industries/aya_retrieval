@@ -1,6 +1,6 @@
 # The GPU queue and its gate scripts, as run
 
-Copied byte for byte from the working folder on 2026-11-09 (R-157), so every file a record cites as
+Copied unchanged from the working folder on 2026-11-09 (R-157; git stores the line endings as LF), so every file a record cites as
 `$S/<file>` is here. They are records, not maintained code: kept unformatted (excluded from ruff), with
 the absolute paths of the machine they ran on.
 

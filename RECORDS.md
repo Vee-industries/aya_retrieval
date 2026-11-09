@@ -6108,7 +6108,8 @@ Two independent sets, one generator-blind writer team each: recall +50% on the f
 second. Both are well below the generated pools' gains, and both are the numbers to read as generalization.
 
 **The records made complete.** Kevin asked whether RECORDS.md holds everything. It did not: several records cite
-files that lived only in scratch, outside the repository. Now copied in, byte for byte, as run:
+files that lived only in scratch, outside the repository. Now copied in as run (content unchanged; git stores some with LF line endings where the
+scratch copies had CRLF):
 
 - `scripts/records/queue/`: the gate scripts the records name (`decide_r122.py`, `decide_r134.py`, `decide_r147.py`,
   `decide_r153.py`, `decide_r156.py`, `target_r147.py`, `target_r153.py`, `target_r156.py`), the queue runner
