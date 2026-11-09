@@ -1,0 +1,402 @@
+[
+ {
+  "n": 1,
+  "model": "6.37",
+  "label": "probe_fix17cs37_82",
+  "id": "58_never_told_12",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 2,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "419_in_view_01",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 3,
+  "model": "6.37",
+  "label": "probe_fix17cs37_82",
+  "id": "58_in_view_11",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 4,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_older_22",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 5,
+  "model": "6.37",
+  "label": "probe_fix17cs37_82",
+  "id": "58_older_09",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 6,
+  "model": "base",
+  "label": "hd_base",
+  "id": "58_confirm_11",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 7,
+  "model": "6.37",
+  "label": "probe_fix17cs37_82",
+  "id": "419_confirm_12",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 8,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "419_older_04",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 9,
+  "model": "base",
+  "label": "hd_base",
+  "id": "419_confirm_05",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 10,
+  "model": "6.37",
+  "label": "probe_fix17cs37_82",
+  "id": "58_confirm_10",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 11,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "58_older_00",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 12,
+  "model": "base",
+  "label": "hd_base",
+  "id": "419_in_view_03",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 13,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "419_in_view_16",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 14,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "58_never_told_01",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 15,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_older_09",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 16,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "419_never_told_16",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 17,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "58_confirm_20",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 18,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "58_older_02",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 19,
+  "model": "base",
+  "label": "hd_base",
+  "id": "58_older_12",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 20,
+  "model": "base",
+  "label": "hd_base",
+  "id": "419_never_told_15",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 21,
+  "model": "6.37",
+  "label": "probe_fix17cs37_82",
+  "id": "419_confirm_16",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 22,
+  "model": "base",
+  "label": "hd_base",
+  "id": "58_never_told_03",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 23,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "58_older_22",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 24,
+  "model": "6.37",
+  "label": "probe_fix17cs37_82",
+  "id": "58_confirm_16",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 25,
+  "model": "6.37",
+  "label": "probe_fix17cs37_82",
+  "id": "58_confirm_21",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 26,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_confirm_08",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 27,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_in_view_06",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 28,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_older_06",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 29,
+  "model": "base",
+  "label": "hd_base",
+  "id": "58_confirm_07",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 30,
+  "model": "6.37",
+  "label": "probe_fix17cs37_82",
+  "id": "58_never_told_08",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 31,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "419_confirm_00",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 32,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "58_in_view_06",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 33,
+  "model": "base",
+  "label": "hd_base",
+  "id": "419_never_told_07",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 34,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_confirm_03",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 35,
+  "model": "base",
+  "label": "hd_base",
+  "id": "419_in_view_18",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 36,
+  "model": "base",
+  "label": "hd_base",
+  "id": "58_confirm_04",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 37,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_in_view_07",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 38,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_older_18",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 39,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "58_older_15",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 40,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_in_view_20",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 41,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "58_confirm_02",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 42,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "419_older_10",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 43,
+  "model": "base",
+  "label": "hd_base",
+  "id": "58_in_view_15",
+  "scorer": true,
+  "stratum": "base scored right"
+ },
+ {
+  "n": 44,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_older_20",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 45,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "58_confirm_07",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 46,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "419_confirm_00",
+  "scorer": true,
+  "stratum": "6.37 scored right"
+ },
+ {
+  "n": 47,
+  "model": "base",
+  "label": "probe2_base",
+  "id": "58_older_00",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 48,
+  "model": "base",
+  "label": "hd_base",
+  "id": "419_confirm_21",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ },
+ {
+  "n": 49,
+  "model": "6.37",
+  "label": "hd_fix17cs37_82",
+  "id": "58_confirm_16",
+  "scorer": false,
+  "stratum": "6.37 scored wrong"
+ },
+ {
+  "n": 50,
+  "model": "base",
+  "label": "hd_base",
+  "id": "419_in_view_07",
+  "scorer": false,
+  "stratum": "base scored wrong after a search"
+ }
+]
