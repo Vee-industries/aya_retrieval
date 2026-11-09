@@ -6228,6 +6228,14 @@ the sealed pools (three digests, never printed), the judge pin (`claude-sonnet-5
 brief and rubric), CuratorKIT's commit and threshold, the human check and the adapter's two weight files. Nothing
 that builds, runs or scores the evaluation changed between the two.
 
+
+**Line endings, fixed the same hour.** `digest` hashed each file's bytes as they sit on this Windows working copy,
+where 8 frozen text files have CRLF line endings and git stores LF; a judge's clone would get other hashes and
+`check` would fail on files that had not changed. `digest` now hashes text files with LF line endings (the
+`.safetensors` weights unchanged), the manifest was written again (`check`: every frozen file and value matches),
+and each of its 19 scorer and judge file hashes equals the SHA-256 of the file as committed (`git show HEAD:path`).
+The only entries that changed were the CRLF files; the contents are the ones hashed at 14:52. R-154's trial
+manifest is kept as written, under the old rule.
 **From here.** The sealed final run on the held-out pools runs once, on Kevin's go, and starts with `check` on this
 manifest; its judged sheets end with `judges` on every judge transcript (R-154). The report-only runs already
 registered (R-159's prompted-baseline control on the second set) change nothing that ships. The write-up and model

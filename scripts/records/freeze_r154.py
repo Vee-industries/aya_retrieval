@@ -78,7 +78,11 @@ STYLE_FLAGS = ("user_style", "phone_style", "corrections", "corrections_heldout"
 
 
 def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    """SHA-256 of a file; text with LF line endings, as git stores it, so a clone matches."""
+    data = path.read_bytes()
+    if path.suffix != ".safetensors":
+        data = data.replace(b"\r\n", b"\n")
+    return hashlib.sha256(data).hexdigest()
 
 
 def folder_digest(folder: Path) -> dict:

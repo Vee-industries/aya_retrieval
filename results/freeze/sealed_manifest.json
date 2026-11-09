@@ -1,5 +1,5 @@
 {
- "utc_time": "2026-11-09T19:52:47+00:00",
+ "utc_time": "2026-11-09T19:55:22+00:00",
  "command": [
   "scripts/records/freeze_r154.py",
   "write",
@@ -8,8 +8,8 @@
   "--out",
   "results/freeze/sealed_manifest.json"
  ],
- "git_commit": "2b0482677c0aa31fe7b8d49d976b04143ef4cbde",
- "git_dirty": false,
+ "git_commit": "c564acc7cbcfc43637dc08147ab54e32c8b15522",
+ "git_dirty": true,
  "toolkit_commits": {
   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
@@ -30,30 +30,30 @@
  "adapter_path": "C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/fix17cs37_82",
  "frozen": {
   "scorer": {
-   "src/aya_retrieval/conversations.py": "73871cf297f9751dbfa93f52144faed94843a13b34783bfe9fae6a0e4c3c56c4",
+   "src/aya_retrieval/conversations.py": "0d23295299a367cde25bb96fe7c28ef565e3dd011acb2f4bf026e5db56bd2813",
    "src/aya_retrieval/recall_tool.py": "eebc3cd917b62600709b7491018d3f805a51a8a03a29312f7ede3ee1091340c4",
    "src/aya_retrieval/harness.py": "962869d1d07b31f9d1d50b9375a2493741e25d3a65cfd2c0c4a7c1680915fd5b",
    "src/aya_retrieval/inference.py": "a20af35948294dd180c997e669fe9310a03c55fa525d76c7aaf696e7d53f6377",
    "src/aya_retrieval/tool_prompt.py": "bb55777463dcb0056f4e308572b65be1aa54d6c0c020e7f8916177dc310a5eac",
    "src/aya_retrieval/models.py": "6a2eb5c4b59cd5c7be5fb938617c4df852a8fdd454c227a39ab18b325bb493e8",
-   "src/aya_retrieval/stress.py": "cc220b7833d24fc471aad26ecf06b4a1642b294eefc85882a93d0eac5d883826",
-   "src/aya_retrieval/scoring.py": "fbeee800306c04849bed27fed479b2151ee31129edbfa09b36c8ff365961b8bb",
+   "src/aya_retrieval/stress.py": "6d98acfe46ad6d47d79c4b6b4d1a74670aa9ca6d80ef5516d983c3101a3db42e",
+   "src/aya_retrieval/scoring.py": "af2e4ee8b8b9094052916a0bda35954750db4c6aa574786e8d889c042990aec2",
    "src/aya_retrieval/coherence.py": "d4d7dc662d1d44affd572b0fdae1eee712b255e08464ce03c059482622315024",
-   "src/aya_retrieval/stats.py": "1a595f3069f1231bd272f66466eb36f21004c6e209217d2acbe9faceab1cc5cb",
+   "src/aya_retrieval/stats.py": "bfa4bc6c521ce1f24afab3ace2d046a1560ac5640c41278a5556c738fd709de7",
    "scripts/run_recall_eval.py": "7858316a8828e0f6d3ea913284ddcec69fae712612d53c898ffa5c7cbf183ee3",
    "scripts/make_coherence_sheet.py": "0a1a843cefc93dfb67ead0ab6d25a384b1635290477e37e3c4b924f8c2fccd74",
    "scripts/make_multi_sheet.py": "91ff70e128c5a980682b076cc39955fb0e1d386ce1fa7ce1b6e6e06ce7f4df44",
    "scripts/run_target_coherence.py": "126d0372394bbcf697fb1a2bd340579c674b044a6a121589ab1efd2eaeb758d7",
    "scripts/run_curator_check.py": "2ed34d56fdac353d91d20770784452b7abd46afc461b038bbaef6cefae0a95f3",
    "scripts/records/gate_r086.py": "5e84f44a93a8430ce89c0f4b06cbf8cc186544dc9091e575c551a32924573e39",
-   "scripts/records/stone_report.py": "dd5e88498665118c751649d9dbc85f2233b65b5768611fff57ef4fb0f9b78a39"
+   "scripts/records/stone_report.py": "85de68fbff03db0345faa866d691d7bda2d93cb4bb6813af2b1d2d8ee06091e1"
   },
   "sealed": {
-   "src/aya_retrieval/pools.py": "36e452899e0303441ee3b77808550ee15f43bf42f67bd7a10f3cfe55d157df66",
-   "src/aya_retrieval/pool_independent.py": "f65ea72e1d91276ff28d8fc3e828c27eb07a847e879290a81ab7e3247978eb63",
+   "src/aya_retrieval/pools.py": "93fe029f56eb247423abb4d122472cf7d06754ccdd1fba282b6e5bb1a0ba8e45",
+   "src/aya_retrieval/pool_independent.py": "30e28c249d70332fbfa8a8c6fdae185e8e510efeb95a233a66cc15f19bcb4308",
    "docs/independent_pool": {
     "files": 3,
-    "sha256": "5c55a94bd9c0991509276b41df63eae24b0553b30e7433fdf7835a9598c55e85"
+    "sha256": "32875fa8eee2ce394cb0ea70807a2da7b31b992ed19c1582c3c61b2720102073"
    }
   },
   "judge": {
@@ -65,7 +65,7 @@
    "brief_changes_allowed": "the folder path, sheet names and line counts only",
    "files": {
     "results/freeze/R-154/judge_brief_r128_j1.txt": "c177d127b3e7fbb454cf07e482a3066b9893fe18c4d3ecbb9ea0218b7b232630",
-    "results/coherence/R-128/judge/rubric.txt": "fb0222b3a661729d513b27f820b7ba7ab2aef916ae61b55613f68221214b83eb"
+    "results/coherence/R-128/judge/rubric.txt": "bea596cd1e0e9c61c3a5df372390b2d609c5a0cfd7965e43eb62cb6ed29cfcfe"
    }
   },
   "curatorkit": {
@@ -74,7 +74,7 @@
   },
   "human_check": {
    "files": 7,
-   "sha256": "4964827a9c98e106dcd7803ccad82482c2436748d4e8432ef1b83aab407df818"
+   "sha256": "3476b0ffaac6252186e2f75a1821b14cd2ebbd12a8c4bbd56149a5b85d801e0b"
   },
   "model": {
    "base": "CohereLabs/tiny-aya-global",
@@ -84,7 +84,7 @@
    },
    "adapter": "fix17cs37_82",
    "adapter_files": {
-    "adapter_config.json": "20ca8aab5601880fecae329519599f63cd3d228c442e4cf4bea96aa423622597",
+    "adapter_config.json": "53b11d1a4496b9444131e0c224857caf8f27af0e1e99f93e7004a18166d2befb",
     "adapter_model.safetensors": "e661a81c3322cd021059ff592f82a7231f3447c2ac5ea5a90c416ccbcafeefea"
    }
   }
