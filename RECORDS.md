@@ -160,6 +160,7 @@ carry their own provenance (command, git commit, package versions).
 | R-145 | A second, independent marker on R-144's 50 lines: 48 of 50 with the scorer (kappa 0.92), 49 of 50 with Kevin (0.96); both people differ from the scorer on the same two strict-scorer lines, 6 and 29 |
 | R-146 | Independent set: 6.37 seed 82 recall 39/120 against base 26/120 (+50%, sign test p = 0.047, chat-resampled gain +2.5 to +19 points); seeds 39 to 57; `confirm` 11/40 against base 15 (it rarely searches a "..., right?" question). R-137: both prompts lower base's recall. R-138: one break, `long` on `hard_dev` (84 to 75 of 96), being confirmed at 75001 |
 | R-147 | 6.39 (`fix17cs39`) at Kevin's word, registered before it trains: 6.37's rows plus R-110's 100 rows for the found-but-incomplete answer, from scratch at 82 and 83; every 6.37 gate unchanged, then it must beat 6.37 on `hard_dev` recall at fresh seed 75002; any fail and 6.37 ships |
+| R-148 | R-138's confirm seed 75001: the `long` break does not hold (loss 6, rule 8); `askd4` against `d4` meets the rule there (8 lost, 0 gained) after falling one short at 74001; both are the found-but-incomplete failure 6.39 targets |
 
 ---
 
@@ -5668,3 +5669,26 @@ against, written here:** R-115 is direct evidence that these rows push the targe
 last nine copies failed a gate by one probe question (R-127's base rate: about 28% per copy with no defect), so a
 pass needs both the fix to work and a draw that clears the probe line; and a 75002 win on `hard_dev` is a win on the
 generator that also made R-110's rows. That is why the target is fixed here and 6.37 ships on any fail.
+
+## R-148 · 2026-11-09 · SPRINT · R-138's confirm runs at 75001
+
+**Why.** R-138 lets a break found at discovery seed 74001 count only if it meets the same rule again at 75001, so
+one seed's draw of items cannot start a fix. Run on 6.37 seed 82, 05:15 to 06:11 (recall right of 96 per pool).
+
+**`long`, the one break at 74001: not confirmed.** probe `plain` 96, `long` 96; `hard_dev` `plain` 87, `long` 81. A
+loss of 6 on `hard_dev` (6 pooled over both pools), below the rule's 8. By size, `hard_dev` `long` was 36 of 48 at
+1,000 exchanges and 45 of 48 at 2,000, so chat length is not what drives it; of its 15 misses, 11 found the fact and
+answered without the asked detail, again in the "collected the keys" and "hosted dinner" templates. Other kinds:
+`in_view` probe 47 and 46, `hard_dev` 36 and 39; `never_told` and `statement` 48 throughout.
+
+**`d4` and `askd4` on `hard_dev`, run as the next weakest (R-146):** `d4` recall 89 (against `plain`: 2 gained, 0
+lost; `never_told` 2 lost). `askd4` recall 81: against `plain` 7 lost and 1 gained, net 6; **against `d4` 8 lost and 0
+gained, which meets R-138's rule** (net 8, losses at least twice the gains). At 74001 the same pair was 7 lost and 0
+gained, one short. So `askd4` met the rule at one seed of two and is not a confirmed break under R-138's order (find
+at 74001, confirm at 75001); over both seeds it is 15 lost and 0 gained against `d4`, a consistent weakness, recorded
+as a measured limit. Of the 15, 13 found the fact and answered without the asked detail (`hosted dinner`,
+`collected the keys`), and 2 did not search: a question asked and declined earlier makes the same failure more
+frequent; it is not a different one.
+
+**Reading.** Every weakness the break tests found is the one failure R-144 named, in the same two templates. 6.39
+(R-147) is judged on it at 75002; nothing here changes R-147's lines.
