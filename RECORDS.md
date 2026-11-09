@@ -6320,7 +6320,7 @@ interval (the adapter-conversation pairs of rule 1 share conversations, so its p
 recall split into `older` and `confirm` (R-159). **Project result:** pass needs rules 1 to 4 in all four conditions;
 otherwise the write-up says which failed and by how much. Every condition is reported in full either way.
 
-**Added at 15:45, before any adapter result was read** (Kevin: "keep the times as a metric too"): reported beside the
+**Added at 16:07, before any adapter result was read (three were on disk, unopened)** (Kevin: "keep the times as a metric too"): reported beside the
 rules, not gating, for every run: wall seconds, seconds per conversation, peak card memory, tokens read and written
 per turn against the whole chat's tokens, and searches per conversation (`scripts/records/score_r162.py`), and each
 judge's wall time. Every run has the card to itself, so its times are comparable; they are this machine's (an RTX
