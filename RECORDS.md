@@ -162,6 +162,7 @@ carry their own provenance (command, git commit, package versions).
 | R-147 | 6.39 (`fix17cs39`) at Kevin's word, registered before it trains: 6.37's rows plus R-110's 100 rows for the found-but-incomplete answer, from scratch at 82 and 83; every 6.37 gate unchanged, then it must beat 6.37 on `hard_dev` recall at fresh seed 75002; any fail and 6.37 ships |
 | R-148 | R-138's confirm seed 75001: the `long` break does not hold (loss 6, rule 8); `askd4` against `d4` meets the rule there (8 lost, 0 gained) after falling one short at 74001; both are the found-but-incomplete failure 6.39 targets |
 | R-149 | 6.39 fails at 82 and 83: `hard_dev` recall pooled 147 against 6.37's 163 (and v6's 157); every other line passes; the targeted miss (found, answered without the asked detail) rises from 21 to 33; 6.37 stays frozen |
+| R-150 | The 6.4 panel (three Opus lanes, audited): two say no 6.4; the third offers value-first answers at about 15% to pass, the same rate as a copy with no effect; no 6.4; 6.37 is the model the sealed final run will score |
 
 ---
 
@@ -5721,3 +5722,40 @@ within the clock (training before 12:00 today, R-138). The panel waits until the
 used at 08:10 against a line of about 16%, rule of 2026-11-08: no new agents over the line), about 09:45, which still
 leaves time to train before 12:00. 6.37's 75002 runs (R-147 item 3) go on meanwhile as the reference for whatever is
 judged there.
+
+## R-150 · 2026-11-09 · SPRINT · The 6.4 panel: no 6.4
+
+**Why a panel.** Kevin's rule of 2026-11-08: after a fail, a panel picks the next candidate without asking him. At
+08:20 Kevin exempted this session from the usage line ("you're the exempt one. keep going"), so the panel ran at once
+instead of at 09:45. Three separate Opus agents, one lane each, the same brief (`$S/panel_64_brief.md`: the facts of
+R-138 to R-149, the hard limits, 12:00 to start training, every 6.37 gate unchanged, then a win at 75002). Transcripts
+audited: none opened a sealed file or a file named for a token; the method lane read `pools.py` only to line 451;
+the sources lane listed, and did not open, 6.37's first 75002 result; none wrote a file.
+
+**Method lane: one design.** Keep 6.37's 1,094 rows; in the 562 rows whose last turn answers from a search, prefix
+the answer with the asked value ("Hugo. Your cousin Dana named the baby Hugo."), the old answer kept byte for byte;
+nothing added. Reason: every found-fact target restates the line from its start (about 7.5 words), which works on
+TRAIN's one-clause lines and fails when the first clause is another event; a value-first token makes the answer pick
+the asked slot. Its own estimate: about 30% to pass every gate, about 50% then to win at 75002, about 15% in all.
+Biggest risk: dropping the "Your {relation} {person}" lead may cost who-is-who choices, and probe recall is at its
+ceiling.
+
+**Sources lane: no 6.4.** Across the record nothing has lowered the found-but-incomplete miss except a training seed
+(3 to 18 a seed at 6.37's recipe, R-141); every change to answer length or shape raised it (R-115, R-121, R-149).
+R-110's rows reward picking the matching clause and dropping the rest of the line, which trains the miss itself (a
+reading of `build_r110.py`, not a measurement). Value-first answers are untried, but TRAIN's lines cannot show the
+long-line case, and building such lines would copy `hard_dev`'s templates.
+
+**Against lane: no 6.4.** The `hard_dev` line's bar, 163, is 73 plus 90, and 90 is the best of 6.37's eight seeds:
+of the 28 pairs the eight seeds form, 13 reach 163, so a copy exactly as good as 6.37 clears that line about half the
+time; with the probe line (about 72%, R-127) and a 75002 win with ties failing (under half), a copy with no effect
+passes all three about 15% of the time. A win at 75002 is also a win on the two templates that prompted the design.
+Least-bad design if overruled: the method lane's.
+
+**Decision: no 6.4.** A pass rate of about 15% for the design and about 15% for a copy with no effect means a pass
+could not tell a fix from a draw, and a pass would ship. Value-first answers also read less naturally, and no gate
+marks how a recall answer reads (R-086's judged sheets mark `statement` and `in_view` replies and the check set).
+**The case for trying, recorded:** the card is otherwise idle and 6.37 ships on any fail, so the cost is time. That
+did not outweigh shipping on a draw. **6.37 (fix17cs37 seed 82) is the model the sealed final run will score**, on
+Kevin's go after the freeze (Tue Nov 10). The found-but-incomplete miss goes in the write-up as a measured limit, with
+R-144, R-146, R-148 and R-149 as its evidence.
