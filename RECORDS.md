@@ -152,6 +152,7 @@ carry their own provenance (command, git commit, package versions).
 | R-137 | Prompted-baseline control registered before it runs: base with two fixed prompts (A rules; B rules and four made-up worked examples), probe and `hard_dev`, everything else identical; reported, not gated; per-run scores reported beside pooled counts |
 | R-138 | Kevin: 6.38 is the last try. Break tests registered before they run: four harder conditions at a new seed (74001) on 6.37, 6.38 and base; a break must be confirmed at 75001 before any targeted fix, which is judged at 75002 on a held-out form where one exists; go/no-go Mon 09:00 |
 | R-139 | Rigor additions, registered before any is computed: one primary development comparison (R-016's test) with Holm on a named secondary family; a five-way failure breakdown; recall by distance and crowding; an independent development set written blind to the generator (report only); Kevin's blind check of 50 scored answers |
+| R-140 | 6.38 fails R-134 on one line (`hard_dev` recall pooled over 82 and 83: 157 against 6.37's 163) and passes the other sixteen; 6.37 ships; Kevin's last try is spent; the GPU time freed goes to 6.37's missing stress runs at seeds 97 to 99 |
 
 ---
 
@@ -5232,12 +5233,14 @@ One fixed system against another on the same items, the case the sign test (exac
 **Secondary family, Holm at 0.05,** the same test, 6.37 seed 82 against base on the same items: probe recall
 (`probe2_base`); held-out corrections, probe and `hard_dev` (`st_fixh_*`); phone-style recall, probe and `hard_dev`
 (`st_phone_*`); right search decision on `in_view`, `never_told` and `statement`, probe and `hard_dev` pooled per kind
-(three tests, two-sided, so a loss counts as much as a gain). Ten tests in all.
+(three tests, two-sided, so a loss counts as much as a gain). Nine tests in all, the primary and eight secondary (corrected before any was computed: the first text of this record said ten).
 **Across training seeds, descriptive, no test:** per-seed counts, minimum and maximum, the pooled gain with a 95%
 percentile interval from `stats.bootstrap_gain_interval`, resampling **fact templates**, not items (items that share a
 template are not independent; with one question a chat, the conversation is not the right unit). The template of
 each item is recomputed from its seed by the generator's own first draw; results name templates by index only. Seeds
-82, 83, 94, 95, 96 now; 97 to 99 added after R-134's 6.38 comparison is read (the hold on reading them stands).
+82, 83 and 94 to 99: 6.38's comparison was read at 19:32 (R-140), which lifted the hold on 97 to 99. The
+corrections and phone conditions were never scored at 97 to 99; those twelve runs are queued, and until they land
+each table names the seeds it used.
 
 **2. Failure breakdown** of every wrong recall answer, per model and seed, mechanical from the result rows: (a) did
 not search; (b) searched, no query found the fact (`found_fact` false); (c) found it, the reply names a decoy or other
@@ -5266,5 +5269,46 @@ kappa) and every disagreement listed. Claude marks none.
 **6. Deferred, stated as limits in the write-up:** LoCoMo (R-100, on its own registered clock), other languages,
 two facts in one question, and a provenance test (the model repeats a fact wrongly and the user corrects it).
 
+**Why each part** (added before any part was computed, at Kevin's request to explain the reasons):
+- *One primary test, named first:* with many tables, the one that looks best can be picked afterwards and reported
+  as the result. Naming it first removes that choice. It repeats R-016's measure and test, so the development result
+  and the sealed result answer the same question.
+- *Holm on the rest:* nine tests at 5% each would give a false "significant" by chance more often than 5% of the
+  time. Holm keeps the whole family at 5% and is never weaker than testing each one alone at 5% divided by nine.
+- *Per seed, with the range:* a training seed changes the adapter, not the questions. Pooling three or eight seeds
+  over the same 192 questions is not 576 or 1,536 independent cases. The range shows how much training alone moves
+  the score.
+- *Resampling templates:* questions built from one fact template share wording, so a model that learned that
+  template gets all of them right or all wrong together. Resampling single questions would treat them as
+  independent and make the interval too narrow.
+- *Failure stages:* "wrong" can mean it never searched, searched badly, found the fact and named someone else's, or
+  found it and garbled it. Each has a different cause, and only some could be fixed by training.
+- *Distance and crowding:* a model can look good on average while failing on facts told long ago or among many
+  look-alike facts. These tables show whether it does.
+- *The independent set:* every development test so far comes from the same generator as the training data. Separate
+  names and wordings do not remove shared structure: where facts sit, how questions are phrased, how decoys look.
+  A writer who has never seen the generator tests whether the gain is real recall or learned structure.
+- *Kevin's check:* the script decides "right" by finding the answer string and no wrong value. It can miss a right
+  answer worded oddly, or pass one that names the answer while saying something false. A person reading a blind
+  sample measures how often the script is wrong.
+
 **Timing.** Items 1 to 3: CPU, tonight. Item 4: spec and panel tonight, writer overnight, GPU after R-138's runs
 (Monday morning). Item 5: whenever Kevin has an hour, before the write-up (Nov 12). None moves a gate or the clock.
+
+## R-140 · 2026-11-08 · SPRINT · 6.38 fails R-134; 6.37 ships
+
+**Result** (`decide_r134.py fix17cs38`, 19:31, on R-134's registered lines, unchanged): 6.38 passes sixteen of
+seventeen. It fails one: `hard_dev` recall pooled over seeds 82 and 83 is 157 of 192 against 6.37's 163 (R-134: not
+below 6.37, ties pass). Probe recall ties 6.37 at 192; slips are 0 at every seed; probe `in_view` is 44 and 46
+(R-097's floor is 41). So the rewrite of the 28 deflecting in-view targets kept everything it was built to keep and
+cost six recall answers on the harder set; R-134 counts any loss as a fail.
+
+**Decision, by rule, not by judgment:** R-134 said any fail ships 6.37. R-138 recorded Kevin's word that 6.38 is the
+last try. **6.37 (fix17cs37 seed 82) is the frozen candidate.** 6.38's judged sheets were not built: R-134 needed
+them only for a candidate that passed the unjudged lines. The stop file `r136_stop_38` was touched by the decision
+script; it skips 6.38's training at 97 to 99 and every later 6.38 line. Four 6.38 user-style lines at the end of the
+queue had no guard and were given one by hand.
+
+**Freed GPU time** (about three and a half hours) goes to R-139: 6.37's held-out corrections and phone runs at seeds
+97 to 99 (twelve runs), so every condition has eight training seeds. R-138's break tests run as queued: 6.37's, then
+base's; 6.38's are skipped by the same stop file.
