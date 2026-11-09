@@ -1,0 +1,32 @@
+{"id": "x2_07", "exchanges": [
+["Hi, I'm throwing my mum a surprise 60th and I could really use a sounding board.", "A surprise 60th, how fun. I'm glad to help you think it through."],
+["It's in six weeks, at our house and backyard. Around 60 people, which feels fitting.", "Sixty for sixty, nice touch. Is the backyard big enough, or are you renting a tent?"],
+["Renting a tent, I think. My dad Venkat is in on it, but he's terrible at secrets.", "Then maybe give him only the details he absolutely needs."],
+["Ha, good plan. My cousin Ravi flies for Air Canada, so he's trying to swap shifts to make it. He's a pilot, his schedule is wild.", "Hopefully he can make the swap. It would be a lovely surprise for her to see him."],
+["Food is potluck style from the aunties, which is the only way, honestly.", "Aunties' cooking beats any caterer. Do you know who's making what?"],
+["Aunt Kamala is bringing her biryani, which is legendary. People ask about it for months afterward.", "Then the main event is sorted."],
+["And her aunt, my great-aunt Sarojini, insists on making payasam, even though she's 84.", "Good for her. A sweet from the eldest in the family feels right for a milestone."],
+["For decor, I hired a guy named Ravi as well, which is funny. He does lights and draping for Indian weddings.", "A wedding decorator for a backyard party means it'll look amazing."],
+["His company is based in Brampton, so not too far.", "Close enough that setup day won't be a hassle."],
+["The photographer is a friend of mine, Inês. She did my graduation photos.", "A friend behind the camera usually gets more relaxed, natural shots."],
+["Mum's best friend from university, Joanne, is flying in from Perth. That's the big surprise.", "Coming from Australia for this is huge. Your mum is going to be floored."],
+["She has no idea. Joanne and I have been emailing in secret for months.", "Months of secret emails, very spy-like. Where's she staying?"],
+["With our neighbour, Mrs. Kowalski, so Mum won't see her car or bags.", "Clever. Mrs. Kowalski is now an accomplice."],
+["She's thrilled to be involved, she loves drama.", "Every surprise needs one of those."],
+["Music: my brother Arjun is putting together a playlist of Mum's favourite old Hindi film songs.", "That will set the mood perfectly, especially for the older guests."],
+["He plays tabla too, so he might do a little live bit.", "A live set from her son would be a highlight."],
+["Correction on something earlier, the decorator Ravi isn't in Brampton. His company's in Mississauga, I looked at his card again.", "Mississauga, thanks. Still close for setup."],
+["Yes, still easy. Now the cake, Mum loves mango anything.", "A mango cake or a mango mousse would be a hit. A local bakery could do something special."],
+["There's a bakery called Sweet Mehak that does a mango cream cake.", "That sounds perfect for her."],
+["I'll order it next week. How do I actually get her out of the house for setup?", "A pretend outing works well: a lunch or treat with someone she trusts, timed to bring her back once everything's ready."],
+["My sister-in-law Fatou could take her to a spa. They're close.", "A spa trip is easy to sell and keeps her away for a few hours."],
+["Fatou's a nurse, so her shift schedule is tricky, but she has that Saturday off.", "Lucky timing. That makes her the perfect decoy."],
+["Okay, I think the plan is coming together.", "It really is. Food, decor, music and the big reveal are all in place."]
+], "questions": [
+{"kind": "older", "message": "What dish is my great-aunt contributing?", "answer": "payasam", "wrong": ["biryani"], "fact_exchange": 6},
+{"kind": "older", "message": "Where's the lighting guy based?", "answer": "Mississauga", "wrong": ["Brampton", "Perth"], "fact_exchange": 16},
+{"kind": "confirm", "message": "Aunt Kamala's the one doing payasam, right?", "answer": "biryani", "wrong": [], "fact_exchange": 5},
+{"kind": "in_view", "message": "What does Fatou do for work?", "answer": "nurse", "wrong": ["pilot"], "fact_exchange": 21},
+{"kind": "never_told", "message": "What does Joanne do for a living?", "answer": "", "wrong": ["pilot", "nurse", "photographer", "decorator"], "fact_exchange": null},
+{"kind": "statement", "message": "Should I give a little speech, or would that be too much?", "answer": "", "wrong": [], "fact_exchange": null}
+]}

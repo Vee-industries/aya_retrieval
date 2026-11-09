@@ -1,0 +1,32 @@
+{"id": "x4_01", "exchanges": [
+["ugh choir practice ran late again tonite", "Late rehearsals are draining. Was it at least a productive one?"],
+["kinda. marguerite made us redo the bridge of the requiem like 9 times", "Directors tend to drill the tricky bits before a concert. Is the performance coming up soon?"],
+["dec 12 at the church on elm st. im nervous about my alto solo", "Nerves before a solo are completely normal. Do you get much chance to practice it on your own?"],
+["a bit. daniel stays after sometimes to play it thru with me on piano, hes so patient. funny thing is he wires houses all day as an electrician and then comes and plays chopin like its nothing", "That's a great mix of skills. Someone willing to stay late and accompany you is a real gift."],
+["right?? and we have another daniel too, daniel okafor in the basses. so we call them piano daniel and bass daniel lol", "That's a practical fix. Choirs always seem to collect duplicate names."],
+["bass daniel is a pharmacist at the shoppers near my place, i see him there when i pick up my meds", "Small world. It must be funny seeing him behind the counter after standing next to him in rehearsal."],
+["its so weird lol. anyway tomasz told us tonight hes moving to hamilton in the spring", "That's a loss for the tenor section. Will he stay through the spring concert at least?"],
+["hopefuly. the tenors are thin already, its just him and like two retired guys", "That leaves them stretched. Maybe it'll push the choir to recruit."],
+["marguerite said shes putting up posters at the library. she also brought her dog biscuit to practice again, he sleeps under the piano", "A rehearsal dog sounds lovely. Does he ever join in on the high notes?"],
+["he howled once during the gloria and we all lost it", "That's the kind of moment a choir remembers for years."],
+["yuki wasnt there tonight, her asthma has been bad with the cold", "Cold air can be rough on the lungs. I hope she's feeling better soon."],
+["ya she said shell probably skip the outdoor carolling thing", "That seems wise. Singing outside in winter is hard on anyone."],
+["oh wait i got tomasz wrong, its not hamilton its kingston. his wife got a job at queens", "Thanks for clearing that up. A new job for his wife is a good reason to move."],
+["yeah. hes been in the choir like 15 yrs tho so its a big deal", "Fifteen years is a long time to be part of something. That'll be a hard goodbye."],
+["we're thinking of doing a little send off for him in april", "That's a kind idea. Potluck, or something musical?"],
+["potluck probly. fatima always brings food anyway", "Sounds like she's the one to put in charge of the menu."],
+["lol she would love that. she runs the sign up sheets for everything", "Every group needs someone like that keeping it organized."],
+["true. ok random but do u know any tricks for breath control on long phrases", "Try slow exhales on a hiss while counting how long you can hold it, and mark your breath points in the score ahead of time."],
+["ive been doing the hiss thing but i run out around 20", "That's a decent start. Add a few counts each week and keep your ribs expanded while you sing."],
+["ok ill try. my ribs feel like theyre gonna crack lol", "It gets easier as those muscles get stronger. Just don't push into strain."],
+["fatima texted, shes signed up for the bake sale saturday and shes making baklava", "That will sell out fast. Homemade pastry always does."],
+["she makes it with pistachios its sooo good", "That sounds delicious. Are you helping at the sale too?"],
+["ya im on the cash box from 10 to noon", "Good luck with the change. Bring a float of small bills and coins."]
+], "questions": [
+{"kind": "older", "message": "what does piano daniel do for work again", "answer": "electrician", "wrong": ["pharmacist"], "fact_exchange": 3},
+{"kind": "older", "message": "where is tomasz going when he leaves", "answer": "kingston", "wrong": ["hamilton"], "fact_exchange": 12},
+{"kind": "confirm", "message": "yukis thing is asthma right? the reason shes skipping the carolling", "answer": "asthma", "wrong": [], "fact_exchange": 10},
+{"kind": "in_view", "message": "wait what is fatima bringing to sell again", "answer": "baklava", "wrong": [], "fact_exchange": 20},
+{"kind": "never_told", "message": "whats tomasz do for a living btw", "answer": "", "wrong": ["electrician", "pharmacist"], "fact_exchange": null},
+{"kind": "statement", "message": "ok wish me luck with the cash box lol", "answer": "", "wrong": [], "fact_exchange": null}
+]}

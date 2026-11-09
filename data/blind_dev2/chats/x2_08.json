@@ -1,0 +1,33 @@
+{"id": "x2_08", "exchanges": [
+["hi so my son daniel is getting married in april and im the mom of the groom but somehow im doing alot of the planing", "Mother of the groom with a planning role, that's a lot of love on your plate. What are you in charge of?"],
+["the rehersal dinner and all the out of town ppl. amara's family is doing the wedding part", "That's a clear split. How many out-of-town guests are you looking after?"],
+["like 40. alot from my side are coming from california", "Then airport pickups and hotels will be the big jobs."],
+["yes my brother bao said he'd bring his minivan and do airport runs all weekend, he's a saint", "Having him on call all weekend is a huge help with forty guests."],
+["he really is. for the dinner we booked a peruvian place, amara loves it", "Peruvian food for a rehearsal dinner is fun and different. Do they do group menus?"],
+["yes a set menu. the groomsmen are daniels college friends mostly", "College friends usually make for a lively rehearsal dinner."],
+["his best man nima is vegan so i told the resturant", "Good, set menus can usually swap in a plant-based plate."],
+["my husband reza's brother is so excited, he said they can use his tesla as the getaway car, hes had it like a month and wont shut up about it", "A brand-new Tesla for the getaway, he'll be proud as anything driving them off."],
+["lol yes. his name is kourosh btw, you'll hear about him alot", "Noted. Sounds like Kourosh will be a fun one at the dinner."],
+["my mom is coming from san jose, she's 82 and has bad arthritis in her hands", "Worth making sure her table has easy-to-use cutlery and someone close by to help."],
+["my niece thu will sit with her, shes so sweet with her", "That's lovely, and it'll make your mom more comfortable."],
+["thu is studying to be a vet, shes always taking care of someone", "Caring seems to be her nature, people or animals."],
+["true lol. ok the photographer for the dinner is a guy named luca, he did amaras sisters engagment pics", "Having someone the family already trusts is a good choice."],
+["i want a slideshow of daniel growing up, is that cheesy", "It's a rehearsal dinner classic for a reason. Keep it to five minutes and it'll land well."],
+["ok 5 min. reza is gonna do a toast, hes nervous", "Writing it out and practising a couple of times usually helps the nerves."],
+["omg i said nima was vegan, i was wrong hes vegetarian, he eats cheese and eggs, daniel corrected me", "Good to know, that gives the restaurant more options."],
+["yah good. welcome bags for the hotel, what do i put in", "Water, local snacks, a schedule for the weekend, and maybe something personal like a small note from the couple."],
+["amara's grandma makes these honey cookies maybe we can put those", "Homemade cookies from her grandma would be a sweet family touch."],
+["she lives in lagos so idk if she can make that many", "Maybe ask for the recipe instead and have a local bakery make them."],
+["ooh good idea", "That way it still carries her name and story."],
+["the hotel coordinator is named grace and she is so organized it makes me feel lazy", "A good coordinator makes everyone look organized. Lean on her."],
+["she used to run events at a huge hotel in vancouver so nothing scares her", "Years of big Vancouver events would have shown her every kind of wedding drama."],
+["and she said shuttles to the venue are free which is nice, bao wont have to do everything", "That takes a load off him, especially on the wedding day itself."],
+["ok im gonna go sleep, my brain is mush", "Rest well. You covered a lot tonight."]
+], "questions": [
+{"kind": "older", "message": "which ride did my husbands brother offer for after the wedding", "answer": "Tesla", "wrong": ["minivan"], "fact_exchange": 7},
+{"kind": "older", "message": "whats nimas diet thing again, i need to tell the resturant", "answer": "vegetarian", "wrong": ["vegan"], "fact_exchange": 15},
+{"kind": "confirm", "message": "my moms the one with arthritis right", "answer": "arthritis", "wrong": [], "fact_exchange": 9},
+{"kind": "in_view", "message": "where did grace work before this", "answer": "Vancouver", "wrong": ["lagos", "san jose"], "fact_exchange": 21},
+{"kind": "never_told", "message": "what does luca drive", "answer": "", "wrong": ["minivan", "Tesla", "shuttles"], "fact_exchange": null},
+{"kind": "statement", "message": "ugh i still have to find shoes that dont kill my feet", "answer": "", "wrong": [], "fact_exchange": null}
+]}

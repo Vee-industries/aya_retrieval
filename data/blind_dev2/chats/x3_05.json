@@ -1,0 +1,31 @@
+{"id": "x3_05", "exchanges": [
+["omg teh kitchen is a disaster", "Uh oh, what happened in there?"],
+["someone left a pan of rice out for 3 days n its growing stuff", "Yikes, that's past saving. Gloves and a bin bag might be the move."],
+["im not touching it its mos pan", "Fair, the owner should deal with it. Will he be home soon?"],
+["dunno hes always in his room doing his Japanese lessons on duolingo n stuff, hes obsessed, wants to go to tokyo next yr", "That's a solid goal, the app streaks get addictive. Maybe a cleaner kitchen can be his reward for a lesson."],
+["lol ill tell him. bea is gonna kill him tho shes a clean freak", "Ha, sounds like there might be a house meeting."],
+["prob. shes at work til 6, she works at the florist by the station n comes back smelling like roses lol", "That's a nice thing to bring home. Better than smelling like the rice pan."],
+["hahaha true", "Any plans for today besides avoiding the kitchen?"],
+["gotta get a haircut. going to mos place, not housemate mo, the barber mo lol", "Two Mos, got it. Is he good with the clippers?"],
+["best fade in the area. hes doing Spanish at night school cos his wife is from valencia, he practises on me lol", "Ha, free conversation practice with every haircut. You might pick some up yourself."],
+["i know like 3 words. hola gracias n cerveza", "The essentials, honestly."],
+["lmao. ok landlady mrs kowalczyk txtd, shes selling up n moving to Cardiff to be near her grandkids", "That's big news. Did she say what that means for the house?"],
+["she said new owner will keep us on, hopefully", "Fingers crossed. It's worth checking your tenancy agreement so you know where you stand."],
+["ya good idea. tunde next door is practising agian", "What does he practise?"],
+["trumpet. hes in a jazz band, its actualy good but loud at 9am", "Jazz first thing is a bold choice. At least it's live music."],
+["lol ya. bea will be fine with it shes the one who likes jazz", "Then at least someone's getting a free concert."],
+["back from the barbers, fresh", "Nice, enjoy the fresh cut feeling."],
+["o wait i got it wrong abt mrs k, she txtd again, its Swansea shes moving to not Cardiff, her daughter lives there", "Ah, close but a different city. Still Wales, at least."],
+["ya. anyway mo finally cleaned the pan", "A miracle. The kitchen can breathe again."],
+["bea came home with a rabbit?? someone at work was giving it away n she just took it", "That's a surprise addition! Has it got a name yet?"],
+["she calls it pickle lol its tiny n grey", "Pickle is perfect for a tiny grey bunny. Is everyone okay with a new housemate?"],
+["mo is in love w it already", "Ha, sounds like Pickle has won the house over."]
+],
+"questions": [
+{"kind": "older", "message": "wat language is my housemate mo learnin again", "answer": "Japanese", "wrong": ["Spanish"], "fact_exchange": 3},
+{"kind": "older", "message": "wheres bea work again", "answer": "florist", "wrong": ["barber"], "fact_exchange": 5},
+{"kind": "confirm", "message": "so mrs k is off to cardiff right", "answer": "Swansea", "wrong": [], "fact_exchange": 16},
+{"kind": "in_view", "message": "wat did bea bring back with her", "answer": "rabbit", "wrong": [], "fact_exchange": 18},
+{"kind": "never_told", "message": "is tunde learnin any languages", "answer": "", "wrong": ["Japanese", "Spanish"], "fact_exchange": null},
+{"kind": "statement", "message": "ok im starving gonna make some noodles", "answer": "", "wrong": [], "fact_exchange": null}
+]}

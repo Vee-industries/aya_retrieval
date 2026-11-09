@@ -1,0 +1,32 @@
+{"id": "x2_04", "exchanges": [
+["Hi! I'm getting married in October and I'd love some help keeping my thoughts organised.", "Congratulations! I'd be glad to help. What's on your mind first?"],
+["Mostly the people. There are so many of them, and everyone has opinions.", "That's the universal wedding experience. Shall we go through them one by one?"],
+["Yes, please. My fiancé is Emeka, and his family is huge. His grandmother Nkechi is coming from Enugu, and she only speaks Igbo, so we need someone to sit with her and translate.", "That's thoughtful planning. Is there a grandchild who'd enjoy being her companion for the day?"],
+["Probably one of the cousins. Speaking of cousins, his cousin Aisha has a beagle named Biscuit, and she's asked if he can be the ring bearer.", "A dog ring bearer will steal the show. Has your venue said yes to pets?"],
+["They have, surprisingly. Someone would need to hold the lead the whole time, though.", "Definitely, beagles follow their noses. A handler who knows him would be ideal."],
+["The best man is Chidi, Emeka's oldest friend. He lives in Houston and is flying in the Thursday before.", "Arriving Thursday gives him time for the rehearsal. Will he need a hotel?"],
+["He'll stay with us. My maid of honour is my coworker Aisha, which is confusing because there are now two Aishas in the wedding party.", "Two Aishas will keep everyone on their toes. Maybe nicknames on the seating chart."],
+["Ha, yes. She's stressed because she's never left her cat Pepper alone overnight.", "A pet sitter or a friend dropping by twice a day usually solves that."],
+["I'll suggest that. Now the vendors. We met the florist yesterday. She pulled up in a mint-green Volkswagen bus that she uses for deliveries, and Emeka immediately wanted it in the photos.", "That sounds like a photographer's dream. It would make a great backdrop for portraits."],
+["Her name is Meera, and her arrangements are stunning. She does a lot of dahlias.", "Dahlias are perfect for October, they're at their peak."],
+["The caterer is a Nigerian place in town, so we'll have jollof, suya, and plenty of puff-puff.", "Your guests are going to eat very well. Is there a vegetarian option?"],
+["Yes, my uncle Liam is vegetarian, so we asked for a separate dish for him and a few others.", "Good, that way no one is left with just sides."],
+["Music will be a live band called The Lanterns for the ceremony, then a DJ for the party.", "A band for the ceremony and a DJ for dancing covers both moods nicely."],
+["Oh, I need to correct something. Chidi doesn't live in Houston anymore. He moved to Atlanta in the spring. I mixed him up with his brother.", "Atlanta, got it. Thanks for catching that."],
+["Emeka's mother wants a traditional engagement ceremony the day before, too.", "So two ceremonies in two days. That's a lot of joy, and a lot of logistics."],
+["Exactly. I'm already tired thinking about it.", "It's a lot. It may help to give the traditional ceremony its own small planning list so they don't blur together."],
+["Good idea. My sister Siobhan will help with that, since she's done one before for a friend.", "Experience helps. She'll know which details people forget."],
+["The photographer is Tunde, and he's bringing a second shooter.", "Two photographers make sense with two ceremonies and a big crowd."],
+["The seating chart is going to be a nightmare, honestly.", "It usually is. Starting with the tables that must be together and the people who must be apart makes it easier."],
+["There are definitely some people who must be apart.", "Every family has them. Put those in first and build around them."],
+["The hair stylist, Rania, can only do six people before noon.", "Then you'll want to decide who gets those slots early, starting with you."],
+["She also said her assistant can do another four if we pay a bit extra.", "That brings it to ten, which might cover the whole bridal party."],
+["I think it does. Okay, I feel much better about this.", "You've got a clear picture of who's doing what. The rest is filling in times."]
+], "questions": [
+{"kind": "older", "message": "What's the name of the dog that belongs to Emeka's cousin?", "answer": "Biscuit", "wrong": ["Pepper"], "fact_exchange": 3},
+{"kind": "older", "message": "What was the florist driving when we first saw her?", "answer": "Volkswagen", "wrong": [], "fact_exchange": 8},
+{"kind": "confirm", "message": "Chidi's still in Houston, isn't he?", "answer": "Atlanta", "wrong": ["Enugu"], "fact_exchange": 13},
+{"kind": "in_view", "message": "Remind me who's doing everyone's updos?", "answer": "Rania", "wrong": ["Meera"], "fact_exchange": 20},
+{"kind": "never_told", "message": "What kind of pet does Siobhan have?", "answer": "", "wrong": ["Biscuit", "Pepper", "beagle"], "fact_exchange": null},
+{"kind": "statement", "message": "I'm thinking about small welcome bags for out-of-town guests. Worth it, or a waste of money?", "answer": "", "wrong": [], "fact_exchange": null}
+]}

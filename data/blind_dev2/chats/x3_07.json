@@ -1,0 +1,33 @@
+{"id": "x3_07", "exchanges": [
+["Morning. Up early because the bin lorry woke me.", "Bin lorries have no mercy. Did you manage to drift off again?"],
+["Nope. Made coffee instead. Elena's on nights this week so she just got home.", "Night shifts are tough. Does she work at the hospital?"],
+["Yeah, maternity. She's a midwife, delivered three babies last night apparently.", "That's an incredible night's work. She must be exhausted."],
+["She went straight to bed. We have to be quiet till 2.", "Good of everyone to keep it down for her."],
+["Hamza's already out. He goes to the park every Saturday to play chess with the old men by the fountain.", "That sounds like a lovely tradition. Is he any good?"],
+["He says he wins half the time. They take it very seriously.", "Half the time against seasoned park players is pretty respectable."],
+["I think so. Saw Mr Dubois walking his dog on the way back from the shop.", "Is he the neighbour on the corner?"],
+["Yeah, number 14. His dog is a beagle called Margot, she's so friendly.", "Margot sounds sweet. Dogs like that tend to love everyone."],
+["She does. Rent's due Monday, need to remind everyone.", "A group message might save chasing people."],
+["Good idea. Our landlady's quite strict about dates.", "Better to be early then."],
+["Funny thing, she's called Elena too. So we have house Elena and landlady Elena.", "That must make texts confusing. Do you nickname them?"],
+["Landlady Elena is 'Mrs P'. She's an accountant, so she notices if we're even a pound short.", "Makes sense that she's precise with numbers. Exact amounts it is."],
+["Exactly. The Polish deli has a new sourdough by the way.", "Ooh, worth trying. Is it good?"],
+["Very. Got two loaves.", "One for now and one for the freezer, smart."],
+["The kid next door was out playing badminton against the wall again.", "Persistent practice. Does he ever hit the windows?"],
+["Once. Mr Dubois was not amused.", "Ha, I can imagine."],
+["Actually, I was wrong about Margot. Mr Dubois told me today she's a basset, not a beagle. Long ears, short legs. I should have known.", "Ha, the ears are the giveaway. Easy to mix up at a glance though."],
+["She does look a bit like a stretched beagle.", "That's a fair description, honestly."],
+["Elena's awake now. Earlier than expected.", "Maybe the bin lorry got her too."],
+["Probably. She wants to try the new Korean place for lunch.", "Nice, a new spot is always worth a look."],
+["We just got back. She had the bibimbap and said it was the best she's had outside Seoul.", "High praise. Sounds like a new regular spot."],
+["I had dumplings. Also great.", "Good to hear both dishes hit the mark."],
+["We'll go back next week for sure.", "Sounds like a plan."]
+],
+"questions": [
+{"kind": "older", "message": "What's my housemate Elena's job again?", "answer": "midwife", "wrong": ["accountant"], "fact_exchange": 2},
+{"kind": "older", "message": "What does Hamza get up to on Saturdays?", "answer": "chess", "wrong": ["badminton"], "fact_exchange": 4},
+{"kind": "confirm", "message": "Mr Dubois has a beagle, doesn't he?", "answer": "basset", "wrong": [], "fact_exchange": 16},
+{"kind": "in_view", "message": "What did Elena order at the Korean place?", "answer": "bibimbap", "wrong": ["dumplings"], "fact_exchange": 20},
+{"kind": "never_told", "message": "What does Hamza do for work?", "answer": "", "wrong": ["midwife", "accountant", "landlady"], "fact_exchange": null},
+{"kind": "statement", "message": "I might take a nap this afternoon, I'm so full.", "answer": "", "wrong": [], "fact_exchange": null}
+]}

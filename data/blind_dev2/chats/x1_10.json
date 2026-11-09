@@ -1,0 +1,29 @@
+{"id": "x1_10", "exchanges": [
+["hey... so it's been a week", "Sounds like it. Want to talk it through?"],
+["yes pls... ify made the volleyball team, which is great, but practices are at 6am", "Congrats to her! 6am is brutal though."],
+["brutal for me, she's somehow fine lol... coach adeyemi is super serious", "Early practices keep only the committed ones. Ify must really want it."],
+["she does... ok also my cousin ngozi had her baby on tuesday!! a girl, adaeze", "Congratulations to her! That's lovely news."],
+["we're going to visit saturday... chidi is so excited to hold a baby", "That's sweet. Nine is a great age for a gentle big cousin."],
+["also his class hamster is coming to stay with us over march break... he volunteered without asking me", "Ha, classic. At least it's only a week."],
+["his teacher mr lindgren basically begged though so...", "Sounds like he was glad of a volunteer."],
+["and then my husband's cousin, also named ngozi, is due next month... it's a ngozi baby boom", "Two babies in two months. Your family's busy."],
+["lol yes... she already picked the name, obinna", "That's a lovely name."],
+["so ify's school wants her to pick electives for next year... she wants art and spanish", "That's a fun combo. Any reason for the language?"],
+["her best friend lucia is from colombia and ify wants to be able to talk to her grandma", "That's the best kind of motivation."],
+["chidi just wants to play roblox forever", "Plenty of nine-year-olds would agree with him."],
+["ok so correction... it's not a hamster lol, chidi says it's a gerbil and he's offended i called it a hamster", "He's right to stand up for it. They're very different animals to a nine-year-old."],
+["its name is pancake", "Pancake sounds like a great house guest."],
+["we'll see... our cat might disagree", "Keep the cage somewhere the cat can't reach."],
+["yes... the cat is named tolu and he is a menace", "Every house needs one menace."],
+["lol ok i need to get chidi from his piano lesson in 10 mins", "Go, go. Good luck with the rest of the week."],
+["wait one more thing... ify's coach emailed, the tournament is in barrie next month", "That's a trip! Will you drive up with her?"],
+["probably... my husband emeka can't, he's a pharmacist and works saturdays", "Then it's a road trip for the two of you."],
+["honestly could be nice... just me and her and bad gas station snacks", "That sounds like a good time. Some of the best talks happen in the car."]
+], "questions": [
+{"kind": "older", "message": "what's my husband's cousin naming the baby again", "answer": "obinna", "wrong": ["adaeze"], "fact_exchange": 8},
+{"kind": "older", "message": "what animal is chidi looking after over the break", "answer": "gerbil", "wrong": ["hamster"], "fact_exchange": 12},
+{"kind": "confirm", "message": "ify's taking spanish next year right?", "answer": "spanish", "wrong": [], "fact_exchange": 9},
+{"kind": "in_view", "message": "where's ify playing next month", "answer": "barrie", "wrong": ["colombia"], "fact_exchange": 17},
+{"kind": "never_told", "message": "what does my cousin ngozi do for work", "answer": "", "wrong": ["pharmacist", "teacher", "coach"], "fact_exchange": null},
+{"kind": "statement", "message": "maybe ill make a playlist for the drive up", "answer": "", "wrong": [], "fact_exchange": null}
+]}

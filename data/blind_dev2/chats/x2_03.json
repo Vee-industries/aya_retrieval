@@ -1,0 +1,33 @@
+{"id": "x2_03", "exchanges": [
+["hey so my grandpas 80th is next month and im the one planning it somehow", "An 80th is a big one. Congratulations on being chosen, even if it was by default."],
+["lol yeah everyone else is busy apparently", "Classic. What do you have so far?"],
+["nothing just a date sat the 21st", "That's a start. Have you thought about where, a restaurant or someone's home?"],
+["restaurant probably theres a korean bbq place he loves called seoul garden", "If it's already his favourite that's an easy win. Do they have a private room?"],
+["yeah the owner mr park knows him from church so he said hed close off the back room for us", "That's generous of him. Having the owner on your side makes everything smoother."],
+["ok guests my uncle sungho is coming from busan which is huge he hasnt visited in years", "That will mean a lot to your grandpa. Is he coming alone or with family?"],
+["alone his wife has to work he wants to take grandpa fishing the day after which is cute they used to go all the time", "A quiet morning on the water after a big party sounds like a lovely follow-up."],
+["and grandpas younger brother my great uncle donghyun lives here hes like 76", "Brothers at 80 and 76 both celebrating together is special. Are they close?"],
+["super close they bicker constantly lol donghyun is really into calligraphy he wants to make a banner for the party", "A handmade banner from his brother would be a beautiful centrepiece and a keepsake after."],
+["yes i love that idea", "Maybe ask him to make it something your grandpa can hang at home afterward."],
+["my cousin minji is flying back from school shes at ucla doing nursing", "Nice that she can make the trip from UCLA. Is it close to her exams?"],
+["finals are after so shes ok", "Good, she can enjoy it without stressing."],
+["grandpas friend from the army mr abernathy is coming too he uses a wheelchair now so the room needs to work for that", "Worth checking the back room has a step-free way in and space between tables. Mr. Park would know."],
+["ill ask oh and our neighbour fatima offered to make her famous baklava for dessert", "Homemade pastry next to Korean barbecue is a fun mix. That's a kind offer."],
+["she makes it every eid and its unreal", "Then everyone's in for a treat."],
+["wait minji isnt at ucla thats her old school she transferred to berkeley last year i keep forgetting", "Berkeley, noted. Transfers are easy to lose track of."],
+["yeah my mom would kill me lol", "Your secret is safe. Should we talk about a gift from the family?"],
+["yes i was thinking a photo book of his life", "That's a meaningful gift for a milestone like this. You'd need to start gathering photos soon."],
+["my brother jae has all the old albums at his place", "Then he's your first stop. Scanning them could be a good job to hand to him."],
+["good idea hes a nerd about that stuff", "Perfect fit then."],
+["also want a slideshow at the dinner", "The scanned photos can do double duty for the book and the slideshow."],
+["grandpa only drinks makgeolli at parties so i need to tell mr park to stock it", "Good to sort ahead, not every place keeps much of it on hand."],
+["and he likes it cold", "Ask them to chill a few bottles before you arrive then."],
+["ok i think thats enough for tonight", "You got a lot sorted. The venue, the guests and the gift are all taking shape."]
+], "questions": [
+{"kind": "older", "message": "whats my great uncles hobby again", "answer": "calligraphy", "wrong": ["fishing"], "fact_exchange": 8},
+{"kind": "older", "message": "what school is my cousin at now", "answer": "Berkeley", "wrong": ["UCLA"], "fact_exchange": 15},
+{"kind": "confirm", "message": "fatimas making baklava right", "answer": "baklava", "wrong": [], "fact_exchange": 13},
+{"kind": "in_view", "message": "what booze does grandpa like", "answer": "makgeolli", "wrong": [], "fact_exchange": 21},
+{"kind": "never_told", "message": "where did jae go to school", "answer": "", "wrong": ["UCLA", "Berkeley"], "fact_exchange": null},
+{"kind": "statement", "message": "should i get balloons or is that tacky", "answer": "", "wrong": [], "fact_exchange": null}
+]}

@@ -1,0 +1,32 @@
+{"id": "x2_02", "exchanges": [
+["Okay so I need to brain dump because my daughter Valeria's quinceañera is in September and I have approximately a million things in my head and none of them are written down anywhere, so bear with me", "Happy to be your notepad. Start wherever your head is and we'll sort it as we go."],
+["First thing is the venue, we got the hall at St. Anne's, which is where I had my own quince actually, so that's kind of sweet. My mom cried when I told her", "That's a lovely full-circle moment. Booking the venue early takes a lot of pressure off."],
+["Yes!! Okay so people. My sister Elena is going to do Valeria's makeup because she's amazing at it, even though her actual job is being a dentist, which is so random, she just has steady hands I guess", "Steady hands are steady hands, whether it's teeth or eyeliner. That's a nice gift to give her niece."],
+["lol exactly. Then my brother Tomás and his wife Marisol are driving up from San Antonio with their kids", "Sounds like a full car. How long is the drive for them?"],
+["Like five hours. She's been studying like crazy all year and she finally passed her boards last month so she's officially a pharmacist now, we're going to toast her at dinner the night before", "That's a big achievement after a year of studying. A toast the night before sounds like a nice way to mark it."],
+["Then the padrinos. Valeria's padrino is my compadre Ernesto, and he's going to play with his mariachi group for the entrance, he plays the trumpet", "Live mariachi for the entrance will give everyone chills. Does his group need a stage or just floor space?"],
+["Just floor space I think, I'll ask. Oh and abuela Teresa has diabetes so I need to make sure there's something for her at dessert that isn't pure sugar", "Most bakers can do a small sugar-free cake or a fruit option. Worth asking when you order."],
+["Speaking of which the cake lady is Mrs. Okafor from church, she's done like every cake for every event in our parish for twenty years", "A baker with that kind of track record is a safe pair of hands. Has she done a quince cake before?"],
+["Oh many. She does these crazy tall ones with the sugar flowers", "Those can be showstoppers in the photos. Do you know what colours Valeria wants?"],
+["Sage green and gold. She's very particular lol, she's fifteen, what can I say", "Sage and gold is elegant, she has good taste. It'll look great in the hall."],
+["The dress is being made by a woman in our neighbourhood, Señora Ibarra, and the first fitting is next week", "Exciting. First fittings usually show how much adjusting is left, so it's good it's early."],
+["Okay photographer, I'm going with this guy Haruto who did my friend's wedding, his pictures are so soft and pretty", "Seeing his work at a real event you were at is the best reference. Did you get a package with video too?"],
+["Just photos, video was too much $$. My nephew Diego said he'd film on his phone, he's 17 and super into that stuff, also learning guitar right now so he's always recording himself", "A teen who loves filming will probably catch the candid moments a pro misses. Free and enthusiastic is a good combo."],
+["Ha yes. Ok wait I need to fix something, I told you Ernesto plays the trumpet but that's wrong, it's the violin, he switched like ten years ago and I keep forgetting", "Violin, got it. That'll sound beautiful for the entrance."],
+["it really will. ok the court, she has 7 damas and 7 chambelanes, and they've been practising the waltz in our garage every Sunday", "Fourteen teenagers in a garage every week is dedication. How's the choreography coming along?"],
+["Messy but improving. The choreographer is a friend of Elena's named Yasmin and she's very patient with them", "Patience is the main qualification for teaching teens to waltz. Sounds like they're in good hands."],
+["Do you think I need a planner for the day of or can I just wing it with family helping", "With this many moving parts, even one person whose only job is the timeline helps a lot. It could be a reliable relative rather than a paid professional."],
+["Hmm. Maybe my tía Lupe, she's super organized and bossy in a good way", "Bossy in a good way is exactly the energy a day-of coordinator needs."],
+["LOL she will love being asked. Ok invitations are going out in July, Valeria designed them herself on Canva", "That's a nice personal touch, and it means she's invested in every detail."],
+["She is VERY invested haha. Last thing for tonight, the favors. She wants little candles with her name on them", "Candles are easy to personalize and people actually keep them. Do you want to make them or order them?"],
+["Order them, I don't have time to be crafty. I found an Etsy shop run by a woman in Oaxaca called Velas Luna that does them", "Buying from a small maker is a nice touch."],
+["Yes and she said she can ship by August", "That gives you a comfortable buffer before September."],
+["ok my brain feels lighter now, thank you", "Glad it helped. You have the big pieces in place, and the rest can be picked off one at a time."]
+], "questions": [
+{"kind": "older", "message": "Remind me what my brother's wife does for a living?", "answer": "pharmacist", "wrong": ["dentist"], "fact_exchange": 4},
+{"kind": "older", "message": "What was the health thing with abuela again, I want to tell the baker properly", "answer": "diabetes", "wrong": [], "fact_exchange": 6},
+{"kind": "confirm", "message": "Ernesto is still doing trumpet for the entrance right?", "answer": "violin", "wrong": ["guitar"], "fact_exchange": 13},
+{"kind": "in_view", "message": "where are the candle people based again", "answer": "Oaxaca", "wrong": ["San Antonio"], "fact_exchange": 20},
+{"kind": "never_told", "message": "what does tía Lupe do for work, I can never remember", "answer": "", "wrong": ["dentist", "pharmacist", "photographer", "choreographer", "baker", "planner"], "fact_exchange": null},
+{"kind": "statement", "message": "do people still do the last doll thing or is that old fashioned now", "answer": "", "wrong": [], "fact_exchange": null}
+]}

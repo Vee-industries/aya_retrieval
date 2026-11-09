@@ -1,0 +1,33 @@
+{"id": "x4_09", "exchanges": [
+["Book club tonight was at Desmond's place. We were supposed to discuss the novel but mostly we talked about everything else.", "That's how the best book clubs go. Did anyone actually finish the book?"],
+["About half of us. Desmond finished it twice, of course. He's a retired English teacher, so he takes it very seriously.", "A retired English teacher as host is either a blessing or a lot of pressure."],
+["A bit of both. He picked me up since mine is in the shop. He has this beautiful old Mustang he restored himself.", "Riding to book club in a restored classic is a nice perk."],
+["It is very loud, though. We have two Anas in the group now, which I keep forgetting to mention.", "That must make the conversation tricky. How do you tell them apart?"],
+["Ana Lucía is a retired librarian, so she's basically the other half of Desmond. She's flying to Lisbon next month to see her sister.", "That sounds like a lovely trip. Portugal is beautiful in the cooler months."],
+["And the other Ana runs the Filipino bakery on Queen Street. She brought ensaymada for everyone, which were gone in minutes.", "That's a generous thing to bring. Fresh pastries make any meeting better."],
+["She's going home to Manila for Christmas for the first time in eight years. She's really excited, but nervous about the flight, it's something like twenty hours.", "That's a long journey, but worth it after eight years away."],
+["Ingeborg had to sit by the door all night because Desmond has a cat and she's allergic. She takes pills but they only help so much.", "That's a tough spot. Maybe the club could rotate to another house sometimes."],
+["We've talked about it. Desmond feels terrible but the cat, Pumpernickel, refuses to stay in the bedroom.", "Pumpernickel sounds like a cat with strong opinions."],
+["Very strong. He sat on the book the whole discussion.", "Maybe he had thoughts on the ending."],
+["Ha, probably more insightful than mine. We had a new member too, Rahul. He's a software developer who said he hasn't read a novel since university.", "Book club is a nice way back into reading. Did he enjoy this one?"],
+["He said he did, but he also admitted he listened to the audiobook at double speed.", "That still counts. Plenty of people read that way now."],
+["That's what I told him. Ingeborg was less forgiving.", "Some readers have firm views on audiobooks."],
+["She's very firm on most things. She's from Bergen and she says Norwegians don't have time for nonsense.", "She sounds like she'd keep a discussion on track."],
+["She does. Oh, I said Mustang earlier but I was wrong, Desmond's car is a Thunderbird. The Mustang was his brother's. I don't know cars at all.", "Easy mistake if you're not a car person. Either way it's a classic."],
+["He would be horrified that I mixed them up.", "Probably best not to tell him."],
+["Next month's book is a mystery, which I'm happy about. I like a plot that moves.", "Mysteries are a good change of pace for a club. They usually spark lots of debate about the clues."],
+["Celeste picked it. She's a court stenographer and she says she reads true crime all day at work so she wanted fiction for once.", "That's understandable. Fiction is probably a nice break from real cases."],
+["Her job sounds fascinating to me. She types faster than anyone I know.", "It's a remarkable skill. People in that job can hit over two hundred words a minute."],
+["I believe it. Do you have any tips for remembering details in a mystery? I always forget who's who.", "Keep a small list of characters on a bookmark as you go, with a word or two about each one. It helps a lot with big casts."],
+["That's clever. I'll make one tonight.", "It'll make the discussion easier too."],
+["Desmond said the next meeting will be at Rahul's apartment, so Ingeborg can finally sit somewhere other than by the door.", "That'll be a relief for her."],
+["Rahul said he has a parrot though, an African grey named Socrates, so we'll see how that goes.", "A parrot at book club could be entertaining. Those birds can be very talkative."],
+["He says it quotes Shakespeare, but I suspect it just says hello.", "Either way, it'll be a lively meeting."]
+], "questions": [
+{"kind": "older", "message": "Where's Ana from the bakery flying to over the holidays?", "answer": "Manila", "wrong": ["Lisbon"], "fact_exchange": 6},
+{"kind": "older", "message": "What kind of car does Desmond actually drive?", "answer": "Thunderbird", "wrong": ["Mustang"], "fact_exchange": 14},
+{"kind": "confirm", "message": "Ingeborg's from Bergen, right?", "answer": "Bergen", "wrong": [], "fact_exchange": 13},
+{"kind": "in_view", "message": "What's the name of Rahul's bird?", "answer": "Socrates", "wrong": ["Pumpernickel"], "fact_exchange": 22},
+{"kind": "never_told", "message": "What does Ingeborg do for a living?", "answer": "", "wrong": ["teacher", "librarian", "developer", "stenographer"], "fact_exchange": null},
+{"kind": "statement", "message": "Honestly a talking parrot might liven up the discussion.", "answer": "", "wrong": [], "fact_exchange": null}
+]}

@@ -1,0 +1,31 @@
+{"id": "x4_02", "exchanges": [
+["Just got back from the community garden work day. My back is killing me but it was a good morning.", "Sounds like a satisfying kind of sore. What were you all working on?"],
+["Mostly turning over the beds for fall and hauling compost. Ingrid had a whole schedule printed out, of course, she's very organized about these things.", "A printed schedule for a work day is impressive. It probably kept things moving."],
+["It did. She's been coordinator for six years now and nobody else wants the job. Her plot is basically all garlic, she plants something like three hundred cloves every October.", "That's a serious operation. She must give a lot of it away."],
+["Everyone gets a braid at Christmas. Her sister Britt has the plot right next to hers and it's all rhubarb, which is funny because they're nothing alike.", "Neighbouring plots that different must make for an odd-looking corner of the garden."],
+["Haha yes. Britt is the loud one, Ingrid is the quiet planner. Anyway Kwame brought his truck to haul the compost, it's an old Ranger that sounds like it's dying.", "Old trucks have a way of hanging on. Good that he could lend it."],
+["We'd be lost without it honestly. We moved maybe two tons of compost.", "That's a lot of shovelling. No wonder your back hurts."],
+["Mrs. Nakamura brought onigiri for everyone at the break, which was so sweet of her.", "That's a lovely thing to bring to a work day. Homemade snacks make it feel like a community."],
+["She's in her eighties and still out there weeding. The poor thing has to carry an EpiPen everywhere though, wasps could actually kill her, so we check the shed for nests before she goes in.", "That's a good precaution to have built into the routine. It's kind of you all to look out for her."],
+["Diego was there too with a bunch of his students for volunteer hours. He teaches biology at Westdale so he roped in his whole class.", "Smart way to get extra hands, and the students get their hours. Did they actually work?"],
+["Some of them. A couple just took selfies with the chickens lol", "That sounds about right for teenagers. Wait, the garden has chickens?"],
+["Yes! Three hens. Priscilla, Dolly and Mabel. Kwame built the coop.", "That's a great addition. Fresh eggs must be a perk for the volunteers."],
+["Sometimes. Actually I need to correct myself, Kwame's truck isn't a Ranger, it's a Tacoma. I always mix those up.", "Easy mix-up with trucks of a similar size. It does the job either way."],
+["True. Anyway we're doing a harvest supper on the 25th, at the church hall.", "That sounds like a nice way to close out the season. Is everyone cooking?"],
+["Potluck style. I'm supposed to make something with squash but I have no idea what.", "A roasted squash soup is easy to make in bulk and travels well. A squash and sage pasta bake is another crowd-pleaser."],
+["Ooh soup could work. I have a ton of butternut from my plot.", "Perfect, that makes a smooth, sweet soup. A little ginger or curry powder adds some warmth."],
+["I like the curry idea. Britt said she's going to make a rhubarb crumble, obviously.", "Of course she is. At least everyone knows what to expect from her."],
+["Ha. It's always good though. Okay I need to go shower and lie on the floor for a bit.", "Good plan. A warm shower should help your back."],
+["Should I put heat or ice on it after?", "For general muscle soreness, heat usually feels better and helps loosen things up. If anything is swollen or sharp, ice is the safer choice."],
+["It's just achy so heat. I have one of those microwave rice bags my neighbour sewed for me.", "That's ideal. Twenty minutes at a time should help."],
+["Oh wait, I forgot to tell you, a new guy joined today, Tariq. He just moved here from Halifax and wants a plot next year.", "Nice to have new people joining. Is there space for him?"],
+["There's a waitlist but one might open up. He seemed really keen, he asked about the compost system for like twenty minutes.", "Enthusiasm like that is a good sign. He might end up running the compost one day."],
+["Honestly he could have it, nobody else wants it.", "Sounds like the job is his if he wants it."]
+], "questions": [
+{"kind": "older", "message": "What does Ingrid's sister grow again?", "answer": "rhubarb", "wrong": ["garlic", "butternut"], "fact_exchange": 3},
+{"kind": "older", "message": "What is it Mrs. Nakamura is allergic to again?", "answer": "wasps", "wrong": [], "fact_exchange": 7},
+{"kind": "confirm", "message": "Kwame still drives the Ranger, right?", "answer": "Tacoma", "wrong": [], "fact_exchange": 11},
+{"kind": "in_view", "message": "Where's the new guy from originally?", "answer": "Halifax", "wrong": [], "fact_exchange": 19},
+{"kind": "never_told", "message": "What does Kwame grow in his own plot?", "answer": "", "wrong": ["garlic", "rhubarb", "butternut", "squash"], "fact_exchange": null},
+{"kind": "statement", "message": "Honestly I hope he sticks around, new people usually drop out by July.", "answer": "", "wrong": [], "fact_exchange": null}
+]}

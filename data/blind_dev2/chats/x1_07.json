@@ -1,0 +1,32 @@
+{"id": "x1_07", "exchanges": [
+["ok so i need to talk this through because my head is spinning", "Go ahead, I'm listening."],
+["minjun fell off his skateboard yesterday at the park and his wrist swelled up like a balloon and we spent four hours in urgent care, they think its just sprained, but hes so dramatic about everything that i honestly cant tell if its bad or not", "Four hours in urgent care is exhausting. Swelling like that is worth watching even if it's minor."],
+["yeah. and of course his band concert is next week and he plays trumpet so who knows", "That depends a bit on which wrist. Which one is it?"],
+["left, thank god", "That's lucky, at least for the concert."],
+["his band teacher mr osei said he can still sit in even if he cant play", "That's kind. At least he won't miss the whole experience."],
+["yuna has her piano exam the same week, its like the universe hates me", "Two big events in one week is a lot. How's she feeling about the exam?"],
+["confident which scares me. her teacher ms beatriz says shes ready", "If her teacher says she's ready, she probably is. Confidence helps on exam day."],
+["true. ok random but my brother joon is visiting this weekend, hes obsessed with rock climbing now and wants to take minjun to the climbing gym which obviously is not happening with his wrist", "Definitely not this weekend. Maybe Yuna would want to go instead?"],
+["she might! shes fearless", "A fearless nine-year-old and an uncle like that sounds like a good match."],
+["lol. my husbands brother carlos is the opposite, he does pottery, very zen. he made us a whole set of bowls for christmas", "That's a thoughtful gift. Handmade bowls are special."],
+["they are but theyre kinda lopsided lol", "Lopsided adds character."],
+["ok so urgent care just called back. they looked at the xray again and its not sprained its a small fracture, so cast for 4 weeks", "Oh no, that changes things. Four weeks in a cast is a lot for a skater."],
+["hes actually thrilled, he wants everyone to sign it", "That's the upside of a cast at thirteen."],
+["his best friend tomas already drew a dragon on it", "A dragon is a strong start."],
+["yeah tomas is an artist, his mom is a tattoo artist so it runs in the family", "That makes sense. He must have grown up around drawing."],
+["ok so do i email mr osei about the concert or just let minjun tell him", "A short email from you is probably best, so it's official."],
+["ok ill do that tonight", "Good plan."],
+["yuna also has a loose tooth and she keeps wiggling it at dinner which is disgusting", "Loose tooth wiggling at the table is a rite of passage, sadly."],
+["she wants the tooth fairy to bring her a pokemon card instead of money", "That's a very specific request."],
+["the tooth fairy is gonna have to go to walmart lol", "The tooth fairy shops wherever she needs to."],
+["my mom is coming to help next week too, she used to be a nurse so shell fuss over the cast nonstop", "Having someone with that background around might make you feel better about it too."],
+["shell also cook for days, she always brings kimchi", "Homemade kimchi is the best kind of help."],
+["the whole fridge is gonna smell amazing", "Worth it."]
+], "questions": [
+{"kind": "older", "message": "whats my brother in law into these days", "answer": "pottery", "wrong": ["climbing"], "fact_exchange": 9},
+{"kind": "older", "message": "what instrument does minjun play again", "answer": "trumpet", "wrong": ["piano"], "fact_exchange": 2},
+{"kind": "confirm", "message": "minjuns wrist is just a sprain right", "answer": "fracture", "wrong": [], "fact_exchange": 11},
+{"kind": "in_view", "message": "what was my moms job back in the day", "answer": "nurse", "wrong": ["tattoo"], "fact_exchange": 20},
+{"kind": "never_told", "message": "what does mr osei do for fun outside school", "answer": "", "wrong": ["climbing", "pottery", "skateboard"], "fact_exchange": null},
+{"kind": "statement", "message": "i better clear a shelf for all that kimchi", "answer": "", "wrong": [], "fact_exchange": null}
+]}

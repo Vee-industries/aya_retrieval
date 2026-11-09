@@ -1,0 +1,33 @@
+{"id": "x1_01", "exchanges": [
+["hey can i vent about school stuff for a bit", "Of course, go ahead. What's going on?"],
+["so amara is in grade 4 now and her teacher ms okafor is great but the homework load is insane", "Grade 4 can be a big jump. How long is it taking her most nights?"],
+["like an hour sometimes. she cries over math. tobi is in grade 1 so hes fine he just colors lol", "An hour is a lot at that age. It might be worth telling Ms. Okafor how long it's really taking."],
+["maybe. oh also big news priya from soccer is moving to calgary in december, her husbands job transfered him", "That's a big change in the middle of the season. Will you miss having her at games?"],
+["so much. shes the one who does all the carpooling. idk what we'll do", "Losing the carpool person is rough. Another parent on the team might be willing to split it."],
+["maybe. coach rafael said hed ask around", "That's kind of him. Has he been coaching the team long?"],
+["3 seasons. tobi wants to join next year too but hes allergic to peanuts so snack time is always a whole thing", "Snack time with an allergy can be stressful. A note on the team snack schedule could help."],
+["we have a list. anyway amara started violin last month", "Oh nice! How's she liking it so far?"],
+["it sounds like a dying cat honestly but she loves it", "That's how everyone starts. If she loves it, the sound will catch up."],
+["her teacher for that is this older guy mr haddad, very strict but kind", "Strict but kind is a good mix for music lessons. Kids tend to respect it."],
+["tobi wants drums now. absolutely not lol", "Ha, maybe a practice pad first. It's a lot quieter than a full kit."],
+["ok so our babysitter priya told me shes leaving for halifax in the fall for university. the kids are gonna be crushed", "That's two goodbyes in one year. How long has she been with you?"],
+["since tobi was a baby. she basically raised him on tuesdays", "That's a real bond. Maybe she can visit when she's home for the holidays."],
+["ok random but do kids ever outgrow allergies", "Some do, especially milk and egg allergies. Nut allergies are outgrown less often, but it happens, and an allergist can retest over time."],
+["oh wait i said peanuts before, its actually cashews. peanuts hes fine with. i always mix it up bc the epipen paper says tree nuts", "Got it, tree nuts and not peanuts. Worth fixing on the snack list too."],
+["true. amaras best friend zainab got a puppy and now amara wants one", "The puppy campaign begins. What kind did Zainab get?"],
+["a beagle. so loud. we already have a cat, mango, he would hate a dog", "A beagle might be a lot for an older cat. He probably likes his quiet."],
+["mango is 12 so hes earned his peace lol", "He's earned it. Maybe Amara could get her puppy time at Zainab's house."],
+["thats actually a good idea. ok parent teacher interviews are next thursday", "Good timing to bring up the homework. Want to jot down some questions first?"],
+["yes pls. mostly the math thing and whether shes reading at grade level", "Good ones. You could also ask what the teacher suggests at home when she gets stuck."],
+["ok writing that down", "Sounds like a plan."],
+["my husband kwame might come too if he can get off work, hes a paramedic so his shifts are all over the place", "Those shifts can be hard to plan around. Hopefully he can swap with someone that day."],
+["hes asking. tobis grade 1 teacher mrs lindqvist also wants to meet which is odd", "It may just be a routine check-in. Did she say what it's about?"],
+["no just said 'a quick chat'. ugh now im nervous", "That phrase is vague, but it's usually something small. You'll know soon."]
+], "questions": [
+{"kind": "older", "message": "wait where is our babysitter off to for school", "answer": "halifax", "wrong": ["calgary"], "fact_exchange": 11},
+{"kind": "older", "message": "what instrument is amara learning again, my mom asked", "answer": "violin", "wrong": ["drums"], "fact_exchange": 7},
+{"kind": "confirm", "message": "tobi's allergy is peanuts right? doing the camp form", "answer": "cashews", "wrong": [], "fact_exchange": 14},
+{"kind": "in_view", "message": "remind me what kwame does for work, the form wants both parents jobs", "answer": "paramedic", "wrong": [], "fact_exchange": 21},
+{"kind": "never_told", "message": "does coach rafael have any pets", "answer": "", "wrong": ["beagle", "mango"], "fact_exchange": null},
+{"kind": "statement", "message": "honestly 'quick chat' is the scariest thing a teacher can say", "answer": "", "wrong": [], "fact_exchange": null}
+]}

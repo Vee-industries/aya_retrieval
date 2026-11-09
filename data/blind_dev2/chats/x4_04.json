@@ -1,0 +1,33 @@
+{"id": "x4_04", "exchanges": [
+["We had our first full run-through of the play tonight. It was a disaster, but a fun one.", "First run-throughs usually are. What went wrong?"],
+["Half the cast forgot their lines in act two, and the lighting cues were all off.", "That's pretty normal at this stage. Is there still time to tighten it up?"],
+["Three weeks until opening. Aisha is running lights and she was furious with herself. She's usually flawless.", "Even the reliable ones have off nights. She'll probably come back sharper."],
+["She will. She also plays cello in the pit band for the musical numbers, so she's stretched pretty thin.", "Doing both lights and the pit sounds like a lot. Is anyone helping her?"],
+["Her sister-in-law Noor joined to do makeup, and she sits in with the band on clarinet when she's not needed backstage.", "That's a handy family to have around a theatre."],
+["They're a great pair. Our director came in late tonight, straight from work, still in scrubs.", "Rushing from work to rehearsal is hard. Does she work at a hospital?"],
+["No, you'd never guess. She's a dentist. Spends all day with her hands in people's mouths and then comes and yells at us about projection.", "That's quite a switch at the end of the day. Projection notes are fair, though."],
+["Ha, they are. Eleanor has been directing with this group for about twenty years, so we all just do what she says.", "Twenty years of experience is worth listening to."],
+["Malcolm is our lead and he's brilliant. He's from Glasgow, so his accent slips through in every scene, which works since the play is set in Scotland anyway.", "That's a lucky bit of casting. An authentic accent helps."],
+["He's been doing community theatre for decades. He's also the one who knows everyone's lines, so he was feeding them during the run.", "Handy to have a lead who can rescue other people's scenes."],
+["Pita, our set builder, showed up with his arm in a cast. He broke his wrist falling off a ladder at home.", "Ouch. That must make building sets difficult."],
+["He's still directing the crew, just not using power tools. The set is maybe half done.", "With three weeks left that's tight, but doable if the crew is solid."],
+["Chiara is our prompter and she knits through the entire rehearsal. I don't know how she follows the script and knits at the same time.", "That's impressive multitasking. Maybe the knitting helps her focus."],
+["She made scarves for the whole cast last year. Very cozy.", "That's a sweet tradition. A handmade cast scarf is a nice keepsake."],
+["I play the innkeeper, by the way. Only about twenty lines, but I keep blanking in the second scene.", "Small roles can be harder because you have less time to settle in. Have you tried running lines with someone?"],
+["I've been recording them on my phone and listening in the car.", "That's a good method. Hearing the cue lines before yours helps a lot."],
+["Oh, I was wrong earlier about Malcolm. He's not from Glasgow, he's from Aberdeen. He corrected me tonight, quite firmly.", "I can imagine that matters to him. People tend to have strong feelings about their hometown."],
+["He said Glaswegians and Aberdonians are very different people. I'll take his word for it.", "Probably wise not to argue that one."],
+["We have a costume parade next week, which I'm dreading. My costume is very itchy wool.", "A thin cotton layer underneath can help a lot with itchy wool."],
+["Good idea, I'll dig out a long-sleeved shirt.", "That should make the parade a lot more comfortable."],
+["Eleanor also announced we're adding a Sunday matinee because the Saturday is nearly sold out.", "That's great news for a community production. Sold-out shows are a good problem to have."],
+["Noor told me she grew up doing theatre in Tehran before she came to Canada, so she's thrilled.", "That's a lovely background to bring to the group. She must have some stories."],
+["She does. She's going to teach the cast some stage makeup tricks on Thursday.", "That'll be fun, and useful for opening night."],
+["I'm hoping she can make me look less tired. Ha.", "Good stage makeup can work wonders."]
+], "questions": [
+{"kind": "older", "message": "What does Aisha's sister-in-law play in the pit?", "answer": "clarinet", "wrong": ["cello"], "fact_exchange": 4},
+{"kind": "older", "message": "What does the director do for her day job?", "answer": "dentist", "wrong": [], "fact_exchange": 6},
+{"kind": "confirm", "message": "Malcolm's from Glasgow, isn't he?", "answer": "Aberdeen", "wrong": [], "fact_exchange": 16},
+{"kind": "in_view", "message": "Where's Noor originally from?", "answer": "Tehran", "wrong": ["Aberdeen", "Glasgow"], "fact_exchange": 21},
+{"kind": "never_told", "message": "What instrument does Pita play?", "answer": "", "wrong": ["cello", "clarinet"], "fact_exchange": null},
+{"kind": "statement", "message": "Honestly I'm kind of looking forward to Thursday now.", "answer": "", "wrong": [], "fact_exchange": null}
+]}

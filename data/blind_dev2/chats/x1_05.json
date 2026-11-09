@@ -1,0 +1,30 @@
+{"id": "x1_05", "exchanges": [
+["hiii ok quick qustion how do i get a 4 yr old to wear socks", "Ha, the eternal battle. Letting him pick the pair sometimes helps."],
+["leo hates evrything on his feet. sofia was never like this", "Every kid has their thing. Sofia probably had a different battle."],
+["yea hers was hair brushing lol", "That's a common one too. It does pass eventually."],
+["her teacher ms emma said she has the nicest braids in the class now so i guess it paid off", "That's a win. All that brushing finally earned a compliment."],
+["lol yes. ms emma is the best, she brought her bunny to class for show and tell and sofia hasnt stopped talking abt it", "A class visit from a pet is a big deal at seven."],
+["now she wants one. we have a fish thats enough", "A fish is a fine starter pet. Maybe the talk will fade."],
+["doubt it lol", "Fair. Kids have long memories for animals."],
+["ok so leo was up all nite coughing like a seal", "Oh no, that sounds rough. Is he okay this morning?"],
+["took him in, its croup. dr said steam and cold air and he shld be ok in a few days", "Poor guy. Cold night air really does help a lot of kids with that."],
+["so no daycare this week, my mother in law is flying in from lisbon on thurs to help thank god", "That's perfect timing. He'll love having his grandma around."],
+["he will shes the only one who can get socks on him lol", "Grandmas have secret powers."],
+["sofias dance recital is saturday too. so many things", "Busy week! What kind of dance is she doing?"],
+["ballet. she is a tree. not even a ballerina a tree", "Trees are important! Every ballet needs scenery."],
+["lol ok fair. her best friend nadia is the lead and nadias mom emma is kind of a stage mom about it", "Every recital has one. Do you get along with her?"],
+["shes nice just intense. she has a tortoise named sheldon and brings him to the park in a stroller", "That's a level of commitment I respect. Sheldon must be famous in the neighbourhood."],
+["he is lol. ok wait i said my mil is coming from lisbon, shes not, she moved to porto last yr. my brain is mush", "No worries, with a sick kid and a recital that's understandable."],
+["ya direct flight. my husband is picking her up, hes a pilot so he knows the airport like his own house lol", "Handy. Airport pickups must be easy for him."],
+["very. ok i need to find a tree costume by saturday", "Brown leggings and a green top with some paper leaves could work."],
+["omg thats so easy why didnt i think of that", "You've had a lot going on. A felt leaf crown would finish it."],
+["my neighbour giulia is a seamstress she might help with the crown", "That's lucky timing. She could probably make it in an evening."],
+["sofia wants glitter on everything obviously", "Of course she does. A glitter tree is a whole new kind of tree."]
+], "questions": [
+{"kind": "older", "message": "what kind of pet does sofias teacher have", "answer": "bunny", "wrong": ["tortoise", "fish"], "fact_exchange": 4},
+{"kind": "older", "message": "whats leo got again, my boss asked why im home", "answer": "croup", "wrong": [], "fact_exchange": 8},
+{"kind": "confirm", "message": "my mil is coming in from lisbon right", "answer": "porto", "wrong": [], "fact_exchange": 15},
+{"kind": "in_view", "message": "what does giulia do again", "answer": "seamstress", "wrong": ["pilot", "teacher"], "fact_exchange": 19},
+{"kind": "never_told", "message": "whats nadias mom do for work", "answer": "", "wrong": ["pilot", "seamstress", "teacher"], "fact_exchange": null},
+{"kind": "statement", "message": "ok off to the craft store for felt and way too much glitter", "answer": "", "wrong": [], "fact_exchange": null}
+]}

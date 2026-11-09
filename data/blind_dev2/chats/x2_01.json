@@ -1,0 +1,32 @@
+{"id": "x2_01", "exchanges": [
+["ok so its happening. my parents 40th anniversary party, june 14. i need help keeping track of everything lol", "Congratulations to them, forty years is huge. Happy to help you keep it all straight, where do you want to start?"],
+["guest list first i guess. its gonna be like 80 ppl", "Eighty is a good size, big enough to feel like a celebration but still manageable. Are you sending paper invites or doing it online?"],
+["online, my mom wont care. my aunt rosa is flying in, she just moved to phoenix last spring so its a long trip for her", "Phoenix is a long way to come, that's kind of her. Will she need a place to stay while she's in town?"],
+["prob stays w my parents. ugh also need a caterer still", "Caterers book up fast for June, so that's a good one to tackle soon. Do you have a style in mind, buffet or plated?"],
+["buffet. my friend recommended this woman priya, she used to be an accountant and quit to start cooking full time", "A career switch like that usually means real passion for it. Worth asking her for a tasting."],
+["yeah emailed her. oh important, uncle dmitri cant eat shellfish, he swells up like crazy", "Good to flag early. I'd tell the caterer so nothing on the buffet gets cross-contaminated."],
+["noted. and my moms friend beatriz is allergic to walnuts so no walnut stuff either", "Two allergies to pass along then. A small card on each dish listing what's in it could help everyone."],
+["ooh thats smart", "It saves a lot of people from having to ask. Do you have a venue yet?"],
+["yes the community hall near their house, its booked", "Great, that's the biggest piece done. Is there a kitchen there the caterer can use?"],
+["i think so? have to check. my cousin mateo said hed help set up, hes a firefighter so hes used to lifting heavy stuff lol", "Ha, sounds like you've got your muscle covered. Tables and chairs will be easy for him."],
+["for real. music next. theres a dj named kwame who did my coworkers wedding", "A recommendation from a wedding you were at is a good sign. Did you like what he played?"],
+["loved it he played old motown which my dad loves", "That's perfect for an anniversary, your parents' era of music. I'd ask him to lean into that."],
+["speaking of that coworker, rosa from my office, she just moved to denver and she might drive back for the party", "Denver's a long drive, she must be fond of your family. Do you want her on the list on her own or with a plus one?"],
+["on her own. shes single rn", "Got it. How are you handling RSVPs, a form or just replies?"],
+["a google form probably", "That makes counting easy, and you can add a question about dietary needs while you're at it."],
+["good call. wait i messed up earlier, my aunt didnt move to phoenix, its tucson. i always mix up the arizona cities", "Tucson, got it. Easy mix-up, they're not that far apart."],
+["lol thanks. grandma lin wants to give a speech", "That could be the most moving part of the night. Does she want a microphone or a quieter moment?"],
+["mic for sure shes loud haha. she was a music teacher for like 30 years so shes not shy", "Decades in front of a classroom, she'll own the room. Maybe schedule her right after dinner."],
+["yes after dinner before cake. cake!! i forgot about cake", "Plenty of time still. Do your parents have a favourite flavour?"],
+["my dad likes lemon, mom likes chocolate so maybe two tiers", "A tier for each of them is sweet, literally. Most bakeries can do mixed flavours."],
+["ok and photographer is yusuf, booked him today", "Nice, that's another big one off the list."],
+["hes bringing his nephew omar to help with lights", "Omar will be handy for the group shots, an extra pair of hands helps a lot."],
+["yeah. honestly feeling way less stressed now", "You've covered a lot today: venue, food, music and photos are all moving. The rest is details."]
+], "questions": [
+{"kind": "older", "message": "where did my aunt end up moving again", "answer": "Tucson", "wrong": ["Phoenix", "Denver"], "fact_exchange": 15},
+{"kind": "older", "message": "what does mateo do for work again", "answer": "firefighter", "wrong": ["accountant", "teacher", "photographer"], "fact_exchange": 9},
+{"kind": "confirm", "message": "uncle dmitri cant do shellfish right", "answer": "shellfish", "wrong": ["walnuts"], "fact_exchange": 5},
+{"kind": "in_view", "message": "whos coming along to assist the photographer", "answer": "Omar", "wrong": [], "fact_exchange": 21},
+{"kind": "never_told", "message": "wheres beatriz living these days", "answer": "", "wrong": ["Tucson", "Phoenix", "Denver"], "fact_exchange": null},
+{"kind": "statement", "message": "ok gonna go look at balloons, gold or silver?", "answer": "", "wrong": [], "fact_exchange": null}
+]}

@@ -164,6 +164,7 @@ carry their own provenance (command, git commit, package versions).
 | R-149 | 6.39 fails at 82 and 83: `hard_dev` recall pooled 147 against 6.37's 163 (and v6's 157); every other line passes; the targeted miss (found, answered without the asked detail) rises from 21 to 33; 6.37 stays frozen |
 | R-150 | The 6.4 panel (three Opus lanes, audited): two say no 6.4; the third offers value-first answers at about 15% to pass, the same rate as a copy with no effect; no 6.4; 6.37 is the model the sealed final run will score |
 | R-151 | Kevin moves the model freeze to Wed Nov 11 night; a 7 is planned from scratch, its design open to the first independent set's failures, judged on a second independent set written now by four new blind writers; the seed-average idea measured and dropped |
+| R-152 | The second independent set is written and frozen: 40 chats from four new blind writers, 240 questions, none dropped (sha256 `3a91c34b...`); writer transcripts audited; it judges 7 (R-151) |
 
 ---
 
@@ -5795,3 +5796,23 @@ most of the way back toward base, and a pass rule against seed 82 would mostly t
 screening pass with a harder bar (beat both 82 and 83 at 75002); the against lane would not run it. Dropped, to
 keep the card and the day for 7; the
 cosine measurement goes in the write-up beside the seed spread (R-141).
+
+## R-152 · 2026-11-09 · SPRINT · The second independent set is written and frozen
+
+**Why.** R-151: designing 7 from the first independent set's failures uses that set up, so 7 needs a fresh judge
+written by writers who never saw the generator, the project or the first set's results.
+
+**Written.** Four fresh Opus agents, in parallel, each given R-142's writer spec unchanged with its own setting
+(`data/blind_dev2/brief.md` lists the four), ten conversations each: `data/blind_dev2/chats/x1_01.json` to
+`x4_10.json`. **Writer audit** (every tool call): each read only its own brief and wrote only its own ten files, each
+file twice (a rewrite of its own text); none ran a command or searched. Writer 1 noted that its answers keep the
+user's lower case; the scorer compares case-blind.
+
+**Frozen here:** sha256 over every file's name and bytes in name order (`dev_set.load_dev_set`)
+`3a91c34b2183ec8e3a74a5481540e6873307488b4f89d742f8ec91bd5c3dfe65`, checked in the writers' folder and again in the
+repo. Loader (R-142's rules): 240 kept, 0 dropped: `older` 80, `confirm` 40, `in_view` 40, `never_told` 40,
+`statement` 40, 60 a writer. **R-143's scoring limit again:** 55 of the 160 answer-bearing questions list no wrong
+value (`confirm` 26, `in_view` 19, `older` 10). Counts only were printed: no one has read a chat.
+
+**Use.** It judges 7 as R-151 and 7's registration set out; for every other model it is report only. No design
+choice for 7 reads it, and the panel lanes designing 7 were told never to open it.

@@ -1,0 +1,33 @@
+{"id": "x4_07", "exchanges": [
+["just finished my volunteer shift at the radio station, my voice is shot", "Talking for hours will do that. What do you do there?"],
+["i do the community calendar segment on saturdays. reading out bake sales and yard sales basically lol", "That's a classic community radio segment. People actually rely on those."],
+["they do! old guys call in if i skip theirs. anyway theres two juns at the station which confuses every new person", "Two people with the same name at a small station must cause some mix-ups."],
+["jun park is the station manager, he does a jazz show tuesday nights that hes been doing forever", "A long-running show like that sounds like a station staple."],
+["and then student jun, jun watanabe, hes like 19 and does a punk show friday at midnight. total opposite energy", "That's quite a range for one little station. Midnight seems like the right slot for that."],
+["ha yes. hes always in the booth, i think he sleeps there sometimes", "Sounds like he loves it. That kind of dedication is great to have."],
+["oksana does the news reads, shes in her last year doing economics at the university and she reads the news like shes presenting a budget lol", "A budget-speech delivery might actually suit the news."],
+["it kinda does. babajide is the tech guy, he keeps the transmitter alive with duct tape and prayers", "Every small station seems to have one person holding the equipment together."],
+["his cat comes in sometimes, a big orange one named mango. it sleeps on the mixing board which drives jun park crazy", "A cat on the mixing board is a recipe for dead air."],
+["it actually happened once, mango stepped on a fader during a live show", "That's the kind of story that gets told at every station party."],
+["thandiwe does fundraising, shes trying to get us a new transmitter before winter", "That's a big goal for a community station. Is the fundraising going well?"],
+["slowly. she wasnt in today, she had a bad migraine, she gets them every few weeks", "That sounds miserable. Hopefully it passes quickly for her."],
+["ya she said lights and screens make it worse which is rough for someone who stares at spreadsheets all day", "That's a tough combination. Maybe she can take breaks somewhere dim."],
+["gustavo was in though, hes 80 and he does a tango hour on sundays. he plays bandoneon live sometimes", "Live music like that on community radio is a real treat. Not many stations can offer it."],
+["he brings it in the case and everyone stops what theyre doing", "I can imagine. It's a beautiful, haunting sound."],
+["ok wait i messed up, oksana isnt doing economics, its journalism. economics was just her first year before she switched", "That fits her news reads well. She's getting real practice for the work she wants."],
+["she wants to go to the cbc after she graduates", "Community radio is a great place to start for that."],
+["jun park says shes the best news reader the station has had", "High praise from a station manager."],
+["ok so thandiwe wants to do a 24 hour radiothon in december and wants everyone to take a shift", "A radiothon is a classic fundraiser. Are you going to take a slot?"],
+["i said id do 2am to 4am which i already regret", "The graveyard slot can be surprisingly fun. The callers at that hour are a special crowd."],
+["lol i bet. what should i even talk about for 2 hours", "You could take listener requests, read old calendar items for laughs, or interview whoever's in the booth with you."],
+["oh good idea, babajide said hed be there all night anyway to babysit the transmitter", "Then you have a built-in co-host."],
+["hes really funny too, he used to do stand up comedy back in lagos before he moved here", "That's perfect for the middle of the night. He'll keep you both awake."],
+["ok i feel better about it now", "Good. It might end up being one of your favourite shifts."]
+], "questions": [
+{"kind": "older", "message": "what kind of music does student jun play on his show", "answer": "punk", "wrong": ["jazz", "tango"], "fact_exchange": 4},
+{"kind": "older", "message": "why was thandiwe off today again", "answer": "migraine", "wrong": [], "fact_exchange": 11},
+{"kind": "confirm", "message": "oksanas the journalism one right", "answer": "journalism", "wrong": ["economics"], "fact_exchange": 15},
+{"kind": "in_view", "message": "where was babajide living before he came here", "answer": "lagos", "wrong": [], "fact_exchange": 22},
+{"kind": "never_told", "message": "what music does thandiwe play on her show", "answer": "", "wrong": ["jazz", "punk", "tango"], "fact_exchange": null},
+{"kind": "statement", "message": "i had no idea he did comedy, im gonna make him tell me some bits", "answer": "", "wrong": [], "fact_exchange": null}
+]}

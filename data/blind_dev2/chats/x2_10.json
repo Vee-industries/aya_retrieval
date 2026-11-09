@@ -1,0 +1,33 @@
+{"id": "x2_10", "exchanges": [
+["my brother andy is getting married in august and im in charge of the banquet side. help", "Happy to help. A wedding banquet is a big job, where are you at with it?"],
+["restaurant booked. golden phoenix, 30 tables", "Thirty tables is a proper banquet. Have you started on the menu?"],
+["they have set menus, 9 courses. my mom is choosing bc obviously", "Of course. Mothers and banquet menus go together."],
+["lol yes. ok so seating is gonna kill me", "Seating always does. Who are the tricky ones?"],
+["both grandpas for one. yeye only speaks Cantonese and waigong only speaks Mandarin so they cant even talk lol", "Then each needs a table with people who share his language, or a bilingual grandchild sitting between them."],
+["ha my cousin mei-ling can sit w them she speaks both", "Perfect, she'll be the bridge."],
+["shes also playing guzheng at the tea ceremony", "Live music at the tea ceremony is beautiful. Lucky family."],
+["chloe is so happy about that", "It sounds like a lovely way to welcome her into the family."],
+["chloe's the bride btw. her mom is flying in from Leeds, first time in asia", "A big trip. She'll probably appreciate someone to guide her through the customs of the day."],
+["her name is deborah, shes lovely, a bit overwhelmed", "Understandable. A buddy for Deborah on the day would help."],
+["my uncle ming is lending his Jaguar for the bridal car", "That's a classy bridal car. Does it need decorating?"],
+["ribbons and flowers on the front yes", "Classic. A florist can do a car arrangement easily."],
+["the MC is a guy called jun, hes a radio host here", "Someone from radio will keep the night moving and won't be thrown by a microphone."],
+["and confusingly my cousin jun is also coming, hes the one who just finished med school", "Two Juns, one on the mic and one off it. Easy enough to tell apart."],
+["lion dance team is booked too, sifu lam runs it, his troupe has done like every wedding in the district", "A troupe with that track record knows how to work a banquet hall."],
+["they come in at the start for luck", "That's the best way to open, with all the drums."],
+["oops i got something wrong, uncle ming's car is a Bentley not a jaguar, the jaguar was his old one", "Bentley it is. Still a grand bridal car."],
+["lol hes very proud of it", "As he should be."],
+["red envelopes table, do we need someone watching it", "Yes, it's common to have a trusted relative or two collecting and logging them at the entrance."],
+["my aunt su-wen will do it, shes an accountant so shes perfect", "Someone who counts money for a living is exactly right for that table."],
+["games for the door ceremony too, the groomsmen have to get past the bridesmaids", "The door games are always the funniest part of the morning. Do you have challenges planned?"],
+["chloe's bridesmaids are making andy eat wasabi and sing", "Brave of Andy. That'll be on video for years."],
+["also her best friend priyanka is in charge of the bridesmaids, shes a dance teacher so andy has to do a routine", "Then there'll definitely be choreography. Andy should start practising."],
+["he has no idea lol", "Even better for the video."]
+], "questions": [
+{"kind": "older", "message": "which language is waigong's again", "answer": "Mandarin", "wrong": ["Cantonese"], "fact_exchange": 4},
+{"kind": "older", "message": "what is uncle ming lending us for the bride", "answer": "Bentley", "wrong": ["Jaguar"], "fact_exchange": 16},
+{"kind": "confirm", "message": "chloe's mom is coming from leeds right", "answer": "Leeds", "wrong": [], "fact_exchange": 8},
+{"kind": "in_view", "message": "what does priyanka do", "answer": "teacher", "wrong": ["accountant", "radio host"], "fact_exchange": 22},
+{"kind": "never_told", "message": "what does uncle ming do for work", "answer": "", "wrong": ["radio host", "accountant", "teacher", "florist"], "fact_exchange": null},
+{"kind": "statement", "message": "should we get a photo booth or is that too much", "answer": "", "wrong": [], "fact_exchange": null}
+]}

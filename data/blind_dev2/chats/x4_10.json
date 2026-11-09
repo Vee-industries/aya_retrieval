@@ -1,0 +1,33 @@
+{"id": "x4_10", "exchanges": [
+["dragon boat practice was brutal tonight", "Brutal how? Long session or tough drills?"],
+["marisol had us doing sprints for an hour straight my arms r noodles", "An hour of sprints would do that. Is a race coming up?"],
+["festival in june, she wants us to beat the fire dept team this yr", "A rivalry is a good motivator. Have they won before?"],
+["3 yrs in a row. marisol used to paddle for mexico at worlds so she takes it personal lol", "Having a former international paddler as coach is a real advantage."],
+["we have two kais on the team now its so confusing at the start of practice", "Same names on a boat must make calling out commands tricky."],
+["kai nakoa steers and kai brennan is our drummer. we just yell steer kai and drum kai", "That's efficient. Do they get along?"],
+["they compared tattoos tonight lol. drum kai has a giant octopus on his back", "That's a bold choice. Very nautical for a paddling team."],
+["and steer kai has a sea turtle on his calf from when he lived in hawaii. honestly they could start a club", "Fitting ink for people who spend their evenings on the water."],
+["bogdan was back too, he missed 2 wks cause of work. hes a mechanic and they had him on overtime", "Overtime can wipe out any hobby. Good he's back."],
+["ya we need him hes the strongest paddler we have", "Losing your strongest paddler for two weeks would hurt any boat."],
+["aroha brought snacks after, those chocolate fish things from new zealand. shes from rotorua and her mom mails them", "That's a nice taste of home to share with the team."],
+["willa couldnt have any tho", "Oh no, why not?"],
+["she has celiac so she cant have anything with wheat in it, she always brings her own stuff", "That's a lot to keep track of. It's good she plans ahead."],
+["ya aroha felt bad so next time shes gonna find gluten free ones", "That's thoughtful of her."],
+["precious is our captain she gave a big speech at the end about commitment lol", "Sounds like the captain is serious about beating the fire department."],
+["shes a high school principal so she does speeches a lot", "Makes sense that she's good at rallying a group."],
+["oh correction bogdans not a mechanic hes a welder. i just remembered he does pipelines", "Got it. Overtime on a pipeline sounds exhausting."],
+["ya hes gone for weeks sometimes", "That must make it hard to keep up with practice."],
+["my hands r blistered from the paddle any tips", "Wear thin gloves for practice, tape the spots that blister, and let them toughen gradually. Try not to pop them."],
+["i popped one already oops", "Keep it clean and covered then, and let it dry out between practices."],
+["ok will do", "Your hands will toughen up within a few weeks."],
+["marisol said the fire dept team has a new steerer, some guy named rhys who used to be a lifeguard", "Sounds like they're gearing up too. A strong steerer makes a big difference."],
+["she thinks steer kai is better tho", "Experience on the water counts for a lot."],
+["we'll see in june i guess", "It'll be a fun race to watch either way."]
+], "questions": [
+{"kind": "older", "message": "what tattoo does drum kai have", "answer": "octopus", "wrong": ["turtle"], "fact_exchange": 6},
+{"kind": "older", "message": "whats the condition willa has", "answer": "celiac", "wrong": [], "fact_exchange": 12},
+{"kind": "confirm", "message": "bogdans the mechanic right", "answer": "welder", "wrong": [], "fact_exchange": 16},
+{"kind": "in_view", "message": "what did that rhys guy used to do", "answer": "lifeguard", "wrong": ["welder", "mechanic", "principal"], "fact_exchange": 21},
+{"kind": "never_told", "message": "what tattoo does marisol have", "answer": "", "wrong": ["octopus", "turtle"], "fact_exchange": null},
+{"kind": "statement", "message": "honestly i just want to see their faces when we win", "answer": "", "wrong": [], "fact_exchange": null}
+]}

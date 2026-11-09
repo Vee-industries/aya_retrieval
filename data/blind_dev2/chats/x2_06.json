@@ -1,0 +1,33 @@
+{"id": "x2_06", "exchanges": [
+["eli's bar mitzvah is in 3 months and i havent done anyhting", "Three months is still workable. Let's figure out what's already set."],
+["the date and the shul. thats it lol", "Those are the two hardest to move, so you're in better shape than you think."],
+["ok true. his tutor is rabbi goldfarb and eli actually likes him which is a miracle", "A tutor a 13-year-old actually likes is half the battle. How's his Torah portion going?"],
+["slow but ok. party after is at a hall, need a caterer", "Are you thinking kosher catering, or is that flexible for your family?"],
+["has to be kosher for my inlaws. theres a woman miriam who runs a kosher place, she grew up in montreal so she does real montreal bagels", "Real Montreal bagels on a kosher spread would be a hit. Worth getting a quote."],
+["yes. funny thing my mother in law is also miriam", "Two Miriams, that'll make the emails interesting."],
+["lol. MIL miriam is flying in from haifa, she lives there since like 2010", "Haifa's a long flight, it'll mean a lot to Eli that she's coming."],
+["it will. my dad saul is coming too but hes just had hip surgery so he needs a seat near the door", "Easy to plan around. Maybe a chair with arms so he can get up easily."],
+["oh good thinking", "Small things like that make a big difference while he recovers."],
+["my brother ari is coming down from vermont on his motorcycle, hes insane", "Vermont on a motorcycle is quite the entrance. Hopefully the weather's kind to him."],
+["hes bringing his gf talia who weve never met", "First time meeting the family at a big event, Talia's brave."],
+["dj is a guy named marcus, eli picked him bc he does magic tricks between songs", "A DJ with tricks up his sleeve is perfect for a room full of thirteen-year-olds."],
+["the kids will lose it", "In the best way."],
+["eli's best freind kenji is doing a reading at the service", "That's a nice way to include his friend. Does Kenji need any coaching?"],
+["nah hes a theatre kid, he'll be fine", "Theatre kids rarely need help with an audience."],
+["lol true. oh wait the gf's name isnt talia its tamar, ari just texted, i had it totally wrong", "Tamar, got it. Good thing you caught it before the name cards."],
+["omg yes that would have been bad", "Very. Speaking of cards, are you doing a seating chart?"],
+["ugh yes. 140 ppl", "Start with the family tables and the kids' table, then fill in."],
+["kids table is gonna be chaos", "With that DJ, the chaos might at least be entertained."],
+["lol. need a theme too, eli wants basketball", "Basketball is easy to theme: centrepieces, colours, maybe a hoop for the kids."],
+["hes obsessed with the celtics so green and white", "Green and white is crisp, it'll look good in photos."],
+["my sister rachel is making the centerpieces, shes super crafty", "Handmade centrepieces from his aunt will feel personal."],
+["she does pottery so maybe little ceramic basketballs?", "That would be a really unique keepsake for each table."],
+["ok im gonna ask her tmrw", "Sounds good. You made a lot of progress tonight."]
+], "questions": [
+{"kind": "older", "message": "what city is my mother in law in again", "answer": "Haifa", "wrong": ["Montreal", "Vermont"], "fact_exchange": 6},
+{"kind": "older", "message": "hows ari getting here again", "answer": "motorcycle", "wrong": [], "fact_exchange": 9},
+{"kind": "confirm", "message": "talia's coming with ari right? need it for the name cards", "answer": "Tamar", "wrong": [], "fact_exchange": 15},
+{"kind": "in_view", "message": "whats rachels art thing again", "answer": "pottery", "wrong": ["magic"], "fact_exchange": 22},
+{"kind": "never_told", "message": "where does rabbi goldfarb live", "answer": "", "wrong": ["Haifa", "Montreal", "Vermont"], "fact_exchange": null},
+{"kind": "statement", "message": "paper invites or is digital fine these days", "answer": "", "wrong": [], "fact_exchange": null}
+]}

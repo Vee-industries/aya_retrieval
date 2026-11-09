@@ -1,0 +1,33 @@
+{"id": "x4_06", "exchanges": [
+["Well, quilting circle was lively today, I must say. We had eleven of us crammed into the church basement and only four tables.", "Eleven is a good turnout. It sounds cozy, if a bit cramped."],
+["Cozy is one word for it. Dolores had us all working on the raffle quilt for the spring fair, which is a big star pattern in blues and yellows, very ambitious.", "A star pattern with that many hands on it sounds like a real group effort. How far along is it?"],
+["We've got maybe a third of the blocks done. Dolores is a perfectionist, she unpicked two of mine, which, fair enough, my points weren't lining up.", "Points on a star block are notoriously fussy. Better to fix them now than see them on the finished quilt."],
+["That's what she said. She's been running the group since 1998 and she's been diabetic since she was a girl, so she always brings her own little snacks and her meter and everything.", "It sounds like she manages it well. Running a group that long takes real dedication."],
+["Her husband Bill drives a few of us who don't drive anymore, in his big old van. He sits in the corner and reads the paper the whole time, bless him.", "That's a kind husband. He's probably heard every bit of gossip by now."],
+["Oh he has. Now, we have two Ruths, which gets confusing. There's Ruth Abramowitz, who has been coming for years, and then Ruth Okeke, who just joined in September.", "Two Ruths must keep everyone on their toes. Do you tell them apart by last name?"],
+["Mostly we say old Ruth and new Ruth, though old Ruth doesn't love that.", "Understandable, nobody likes being called old."],
+["No. She was showing everyone photos on her phone today, her grandson is in second year engineering at McGill, and she's so proud she could burst.", "That's something to be proud of. Engineering is a demanding program."],
+["And then new Ruth piped up that her granddaughter is at Dalhousie doing nursing, so of course it turned into a bit of a competition.", "Grandparent bragging rights can get competitive. Hopefully it stayed friendly."],
+["Mostly friendly. Agnieszka brought pierogi, the potato and cheese ones, and that smoothed things over.", "Food is the best peacemaker. Homemade dumplings like that are a real treat."],
+["She makes them every Christmas, hundreds of them, her mother's recipe from Krakow.", "That's a lovely tradition to keep going. Family recipes like that are precious."],
+["Mei-Ling brought her new sewing machine, a Singer, and let a few of us try it. It does about two hundred different stitches, I couldn't believe it.", "That's a big upgrade from a basic machine. Did you try any of the fancy stitches?"],
+["Just a couple. I'm a hand quilter mostly, I don't trust machines.", "Hand quilting has its own charm. It's slower but very personal."],
+["It's meditative, I find. My hands aren't what they were but I still manage a few hours a week.", "That's wonderful. Keeping your hands busy is good for them too."],
+["Arthritis is in my thumbs mostly. I use a thimble on both hands now.", "A thimble on each hand is a smart adaptation. Soaking your hands in warm water before you start can help too."],
+["I'll try that. Oh, and I got it wrong about Mei-Ling's machine. It's a Janome, not a Singer. She showed me the name on it again at the end and I felt silly.", "Easy to mix up. They're both well-known brands."],
+["She said the Singer was her mother's old one, and she still keeps it in the closet.", "Keeping an old family machine is a nice touch, even if it isn't used much."],
+["We're planning a little Christmas lunch for the group in December, at the Legion hall.", "That sounds lovely. Will everyone bring a dish?"],
+["Yes, potluck. I'm making my butter tarts, which everyone asks for.", "Those are a perfect potluck dessert. They'll disappear quickly."],
+["They always do. I make them with raisins, which starts an argument every single year.", "The raisin debate is a classic. Maybe make a half batch without."],
+["That's not a bad idea at all, I'll do two kinds this time.", "That should keep the peace."],
+["There was also a new lady today, Esperanza, who came along with new Ruth. She's just moved here from Tucson to be near her son.", "That's a big move. It's good she found a group so quickly."],
+["She's never quilted before but she wants to learn. I offered to show her some hand stitching next week.", "That's generous of you. Starting by hand is a good foundation."],
+["She seemed nervous about the cold, poor thing, coming from the desert.", "That's a big adjustment. A good warm coat and some layers will help her through the first winter."]
+], "questions": [
+{"kind": "older", "message": "Where's new Ruth's granddaughter studying?", "answer": "Dalhousie", "wrong": ["McGill"], "fact_exchange": 8},
+{"kind": "older", "message": "What brand is Mei-Ling's fancy machine, again?", "answer": "Janome", "wrong": ["Singer"], "fact_exchange": 15},
+{"kind": "confirm", "message": "Old Ruth's grandson is at Dalhousie too, isn't he?", "answer": "McGill", "wrong": [], "fact_exchange": 7},
+{"kind": "in_view", "message": "Where was Esperanza living before this?", "answer": "Tucson", "wrong": ["Krakow"], "fact_exchange": 21},
+{"kind": "never_told", "message": "Where does Agnieszka's grandson go to university?", "answer": "", "wrong": ["McGill", "Dalhousie"], "fact_exchange": null},
+{"kind": "statement", "message": "I do hope she sticks with it. Beginners often give up after their first wobbly stitches.", "answer": "", "wrong": [], "fact_exchange": null}
+]}

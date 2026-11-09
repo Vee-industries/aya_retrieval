@@ -1,0 +1,32 @@
+{"id": "x2_09", "exchanges": [
+["My great-grandmother Greta is turning 100 in May and the family has decided I'm organising the party. No pressure.", "A hundredth birthday is extraordinary. No pressure at all, just history. Where would you like to start?"],
+["She lives in a care home now, so the party will be in their big common room. The activities director, Carmen, has been wonderful about it.", "Having the home on your side makes everything simpler. Are there limits on numbers or times?"],
+["Fifty people maximum and it has to finish by six, because the residents eat early.", "That's a nice afternoon party then. Lunch or tea?"],
+["Afternoon tea, Greta would like that. She was a seamstress for sixty years and still talks about fabric like it's gossip.", "That's wonderful. Maybe something on the tables could nod to her sewing, like lace runners."],
+["Oh, that's a lovely idea. She also wants tulips everywhere. She grew them in her garden in Bremen before the war.", "They're perfect for May too, so they'll be easy to get."],
+["My grandmother Ilse, her daughter, is 76 and is basically co-hosting with me.", "Mother and daughter at 100 and 76, that's quite a pair. What does Ilse want to handle?"],
+["The cake. She's very particular about it. She wants peonies on it because they were in her own wedding bouquet.", "Those look beautiful on a cake. A baker can do them in sugar, or you could use real ones that are food-safe."],
+["Sugar ones, I think. My aunt Brigitte is bringing her dog, a dachshund called Fritz, because Greta adores him.", "Care homes often welcome visiting dogs. It's worth checking with Carmen."],
+["I'll ask. For music, we hired a pianist, Kofi Osei, who plays at the home every Thursday.", "Someone the residents already know will make the music feel familiar."],
+["He's a retired dentist who took up piano in his fifties. Greta calls him the tooth man.", "That's a great nickname. And a lovely late-life hobby turned into something for others."],
+["My cousin Ayumi is making a photo board. She married my cousin Lukas, and she's become the family archivist somehow.", "In-laws often turn out to be the best at that kind of thing. Does she have old photos to work with?"],
+["Boxes of them. She's been scanning for weeks. She works as a librarian, so she knows exactly how to label everything properly.", "That's the perfect person for photo duty. They'll be labelled better than most museums."],
+["Ha, probably. Now invitations. Greta's handwriting is still beautiful, so she wants to sign each one.", "Fifty signatures might tire her out, so perhaps spread them over a few days."],
+["Good thinking. Oh, I told you Fritz was a dachshund. He isn't, he's a poodle. Fritz the dachshund was Brigitte's last dog.", "A poodle, thanks. Easy to mix up dogs who share a name."],
+["Yes, she names them all Fritz, it's very confusing.", "Tradition is tradition."],
+["My uncle Wolfgang is flying from Vienna, which is a big deal because he hates flying.", "That shows how much this means to him."],
+["His son Felix is coming too. He's at university in Leipzig.", "So the German side is well represented."],
+["Very. I'm thinking of a speech from each generation. Greta, Ilse, my mum, me, and my daughter.", "Five generations speaking is something people will remember forever. Keep each one short."],
+["My daughter is seven, so hers will be short whether we like it or not.", "The shortest speech will probably get the biggest reaction."],
+["We also want a guest book, but Greta's eyesight isn't great, so maybe an audio one?", "An audio guest book is a great idea. She could listen to the messages afterward."],
+["The care home's chef, Mehmet, offered to make little savoury pastries for the tea.", "That's kind of him. Savoury and sweet together makes a proper afternoon tea."],
+["He's from Izmir and said he'll make börek, which Greta has apparently become obsessed with.", "A hundred-year-old with a new favourite food is a great sign."],
+["Honestly, she has more energy than me.", "Long may it last. You're in good shape with the plan."]
+], "questions": [
+{"kind": "older", "message": "Which flower did my grandmother choose?", "answer": "peonies", "wrong": ["tulips"], "fact_exchange": 6},
+{"kind": "older", "message": "What does Ayumi do for a living?", "answer": "librarian", "wrong": ["seamstress", "dentist", "chef"], "fact_exchange": 11},
+{"kind": "confirm", "message": "Brigitte's bringing the dachshund, right?", "answer": "poodle", "wrong": [], "fact_exchange": 13},
+{"kind": "in_view", "message": "What's Mehmet's hometown?", "answer": "Izmir", "wrong": ["Bremen", "Vienna", "Leipzig"], "fact_exchange": 21},
+{"kind": "never_told", "message": "What does Uncle Wolfgang do for work?", "answer": "", "wrong": ["seamstress", "dentist", "librarian", "chef", "pianist", "baker", "archivist", "activities director"], "fact_exchange": null},
+{"kind": "statement", "message": "Do you think balloons are a good idea, or too much?", "answer": "", "wrong": [], "fact_exchange": null}
+]}

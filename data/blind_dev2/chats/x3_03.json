@@ -1,0 +1,32 @@
+{"id": "x3_03", "exchanges": [
+["cant sleep the people across the road are having a party", "That's frustrating, especially on a weeknight. Is it the loud music kind or just voices?"],
+["music and shouting the usual friday thing tbh its not even friday", "Ha, someone's started the weekend early. Earplugs might be your best friend tonight."],
+["i dont have any tariq might hes got everything", "Worth knocking on his door if he's still up."],
+["hes not back yet hes at his dance class on tuesdays he does salsa at the community centre", "That's a fun way to spend an evening. Has he been going long?"],
+["like 6 months hes actually decent now he showed us in the kitchen", "A kitchen demo, nice. Shared houses need more of that."],
+["lol it was chaos oliwia nearly got kicked", "Dangerous dance floor. Was Oliwia a good sport about it?"],
+["yeah shes chill shes been stressed though cause her sister just moved to Gdansk for work and she misses her", "That's a big distance to suddenly have between you. Video calls help, but it's not the same."],
+["exactly and then her brothers wife moved to Bristol last month too so all her family is scattered now", "That's a lot of change at once. No wonder she's feeling it."],
+["ya i told her we should do a house dinner this weekend to cheer her up", "That's thoughtful. Anything she especially likes to eat?"],
+["pierogi obviously her mum sends her a recipe", "Perfect, a taste of home. Making them together could be fun too."],
+["erol from the kebab shop said hed lend us his big pot", "Nice of him. Sounds like you've got a good relationship with the local shops."],
+["erol is the best he gives us free chips and talks football at me for ages hes mad about Galatasaray", "Ha, a passionate fan then. Do you follow football at all, or just nod along?"],
+["i just nod lol his brother works there too and supports Fenerbahce so they argue every match day", "That must make the shop lively on derby day. A family rivalry over the counter is quite something."],
+["its hilarious honestly customers pick sides", "Ha, a neighbourhood sport all of its own."],
+["the landlord mr haddad came round today to fix the window finally", "About time. Was it the one that wouldn't shut properly?"],
+["yeah the bedroom one it was whistling all night", "That's maddening. Hopefully it's quiet now."],
+["oh i was wrong about tariq earlier its not salsa its bachata he corrected me when i said it lol he was offended", "Ha, dancers take that distinction seriously. Easy mix-up for the rest of us though."],
+["he said theyre completely different i cant tell", "To an outsider they can look similar; the footwork is where the difference shows."],
+["the party is getting louder omg", "Ugh. If it's past the noise curfew, you could message the neighbours or the council line."],
+["freya just got in shes been working late cause she just started at the cinema on the high street", "That explains the late hours. Free films could be a nice perk."],
+["she says she gets free popcorn which is better honestly", "Fair, popcorn is a solid perk."],
+["lol ok im gonna try sleep with a pillow over my head", "Good luck, I hope the party winds down soon."]
+],
+"questions": [
+{"kind": "older", "message": "where did oliwias sister in law end up moving", "answer": "Bristol", "wrong": ["Gdansk"], "fact_exchange": 7},
+{"kind": "older", "message": "which team is erol obsessed with", "answer": "Galatasaray", "wrong": ["Fenerbahce"], "fact_exchange": 11},
+{"kind": "confirm", "message": "tariqs dance class is salsa right", "answer": "bachata", "wrong": [], "fact_exchange": 16},
+{"kind": "in_view", "message": "whats freyas new job again", "answer": "cinema", "wrong": [], "fact_exchange": 19},
+{"kind": "never_told", "message": "wheres tariq from originally", "answer": "", "wrong": ["Gdansk", "Bristol"], "fact_exchange": null},
+{"kind": "statement", "message": "i swear i need to move somewhere quieter one day", "answer": "", "wrong": [], "fact_exchange": null}
+]}

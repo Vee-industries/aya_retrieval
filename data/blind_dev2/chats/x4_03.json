@@ -1,0 +1,33 @@
+{"id": "x4_03", "exchanges": [
+["back from the food bank shift its been a day", "Sounds like a busy one. Was it a big distribution day?"],
+["yeah thursdays are always nuts we had like 200 families come thru and the van broke down halfway thru the morning run", "That's a lot of people to serve with no van. How did the deliveries get done?"],
+["sam drove his own car and did the rest of the drop offs which was huge he had boxes stacked on the passenger seat and everything", "That's going above and beyond. Hopefully the van gets fixed quickly."],
+["the funny part is his parrot was in the back seat in its travel cage cause he was taking it to the vet after so all the old ladies got a show lol", "A bird riding along on food deliveries is pretty memorable. I bet it made people's day."],
+["it was saying hello to everyone at the doors", "That's adorable. The clients will probably be asking for it now."],
+["and then we have the other sam who runs intake shes the total opposite super serious clipboard type", "Two Sams with opposite personalities must keep things interesting."],
+["ya we call them van sam and intake sam. she has a ferret that she walks on a leash in the park which is so not what youd expect from her", "That's a fun surprise from someone so serious. A pet on a leash in the park always gets attention."],
+["beatriz was stressing all day about the holiday hamper drive shes the coordinator and she takes everything personally", "Holiday drives are a lot of pressure. It's good she cares, though it must wear on her."],
+["she told me she unwinds by doing pottery on weekends which i didnt know", "Working with clay is a great way to switch off. Using your hands can be really calming."],
+["i want to try it honestly maybe ill ask her where she goes", "That could be a nice way to get to know her outside the food bank too."],
+["oh and henrik was back after his knee surgery hes like 78 and still lifts the flour sacks we keep telling him not to", "Sounds like he's determined. Hopefully he's easing back in."],
+["he is not easing back in lol he did a full four hours", "Some people just aren't built to sit still."],
+["seun was sorting cans next to me all afternoon", "Long afternoon of sorting. Was he in a good mood?"],
+["the best mood. he finally got in to the nursing program at humber starts in january been waiting like two years for it", "That's wonderful news after such a long wait. If he's this dedicated he'll do well."],
+["ya hes gonna have to cut back his shifts tho which sucks for us", "That's a loss for the food bank, but a good reason for it."],
+["beatriz is already freaking out about the schedule", "Understandable, with the holiday drive coming. Maybe it's a chance to recruit."],
+["oh wait i said humber before thats wrong its seneca he said seneca i always mix those two up", "Got it. Either way it's a big step for him."],
+["anyway my feet are destroyed i was standing for six hours", "Six hours on concrete is rough. Put your feet up tonight."],
+["do you think compression socks actually help or is that a scam", "They do help a lot of people who stand all day, mostly by reducing swelling. A mild pair is worth trying."],
+["ok ill get some theres a pharmacy by my place", "Good idea. Look for ones labelled for daily wear."],
+["the guy at the garage said the van will be ready monday which is a relief", "That's good news. Another day without it would have been tough."],
+["and beatriz said she found a donor for the hamper drive some guy named farouk who owns a grocery store on bank street hes donating 50 turkeys", "That's an incredible donation. It'll take a lot of pressure off her."],
+["she literally cried when she told me", "That makes sense after all that stress. It must have felt like a huge relief."],
+["he said he used to get hampers himself when he was a kid so its personal for him", "That's a moving reason to give back. Stories like that are why these drives matter."]
+], "questions": [
+{"kind": "older", "message": "what kind of pet does intake sam have", "answer": "ferret", "wrong": ["parrot"], "fact_exchange": 6},
+{"kind": "older", "message": "whats beatriz do to relax again", "answer": "pottery", "wrong": [], "fact_exchange": 8},
+{"kind": "confirm", "message": "seuns going to seneca for nursing right", "answer": "seneca", "wrong": ["humber"], "fact_exchange": 16},
+{"kind": "in_view", "message": "whats the name of the guy giving all those turkeys", "answer": "farouk", "wrong": [], "fact_exchange": 21},
+{"kind": "never_told", "message": "what kind of pet does henrik have", "answer": "", "wrong": ["parrot", "ferret"], "fact_exchange": null},
+{"kind": "statement", "message": "honestly im just glad the hampers are covered now", "answer": "", "wrong": [], "fact_exchange": null}
+]}

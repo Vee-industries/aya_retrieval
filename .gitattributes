@@ -2,3 +2,5 @@
 * text=auto eol=lf
 # R-143: the independent set is frozen by a hash over its bytes, so its files keep the line endings stored.
 data/blind_dev/chats/*.json -text
+# R-152: the second independent set, frozen the same way.
+data/blind_dev2/chats/*.json -text

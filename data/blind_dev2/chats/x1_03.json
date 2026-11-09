@@ -1,0 +1,31 @@
+{"id": "x1_03", "exchanges": [
+["ok so i need help planning the twins birthday its in 3 weeks and i have done nothing", "Three weeks is enough time. Do they want one party together or two?"],
+["together thank god but hana wants a swimming party and kenji wants laser tag so thats going great", "Classic twin standoff. Could they take turns choosing each year?"],
+["taking turns is smart but hana picked last year so kenji will say its his turn which is fair honestly", "Fair is fair. Laser tag it is, unless Hana can be won over with something else."],
+["ooh she can pick the cake she wants a matcha one from that japanese bakery on king st", "That sounds delicious. Not many kids go for that flavour."],
+["she gets it from my mom who drinks like 6 cups of green tea a day lol", "That's dedication. Your mom sounds like a true fan."],
+["anyway the twins teacher mr novak is taking them to the planetarium next week and i still need to sign the form", "Easy to forget those. Maybe do it tonight before it gets lost in a backpack."],
+["lol the backpack is a black hole kenji lost a whole lunchbox in there last month", "Backpacks really do eat things. Did it ever turn up?"],
+["it turned up in his hockey bag smelling like death", "That sounds awful. Hockey bags are already a smell hazard on their own."],
+["his hockey coach sam is super strict about clean gear too so he got a lecture", "A lecture from the coach probably lands better than one from a parent."],
+["exactly he listens to sam way more than me sam grew up in winnipeg so hes basically hockey royalty to them", "That would do it. Kids love a coach with real hockey roots."],
+["and hanas swim coach is also sam which is confusing at dinner so we say hockey sam and swim sam", "That's a good system. Is swim Sam strict too?"],
+["no swim sam is so sweet shes australian she came over from perth a few years ago and the kids love her accent", "An accent makes everything more fun for kids. Sounds like Hana's in good hands."],
+["she is hana took like 4 seconds off her backstroke", "That's a big drop. She must be working hard."],
+["ok wait the trip i said planetarium thats wrong i just looked at the form its the aquarium", "Good thing you checked. That should be a fun one."],
+["kenji is gonna lose his mind he loves sharks", "Perfect timing then. He'll probably come back with shark facts for weeks."],
+["oh he already has shark facts for weeks lol", "Then he'll come back with new ones."],
+["my husband yusuf might chaperone if he can get the day off", "That would be fun for the twins. Does his work usually allow it?"],
+["usually its a slow month at the garage so probably", "Hopefully it works out."],
+["back to the party should i invite the whole class or just friends", "Whole-class invites avoid hurt feelings, but they get big fast. How many kids are in the class?"],
+["like 24 and with twins thats basically everyone anyway", "True, with twins it's practically the whole class already."],
+["ok whole class laser tag in 3 weeks someone send help", "You've got this. Booking the venue first would take the biggest weight off."],
+["oh and kenjis friend luca is allergic to eggs so the cake gets trickier", "Egg-free cakes are pretty common now. The bakery might have an option, or you could get a small separate one."]
+], "questions": [
+{"kind": "older", "message": "where is hanas swim coach from again my mom was asking", "answer": "perth", "wrong": ["winnipeg"], "fact_exchange": 11},
+{"kind": "older", "message": "wheres mr novak taking the class again", "answer": "aquarium", "wrong": ["planetarium"], "fact_exchange": 13},
+{"kind": "confirm", "message": "hana wanted the matcha cake right", "answer": "matcha", "wrong": [], "fact_exchange": 3},
+{"kind": "in_view", "message": "what cant luca eat again", "answer": "eggs", "wrong": [], "fact_exchange": 21},
+{"kind": "never_told", "message": "where is mr novak from originally", "answer": "", "wrong": ["winnipeg", "perth", "australian"], "fact_exchange": null},
+{"kind": "statement", "message": "ok im calling the laser tag place first thing tomorrow", "answer": "", "wrong": [], "fact_exchange": null}
+]}
