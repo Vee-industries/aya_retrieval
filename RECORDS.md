@@ -170,7 +170,7 @@ carry their own provenance (command, git commit, package versions).
 | R-155 | 7 fails R-153 at 82 and 83: probe 51203 recall 92 (at least 94) and probe recall pooled 189 (not below v6's 192); six of its seven probe misses are one probe wording ("drawing a blank on my {relation}'s tattoo") with no search; `hard_dev` recall 166 against 6.37's 163; 6.37 seed 82 stays the shipped model; a grep showed one probe line past line 451 |
 | R-156 | 7.1 (`fix17cs71`) registered before it trains: 7 without its 20 `in_view` tag rows, a one-part removal (panel: two lanes for, the against lane for no 7.1 with this as the least bad); R-153's lines plus `confirm` right and searched on the second set; R-155 corrected (the v6 line was not 7's); a repeated GPU run gave identical replies on 240 of 240 |
 | R-157 | 7.1 fails at 83 on one line (probe `in_view` 38, at least 41); 6.37 seed 82 ships and no candidate is left before the freeze; "drawing a blank" unsearched on 6 of 14 (7 10, 6.37 1); the second independent set, read as a report: 6.37 seed 82 recall 53 of 120 against base 27 (+96%, p = 0.0001); the gate scripts, queue and panel briefs now in the repo |
-| R-158 | Registered before it runs: 7.1 at 82 and 83 on the second independent set, report only, to show whether the tag-question change did what it was for; 6.37 seed 82 ships whatever it shows |
+| R-158 | 7.1 on the second independent set (report only, registered first): it searches tag questions 40 and 39 of 40 (6.37 12 and 7) and every right answer is found by search (18 and 18; 6.37 6 and 4), but recall is not higher (51 and 52 against 53 and 53): it corrects more false claims (7 and 5 of 20 against 3 and 1) and confirms fewer true ones (11 and 13 against 16 and 16) |
 
 ---
 
@@ -6148,3 +6148,26 @@ right; `confirm` right and searched (R-156's added line); `confirm` searched; `s
 **What it cannot do.** It does not change the shipped model: R-156's rule ended 7.1 on its registered fail, and that
 rule stands. Two seeds are a report, not a test (R-156 asked for five). If 7.1 is above 6.37 here, the write-up says
 so, as a tag-question gain that came with costs on the generated pools.
+
+**Result** (runs finished 14:43; both on the frozen set, nothing dropped). Each seed, 7.1 against 6.37:
+
+| Second set, seed | 6.37 82 | 7.1 82 | 6.37 83 | 7.1 83 |
+|---|---|---|---|---|
+| recall (`older` and `confirm`, of 120) | 53 | 51 | 53 | 52 |
+| `older` right (of 80) | 34 | 33 | 36 | 34 |
+| `confirm` right (of 40) | 19 | 18 | 17 | 18 |
+| `confirm` right and searched | 6 | 18 | 4 | 18 |
+| `confirm` searched | 12 | 40 | 7 | 39 |
+| `statement` right (of 40) | 35 | 35 | 31 | 33 |
+
+Half the 40 `confirm` questions claim the right value and half a wrong one. 6.37 gets its `confirm` score mostly by
+agreeing: right on 16 and 16 of the 20 true claims, and it corrects only 3 and 1 of the 20 false ones, so it goes
+along with a wrong claimed value 17 and 19 times in 20. Base is the same (15 right, 2 searched). 7.1 corrects 7 and 5
+false claims and confirms 11 and 13 true ones; every one of its right answers came from a search.
+
+**Reading.** 7.1 did what 7 was built for on chats the generator never made: it searches tag questions and grounds
+its answers, and R-156's added target line (`confirm` right and searched above 6.37) would pass by a wide margin at
+both seeds. It does not raise recall: the searches it now makes miss the fact or lose true claims about as often
+as they catch false ones. Two seeds; a report, not a test. 6.37 ships under R-156's rule. For the write-up, 6.37
+goes along with a wrong claimed value on most false `confirm` questions on the second independent set (the first
+set was not counted this way), and this is named as a limit; 7.1 shows the behaviour can be trained, at a cost on the generated pools (R-157).

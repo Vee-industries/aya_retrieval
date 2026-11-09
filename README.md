@@ -59,6 +59,10 @@ The holes a reviewer will look for first, each measured and recorded where it wa
   p = 0.047; whole-chat bootstrap +2.5 to +19.2 points; R-146) and 53 of 120 against 27 on the second
   (+96%, p = 0.0001; +13.3 to +30.0 points; R-157). On the generated `hard_dev` set the same adapter
   goes from 20 to 73 of 96 (+265%). The +50% and +96% are the figures to read as generalization.
+- **It goes along with wrong claims in tag questions.** Asked "..., right?" about an out-of-view fact on the
+  second independent set, 6.37 rarely searches (12 of 40) and corrects only 3 of the 20 false claims, so most of
+  its `confirm` score is agreement with true ones. 7.1 shows the search can be trained (40 of 40, every right
+  answer grounded), but it did not raise recall and cost lines on the generated pools (R-157, R-158).
 - **Coherence is judged by Claude models only.** Every coherence sheet is marked by fresh Claude Sonnet
   agents (three a sheet in the later gates), so their agreement is weaker evidence than agreement across
   model families (R-096 says the same of CuratorKIT's judges). Their spread is measured: R-128's three
