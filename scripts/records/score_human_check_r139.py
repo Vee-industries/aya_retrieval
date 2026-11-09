@@ -6,6 +6,8 @@ Why: the scorer calls a reply right when it contains the answer and no wrong val
 50 replies right or wrong without seeing the model or the scorer's verdict (sheet.json). His marks
 (marks.json) were saved before key.json was read. Agreement and Cohen's kappa say how far the
 scorer's verdicts can be trusted; each disagreement is listed so its cause can be read.
+A second person marked the same 50 lines on a plain sheet (second_marker_sheet.txt), independently
+and without the key; marks_second.json holds her marks, compared with the scorer and with Kevin.
 
 Writes results/human_check/R-139/agreement.json.
 """
@@ -63,6 +65,17 @@ def main() -> None:
             for s in sorted({key[n]["stratum"] for n in ns})
         },
         "disagreements": disagreements,
+    }
+    second = json.loads((DIR / "marks_second.json").read_text(encoding="utf-8"))
+    other = [second["marks"][str(n)] == "R" for n in ns]
+    report["second_marker"] = {
+        "agree_with_scorer": sum(o == s for o, s in zip(other, scorer, strict=True)),
+        "kappa_with_scorer": round(kappa(other, scorer), 3),
+        "agree_with_kevin": sum(o == k for o, k in zip(other, kevin, strict=True)),
+        "kappa_with_kevin": round(kappa(other, kevin), 3),
+        "differs_from_scorer": [n for n, o, s in zip(ns, other, scorer, strict=True) if o != s],
+        "differs_from_kevin": [n for n, o, k in zip(ns, other, kevin, strict=True) if o != k],
+        "notes": second["notes"],
     }
     text = json.dumps(report, indent=1, ensure_ascii=False)
     (DIR / "agreement.json").write_text(text, encoding="utf-8")

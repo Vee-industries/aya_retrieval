@@ -61,5 +61,21 @@
    ],
    "reply": "It sounds like you're feeling a bit lost or confused about your stepmum's three-year university project. Can you tell me more about what you're trying to remember or understand?"
   }
- ]
+ ],
+ "second_marker": {
+  "agree_with_scorer": 48,
+  "kappa_with_scorer": 0.92,
+  "agree_with_kevin": 49,
+  "kappa_with_kevin": 0.96,
+  "differs_from_scorer": [
+   6,
+   29
+  ],
+  "differs_from_kevin": [
+   37
+  ],
+  "notes": {
+   "42": "(tool call?)"
+  }
+ }
 }

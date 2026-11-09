@@ -157,6 +157,7 @@ carry their own provenance (command, git commit, package versions).
 | R-142 | R-139 items 4 and 5 set up before any chat is read: the writers' brief and its panel (nine edits taken, one declined), the loader and `--items-dir`, twelve queued runs (base, both R-137 prompts, 6.37 at all eight seeds), and Kevin's 50-line sheet, restratified by model |
 | R-143 | The independent set is written and frozen: 40 chats from four blind writers, 240 questions, none dropped by the loader (sha256 `9919a24c...`); writer transcripts audited; the reshaped eval loop shown to build the same items as before |
 | R-144 | Kevin's blind check of the scorer: 47 of 50 agree (kappa 0.88); the scorer never passed a reply he failed; its strictness can only lower base's `hard_dev` recall, by at most 9 of 96. 6.37's misses: 0 of 23 name a false value; 15 of 23 sit in two fact templates where the answer is in a trailing clause and 6.37 restates the main clause only |
+| R-145 | A second, independent marker on R-144's 50 lines: 48 of 50 with the scorer (kappa 0.92), 49 of 50 with Kevin (0.96); both people differ from the scorer on the same two strict-scorer lines, 6 and 29 |
 
 ---
 
@@ -5504,3 +5505,24 @@ about another event and the answer sits in a later clause. On probe, where every
 long sentence. It was found on `hard_dev`, a development pool, so a fix built to match these templates would be fit
 to the set that judges it. The independent set (R-143, written by four writers who never saw the generator) runs
 tonight; whether the same shape appears there decides whether it is general. Nothing here changes the frozen model.
+
+## R-145 · 2026-11-08 · SPRINT · A second, independent marker for the scorer check
+
+**Why.** R-144 rests on one person's marks. A second person marking the same lines blind tests the marks
+themselves: if two people agree with each other, a disagreement with the scorer is about the scorer, not one
+marker's reading or attention.
+
+**How.** `results/human_check/R-139/second_marker_sheet.txt` (commit `7d8ae71`): the same 50 lines in the same order,
+each with the question, what the reply should say (the right answer, or "that it was never told this") and the
+reply, and a three-line instruction; no model, verdict, wrong-value list or key. Kevin gave it to one person, who
+marked it independently (Kevin's word, 2026-11-08); her filled sheet is kept as `second_marker_filled.txt` and parsed
+to `marks_second.json`. She wrote one note, on line 42: "(tool call?)", the leaked search text R-144 counts.
+`score_human_check_r139.py` compares her marks with the scorer and with Kevin's.
+
+**Result.** With the scorer: 48 of 50, kappa 0.92; she never passed a reply the scorer failed or failed one it
+passed except lines 6 and 29, where she, like Kevin, passed a reply the scorer failed. With Kevin: 49 of 50, kappa
+0.96; the one difference is line 37 (Kevin R, she W), the reply that gives no subject. **Reading.** The two
+disagreements both people share are R-144's strict-scorer case (the answer and a wrong value in one reply), so that
+case is a property of the scorer; R-144's bound on it stands (base's `hard_dev` recall at most 9 of 96 higher, 6.37
+unaffected). The sheet she marked carried less than Kevin's (no fact sentence, no wrong values), so the two sheets
+are not identical conditions; both were blind to model and verdict.
