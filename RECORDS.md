@@ -168,6 +168,7 @@ carry their own provenance (command, git commit, package versions).
 | R-153 | 7 (`fix17cs7`) registered before it trains: 6.37's rows with 140 questions reworded as tag questions (the one change all three panel lanes support), five seeds from scratch; every gate, five-seed lines against 6.37, then a win on the second independent set; the next-exchange hop left for a 7.1 |
 | R-154 | The scorer and the judge are frozen with the model: SHA-256 of every scoring file, the sealed pools, the judge's brief and rubric, the human check and the adapter, the judge pinned to `claude-sonnet-5-5`; recall scorer repeats on 1,200 rows; R-128's judges split on 13 of 576 lines; a repeat GPU run queued |
 | R-155 | 7 fails R-153 at 82 and 83: probe 51203 recall 92 (at least 94) and probe recall pooled 189 (not below v6's 192); six of its seven probe misses are one probe wording ("drawing a blank on my {relation}'s tattoo") with no search; `hard_dev` recall 166 against 6.37's 163; 6.37 seed 82 stays the shipped model; a grep showed one probe line past line 451 |
+| R-156 | 7.1 (`fix17cs71`) registered before it trains: 7 without its 20 `in_view` tag rows, a one-part removal (panel: two lanes for, the against lane for no 7.1 with this as the least bad); R-153's lines plus `confirm` right and searched on the second set; R-155 corrected (the v6 line was not 7's); a repeated GPU run gave identical replies on 240 of 240 |
 
 ---
 
@@ -5985,3 +5986,70 @@ as a second independent report on the shipped model, report only. `hard_dev` rec
 probe template line holding "drawing a blank on my {relation}'s tattoo", the wording every probe results file already
 shows. Nothing else past line 451 was shown, and nothing from the held-out pool. The count was then run on lines 1 to
 451 only.
+
+## R-156 · 2026-11-09 · SPRINT · 7.1 registered: 7 without its `in_view` tag rows; R-155 corrected
+
+**The panel** (three Opus lanes reading `$S/panel_71_brief.md`, transcripts audited: none opened a sealed file, the
+second independent set or a `blind2` or 75002 result; the one search of `pools.py` was `head -n 451 ... | grep`, which
+found nothing; none wrote a file).
+
+- **Diagnosis.** Every search 7 lost against 6.37, on probe, screen and `hard_dev` at 82 and 83, is on one probe
+  wording, "drawing a blank on my {relation}'s tattoo", counting `never_told` items too (they score right when the
+  model declines without a search, so R-155's count hid half of it): no search on **10 of 14** such items against
+  6.37's **1 of 14**. Every other wording shape is searched as before (0 no-search of 92 other `older` and
+  `never_told` items a probe run), `confirm` is searched 48 of 48 in every run by both, and `hard_dev` `older`
+  searches are unchanged. Across 34 earlier probe runs of the 6.3x family the wording was searched 129 of 136 times;
+  7's two seeds (0 and 2 of 4) have a chance of about 0.4% at that rate, so the cost is real. Neither training set
+  contains "blank", "drawing" or "tattoo". Of the 140 rewordings only the 20 `in_view` claims teach "a statement-like
+  message about a person's fact, no search", and 7 of them kept chit-chat answers written for the old forget-wordings
+  ("It sounds like you're trying to remember something..."), the register of 7's misses. The lane's weights:
+  `in_view` 50%, `confirm` 35%, `never_told` 15%; no ablation separates them.
+- **Design** recommends 7.1 = 7 without the 20 `in_view` tag rows, as a one-factor removal whose result also shows
+  which part of 7 moved the `older` decision.
+- **Against** recommends no 7.1: R-153's five-seed lines are so strict that 6.37 fails them at its own seeds (probe
+  `in_view` 39 at seed 95 and at 97; at least 41 is needed at each of five); a design chosen after reading 7's probe
+  misses makes the probe development evidence for it; a fourth registered fail adds little. If overruled, the least
+  bad design is the same removal, with one added line: `confirm` right and searched on the second set above 6.37's.
+
+**Decision: 7.1 runs**, with the against lane's added line and its disclosure. Two lanes for and the third naming the
+same design as the only one worth running; the card is otherwise idle after the second set's reference runs; a full
+pass cannot be a draw (below); a fail at 82 and 83 costs about 3 GPU hours and still answers R-155's open question.
+
+**7.1 = `fix17cs71`** (`scripts/records/build_r156.py`): 7's set with the 20 rows where 7 changed an `in_view`
+question put back as 6.37 had them, byte for byte. 1,094 rows, each 6.37's or 7's; 120 differ from 6.37 (100
+`confirm`, 20 `never_told`, identical to 7's). Nothing is added, so 7's checks (no four-word run shared with the probe
+or `hard_dev` pools, at most 1,024 tokens, no answer naming a wrong claimed value) hold row for row. Deterministic:
+two builds gave SHA-256 `f7dbcb9881758067...`. Trained from scratch with 6.37's recipe at 82, 83, 94, 95, 96.
+
+**Pass rule, fixed before training.** R-153's lines as registered (item 1 through `$S/decide_r156.py`; R-102's
+stress runs and R-086's judged sheets at 82 and 83; the target), plus:
+
+- the target (`$S/target_r156.py`) also needs `confirm` right and searched, pooled over the five seeds on the second
+  independent set, above 6.37's (ties fail), so a recall win is credited to tag questions only if they did it;
+- any FAIL ends it and 6.37 seed 82 ships; on a full pass 7.1 seed 82 ships.
+
+**Diagnostic reading, registered.** "Drawing a blank" not searched on 3 or more of the 14 items (probe 73157 at 82 and
+83, probe 51203 at 82) means the cost is in the `confirm` or `never_told` rows; then no tag design is tried before
+the freeze.
+
+**Chance a copy with no effect passes in full**, by lane: about 1% to 2% (against; 200,000 five-seed resamples of
+6.37's eight seeds), about 4% (design; 35 probe files of the 6.3x family), about 15% (diagnosis; it leaves out the
+five-seed `in_view` line). All three put a full pass below or near R-150's 15% for a draw, and the design lane puts
+a copy with a real tag gain at only about 8%: R-153's item 1 mostly measures seed draws at the ceiling, which goes in
+the write-up's limits.
+
+**Disclosure.** 7.1 was chosen after reading 7's probe misses, so for 7.1 the probe lines are development evidence;
+the second independent set, frozen and unread (R-152), is the test that was not used to design it.
+
+**Correction to R-155.** R-153 item 1 replaced, for 7, R-094's pooled recall lines against v6 at 82 and 83 by the
+five-seed lines, but `decide_r153.py` still printed `stone_report.py`'s "probe recall pooled 189 not below v6's 192",
+and R-155 counted it as one of 7's two fails. It was not one of 7's lines. The verdict stands: probe 51203 at 92 fails
+on its own (at least 94), and the five-seed probe line cannot be met (189 at 82 and 83 plus at most 288 at 94 to 96 is
+477, below 6.37's 479). `decide_r156.py` drops the replaced lines; run on 7 it prints one fail, 51203.
+
+**R-154 follow-up: generation repeats.** The repeat of 6.37 seed 82's probe 73157 run (`rep_probe_fix17cs37_82`)
+matched the stored run on all 240 rows: the same reply, queries, first reply and verdict on every one. With R-154's
+rescoring (1,200 rows) and the judges' measured spread, every scorer the sealed run uses has now been run twice.
+
+**Order on the GPU.** The second set's reference runs (base, 6.37 at eight seeds) first, as R-155 left them; then 7.1
+at 82 and 83, `decide_r156.py`, and every later line guarded by `r156_stop`.

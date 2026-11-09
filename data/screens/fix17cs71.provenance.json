@@ -1,0 +1,36 @@
+{
+ "utc_time": "2026-11-09T16:07:56+00:00",
+ "command": [
+  "scripts/records/build_r156.py"
+ ],
+ "git_commit": "91834218c02bd059d3129ddc672078963b88bb2d",
+ "git_dirty": false,
+ "toolkit_commits": {
+  "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+  "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+ },
+ "python": "3.12.10",
+ "platform": "Windows-10-10.0.19045-SP0",
+ "packages": {
+  "aya-retrieval": "0.1.0",
+  "agenttune": "1.1.3",
+  "auditkit": "1.1.3",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.22.1",
+  "trl": "1.7.1",
+  "peft": "0.21.2",
+  "huggingface_hub": "1.33.0"
+ },
+ "record": "R-156",
+ "from": {
+  "6.37": "data\\screens\\fix17cs37.jsonl",
+  "7": "data\\screens\\fix17cs7.jsonl"
+ },
+ "rows": 1094,
+ "differ_from_6.37": {
+  "confirm": 100,
+  "never_told": 20
+ },
+ "reverted_to_6.37": 20,
+ "sha256": "f7dbcb9881758067c5662e31cdcd15e1e93441bdb17b4d1f8f1fec2f4ce79279"
+}
