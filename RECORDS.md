@@ -174,6 +174,7 @@ carry their own provenance (command, git commit, package versions).
 | R-159 | The freeze panel (three Opus lanes, audited): two say freeze 6.37 now; the third would run a 7.2 (7.1 with tag-question searches in the claim's own words) on a new third set, but only if Kevin overrides R-156's reading and the pass rule is rewritten before training; Kevin decides; the prompted-baseline control on the second set registered, report only |
 | R-160 | **The model is frozen: 6.37 (`fix17cs37` seed 82)**, on Kevin's word after the panel; `results/freeze/sealed_manifest.json` written at commit 2b04826 and checked; every frozen hash matches R-154's trial manifest; no 7.2; the sealed run waits for Kevin's go |
 | R-161 | R-159's prompted-baseline control on the second set (report only): both R-137 prompts lower base's recall (18 and 20 of 120 against 27), as on the first set (19 and 15 against 26); 6.37 seed 82's 53 is above each (sign test p below 0.000001) |
+| R-162 | The sealed final run, registered before it runs: R-016 as amended (R-038, R-039, R-041), four conditions, base and all eight 6.37 seeds (Kevin: "All eight seeds", a disclosed change from R-016's three); item seed 90311; the coherence sample and the sheets fixed; seed 82 reported alone as the shipped model |
 
 ---
 
@@ -6265,3 +6266,56 @@ nothing dropped; finished 15:01). Recall (`older` and `confirm`, of 120), with t
 **Reading.** On both independent sets a written prompt alone does not buy the gain; both prompts lower base's recall.
 The adapter's gain is not a prompting effect that a better system prompt would match, at least for these two prompts
 (the limit: two fixed prompts, not a search over prompts). Report only; the frozen model is unchanged (R-160).
+
+## R-162 · 2026-11-09 · SPRINT · The sealed final run, registered before it runs
+
+**Kevin's go**, 2026-11-09 after R-161: "Start sealed run". Asked which 6.37 adapters enter it (R-141: "R-016's and
+Kevin's call"), with the three seeds R-016 names (82, 83, 94) recommended: **"All eight seeds"**.
+
+**Change from R-016, disclosed.** R-016 registered three adapters on three training seeds, the recall rule pooled
+over the three. The sealed run uses all eight seeds trained on 6.37's set (82, 83, 94, 95, 96, 97, 98, 99), so no
+seed is chosen after a development result: every 6.37 adapter that exists enters. Rules written "each adapter" now
+apply to eight, so they have eight chances to fail; the pooled recall rule pools eight. Seed 82, the shipped model
+(R-160), is also reported alone, as a description, not a rule.
+
+**What runs** (`scripts/records/queue/final.sh`, sourced by the queue; nothing has been built or run on a sealed
+pool before this record, beyond what R-038 lists as seen). First `freeze_r154.py check` on
+`results/freeze/sealed_manifest.json`; a fail touches `r162_stop` and nothing runs. Then, each once, in this order:
+
+| Condition | Pool | Decoys a chat |
+|---|---|---|
+| A (R-016) | `heldout` | 1 |
+| B (R-038) | `heldout` | 4 |
+| C (R-039) | `independent` | 1 |
+| D (R-039) | `independent` | 4 |
+
+Each condition: base, then the eight adapters, `run_recall_eval.py --final --items-per-kind 30` (30 conversations per
+kind at each of 58 and 419 messages, 300 in all), `tool_loop` arm, greedy, item seed **90311** (fixed here; never used
+before), identical conversations for every model. Results `results/recall_eval/final_<condition>_<model>_seed_90311.json`,
+each committed as it lands. A try that crashes before writing its results is retried and the retry is reported; a
+results file is never replaced.
+
+**Pass rules, as registered and amended; every rule in every condition.**
+1. **Recall** (`older` and `confirm`, 120 conversations): pooled over the eight adapters, at least 20 percentage
+   points above base at each message size, and a paired exact sign test on the adapter-conversation pairs where base
+   and adapter differ, p below 0.01 (R-016).
+2. **Recall by source** (R-041): rule 1 must also hold when only retrieved answers count (`found_fact`), for base and
+   adapters alike.
+3. **False retrieval** (R-038): each adapter's false retrievals no more than base's on the same conversations.
+4. **Coherence** (R-016, R-039): each adapter's coherent count at or above base's on the same conversations; in A on
+   all 300, in B, C and D on a fixed sample of 120 (for each kind and size, `random.Random(39).sample` of 12 from the
+   item ids sorted, drawn by code before any run). Judged under R-154's frozen rule: three fresh judges of
+   `claude-sonnet-5-5`, each in its own folder with only the R-128 brief (paths, sheet names and line counts changed),
+   the rubric and the sheets; judge 1 decides, judges 2 and 3 are reported; `freeze_r154.py judges` on every judge
+   transcript, and a judging by any other model is void and redone.
+   **Sheets:** one blind sheet per part, every model's reply to the same conversations shuffled together with the
+   names removed (`make_multi_sheet.py`, R-090), so base is judged once per conversation by the same judge as every
+   adapter. A: one sheet per kind (60 conversations, 540 lines each). B, C, D: two sheets each (`older`, `confirm`,
+   `in_view`: 72 conversations, 648 lines; `never_told`, `statement`: 48 conversations, 432 lines). Shuffle seeds 90560
+   onward, in the order A to D.
+
+**Reported beside these, not gating:** each kind alone, right search decisions, clean calls, runs out of calls, recall
+by source in full, each adapter alone, seed 82 alone with its sign test against base, a whole-conversation resampled
+interval (the adapter-conversation pairs of rule 1 share conversations, so its p-value overstates independence), and
+recall split into `older` and `confirm` (R-159). **Project result:** pass needs rules 1 to 4 in all four conditions;
+otherwise the write-up says which failed and by how much. Every condition is reported in full either way.
