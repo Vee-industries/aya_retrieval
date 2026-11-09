@@ -159,6 +159,7 @@ carry their own provenance (command, git commit, package versions).
 | R-144 | Kevin's blind check of the scorer: 47 of 50 agree (kappa 0.88); the scorer never passed a reply he failed; its strictness can only lower base's `hard_dev` recall, by at most 9 of 96. 6.37's misses: 0 of 23 name a false value; 15 of 23 sit in two fact templates where the answer is in a trailing clause and 6.37 restates the main clause only |
 | R-145 | A second, independent marker on R-144's 50 lines: 48 of 50 with the scorer (kappa 0.92), 49 of 50 with Kevin (0.96); both people differ from the scorer on the same two strict-scorer lines, 6 and 29 |
 | R-146 | Independent set: 6.37 seed 82 recall 39/120 against base 26/120 (+50%, sign test p = 0.047, chat-resampled gain +2.5 to +19 points); seeds 39 to 57; `confirm` 11/40 against base 15 (it rarely searches a "..., right?" question). R-137: both prompts lower base's recall. R-138: one break, `long` on `hard_dev` (84 to 75 of 96), being confirmed at 75001 |
+| R-147 | 6.39 (`fix17cs39`) at Kevin's word, registered before it trains: 6.37's rows plus R-110's 100 rows for the found-but-incomplete answer, from scratch at 82 and 83; every 6.37 gate unchanged, then it must beat 6.37 on `hard_dev` recall at fresh seed 75002; any fail and 6.37 ships |
 
 ---
 
@@ -5620,3 +5621,50 @@ R-138's conditions and its clock (rows by Mon 09:00, training before 12:00).
 **What the independent set's failures mean for a fix.** R-142 registered that set as report only, so nothing it
 found becomes training data or a reason to change the model; a fix chosen from it would also leave no independent
 judge. Its three failures go in the write-up as measured limits.
+
+## R-147 · 2026-11-09 · SPRINT · 6.39, registered before it trains
+
+**Kevin, 2026-11-09 ~05:40,** after R-146's report (the `long` break not yet confirmed at 75001, and my
+recommendation to keep R-138's rule and ship 6.37): "it wouldn't be a rush...". Training takes about two hours a
+seed pair and the freeze is Tue Nov 10, so a try with every gate fits. This departs from R-138, which allowed a fix
+only for a confirmed break; the departure is Kevin's and is recorded here before any 6.39 result exists.
+
+**What it targets.** 6.37's commonest `hard_dev` miss: it finds the right line and answers from its first clause,
+leaving out the asked detail when that sits later in a long line (R-144: 15 of 23 misses at seed 73157; R-146: 16
+of 21 in `long` at 74001, 11 of 15 at 75001). On the independent set it is one failure among four (R-146); the three
+others (tag questions, training-worded queries, pronoun facts) are not targeted, because R-142 made that set report
+only.
+
+**What was tried before.** R-110 built 100 train-pool rows for this shape and added them as one extra epoch on top of
+6.2 (6.21). 6.21 lost `hard_dev` recall (R-113), and R-115's control split the loss between the extra epoch and the
+rows; "found, answered without the asked detail" rose from 21 (the epoch alone) to 29 (with the rows). That is
+evidence against these rows, with the epoch confounded; trained from scratch inside a full set, they have not been
+tried. Kevin ruled after R-116 that no copy trains on top of an earlier one.
+
+**The set** (`scripts/records/build_r147.py`, `data/screens/fix17cs39.jsonl`, sha256 `efef5f96...`): 6.37's 1,094
+rows byte for byte and in order, then R-110's 100 rows byte for byte (`two` 40, `runon` 40, `never` 20); nothing
+rewritten, nothing from probe, `hard_dev`, the independent set or the held-out pools. 1,194 rows.
+
+**Training.** 6.37's recipe unchanged (`cand fix17cs39 <seed> data/screens/fix17cs39.jsonl --loss-on chat_decision`),
+from scratch, seeds 82 and 83.
+
+**Pass, in order; the first FAIL stops it and 6.37 ships:**
+1. R-134's lines, unchanged, against 6.37 (`decide_r147.py`, a copy of `decide_r134.py`): R-086 unjudged, R-094 (probe
+   and `hard_dev` recall pooled at 82 and 83 not below 6.37's 192 and 163), R-097 (probe `in_view` at least 41 each
+   seed), and R-102's stress runs (held-out corrections and phone typing at 82 and 83).
+2. R-086's judged sheets at 82 and 83, fresh judges, as for 6.37 (R-128).
+3. **The target** (`target_r147.py`): at fresh seed 75002, never used, seeds 82 and 83 pooled, `hard_dev` recall
+   over `plain` and `long` above 6.37's on the same items (ties fail), and probe `plain` recall not below 6.37's.
+   R-138 asked for a held-out form of the condition: `hard_dev`'s fact templates never enter training, and R-110's rows
+   share no four-word run with them, so the target is judged on wordings the fix never saw.
+4. If 1 to 3 pass: 94 to 96, as 6.37 went (R-128), before the freeze. A pass there makes 6.39 the shipped model.
+
+**Reported, not gated:** the independent set at 82 and 83 (R-142's report), and the count of found-but-incomplete
+misses beside 6.37's.
+
+**No new panel.** The weekly usage stands at 15% against the line of about 15% (R-146's morning), and the design adds
+nothing new: R-110's rows were panelled when built, the gates and the target are R-134's and R-138's. **The case
+against, written here:** R-115 is direct evidence that these rows push the targeted miss up, not down; four of the
+last nine copies failed a gate by one probe question (R-127's base rate: about 28% per copy with no defect), so a
+pass needs both the fix to work and a draw that clears the probe line; and a 75002 win on `hard_dev` is a win on the
+generator that also made R-110's rows. That is why the target is fixed here and 6.37 ships on any fail.
