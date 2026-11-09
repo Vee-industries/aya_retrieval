@@ -1,0 +1,247 @@
+{
+ "condition": "B",
+ "conversations": 300,
+ "rule_1_recall": {
+  "sizes": {
+   "58": {
+    "base": 25.0,
+    "adapters_pooled": 90.4,
+    "points": 65.4,
+    "pass": true
+   },
+   "419": {
+    "base": 23.3,
+    "adapters_pooled": 85.2,
+    "points": 61.9,
+    "pass": true
+   }
+  },
+  "sign_test": {
+   "only_base": 25,
+   "only_adapters": 636,
+   "p": 2.8337554242431718e-154,
+   "pass": true
+  },
+  "pass": true
+ },
+ "rule_2_recall_retrieved_only": {
+  "sizes": {
+   "58": {
+    "base": 25.0,
+    "adapters_pooled": 90.4,
+    "points": 65.4,
+    "pass": true
+   },
+   "419": {
+    "base": 23.3,
+    "adapters_pooled": 85.2,
+    "points": 61.9,
+    "pass": true
+   }
+  },
+  "sign_test": {
+   "only_base": 25,
+   "only_adapters": 636,
+   "p": 2.8337554242431718e-154,
+   "pass": true
+  },
+  "pass": true
+ },
+ "rule_3_false_retrieval": {
+  "counts": {
+   "base": 23,
+   "fix17cs37_82": 0,
+   "fix17cs37_83": 7,
+   "fix17cs37_94": 3,
+   "fix17cs37_95": 11,
+   "fix17cs37_96": 7,
+   "fix17cs37_97": 7,
+   "fix17cs37_98": 1,
+   "fix17cs37_99": 5
+  },
+  "pass": true
+ },
+ "rule_4_coherence": {
+  "coherent": {
+   "fix17cs37_94": 110,
+   "base": 59,
+   "fix17cs37_98": 105,
+   "fix17cs37_97": 107,
+   "fix17cs37_96": 106,
+   "fix17cs37_99": 113,
+   "fix17cs37_83": 107,
+   "fix17cs37_95": 106,
+   "fix17cs37_82": 105
+  },
+  "each_adapter_at_or_above_base": {
+   "fix17cs37_82": true,
+   "fix17cs37_83": true,
+   "fix17cs37_94": true,
+   "fix17cs37_95": true,
+   "fix17cs37_96": true,
+   "fix17cs37_97": true,
+   "fix17cs37_98": true,
+   "fix17cs37_99": true
+  },
+  "pass": true
+ },
+ "per_kind_correct": {
+  "older": {
+   "base": 23,
+   "fix17cs37_82": 56,
+   "fix17cs37_83": 56,
+   "fix17cs37_94": 54,
+   "fix17cs37_95": 57,
+   "fix17cs37_96": 54,
+   "fix17cs37_97": 57,
+   "fix17cs37_98": 57,
+   "fix17cs37_99": 55
+  },
+  "confirm": {
+   "base": 6,
+   "fix17cs37_82": 51,
+   "fix17cs37_83": 49,
+   "fix17cs37_94": 51,
+   "fix17cs37_95": 50,
+   "fix17cs37_96": 48,
+   "fix17cs37_97": 46,
+   "fix17cs37_98": 51,
+   "fix17cs37_99": 51
+  },
+  "in_view": {
+   "base": 56,
+   "fix17cs37_82": 59,
+   "fix17cs37_83": 57,
+   "fix17cs37_94": 58,
+   "fix17cs37_95": 50,
+   "fix17cs37_96": 53,
+   "fix17cs37_97": 53,
+   "fix17cs37_98": 50,
+   "fix17cs37_99": 56
+  },
+  "never_told": {
+   "base": 47,
+   "fix17cs37_82": 60,
+   "fix17cs37_83": 58,
+   "fix17cs37_94": 60,
+   "fix17cs37_95": 57,
+   "fix17cs37_96": 59,
+   "fix17cs37_97": 58,
+   "fix17cs37_98": 60,
+   "fix17cs37_99": 58
+  },
+  "statement": {
+   "base": 38,
+   "fix17cs37_82": 59,
+   "fix17cs37_83": 60,
+   "fix17cs37_94": 52,
+   "fix17cs37_95": 60,
+   "fix17cs37_96": 60,
+   "fix17cs37_97": 56,
+   "fix17cs37_98": 52,
+   "fix17cs37_99": 60
+  }
+ },
+ "shipped_seed_82": {
+  "recall": 107,
+  "base_recall": 29,
+  "questions": 120,
+  "sign_test_p": 1.0221367431741194e-20
+ },
+ "cost": {
+  "base": {
+   "seconds": 385,
+   "seconds_per_conversation": 1.28,
+   "peak_vram_gib": 6.8,
+   "tokens_read_per_turn": 1153.5,
+   "tokens_written_per_turn": 37.5,
+   "whole_chat_tokens": 3239.1,
+   "searches_per_conversation": 0.48
+  },
+  "fix17cs37_82": {
+   "seconds": 502,
+   "seconds_per_conversation": 1.67,
+   "peak_vram_gib": 6.73,
+   "tokens_read_per_turn": 1207.1,
+   "tokens_written_per_turn": 26.2,
+   "whole_chat_tokens": 3239.1,
+   "searches_per_conversation": 0.6
+  },
+  "fix17cs37_83": {
+   "seconds": 506,
+   "seconds_per_conversation": 1.69,
+   "peak_vram_gib": 6.73,
+   "tokens_read_per_turn": 1188.6,
+   "tokens_written_per_turn": 26.4,
+   "whole_chat_tokens": 3239.1,
+   "searches_per_conversation": 0.59
+  },
+  "fix17cs37_94": {
+   "seconds": 527,
+   "seconds_per_conversation": 1.76,
+   "peak_vram_gib": 6.73,
+   "tokens_read_per_turn": 1217.7,
+   "tokens_written_per_turn": 27.6,
+   "whole_chat_tokens": 3239.1,
+   "searches_per_conversation": 0.63
+  },
+  "fix17cs37_95": {
+   "seconds": 577,
+   "seconds_per_conversation": 1.92,
+   "peak_vram_gib": 6.73,
+   "tokens_read_per_turn": 1201.6,
+   "tokens_written_per_turn": 26.8,
+   "whole_chat_tokens": 3239.1,
+   "searches_per_conversation": 0.6
+  },
+  "fix17cs37_96": {
+   "seconds": 543,
+   "seconds_per_conversation": 1.81,
+   "peak_vram_gib": 6.73,
+   "tokens_read_per_turn": 1197.3,
+   "tokens_written_per_turn": 26.7,
+   "whole_chat_tokens": 3239.1,
+   "searches_per_conversation": 0.6
+  },
+  "fix17cs37_97": {
+   "seconds": 570,
+   "seconds_per_conversation": 1.9,
+   "peak_vram_gib": 6.73,
+   "tokens_read_per_turn": 1177.4,
+   "tokens_written_per_turn": 27.0,
+   "whole_chat_tokens": 3239.1,
+   "searches_per_conversation": 0.57
+  },
+  "fix17cs37_98": {
+   "seconds": 561,
+   "seconds_per_conversation": 1.87,
+   "peak_vram_gib": 6.73,
+   "tokens_read_per_turn": 1223.8,
+   "tokens_written_per_turn": 27.3,
+   "whole_chat_tokens": 3239.1,
+   "searches_per_conversation": 0.62
+  },
+  "fix17cs37_99": {
+   "seconds": 535,
+   "seconds_per_conversation": 1.78,
+   "peak_vram_gib": 6.73,
+   "tokens_read_per_turn": 1200.6,
+   "tokens_written_per_turn": 26.2,
+   "whole_chat_tokens": 3239.1,
+   "searches_per_conversation": 0.6
+  }
+ },
+ "eight_seeds_conversation_resampled_interval": {
+  "difference": [
+   0.6364583333333333,
+   0.54375,
+   0.728125
+  ],
+  "relative_gain": [
+   2.6336206896551726,
+   1.739864864864865,
+   4.2857142857142865
+  ]
+ },
+ "all_rules_pass": true
+}
