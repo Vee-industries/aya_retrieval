@@ -151,6 +151,7 @@ carry their own provenance (command, git commit, package versions).
 | R-136 | 6.38's first set had doubled line endings (2,160 lines, 1,066 blank) and failed to load at 82 and 83; rebuilt with the same 28 answers (sha256 `f4daff77...`); a test now reads every training set as the trainer does |
 | R-137 | Prompted-baseline control registered before it runs: base with two fixed prompts (A rules; B rules and four made-up worked examples), probe and `hard_dev`, everything else identical; reported, not gated; per-run scores reported beside pooled counts |
 | R-138 | Kevin: 6.38 is the last try. Break tests registered before they run: four harder conditions at a new seed (74001) on 6.37, 6.38 and base; a break must be confirmed at 75001 before any targeted fix, which is judged at 75002 on a held-out form where one exists; go/no-go Mon 09:00 |
+| R-139 | Rigor additions, registered before any is computed: one primary development comparison (R-016's test) with Holm on a named secondary family; a five-way failure breakdown; recall by distance and crowding; an independent development set written blind to the generator (report only); Kevin's blind check of 50 scored answers |
 
 ---
 
@@ -5210,3 +5211,60 @@ that found the break is fitted to that generator, and an honestly written limit 
 That is why the confirm seed, the held-out form and the go/no-go time exist.
 
 Reported per run with spread beside pooled counts (R-137).
+
+## R-139 · 2026-11-08 · SPRINT · Rigor additions, registered before any is computed
+
+**Why.** Kevin passed my R-138 plan and the project's numbers to a different model and asked how to add rigor. Its
+main points: generalization beyond the generator's structure is the biggest gap; report answer and search behaviour
+separately; break failures into stages; a primary comparison fixed in advance with a correction on the rest; a
+human blind check of the scorer; resample at the right unit. My reply corrected two points: each test question has
+its own chat, so the dependent unit in our sets is the fact template, not the conversation; and the prompted-baseline
+claim waits for R-137's runs. **Kevin, 2026-11-08 ~19:25:** "fine".
+
+**Disclosure.** The development counts below (6.37 and base on probe and `hard_dev`) have been read in aggregate many
+times. This record fixes the analysis before its tests and breakdowns are computed; it does not make those sets
+blind. The independent set (item 4) is the only part no one has seen.
+
+**1. Primary development comparison.** Recall (`older` and `confirm`, 96 items at each of 58 and 419 messages) of
+the shipping copy, 6.37 seed 82, against base, `tool_loop`, on `hard_dev` at seed 73157 (`hd_fix17cs37_82`,
+`hd_base`): R-016's two-sided exact sign test on the items where they differ, significant below 0.01 (R-016's level).
+One fixed system against another on the same items, the case the sign test (exact McNemar) is for.
+**Secondary family, Holm at 0.05,** the same test, 6.37 seed 82 against base on the same items: probe recall
+(`probe2_base`); held-out corrections, probe and `hard_dev` (`st_fixh_*`); phone-style recall, probe and `hard_dev`
+(`st_phone_*`); right search decision on `in_view`, `never_told` and `statement`, probe and `hard_dev` pooled per kind
+(three tests, two-sided, so a loss counts as much as a gain). Ten tests in all.
+**Across training seeds, descriptive, no test:** per-seed counts, minimum and maximum, the pooled gain with a 95%
+percentile interval from `stats.bootstrap_gain_interval`, resampling **fact templates**, not items (items that share a
+template are not independent; with one question a chat, the conversation is not the right unit). The template of
+each item is recomputed from its seed by the generator's own first draw; results name templates by index only. Seeds
+82, 83, 94, 95, 96 now; 97 to 99 added after R-134's 6.38 comparison is read (the hold on reading them stands).
+
+**2. Failure breakdown** of every wrong recall answer, per model and seed, mechanical from the result rows: (a) did
+not search; (b) searched, no query found the fact (`found_fact` false); (c) found it, the reply names a decoy or other
+forbidden value; (d) found it, wrong in another way (missing or garbled detail); (e) ran out of calls, counted
+separately. Descriptive.
+
+**3. Distance and crowding.** Recall by the number of exchanges between the fact and the question (quarters within
+each chat size), and by decoys a chat (1 at 73157 and 74001, 4 from R-138's `d4` runs). Descriptive.
+
+**4. Independent development set, report only.** A fresh agent with no access to the repo, the templates, the pools or
+any example from them writes about 40 chats from a behaviour spec only, with questions, gold answers and the values a
+wrong answer would name. The spec asks for same-name people and near relations (a sister and a sister-in-law), facts
+never told, facts still in view, corrections and plain chat, in ordinary typing. The spec goes to one adversarial
+panel before the writer sees it; the writer's transcript is audited. A loader turns the chats into the harness's items
+(last 3 exchanges in view, the rest searchable); its scorer is the existing one, checked on gold-as-answer and on the
+wrong values. Run once on base, 6.37 seed 82, and 6.38 seed 82 if it replaces 6.37, appended after R-138's runs.
+**Primary on this set:** recall, 6.37 seed 82 against base, exact sign test, with a paired bootstrap interval
+resampling conversations (several questions share a chat here). **Never a source for a fix,** whatever it shows: a
+break found here goes in the write-up as a limit.
+
+**5. Kevin's blind check.** 50 scored answers, drawn by `random.Random(139)` in strata (scored right, scored wrong,
+named a decoy, other) from base and 6.37 seed 82 on probe and `hard_dev`, shuffled, model names removed. Kevin marks
+each right or wrong from the chat, question and gold answer. Reported: agreement with the script (count and Cohen's
+kappa) and every disagreement listed. Claude marks none.
+
+**6. Deferred, stated as limits in the write-up:** LoCoMo (R-100, on its own registered clock), other languages,
+two facts in one question, and a provenance test (the model repeats a fact wrongly and the user corrects it).
+
+**Timing.** Items 1 to 3: CPU, tonight. Item 4: spec and panel tonight, writer overnight, GPU after R-138's runs
+(Monday morning). Item 5: whenever Kevin has an hour, before the write-up (Nov 12). None moves a gate or the clock.
