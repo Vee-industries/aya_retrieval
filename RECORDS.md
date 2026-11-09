@@ -163,6 +163,7 @@ carry their own provenance (command, git commit, package versions).
 | R-148 | R-138's confirm seed 75001: the `long` break does not hold (loss 6, rule 8); `askd4` against `d4` meets the rule there (8 lost, 0 gained) after falling one short at 74001; both are the found-but-incomplete failure 6.39 targets |
 | R-149 | 6.39 fails at 82 and 83: `hard_dev` recall pooled 147 against 6.37's 163 (and v6's 157); every other line passes; the targeted miss (found, answered without the asked detail) rises from 21 to 33; 6.37 stays frozen |
 | R-150 | The 6.4 panel (three Opus lanes, audited): two say no 6.4; the third offers value-first answers at about 15% to pass, the same rate as a copy with no effect; no 6.4; 6.37 is the model the sealed final run will score |
+| R-151 | Kevin moves the model freeze to Wed Nov 11 night; a 7 is planned from scratch, its design open to the first independent set's failures, judged on a second independent set written now by four new blind writers; the seed-average idea measured and dropped |
 
 ---
 
@@ -5759,3 +5760,38 @@ marks how a recall answer reads (R-086's judged sheets mark `statement` and `in_
 did not outweigh shipping on a draw. **6.37 (fix17cs37 seed 82) is the model the sealed final run will score**, on
 Kevin's go after the freeze (Tue Nov 10). The found-but-incomplete miss goes in the write-up as a measured limit, with
 R-144, R-146, R-148 and R-149 as its evidence.
+
+## R-151 · 2026-11-09 · SPRINT · The freeze moves to Wednesday; a 7, and a second independent set to judge it
+
+**Kevin, 2026-11-09 ~09:00:** "hold up.. it's monday.. we have litearlly 5 more days", then, on moving the model
+freeze from Tue Nov 10 to Wed Nov 11 night to build a 7: "yeah lets do it. the freeze was already super early
+anyway". The clock of R-134 and R-138 (training before Mon 12:00) existed only for the Tuesday freeze; it is replaced
+by: 7's training starts by Tue Nov 10 12:00, its confirmation seeds (94 to 96) finish by Wed Nov 11, then the freeze.
+Write-up Nov 12, demo Nov 13, submission by Nov 14, unchanged. The sealed final run is unchanged: once, on the shipped
+model, on Kevin's go after the freeze. 6.37 seed 82 stays the shipped model unless 7 passes everything below.
+
+**Why a 7 and not a 6.4.** R-150 found no change to 6.37's set the record supports, and a pass that could not be
+told from a draw. A 7 is built from scratch on a new training set, so it can address the failures that cost the most
+on chats the generator never made (R-146): a "..., right?" question does not trigger a search; search queries reuse
+training wording; a fact told with a pronoun is not found; and the found-but-incomplete answer.
+
+**The first independent set's status changes, disclosed here.** R-142 registered it as report only, so that a gain on
+it could be trusted. Designing 7 from its failures uses it, so it can no longer judge 7: from this record it is a
+development set. 6.37's R-146 result on it stands, as it was measured before this change. **A second independent set
+judges 7:** four new blind Opus writers, given R-142's writer spec unchanged with four new settings (a parent and the
+school; planning a big family event; a shared house in a busy neighbourhood; a community group), ten chats each,
+written before any 7 design exists (`$S/indep2/`, `fill_briefs.py`). It is loaded, frozen and committed by R-142's
+loader before 7's design is registered, and nobody reads a chat until 7's runs on it are done. It is report only for
+every model except as named in 7's registration.
+
+**The seed average, measured and dropped.** The idea (Kevin's "6.371", 08:45): average the eight 6.37 seeds' weight
+changes into one adapter, no training, to cancel the seed spread. Two lanes (method and against, separate Opus agents,
+transcripts audited: no sealed file, no token file, CPU reads of the adapter and base weights only) measured the
+eight adapters independently and agree: mean pairwise cosine of the weight changes 0.03 to 0.06 by module type, and the
+mean change's norm 0.39 to 0.42 of a single seed's (0.35 if fully orthogonal); over the whole model the mean's energy is 0.166 of a single seed's (0.125 if
+unrelated); a layer-0 function proxy gives cosine 0.02 to 0.10. The A matrices stay close to their random start, so
+each seed found its own solution in its own subspace. The average is mostly cancellation,
+most of the way back toward base, and a pass rule against seed 82 would mostly test "is not seed 82". The method lane would allow one
+screening pass with a harder bar (beat both 82 and 83 at 75002); the against lane would not run it. Dropped, to
+keep the card and the day for 7; the
+cosine measurement goes in the write-up beside the seed spread (R-141).
