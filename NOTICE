@@ -10,5 +10,5 @@ KIND, either express or implied.
 
 This licence covers the code in this repository only. Tiny Aya is released by
 Cohere Labs under CC-BY-NC-4.0, and anything trained from it carries that licence.
-AgentTune and AuditKIT are Lexsi Labs software under their own source-available
+AgentTune, AuditKIT and CuratorKIT are Lexsi Labs software under their own source-available
 licences and are not part of this repository.

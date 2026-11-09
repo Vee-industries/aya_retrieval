@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aya-retrieval"
 version = "0.1.0"
-description = "Training Tiny Aya to decide when to search and to ignore instructions inside retrieved text."
+description = "Training Tiny Aya to search a long chat for facts that are out of view, and only then."
 readme = "README.md"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Kevin Vaillancourt" }]

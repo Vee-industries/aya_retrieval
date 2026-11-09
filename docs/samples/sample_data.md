@@ -1,5 +1,8 @@
 # Sample data: Tiny Aya recall LoRA (Track 3)
 
+> Made on 2026-11-07 for Lexsi's feedback. "The adapter" here is v6, the adapter shipped that day, and
+> its training set; 6.37 (`fix17cs37` seed 82) replaced v6 on 2026-11-08 (RECORDS R-131).
+
 Every name and fact below is synthetic, generated from a fixed pool of people, relations and facts.
 The model sees only the last few exchanges of a long chat. Older facts must be found with a
 `search_corpus` tool over the earlier chat. The adapter teaches when to search, when not to, and

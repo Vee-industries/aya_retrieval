@@ -1,9 +1,9 @@
 """Chat with Tiny Aya, with or without the adapter, in the harness it was tested in.
 
 Usage:
-    python scripts/run_chat.py --adapter ../adapters/v5_seed_82 --index chat.sqlite
-    python scripts/run_chat.py --adapter ../adapters/v5_seed_82 --index chat.sqlite \\
-        --script demo/chat.txt --out results/demo/v5.json
+    python scripts/run_chat.py --adapter ../adapters/screens/fix17cs37_82 --index chat.sqlite
+    python scripts/run_chat.py --adapter ../adapters/screens/fix17cs37_82 --index chat.sqlite \\
+        --script demo/chat.txt --out results/demo/fix17cs37_82.json
 
 Without ``--script`` it reads messages from the keyboard until an empty line. With it, each line of
 the file is one message, and ``--out`` saves every reply and search, so a recorded demo can be
