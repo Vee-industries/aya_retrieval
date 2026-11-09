@@ -1,0 +1,3420 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-09T02:00:28+00:00",
+  "command": [
+   "scripts/run_recall_eval.py",
+   "--seed",
+   "74001",
+   "--pool",
+   "probe",
+   "--items-per-kind",
+   "24",
+   "--index",
+   "C:/Users/Gaming/scratch/eval_brk.sqlite",
+   "--label",
+   "brk_long_probe_base",
+   "--arms",
+   "tool_loop",
+   "--max-vram-fraction",
+   "0.85",
+   "--sizes",
+   "1000",
+   "2000",
+   "--kinds",
+   "older",
+   "confirm"
+  ],
+  "git_commit": "3f6bc49a4b9e8efdd26d0b06497bf65e6981ef9f",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+ "adapter": null,
+ "seed": 74001,
+ "pool": "probe",
+ "decoys": 1,
+ "sizes": [
+  1000,
+  2000
+ ],
+ "kinds": [
+  "older",
+  "confirm"
+ ],
+ "user_style": false,
+ "phone_style": false,
+ "corrections": false,
+ "corrections_heldout": false,
+ "asked_before": false,
+ "chat_check": null,
+ "rows": [
+  {
+   "id": "1000_older_00",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what's growing behind my tutor's house",
+   "view": [
+    [
+     "another bad day thanks to the freezer",
+     "All evening? I hope the freezer is sorted now."
+    ],
+    [
+     "the modem turned a corner this week",
+     "Great, the modem deserved a good day."
+    ],
+    [
+     "really enjoying the pharmacy at the moment",
+     "Sounds like the pharmacy is on the up."
+    ]
+   ],
+   "answer": "zucchini",
+   "reply": "There is no information available about what is growing behind your tutor's house.",
+   "queries": [
+    "what's growing behind your tutor's house"
+   ],
+   "passages": [
+    0
+   ],
+   "tokens_read": 1479,
+   "tokens_written": 45,
+   "whole_chat_tokens": 12312,
+   "ran_out_of_calls": false,
+   "first_reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what's growing behind your tutor's house\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "1000_older_01",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what's the new ink on my daughter",
+   "view": [
+    [
+     "quiet day, mostly the sleet",
+     "Quiet days are underrated."
+    ],
+    [
+     "the bins popped into my head earlier",
+     "Anything interesting about the bins?"
+    ],
+    [
+     "that novel cheered me up today",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "anchor",
+   "reply": "Your daughter got an anchor tattoo last week.",
+   "queries": [
+    "what's the new ink on my daughter"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1682,
+   "tokens_written": 39,
+   "whole_chat_tokens": 12359,
+   "ran_out_of_calls": false,
+   "first_reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what's the new ink on my daughter\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_02",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "drawing a blank on my classmate's tattoo",
+   "view": [
+    [
+     "the basement keeps letting me down",
+     "Sounds like you've had enough of the basement."
+    ],
+    [
+     "the vacuuming popped into my head earlier",
+     "Anything interesting about the vacuuming?"
+    ],
+    [
+     "the garage messed up my whole plan",
+     "Ugh, sorry about the garage."
+    ]
+   ],
+   "answer": "thistle",
+   "reply": "Dmitri, your tutor got a koi tattoo last week.",
+   "queries": [
+    "classmate's tattoo"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1599,
+   "tokens_written": 73,
+   "whole_chat_tokens": 12376,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"classmate's tattoo\"}}]\nThe tattoo on your classmate is a beautiful piece of art. It's hard to draw a blank on something so unique and personal. If you'd like, I can help you brainstorm",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_03",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i forget which language my tutor knows",
+   "view": [
+    [
+     "the blender keeps letting me down",
+     "All evening? I hope the blender is sorted now."
+    ],
+    [
+     "the photocopier keeps letting me down",
+     "Sounds like you've had enough of the photocopier."
+    ],
+    [
+     "happy to report the escalator is all good",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "Turkish",
+   "reply": "Gustav, your tutor speaks fluent Turkish.",
+   "queries": [
+    "What languages does my tutor speak?"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1704,
+   "tokens_written": 51,
+   "whole_chat_tokens": 12374,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"What languages does my tutor speak?\"\n    }\n  }\n]\nThe tutor speaks English.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_04",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i'm blanking on what my teammate is scared of",
+   "view": [
+    [
+     "the photocopier went better than expected",
+     "Great, the photocopier deserved a good day."
+    ],
+    [
+     "my couch popped into my head earlier",
+     "No problem, what else is new?"
+    ],
+    [
+     "was reading about the sauna at lunch",
+     "Quiet days are underrated."
+    ]
+   ],
+   "answer": "pigeons",
+   "reply": "Lucia, your teammate is scared of pigeons.",
+   "queries": [
+    "what is my teammate scared of"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1722,
+   "tokens_written": 48,
+   "whole_chat_tokens": 12354,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what is my teammate scared of\"}}]\nThe photocopier went better than expected",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_05",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i cannot think what my godfather grows",
+   "view": [
+    [
+     "my couch popped into my head earlier",
+     "Weeks can go that way."
+    ],
+    [
+     "really enjoying the sleet at the moment",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "happy to report my charger is all good",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "zucchini",
+   "reply": "Lucia, your godfather grows prize zucchini out back.",
+   "queries": [
+    "what does my godfather grow"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1675,
+   "tokens_written": 42,
+   "whole_chat_tokens": 12370,
+   "ran_out_of_calls": false,
+   "first_reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what does my godfather grow\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_06",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what language does Dmitri speak",
+   "view": [
+    [
+     "the fence messed up my whole plan",
+     "Ugh, sorry about the fence."
+    ],
+    [
+     "weird how much of my week is the radiator",
+     "Weeks can go that way."
+    ],
+    [
+     "the modem keeps letting me down",
+     "That's rough. What went wrong with the modem?"
+    ]
+   ],
+   "answer": "Swahili",
+   "reply": "Dmitri speaks Russian.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 709,
+   "tokens_written": 6,
+   "whole_chat_tokens": 12413,
+   "ran_out_of_calls": false,
+   "first_reply": "Dmitri speaks Russian.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_older_07",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what is Ayaan terrified of",
+   "view": [
+    [
+     "my skateboard went better than expected",
+     "That's lovely to hear."
+    ],
+    [
+     "my skateboard went better than expected",
+     "Nice one. What changed with my skateboard?"
+    ],
+    [
+     "that's all i've got on the vacuuming",
+     "Weeks can go that way."
+    ]
+   ],
+   "answer": "heights",
+   "reply": "Ayaan is a large language model, and I don't have personal experiences or emotions. However, I can provide information based on my training data. I don't have specific information about Ayaan or what he is terrified of.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 704,
+   "tokens_written": 46,
+   "whole_chat_tokens": 12349,
+   "ran_out_of_calls": false,
+   "first_reply": "Ayaan is a large language model, and I don't have personal experiences or emotions. However, I can provide information based on my training data. I don't have specific information about Ayaan or what he is terrified of.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_older_08",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "drawing a blank on my teammate's tattoo",
+   "view": [
+    [
+     "my skateboard popped into my head earlier",
+     "Anything interesting about my skateboard?"
+    ],
+    [
+     "quiet day, mostly the garage",
+     "Funny what pops up."
+    ],
+    [
+     "spent all evening sorting out my camera",
+     "That's rough. What went wrong with my camera?"
+    ]
+   ],
+   "answer": "koi",
+   "reply": "My camera is all good.",
+   "queries": [
+    "camera maintenance tips"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1707,
+   "tokens_written": 51,
+   "whole_chat_tokens": 12406,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"camera maintenance tips\"}}]\nCamera maintenance tips: Regularly clean the lens, check the battery, and ensure the memory card is properly inserted.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "1000_older_09",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what tattoo did Ayaan get",
+   "view": [
+    [
+     "my charger keeps letting me down",
+     "All evening? I hope my charger is sorted now."
+    ],
+    [
+     "my mom asked about the garage again",
+     "What did she want to know about the garage?"
+    ],
+    [
+     "was reading about my ankle at lunch",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "anchor",
+   "reply": "Ayaan, your classmate, got an anchor tattoo last week.",
+   "queries": [
+    "Ayaan tattoo"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1576,
+   "tokens_written": 56,
+   "whole_chat_tokens": 12362,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"Ayaan tattoo\"\n    }\n  }\n]\nAyaan got a tattoo.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_10",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which club did Chidi join",
+   "view": [
+    [
+     "the fence turned a corner this week",
+     "That's lovely to hear."
+    ],
+    [
+     "the vet went better than expected",
+     "Nice one. What changed with the vet?"
+    ],
+    [
+     "was reading about the radiator at lunch",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "handball",
+   "reply": "Chidi joined the \"Theosophical Society\"",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 699,
+   "tokens_written": 11,
+   "whole_chat_tokens": 12314,
+   "ran_out_of_calls": false,
+   "first_reply": "Chidi joined the \"Theosophical Society\"",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_older_11",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i cannot think what my classmate grows",
+   "view": [
+    [
+     "so fed up with the sleet right now",
+     "Ugh, sorry about the sleet."
+    ],
+    [
+     "my mom asked about that novel again",
+     "Funny what pops up."
+    ],
+    [
+     "my couch keeps letting me down",
+     "Plans and my couch clearly don't mix."
+    ]
+   ],
+   "answer": "asparagus",
+   "reply": "Beatriz, your classmate grows prize asparagus out back.",
+   "queries": [
+    "what does a classmate grow"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1707,
+   "tokens_written": 50,
+   "whole_chat_tokens": 12319,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what does a classmate grow\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_12",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "drawing a blank on my godfather's tattoo",
+   "view": [
+    [
+     "the sleet keeps letting me down",
+     "That's rough. What went wrong with the sleet?"
+    ],
+    [
+     "the basement cheered me up today",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "the blender went better than expected",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "thistle",
+   "reply": "Dmitri, your daughter Hana got a compass tattoo last week.",
+   "queries": [
+    "how to remove a tattoo"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1739,
+   "tokens_written": 73,
+   "whole_chat_tokens": 12428,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"how to remove a tattoo\"}}]\nTool result: It sounds like you're dealing with a stubborn tattoo. Removing tattoos can be challenging, and the process depends on the tattoo's size, age, and location",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_13",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what freaks my mentor out the most",
+   "view": [
+    [
+     "spent all evening sorting out my neck",
+     "Ugh, sorry about my neck."
+    ],
+    [
+     "quiet day, mostly my keys",
+     "Funny what pops up."
+    ],
+    [
+     "was reading about my neck at lunch",
+     "What did she want to know about my neck?"
+    ]
+   ],
+   "answer": "deep water",
+   "reply": "It seems like your mentor is terrified of deep water. This could be due to a fear of drowning, a fear of the unknown, or a past negative experience. It's important to respect their feelings and not pressure them to face their fear.",
+   "queries": [
+    "what freaks my mentor out the most"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1724,
+   "tokens_written": 107,
+   "whole_chat_tokens": 12371,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what freaks my mentor out the most\"\n    }\n  }\n]\nMy mentor is usually a bit of a perfectionist, so I think the thought of making a mistake in",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_14",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what language does Beatriz speak",
+   "view": [
+    [
+     "the butcher went better than expected",
+     "Great, the butcher deserved a good day."
+    ],
+    [
+     "spent all evening sorting out my keys",
+     "Ugh, sorry about my keys."
+    ],
+    [
+     "really enjoying the blender at the moment",
+     "Nice one. What changed with the blender?"
+    ]
+   ],
+   "answer": "Korean",
+   "reply": "Beatriz's tutor speaks fluent Korean.",
+   "queries": [
+    "What language does Beatriz speak"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1693,
+   "tokens_written": 49,
+   "whole_chat_tokens": 12355,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"What language does Beatriz speak\"\n    }\n  }\n]\nBeatriz speaks Portuguese.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_15",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what language does Lucia speak",
+   "view": [
+    [
+     "the radiator is testing my patience",
+     "Sounds like you've had enough of the radiator."
+    ],
+    [
+     "my ankle messed up my whole plan",
+     "Sounds like you've had enough of my ankle."
+    ],
+    [
+     "the modem cheered me up today",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "Turkish",
+   "reply": "Lucia speaks Portuguese.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 705,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12434,
+   "ran_out_of_calls": false,
+   "first_reply": "Lucia speaks Portuguese.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_older_16",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what can my barber speak besides english",
+   "view": [
+    [
+     "another bad day thanks to my skateboard",
+     "All evening? I hope my skateboard is sorted now."
+    ],
+    [
+     "really enjoying my ankle at the moment",
+     "That's lovely to hear."
+    ],
+    [
+     "my smoothie popped into my head earlier",
+     "Weeks can go that way."
+    ]
+   ],
+   "answer": "Welsh",
+   "reply": "Lucia, my barber, speaks fluent Welsh.",
+   "queries": [
+    "what languages can my barber speak besides English"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1700,
+   "tokens_written": 58,
+   "whole_chat_tokens": 12347,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what languages can my barber speak besides English\"\n    }\n  }\n]\nMy barber can speak many languages besides English.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_17",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what can my stepsister speak besides english",
+   "view": [
+    [
+     "the modem turned a corner this week",
+     "That's lovely to hear."
+    ],
+    [
+     "was reading about the radiator at lunch",
+     "Funny what pops up."
+    ],
+    [
+     "spent all evening sorting out my neck",
+     "Ugh, sorry about my neck."
+    ]
+   ],
+   "answer": "Turkish",
+   "reply": "Lucia, my stepsister, speaks fluent Turkish.",
+   "queries": [
+    "what languages can my stepsister speak besides English"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1706,
+   "tokens_written": 71,
+   "whole_chat_tokens": 12414,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what languages can my stepsister speak besides English\"\n    }\n  }\n]\nMy stepsister likely speaks multiple languages, as it's common for people to have a multilingual background.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_18",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i cannot think what my classmate grows",
+   "view": [
+    [
+     "the basement cheered me up today",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "my charger keeps letting me down",
+     "Sounds like you've had enough of my charger."
+    ],
+    [
+     "my camera keeps letting me down",
+     "All evening? I hope my camera is sorted now."
+    ]
+   ],
+   "answer": "asparagus",
+   "reply": "Chidi, your classmate grows prize asparagus out back.",
+   "queries": [
+    "what does a classmate grow"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1707,
+   "tokens_written": 50,
+   "whole_chat_tokens": 12324,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what does a classmate grow\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_19",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what's the new ink on my daughter",
+   "view": [
+    [
+     "the courier messed up my whole plan",
+     "Plans and the courier clearly don't mix."
+    ],
+    [
+     "another bad day thanks to my keys",
+     "That's rough. What went wrong with my keys?"
+    ],
+    [
+     "the courier went better than expected",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "anchor",
+   "reply": "Gustav, your daughter got an anchor tattoo last week.",
+   "queries": [
+    "what's the new ink on my daughter"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1687,
+   "tokens_written": 42,
+   "whole_chat_tokens": 12371,
+   "ran_out_of_calls": false,
+   "first_reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what's the new ink on my daughter\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_20",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what freaks my teammate out the most",
+   "view": [
+    [
+     "the sauna messed up my whole plan",
+     "Ugh, sorry about the sauna."
+    ],
+    [
+     "was reading about my couch at lunch",
+     "Anything interesting about my couch?"
+    ],
+    [
+     "happy to report the vacuuming is all good",
+     "Nice one. What changed with the vacuuming?"
+    ]
+   ],
+   "answer": "clowns",
+   "reply": "Dmitri's teammate is terrified of clowns.",
+   "queries": [
+    "what freaks my teammate out the most"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1726,
+   "tokens_written": 51,
+   "whole_chat_tokens": 12340,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what freaks my teammate out the most\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_21",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what's growing behind my tutor's house",
+   "view": [
+    [
+     "the patio is testing my patience",
+     "Sounds like you've had enough of the patio."
+    ],
+    [
+     "weird how much of my week is that novel",
+     "Funny what pops up."
+    ],
+    [
+     "my neck cheered me up today",
+     "Nice one. What changed with my neck?"
+    ]
+   ],
+   "answer": "strawberries",
+   "reply": "A garden.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 706,
+   "tokens_written": 3,
+   "whole_chat_tokens": 12329,
+   "ran_out_of_calls": false,
+   "first_reply": "A garden.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_older_22",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i'm blanking on what my mentor is scared of",
+   "view": [
+    [
+     "quiet day, mostly the chimney",
+     "Weeks can go that way."
+    ],
+    [
+     "the freezer cheered me up today",
+     "Sounds like the freezer is on the up."
+    ],
+    [
+     "really enjoying the blender at the moment",
+     "Great, the blender deserved a good day."
+    ]
+   ],
+   "answer": "spiders",
+   "reply": "Beatriz, your mentor is terrified of spiders.",
+   "queries": [
+    "what is my mentor scared of"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1736,
+   "tokens_written": 70,
+   "whole_chat_tokens": 12314,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what is my mentor scared of\"}}]\nThe blender is a kitchen appliance, not a person. If you're asking about your mentor's fears, could you clarify what you're looking for? For example, are",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_older_23",
+   "size": 1000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which club did Kofi join",
+   "view": [
+    [
+     "the garage went better than expected",
+     "Sounds like the garage is on the up."
+    ],
+    [
+     "weird how much of my week is the pharmacy",
+     "Quiet days are underrated."
+    ],
+    [
+     "the garage messed up my whole plan",
+     "That's rough. What went wrong with the garage?"
+    ]
+   ],
+   "answer": "handball",
+   "reply": "Kofi joined the \"Theory\" club.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 708,
+   "tokens_written": 10,
+   "whole_chat_tokens": 12283,
+   "ran_out_of_calls": false,
+   "first_reply": "Kofi joined the \"Theory\" club.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_00",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my teammate grows",
+   "view": [
+    [
+     "my neck is testing my patience",
+     "Plans and my neck clearly don't mix."
+    ],
+    [
+     "my mom asked about the fence again",
+     "No problem, what else is new?"
+    ],
+    [
+     "the bins went better than expected",
+     "Nice one. What changed with the bins?"
+    ]
+   ],
+   "answer": "zucchini",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 708,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12379,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_01",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my teammate's tattoo",
+   "view": [
+    [
+     "happy to report the tram is all good",
+     "Great, the tram deserved a good day."
+    ],
+    [
+     "happy to report the courier is all good",
+     "Great, the courier deserved a good day."
+    ],
+    [
+     "my ankle messed up my whole plan",
+     "Ugh, sorry about my ankle."
+    ]
+   ],
+   "answer": "swallow",
+   "reply": "No, you didn't mention anything about your teammate's tattoo.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 713,
+   "tokens_written": 13,
+   "whole_chat_tokens": 12459,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't mention anything about your teammate's tattoo.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_02",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my tutor grows",
+   "view": [
+    [
+     "weird how much of my week is the garage",
+     "What did she want to know about the garage?"
+    ],
+    [
+     "my camera cheered me up today",
+     "Great, my camera deserved a good day."
+    ],
+    [
+     "really enjoying the library at the moment",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "chillies",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 710,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12450,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_03",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my stepsister joined",
+   "view": [
+    [
+     "another bad day thanks to the vet",
+     "Ugh, sorry about the vet."
+    ],
+    [
+     "really enjoying the basement at the moment",
+     "Nice one. What changed with the basement?"
+    ],
+    [
+     "the modem went better than expected",
+     "Sounds like the modem is on the up."
+    ]
+   ],
+   "answer": "handball",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 708,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12335,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_04",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my stepsister's tattoo",
+   "view": [
+    [
+     "was reading about the basement at lunch",
+     "No problem, what else is new?"
+    ],
+    [
+     "another bad day thanks to the sleet",
+     "All evening? I hope the sleet is sorted now."
+    ],
+    [
+     "so fed up with the tram right now",
+     "That's rough. What went wrong with the tram?"
+    ]
+   ],
+   "answer": "thistle",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 716,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12325,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_05",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my mentor's tattoo",
+   "view": [
+    [
+     "really enjoying the modem at the moment",
+     "That's lovely to hear."
+    ],
+    [
+     "was reading about the basement at lunch",
+     "Quiet days are underrated."
+    ],
+    [
+     "that's all i've got on the escalator",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "koi",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 701,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12358,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_06",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my teammate",
+   "view": [
+    [
+     "the vet went better than expected",
+     "Great, the vet deserved a good day."
+    ],
+    [
+     "quiet day, mostly my neck",
+     "Weeks can go that way."
+    ],
+    [
+     "the basement messed up my whole plan",
+     "Ugh, sorry about the basement."
+    ]
+   ],
+   "answer": "spiders",
+   "reply": "Kofi, your teammate is terrified of spiders.",
+   "queries": [
+    "have i ever mentioned what scares my teammate"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1696,
+   "tokens_written": 52,
+   "whole_chat_tokens": 12354,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"have i ever mentioned what scares my teammate\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_confirm_07",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my tutor grows",
+   "view": [
+    [
+     "the garage popped into my head earlier",
+     "Anything interesting about the garage?"
+    ],
+    [
+     "so fed up with the garage right now",
+     "That's rough. What went wrong with the garage?"
+    ],
+    [
+     "the blender keeps letting me down",
+     "That's rough. What went wrong with the blender?"
+    ]
+   ],
+   "answer": "zucchini",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 712,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12338,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_08",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my classmate joined",
+   "view": [
+    [
+     "my ankle turned a corner this week",
+     "Nice one. What changed with my ankle?"
+    ],
+    [
+     "so fed up with my ankle right now",
+     "Ugh, sorry about my ankle."
+    ],
+    [
+     "the courier turned a corner this week",
+     "Nice one. What changed with the courier?"
+    ]
+   ],
+   "answer": "handball",
+   "reply": "No, you didn't say which club your classmate joined.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 710,
+   "tokens_written": 12,
+   "whole_chat_tokens": 12293,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't say which club your classmate joined.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_09",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my godfather grows",
+   "view": [
+    [
+     "my camera cheered me up today",
+     "That's lovely to hear."
+    ],
+    [
+     "quiet day, mostly the library",
+     "No problem, what else is new?"
+    ],
+    [
+     "the basement popped into my head earlier",
+     "Anything interesting about the basement?"
+    ]
+   ],
+   "answer": "pumpkins",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 703,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12384,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_10",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my stepsister",
+   "view": [
+    [
+     "that's all i've got on the basement",
+     "Weeks can go that way."
+    ],
+    [
+     "so fed up with the courier right now",
+     "Plans and the courier clearly don't mix."
+    ],
+    [
+     "that's all i've got on the escalator",
+     "Weeks can go that way."
+    ]
+   ],
+   "answer": "deep water",
+   "reply": "No, you haven't mentioned what scares your stepsister.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 709,
+   "tokens_written": 12,
+   "whole_chat_tokens": 12364,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you haven't mentioned what scares your stepsister.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_11",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my mentor's tattoo",
+   "view": [
+    [
+     "the chimney turned a corner this week",
+     "That's lovely to hear."
+    ],
+    [
+     "my mom asked about the fence again",
+     "Anything interesting about the fence?"
+    ],
+    [
+     "the sauna messed up my whole plan",
+     "Ugh, sorry about the sauna."
+    ]
+   ],
+   "answer": "lighthouse",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 705,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12425,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_12",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i mention what language my tutor speaks",
+   "view": [
+    [
+     "really enjoying the library at the moment",
+     "That's lovely to hear."
+    ],
+    [
+     "really enjoying the chimney at the moment",
+     "Sounds like the chimney is on the up."
+    ],
+    [
+     "the courier went better than expected",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "Turkish",
+   "reply": "No, you didn't mention what language your tutor speaks.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 702,
+   "tokens_written": 11,
+   "whole_chat_tokens": 12379,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't mention what language your tutor speaks.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_13",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i mention what language my classmate speaks",
+   "view": [
+    [
+     "was reading about the butcher at lunch",
+     "No problem, what else is new?"
+    ],
+    [
+     "weird how much of my week is the blender",
+     "Weeks can go that way."
+    ],
+    [
+     "weird how much of my week is the wind",
+     "Weeks can go that way."
+    ]
+   ],
+   "answer": "Korean",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 713,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12320,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_14",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my barber joined",
+   "view": [
+    [
+     "happy to report the garage is all good",
+     "Nice one. What changed with the garage?"
+    ],
+    [
+     "weird how much of my week is my ankle",
+     "Funny what pops up."
+    ],
+    [
+     "another bad day thanks to my ankle",
+     "Plans and my ankle clearly don't mix."
+    ]
+   ],
+   "answer": "badminton",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 709,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12345,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_15",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my stepsister's tattoo",
+   "view": [
+    [
+     "the wind keeps letting me down",
+     "That's rough. What went wrong with the wind?"
+    ],
+    [
+     "the garage is testing my patience",
+     "Plans and the garage clearly don't mix."
+    ],
+    [
+     "the photocopier messed up my whole plan",
+     "That's rough. What went wrong with the photocopier?"
+    ]
+   ],
+   "answer": "koi",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 718,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12466,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_16",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my barber joined",
+   "view": [
+    [
+     "that's all i've got on the photocopier",
+     "What did she want to know about the photocopier?"
+    ],
+    [
+     "so fed up with the chimney right now",
+     "Plans and the chimney clearly don't mix."
+    ],
+    [
+     "quiet day, mostly the pharmacy",
+     "No problem, what else is new?"
+    ]
+   ],
+   "answer": "archery",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 717,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12304,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_17",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my stepsister's tattoo",
+   "view": [
+    [
+     "my mom asked about the fence again",
+     "Anything interesting about the fence?"
+    ],
+    [
+     "happy to report my smoothie is all good",
+     "That's lovely to hear."
+    ],
+    [
+     "was reading about my charger at lunch",
+     "No problem, what else is new?"
+    ]
+   ],
+   "answer": "compass",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 706,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12360,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_18",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my godfather grows",
+   "view": [
+    [
+     "really enjoying that novel at the moment",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "weird how much of my week is the escalator",
+     "Funny what pops up."
+    ],
+    [
+     "really enjoying my couch at the moment",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "zucchini",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 705,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12309,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_19",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my godfather grows",
+   "view": [
+    [
+     "quiet day, mostly the sauna",
+     "Funny what pops up."
+    ],
+    [
+     "so fed up with the blender right now",
+     "Plans and the blender clearly don't mix."
+    ],
+    [
+     "the library went better than expected",
+     "Sounds like the library is on the up."
+    ]
+   ],
+   "answer": "strawberries",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 708,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12395,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_20",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my classmate",
+   "view": [
+    [
+     "the modem went better than expected",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "weird how much of my week is the butcher",
+     "No problem, what else is new?"
+    ],
+    [
+     "my charger cheered me up today",
+     "Sounds like my charger is on the up."
+    ]
+   ],
+   "answer": "pigeons",
+   "reply": "Farah, your classmate is terrified of pigeons.",
+   "queries": [
+    "Have I ever mentioned what scares my classmate"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1700,
+   "tokens_written": 52,
+   "whole_chat_tokens": 12317,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"Have I ever mentioned what scares my classmate\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "1000_confirm_21",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my barber grows",
+   "view": [
+    [
+     "quiet day, mostly the dryer",
+     "What did she want to know about the dryer?"
+    ],
+    [
+     "my mom asked about the wind again",
+     "Quiet days are underrated."
+    ],
+    [
+     "another bad day thanks to the photocopier",
+     "Ugh, sorry about the photocopier."
+    ]
+   ],
+   "answer": "chillies",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 713,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12396,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_22",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my classmate's tattoo",
+   "view": [
+    [
+     "so fed up with the garage right now",
+     "That's rough. What went wrong with the garage?"
+    ],
+    [
+     "the library messed up my whole plan",
+     "Sounds like you've had enough of the library."
+    ],
+    [
+     "my neck went better than expected",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "compass",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 709,
+   "tokens_written": 5,
+   "whole_chat_tokens": 12422,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "1000_confirm_23",
+   "size": 1000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my daughter",
+   "view": [
+    [
+     "was reading about the dryer at lunch",
+     "No problem, what else is new?"
+    ],
+    [
+     "happy to report my camera is all good",
+     "That's lovely to hear."
+    ],
+    [
+     "happy to report the garage is all good",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "thunderstorms",
+   "reply": "No, you haven't mentioned what scares your daughter.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 703,
+   "tokens_written": 11,
+   "whole_chat_tokens": 12333,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you haven't mentioned what scares your daughter.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_older_00",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what tattoo did Beatriz get",
+   "view": [
+    [
+     "the patio went better than expected",
+     "Nice one. What changed with the patio?"
+    ],
+    [
+     "that's all i've got on my ankle",
+     "What did she want to know about my ankle?"
+    ],
+    [
+     "so fed up with my neck right now",
+     "Sounds like you've had enough of my neck."
+    ]
+   ],
+   "answer": "thistle",
+   "reply": "Beatriz got a tattoo of a phoenix.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 11,
+   "whole_chat_tokens": 24264,
+   "ran_out_of_calls": false,
+   "first_reply": "Beatriz got a tattoo of a phoenix.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_older_01",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what does Lucia grow out back",
+   "view": [
+    [
+     "really enjoying the library at the moment",
+     "Sounds like the library is on the up."
+    ],
+    [
+     "was reading about the sauna at lunch",
+     "Funny what pops up."
+    ],
+    [
+     "was reading about the pharmacy at lunch",
+     "What did she want to know about the pharmacy?"
+    ]
+   ],
+   "answer": "asparagus",
+   "reply": "Lucia's barber grows prize asparagus out back.",
+   "queries": [
+    "what does Lucia grow out back"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1697,
+   "tokens_written": 41,
+   "whole_chat_tokens": 24344,
+   "ran_out_of_calls": false,
+   "first_reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what does Lucia grow out back\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_02",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "where does my teammate go after work these days",
+   "view": [
+    [
+     "that's all i've got on the garage",
+     "Quiet days are underrated."
+    ],
+    [
+     "happy to report my charger is all good",
+     "That's lovely to hear."
+    ],
+    [
+     "that novel keeps letting me down",
+     "Plans and that novel clearly don't mix."
+    ]
+   ],
+   "answer": "badminton",
+   "reply": "Esme, your teammate joined a badminton club this month.",
+   "queries": [
+    "where does my teammate go after work these days"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1692,
+   "tokens_written": 54,
+   "whole_chat_tokens": 24400,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"where does my teammate go after work these days\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_03",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i cannot think what my godfather grows",
+   "view": [
+    [
+     "my mom asked about my skateboard again",
+     "Quiet days are underrated."
+    ],
+    [
+     "my mom asked about the escalator again",
+     "What did she want to know about the escalator?"
+    ],
+    [
+     "the chimney messed up my whole plan",
+     "All evening? I hope the chimney is sorted now."
+    ]
+   ],
+   "answer": "asparagus",
+   "reply": "Lucia, your godfather grows prize asparagus out back.",
+   "queries": [
+    "what does my godfather grow"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1705,
+   "tokens_written": 50,
+   "whole_chat_tokens": 24444,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what does my godfather grow\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_04",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what freaks my tutor out the most",
+   "view": [
+    [
+     "the courier keeps letting me down",
+     "Ugh, sorry about the courier."
+    ],
+    [
+     "another bad day thanks to my skateboard",
+     "Ugh, sorry about my skateboard."
+    ],
+    [
+     "another bad day thanks to the tram",
+     "Sounds like you've had enough of the tram."
+    ]
+   ],
+   "answer": "clowns",
+   "reply": "Chidi, your tutor is terrified of clowns.",
+   "queries": [
+    "what freaks your tutor out the most"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1715,
+   "tokens_written": 49,
+   "whole_chat_tokens": 24393,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what freaks your tutor out the most\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_05",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what does Kofi grow out back",
+   "view": [
+    [
+     "the bins turned a corner this week",
+     "Great, the bins deserved a good day."
+    ],
+    [
+     "the photocopier popped into my head earlier",
+     "Funny what pops up."
+    ],
+    [
+     "another bad day thanks to the modem",
+     "Sounds like you've had enough of the modem."
+    ]
+   ],
+   "answer": "asparagus",
+   "reply": "Kofi's godfather grows prize asparagus out back.",
+   "queries": [
+    "what does Kofi grow out back"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1699,
+   "tokens_written": 42,
+   "whole_chat_tokens": 24309,
+   "ran_out_of_calls": false,
+   "first_reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what does Kofi grow out back\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_06",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "where does my stepsister go after work these days",
+   "view": [
+    [
+     "happy to report the sauna is all good",
+     "Nice one. What changed with the sauna?"
+    ],
+    [
+     "another bad day thanks to the garage",
+     "Sounds like you've had enough of the garage."
+    ],
+    [
+     "the library turned a corner this week",
+     "Nice one. What changed with the library?"
+    ]
+   ],
+   "answer": "lacrosse",
+   "reply": "Your stepsister joined a lacrosse club this month.",
+   "queries": [
+    "where does your stepsister go after work these days"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1711,
+   "tokens_written": 52,
+   "whole_chat_tokens": 24317,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"where does your stepsister go after work these days\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_07",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what freaks my mentor out the most",
+   "view": [
+    [
+     "really enjoying the sauna at the moment",
+     "Sounds like the sauna is on the up."
+    ],
+    [
+     "the basement went better than expected",
+     "That's lovely to hear."
+    ],
+    [
+     "spent all evening sorting out the dryer",
+     "Plans and the dryer clearly don't mix."
+    ]
+   ],
+   "answer": "spiders",
+   "reply": "Beatriz, your mentor is terrified of spiders.",
+   "queries": [
+    "what freaks your mentor out the most"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1718,
+   "tokens_written": 58,
+   "whole_chat_tokens": 24351,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what freaks your mentor out the most\"\n    }\n  }\n]\nWhat freaks your mentor out the most?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_08",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i forget which language my mentor knows",
+   "view": [
+    [
+     "the fence turned a corner this week",
+     "That's lovely to hear."
+    ],
+    [
+     "my mom asked about the modem again",
+     "Funny what pops up."
+    ],
+    [
+     "was reading about the chimney at lunch",
+     "What did she want to know about the chimney?"
+    ]
+   ],
+   "answer": "Swahili",
+   "reply": "Lucia, your mentor speaks fluent Swahili.",
+   "queries": [
+    "What languages does your mentor speak?"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1674,
+   "tokens_written": 47,
+   "whole_chat_tokens": 24376,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"What languages does your mentor speak?\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_09",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what does Chidi grow out back",
+   "view": [
+    [
+     "really enjoying my smoothie at the moment",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "another bad day thanks to the garage",
+     "Sounds like you've had enough of the garage."
+    ],
+    [
+     "the tram went better than expected",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "tomatoes",
+   "reply": "Chidi's hair grows out back.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 701,
+   "tokens_written": 8,
+   "whole_chat_tokens": 24387,
+   "ran_out_of_calls": false,
+   "first_reply": "Chidi's hair grows out back.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_older_10",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what tattoo did Dmitri get",
+   "view": [
+    [
+     "the modem is testing my patience",
+     "Sounds like you've had enough of the modem."
+    ],
+    [
+     "another bad day thanks to the basement",
+     "All evening? I hope the basement is sorted now."
+    ],
+    [
+     "weird how much of my week is the garage",
+     "Weeks can go that way."
+    ]
+   ],
+   "answer": "compass",
+   "reply": "Dmitri, your daughter Hana got a compass tattoo last week.",
+   "queries": [
+    "Dmitri Tatarinov tattoo"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1583,
+   "tokens_written": 58,
+   "whole_chat_tokens": 24463,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Dmitri Tatarinov tattoo\"}}]\nDmitri Tatarinov got a tattoo of a dragon on his left shoulder.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_11",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what is Dmitri terrified of",
+   "view": [
+    [
+     "the patio is testing my patience",
+     "All evening? I hope the patio is sorted now."
+    ],
+    [
+     "the vacuuming is testing my patience",
+     "All evening? I hope the vacuuming is sorted now."
+    ],
+    [
+     "the dryer is testing my patience",
+     "All evening? I hope the dryer is sorted now."
+    ]
+   ],
+   "answer": "pigeons",
+   "reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Dmitri is terrified of pigeons\"}}]",
+   "queries": [
+    "what is Dmitri terrified of",
+    "Dmitri is terrified of pigeons",
+    "Dmitri is terrified of pigeons",
+    "Dmitri is terrified of pigeons"
+   ],
+   "passages": [
+    5,
+    5,
+    5,
+    5
+   ],
+   "tokens_read": 4594,
+   "tokens_written": 122,
+   "whole_chat_tokens": 24366,
+   "ran_out_of_calls": true,
+   "first_reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what is Dmitri terrified of\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_12",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what language does Kofi speak",
+   "view": [
+    [
+     "weird how much of my week is the freezer",
+     "No problem, what else is new?"
+    ],
+    [
+     "really enjoying the dryer at the moment",
+     "Great, the dryer deserved a good day."
+    ],
+    [
+     "the radiator cheered me up today",
+     "Great, the radiator deserved a good day."
+    ]
+   ],
+   "answer": "Turkish",
+   "reply": "Kofi is a fictional character from the animated TV series \"The Simpsons.\" He is a black man who works as a janitor at the Springfield Elementary School. He is known for his distinctive voice and his catchphrase, \"I am the janitor, and I am here to serve.\"",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 710,
+   "tokens_written": 60,
+   "whole_chat_tokens": 24260,
+   "ran_out_of_calls": false,
+   "first_reply": "Kofi is a fictional character from the animated TV series \"The Simpsons.\" He is a black man who works as a janitor at the Springfield Elementary School. He is known for his distinctive voice and his catchphrase, \"I am the janitor, and I am here to serve.\"",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_older_13",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "drawing a blank on my tutor's tattoo",
+   "view": [
+    [
+     "the patio keeps letting me down",
+     "Ugh, sorry about the patio."
+    ],
+    [
+     "the wind is testing my patience",
+     "Ugh, sorry about the wind."
+    ],
+    [
+     "the wind turned a corner this week",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "compass",
+   "reply": "Farah, your stepsister got an anchor tattoo last week.",
+   "queries": [
+    "drawing a blank on a tattoo"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1697,
+   "tokens_written": 49,
+   "whole_chat_tokens": 24206,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"drawing a blank on a tattoo\"\n    }\n  }\n]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_14",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i forget which language my mentor knows",
+   "view": [
+    [
+     "the chimney keeps letting me down",
+     "Ugh, sorry about the chimney."
+    ],
+    [
+     "the basement popped into my head earlier",
+     "Anything interesting about the basement?"
+    ],
+    [
+     "my mom asked about my neck again",
+     "Weeks can go that way."
+    ]
+   ],
+   "answer": "Welsh",
+   "reply": "My mentor speaks Welsh.",
+   "queries": [
+    "What language does my mentor speak?"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1685,
+   "tokens_written": 47,
+   "whole_chat_tokens": 24258,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"What language does my mentor speak?\"\n    }\n  }\n]\nMy mentor speaks [language].",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_15",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "where does my mentor go after work these days",
+   "view": [
+    [
+     "the basement messed up my whole plan",
+     "Sounds like you've had enough of the basement."
+    ],
+    [
+     "that's all i've got on my charger",
+     "What did she want to know about my charger?"
+    ],
+    [
+     "another bad day thanks to the blender",
+     "Sounds like you've had enough of the blender."
+    ]
+   ],
+   "answer": "rowing",
+   "reply": "Your mentor joined a rowing club this month.",
+   "queries": [
+    "where does my mentor go after work these days"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1718,
+   "tokens_written": 58,
+   "whole_chat_tokens": 24451,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"where does my mentor go after work these days\"\n    }\n  }\n]\nWhere does your mentor go after work these days?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_16",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what tattoo did Gustav get",
+   "view": [
+    [
+     "the chimney cheered me up today",
+     "That's lovely to hear."
+    ],
+    [
+     "spent all evening sorting out my neck",
+     "All evening? I hope my neck is sorted now."
+    ],
+    [
+     "my mom asked about the chimney again",
+     "No problem, what else is new?"
+    ]
+   ],
+   "answer": "swallow",
+   "reply": "Dmitri, who is your tutor, got a thistle tattoo last week.",
+   "queries": [
+    "Gustav tattoo"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1575,
+   "tokens_written": 61,
+   "whole_chat_tokens": 24380,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"Gustav tattoo\"\n    }\n  }\n]\nGustav got a tattoo of a phoenix.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_17",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "where does my daughter go after work these days",
+   "view": [
+    [
+     "my smoothie keeps letting me down",
+     "Plans and my smoothie clearly don't mix."
+    ],
+    [
+     "my skateboard messed up my whole plan",
+     "Ugh, sorry about my skateboard."
+    ],
+    [
+     "that's all i've got on the radiator",
+     "What did she want to know about the radiator?"
+    ]
+   ],
+   "answer": "lacrosse",
+   "reply": "Lucia, your daughter joined a lacrosse club this month.",
+   "queries": [
+    "where does my daughter go after work these days"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1702,
+   "tokens_written": 43,
+   "whole_chat_tokens": 24366,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"where does my daughter go after work these days\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_18",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which club did Lucia join",
+   "view": [
+    [
+     "the butcher went better than expected",
+     "Sounds like the butcher is on the up."
+    ],
+    [
+     "my smoothie turned a corner this week",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "the butcher popped into my head earlier",
+     "Quiet days are underrated."
+    ]
+   ],
+   "answer": "lacrosse",
+   "reply": "Lucia's classmate joined a lacrosse club this month.",
+   "queries": [
+    "which club did Lucia join"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1699,
+   "tokens_written": 42,
+   "whole_chat_tokens": 24137,
+   "ran_out_of_calls": false,
+   "first_reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"which club did Lucia join\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_19",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what does Lucia grow out back",
+   "view": [
+    [
+     "another bad day thanks to the freezer",
+     "That's rough. What went wrong with the freezer?"
+    ],
+    [
+     "my mom asked about the vet again",
+     "Anything interesting about the vet?"
+    ],
+    [
+     "my mom asked about that novel again",
+     "Weeks can go that way."
+    ]
+   ],
+   "answer": "asparagus",
+   "reply": "Lucia, my stepsister, grows prize asparagus out back.",
+   "queries": [
+    "what does Lucia grow out back"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1731,
+   "tokens_written": 74,
+   "whole_chat_tokens": 24270,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what does Lucia grow out back\"\n    }\n  }\n]\nLucia is a character from the novel \"The Handmaid's Tale\" by Margaret Atwood. The phrase \"",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_20",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "i'm blanking on what my teammate is scared of",
+   "view": [
+    [
+     "so fed up with the patio right now",
+     "Ugh, sorry about the patio."
+    ],
+    [
+     "that's all i've got on the sleet",
+     "No problem, what else is new?"
+    ],
+    [
+     "spent all evening sorting out the library",
+     "Plans and the library clearly don't mix."
+    ]
+   ],
+   "answer": "thunderstorms",
+   "reply": "Ayaan, your teammate is scared of thunderstorms.",
+   "queries": [
+    "what is my teammate scared of"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1743,
+   "tokens_written": 71,
+   "whole_chat_tokens": 24212,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"what is my teammate scared of\"}}]\nTeammates can be scared of a variety of things, from public speaking to specific tasks or even the library. To get a better understanding, you could ask",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_21",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which club did Kofi join",
+   "view": [
+    [
+     "the photocopier turned a corner this week",
+     "That's lovely to hear."
+    ],
+    [
+     "my couch turned a corner this week",
+     "Nice one. What changed with my couch?"
+    ],
+    [
+     "was reading about the library at lunch",
+     "Weeks can go that way."
+    ]
+   ],
+   "answer": "lacrosse",
+   "reply": "Kofi's stepsister joined a lacrosse club this month.",
+   "queries": [
+    "which club did Kofi join"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1692,
+   "tokens_written": 42,
+   "whole_chat_tokens": 24418,
+   "ran_out_of_calls": false,
+   "first_reply": "Tool result: [{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"which club did Kofi join\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_22",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "where does my classmate go after work these days",
+   "view": [
+    [
+     "the freezer turned a corner this week",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "the freezer messed up my whole plan",
+     "Ugh, sorry about the freezer."
+    ],
+    [
+     "quiet day, mostly the modem",
+     "Quiet days are underrated."
+    ]
+   ],
+   "answer": "lacrosse",
+   "reply": "Hana, your classmate joined a lacrosse club this month.",
+   "queries": [
+    "where does my classmate go after work these days"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1690,
+   "tokens_written": 55,
+   "whole_chat_tokens": 24212,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"where does my classmate go after work these days\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_older_23",
+   "size": 2000,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "what is Chidi terrified of",
+   "view": [
+    [
+     "really enjoying my smoothie at the moment",
+     "Nice one. What changed with my smoothie?"
+    ],
+    [
+     "that novel keeps letting me down",
+     "Sounds like you've had enough of that novel."
+    ],
+    [
+     "the tram cheered me up today",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "thunderstorms",
+   "reply": "Chidi is terrified of being a failure.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 704,
+   "tokens_written": 9,
+   "whole_chat_tokens": 24237,
+   "ran_out_of_calls": false,
+   "first_reply": "Chidi is terrified of being a failure.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_00",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my barber's tattoo",
+   "view": [
+    [
+     "really enjoying the fence at the moment",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "my mom asked about the freezer again",
+     "Weeks can go that way."
+    ],
+    [
+     "the pharmacy popped into my head earlier",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "anchor",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 701,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24334,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_01",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my teammate joined",
+   "view": [
+    [
+     "so fed up with the dryer right now",
+     "Plans and the dryer clearly don't mix."
+    ],
+    [
+     "happy to report the library is all good",
+     "That's lovely to hear."
+    ],
+    [
+     "my couch keeps letting me down",
+     "Ugh, sorry about my couch."
+    ]
+   ],
+   "answer": "archery",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 706,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24222,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_02",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my stepsister's tattoo",
+   "view": [
+    [
+     "my camera cheered me up today",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "my mom asked about the chimney again",
+     "Quiet days are underrated."
+    ],
+    [
+     "the escalator messed up my whole plan",
+     "Sounds like you've had enough of the escalator."
+    ]
+   ],
+   "answer": "anchor",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 710,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24227,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_03",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my mentor",
+   "view": [
+    [
+     "that's all i've got on the blender",
+     "Funny what pops up."
+    ],
+    [
+     "my smoothie keeps letting me down",
+     "Sounds like you've had enough of my smoothie."
+    ],
+    [
+     "my mom asked about the garage again",
+     "No problem, what else is new?"
+    ]
+   ],
+   "answer": "thunderstorms",
+   "reply": "No, you haven't mentioned what scares your mentor.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 11,
+   "whole_chat_tokens": 24250,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you haven't mentioned what scares your mentor.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_04",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my mentor joined",
+   "view": [
+    [
+     "the fence messed up my whole plan",
+     "Ugh, sorry about the fence."
+    ],
+    [
+     "my charger messed up my whole plan",
+     "That's rough. What went wrong with my charger?"
+    ],
+    [
+     "another bad day thanks to my neck",
+     "Ugh, sorry about my neck."
+    ]
+   ],
+   "answer": "badminton",
+   "reply": "No, you didn't say which club your mentor joined.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 710,
+   "tokens_written": 11,
+   "whole_chat_tokens": 24286,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't say which club your mentor joined.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_05",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my barber joined",
+   "view": [
+    [
+     "so fed up with the pharmacy right now",
+     "Sounds like you've had enough of the pharmacy."
+    ],
+    [
+     "the freezer cheered me up today",
+     "That's lovely to hear."
+    ],
+    [
+     "that's all i've got on the dryer",
+     "What did she want to know about the dryer?"
+    ]
+   ],
+   "answer": "water polo",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24375,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_06",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my stepsister's tattoo",
+   "view": [
+    [
+     "my smoothie cheered me up today",
+     "Great, my smoothie deserved a good day."
+    ],
+    [
+     "so fed up with the wind right now",
+     "Plans and the wind clearly don't mix."
+    ],
+    [
+     "the tram cheered me up today",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "anchor",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 710,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24306,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_07",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my godfather",
+   "view": [
+    [
+     "weird how much of my week is the tram",
+     "No problem, what else is new?"
+    ],
+    [
+     "my keys keeps letting me down",
+     "Plans and my keys clearly don't mix."
+    ],
+    [
+     "my keys popped into my head earlier",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "thunderstorms",
+   "reply": "Esme, your godfather is terrified of thunderstorms.",
+   "queries": [
+    "what scares my godfather"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1689,
+   "tokens_written": 47,
+   "whole_chat_tokens": 24358,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what scares my godfather\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_confirm_08",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my mentor's tattoo",
+   "view": [
+    [
+     "really enjoying my smoothie at the moment",
+     "Great, my smoothie deserved a good day."
+    ],
+    [
+     "the vet went better than expected",
+     "That's lovely to hear."
+    ],
+    [
+     "the modem turned a corner this week",
+     "Sounds like the modem is on the up."
+    ]
+   ],
+   "answer": "anchor",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24328,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_09",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my stepsister joined",
+   "view": [
+    [
+     "that novel is testing my patience",
+     "Ugh, sorry about that novel."
+    ],
+    [
+     "the library popped into my head earlier",
+     "No problem, what else is new?"
+    ],
+    [
+     "my keys turned a corner this week",
+     "That's lovely to hear."
+    ]
+   ],
+   "answer": "badminton",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 703,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24250,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_10",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say anything about my daughter's tattoo",
+   "view": [
+    [
+     "weird how much of my week is the tram",
+     "Anything interesting about the tram?"
+    ],
+    [
+     "the sauna turned a corner this week",
+     "Sounds like the sauna is on the up."
+    ],
+    [
+     "really enjoying the escalator at the moment",
+     "Nice one. What changed with the escalator?"
+    ]
+   ],
+   "answer": "anchor",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 713,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24454,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_11",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my teammate",
+   "view": [
+    [
+     "spent all evening sorting out the pharmacy",
+     "That's rough. What went wrong with the pharmacy?"
+    ],
+    [
+     "so fed up with the modem right now",
+     "Ugh, sorry about the modem."
+    ],
+    [
+     "my mom asked about the fence again",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "deep water",
+   "reply": "No, you haven't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 709,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24327,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you haven't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_12",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my daughter joined",
+   "view": [
+    [
+     "happy to report the freezer is all good",
+     "Nice one. What changed with the freezer?"
+    ],
+    [
+     "quiet day, mostly my camera",
+     "Quiet days are underrated."
+    ],
+    [
+     "so fed up with the vet right now",
+     "Plans and the vet clearly don't mix."
+    ]
+   ],
+   "answer": "rowing",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 708,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24273,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_13",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my classmate grows",
+   "view": [
+    [
+     "the vet keeps letting me down",
+     "Ugh, sorry about the vet."
+    ],
+    [
+     "the dryer turned a corner this week",
+     "That's lovely to hear."
+    ],
+    [
+     "that's all i've got on the photocopier",
+     "No problem, what else is new?"
+    ]
+   ],
+   "answer": "chillies",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24205,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_14",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my barber joined",
+   "view": [
+    [
+     "the radiator keeps letting me down",
+     "Plans and the radiator clearly don't mix."
+    ],
+    [
+     "another bad day thanks to the tram",
+     "Sounds like you've had enough of the tram."
+    ],
+    [
+     "the wind cheered me up today",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "handball",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24344,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_15",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i say which club my godfather joined",
+   "view": [
+    [
+     "my skateboard popped into my head earlier",
+     "Anything interesting about my skateboard?"
+    ],
+    [
+     "my camera messed up my whole plan",
+     "That's rough. What went wrong with my camera?"
+    ],
+    [
+     "happy to report the chimney is all good",
+     "Nice one. What changed with the chimney?"
+    ]
+   ],
+   "answer": "rowing",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 715,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24392,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_16",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my godfather grows",
+   "view": [
+    [
+     "the chimney cheered me up today",
+     "Enjoy it while it lasts."
+    ],
+    [
+     "my charger messed up my whole plan",
+     "Ugh, sorry about my charger."
+    ],
+    [
+     "happy to report the radiator is all good",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "tomatoes",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 708,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24417,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_17",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my stepsister",
+   "view": [
+    [
+     "was reading about my charger at lunch",
+     "No problem, what else is new?"
+    ],
+    [
+     "so fed up with the chimney right now",
+     "Ugh, sorry about the chimney."
+    ],
+    [
+     "spent all evening sorting out the library",
+     "That's rough. What went wrong with the library?"
+    ]
+   ],
+   "answer": "clowns",
+   "reply": "No, you haven't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 714,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24187,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you haven't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_18",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i mention what language my teammate speaks",
+   "view": [
+    [
+     "was reading about the library at lunch",
+     "Quiet days are underrated."
+    ],
+    [
+     "my ankle cheered me up today",
+     "Great, my ankle deserved a good day."
+    ],
+    [
+     "my skateboard cheered me up today",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "Korean",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 706,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24320,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_19",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my mentor",
+   "view": [
+    [
+     "that's all i've got on the vacuuming",
+     "What did she want to know about the vacuuming?"
+    ],
+    [
+     "the escalator went better than expected",
+     "Sounds like the escalator is on the up."
+    ],
+    [
+     "the fence keeps letting me down",
+     "Sounds like you've had enough of the fence."
+    ]
+   ],
+   "answer": "clowns",
+   "reply": "Gustav, your mentor is terrified of clowns.",
+   "queries": [
+    "what scares my mentor"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1698,
+   "tokens_written": 46,
+   "whole_chat_tokens": 24456,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"what scares my mentor\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_confirm_20",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i mention what language my mentor speaks",
+   "view": [
+    [
+     "the radiator turned a corner this week",
+     "Sounds like the radiator is on the up."
+    ],
+    [
+     "really enjoying the pharmacy at the moment",
+     "That's lovely to hear."
+    ],
+    [
+     "another bad day thanks to the sauna",
+     "Sounds like you've had enough of the sauna."
+    ]
+   ],
+   "answer": "Swahili",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 707,
+   "tokens_written": 5,
+   "whole_chat_tokens": 24370,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_21",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my classmate",
+   "view": [
+    [
+     "weird how much of my week is the modem",
+     "Funny what pops up."
+    ],
+    [
+     "the library cheered me up today",
+     "Great, the library deserved a good day."
+    ],
+    [
+     "that novel turned a corner this week",
+     "Enjoy it while it lasts."
+    ]
+   ],
+   "answer": "thunderstorms",
+   "reply": "Hana, your classmate is terrified of thunderstorms.",
+   "queries": [
+    "Have I ever mentioned what scares my classmate?"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1695,
+   "tokens_written": 51,
+   "whole_chat_tokens": 24292,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"Have I ever mentioned what scares my classmate?\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  },
+  {
+   "id": "2000_confirm_22",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did i ever bring up what my daughter grows",
+   "view": [
+    [
+     "my mom asked about the photocopier again",
+     "Quiet days are underrated."
+    ],
+    [
+     "weird how much of my week is the patio",
+     "Quiet days are underrated."
+    ],
+    [
+     "happy to report the pharmacy is all good",
+     "Sounds like the pharmacy is on the up."
+    ]
+   ],
+   "answer": "strawberries",
+   "reply": "Quiet days are underrated.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 713,
+   "tokens_written": 7,
+   "whole_chat_tokens": 24464,
+   "ran_out_of_calls": false,
+   "first_reply": "Quiet days are underrated.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "2000_confirm_23",
+   "size": 2000,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "have i ever mentioned what scares my classmate",
+   "view": [
+    [
+     "quiet day, mostly the photocopier",
+     "Quiet days are underrated."
+    ],
+    [
+     "my couch popped into my head earlier",
+     "What did she want to know about my couch?"
+    ],
+    [
+     "weird how much of my week is the garage",
+     "Funny what pops up."
+    ]
+   ],
+   "answer": "deep water",
+   "reply": "Farah, your classmate is terrified of deep water.",
+   "queries": [
+    "have i ever mentioned what scares my classmate"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1701,
+   "tokens_written": 52,
+   "whole_chat_tokens": 24290,
+   "ran_out_of_calls": false,
+   "first_reply": "[\n  {\n    \"tool_name\": \"search_corpus\",\n    \"parameters\": {\n      \"query\": \"have i ever mentioned what scares my classmate\"\n    }\n  }\n]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true
+  }
+ ],
+ "peak_vram_gib": 6.79,
+ "seconds": 104
+}
