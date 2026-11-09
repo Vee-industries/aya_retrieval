@@ -53,6 +53,26 @@ def test_the_gain_interval_brackets_the_observed_gain_and_excludes_zero_for_a_cl
     assert g_low < gain < g_high
 
 
+def test_the_gain_interval_without_clusters_is_unchanged_by_the_clusters_option():
+    base = [1] * 30 + [0] * 70
+    adapters = [[1] * 80 + [0] * 20]
+    singletons = bootstrap_gain_interval(base, adapters, n_resamples=500, clusters=list(range(100)))
+    assert singletons == bootstrap_gain_interval(base, adapters, n_resamples=500)
+
+
+def test_clustered_resampling_widens_the_interval_when_groups_move_together():
+    # Ten groups of ten: within a group every conversation has the same outcome, so there are
+    # only ten independent units and the interval must be wider than the per-conversation one.
+    base = [0] * 100
+    adapters = [[1 if group % 2 else 0 for group in range(10) for _ in range(10)]]
+    clusters = [group for group in range(10) for _ in range(10)]
+    _, low, high = bootstrap_gain_interval(base, adapters, n_resamples=2000)["difference"]
+    _, c_low, c_high = bootstrap_gain_interval(base, adapters, n_resamples=2000, clusters=clusters)[
+        "difference"
+    ]
+    assert c_high - c_low > 2 * (high - low)
+
+
 def test_the_gain_interval_spans_zero_when_there_is_no_gain():
     base = [1, 0] * 50
     adapters = [[0, 1] * 50]

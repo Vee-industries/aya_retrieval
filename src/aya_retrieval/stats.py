@@ -58,18 +58,33 @@ def wilson_interval(hits: int, total: int, z: float = 1.96) -> tuple[float, floa
 
 
 def bootstrap_gain_interval(
-    base: list[int], adapters: list[list[int]], n_resamples: int = 10_000, seed: int = 0
+    base: list[int],
+    adapters: list[list[int]],
+    n_resamples: int = 10_000,
+    seed: int = 0,
+    clusters: list[int] | None = None,
 ) -> dict:
     """95% percentile intervals for the adapters' gain over base, resampling conversations.
 
     ``base[i]`` and ``adapters[s][i]`` score the same conversation ``i`` (1 right, 0 wrong). Each
     resample draws conversations with replacement and keeps every model's answer on them, so the
-    pairing holds. Returned: the difference in rates (adapters pooled minus base) and the relative
-    gain (adapters pooled over base, minus one), each with its observed value and interval.
+    pairing holds. With ``clusters`` (a group id per conversation, such as its fact template), each
+    resample draws whole groups instead, because conversations in one group are not independent
+    (R-139); without it the draws are the same as before. Returned: the difference in rates
+    (adapters pooled minus base) and the relative gain (adapters pooled over base, minus one), each
+    with its observed value and interval.
     """
     n = len(base)
     if n < 2 or any(len(a) != n for a in adapters):
         raise ValueError("need at least 2 conversations, scored by every model")
+    if clusters is not None and len(clusters) != n:
+        raise ValueError("need one cluster id per conversation")
+    groups: dict[int, list[int]] = {}
+    for i, group in enumerate(clusters if clusters is not None else range(n)):
+        groups.setdefault(group, []).append(i)
+    members = list(groups.values())
+    if len(members) < 2:
+        raise ValueError("need at least 2 clusters")
 
     def rates(idx: list[int]) -> tuple[float, float]:
         b = sum(base[i] for i in idx) / len(idx)
@@ -79,7 +94,7 @@ def bootstrap_gain_interval(
     rng = random.Random(seed)
     diffs, gains = [], []
     for _ in range(n_resamples):
-        b, t = rates([rng.randrange(n) for _ in range(n)])
+        b, t = rates([i for _ in members for i in members[rng.randrange(len(members))]])
         diffs.append(t - b)
         gains.append(t / b - 1 if b else float("inf"))
     diffs.sort()
