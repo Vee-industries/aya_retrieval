@@ -158,6 +158,7 @@ carry their own provenance (command, git commit, package versions).
 | R-143 | The independent set is written and frozen: 40 chats from four blind writers, 240 questions, none dropped by the loader (sha256 `9919a24c...`); writer transcripts audited; the reshaped eval loop shown to build the same items as before |
 | R-144 | Kevin's blind check of the scorer: 47 of 50 agree (kappa 0.88); the scorer never passed a reply he failed; its strictness can only lower base's `hard_dev` recall, by at most 9 of 96. 6.37's misses: 0 of 23 name a false value; 15 of 23 sit in two fact templates where the answer is in a trailing clause and 6.37 restates the main clause only |
 | R-145 | A second, independent marker on R-144's 50 lines: 48 of 50 with the scorer (kappa 0.92), 49 of 50 with Kevin (0.96); both people differ from the scorer on the same two strict-scorer lines, 6 and 29 |
+| R-146 | Independent set: 6.37 seed 82 recall 39/120 against base 26/120 (+50%, sign test p = 0.047, chat-resampled gain +2.5 to +19 points); seeds 39 to 57; `confirm` 11/40 against base 15 (it rarely searches a "..., right?" question). R-137: both prompts lower base's recall. R-138: one break, `long` on `hard_dev` (84 to 75 of 96), being confirmed at 75001 |
 
 ---
 
@@ -5526,3 +5527,96 @@ disagreements both people share are R-144's strict-scorer case (the answer and a
 case is a property of the scorer; R-144's bound on it stands (base's `hard_dev` recall at most 9 of 96 higher, 6.37
 unaffected). The sheet she marked carried less than Kevin's (no fact sentence, no wrong values), so the two sheets
 are not identical conditions; both were blind to model and verdict.
+
+## R-146 · 2026-11-09 · SPRINT · The independent set, the prompted-baseline control and the break tests, read
+
+All runs finished 2026-11-08 23:49; this record was written from 05:13 (the card was idle in between: nothing was
+queued behind the last run).
+
+### The independent set (R-142's report, as registered)
+
+`scripts/records/blind_r146.py`, `results/analysis/R-146/blind.json`. Every run was scored on the frozen set (sha256
+checked against R-143, nothing dropped): 240 questions on 40 chats.
+
+**Primary (R-142): recall (`older` and `confirm`), 6.37 seed 82 against base: 39 of 120 against 26 of 120**, a
+relative gain of +50%. Base alone right 12, 6.37 alone right 25, exact sign test p = 0.047. Paired bootstrap
+resampling whole chats: difference +10.8 points, 95% interval +2.5 to +19.2; relative gain +50%, interval +9% to
++122%. The gain holds on chats the generator never made, but it is far smaller than on the generator's sets
+(`hard_dev` 20 to 73 of 96, +265%) and recall is low for both models.
+
+**Each training seed:** recall 39, 43, 57, 46, 48, 52, 46, 50 (seeds 82, 83, 94 to 99); the shipped seed 82 is the
+lowest. Pooled over all eight against base: +18.0 points, interval +9.7 to +26.1 (relative +83%, +35% to +171%). As
+R-137 adopted, the eight are runs over the same questions, not independent cases; the range is the honest spread.
+
+**Each kind** (right of 80 `older`, 40 each other kind; base / seed 82 / the eight seeds' range): `older` 11 / 28 /
+26 to 35; `confirm` 15 / 11 / 11 to 22; `in_view` 36 / 35 / 32 to 37; `never_told` 34 / 37 / 33 to 39; `statement` 38 /
+37 / 33 to 39. **`confirm` at seed 82 is below base.** Right decisions (searched exactly when the answer is out of
+view): `older` base 49, 6.37 79 to 80 of 80; `confirm` base 5, 6.37 2 to 21 of 40 (seed 82: 9); `never_told` base 25,
+6.37 37 to 40.
+
+**Each writer** (30 recall questions each; base / seed 82 / seeds' range): writer 1, 6 / 11 / 11 to 16; writer 2,
+7 / 10 / 10 to 17; writer 3, 7 / 9 / 9 to 16; writer 4, 6 / 9 / 7 to 9. The gain is in every writer's chats.
+
+**R-143's scoring limit:** on the 88 recall questions that list at least one wrong value, base 19, 6.37 31.
+
+**Where 6.37's 81 wrong recall answers went wrong** (R-139's stages): no search 23, search missed the fact 38, named
+a listed wrong value 6, found the fact but wrong otherwise 14. Read by hand (the chats are frozen and the runs done,
+so reading them changes nothing scored), three failures, all specific:
+- **A "..., right?" question does not trigger a search.** 23 of 29 `confirm` misses never searched; 6.37 replies with
+  small talk and often accepts the user's wrong value ("That's a great story. I'm glad Annika picked marble in the
+  end." for quartz). The generator's `confirm` questions are worded "did ... ever come up from me" or "have i ever
+  mentioned"; the writers' are tag questions. The search habit is tied to the training wording.
+- **Search queries reuse training wording.** Queries such as "aunt keeps animals yard", "brother car auction",
+  "great uncle weekend hobby" and "stepmom race finished" carry words from the training templates, not the question,
+  and miss the fact.
+- **A fact said with a pronoun is not found.** Many missed facts name the person only in an earlier message ("he's
+  out in Calgary now", "she has a cockatiel"); a search on "cousin" or "aunt" cannot match them. This is the search
+  tool's limit as much as the model's: it matches words in one message.
+- R-144's trailing-clause shape appears too ("Your stepmom Linda is not into racquet sports." for "...She does
+  curling every Thursday.").
+
+**A correction to R-144.** R-144 found that 6.37's `hard_dev` misses almost never state a false value. On this set
+that does not hold: of the 81 misses, 8 say it does not know, 14 name a listed wrong value and 59 state something
+else, usually another person's fact from the passage it found ("Your daughter-in-law has anemia." for vertigo).
+Base: 1 leaked tool text, 13 named a listed wrong value, 80 state something else. R-144's finding is a property of
+the generator's chats, not a general one.
+
+### The prompted-baseline control (R-137)
+
+Base, seed 73157, the same 240 items each (recall right of 96; searched; right decisions of 48 on `in_view`,
+`never_told`, `statement`):
+
+| run | probe recall | searched | in_view / never_told / statement | `hard_dev` recall | searched | in_view / never_told / statement |
+|---|---|---|---|---|---|---|
+| base, default prompt | 30 | 37 | 35 / 16 / 31 | 20 | 58 | 41 / 32 / 36 |
+| base, prompt A (rules) | 11 | 14 | 46 / 8 / 39 | 3 | 9 | 46 / 3 / 45 |
+| base, prompt B (rules and examples) | 1 | 0 | 48 / 0 / 46 | 0 | 0 | 48 / 0 / 48 |
+| 6.37 seed 82 | 96 | 96 | 48 / 48 / 48 | 73 | 95 | 48 / 48 / 48 |
+
+On the independent set: recall base 26, prompt A 19, prompt B 15 of 120. **Both prompts lower base's recall**: they
+make base search less, and with prompt B it almost never searches. The right decisions that rise under the prompts
+are the ones where not searching is right. So no prompt tried here buys any of 6.37's gain; a better prompt may
+exist, and only these two, fixed before any result, were tried.
+
+### The break tests (R-138's rule)
+
+6.37 seed 82 at discovery seed 74001 (recall right of 96 per pool; probe then `hard_dev`): `plain` 95, 84; `d4` 95,
+84 (paired against `plain`: no recall lost or gained); `long` 96, 75; `longfixh` 96, 89 (against `long`: 0 lost, 14
+gained on `hard_dev`); `askd4` 95, 77 (against `plain`: probe 1 lost 1 gained, `hard_dev` 7 lost 0 gained; against
+`d4` the same). Other kinds move by at most 3 either way, with gains beside the losses. Base, recall in the same
+conditions: probe 30, 31, 37, 13, 18; `hard_dev` 16, 22, 22, 7, 19; 6.37 is above base everywhere.
+
+**One break: `long` on `hard_dev`**, 84 to 75 of 96, a net loss of 9, at least R-138's 8 (pooled over the two pools
+the loss is 8; either reading meets the rule). `long` is not paired with `plain`, so the net rule alone applies. Its
+misses: found the fact but wrong otherwise 16 (7 in `plain`), search missed 2, no search 2, named a wrong value 1:
+the trailing-clause failure of R-144, more often in longer chats. **Not a break:** `askd4` on `hard_dev` (7 lost, 0
+gained: net 7, one short of the rule; pooled with probe, 8 lost and 1 gained, net 7). Recorded as the next weakest
+condition. Every other condition is flat.
+
+**Next, as R-138 registered:** `plain` and `long` rerun on 6.37 at confirm seed 75001 (`hard_dev` first, then probe),
+queued 05:15. Only if the break meets the same rule there does a targeted fix start, from TRAIN-pool rows, under
+R-138's conditions and its clock (rows by Mon 09:00, training before 12:00).
+
+**What the independent set's failures mean for a fix.** R-142 registered that set as report only, so nothing it
+found becomes training data or a reason to change the model; a fix chosen from it would also leave no independent
+judge. Its three failures go in the write-up as measured limits.
