@@ -161,6 +161,7 @@ carry their own provenance (command, git commit, package versions).
 | R-146 | Independent set: 6.37 seed 82 recall 39/120 against base 26/120 (+50%, sign test p = 0.047, chat-resampled gain +2.5 to +19 points); seeds 39 to 57; `confirm` 11/40 against base 15 (it rarely searches a "..., right?" question). R-137: both prompts lower base's recall. R-138: one break, `long` on `hard_dev` (84 to 75 of 96), being confirmed at 75001 |
 | R-147 | 6.39 (`fix17cs39`) at Kevin's word, registered before it trains: 6.37's rows plus R-110's 100 rows for the found-but-incomplete answer, from scratch at 82 and 83; every 6.37 gate unchanged, then it must beat 6.37 on `hard_dev` recall at fresh seed 75002; any fail and 6.37 ships |
 | R-148 | R-138's confirm seed 75001: the `long` break does not hold (loss 6, rule 8); `askd4` against `d4` meets the rule there (8 lost, 0 gained) after falling one short at 74001; both are the found-but-incomplete failure 6.39 targets |
+| R-149 | 6.39 fails at 82 and 83: `hard_dev` recall pooled 147 against 6.37's 163 (and v6's 157); every other line passes; the targeted miss (found, answered without the asked detail) rises from 21 to 33; 6.37 stays frozen |
 
 ---
 
@@ -5692,3 +5693,31 @@ frequent; it is not a different one.
 
 **Reading.** Every weakness the break tests found is the one failure R-144 named, in the same two templates. 6.39
 (R-147) is judged on it at 75002; nothing here changes R-147's lines.
+
+## R-149 · 2026-11-09 · SPRINT · 6.39 fails
+
+**What ran** (R-147, unchanged): `cand fix17cs39` at 82 and 83 (1,194 rows, from scratch, 6.37's recipe; seed 82's
+training 2,237 s), scored by 08:07; `decide_r147.py` touched `r147_stop`, so R-147's remaining 6.39 lines skip.
+
+**Lines.** Pass: probe 51203 recall 94 (at least 94) and `statement` 48 (at least 47); `hard_dev` `never_told` 48;
+probe 73157 recall pooled 192 (6.37 192); no slips at either seed on either pool; `hard_dev` false retrieval 0; probe
+`in_view` 43 and 44 (at least 41). **Fail: `hard_dev` recall pooled 147** (71 and 76) against 6.37's 163 (73 and 90),
+and against v6's 157. Two FAIL lines, both this one count. 6.37 stays frozen (R-140).
+
+**The targeted miss went up, not down.** `hard_dev` misses at seed 73157 by stage (R-139), seeds 82 and 83:
+
+| | right | no search | search missed | wrong value | found, answered without the asked detail |
+|---|---|---|---|---|---|
+| 6.37 | 73, 90 | 1, 1 | 3, 2 | 1, 0 | 18, 3 |
+| 6.39 | 71, 76 | 1, 2 | 6, 3 | 0, 0 | 18, 15 |
+
+Seed 83 is where 6.39 loses: the found-but-incomplete miss rises from 3 to 15. This is the third reading of R-110's
+rows (R-113 and R-115 on top of 6.2, now from scratch inside 6.37's set), and in each the miss they were built for
+rises. Two seeds, so a direction, not a measured size; but the direction has not changed in three tries. These rows
+are not used again.
+
+**Next.** R-147 allowed one try; Kevin's rule of 2026-11-08 lets a panel pick a further candidate without asking him,
+within the clock (training before 12:00 today, R-138). The panel waits until the weekly usage line catches up (17%
+used at 08:10 against a line of about 16%, rule of 2026-11-08: no new agents over the line), about 09:45, which still
+leaves time to train before 12:00. 6.37's 75002 runs (R-147 item 3) go on meanwhile as the reference for whatever is
+judged there.
