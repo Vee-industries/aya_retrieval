@@ -156,6 +156,7 @@ carry their own provenance (command, git commit, package versions).
 | R-141 | R-139 items 1 to 3: the primary and all eight secondary tests favour 6.37 (Holm); but the 96 recall questions come from only 5 fact templates on probe and 8 on `hard_dev`, so the item-level p-values overstate the evidence; template-resampled intervals still exclude zero; 6.37's main `hard_dev` failure is finding the fact and answering wrong; seed 82 is the lowest of eight seeds there |
 | R-142 | R-139 items 4 and 5 set up before any chat is read: the writers' brief and its panel (nine edits taken, one declined), the loader and `--items-dir`, twelve queued runs (base, both R-137 prompts, 6.37 at all eight seeds), and Kevin's 50-line sheet, restratified by model |
 | R-143 | The independent set is written and frozen: 40 chats from four blind writers, 240 questions, none dropped by the loader (sha256 `9919a24c...`); writer transcripts audited; the reshaped eval loop shown to build the same items as before |
+| R-144 | Kevin's blind check of the scorer: 47 of 50 agree (kappa 0.88); the scorer never passed a reply he failed; its strictness can only lower base's `hard_dev` recall, by at most 9 of 96. 6.37's misses: 0 of 23 name a false value; 15 of 23 sit in two fact templates where the answer is in a trailing clause and 6.37 restates the main clause only |
 
 ---
 
@@ -5452,3 +5453,54 @@ commit `8e3f7ac`, which includes the change, and `hd_base_prompta` on `58e2afb`,
 same id, size, kind, message, answer and view, in the same order.
 
 **Runs** go as R-142 queued them, released by `$S/blind_ready`, touched after this commit.
+
+## R-144 · 2026-11-08 · SPRINT · Kevin's blind check of the scorer, and the shape of the wrong replies
+
+**Why.** Every recall number in this project comes from one rule: a reply is right when it contains the answer and
+no wrong value. If the rule is wrong in one direction, every gain is wrong with it. Kevin marked R-142's 50 lines
+right or wrong without seeing the model or the verdict; his marks were saved to
+`results/human_check/R-139/marks.json` before `key.json` was read. `scripts/records/score_human_check_r139.py`
+compares them and writes `agreement.json`.
+
+**Agreement: 47 of 50, Cohen's kappa 0.88.** Kevin right and scorer right 22, both wrong 25, Kevin right and scorer
+wrong 3, Kevin wrong and scorer right 0. By stratum: 6.37 scored right 12/12, 6.37 scored wrong 14/15, base scored
+right 10/10, base scored wrong after a search 11/13. **The scorer never passed a reply Kevin failed**, so no reported
+gain is inflated by a lenient scorer. The three disagreements, all scorer stricter than Kevin:
+
+- Line 6 (base, confirm): the reply names the answer and the look-alike's value side by side ("the cockatoos (or
+  cockatiels)"). The scorer fails a reply that hedges between the two; Kevin passed it.
+- Line 29 (base, confirm): the reply gives the right dish and then, correctly attributed, another person's dish.
+  The scorer cannot tell a wrong value said as the answer from one said about someone else.
+- Line 37 (6.37, in_view): the reply asks Kevin to say more and gives no subject at all. Kevin marked it right. It
+  is recorded as he marked it; it is likely a slip, and it does not change the direction of the finding.
+
+**Kevin's note after marking, on line 42** (base, `probe2_base`, scored right by both): the reply printed the raw
+search result ("Tool result for search_corpus: [chunk_id=...]") before the answer. He marked it right on its content.
+The scorer does not look for leaked tool text, so it passes such a reply when the answer is in it. Counted over the
+full runs (240 replies each): `probe2_base` 5 replies with tool text, 2 scored right; `hd_base` 3, 0 scored right;
+`probe_fix17cs37_82` 0; `hd_fix17cs37_82` 0. This leniency favours base only, by 2 of 480 replies; 6.37 never leaks
+tool text.
+
+**Size of the strict-scorer effect.** The two real cases (6 and 29) are replies that hold the answer and a wrong value
+together. Counted over the full runs at seed 82's settings (`older` and `confirm`): `hd_base` 9 of its 76 wrong,
+`hd_fix17cs37_82` 0, `probe2_base` 0, `probe_fix17cs37_82` 0. If all 9 were fair, base's `hard_dev` recall would
+move from 20/96 to at most 29/96, against 6.37's 73/96. The bias runs against base only, so it is disclosed beside
+every base number; it does not reverse any result.
+
+**The shape of the wrong replies (Kevin's 25 wrong lines, then the full `hard_dev` run).** On the sheet, 6.37's 14
+wrong replies: 9 found the right exchange and restated its main clause, stopping before the answer ("Your coach Rhys
+hosted a big dinner." for "...the dish everyone fought over seconds of was the minestrone"); 4 did not search and
+made small talk (3 of them `in_view`); 1 searched and said it could not see the fact. None named a false value.
+Base's 11: 6 named a false value (the look-alike's, or a value for a question never told), 3 went off topic, 2
+looped on the search and printed the tool call. Over all 96 `older` and `confirm` items of `hd_fix17cs37_82`
+(73 right, 23 wrong), grouped by fact template with the person's role removed: 1 of the 23 misses names a false
+value; the "collected the keys ... ready for the parrots" template holds 9 misses (6/15 right) and the "hosted dinner
+... the dish was the chowder" template 6 (7/13 right), 15 of 23 between them; the "job interview booked for Monday"
+template 4 (10/14). The other five templates are 51 of 54. In all three weak templates the sentence's main clause is
+about another event and the answer sits in a later clause. On probe, where every template is one short clause
+("who is my tutor, is terrified of spiders"), 6.37 is 96/96.
+
+**What this is and is not.** It is one failure, specific enough to target: 6.37 answers from the first clause of a
+long sentence. It was found on `hard_dev`, a development pool, so a fix built to match these templates would be fit
+to the set that judges it. The independent set (R-143, written by four writers who never saw the generator) runs
+tonight; whether the same shape appears there decides whether it is general. Nothing here changes the frozen model.

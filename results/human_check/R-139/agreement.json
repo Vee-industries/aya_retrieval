@@ -1,0 +1,65 @@
+{
+ "n": 50,
+ "agree": 47,
+ "kappa": 0.88,
+ "kevin_right_scorer_right": 22,
+ "kevin_right_scorer_wrong": 3,
+ "kevin_wrong_scorer_right": 0,
+ "kevin_wrong_scorer_wrong": 25,
+ "agree_by_stratum": {
+  "6.37 scored right": "12/12",
+  "6.37 scored wrong": "14/15",
+  "base scored right": "10/10",
+  "base scored wrong after a search": "11/13"
+ },
+ "disagreements": [
+  {
+   "n": 6,
+   "kevin": "right",
+   "scorer": "wrong",
+   "model": "base",
+   "label": "hd_base",
+   "id": "58_confirm_11",
+   "stratum": "base scored wrong after a search",
+   "kind": "confirm",
+   "question": "i wonder if you got told the noisy creatures my housemate keeps by the window",
+   "right_answer": "cockatoos",
+   "wrong_values": [
+    "cockatiels"
+   ],
+   "reply": "It sounds like your housemate, Rhys, has a playful relationship with the cockatoos (or cockatiels) near the window. He seems to be prepared for them, even before touching a single box, which adds a touch of whimsy to the situation."
+  },
+  {
+   "n": 29,
+   "kevin": "right",
+   "scorer": "wrong",
+   "model": "base",
+   "label": "hd_base",
+   "id": "58_confirm_07",
+   "stratum": "base scored wrong after a search",
+   "kind": "confirm",
+   "question": "i wonder if you got told what my babysitter ladled out at that big dinner",
+   "right_answer": "chowder",
+   "wrong_values": [
+    "minestrone"
+   ],
+   "reply": "The babysitter, Gideon, finally hosted dinner last night after ages of promising. The dish everyone fought over seconds of was chowder. The vicar, Cormac, also hosted dinner last night, and the dish everyone fought over seconds of was minestrone. It seems like the"
+  },
+  {
+   "n": 37,
+   "kevin": "right",
+   "scorer": "wrong",
+   "model": "6.37",
+   "label": "hd_fix17cs37_82",
+   "id": "419_in_view_07",
+   "stratum": "6.37 scored wrong",
+   "kind": "in_view",
+   "question": "my head has lost the subject my stepmum spent three years on at uni",
+   "right_answer": "architecture",
+   "wrong_values": [
+    "anthropology"
+   ],
+   "reply": "It sounds like you're feeling a bit lost or confused about your stepmum's three-year university project. Can you tell me more about what you're trying to remember or understand?"
+  }
+ ]
+}
