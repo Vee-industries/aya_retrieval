@@ -1,0 +1,30 @@
+{"id": "w2_09", "exchanges": [
+["big demo today im nervous", "Nerves usually mean you care. Who's the demo for?"],
+["st marys hospital. procurement team plus their it director", "Hospitals are big deals. Do you know what they care most about?"],
+["security mostly. sofia is coming w me shes our sales engineer", "Good, having someone technical in the room helps with security questions."],
+["ya shes great. she made me stop at 3 cafes this morning to find matcha lol she wont drink anything else", "That's real dedication. Hopefully she found some before the demo."],
+["she did. ok heading in", "Good luck, you're going to do great."],
+["ok that went well i think", "That's great! What made it feel good?"],
+["their it director asked a ton of questions which is good. also shes named sofia too lol sofia reyes", "Lots of questions usually means real interest. Two Sofias must have made the intros fun."],
+["ya lol. she drank like 3 espresso shots during the meeting she was wired", "Sounds like she was very alert for your security section at least."],
+["ha ya. ok back at the office", "How's the office today?"],
+["loud. ezekiel is on his phone in the corner talking about some gig", "Sounds like an interesting call. What kind of gig?"],
+["his band. he plays drums for them every friday at a bar on dundas lol hes always tired on mondays", "A Friday residency is pretty cool. Mondays must be rough, though."],
+["ya. liang wants a debrief at 2", "Is Liang your manager?"],
+["ya. hes in a good mood tho hes getting a dog this weekend, a corgi", "A new puppy would put anyone in a good mood. Does he have a name picked?"],
+["not yet he asked the team for ideas", "Fun. Food names are always popular for small dogs."],
+["lol ill suggest somthing. ok debrief time", "Good luck, sounds like you have good news to share."],
+["debrief good. oh and liangs dog is a beagle not a corgi, i heard wrong earlier", "Lovely dogs, very friendly. A bit loud, though."],
+["lol ya hes gonna learn", "He'll have a very vocal new roommate."],
+["next step is a call w their cfo mr abernathy next week", "The CFO stage usually means they're serious. What do you know about him?"],
+["he was really chatty on the intro call, turns out hes from winnipeg like me so we talked about jets hockey for 20 min", "A shared hometown is a great rapport builder. That'll help when you get to pricing."],
+["ya hopefully he goes easy on the discount", "Having a good relationship won't hurt your chances there."],
+["ok im out for the day", "Well done today. Enjoy your evening."]
+], "questions": [
+{"kind": "older", "message": "what was sofia from the hospital having in the meeting", "answer": "espresso", "wrong": ["matcha"], "fact_exchange": 7},
+{"kind": "older", "message": "whats ezekiels instrument", "answer": "drums", "wrong": [], "fact_exchange": 10},
+{"kind": "confirm", "message": "liangs new pup is a beagle right", "answer": "beagle", "wrong": ["corgi"], "fact_exchange": 15},
+{"kind": "in_view", "message": "where is abernathy from", "answer": "winnipeg", "wrong": [], "fact_exchange": 18},
+{"kind": "never_told", "message": "what does ezekiel drink", "answer": "", "wrong": ["matcha", "espresso"], "fact_exchange": null},
+{"kind": "statement", "message": "traffic is gonna be awful tonight", "answer": "", "wrong": [], "fact_exchange": null}
+]}

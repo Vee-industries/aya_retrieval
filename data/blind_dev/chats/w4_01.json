@@ -1,0 +1,32 @@
+{"id": "w4_01", "exchanges": [
+["ok so i finally made it to halifax. boxes everywhere lol", "Congrats on making it! Unpacking is the worst part, but it gets better once the kitchen's sorted."],
+["yeah the kitchen is a disaster. my roommate jonah already claimed the good shelf", "Classic roommate move. Is he someone you knew before, or new to you?"],
+["new, found him online. hes nice tho. he does accounting at the college, same campus as me", "That's handy, you can share the commute. How are you feeling about starting classes?"],
+["nervous. nursing program starts monday", "That's a big program, being nervous makes sense. The first weeks are usually orientation-heavy, which helps."],
+["met the neighbour today, priya. she has the cutest beagle, he ran right up to me", "A friendly dog next door is a great welcome. Did you get to chat with her much?"],
+["a bit, shes a paramedic actually!! said she can give me tips for clinicals", "That's a lucky connection to have right next door. Someone with real field experience can be a big help."],
+["funny thing my cousin is also named priya. back home in brampton. she has a dachshund lol so now i have two priyas with two little dogs", "That's going to make for some confusing stories! At least the dogs are different enough to tell apart."],
+["lol true. ok need to find a doctor here, the waitlist thing is insane", "Family doctor waitlists in Nova Scotia can be long. Walk-in clinics can cover you while you wait."],
+["update i got lucky?? a clinic near campus had a spot. dr okafor. first appt next week", "That's great news, getting a family doctor that fast is rare. Is it just a general intake visit?"],
+["yeah intake plus i need my immunization records for the program", "Smart to sort that early, those programs are strict about records. Bring whatever you have from back home."],
+["also my tooth has been killing me. booked a dentist, dr lindqvist, on the same street lol", "Getting both sorted in one area is efficient. Hope the tooth isn't anything serious."],
+["probably a filling. anyway first day of class was today", "How did it go? First days can be a lot of names and syllabi."],
+["good! sat next to this guy tomasz, super chill", "Nice, it helps to have a friendly face in class. Is he in your program too?"],
+["no hes just in my english elective. he's doing welding, wants to work at the shipyard", "That's a solid trade, especially in a port city. Electives are a good way to meet people outside your program."],
+["omg i was wrong about the neighbours dog. its a basset hound not a beagle, priya laughed at me when i said it", "Easy mix-up, they look similar with those ears. At least she found it funny."],
+["jonah wants to get a cat now. i said ask the landlord first", "Good call, a lot of leases have pet clauses. Does the landlord seem reasonable?"],
+["her name is gloria, shes like 70 and very strict about noise", "Sounds like a cat might be easier to sell her on than a party then."],
+["lol. my aunt mei called, she wants to visit in october", "That's nice to have family coming out. Will she stay with you or nearby?"],
+["hotel thank god, our place is tiny. shes bringing me my winter coat", "Very practical of her. Halifax winters are damp and windy, you'll want it."],
+["had a study group tonight, there was this girl amara whos also in nursing", "Study groups are a good way to get through the heavy courses. Did it go well?"],
+["yeah she used to be a dental hygienist before switching, so she knows a ton of anatomy already", "That background must give her a head start. She sounds like a good study partner."],
+["for sure. we're meeting again thursday at the library", "Having a regular time will help a lot once exams start."]
+],
+"questions": [
+{"kind": "older", "message": "wait what breed is my neighbours dog", "answer": "basset", "wrong": ["beagle", "dachshund"], "fact_exchange": 14},
+{"kind": "older", "message": "whats tomasz studying again", "answer": "welding", "wrong": ["accounting", "nursing"], "fact_exchange": 13},
+{"kind": "confirm", "message": "my family doctor here is dr okafor right?", "answer": "okafor", "wrong": ["lindqvist"], "fact_exchange": 8},
+{"kind": "in_view", "message": "what did amara do before nursing", "answer": "hygienist", "wrong": ["paramedic"], "fact_exchange": 20},
+{"kind": "never_told", "message": "what does aunt mei do for work", "answer": "", "wrong": ["paramedic", "hygienist"], "fact_exchange": null},
+{"kind": "statement", "message": "gonna make flashcards for the anatomy stuff tonight i think", "answer": "", "wrong": [], "fact_exchange": null}
+]}

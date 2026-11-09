@@ -1,0 +1,32 @@
+{"id": "w2_06", "exchanges": [
+["morning. queue is already at 40 calls waiting smh", "That's brutal for this early. Something going on, like an outage?"],
+["billing glitch, double charged a bunch of ppl", "Ah, that'll do it. Lots of upset customers today then."],
+["ya. at least nadia is back today, shes on my pod", "Nice, an extra pair of hands on a day like this helps. Was she away long?"],
+["2 weeks. she just got back from iceland, showed us pics of glaciers and stuff, looks unreal", "That sounds like an amazing trip. Coming back to a billing glitch must be a shock though."],
+["lol ya welcome back", "Rough re-entry for sure."],
+["ok so news, bao got moved to a new team, starts monday in billing. kinda sad hes leaving our pod", "Losing a good pod mate is tough. At least he's still around the office?"],
+["ya same floor. hes excited, more money", "That's a good reason to move. Hopefully his replacement is decent."],
+["no replacment yet lol. we're just short now", "That'll make days like today even harder. Worth raising with your supervisor."],
+["my sup is also nadia lol nadia haddad. we call her big nadia even tho shes tiny", "Ha, office nicknames rarely make sense. Is she approachable about staffing?"],
+["ya shes good. shes off next week tho going to morocco w her family", "Lots of travel going around your team. Hopefully someone covers for her while she's away."],
+["ravi will cover prob. hes the other sup", "Got it. Is he easy to work with?"],
+["hes ok. kinda grumpy. he gets vertigo really bad and the open office lights make it worse so hes always in a mood", "That sounds miserable to deal with at work. Maybe that explains some of the grumpiness."],
+["ya probly. ok calls", "Good luck out there."],
+["omg this guy dwayne has called 4 times today abt the same charge", "Persistent. Is it something you can actually fix, or is he waiting on the system fix too?"],
+["waiting on the fix. i told him like 4 times lol", "Sometimes people just need to hear it from someone new. Maybe note his account so the next person can reassure him fast."],
+["good idea", "Hope he gets sorted soon."],
+["lunch finaly. so hungry", "You earned it after that queue."],
+["wait i got it wrong this morning, bao isnt going to billing, its escalations. billing was what he applied for first but they put him in escalations", "That's a tougher seat, but probably better experience. Good that you got the right story."],
+["ya hes gonna get all the angry ppl lol", "He'll get the hardest calls for sure. Hopefully it pays well enough."],
+["back on the phones. queue is down to 15", "Progress! The fix must be rolling out."],
+["ifeoma just pulled out a huge pot of jollof rice for the whole pod lol, second lunch", "What a lovely thing to do on a day like this. Homemade food beats vending machine snacks every time."],
+["shes the best. her mom taught her", "Family recipes are always the best ones."],
+["ok 2 hrs left lets go", "Home stretch. You've got this."]
+], "questions": [
+{"kind": "older", "message": "where did nadia from my pod go on her trip", "answer": "iceland", "wrong": ["morocco"], "fact_exchange": 3},
+{"kind": "older", "message": "what team is bao on now", "answer": "escalations", "wrong": ["billing"], "fact_exchange": 17},
+{"kind": "confirm", "message": "big nadia is off to iceland next week right", "answer": "morocco", "wrong": [], "fact_exchange": 9},
+{"kind": "in_view", "message": "what did ifeoma bring us", "answer": "jollof", "wrong": [], "fact_exchange": 20},
+{"kind": "never_told", "message": "where did ravi go on his last vacation", "answer": "", "wrong": ["iceland", "morocco"], "fact_exchange": null},
+{"kind": "statement", "message": "my headset keeps cutting out ugh", "answer": "", "wrong": [], "fact_exchange": null}
+]}

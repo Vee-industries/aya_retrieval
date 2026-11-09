@@ -1,0 +1,32 @@
+{"id": "w3_06", "exchanges": [
+["morning just finished a 15k with the club and my legs are jelly", "Nice work on the 15k. Jelly legs mean you earned breakfast."],
+["ravi had us doing hill repeats at the end which felt illegal", "Hill repeats at the end of a long run is a tough coach move. Good for strength though."],
+["he used to run for kenya at junior level so his idea of easy is not normal", "That explains a lot about the hill repeats."],
+["lol yeah anyway me and mei are going to marrakech in january for the marathon", "That's a great race, flat and usually cool in January. Is it Mei's first marathon?"],
+["her third shes faster than me she did berlin last year in like 3 hours 20", "That's a strong time. Are you two running it together or separately?"],
+["separately shed leave me in the dust", "Fair enough, run your own race."],
+["my brother tariq might come too hes been learning korean for like two years and wants to practice on anyone lol not sure morocco helps with that", "Not a lot of chances for that in Marrakech, but he might enjoy the trip anyway."],
+["true hes obsessed tho he watches dramas with no subtitles now", "That's real progress after two years."],
+["my sisters husband owen is also on a language kick hes doing portuguese because his company has an office in sao paulo", "Sounds like the family has a language streak right now."],
+["competitive family lol", "Clearly."],
+["ok so aiyana from the club said she might come too she works at the aquarium downtown and has a bunch of vacation saved up", "That would make it a proper group trip."],
+["shes the one who got me into running in the first place", "Then it would be nice to have her there for the race."],
+["do you know if its hot in marrakech in january", "Not really, days are usually mild, around 18 to 20 degrees, and nights can be quite cold."],
+["cold nights noted. where should we stay medina or new town", "The medina has more atmosphere and riads, while Gueliz in the new town is quieter and more modern."],
+["riad sounds fun mei wants a rooftop", "Lots of riads have rooftop terraces, so that's an easy wish to meet."],
+["oh wait aiyana doesnt work at the aquarium its the planetarium i always say the wrong one", "Easy slip, they sound alike. Stars instead of fish, then."],
+["ya she does the night sky shows for school groups", "That sounds like a fun job."],
+["anyway my grandpa thinks im insane for running 42k for fun", "A lot of grandparents feel that way. Does he do anything active?"],
+["he plays lawn bowls three times a week and takes it more seriously than i take running", "That's a great match for his attitude, then."],
+["lol hes the club champion two years running", "Impressive. Maybe competitiveness is the family trait."],
+["probably ok training question how long should my longest run be before the marathon", "Most plans peak around 32 to 35 kilometres, about three weeks before race day."],
+["ok ravi said 32 too", "Then you're getting consistent advice."],
+["i need new shoes tho mine are falling apart, mei swears by her asics so i might get those", "Those are popular for marathon training. Get them soon so you have time to break them in before January."]
+], "questions": [
+{"kind": "older", "message": "what language is my brother in law studying", "answer": "portuguese", "wrong": ["korean"], "fact_exchange": 8},
+{"kind": "older", "message": "what sport is my grandpa into", "answer": "bowls", "wrong": [], "fact_exchange": 18},
+{"kind": "confirm", "message": "aiyana works at the planetarium doesnt she", "answer": "planetarium", "wrong": ["aquarium"], "fact_exchange": 15},
+{"kind": "in_view", "message": "what brand does mei run in", "answer": "asics", "wrong": [], "fact_exchange": 22},
+{"kind": "never_told", "message": "does aiyana speak any other languages", "answer": "", "wrong": ["korean", "portuguese"], "fact_exchange": null},
+{"kind": "statement", "message": "gonna go shoe shopping this afternoon i think", "answer": "", "wrong": [], "fact_exchange": null}
+]}

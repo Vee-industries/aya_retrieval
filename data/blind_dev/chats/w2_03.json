@@ -1,0 +1,31 @@
+{"id": "w2_03", "exchanges": [
+["Good morning. I have a long day of client meetings ahead and could use a sounding board.", "Good morning! Happy to help. Who are you meeting with first?"],
+["The Haddads, at ten. It's a family import business, and the father and son run it together, which is part of the problem.", "Family businesses can make decisions complicated. Are they disagreeing about something specific?"],
+["They want to restructure ownership. Karim, the father, built the company in the nineties and isn't ready to let go.", "That's very common with founders. Handing over control can feel like handing over their identity."],
+["Exactly. He still drives to the warehouse every morning in his old Bentley and inspects every shipment himself.", "He sounds deeply hands-on. That kind of habit tells you how hard the transition will be for him."],
+["His son Omar is the opposite. He zips around the city on a Vespa and wants to move everything online.", "Quite the generational contrast. Your job may be finding a structure that respects both visions."],
+["That's the plan. My senior partner was supposed to lead this meeting, but I'm handling it alone now.", "That's a big responsibility to take on suddenly. What happened?"],
+["He's been out since Tuesday. Came down with shingles, poor man, and his doctor told him to rest for two weeks.", "That's painful, I hope he recovers quickly. Two weeks is a long time to cover for him, though."],
+["Siobhan, our paralegal, has been a lifesaver. She prepared the whole file over the weekend.", "A good paralegal is worth their weight in gold. Did she flag anything you should watch for?"],
+["A few tax issues with the share transfer. She's sharp. She's taking evening classes to become a lawyer herself.", "That's impressive dedication on top of a full-time job. She'll probably make a great lawyer."],
+["She will. Mr. Adeyemi already said he'd write her a reference when she applies for articling, even from his sickbed.", "That's a strong endorsement coming from a senior partner."],
+["I'm going to grab a coffee before they arrive. Javier, our associate, just walked in with a box of pastries.", "Perfect timing! A little sugar before a tense meeting can't hurt."],
+["He bakes on weekends. These are some kind of almond pastry from his hometown, Seville.", "That's a lovely thing to share with the office. Homemade pastries are hard to beat."],
+["Alright, they're here. Wish me luck.", "Good luck! You're well prepared."],
+["That was intense. Karim raised his voice twice, and Omar walked out for ten minutes.", "That sounds draining. Did you make any progress despite the tension?"],
+["Some. Karim agreed to a gradual transfer over five years, which is more than I expected.", "That's real progress. A phased approach often helps founders accept change."],
+["Omar wanted two years, so he isn't thrilled. But it's a starting point.", "Meeting in the middle might be the next step. At least both are still at the table."],
+["Javier just corrected me, by the way. I told the clients his pastries were from Seville, but he's actually from Valencia. I've had that wrong for years.", "An easy mistake to make, and at least he took it in good humour. Did the clients enjoy them?"],
+["They did. Omar took three.", "Pastries as a peacemaking tool, then."],
+["My next meeting is a new client, a restaurant owner named Ingrid Solberg. She's opening a second location.", "Expansion is an exciting stage. Is she looking for help with leases or with the business structure?"],
+["Leases, mainly. She found a spot in an old bank building downtown, and the landlord's terms are aggressive.", "Old buildings often come with unusual lease clauses. Worth checking who's responsible for repairs."],
+["Siobhan has a contact at the city who might know the building's history. She studied urban planning at McGill before switching to law.", "That background could be really useful here. Planning knowledge and legal training are a good combination."],
+["Agreed. I'll ask her to make a call this afternoon.", "Sounds like a good plan. Knowing the building's history could give you leverage with the landlord."]
+], "questions": [
+{"kind": "older", "message": "What does the Haddad son use to get to work?", "answer": "Vespa", "wrong": ["Bentley"], "fact_exchange": 4},
+{"kind": "older", "message": "What is my senior partner off sick with? I want to mention it in a card.", "answer": "shingles", "wrong": [], "fact_exchange": 6},
+{"kind": "confirm", "message": "Javier's family is from Valencia, isn't it? I want to get it right this time.", "answer": "Valencia", "wrong": ["Seville"], "fact_exchange": 16},
+{"kind": "in_view", "message": "Which university did Siobhan go to before law?", "answer": "McGill", "wrong": [], "fact_exchange": 20},
+{"kind": "never_told", "message": "What does Javier drive, by the way?", "answer": "", "wrong": ["Bentley", "Vespa"], "fact_exchange": null},
+{"kind": "statement", "message": "I think I'll eat lunch at my desk today; the afternoon is packed.", "answer": "", "wrong": [], "fact_exchange": null}
+]}

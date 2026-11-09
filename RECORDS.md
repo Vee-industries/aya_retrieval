@@ -155,6 +155,7 @@ carry their own provenance (command, git commit, package versions).
 | R-140 | 6.38 fails R-134 on one line (`hard_dev` recall pooled over 82 and 83: 157 against 6.37's 163) and passes the other sixteen; 6.37 ships; Kevin's last try is spent; the GPU time freed goes to 6.37's missing stress runs at seeds 97 to 99 |
 | R-141 | R-139 items 1 to 3: the primary and all eight secondary tests favour 6.37 (Holm); but the 96 recall questions come from only 5 fact templates on probe and 8 on `hard_dev`, so the item-level p-values overstate the evidence; template-resampled intervals still exclude zero; 6.37's main `hard_dev` failure is finding the fact and answering wrong; seed 82 is the lowest of eight seeds there |
 | R-142 | R-139 items 4 and 5 set up before any chat is read: the writers' brief and its panel (nine edits taken, one declined), the loader and `--items-dir`, twelve queued runs (base, both R-137 prompts, 6.37 at all eight seeds), and Kevin's 50-line sheet, restratified by model |
+| R-143 | The independent set is written and frozen: 40 chats from four blind writers, 240 questions, none dropped by the loader (sha256 `9919a24c...`); writer transcripts audited; the reshaped eval loop shown to build the same items as before |
 
 ---
 
@@ -5427,3 +5428,27 @@ and no answer, where the scorer cannot be wrong. Now by model and verdict: 6.37 
 `in_view`, `never_told` (a statement is scored on the search alone). Each line shows the question, what was told, the
 right answer, the wrong values and the reply; no model name. Kevin marks right or wrong; Claude marks none and does
 not read the key until he has.
+
+## R-143 · 2026-11-08 · SPRINT · The independent set is written and frozen
+
+**Written.** Four fresh Opus agents, one at a time (R-142's brief, settings w1 to w4), ten conversations each:
+`data/blind_dev/chats/w1_01.json` to `w4_10.json`, 20 to 30 exchanges each. **Frozen here:** sha256 over every file's
+name and bytes in name order (`dev_set.load_dev_set`) `9919a24ca1cab8a982ff73a010559a632370170644c137e754c6ac5bd8aa302c`.
+No one has read a chat: the checks below are mechanical and print counts only.
+
+**Writer audit** (each transcript, every tool call): each read only its own brief and wrote only its own ten files
+into the set folder; none ran a command or searched. Writer 2 wrote two of its files twice and writer 4 all ten twice
+(each rewriting its own material). Writer 3 used Edit once on its own `w3_06.json` to reword one question, which its
+brief did not list as allowed; it reported this itself. It changes only that writer's own text, so the file stays.
+
+**Loader** (R-142's rules): 240 questions kept, 0 dropped: `older` 80, `confirm` 40, `in_view` 40, `never_told` 40,
+`statement` 40, 60 a writer. **Scoring limit found here:** 60 of the 160 questions that carry an answer list no
+wrong values (`older` 15, `confirm` 17, `in_view` 28), because the writer's chat held no other value of that type.
+On those the scorer checks only that the answer is present, so a reply that also says something false is not caught.
+Reported beside every result on this set, not repaired (repair would mean editing the writers' material).
+
+**The reshaped eval loop builds the same items** (R-142's change to `run_recall_eval.py`): `hd_base_promptb` ran on
+commit `8e3f7ac`, which includes the change, and `hd_base_prompta` on `58e2afb`, before it; their 240 rows have the
+same id, size, kind, message, answer and view, in the same order.
+
+**Runs** go as R-142 queued them, released by `$S/blind_ready`, touched after this commit.

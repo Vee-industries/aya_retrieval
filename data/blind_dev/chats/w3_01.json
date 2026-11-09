@@ -1,0 +1,33 @@
+{"id": "w3_01", "exchanges": [
+["hey so im finally doing the japan trip in april lol", "That's exciting! April is cherry blossom season, so you picked a great time. Where are you planning to go?"],
+["tokyo first then osaka. my friend kenji lives in osaka so ill crash with him a few nights", "Having a local host makes a big difference. He can probably show you places tourists never find."],
+["yeah hes a chef at a ramen place near dotonbori so free food maybe haha", "Free food from a professional kitchen is the best kind of hospitality."],
+["planning is stressing me out tho. marcus keeps telling me to just wing it", "Some people thrive on winging it. Is Marcus coming along?"],
+["nah my roommate never leaves the city. hes training for the toronto marathon anyway", "That's a serious commitment, the training load before a marathon is no joke."],
+["ya hes doing like 80k a week. anyway priya from the climbing gym said shes going to lisbon around the same time as my trip", "Lisbon in spring sounds lovely. Do you two climb together a lot?"],
+["every tuesday. shes way better than me, shes doing v6s and im stuck on v3", "Everyone plateaus somewhere; v3 to v4 is a big jump for a lot of people."],
+["true. oh and my cousin priya, different priya lol, is going to hanoi for work in may", "Two Priyas with two big trips. Is Hanoi her first time in Vietnam?"],
+["think so, shes nervous about the food. shes vegetarian", "Vietnam has more vegetarian options than people expect, especially at Buddhist restaurants."],
+["ill tell her. ok question, jr pass worth it for tokyo osaka and back?", "For a simple round trip it's borderline since the price went up; it pays off more if you add side trips like Hiroshima or Kanazawa."],
+["maybe kyoto day trip", "Kyoto is an easy hop from Osaka on regular trains, so you may not need the pass for that."],
+["ok cool. also tomasz is watching my cat while im gone, he has a beagle so hopefully they get along", "Cats and dogs can work out if they get a slow introduction. Will your cat stay at his place?"],
+["yeah his apartment. my cat is named biscuit and shes a menace", "Biscuit sounds like she'll keep the dog in line."],
+["lmao probably. what should i pack for april weather", "Layers, mostly: mornings can be cool and afternoons mild, plus a light rain jacket."],
+["k. my aunt folake went last year and said bring comfy shoes, she walked like 25k steps a day", "That's very realistic, Tokyo is a walking city. Good shoes matter more than almost anything else."],
+["she's a nurse so shes used to being on her feet lol", "After twelve-hour shifts, a sightseeing day probably feels easy."],
+["haha true. wait i was wrong earlier, tomasz's dog isnt a beagle its a basset hound, i always mix those up", "Easy mix-up, they look alike. Those dogs are usually pretty laid-back, which is good news for Biscuit."],
+["yeah hes super lazy. ok im thinking teamlab planets in tokyo, worth it?", "Most people love it; it's very photogenic and you wade through water, so wear pants you can roll up."],
+["oh good to know", "Book tickets ahead, it sells out on weekends."],
+["will do. kenji says hell take me to a hanshin tigers game if theres one", "A Tigers game at Koshien is a great experience, the fans are famously loud."],
+["im not even a baseball fan but im in", "You don't need to be; the atmosphere does the work."],
+["my coworker dami said i should try the onsen in hakone too", "Hakone is lovely and close to Tokyo, so it fits well as an overnight trip."],
+["is it ok if i have tattoos? dami has a full sleeve and got turned away somewhere", "Some onsen still refuse tattoos, but more places allow them now, and private baths are an easy workaround."],
+["ok ill look for one that allows them. dami also said to get a suica card on my phone", "Good tip, a mobile Suica makes trains and convenience stores really easy."]
+], "questions": [
+{"kind": "older", "message": "wait which city is my cousin flying to", "answer": "Hanoi", "wrong": ["Lisbon"], "fact_exchange": 7},
+{"kind": "older", "message": "what does my aunt do for a living again", "answer": "nurse", "wrong": ["chef"], "fact_exchange": 15},
+{"kind": "confirm", "message": "tomasz has a beagle right", "answer": "basset", "wrong": [], "fact_exchange": 16},
+{"kind": "in_view", "message": "what kind of ink has dami got", "answer": "sleeve", "wrong": [], "fact_exchange": 22},
+{"kind": "never_told", "message": "what does tomasz do for work", "answer": "", "wrong": ["chef", "nurse"], "fact_exchange": null},
+{"kind": "statement", "message": "honestly i might just book a ryokan with a private bath and call it a day", "answer": "", "wrong": [], "fact_exchange": null}
+]}

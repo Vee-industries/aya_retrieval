@@ -1,0 +1,33 @@
+{"id": "w1_09", "exchanges": [
+["Hey, I just got back from my cousin's wedding and I'm totally wiped out.", "Welcome back! Weddings are fun but exhausting. How was it?"],
+["It was beautiful. My cousin Ingrid married her long-time boyfriend, finally. Then they flew straight off to Lisbon for the honeymoon.", "Sounds like a perfect start, and a lovely city for it."],
+["Ya she's been wanting to go there forever.", "Nice that she finally gets to."],
+["funny thing is my neighbour is also called Ingrid and she just got home from Reykjavik last week, so I've had both of them showing me travel pictures", "Two Ingrids, two trips. That's a lot of photo scrolling."],
+["lol yes. neighbour Ingrid's husband Thomas watered my plants while I was away", "That's helpful of him."],
+["My uncle Bjorn gave a speech at the reception, it went on forever", "There's always one long speech at a wedding."],
+["he talked mostly about his boat. its called the Valkyrie and he's obsessed with it", "At least he's passionate about something."],
+["my sister Astrid was cringing so hard. she's a translator so she's very picky about words, she rated the speech a 2 out of 10", "Tough critic, but it sounds like it earned it."],
+["Haha. Astrid's daughter Liv was the flower girl, she was adorable", "Flower girls usually steal the show."],
+["she dropped half the petals in one spot and then just walked lol", "That's the best kind of flower girl moment."],
+["Grandma came too, which was a big deal, her eyes aren't great anymore. She has glaucoma and can't drive at night.", "It's lovely she could be there for it."],
+["We sat her right at the front so she could see.", "That was thoughtful."],
+["My mom made lefse for the dessert table, everyone went crazy for it", "Homemade treats at a wedding are always a hit."],
+["she was up all night making it", "That's real dedication."],
+["oops, I told you wrong about the boat. Bjorn's boat is the Freya. The Valkyrie was his old one that sank, which is why he talked about it so much in the speech", "Ah, so the speech was part tribute. That explains a lot."],
+["it was kinda sweet in the end honestly", "Sounds like it turned out more touching than it seemed."],
+["Neighbour Ingrid works as a pilot, so she flies all over, she said Reykjavik was a holiday for once though", "Must be nice to travel somewhere just for fun for a change."],
+["she always brings me back chocolate", "That's a great perk."],
+["So now I have to write thank you cards for my sister's help with the planning", "A short, warm note is all you need."],
+["I'm bad at those", "Just mention one specific thing she did and how it helped. That's enough."],
+["Ok good. Also Thomas is playing the bagpipes at our street party next weekend, he's been practising and the whole block can hear", "That'll certainly get people's attention."],
+["my dog howls every time he starts", "Your dog might be joining in by the time of the party."],
+["lol a duet", "Could be the highlight of the street party."]
+],
+"questions": [
+{"kind": "older", "message": "Where did my cousin go after the wedding again?", "answer": "Lisbon", "wrong": ["Reykjavik"], "fact_exchange": 1},
+{"kind": "older", "message": "whats uncle bjorn's boat called now", "answer": "Freya", "wrong": ["Valkyrie"], "fact_exchange": 14},
+{"kind": "confirm", "message": "grandma's eye problem is glaucoma right", "answer": "glaucoma", "wrong": [], "fact_exchange": 10},
+{"kind": "in_view", "message": "what instrument does Thomas play", "answer": "bagpipes", "wrong": [], "fact_exchange": 20},
+{"kind": "never_told", "message": "what does uncle bjorn do for a living", "answer": "", "wrong": ["translator", "pilot"], "fact_exchange": null},
+{"kind": "statement", "message": "I think I need a nap before anything else", "answer": "", "wrong": [], "fact_exchange": null}
+]}

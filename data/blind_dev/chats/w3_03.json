@@ -1,0 +1,31 @@
+{"id": "w3_03", "exchanges": [
+["ok so i have like a million things in my head right now so bear with me but basically me and saoirse are going to iceland in june and we want to do the ring road but neither of us has driven on gravel before and im kind of freaking out about it", "That's a common worry, and the main Ring Road is paved almost all the way. It's the side roads and F-roads where gravel and rental restrictions come in."],
+["oh ok thats actually a relief saoirse said the same thing but she says a lot of things lol she told me last week she was quitting her job and then didnt", "Sounds like she likes to think out loud. Are you two splitting the driving?"],
+["yeah well swap every couple hours she drives a manual at home so shes more confident than me", "That helps, since a lot of cheaper rentals in Iceland are manual."],
+["good point i should check that. also totally unrelated but my uncle hamid came over yesterday and brought his accordion and played at dinner which was chaos but fun", "That sounds like a lively dinner. Does he bring it to every family event?"],
+["every family thing honestly its his whole personality and then his uncle yusuf who is like my great uncle i guess is a violin guy so when theyre both there its a whole concert", "A two-generation family band, that's lovely, even if dinner gets loud."],
+["loud is an understatement anyway back to iceland do you think we need to book the blue lagoon ahead", "Yes, it books up, especially in summer. The Sky Lagoon is another option closer to Reykjavik."],
+["ooh ok my coworker lena went to the sky lagoon in march and said it was better than blue lagoon so maybe that one", "Lots of people say that, especially for the ocean views."],
+["lena goes everywhere shes been to like 40 countries she does those solo trips with just a backpack", "That's a lot of travel. She'd probably have good Iceland tips beyond the lagoons."],
+["for sure ill ask her. ok so cycling update noor convinced me to do the gran fondo in august which is 120k and i have never ridden more than 60", "That's a big step, but August gives you a few months to build up. Gradual long rides on weekends will do most of the work."],
+["noor rides a trek that costs more than my car so i feel like a fraud next to her", "The bike matters much less than the legs. Plenty of people finish a fondo on modest bikes."],
+["thats what she says too shes been riding like ten years she started when she lived in montreal", "Ten years of riding is a lot of base fitness. You'll catch up faster than you think, though."],
+["hopefully my knee holds up i had that tendinitis thing last year", "A proper bike fit can help a lot with knee pain. It's worth doing before you ramp up the distance."],
+["yeah my physio said the same thing", "Then that's a good next step before the long rides start."],
+["oh other news my cousin amara finally heard back from schools", "Oh, how did it go?"],
+["she got in!! the vet program at guelph which is like the hardest one to get into so everyone is losing it", "That's fantastic news, congratulations to her. Guelph's program is really competitive."],
+["yeah she wants to work with horses eventually", "Large-animal vets are in short supply, so that's a great path."],
+["oh wait i got something wrong noors bike isnt a trek its a cannondale i just checked her strava lol", "Good catch, Strava doesn't lie. Either way it's a serious machine."],
+["very serious she named it too its called the beast", "Of course it has a name. Most serious cyclists name their bikes."],
+["ok back to iceland what should i pack for june is it cold", "Cool rather than cold, usually around 10 to 15 degrees, with wind and rain. Bring layers, a waterproof shell and a warm hat."],
+["a hat in june wow ok and saoirse wants to see puffins is that a june thing", "June is a great time for puffins. Places like Dyrhólaey and the Westfjords are popular for seeing them."],
+["amazing shes been obsessed with puffins since she was a kid she has a little puffin tattoo on her ankle", "Then seeing them in person will be a big moment for her."],
+["shes going to cry i guarantee it ok i need to go make dinner", "Enjoy your dinner, and good luck with the planning."]
+], "questions": [
+{"kind": "older", "message": "what does my great uncle play again", "answer": "violin", "wrong": ["accordion"], "fact_exchange": 4},
+{"kind": "older", "message": "wheres my cousin going to school", "answer": "Guelph", "wrong": [], "fact_exchange": 14},
+{"kind": "confirm", "message": "noor still rides that trek right", "answer": "cannondale", "wrong": [], "fact_exchange": 16},
+{"kind": "in_view", "message": "where did saoirse get inked", "answer": "ankle", "wrong": [], "fact_exchange": 20},
+{"kind": "never_told", "message": "what instrument does lena play", "answer": "", "wrong": ["accordion", "violin"], "fact_exchange": null},
+{"kind": "statement", "message": "making pasta tonight because i cant be bothered with anything fancy", "answer": "", "wrong": [], "fact_exchange": null}
+]}

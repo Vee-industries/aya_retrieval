@@ -1,0 +1,31 @@
+{"id": "w1_07", "exchanges": [
+["bored", "Same energy as a Sunday afternoon. What are you up to?"],
+["nothin. waiting for my brother to come fix my car", "Is it something serious?"],
+["idk it makes a noise. mikael's a welder so he knows cars kinda", "Hopefully it's a quick fix."],
+["ya", "What kind of noise is it making?"],
+["like a grinding thing when i brake", "That's often the brake pads, worth getting checked soon."],
+["ok thats what he said too", "Good, sounds like you're in good hands."],
+["my neighbour olga just came by w her ferret on a leash lol", "That's quite a sight on a leash."],
+["its name is boris", "That suits it somehow."],
+["her husband pavel keeps bees in the backyard. beekeeping is his whole thing", "Do you ever get any of the honey?"],
+["yes!! best honey ever", "Neighbourly perks."],
+["my aunt is also olga lol its a common name in my family", "That must get confusing at family gatherings."],
+["she has a cockatiel that screams all day", "Birds can be surprisingly loud for their size."],
+["it whistles the phone ringtone", "That's both funny and very annoying."],
+["sorry i said mikael is a welder hes not, hes a mechanic. he did welding in school", "Ah, that makes even more sense for fixing the car."],
+["lol yea", "Lucky to have someone like that in the family."],
+["my cousin anya called from winnipeg, she says its -30 there", "That's brutally cold. Hope she's staying warm."],
+["she loves it somehow", "Some people really thrive in the cold."],
+["grandpa wants borscht for dinner so im making it", "A good bowl of that sounds perfect for a cold day."],
+["dad might come too, his gout is acting up again tho", "Hopefully he can rest his foot and still enjoy dinner."],
+["he'll complain the whole time lol", "That's part of the tradition, maybe."],
+["pretty much", "At least the food will be good."]
+],
+"questions": [
+{"kind": "older", "message": "what pet does my aunt have", "answer": "cockatiel", "wrong": ["ferret"], "fact_exchange": 11},
+{"kind": "older", "message": "wait what does mikael do for work", "answer": "mechanic", "wrong": ["welder"], "fact_exchange": 13},
+{"kind": "confirm", "message": "anya's in winnipeg right", "answer": "winnipeg", "wrong": [], "fact_exchange": 15},
+{"kind": "in_view", "message": "whats wrong with dad again", "answer": "gout", "wrong": [], "fact_exchange": 18},
+{"kind": "never_told", "message": "what does pavel do for a living", "answer": "", "wrong": ["mechanic", "welder"], "fact_exchange": null},
+{"kind": "statement", "message": "ok brb gonna go start cooking", "answer": "", "wrong": [], "fact_exchange": null}
+]}

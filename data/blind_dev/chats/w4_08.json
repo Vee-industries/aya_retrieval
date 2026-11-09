@@ -1,0 +1,33 @@
+{"id": "w4_08", "exchanges": [
+["so... we made it to st. john's... the drive from the ferry was foggy the whole way lol", "That sounds about right for Newfoundland. Glad you all made it safely."],
+["yeah... deepa started at the health sciences already, shes a radiologist so they basically grabbed her the day we landed", "Sounds like they were eager to have her. How's the rest of the family settling in?"],
+["anika starts kindergarten next week... we toured harbourview elementary and she loved the playground so thats where shes going", "A playground that wins her over is a good sign. Kindergarten is a big milestone."],
+["and i start at the high school monday... first time being the new teacher in like ten years", "That'll feel different, but your experience will carry you. What are you teaching?"],
+["grade 11 history... at waterford collegiate... the department head seems nice enough", "History is a great subject to walk into a new school with. Good luck Monday."],
+["my back is wrecked from carrying boxes up the stairs... like shooting pain down my leg", "Pain running down the leg is worth having checked, not just waited out."],
+["deepa made me book a physio... i went this morning... he said its sciatica and gave me a bunch of exercises", "Good that you went. Those exercises usually help if you stick with them."],
+["ill try... no promises lol", "Even a few minutes a day makes a difference."],
+["first day at school done... the kids are alright... one asked if i was from away lol", "That's a very Newfoundland question. You'll be hearing it a lot."],
+["theres a chemistry teacher next door to my room, siobhan, shes been super helpful showing me the photocopier and where the good coffee is", "The person who knows where the good coffee is, that's the most important ally."],
+["she gets bad migraines though so she was out today... i covered her lunch duty", "That's a nice way to repay the coffee tip."],
+["my brother arjun called... hes lost his mind and bought a sailboat... he lives in kingston and has never sailed in his life", "Lake Ontario's a good place to learn at least. Bold move."],
+["and then deepas brother heard about it and not to be outdone... he went and bought a snowmobile... the two of them are ridiculous", "Sounds like a friendly rivalry is brewing. At least they picked different seasons."],
+["lol vikram says hell bring it out here next winter... deepa just rolled her eyes", "There are plenty of trails for it out here, so he might actually follow through."],
+["ok small correction... anika isnt going to harbourview... we toured it but turns out we're not in the catchment, she got placed at clovelly elementary", "Catchment boundaries can be a surprise. Hopefully the new one has a good playground too."],
+["it does... smaller but she doesnt care... she has a teacher who brings in her guinea pigs on fridays", "Classroom pets are a kindergartner's dream."],
+["we've been talking about getting a dog... anika has been begging", "With a yard and a kid that keen, it might be a good time."],
+["siobhan has a ferret and says thats the move... i said no thank you", "That's a lot of personality in a small animal. A dog sounds like a safer bet for a family."],
+["my back is better... the exercises are actually working... dont tell deepa she was right", "Your secret is safe. Glad it's easing up."],
+["the history kids are doing a project on cabot tower... im learning as much as them", "That's one of the perks of teaching local history somewhere new."],
+["ok so we went to the spca on saturday... just to look... we came home with a dog", "Of course you did. That's how 'just to look' usually goes. What kind?"],
+["a retired greyhound... shes six and so gentle... anika named her pickles", "Retired racers make great family dogs, they're surprisingly lazy."],
+["she sleeps like 20 hours a day... on our couch... which is now her couch", "Sounds like she's settled right in."]
+],
+"questions": [
+{"kind": "older", "message": "what toy did my brother in law get himself", "answer": "snowmobile", "wrong": ["sailboat"], "fact_exchange": 12},
+{"kind": "older", "message": "whats my back problem called again", "answer": "sciatica", "wrong": ["migraines"], "fact_exchange": 6},
+{"kind": "confirm", "message": "anikas at harbourview right", "answer": "clovelly", "wrong": ["waterford"], "fact_exchange": 14},
+{"kind": "in_view", "message": "what kind of dog did we end up with", "answer": "greyhound", "wrong": ["ferret", "guinea"], "fact_exchange": 21},
+{"kind": "never_told", "message": "what does vikram do for a living", "answer": "", "wrong": ["radiologist", "teacher"], "fact_exchange": null},
+{"kind": "statement", "message": "thinking of getting her a proper dog bed so i can have the couch back", "answer": "", "wrong": [], "fact_exchange": null}
+]}

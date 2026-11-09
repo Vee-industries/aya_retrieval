@@ -1,0 +1,33 @@
+{"id": "w2_01", "exchanges": [
+["ugh monday. got like 40 unread emails already", "Oof, that's a rough start. Want to triage them together or just vent for a minute?"],
+["vent mostly lol. tomasz scheduled a 9am standup and then didnt show", "That's annoying, especially when you rushed to be ready for it. Did anyone end up running it?"],
+["aisha ran it, shes basically the only reason our team functions. sad thing is shes leaving the office soon, her and her husband are moving to Calgary in march", "That's a big loss for the team. Is she staying on remotely or leaving the company entirely?"],
+["remote i think? hopefully. timezones gonna be annoyng tho", "Two hours isn't terrible, but early meetings will be rough for her. Maybe the team can shift standups a bit later."],
+["lol tell that to tomasz. anyway the new intern started today, kenji. seems sharp", "Nice, a sharp intern makes a big difference. What's he going to be working on?"],
+["data cleanup for the q3 report, poor guy. hes doing a co-op term from Waterloo, 3rd year comp sci", "Co-op students usually ramp up fast. Data cleanup is a good way for him to learn where everything lives."],
+["true. ok i have the client call w the harbourline people at 11, dreading it", "What's making you dread it? Is it a tricky account?"],
+["their ops lead is also named aisha lol, aisha okafor, and shes great but super demanding. they're opening a new office in Halifax and want our dashboards ready for it", "Two Aishas will keep things interesting. A new office launch explains the pressure on timelines."],
+["yeah. ok brb call time", "Good luck, you've got this."],
+["back. that went ok actually. she liked the mockups lucia did", "Great to hear! Sounds like Lucia's work lands well with clients."],
+["lucia is a wizard honestly. shes been distracted this week tho, her dog biscuit had surgery on friday", "Poor pup, I hope the recovery goes smoothly. That would distract anyone."],
+["hes ok now, wearing the cone of shame. she showed us pics on teams", "The cone photos are always both sad and funny. Glad he's on the mend."],
+["ok so tomasz finally surfaced, apparently he was at the dentist. he wants a deck for friday", "At least there was a reason. What does the deck need to cover?"],
+["the q3 numbers plus harbourline rollout plan. 15 slides max he says", "That's doable if Kenji's cleanup is done in time. You might draft the rollout section first since it doesn't depend on data."],
+["good idea. also tomasz is gone next week, hes speaking at some conference in Lisbon", "So you'll have a quieter week, at least. Does that mean someone's covering approvals?"],
+["probably aisha, our aisha i mean. if shes not packing boxes lol", "Ha, hopefully she can do both. Might be worth confirming before he leaves."],
+["lunch time. im getting pho", "Good choice for a Monday. Enjoy!"],
+["ok wait i was wrong earlier, kenji just told me hes at McMaster not waterloo. i mixed him up with last years intern", "Easy mix-up with interns rotating through every term. Good that he set you straight."],
+["the pho place was packed but worth it", "Worth the wait then. Feeling ready for the afternoon?"],
+["kind of. got a 1:1 with my skip level, rahul, at 3", "Skip-levels can be useful. Anything you want to raise with him?"],
+["maybe the workload thing. our team is 5 people doing the work of 8", "That's a fair thing to bring up, especially with Aisha going remote. Concrete examples will help him see it."],
+["rahul's chill tho. he used to be a paramedic before he got into tech which is wild", "That's quite a career switch. He probably stays calm under pressure."],
+["yeah nothing rattles him. ok writing up my talking points now", "Good plan. Lead with the impact on deadlines, that tends to get attention."],
+["thx. gonna grab a coffee first", "Enjoy, and good luck at 3."]
+], "questions": [
+{"kind": "older", "message": "which city is aisha on my team heading to again", "answer": "Calgary", "wrong": ["Halifax", "Lisbon"], "fact_exchange": 2},
+{"kind": "older", "message": "remind me which uni kenji goes to", "answer": "McMaster", "wrong": ["Waterloo"], "fact_exchange": 17},
+{"kind": "confirm", "message": "lucias pup is biscuit right? want to send her a get well card", "answer": "biscuit", "wrong": [], "fact_exchange": 10},
+{"kind": "in_view", "message": "what was rahuls old job", "answer": "paramedic", "wrong": [], "fact_exchange": 21},
+{"kind": "never_told", "message": "whats the name of tomasz's dog", "answer": "", "wrong": ["biscuit"], "fact_exchange": null},
+{"kind": "statement", "message": "the coffee line is insane right now lol", "answer": "", "wrong": [], "fact_exchange": null}
+]}

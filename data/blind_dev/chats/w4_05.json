@@ -1,0 +1,31 @@
+{"id": "w4_05", "exchanges": [
+["well i did it i moved to victoria everyone said i was crazy at my age but here i am", "Good for you, that takes courage at any age. How are you settling in?"],
+["slowly my daughter nadia lives ten minutes away which was the whole point she helps me with everything", "Having her close by must make a huge difference."],
+["she works long hours though shes an engineer with the city so i dont want to lean on her too much", "That's thoughtful of you. It might help to build a few routines of your own too."],
+["yes thats what my doctor back home said find a club or something", "Good advice. There are lots of community centres with programs for that."],
+["pasha is not happy about the move he yells at the window all night", "Cats often get vocal in a new place. Is he usually a talker?"],
+["only when hes upset he is fourteen and very set in his ways like me", "Sounds like you two understand each other. He'll likely settle in a few weeks."],
+["my granddaughter zainab came for tea she is at the university here", "How lovely to have her nearby too. Does she enjoy it?"],
+["loves it she is in her second year of architecture she showed me drawings of a library she designed", "That must have been wonderful to see. Second year is when the projects get interesting."],
+["i had my first appointment with the heart doctor here dr feldman very young man", "Good that you got in quickly. How did it go?"],
+["fine he changed my blood pressure pill to metoprolol and wants to see me in a month", "Follow-ups after a medication change are pretty standard. Let him know if you feel dizzy or tired."],
+["i also need a regular doctor nadia got me on a list for a dr choi", "Hopefully the wait isn't too long. The specialist can cover the heart side in the meantime."],
+["my sisters granddaughter amina called from cairo she is starting dentistry this year very proud", "That's a big accomplishment. Your family has a lot of students right now."],
+["yes two in university and idris nadias boy is in grade ten", "He's got a few years before he has to decide anything."],
+["he wants to be a youtuber god help us", "That's a very grade-ten answer. It might change a few times."],
+["i made a mistake the pill is not metoprolol i read the bottle again it is amlodipine the other one was what my husband took years ago", "Good that you checked the bottle. It's easy to mix up names like that."],
+["nadia took me to the seniors centre on thursday there is a lawn bowling group", "Lawn bowling is a nice gentle sport, and very social."],
+["i tried it i was terrible but everyone was kind", "Being terrible at first is part of the fun. Did you meet anyone?"],
+["a man named hamish he has been bowling there twenty years and he gave me tips", "Sounds like a good person to know there."],
+["he told me he spent forty years as a fisherman out of tofino before his back gave out", "That's a hard life on the body. He must have some stories."],
+["so many stories about storms and whales i could listen for hours", "Sounds like you found a good friend there."],
+["we are going for coffee after bowling next week", "That's lovely. Something to look forward to."]
+],
+"questions": [
+{"kind": "older", "message": "what is my granddaughter doing at university", "answer": "architecture", "wrong": ["dentistry"], "fact_exchange": 7},
+{"kind": "older", "message": "which heart medicine am i taking now", "answer": "amlodipine", "wrong": ["metoprolol"], "fact_exchange": 14},
+{"kind": "confirm", "message": "my cardiologist is dr feldman right", "answer": "feldman", "wrong": ["choi"], "fact_exchange": 8},
+{"kind": "in_view", "message": "what did hamish do before he retired", "answer": "fisherman", "wrong": ["engineer", "youtuber"], "fact_exchange": 18},
+{"kind": "never_told", "message": "what kind of work did my husband do", "answer": "", "wrong": ["engineer", "fisherman", "youtuber"], "fact_exchange": null},
+{"kind": "statement", "message": "i think i will bake him my lemon loaf", "answer": "", "wrong": [], "fact_exchange": null}
+]}

@@ -1,0 +1,33 @@
+{"id": "w3_09", "exchanges": [
+["Hey! Quick question to start: have you heard of the resplendent quetzal?", "Yes, it's a stunning bird from Central America, famous for its long green tail feathers."],
+["I'm going to Costa Rica in February mainly to see one. My birding club has been teasing me about it for months.", "That's a fantastic goal. February is a good time, since it's breeding season and they're more active."],
+["Good to know! My friend Tomás is coming, he's a wildlife photographer and he's bringing his Nikon with the giant lens.", "A long lens will be perfect for birds high in the canopy."],
+["He's carrying it on the plane like a baby lol.", "Fair, that lens probably cost more than the flights."],
+["Probably! Anyway, my mom wants weekly updates while I'm gone. She's very into pickleball right now and wants to tell me about her games in return.", "Sounds like a fair trade, bird photos for match reports."],
+["My stepmom Linda is the opposite, she's not into racquet sports at all. She does curling every Thursday.", "That's underrated, it's harder than it looks."],
+["She says the sweeping is a real workout.", "It is, people are surprised how tired they get."],
+["So where should we base ourselves for quetzals?", "Monteverde and San Gerardo de Dota are the classic spots. San Gerardo is especially reliable."],
+["Haruto from the club says San Gerardo for sure. He's seen like 600 species, so I trust him.", "With that list, he knows what he's talking about."],
+["He's retired, he used to be an air traffic controller, which he says is why he's good at spotting tiny things far away.", "That's a very plausible skill transfer."],
+["Ha, maybe. Then after that we want a few days on the coast.", "The Osa Peninsula is wonderful for wildlife, or Manuel Antonio if you want easier access."],
+["Osa sounds great. Is it hard to get to?", "A bit, usually a small plane or a long drive, but it's worth it."],
+["Ok we'll think about that. Oh, and my friend Anika lent me her binoculars for the trip.", "That's generous. Good binoculars make a big difference."],
+["She won't need them for a while anyway, she just accepted a job in Halifax and is busy packing up her apartment.", "Big change. Hopefully the move goes smoothly."],
+["She's nervous about the winters but excited.", "Maritime winters are damp, but the coastline makes up for it."],
+["Oh, I got something wrong earlier. Tomás shoots with a Canon, not a Nikon. He would be offended if he heard me.", "Photographers do take their brands seriously. Good thing he didn't hear."],
+["He really would lecture me.", "I believe it."],
+["Do I need any vaccines for Costa Rica?", "Routine vaccines plus hepatitis A and typhoid are usually recommended. Check with a travel clinic a few weeks ahead."],
+["Ok, I'll book that. My doctor's office has a travel clinic.", "That makes it easy."],
+["What about rain gear? February is dry season, right?", "Yes, on the Pacific side, but the cloud forest can still be damp, so a light rain jacket is smart."],
+["Got it.", "You're well prepared."],
+["I'm also bringing a field guide. Haruto said the Stiles and Skutch one is the classic.", "It's a classic, though it's heavy. Some people use a phone app as a lighter backup."],
+["I've got the Merlin app already.", "Merlin's sound ID is very handy in the forest."],
+["Tomás wants to try night tours too, for frogs. He's obsessed with the red-eyed tree frog.", "Night tours are excellent for frogs, and the red-eyed ones are very photogenic."]
+], "questions": [
+{"kind": "older", "message": "What sport is my stepmom into again?", "answer": "curling", "wrong": ["pickleball"], "fact_exchange": 5},
+{"kind": "older", "message": "Where is Anika relocating to?", "answer": "Halifax", "wrong": [], "fact_exchange": 13},
+{"kind": "confirm", "message": "Tomás uses a Nikon, doesn't he?", "answer": "Canon", "wrong": [], "fact_exchange": 15},
+{"kind": "in_view", "message": "What was the name of that bird ID thing on my phone?", "answer": "Merlin", "wrong": [], "fact_exchange": 22},
+{"kind": "never_told", "message": "Does Anika play any sports?", "answer": "", "wrong": ["pickleball", "curling"], "fact_exchange": null},
+{"kind": "statement", "message": "I really hope we see some frogs on the night walk.", "answer": "", "wrong": [], "fact_exchange": null}
+]}

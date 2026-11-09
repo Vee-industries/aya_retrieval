@@ -1,0 +1,32 @@
+{"id": "w1_01", "exchanges": [
+["hey so my sister priya is coming over this weekend w her kids, kinda stressed lol", "That sounds like a busy weekend! What's stressing you most about it?"],
+["mostly the house is a mess and her dog sheds like crazy. little dachshund named biscuit, cute but the hair everywhere", "Small dogs can shed a surprising amount. A quick vacuum before they arrive might help with the worst of it."],
+["ya. and my nephew dev is 9 now, he just switched to westview elementary and apparently hes obsessed with chess", "Nine is a great age for getting into chess. Has he settled in okay at the new place?"],
+["think so? priya says he made a friend already", "That's a good sign, making a friend early makes a big difference."],
+["my neighbour mr okafor offered to lend us his folding chairs which is nice. hes the guy with the blue volvo always parked half on my lawn haha", "Nice of him to lend the chairs, even if the parking is a little annoying."],
+["his wife grace is lovely tho, she works at the downtown branch, shes a librarian", "She sounds great. Maybe she has some book suggestions for Dev too."],
+["omg yes good idea. ok so food. priya is vegetarian so i was thinking paneer something", "Paneer is a great choice, something like a tikka or a butter masala would go over well."],
+["my mom is coming too she can make her chana masala, she makes it every time", "Having her cook too takes some pressure off you."],
+["lol shes been doing that pottery class on tuesdays and wants to bring everyone a mug she made", "That's a sweet gift, homemade mugs are always nice to have."],
+["theyre kinda lopsided but whatever its the thought", "Exactly, the lopsided ones have the most character."],
+["oh also my sister in law anjali might come, my brother's wife. she'd bring her greyhound luna, so thats two dogs in my tiny apt", "Two dogs in a small apartment is a lot, but at least they might keep each other busy."],
+["luna is super chill tho, she just sleeps on the couch all day", "Calm dogs are easy guests, then."],
+["wait i was wrong earlier, okafors car isnt a volvo its a subaru. the volvo was the old one he sold last year", "Got it, thanks for clearing that up."],
+["my uncle rajesh might stop by too if hes not working, hes a pharmacist and does weird shifts", "Those shifts can be unpredictable, so it's nice if he can make it."],
+["honestly im not sure how ill fit everyone", "Maybe set up a spot on the balcony, and the folding chairs will help if you need more seating."],
+["ya the chairs will help. dev wants to play chess with rajesh since rajesh taught priya when she was little", "That's a nice family tradition being passed down."],
+["anjali's kid is allergic to peanuts so i gotta check all the snacks", "Good call, reading labels carefully will save a lot of worry."],
+["ugh and priya gets migraines from strong smells so no candles i guess", "Better to skip the candles then and just air the place out."],
+["ok i think i have a plan", "Sounds like you're in good shape. Want to go over a shopping list?"],
+["maybe later. mom just texted, she has to go to her rheumatologist friday so she might come late", "Hopefully the appointment goes quickly and she can still join for most of it."],
+["yea her arthritis has been bad in her hands lately, which is funny bc she still does the clay stuff", "Working with clay might actually help keep her hands moving, as long as it doesn't hurt."],
+["true. ok im gonna go start cleaning", "Good luck! Start with the couch since that's where the dogs will end up."]
+],
+"questions": [
+{"kind": "older", "message": "what breed is my sister in laws dog again", "answer": "greyhound", "wrong": ["dachshund"], "fact_exchange": 10},
+{"kind": "older", "message": "remind me where dev goes now", "answer": "westview", "wrong": [], "fact_exchange": 2},
+{"kind": "confirm", "message": "mr okafor has the subaru right? not the other one", "answer": "subaru", "wrong": ["volvo"], "fact_exchange": 12},
+{"kind": "in_view", "message": "whats going on with moms hands", "answer": "arthritis", "wrong": ["migraines"], "fact_exchange": 20},
+{"kind": "never_told", "message": "what does priya do for work", "answer": "", "wrong": ["librarian", "pharmacist"], "fact_exchange": null},
+{"kind": "statement", "message": "ok should i do dishes or vacuum first lol", "answer": "", "wrong": [], "fact_exchange": null}
+]}

@@ -1,0 +1,30 @@
+{"id": "w1_04", "exchanges": [
+["Hi. I'm trying to plan my grandfather's 90th birthday and could use some help thinking it through.", "Happy to help. A 90th is a big milestone. What do you have so far?"],
+["Not much yet. Grandpa Chidi was born in Enugu and he always talks about it, so I wanted to do a Nigerian theme with food from home.", "That's a thoughtful way to honour him. Food from his childhood would mean a lot."],
+["My mum will handle the jollof rice. She was a midwife for thirty years and she still runs the kitchen like a delivery ward.", "Sounds like the rice is in very capable hands."],
+["Ha, yes. My brother Obinna is flying in from Manchester for it.", "That's a long trip. Your grandfather will be glad to see him."],
+["He's an accountant, so naturally he has offered to manage the budget.", "That's convenient. It's always good to have someone keeping an eye on costs."],
+["My niece Amara, his daughter, is sixteen now. She's mad about netball and has a tournament the same weekend, which is a problem.", "That's a tricky clash. Is there any chance the party could shift by a day?"],
+["Maybe. I'll ask whether her matches are on Saturday or Sunday.", "Good idea, that might solve it without much fuss."],
+["There's another Amara in our lives, which gets confusing. Our neighbour across the road.", "Two people with the same name can definitely cause mix-ups."],
+["She's lovely. She and her husband Kwame have helped us with so much since we moved in.", "Good neighbours are worth a lot."],
+["She has taken up a racquet sport recently. She's out at the community centre three nights a week playing badminton.", "Three nights a week is real commitment. She must be enjoying it."],
+["She says it's the best thing she's done for her back.", "Regular exercise can really help with that."],
+["I'd like to invite them to the party. Kwame could help with the music; he has a huge collection of highlife records.", "Highlife would suit the theme perfectly."],
+["Grandpa would love that. He used to dance to it when he was young.", "Then it might get him on his feet again."],
+["Correction, by the way: I said Grandpa was born in Enugu, but my mum just reminded me he was born in Onitsha. He only went to school in Enugu.", "Thanks, that's an easy one to mix up if he talks about both places."],
+["Now for decorations. I'm thinking green and white.", "Green and white would tie nicely to the theme. Some fresh flowers could soften it."],
+["Mum grows hibiscus in the back garden, so we could use some of those.", "Homegrown flowers would be a lovely personal touch."],
+["That's settled then. I also need to think about seating for the older guests.", "Make sure there are comfortable chairs with backs near the food and away from the speakers."],
+["Good point. Mum's asthma also flares up in crowded rooms, so I might open up the patio doors.", "Fresh air will help her, and it'll keep the room cooler for everyone."],
+["I'll set up a quiet corner for her and Grandpa too.", "That's thoughtful. It gives them a place to rest when they need it."],
+["Great. I think I have enough to start writing a list.", "Sounds good. Starting with guests and food usually makes the rest easier."]
+],
+"questions": [
+{"kind": "older", "message": "What sport is my niece into again?", "answer": "netball", "wrong": ["badminton"], "fact_exchange": 5},
+{"kind": "older", "message": "What does Obinna do for a living?", "answer": "accountant", "wrong": ["midwife"], "fact_exchange": 4},
+{"kind": "confirm", "message": "So Grandpa's hometown is Enugu, right?", "answer": "Onitsha", "wrong": ["Manchester"], "fact_exchange": 13},
+{"kind": "in_view", "message": "What did I say Mum's breathing problem was?", "answer": "asthma", "wrong": [], "fact_exchange": 17},
+{"kind": "never_told", "message": "What does Kwame do for work?", "answer": "", "wrong": ["accountant", "midwife"], "fact_exchange": null},
+{"kind": "statement", "message": "Should the list be organised by task or by person?", "answer": "", "wrong": [], "fact_exchange": null}
+]}

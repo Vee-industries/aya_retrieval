@@ -1,0 +1,33 @@
+{"id": "w2_08", "exchanges": [
+["ok so today was one of those days where everything went sideways from like 7am, the drywall delivery came to the wrong address and then the inspector showed up an hour early at the bergstrom job and i wasnt even there yet", "That's a rough start on two fronts. Did the inspection go ahead without you?"],
+["wojciech handled it thank god hes my foreman and hes been doing this for 30 years so inspectors kind of love him, it passed", "Having a foreman like that is gold. A pass on a bad morning is a real win."],
+["totally. although hes not doing great physically, hes been walking hunched over all week and finally admitted its sciatica flaring up again, he refuses to take time off though", "That's a painful thing to work through on a job site. Maybe you can keep him on supervision rather than lifting for a while."],
+["yeah ive been trying, he hates being told what to do lol. anyway the bergstrom job is the kitchen and two bathrooms for annika bergstrom and her husband, theyre nice but very particular", "Particular clients can be good, they usually know what they want. What are they being particular about?"],
+["everything but mostly the counters, annika has looked at like forty samples and finally landed on quartz, a white one with grey veining, it took three showroom visits", "Three showroom visits is commitment. At least that's low maintenance for a busy kitchen."],
+["right and heres the fun part, her sister liv bought the house two doors down and now wants us to do her kitchen too right after, so i get to do this all over again", "That's great for business, even if it means more showroom trips. Is Liv as particular?"],
+["worse lol, she wants marble even though i told her it stains like crazy, she says she doesnt care she wants the real thing", "Some people really do love how natural stone ages. As long as she's been warned, it's her call."],
+["yeah ive warned her in writing so", "Smart, that protects you if she's unhappy later."],
+["ok other news, kofi our plumber told me hes retiring at the end of the year, hes moving back to ghana, to accra where his family is, im happy for him but losing him is going to hurt", "That's a big loss for your crew, but what a great way to retire. Do you have someone in mind to replace him?"],
+["not yet, good plumbers are impossible to find right now, everyone is booked six months out", "Starting the search now is a good idea then. Maybe Kofi knows someone he'd recommend."],
+["good idea ill ask him tomorrow", "He'd probably love to help pick his successor."],
+["so then the drywall finally showed up at like 1 and paolo our electrician was waiting on it to finish roughing in so he lost half a day and was grumpy about it", "Delivery delays ripple through everyone's schedule. Can he make it up later this week?"],
+["probably saturday, he doesnt mind weekends as long as i pay him time and a half", "That's fair. Budget it in and the schedule stays on track."],
+["ugh fine. ill eat that cost i guess, the supplier screwed up so maybe i can get a credit from them", "Definitely worth asking. Wrong-address deliveries are on them."],
+["ok im home now finally, eating cold pizza on the couch", "The classic end of a long day. You've earned it."],
+["lol yeah. oh and i was wrong about kofi earlier, i was looking at the card he gave me, its kumasi not accra, thats where his family actually is, accra is just where he flies into", "Good catch. Sounds like he's put a lot of thought into the move."],
+["he has, hes been building a house there for like five years", "That's a long-term plan finally coming together. He must be excited."],
+["very, he showed me pictures, its huge", "Retiring into a house you built yourself sounds pretty great."],
+["ok tomorrow i need to go back to the bergstrom house and figure out the tile for the bathrooms which is going to be another forty sample situation", "Maybe bring a narrower set this time. Three or four options can stop the endless browsing."],
+["honestly yeah ill pick three and make them choose", "That's a good strategy for indecisive clients."],
+["also ive got the new apprentice starting monday, mateo, hes 19 and super keen", "Keen apprentices are fun to train. Will he be with Wojciech?"],
+["yeah wojciech will take him under his wing, mateo is doing his trade school through humber so hell be on site 3 days a week and in class the rest", "That's a good balance of classroom and real work. Wojciech has a lot to teach him."],
+["yeah hopefully some patience too lol", "Patience is the hardest skill to teach, but a good mentor helps."],
+["ok going to bed, early start again", "Good night, I hope tomorrow is smoother."]
+], "questions": [
+{"kind": "older", "message": "what did annikas sister want for her kitchen again", "answer": "marble", "wrong": ["quartz"], "fact_exchange": 6},
+{"kind": "older", "message": "where is kofi going to live once he retires", "answer": "kumasi", "wrong": ["accra"], "fact_exchange": 15},
+{"kind": "confirm", "message": "annika picked marble in the end didnt she", "answer": "quartz", "wrong": [], "fact_exchange": 4},
+{"kind": "in_view", "message": "where is mateo doing his classes", "answer": "humber", "wrong": [], "fact_exchange": 21},
+{"kind": "never_told", "message": "does paolo have any plans for where hes retiring to", "answer": "", "wrong": ["kumasi", "accra", "ghana"], "fact_exchange": null},
+{"kind": "statement", "message": "my alarm is set for 5:30 which feels illegal", "answer": "", "wrong": [], "fact_exchange": null}
+]}

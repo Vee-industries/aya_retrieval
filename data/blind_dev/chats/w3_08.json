@@ -1,0 +1,30 @@
+{"id": "w3_08", "exchanges": [
+["bali trip booked!!!", "Amazing! When do you go?"],
+["july. 2 weeks. surfing mostly", "July is dry season there, great timing for waves."],
+["ya aroha is coming shes way better than me", "Nice to have a strong surfer with you. Has she surfed Bali before?"],
+["no but she grew up surfing in rotorua so shes a natural", "Growing up around the water makes a big difference."],
+["were staying w a guy named wayan in canggu", "Canggu is a good base for surfing and cafes."],
+["his family runs a homestay. he makes the best nasi goreng apparently", "Homemade breakfast at a homestay is one of the best parts of Bali."],
+["my roomate mateo is jealous lol", "Is he not able to come?"],
+["no money. also hes allergic to shellfish so he says bali would kill him lmao", "There's plenty to eat there that's safe for him, but I get why he'd be cautious."],
+["my cousin is also mateo and hes allergic to peanuts which is worse for indo food", "That one shows up in a lot of Indonesian sauces, like satay, so it would be tricky."],
+["ya two mateos with two allergies its a whole thing at family bbqs", "That sounds like careful planning for every meal."],
+["lol. ok how do i not get bali belly", "Drink bottled or filtered water, be careful with ice in small places, and wash your hands often."],
+["got it. jasper said bring pepto", "Not a bad idea to pack a small kit."],
+["jaspers my skate buddy. hes a welder so he fixed my trucks with like a torch lol", "Handy friend to have."],
+["ya very handy", "Every skater needs one."],
+["wait i said aroha is from rotorua thats wrong its tauranga, rotorua is where her nan lives", "That makes more sense for a surfer, Tauranga is right on the coast."],
+["ya mount maunganui is right there", "That's a great surf spot to grow up near."],
+["gabi wants us to bring her back a sarong", "Easy to find at the markets in Bali."],
+["shes obsessed w batik since her trip to java", "Then a batik sarong would be perfect."],
+["should i get a reef safe sunscreen", "Yes, it's better for the reefs and some places ask for it."],
+["ok and a rash guard?", "Definitely, the sun is strong and it protects against board rash too."],
+["aroha says i need booties too for the reef breaks in uluwatu", "Good call, the reef there can be sharp at low tide."]
+], "questions": [
+{"kind": "older", "message": "what cant my cousin eat again", "answer": "peanuts", "wrong": ["shellfish"], "fact_exchange": 8},
+{"kind": "older", "message": "whats jasper do for work", "answer": "welder", "wrong": [], "fact_exchange": 12},
+{"kind": "confirm", "message": "aroha's a tauranga girl right", "answer": "Tauranga", "wrong": ["rotorua"], "fact_exchange": 14},
+{"kind": "in_view", "message": "where did aroha say id need foot protection", "answer": "uluwatu", "wrong": [], "fact_exchange": 20},
+{"kind": "never_told", "message": "is gabi allergic to anything", "answer": "", "wrong": ["shellfish", "peanuts"], "fact_exchange": null},
+{"kind": "statement", "message": "ok adding reef booties to the list", "answer": "", "wrong": [], "fact_exchange": null}
+]}
