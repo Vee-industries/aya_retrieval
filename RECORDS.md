@@ -150,6 +150,7 @@ carry their own provenance (command, git commit, package versions).
 | R-135 | 6.38's set built and frozen (`fix17cs38.jsonl`, sha256 `f4daff77...` after R-136's rebuild): all 28 targets pass every R-134 rule and the blind judge (28 of 28; the 28 old targets, hidden controls, 0 of 28); queued at 82 and 83 |
 | R-136 | 6.38's first set had doubled line endings (2,160 lines, 1,066 blank) and failed to load at 82 and 83; rebuilt with the same 28 answers (sha256 `f4daff77...`); a test now reads every training set as the trainer does |
 | R-137 | Prompted-baseline control registered before it runs: base with two fixed prompts (A rules; B rules and four made-up worked examples), probe and `hard_dev`, everything else identical; reported, not gated; per-run scores reported beside pooled counts |
+| R-138 | Kevin: 6.38 is the last try. Break tests registered before they run: four harder conditions at a new seed (74001) on 6.37, 6.38 and base; a break must be confirmed at 75001 before any targeted fix, which is judged at 75002 on a held-out form where one exists; go/no-go Mon 09:00 |
 
 ---
 
@@ -5160,3 +5161,52 @@ prompt and 6.37. Base's runs are deterministic (greedy, one model), so one run e
 **Statistics, adopted for the write-up** (the reviewer's last point): pooled counts over training seeds are three or
 five runs over the same questions, not independent cases; every pooled count is reported with its per-run scores and
 their spread.
+
+## R-138 · 2026-11-08 · SPRINT · 6.38 is the last try; break tests, registered before they run
+
+**Kevin, 2026-11-08 ~19:00:** "alright we're calling this the last try then we're going to start adding comparison
+tests so we can break it and if we find anything specific we can target that". So no 6.39 from the old route: after
+6.38, a new training try exists only as a targeted fix for a break these tests find.
+
+**Conditions** (`run_recall_eval.py`, existing options only, `--arms tool_loop`, 24 items a kind, probe and
+`hard_dev`, discovery seed 74001, never used before):
+- `plain`: the reference at this seed.
+- `d4`: `--decoys 4`. Training puts 0 to 2 decoys in recall chats and 1 to 3 in `never_told`
+  (`run_build_training_set.DECOY_CHOICES`), so 4 is outside training for every kind; it is also the crowded
+  condition of the registered final test (R-065). `--decoys 5` cannot build on probe (a fact type has too few values).
+- `long`: `--sizes 1000 2000`, chats two and five times the longest tested.
+- `longfixh`: `--corrections-heldout --kinds older confirm --sizes 1000 2000`: old and new value both somewhere in a
+  long chat; does it answer the stale one?
+- `askd4`: `--asked-before --decoys 4`: a declined question in view and four decoys; does it skip the search or name
+  the wrong person?
+All 2,112 items were built on the CPU first (counts only, no content read): none fails.
+
+**Models.** 6.37 (seed 82) first, queued before 6.38's judged hold so its results are in by about 23:30; then 6.38
+at 97 to 99 as R-136 queued; then 6.38 seed 82 (only if its judged sheets pass) and base with recall kinds only.
+One queue, one card, in that order. Labels `brk_<condition>_<probe|hd>_<model>_seed_74001`.
+
+**What counts as a break.** For each adapter, against its own reference at 74001: a net loss of at least 8 of 192 on
+recall (older and confirm pooled over the two sizes; 96 for `longfixh`'s pairs) or 4 of 96 on another kind, and, where
+the items are paired, losses at least twice the gains. Paired: `d4` and `askd4` against `plain` (decoys come from a
+separate generator, so the rest of each chat is the same), `askd4` against `d4`, `longfixh` against `long`. `long`
+against `plain` is not paired (the chat size enters the item seed), so the net rule alone applies there. Also a break:
+recall below base in the same condition. Then I read the misses and name the failure.
+
+**A targeted fix**, only after the break is confirmed: the broken condition rerun on 6.37 at confirm seed 75001, with
+its reference, meets the same rule. The fix's rows come from the TRAIN pool only, never from probe or `hard_dev`
+items; it trains from scratch at 82 and 83; it must pass every existing gate unchanged (R-076, R-086, R-094, R-097,
+R-099, R-102) against 6.37, and beat 6.37 in the broken condition at seed 75002 pooled over 82 and 83 (ties fail),
+on a held-out form of the condition where one exists (trained on train-wording corrections, judged on the held-out
+wordings). **Go/no-go: fix rows ready by Mon 09:00**, training started before 12:00 (R-134's clock); otherwise the
+break goes in the write-up as a measured limit, and 6.37 (or 6.38 if it wins R-134's test) ships.
+
+**Panel** (one Opus agent, three lanes, one arguing against; transcript audited: one flagged call matched only on the
+word it excluded, and no line came from a sealed file). Adopted, all ten: check the training decoy range (done:
+decoys 4, not 3); split the stacked condition into single questions (`longfixh`, `askd4`); paired flips in the
+trigger; below-base on recall only (base rarely searches, so it is near full on the other kinds); confirm a break at
+75001 before building a fix; judge at a third seed on a held-out form; compare at matching seeds 82 and 83; base on
+recall kinds only; one ordered queue; a go/no-go time. Its case against, recorded: a fix built from the generator
+that found the break is fitted to that generator, and an honestly written limit is worth more than a rushed fix.
+That is why the confirm seed, the held-out form and the go/no-go time exist.
+
+Reported per run with spread beside pooled counts (R-137).
