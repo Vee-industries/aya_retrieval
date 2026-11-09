@@ -166,6 +166,7 @@ carry their own provenance (command, git commit, package versions).
 | R-151 | Kevin moves the model freeze to Wed Nov 11 night; a 7 is planned from scratch, its design open to the first independent set's failures, judged on a second independent set written now by four new blind writers; the seed-average idea measured and dropped |
 | R-152 | The second independent set is written and frozen: 40 chats from four new blind writers, 240 questions, none dropped (sha256 `3a91c34b...`); writer transcripts audited; it judges 7 (R-151) |
 | R-153 | 7 (`fix17cs7`) registered before it trains: 6.37's rows with 140 questions reworded as tag questions (the one change all three panel lanes support), five seeds from scratch; every gate, five-seed lines against 6.37, then a win on the second independent set; the next-exchange hop left for a 7.1 |
+| R-154 | The scorer and the judge are frozen with the model: SHA-256 of every scoring file, the sealed pools, the judge's brief and rubric, the human check and the adapter, the judge pinned to `claude-sonnet-5-5`; recall scorer repeats on 1,200 rows; R-128's judges split on 13 of 576 lines; a repeat GPU run queued |
 
 ---
 
@@ -5881,3 +5882,64 @@ independent set or the held-out pools.
 a tag that names a look-alike's value invites a who-is-who slip. **Order on the GPU:** the second set's reference
 runs (base, 6.37 at all eight seeds, queued 10:00) first, then 7. Their results are not read before 7's target is
 computed.
+
+## R-154 · 2026-11-09 · SPRINT · The scorer and the judge are frozen with the model
+
+**Request.** Advice Kevin passed on (pasted, about 10:20): "freeze the scorer with the model, including the judge
+model and version if it's LLM-based. A sealed run scored by a different judge isn't sealed." Then four points: pin
+the judge (model and version, prompt, decoding, system message); hash the scorer and the sealed set beside the model
+fingerprint; score one fixed sample twice before sealing; archive the human check so it can be rebuilt. Kevin: "Yes,
+register it".
+
+**What was not pinned.** The recall scorer is plain code and every results file records its commit, but nothing
+named the files the sealed run must use. The coherence gate, a hard part of the sealed pass rule (R-016, R-038), is
+marked by Claude judges, and every record says only "a fresh Sonnet judge": no version, and the judges' brief lived
+only in the prompt, not in the repo. The transcripts show what ran: the 135 agent transcripts since Nov 1 that read a
+rubric and are judges all replied as `claude-sonnet-5-5` (the 8 others that read one were Opus panel lanes); R-128's
+three judges ran under Claude Code 2.1.309.
+
+**The freeze** (`scripts/records/freeze_r154.py`):
+
+1. `write` records SHA-256 digests of the 17 files that build the items, run the model and score it (the item
+   builder, search tool, loop, decoding, tool prompt, model pin, stress forms, scorer, coherence sheets and rubric,
+   statistics, the eval and sheet scripts, the CuratorKIT check, `gate_r086.py`, `stone_report.py`); the sealed pools
+   (`pools.py` and `pool_independent.py` whole, and `docs/independent_pool/` as one digest over its 3 files, hashed by
+   the script and never shown); the judge's brief (R-128 judge 1's, copied verbatim from its transcript to
+   `results/freeze/R-154/judge_brief_r128_j1.txt`) and rubric (R-128's, identical to `coherence.RUBRIC` and to
+   R-109's); the human check folder; CuratorKIT `dd9e835` with threshold 0.7; the base model and revision, greedy
+   decoding, and the adapter's weights and config. The adapter folder's tokenizer files are left out (no file whose
+   name contains "token" is opened); they are not the trained weights.
+2. `check` runs before the sealed run; any difference stops it. Known-bad test: pointed at seed 83's adapter it failed
+   on the adapter name and both weight digests; on seed 82 it passed.
+3. `judges` reads every judge transcript of the sealed run; a judging whose replies came from any model but
+   `claude-sonnet-5-5` is void. Known-bad test: an Opus panel transcript fails. The agent tool takes only the family
+   name ("sonnet"), so if that name points to a newer model by the sealed run, the judging runs through the API pinned
+   to `claude-sonnet-5-5` or waits for Kevin's call; it is never run on another model. The judge's brief may change
+   only in its folder path, sheet names and line counts. The Claude Code version (it supplies part of the judge's
+   system message, and it updates itself) is recorded and any change reported in the write-up.
+4. Decoding: Tiny Aya is greedy (`do_sample` False, 60 new tokens). The judge's temperature cannot be set through the
+   agent tool, so its spread is measured instead (below), and the rule stays R-128's: three fresh judges, each in its
+   own folder, judge 1 decides, judges 2 and 3 reported.
+
+**Scored twice.**
+
+- **Recall scorer:** five stored 6.37 runs (probe 73157 at 82 and 83, `hard_dev` 73157 at 82 and 83, probe 51203 at
+  82), 1,200 rows. The items were rebuilt on the CPU and the stored replies scored twice: the same verdicts both
+  times, identical to the stored verdicts on every row.
+- **Generation:** no record shows a repeated GPU run giving the same replies (R-137's "base's runs are deterministic"
+  is stated, not measured). One repeat of 6.37 seed 82's probe 73157 run is queued after 7's seed 83 training
+  (`rep_probe_fix17cs37_82`), to be compared reply by reply with the stored run. Pending.
+- **Judge:** R-128's three fresh judges (same model, brief, rubric and sheets) are three scorings of the same 576
+  replies. They split on 13 (2.3%): pairs agree on 186 to 190 of 192 lines on Sheets B and h, and 95 to 96 of 96 on
+  the check sets; counts of 1s differ by at most 4 on a sheet (`results/freeze/R-154/judge_spread_r128.json`). That
+  is the judge's measured spread, recorded before the sealed run.
+
+**Human check archive.** `results/human_check/R-139/` holds the 50 replies with their questions and right and wrong
+values (`sheet.json`), each reply's model and scorer verdict (`key.json`), Kevin's marks, the second marker's sheet
+and marks, and the agreement. Rerunning `scripts/records/score_human_check_r139.py` from the archive rewrote
+`agreement.json` byte for byte. The folder is in the manifest.
+
+**Now and at the freeze.** `results/freeze/R-154/manifest_fix17cs37_82.json` is a dry run on 6.37 seed 82 (commit
+`f3aee06`). At the freeze (Wed Nov 11) `write` runs once on the shipped model (6.37 seed 82, or 7 seed 82 on a full
+pass) to `results/freeze/sealed_manifest.json`, committed and pushed; after that nothing it lists changes. The sealed
+run starts with `check` on it and ends with `judges` on every judge transcript; both outputs go in its record.
