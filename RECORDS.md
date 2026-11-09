@@ -171,6 +171,7 @@ carry their own provenance (command, git commit, package versions).
 | R-156 | 7.1 (`fix17cs71`) registered before it trains: 7 without its 20 `in_view` tag rows, a one-part removal (panel: two lanes for, the against lane for no 7.1 with this as the least bad); R-153's lines plus `confirm` right and searched on the second set; R-155 corrected (the v6 line was not 7's); a repeated GPU run gave identical replies on 240 of 240 |
 | R-157 | 7.1 fails at 83 on one line (probe `in_view` 38, at least 41); 6.37 seed 82 ships and no candidate is left before the freeze; "drawing a blank" unsearched on 6 of 14 (7 10, 6.37 1); the second independent set, read as a report: 6.37 seed 82 recall 53 of 120 against base 27 (+96%, p = 0.0001); the gate scripts, queue and panel briefs now in the repo |
 | R-158 | 7.1 on the second independent set (report only, registered first): it searches tag questions 40 and 39 of 40 (6.37 12 and 7) and every right answer is found by search (18 and 18; 6.37 6 and 4), but recall is not higher (51 and 52 against 53 and 53): it corrects more false claims (7 and 5 of 20 against 3 and 1) and confirms fewer true ones (11 and 13 against 16 and 16) |
+| R-159 | The freeze panel (three Opus lanes, audited): two say freeze 6.37 now; the third would run a 7.2 (7.1 with tag-question searches in the claim's own words) on a new third set, but only if Kevin overrides R-156's reading and the pass rule is rewritten before training; Kevin decides; the prompted-baseline control on the second set registered, report only |
 
 ---
 
@@ -6171,3 +6172,43 @@ both seeds. It does not raise recall: the searches it now makes miss the fact or
 as they catch false ones. Two seeds; a report, not a test. 6.37 ships under R-156's rule. For the write-up, 6.37
 goes along with a wrong claimed value on most false `confirm` questions on the second independent set (the first
 set was not counted this way), and this is named as a limit; 7.1 shows the behaviour can be trained, at a cost on the generated pools (R-157).
+
+## R-159 · 2026-11-09 · SPRINT · The freeze panel; the prompted-baseline control on the second set
+
+**Why.** Kevin, after R-158: freeze 6.37 "if the panel agrees knowing that i'm reluctant". Three Opus lanes read
+`results/panels/R-159/panel_freeze_brief.md` (his reluctance stated in it as a reason to make the case for continuing
+as strong as the facts allow). Audit of every tool call: none wrote a file or opened a sealed file, the second set's
+chats or a file named for a token. One search listed file names matching a helper's name over `scripts` and `src`,
+`pools.py` included, and filtered `pools.py` out of the printed list: no line of `pools.py` was shown.
+
+- **Freeze** (for). 6.37 is the only copy since v6 that passed every registered line, and no measured candidate is
+  above it on either independent set (7.1: 51 and 52 against 53 and 53, inside 6.37's seed spread of 44 to 56). Most
+  `older` misses on the second set are a search that missed the fact (35 of 80 at seed 82), the frozen tool's limit;
+  7.1's `confirm` searches missed the fact 20 and 15 times in 40, so it hit the same ceiling. A new candidate that
+  both passes and helps: low single digits. Seed 82 stays: it was fixed before either set was read. Optional, report
+  only: 7.1 at seeds 94 to 96 on the second set.
+- **Against** (hostile judge). Shipping 7.1 has the most holes (a registered fail, a choice made after reading the
+  second set). Another candidate breaks R-156's registered reading, needs a third set, and over about 19 tries a pass
+  cannot be told from a draw. Freezing has the fewest: the second set was written after 6.37 was fixed and read by
+  no decision about it. New count (checked): on the first set 6.37 seed 82 corrects 1 of 20 false tag claims (base 1)
+  and its `confirm` score is 11 against base's 15; its gain there is all `older` (28 against 11). Disclose a candidate
+  ledger, `older` and `confirm` split, the agreement with wrong claims on both sets. It names a gap: the
+  prompted-baseline control (R-137) ran only on the first set.
+- **Continue** (against freezing, at Kevin's reluctance). The cause of 7.1's tag-question misses is in the rows:
+  `build_r153.py` reworded the 100 `confirm` messages but kept 6.37's queries (checked: 100 of 100 unchanged; 7 share
+  no word with the new message), so the model searches with keywords for the fact type, not the claim. 7.2 would
+  replace those 100 queries with the claim's own words (`demonstrations.message_words_query`, R-042) and their tool
+  results with what the real search returns, keeping the answers. It needs a third independent set, written now, and
+  a new pass rule fixed before training that replaces R-153's five-seed probe recall and `in_view` lines by margins
+  below 6.37 set from its eight-seed spread, with a target of at least 16 above 6.37's five-seed recall on the third
+  set. Its odds: a copy with no effect passes about 3% to 5%; the design about 20%. It names the cost: the "drawing a
+  blank" loss stays, and the looser probe lines accept it. Only on Kevin's override of R-156's reading.
+
+**Where it stands.** Two lanes for freezing, one for a 7.2 that needs Kevin to override a registered reading and
+accept a rewritten rule. Overriding a registered rule is Kevin's decision, so nothing is frozen and nothing is built
+until he answers. My recommendation to him: freeze.
+
+**The prompted-baseline control on the second set, registered before it runs** (report only). R-137's two prompts
+(`results/control/R-137/prompt_a.txt`, `prompt_b.txt`) on base, the second set, as run on the first: runs
+`blind2_base_prompta` and `blind2_base_promptb`. Reported: recall (`older` and `confirm`) and each kind, against
+base and 6.37 seed 82 on the same set. It changes nothing that ships.
