@@ -165,6 +165,7 @@ carry their own provenance (command, git commit, package versions).
 | R-150 | The 6.4 panel (three Opus lanes, audited): two say no 6.4; the third offers value-first answers at about 15% to pass, the same rate as a copy with no effect; no 6.4; 6.37 is the model the sealed final run will score |
 | R-151 | Kevin moves the model freeze to Wed Nov 11 night; a 7 is planned from scratch, its design open to the first independent set's failures, judged on a second independent set written now by four new blind writers; the seed-average idea measured and dropped |
 | R-152 | The second independent set is written and frozen: 40 chats from four new blind writers, 240 questions, none dropped (sha256 `3a91c34b...`); writer transcripts audited; it judges 7 (R-151) |
+| R-153 | 7 (`fix17cs7`) registered before it trains: 6.37's rows with 140 questions reworded as tag questions (the one change all three panel lanes support), five seeds from scratch; every gate, five-seed lines against 6.37, then a win on the second independent set; the next-exchange hop left for a 7.1 |
 
 ---
 
@@ -5816,3 +5817,67 @@ value (`confirm` 26, `in_view` 19, `older` 10). Counts only were printed: no one
 
 **Use.** It judges 7 as R-151 and 7's registration set out; for every other model it is report only. No design
 choice for 7 reads it, and the panel lanes designing 7 were told never to open it.
+
+## R-153 · 2026-11-09 · SPRINT · 7, registered before it trains
+
+**The panel** (R-151's plan; three separate Opus agents, one lane each, brief `$S/panel_70_brief.md`; transcripts
+audited: none opened the second set, a 75002 result or a token file; `pools.py` read only to line 451, except one
+line printed past it by the against lane's grep for "TRAIN", line 802, which names the three pools and holds no
+content, disclosed by the lane itself; two greps ran over the source folder with the sealed file's lines filtered
+out of their output). What each found, measured on the first independent set (a development set since R-151) by
+replaying the real search in memory:
+- **Tag questions (failure 1):** all three lanes support it. Every TRAIN `confirm` wording is "did i ..." or "have i
+  ..."; on the first set all 40 `confirm` questions are tags, and seed 82 searched 9 of them. When it searches, it
+  finds the fact 78 times in 79, and a search in the question's own words finds all 40: a trigger failure only.
+- **Queries from the question's words (failure 2):** ruled out. A question-words query finds 42 to 43 of the 80
+  `older` facts; 6.37's own queries find 38 to 43. No room to gain, and fix 7 (R-050) and 7b (R-054), which taught it,
+  cost `never_told` and `statement`.
+- **Pronoun facts (failure 3):** the method lane found the current tool can already read the next exchange (a bare
+  number query returns that exchange: 79 of 80 on the first set, 100 of 100 on TRAIN chats, checked by the against
+  lane), and proposed a two-search hop. The against lane's case, taken: it would be the first two-search habit since
+  fix 4 (R-032: recall 74 to 62); the model sees `doc_id=exchange_0009` and must turn it into "10"; a hop on
+  `never_told` repeats fix 7's false retrievals (R-050); no gate can show a gain and every gate can show a loss; and
+  stacked on the tag change, a fail could not be blamed on either. **Left out of 7; a candidate 7.1 of its own.**
+- **Found but incomplete (failure 4):** nothing in the record has lowered it except a seed draw; R-110's rows raised
+  it three times. Left out.
+
+**7's set** (`scripts/records/build_r153.py`, `data/screens/fix17cs7.jsonl`, sha256 `7cb7a5cb...`, the same on two
+builds): 6.37's 1,094 rows in order; 140 rows changed in one user message only, everything else byte for byte.
+`confirm` 100 of 230: the question becomes the row's own scripted answer restated as the user's claim with a tag
+("my neighbour Marc only orders a cortado yeah?"); 63 name the true value, 37 a value another person in the search
+result holds or a value the chat never mentions (a row whose result holds no other value names the true one); the
+search, its result and the answer stand, and the answer already states the true value. `never_told` 20 (of those
+written with a `confirm` wording; 9 skipped, no single template matched): a claim about the asked relation, then the
+same search and decline. `in_view` 20: a claim of the visible fact's true value, no search, the answer unchanged, so a
+tag question about a fact in view needs no search. Tags: ", right?", " right?", " right", ", isn't that right?",
+" yeah?", ", yeah", " correct?". Checks: no claim shares a four-word run with the probe or `hard_dev` pools; no answer
+names the wrong value a claim states; every row at most 1,024 tokens. Nothing comes from probe, `hard_dev`, either
+independent set or the held-out pools.
+
+**Training.** 6.37's recipe unchanged, from scratch, at **five seeds: 82, 83, 94, 95, 96**, so 7 is compared with
+6.37 at the same five seeds and not against 6.37's best pair. The panel's against lane showed why: R-094's
+`hard_dev` bar, 163, is 73 plus 90, and 90 is 6.37's best of eight seeds; a copy as good as 6.37 clears it with about
+13 of 28 seed pairs.
+
+**Pass, in order; the first FAIL stops 7 and 6.37 seed 82 ships:**
+1. R-086's unjudged lines and R-094's slips as registered at 82 and 83 (`gate_r086.py`, `stone_report.py`, unchanged).
+   **R-094's pooled recall lines are replaced, for 7 only, by the same lines over five seeds:** probe and `hard_dev`
+   recall at 73157 over 82, 83, 94, 95, 96 not below 6.37's at the same seeds (probe 480, `hard_dev` 410). Probe
+   `in_view` at least 41 at each of the five seeds (R-097). `decide_r153.py`.
+2. R-102's stress runs (held-out corrections and phone typing) at 82 and 83 against 6.37's, as registered.
+3. R-086's judged sheets at 82 and 83, three fresh Sonnet judges, judge 1 deciding, as for 6.37 (R-128).
+4. **The target** (`target_r153.py`): on the second independent set (R-152), recall over the five seeds pooled above
+   6.37's at the same five seeds (ties fail). Reported beside it, as readings: `confirm` right and searched, and
+   searches on `in_view` questions (a tag habit that spreads to facts in view shows there).
+5. On a pass, 7 seed 82 is the shipped model (the seed fixed now, before any result). 94 to 96 are already inside
+   items 1 and 4, so no further confirmation runs.
+
+**Reported, not gated:** the first independent set at the five seeds; `hard_dev` failure stages; `statement` and
+`never_told` searches.
+
+**The case against, recorded:** the tag change targets about 20 discriminating `confirm` questions per set (the other
+20 name the true value and pass by agreeing), worth about +10 a seed if every one is searched and read as well as
+6.37 reads them; diluting the "did i" wordings every generator `confirm` uses may cost probe recall at its ceiling;
+a tag that names a look-alike's value invites a who-is-who slip. **Order on the GPU:** the second set's reference
+runs (base, 6.37 at all eight seeds, queued 10:00) first, then 7. Their results are not read before 7's target is
+computed.
