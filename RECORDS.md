@@ -167,6 +167,7 @@ carry their own provenance (command, git commit, package versions).
 | R-152 | The second independent set is written and frozen: 40 chats from four new blind writers, 240 questions, none dropped (sha256 `3a91c34b...`); writer transcripts audited; it judges 7 (R-151) |
 | R-153 | 7 (`fix17cs7`) registered before it trains: 6.37's rows with 140 questions reworded as tag questions (the one change all three panel lanes support), five seeds from scratch; every gate, five-seed lines against 6.37, then a win on the second independent set; the next-exchange hop left for a 7.1 |
 | R-154 | The scorer and the judge are frozen with the model: SHA-256 of every scoring file, the sealed pools, the judge's brief and rubric, the human check and the adapter, the judge pinned to `claude-sonnet-5-5`; recall scorer repeats on 1,200 rows; R-128's judges split on 13 of 576 lines; a repeat GPU run queued |
+| R-155 | 7 fails R-153 at 82 and 83: probe 51203 recall 92 (at least 94) and probe recall pooled 189 (not below v6's 192); six of its seven probe misses are one probe wording ("drawing a blank on my {relation}'s tattoo") with no search; `hard_dev` recall 166 against 6.37's 163; 6.37 seed 82 stays the shipped model; a grep showed one probe line past line 451 |
 
 ---
 
@@ -5943,3 +5944,44 @@ and marks, and the agreement. Rerunning `scripts/records/score_human_check_r139.
 `f3aee06`). At the freeze (Wed Nov 11) `write` runs once on the shipped model (6.37 seed 82, or 7 seed 82 on a full
 pass) to `results/freeze/sealed_manifest.json`, committed and pushed; after that nothing it lists changes. The sealed
 run starts with `check` on it and ends with `judges` on every judge transcript; both outputs go in its record.
+
+## R-155 · 2026-11-09 · SPRINT · 7 fails at 82 and 83; 6.37 stays the shipped model
+
+**Result** (`scripts/records/gate_r086.py`, `stone_report.py` and R-153's lines through `decide_r153.py`, run at
+11:01 as soon as seed 83 was scored). Two lines fail, so `r153_stop` is touched:
+
+- probe 51203 recall at seed 82: **92** (at least 94; 6.37 94);
+- probe 73157 recall pooled at 82 and 83: **189** (not below v6's 192, R-094; 6.37 192).
+
+Every other line passes: probe 51203 `statement` 48; `hard_dev` `never_told` at 82 48; `hard_dev` recall pooled 166
+(at least 145); probe recall pooled 189 (at least 189); false retrieval at 82 1; slips 0 at both seeds on both sets;
+probe `in_view` 46 and 44 (at least 41).
+
+| Line (seeds 82, 83) | 6.37 | 7 |
+|---|---|---|
+| probe recall | 96, 96 | 94, 95 |
+| probe 51203 recall (82) | 94 | 92 |
+| probe `in_view` | 44, 44 | 46, 44 |
+| `hard_dev` recall | 73, 90 | 81, 85 |
+| `hard_dev` `in_view` | 42, 40 | 40, 37 |
+| `statement`, `never_told` (probe and `hard_dev`) | 47 to 48 | 48 |
+
+**The misses.** Six of 7's seven missed probe questions (four at 51203, two at 73157 seed 82) are one probe
+template's indirect wording, "drawing a blank on my {relation}'s tattoo": no search, and a reply about tattoo design
+("That can be frustrating. Maybe you can try a different design or color."). 6.37 misses that wording once in the
+same runs (51203, seed 82). The seventh (seed 83, "what freaks my stepsister out the most") is a search call with a
+missing brace, which does not parse. The TRAIN pool (`pools.py` lines 1 to 451) never uses "drawing a blank", so the
+wording is one of the probe's unseen indirect forms. 7 changed only `confirm`, `never_told` and `in_view` rows, none
+of them `older`; which part of the change moved the `older` decision is not shown (no ablation was run). R-153 named
+the risk of a cost to probe recall at its ceiling; it fell on `older`, not on the reworded `confirm`.
+
+**Decision.** R-153's rule as registered: 7 fails, **6.37 (fix17cs37 seed 82) stays the shipped model**. R-086's
+judged sheets for 7 are not run. Every guarded line skips: 7's stress runs, seeds 94 to 96, its runs on both
+independent sets, and `target_r153.py`. The second set's reference runs (base, 6.37 at all eight seeds) still run,
+as a second independent report on the shipped model, report only. `hard_dev` recall pooled 166 against 163 is inside
+6.37's seed spread (73 to 90 a seed) and is not a finding.
+
+**Disclosure.** While counting the wording, a grep over the whole of `pools.py` printed line 646, past line 451: the
+probe template line holding "drawing a blank on my {relation}'s tattoo", the wording every probe results file already
+shows. Nothing else past line 451 was shown, and nothing from the held-out pool. The count was then run on lines 1 to
+451 only.
