@@ -154,6 +154,7 @@ carry their own provenance (command, git commit, package versions).
 | R-139 | Rigor additions, registered before any is computed: one primary development comparison (R-016's test) with Holm on a named secondary family; a five-way failure breakdown; recall by distance and crowding; an independent development set written blind to the generator (report only); Kevin's blind check of 50 scored answers |
 | R-140 | 6.38 fails R-134 on one line (`hard_dev` recall pooled over 82 and 83: 157 against 6.37's 163) and passes the other sixteen; 6.37 ships; Kevin's last try is spent; the GPU time freed goes to 6.37's missing stress runs at seeds 97 to 99 |
 | R-141 | R-139 items 1 to 3: the primary and all eight secondary tests favour 6.37 (Holm); but the 96 recall questions come from only 5 fact templates on probe and 8 on `hard_dev`, so the item-level p-values overstate the evidence; template-resampled intervals still exclude zero; 6.37's main `hard_dev` failure is finding the fact and answering wrong; seed 82 is the lowest of eight seeds there |
+| R-142 | R-139 items 4 and 5 set up before any chat is read: the writers' brief and its panel (nine edits taken, one declined), the loader and `--items-dir`, twelve queued runs (base, both R-137 prompts, 6.37 at all eight seeds), and Kevin's 50-line sheet, restratified by model |
 
 ---
 
@@ -5372,3 +5373,57 @@ selection on the development set, and which adapters enter the sealed run is R-0
 sizes. On `hard_dev`, 419-message chats, the earliest quarter is the weakest at most seeds (7 to 10 of 13, against 11
 to 13 of 14 in the latest); in 58-message chats there is no such pattern. A mild fall with distance in long chats,
 descriptive, on 10 to 15 items a cell. Crowding (1 against 4 decoys) waits for R-138's `d4` runs.
+
+## R-142 · 2026-11-08 · SPRINT · The independent set and Kevin's sheet, set up before any chat is read
+
+**Why this set exists.** Every development result so far comes from the generator that also made the training data
+(R-141: the recall questions come from 5 fact templates on probe and 8 on `hard_dev`). A model can learn that structure
+(where facts sit, how questions are worded, how decoys look) and score well without recalling in general. Chats
+written by someone who never saw the generator test whether the gain survives a change of structure.
+
+**The brief** (`data/blind_dev/brief.md`, the text each writer got, with its four settings): behaviour only, no
+template, pool, example or result from the project. Each conversation 20 to 30 exchanges, at least five people, a
+pair of look-alike people (same first name, or a sister and a sister-in-law) with facts of one type, one correction,
+facts placed anywhere, typing varied from tidy to rough; six alternative final questions (two `older`, one of them
+about a look-alike; `confirm`; `in_view`; `never_told`; `statement`), each with its answer, the wrong values a careless
+reply would give, and the exchange that holds the answer. Four writers (fresh Opus agents, one at a time, no access
+to anything but their brief and Write), ten conversations each, settings: family and neighbours; work and clients;
+friends, hobbies and travel; a move to a new city.
+
+**Panel on the brief** (one Opus agent, three lanes, one arguing against; transcript audited: it read only the
+brief). Taken, nine edits: half the confirm questions name a wrong value (the old one or the look-alike's) and the
+right reply gives the true one, so echoing the user cannot pass; one question in each conversation targets the
+corrected fact; questions may not reuse the fact sentence's words, so search cannot match on copied wording;
+answers and wrong values spelled correctly, one word or a proper name, at least 4 letters; the look-alike question
+names the person by relation; a statement mentions nothing from before the last 3 exchanges; a third of
+conversations state a target fact indirectly (a pronoun, a roundabout phrase); the example values removed and at
+least six fact types asked for. **Declined, one:** whole-word matching in the scorer. R-139 registered the existing
+scorer, every other result uses it, and a different scorer on one set would make the sets incomparable; the 4-letter
+minimum removes most short-substring matches, and Kevin's check (below) measures what is left. **Its case against,
+recorded as a limit:** four writers of one model family share habits (names, fact types, phrasing), so this is
+closer to one writer with four settings than to four independent writers; about 40 items a kind gives roughly plus
+or minus 15 points, so only large gaps mean anything; numbers and dates are not covered. Human-written chats would be
+more independent still; none are planned before the freeze.
+
+**Loader** (`src/aya_retrieval/dev_set.py`, `tests/test_dev_set.py`, commit `9f2de4d`): each question becomes a
+`RecallItem` on its conversation, so the harness, search tool, view (last 3 exchanges) and scorer are the ones every
+result uses. A question that breaks a brief rule is dropped with its reason and never repaired: repairing it would
+mean editing the writer's material. The drop list and a sha256 over every file are written into each result.
+`run_recall_eval.py --items-dir` scores the written chats and refuses every stress option; without it the loop
+builds the same items in the same order as before (the loop body moved into a generator, unchanged).
+
+**Runs** (queued after R-138's and the twelve 6.37 runs of R-140, behind `$S/blind_ready`, touched once the 40 files
+are checked and committed to `data/blind_dev/chats/`; not ready by Mon 09:00, the lines skip): base; base with R-137's
+prompt A and prompt B; 6.37 at all eight seeds. Labels `blind_<model>_seed_0`. **Primary** (R-139): recall, 6.37 seed
+82 against base, exact sign test, with a paired bootstrap interval resampling conversations. Also reported: per kind,
+per writer, per seed with its range, and the R-137 prompts beside base, each prompt on its own. **Report only:**
+nothing found here becomes training data or a reason to change the frozen model.
+
+**Kevin's sheet** (`scripts/records/build_human_check_r139.py`, `results/human_check/R-139/sheet.json` and
+`key.json`, commit `d3b8d53`). Restratified before anyone marked a line, from R-139's "scored right, scored wrong,
+named a decoy, other": drawn by verdict alone, 47 of 50 lines would have been base, mostly replies with no search
+and no answer, where the scorer cannot be wrong. Now by model and verdict: 6.37 scored right 12, 6.37 scored wrong
+15 (of its 33 wrong at seed 82), base scored right 10, base scored wrong after a search 13. Kinds `older`, `confirm`,
+`in_view`, `never_told` (a statement is scored on the search alone). Each line shows the question, what was told, the
+right answer, the wrong values and the reply; no model name. Kevin marks right or wrong; Claude marks none and does
+not read the key until he has.
