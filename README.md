@@ -9,8 +9,8 @@ Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.
 2026), Track 3, Agentic Fine-tuning. Author: Kevin Vaillancourt, working with an AI assistant
 (Claude) as an executive-function accommodation.
 
-> **Status: in progress.** The shipped adapter is 6.37 (`fix17cs37`, seed 82; RECORDS R-131, R-140). One
-> last candidate, 7.1 (`fix17cs71`, R-156), replaces it only if it passes every registered line before
+> **Status: in progress.** The shipped adapter is 6.37 (`fix17cs37`, seed 82; RECORDS R-131, R-140, R-157).
+> The last candidates, 7 and 7.1, each failed a registered line (R-155, R-157), and none is left before
 > the model freeze on 11 November. All numbers are development numbers until the sealed final run, which
 > is scored with the scorer and judge frozen with the model (R-154). The write-up and model card in
 > `docs/` are drafts that still show v5's development numbers, as their banners say; they are rebuilt
@@ -45,7 +45,7 @@ writing from one brief (in the set's folder), frozen by SHA-256 before anyone re
 | Set | Records | Used for |
 |---|---|---|
 | `data/blind_dev/` | R-142, R-143, R-146 | development since R-151 (7 was designed from its failures) |
-| `data/blind_dev2/` | R-152 | the test for the 7.x candidates (R-151, R-156); its results are unread until a candidate's target is computed |
+| `data/blind_dev2/` | R-152, R-157 | the test for the 7.x candidates (R-151, R-156); read as a report on 6.37 once none was left (R-157) |
 
 ## Known limits
 
@@ -54,10 +54,11 @@ The holes a reviewer will look for first, each measured and recorded where it wa
 - **Few templates behind the generated sets.** The 96 recall questions per run come from only 5 fact
   templates on `probe` and 8 on `hard_dev`, so item-level p-values overstate the evidence. Intervals
   that resample whole templates still exclude zero (R-141).
-- **The generalization number is the independent set's.** On chats by writers who never saw the
-  generator, 6.37 seed 82 gets recall 39 of 120 against base's 26 of 120 (+50%, sign test p = 0.047;
-  whole-chat bootstrap +2.5 to +19.2 points; R-146). On the generated `hard_dev` set the same adapter
-  goes from 20 to 73 of 96 (+265%). The +50% is the figure to read as generalization.
+- **The generalization numbers are the independent sets'.** On chats by writers who never saw the
+  generator, 6.37 seed 82 gets recall 39 of 120 against base's 26 on the first set (+50%, sign test
+  p = 0.047; whole-chat bootstrap +2.5 to +19.2 points; R-146) and 53 of 120 against 27 on the second
+  (+96%, p = 0.0001; +13.3 to +30.0 points; R-157). On the generated `hard_dev` set the same adapter
+  goes from 20 to 73 of 96 (+265%). The +50% and +96% are the figures to read as generalization.
 - **Coherence is judged by Claude models only.** Every coherence sheet is marked by fresh Claude Sonnet
   agents (three a sheet in the later gates), so their agreement is weaker evidence than agreement across
   model families (R-096 says the same of CuratorKIT's judges). Their spread is measured: R-128's three
@@ -80,10 +81,12 @@ weights instead. Nothing from that project's code or test sets is used here.
 | `src/aya_retrieval/` | The package: pinned model, tool prompt, scoring, provenance |
 | `scripts/` | Entry points, one `run_*.py` per experiment; each documents its own usage |
 | `scripts/records/` | Scripts tied to one record (building a training set, a sheet, a gate or a report), most named by that record |
+| `scripts/records/queue/` | The gate scripts (`decide_r*.py`, `target_r*.py`), the GPU queue runner and its backlog, kept exactly as run (R-157) |
 | `data/` | Training sets, the independent sets and their provenance |
 | `results/` | Results files, each with its own provenance |
 | `results/curator/` | CuratorKIT's grounding gate over the training answers, with each judge's verdicts (R-096, R-098) |
 | `results/freeze/` | The freeze (R-154): the judge's brief, the judges' measured spread, and a trial manifest of SHA-256 hashes (scorer, sealed pools, judge brief, human check, adapter); the sealed manifest is added at the model freeze |
+| `results/panels/` | Each panel's brief and round messages, by record; R-134's with every expert's answer |
 | `results/human_check/` | The blind check of the scorer by Kevin and a second marker (R-139, R-144, R-145) |
 | `tests/` | The test suite |
 | `demo/` | The scripted demo conversation; its transcripts are in `results/demo/` |

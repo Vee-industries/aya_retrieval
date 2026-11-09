@@ -169,6 +169,7 @@ carry their own provenance (command, git commit, package versions).
 | R-154 | The scorer and the judge are frozen with the model: SHA-256 of every scoring file, the sealed pools, the judge's brief and rubric, the human check and the adapter, the judge pinned to `claude-sonnet-5-5`; recall scorer repeats on 1,200 rows; R-128's judges split on 13 of 576 lines; a repeat GPU run queued |
 | R-155 | 7 fails R-153 at 82 and 83: probe 51203 recall 92 (at least 94) and probe recall pooled 189 (not below v6's 192); six of its seven probe misses are one probe wording ("drawing a blank on my {relation}'s tattoo") with no search; `hard_dev` recall 166 against 6.37's 163; 6.37 seed 82 stays the shipped model; a grep showed one probe line past line 451 |
 | R-156 | 7.1 (`fix17cs71`) registered before it trains: 7 without its 20 `in_view` tag rows, a one-part removal (panel: two lanes for, the against lane for no 7.1 with this as the least bad); R-153's lines plus `confirm` right and searched on the second set; R-155 corrected (the v6 line was not 7's); a repeated GPU run gave identical replies on 240 of 240 |
+| R-157 | 7.1 fails at 83 on one line (probe `in_view` 38, at least 41); 6.37 seed 82 ships and no candidate is left before the freeze; "drawing a blank" unsearched on 6 of 14 (7 10, 6.37 1); the second independent set, read as a report: 6.37 seed 82 recall 53 of 120 against base 27 (+96%, p = 0.0001); the gate scripts, queue and panel briefs now in the repo |
 
 ---
 
@@ -6053,3 +6054,76 @@ rescoring (1,200 rows) and the judges' measured spread, every scorer the sealed 
 
 **Order on the GPU.** The second set's reference runs (base, 6.37 at eight seeds) first, as R-155 left them; then 7.1
 at 82 and 83, `decide_r156.py`, and every later line guarded by `r156_stop`.
+
+## R-157 · 2026-11-09 · SPRINT · 7.1 fails; 6.37 ships; the second independent set read; the records made complete
+
+**Result** (`decide_r156.py`, run by the queue at 14:17 as soon as seed 83 was scored). One line fails, so
+`r156_stop` is touched: **probe `in_view` at seed 83: 38** (at least 41, R-097). Every other line passes: probe
+51203 recall 94 (at least 94), probe 51203 `statement` 48, `hard_dev` `never_told` at 82 47, `hard_dev` recall pooled
+157 (at least 145), probe recall pooled 189 (at least 189), false retrieval at 82 3, slips 0 on both sets at both
+seeds. The five-seed lines were not reached.
+
+| Line (seeds 82, 83) | 6.37 | 7 | 7.1 |
+|---|---|---|---|
+| probe recall | 96, 96 | 94, 95 | 94, 95 |
+| probe 51203 recall (82) | 94 | 92 | 94 |
+| probe `in_view` | 44, 44 | 46, 44 | 44, **38** |
+| `hard_dev` recall | 73, 90 | 81, 85 | 83, 74 |
+| `hard_dev` `in_view` | 42, 40 | 40, 37 | 39, 37 |
+
+**The registered diagnostic** (R-156). "Drawing a blank on my {relation}'s tattoo", `older` and `never_told` items on
+probe 73157 at 82 and 83 and probe 51203 at 82: not searched on **6 of 14** (7: 10; 6.37: 1). That is 3 or more, so
+by R-156's reading the cost is in the `confirm` or `never_told` tag rows, and no tag design is tried before the
+freeze. Removing the 20 `in_view` rows took back 4 of 7's 9 extra no-search items, so they carried part of it, not
+all.
+
+**7.1's `in_view` misses at seed 83** (10 of 48): every one is an in-view forget-wording ("drawing a blank on my
+daughter's tattoo", "i forget which language my barber knows") answered with chat and no use of the fact in view
+("It sounds like you're feeling a bit down about it..."). 6.37 at its own seeds 95 and 97 scored 39 on this line
+(R-156), so the line sits at the edge of its seed spread; R-156 recorded that the gate is this strict.
+
+**Decision.** R-156's rule as registered: 7.1 fails, **6.37 (fix17cs37 seed 82) is the shipped model**, and no
+candidate is left before the freeze (R-156's reading). Every guarded line skipped: 7.1's stress runs, seeds 94 to 96,
+its runs on both independent sets and `target_r156.py`. R-086's judged sheets are not run.
+
+**The second independent set, read as a report** (`scripts/records/blind2_r157.py`, R-146's measures unchanged;
+`results/analysis/R-157/blind2.json`). R-155 and R-156 kept these runs unread until no 7.x target was left; 7.1's
+fail leaves none. Every run was scored on the frozen set (sha256 `3a91c34b...`, R-152), 240 questions on 40 chats,
+none dropped.
+
+- **Recall (`older` and `confirm`), 6.37 seed 82 against base: 53 of 120 against 27 of 120**, +96%. Base alone right
+  9, 6.37 alone right 35, exact sign test p = 0.0001. Resampling whole chats: difference +21.7 points (95% interval
+  +13.3 to +30.0); relative gain +96% (+49% to +175%).
+- The eight training seeds: 44 to 56 of 120 (82 and 83: 53). By writer, 6.37 is above base for all four (10 to 15
+  of 30 against 4 to 9).
+- By kind (6.37 seed 82 against base, right answers): `older` 34 of 80 against 12, `confirm` 19 of 40 against 15,
+  `in_view` 37 of 40 against 34, `never_told` 36 of 40 against 32, `statement` (scored on the search alone) 35 of 40
+  against 39: 6.37 searches on 5 statements where base searched on 1, the one kind where it is below base here.
+  Right decisions: `confirm` searched 12 of 40 against 2 (R-146's tag-question gap, again), `older` 78 of 80
+  against 40, `never_told` 40 of 40 against 20.
+- 6.37's 67 wrong recall answers: 17 never searched, 36 searched and missed the fact, 5 named a wrong value, 9 found
+  the fact and answered wrong. On the first set the leading stage was also a search that missed the fact (38 of 81).
+
+Two independent sets, one generator-blind writer team each: recall +50% on the first (R-146) and +96% on the
+second. Both are well below the generated pools' gains, and both are the numbers to read as generalization.
+
+**The records made complete.** Kevin asked whether RECORDS.md holds everything. It did not: several records cite
+files that lived only in scratch, outside the repository. Now copied in, byte for byte, as run:
+
+- `scripts/records/queue/`: the gate scripts the records name (`decide_r122.py`, `decide_r134.py`, `decide_r147.py`,
+  `decide_r153.py`, `decide_r156.py`, `target_r147.py`, `target_r153.py`, `target_r156.py`), the queue runner
+  (`runner2.sh`, `blind.sh`, `blind2.sh`) and the backlog as it stands after this run (`backlog.txt`, 491 lines).
+  Where a record cites `$S/<file>`, the file is here. They are kept unformatted, as records (excluded from ruff).
+- `results/panels/<record>/`: the panel briefs and round messages for R-088, R-094, R-097, R-099, R-100, R-102,
+  R-138, R-150, R-151, R-153 and R-156, and the reviewed writer spec for R-142 (R-134's panel was already archived).
+
+Still outside the repository: each panel lane's full answer, and each judge's and writer's transcript, which are
+in Claude Code's agent transcripts on this machine. The records summarise every one; exporting them into the repo
+waits for Kevin's word.
+
+**Disclosure.** While checking the README (60d7c07), a grep over `src/aya_retrieval/*.py` printed line 817 of
+`pools.py`, past line 451: `POOLS["wide"] = WIDE`, an assignment, no pool content. From now on `pools.py` is left
+out of every grep that spans more than one file.
+
+**README.** Status, the limits and the layout updated in this commit (the rule since 60d7c07: a record that changes
+what ships updates the README in the same commit).

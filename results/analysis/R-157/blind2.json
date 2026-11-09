@@ -1,0 +1,779 @@
+{
+ "items": 240,
+ "chats": 40,
+ "primary": {
+  "measure": "recall (older and confirm), 6.37 seed 82 against base",
+  "items": 120,
+  "base": 27,
+  "ship": 53,
+  "only_base": 9,
+  "only_ship": 35,
+  "p_exact_sign": 0.00010604466626773501,
+  "chat_resampled_interval": {
+   "difference": [
+    0.21666666666666665,
+    0.13333333333333333,
+    0.29999999999999993
+   ],
+   "relative_gain": [
+    0.9629629629629628,
+    0.4864864864864864,
+    1.75
+   ]
+  }
+ },
+ "per_kind_correct": {
+  "older": {
+   "blind2_base": 12,
+   "82": 34,
+   "83": 36,
+   "94": 36,
+   "95": 42,
+   "96": 28,
+   "97": 38,
+   "98": 34,
+   "99": 32,
+   "items": 80
+  },
+  "confirm": {
+   "blind2_base": 15,
+   "82": 19,
+   "83": 17,
+   "94": 11,
+   "95": 14,
+   "96": 23,
+   "97": 18,
+   "98": 22,
+   "99": 12,
+   "items": 40
+  },
+  "in_view": {
+   "blind2_base": 34,
+   "82": 37,
+   "83": 40,
+   "94": 38,
+   "95": 37,
+   "96": 36,
+   "97": 38,
+   "98": 39,
+   "99": 38,
+   "items": 40
+  },
+  "never_told": {
+   "blind2_base": 32,
+   "82": 36,
+   "83": 33,
+   "94": 32,
+   "95": 34,
+   "96": 32,
+   "97": 32,
+   "98": 36,
+   "99": 31,
+   "items": 40
+  },
+  "statement": {
+   "blind2_base": 39,
+   "82": 35,
+   "83": 31,
+   "94": 36,
+   "95": 34,
+   "96": 33,
+   "97": 31,
+   "98": 30,
+   "99": 32,
+   "items": 40
+  }
+ },
+ "per_kind_right_decision": {
+  "older": {
+   "blind2_base": 40,
+   "82": 78,
+   "83": 74,
+   "94": 75,
+   "95": 80,
+   "96": 79,
+   "97": 80,
+   "98": 76,
+   "99": 71,
+   "items": 80
+  },
+  "confirm": {
+   "blind2_base": 2,
+   "82": 12,
+   "83": 7,
+   "94": 8,
+   "95": 5,
+   "96": 22,
+   "97": 13,
+   "98": 15,
+   "99": 8,
+   "items": 40
+  },
+  "in_view": {
+   "blind2_base": 37,
+   "82": 39,
+   "83": 40,
+   "94": 39,
+   "95": 37,
+   "96": 38,
+   "97": 40,
+   "98": 39,
+   "99": 40,
+   "items": 40
+  },
+  "never_told": {
+   "blind2_base": 20,
+   "82": 40,
+   "83": 39,
+   "94": 40,
+   "95": 40,
+   "96": 40,
+   "97": 40,
+   "98": 40,
+   "99": 39,
+   "items": 40
+  },
+  "statement": {
+   "blind2_base": 39,
+   "82": 35,
+   "83": 31,
+   "94": 36,
+   "95": 34,
+   "96": 33,
+   "97": 31,
+   "98": 30,
+   "99": 32,
+   "items": 40
+  }
+ },
+ "recall_per_writer": {
+  "x1": {
+   "items": 30,
+   "base": 6,
+   "ship": 10,
+   "seeds_min": 7,
+   "seeds_max": 12
+  },
+  "x2": {
+   "items": 30,
+   "base": 4,
+   "ship": 14,
+   "seeds_min": 11,
+   "seeds_max": 15
+  },
+  "x3": {
+   "items": 30,
+   "base": 8,
+   "ship": 14,
+   "seeds_min": 11,
+   "seeds_max": 15
+  },
+  "x4": {
+   "items": 30,
+   "base": 9,
+   "ship": 15,
+   "seeds_min": 14,
+   "seeds_max": 17
+  }
+ },
+ "recall_per_seed": {
+  "82": 53,
+  "83": 53,
+  "94": 47,
+  "95": 56,
+  "96": 51,
+  "97": 56,
+  "98": 56,
+  "99": 44
+ },
+ "recall_eight_seeds_chat_resampled_interval": {
+  "difference": [
+   0.20833333333333334,
+   0.12916666666666665,
+   0.2833333333333333
+  ],
+  "relative_gain": [
+   0.925925925925926,
+   0.45945945945945943,
+   1.7361111111111112
+  ]
+ },
+ "recall_on_questions_with_wrong_values": {
+  "items": 84,
+  "base": 18,
+  "ship": 41
+ },
+ "ship_recall_miss_stages": {
+  "a_no_search": 17,
+  "b_search_missed_the_fact": 36,
+  "c_named_a_wrong_value": 5,
+  "d_found_but_wrong_otherwise": 9
+ },
+ "ship_recall_misses": [
+  {
+   "id": "x1_01_q1",
+   "answer": "violin",
+   "wrong": [
+    "drums"
+   ],
+   "reply": "Amara is learning the piano.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_02_q0",
+   "answer": "veterinarian",
+   "wrong": [
+    "pharmacist"
+   ],
+   "reply": "Your sister-in-law Marisol offered to take the kids one Saturday.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_02_q1",
+   "answer": "gymnastics",
+   "wrong": [
+    "baseball"
+   ],
+   "reply": "I don't have that from you. What is it?",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_03_q0",
+   "answer": "perth",
+   "wrong": [
+    "winnipeg"
+   ],
+   "reply": "Your mom drinks like 6 cups of green tea a day.",
+   "stage": "d_found_but_wrong_otherwise"
+  },
+  {
+   "id": "x1_03_q1",
+   "answer": "aquarium",
+   "wrong": [
+    "planetarium"
+   ],
+   "reply": "Mr. Novak is taking the twins to the planetarium next week.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_04_q1",
+   "answer": "lawyer",
+   "wrong": [
+    "youtuber"
+   ],
+   "reply": "That's a great question. Aisha's goal is to practice parallel parking with cones in her driveway.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x1_05_q0",
+   "answer": "bunny",
+   "wrong": [
+    "tortoise",
+    "fish"
+   ],
+   "reply": "Your teacher Ms Emma said she has the nicest braids in the class now.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_05_q1",
+   "answer": "croup",
+   "wrong": [],
+   "reply": "I don't know that one yet.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_06_q1",
+   "answer": "defender",
+   "wrong": [
+    "goalkeeper"
+   ],
+   "reply": "Sipho plays goalkeeper.",
+   "stage": "c_named_a_wrong_value"
+  },
+  {
+   "id": "x1_07_q0",
+   "answer": "pottery",
+   "wrong": [
+    "climbing"
+   ],
+   "reply": "Your brother Joon is obsessed with rock climbing.",
+   "stage": "c_named_a_wrong_value"
+  },
+  {
+   "id": "x1_07_q1",
+   "answer": "trumpet",
+   "wrong": [
+    "piano"
+   ],
+   "reply": "Your brother Joon is obsessed with rock climbing.",
+   "stage": "d_found_but_wrong_otherwise"
+  },
+  {
+   "id": "x1_08_q1",
+   "answer": "karate",
+   "wrong": [
+    "basketball"
+   ],
+   "reply": "Anjali is at her friend Zoe's house.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_09_q0",
+   "answer": "pneumonia",
+   "wrong": [
+    "diabetes"
+   ],
+   "reply": "Your teacher Ms. Fatima has been out sick for two weeks.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_09_q1",
+   "answer": "florist",
+   "wrong": [
+    "security",
+    "teacher"
+   ],
+   "reply": "Your friend Soo-ah has other kids at the school.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_10_q0",
+   "answer": "obinna",
+   "wrong": [
+    "adaeze"
+   ],
+   "reply": "Your husband's cousin Ngozi had a baby girl named Adaeze.",
+   "stage": "c_named_a_wrong_value"
+  },
+  {
+   "id": "x2_01_q0",
+   "answer": "Tucson",
+   "wrong": [
+    "Phoenix",
+    "Denver"
+   ],
+   "reply": "Your aunt Rosa moved to Phoenix.",
+   "stage": "c_named_a_wrong_value"
+  },
+  {
+   "id": "x2_02_q0",
+   "answer": "pharmacist",
+   "wrong": [
+    "dentist"
+   ],
+   "reply": "Your brother Tomás and his wife Marisol are driving up from San Antonio with their kids.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x2_03_q0",
+   "answer": "calligraphy",
+   "wrong": [
+    "fishing"
+   ],
+   "reply": "Your great uncle Donghyun lives here and is like 76.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x2_05_q0",
+   "answer": "birdwatching",
+   "wrong": [
+    "bagpipes"
+   ],
+   "reply": "Your cousin Fiona is bringing her new baby.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x2_06_q0",
+   "answer": "Haifa",
+   "wrong": [
+    "Montreal",
+    "Vermont"
+   ],
+   "reply": "Your mother-in-law Miriam is in a city.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x2_06_q1",
+   "answer": "motorcycle",
+   "wrong": [],
+   "reply": "I don't see it, so I'd only be guessing.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x2_07_q1",
+   "answer": "Mississauga",
+   "wrong": [
+    "Brampton",
+    "Perth"
+   ],
+   "reply": "I don't see it, so I'd only be guessing.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x2_09_q0",
+   "answer": "peonies",
+   "wrong": [
+    "tulips"
+   ],
+   "reply": "Your grandmother Ilse is 76.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x2_09_q1",
+   "answer": "librarian",
+   "wrong": [
+    "seamstress",
+    "dentist",
+    "chef"
+   ],
+   "reply": "My cousin Ayumi is making a photo board. She married my cousin Lukas, and she's become the family archivist somehow.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x2_10_q0",
+   "answer": "Mandarin",
+   "wrong": [
+    "Cantonese"
+   ],
+   "reply": "I don't have that from you. What is it?",
+   "stage": "d_found_but_wrong_otherwise"
+  },
+  {
+   "id": "x3_01_q1",
+   "answer": "architecture",
+   "wrong": [
+    "pharmacy"
+   ],
+   "reply": "I don't see it, so I'd only be guessing.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_02_q1",
+   "answer": "dentist",
+   "wrong": [
+    "paramedic"
+   ],
+   "reply": "Your landlord Mrs Lindqvist is sending her handyman on Monday.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_03_q0",
+   "answer": "Bristol",
+   "wrong": [
+    "Gdansk"
+   ],
+   "reply": "Your sister has moved to Gdansk.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_04_q0",
+   "answer": "migraine",
+   "wrong": [
+    "asthma"
+   ],
+   "reply": "Your housemate Ana has asthma.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_05_q0",
+   "answer": "Japanese",
+   "wrong": [
+    "Spanish"
+   ],
+   "reply": "Your housemate Mo teaches a language.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_05_q1",
+   "answer": "florist",
+   "wrong": [
+    "barber"
+   ],
+   "reply": "It sounds like your neighbor, Bea, has a new pet rabbit named Pickle.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_07_q0",
+   "answer": "midwife",
+   "wrong": [
+    "accountant"
+   ],
+   "reply": "Your housemate Elena works at the hospital.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_08_q0",
+   "answer": "glandular",
+   "wrong": [
+    "ankle",
+    "sprain"
+   ],
+   "reply": "Your son Leo was sick.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_09_q1",
+   "answer": "Peckham",
+   "wrong": [
+    "Croydon"
+   ],
+   "reply": "Your friend hana works at the gp surgery as a receptionist.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_10_q0",
+   "answer": "triathlon",
+   "wrong": [
+    "marathon"
+   ],
+   "reply": "Your housemate Ibrahim works at the greengrocer on the corner.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x3_10_q1",
+   "answer": "firefighter",
+   "wrong": [
+    "teacher"
+   ],
+   "reply": "Your neighbour Mrs O'sullivan talks about her son a lot.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x4_01_q0",
+   "answer": "electrician",
+   "wrong": [
+    "pharmacist"
+   ],
+   "reply": "Your friend Daniel plays piano and is a pharmacist at the shoppers.",
+   "stage": "c_named_a_wrong_value"
+  },
+  {
+   "id": "x4_02_q1",
+   "answer": "wasps",
+   "wrong": [],
+   "reply": "Mrs. Nakamura brought onigiri for everyone at the break.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x4_03_q1",
+   "answer": "pottery",
+   "wrong": [],
+   "reply": "That's a great question. Since Beatriz found a donor for the hamper drive, she might want to take a break from the stress of organizing the event. Some relaxation techniques she could try include:\n\n1. **Meditation**: A few minutes of mindfulness can help clear her mind and reduce stress.\n2",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x4_04_q1",
+   "answer": "dentist",
+   "wrong": [],
+   "reply": "Your director came in late tonight, straight from work, still in scrubs.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x4_05_q0",
+   "answer": "fisherman",
+   "wrong": [
+    "pilot",
+    "paramedic"
+   ],
+   "reply": "Your uncle Tadashi does the water station every Saturday.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x4_06_q0",
+   "answer": "Dalhousie",
+   "wrong": [
+    "McGill"
+   ],
+   "reply": "Your old Ruth doesn't love that.",
+   "stage": "d_found_but_wrong_otherwise"
+  },
+  {
+   "id": "x4_07_q1",
+   "answer": "migraine",
+   "wrong": [],
+   "reply": "Thandiwe is trying to get a new transmitter before winter.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x4_08_q0",
+   "answer": "curling",
+   "wrong": [
+    "rugby"
+   ],
+   "reply": "Your friend grace plays rugby in an over 40s league.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x4_09_q0",
+   "answer": "Manila",
+   "wrong": [
+    "Lisbon"
+   ],
+   "reply": "Ana from the Filipino bakery on Queen Street brought ensaymada for everyone, which were gone in minutes.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x4_10_q1",
+   "answer": "celiac",
+   "wrong": [],
+   "reply": "I don't have that from you. What is it?",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x1_01_q2",
+   "answer": "cashews",
+   "wrong": [],
+   "reply": "That's a great question. If ToBI has a peanut allergy, it's important to avoid peanuts and any products that may contain them.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x1_04_q2",
+   "answer": "civic",
+   "wrong": [],
+   "reply": "That's a fun way to practice. Cones can be a bit of a challenge, but it's a great way to improve your parking skills.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x1_05_q2",
+   "answer": "porto",
+   "wrong": [],
+   "reply": "That sounds like a fun trip.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x1_07_q2",
+   "answer": "fracture",
+   "wrong": [],
+   "reply": "It sounds like your mom is going to be a great help.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x1_09_q2",
+   "answer": "Scarecrow",
+   "wrong": [],
+   "reply": "That's great news! The Lion is a fun and iconic costume.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x2_02_q2",
+   "answer": "violin",
+   "wrong": [
+    "guitar"
+   ],
+   "reply": "Yes, that's correct.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x2_05_q2",
+   "answer": "lechon",
+   "wrong": [
+    "turon",
+    "bibingka"
+   ],
+   "reply": "That sounds like a fun event.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x2_06_q2",
+   "answer": "Tamar",
+   "wrong": [],
+   "reply": "Your brother Ari is coming down from Vermont on his motorcycle.",
+   "stage": "d_found_but_wrong_otherwise"
+  },
+  {
+   "id": "x2_07_q2",
+   "answer": "biryani",
+   "wrong": [],
+   "reply": "That's a great detail. Payasam is a delicious dessert, and it's a great way to end the meal.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x2_09_q2",
+   "answer": "poodle",
+   "wrong": [],
+   "reply": "That's a great addition to the tea. A dog can be a fun and lively companion.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x2_10_q2",
+   "answer": "Leeds",
+   "wrong": [],
+   "reply": "That sounds like a fun event.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x3_03_q2",
+   "answer": "bachata",
+   "wrong": [],
+   "reply": "Salsa is a fun dance style.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x3_05_q2",
+   "answer": "Swansea",
+   "wrong": [],
+   "reply": "That sounds like a fun trip.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x3_06_q2",
+   "answer": "insurance",
+   "wrong": [
+    "bank"
+   ],
+   "reply": "Your eyes are finally calming down.",
+   "stage": "d_found_but_wrong_otherwise"
+  },
+  {
+   "id": "x3_07_q2",
+   "answer": "basset",
+   "wrong": [],
+   "reply": "Your neighbour Mr Dubois's dog is called Margot.",
+   "stage": "d_found_but_wrong_otherwise"
+  },
+  {
+   "id": "x3_09_q2",
+   "answer": "cricket",
+   "wrong": [],
+   "reply": "Your dad Gabriel coaches rugby for a kids team.",
+   "stage": "b_search_missed_the_fact"
+  },
+  {
+   "id": "x4_02_q2",
+   "answer": "Tacoma",
+   "wrong": [],
+   "reply": "That's a great vehicle.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x4_04_q2",
+   "answer": "Aberdeen",
+   "wrong": [],
+   "reply": "Your lead Malcolm is from Glasgow.",
+   "stage": "d_found_but_wrong_otherwise"
+  },
+  {
+   "id": "x4_06_q2",
+   "answer": "McGill",
+   "wrong": [],
+   "reply": "That's a great connection. It's always nice to have family nearby.",
+   "stage": "a_no_search"
+  },
+  {
+   "id": "x4_07_q2",
+   "answer": "journalism",
+   "wrong": [
+    "economics"
+   ],
+   "reply": "Your station has a range of energy, from tech guy Babajide's prayers to student Jun's punk show.",
+   "stage": "d_found_but_wrong_otherwise"
+  },
+  {
+   "id": "x4_08_q2",
+   "answer": "surveyor",
+   "wrong": [],
+   "reply": "That's a great story. It's always inspiring to hear about people who have dedicated their lives to something they love.",
+   "stage": "a_no_search"
+  }
+ ]
+}

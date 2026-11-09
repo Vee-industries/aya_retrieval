@@ -1,0 +1,491 @@
+cand fix19a 82 data/screens/fix19a.jsonl
+cand fix19a 83 data/screens/fix19a.jsonl
+dial fix17b_s085 82 "$DIALS/fix17b_s085_82"
+dial fix17b_s07 82 "$DIALS/fix17b_s07_82"
+dial fix17b_s085 83 "$DIALS/fix17b_s085_83"
+dial fix17b_s07 83 "$DIALS/fix17b_s07_83"
+dial mix_a03 82 "$DIALS/mix_a03_82"
+dial mix_a05 82 "$DIALS/mix_a05_82"
+dial mix_a07 82 "$DIALS/mix_a07_82"
+cand fix17b 85 data/screens/strict_chat.jsonl
+cand fix17b 86 data/screens/strict_chat.jsonl
+cand fix17b 87 data/screens/strict_chat.jsonl
+[ -s data/screens/fix20.jsonl ] || { clean && "$VP" scripts/run_build_training_set.py --seed 71132 --index C:/Users/Gaming/scratch/train_build_71132.sqlite --out data/screens/indirect_all.jsonl --more-indirect --scripted-answers confirm --kinds older --indirect-types $("$VP" -c "from aya_retrieval.pools import TRAIN; print(' '.join(sorted(TRAIN.facts)))") 2>&1 | quiet | tail -2 && "$VP" scripts/records/splice_r087.py && git add data/screens && git commit -q -m "R-088: indirect rows for all 25 types; fix20 set" -m "$ATTR" && push; }
+cand fix20 82 data/screens/fix20.jsonl
+cand fix20 83 data/screens/fix20.jsonl
+cand fix17m 82 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17m 83 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17m 82 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17e2 82 data/screens/strict_chat.jsonl --epochs 2
+cand fix17m 84 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17m 85 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17m 86 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17m 87 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17e2 83 data/screens/strict_chat.jsonl --epochs 2
+stress st_asked_probe_fix17m_82 probe --asked-before --adapter "$W/adapters/screens/fix17m_82"
+stress st_asked_hd_fix17m_82 hard_dev --asked-before --adapter "$W/adapters/screens/fix17m_82"
+dial fix17m_e2 87 "$W/adapters/screens/fix17m_87/epoch-2"
+dial fix17m_e2 84 "$W/adapters/screens/fix17m_84/epoch-2"
+cand fix17w 82 data/screens/fix17w.jsonl --loss-on chat_decision
+cand fix17w 83 data/screens/fix17w.jsonl --loss-on chat_decision
+cand fix17w 87 data/screens/fix17w.jsonl --loss-on chat_decision
+cand fix17mb 82 data/screens/strict_chat.jsonl --loss-on chat_answer_decision
+cand fix17mb 83 data/screens/strict_chat.jsonl --loss-on chat_answer_decision
+cand fix17y 82 data/screens/fix17y.jsonl --loss-on chat_decision
+cand fix17e2lr2 82 data/screens/strict_chat.jsonl --epochs 2 --learning-rate 2e-4
+cand fix17y 83 data/screens/fix17y.jsonl --loss-on chat_decision
+cand fix17e2lr2 83 data/screens/strict_chat.jsonl --epochs 2 --learning-rate 2e-4
+cand fix17z 82 data/screens/fix17z.jsonl --loss-on chat_decision
+cand fix17z 83 data/screens/fix17z.jsonl --loss-on chat_decision
+stress st_style_probe_fix17m_82 probe --user-style --adapter "$W/adapters/screens/fix17m_82"
+stress st_style_hd_fix17m_82 hard_dev --user-style --adapter "$W/adapters/screens/fix17m_82"
+stress st_phone_probe_fix17m_82 probe --phone-style --adapter "$W/adapters/screens/fix17m_82"
+stress st_phone_hd_fix17m_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17m_82"
+stress st_fix_probe_fix17m_82 probe --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17m_82"
+stress st_fix_hd_fix17m_82 hard_dev --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17m_82"
+stress st_style_probe_fix17m_83 probe --user-style --adapter "$W/adapters/screens/fix17m_83"
+stress st_style_hd_fix17m_83 hard_dev --user-style --adapter "$W/adapters/screens/fix17m_83"
+stress st_phone_probe_fix17m_83 probe --phone-style --adapter "$W/adapters/screens/fix17m_83"
+stress st_phone_hd_fix17m_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17m_83"
+stress st_fix_probe_fix17m_83 probe --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17m_83"
+stress st_fix_hd_fix17m_83 hard_dev --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17m_83"
+stress st_asked_probe_fix17m_83 probe --asked-before --adapter "$W/adapters/screens/fix17m_83"
+stress st_asked_hd_fix17m_83 hard_dev --asked-before --adapter "$W/adapters/screens/fix17m_83"
+stress st_fix_probe_base probe --corrections --kinds older confirm
+stress st_fix_hd_base hard_dev --corrections --kinds older confirm
+stress st_phone_probe_base probe --phone-style
+stress st_phone_hd_base hard_dev --phone-style
+stress st_fixh_probe_fix17m_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17m_82"
+stress st_fixh_hd_fix17m_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17m_82"
+stress st_fixh_probe_fix17m_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17m_83"
+stress st_fixh_hd_fix17m_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17m_83"
+stress st_fixh_probe_base probe --corrections-heldout --kinds older confirm
+stress st_fixh_hd_base hard_dev --corrections-heldout --kinds older confirm
+cand fix17cr 82 data/screens/fix17cr.jsonl --loss-on chat_decision
+cand fix17cr 83 data/screens/fix17cr.jsonl --loss-on chat_decision
+stress st_fixh_probe_fix17cr_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cr_82"
+stress st_fixh_hd_fix17cr_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cr_82"
+stress st_phone_probe_fix17cr_82 probe --phone-style --adapter "$W/adapters/screens/fix17cr_82"
+stress st_phone_hd_fix17cr_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cr_82"
+stress st_fix_probe_fix17cr_82 probe --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17cr_82"
+stress st_fixh_probe_fix17cr_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cr_83"
+stress st_fixh_hd_fix17cr_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cr_83"
+stress st_phone_probe_fix17cr_83 probe --phone-style --adapter "$W/adapters/screens/fix17cr_83"
+stress st_phone_hd_fix17cr_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cr_83"
+stress st_fix_probe_fix17cr_83 probe --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17cr_83"
+gate_then fix19a data/screens/fix19a.jsonl
+cand fix17cr11 82 data/screens/fix17cr11.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cr_82"
+cand fix17cr11 83 data/screens/fix17cr11.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cr_83"
+cand fix17crx 83 data/screens/fix17cr.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cr_83"
+cand fix17crx 82 data/screens/fix17cr.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cr_82"
+stress st_fixh_probe_fix17cr11_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cr11_82"
+stress st_fixh_hd_fix17cr11_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cr11_82"
+stress st_fixh_probe_fix17cr11_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cr11_83"
+stress st_fixh_hd_fix17cr11_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cr11_83"
+stress st_phone_probe_fix17cr11_82 probe --phone-style --adapter "$W/adapters/screens/fix17cr11_82"
+stress st_phone_hd_fix17cr11_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cr11_82"
+stress st_phone_probe_fix17cr11_83 probe --phone-style --adapter "$W/adapters/screens/fix17cr11_83"
+stress st_phone_hd_fix17cr11_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cr11_83"
+gate_then fix20 data/screens/fix20.jsonl
+gate_then fix17m data/screens/strict_chat.jsonl --loss-on chat_decision
+gate_then fix17e2 data/screens/strict_chat.jsonl --epochs 2
+gate_then fix17e2lr2 data/screens/strict_chat.jsonl --epochs 2 --learning-rate 2e-4
+cand fix17r 82 data/screens/fix17r.jsonl
+cand fix17cr111 82 data/screens/fix17cr11.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cr11_82"
+cand fix17cr111 83 data/screens/fix17cr11.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cr11_83"
+stress st_fixh_probe_fix17cr111_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cr111_82"
+cand fix17cs2 82 data/screens/fix17cr11.jsonl --loss-on chat_decision
+cand fix17cs2 83 data/screens/fix17cr11.jsonl --loss-on chat_decision
+stress st_fixh_probe_fix17cs2_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_82"
+stress st_fixh_hd_fix17cs2_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_82"
+stress st_fixh_probe_fix17cs2_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_83"
+stress st_fixh_hd_fix17cs2_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_83"
+stress st_phone_probe_fix17cs2_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs2_82"
+stress st_phone_hd_fix17cs2_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs2_82"
+stress st_phone_probe_fix17cs2_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs2_83"
+stress st_phone_hd_fix17cs2_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs2_83"
+cand fix17m 91 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17m 92 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17m 93 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17cs2 91 data/screens/fix17cr11.jsonl --loss-on chat_decision
+cand fix17cs2 92 data/screens/fix17cr11.jsonl --loss-on chat_decision
+cand fix17cs2 93 data/screens/fix17cr11.jsonl --loss-on chat_decision
+stress st_fixh_probe_fix17cs2_91 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_91"
+stress st_phone_probe_fix17cs2_91 probe --phone-style --adapter "$W/adapters/screens/fix17cs2_91"
+stress st_fixh_hd_fix17cs2_91 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_91"
+stress st_phone_hd_fix17cs2_91 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs2_91"
+stress st_fixh_probe_fix17cs2_92 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_92"
+stress st_phone_probe_fix17cs2_92 probe --phone-style --adapter "$W/adapters/screens/fix17cs2_92"
+stress st_fixh_hd_fix17cs2_92 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_92"
+stress st_phone_hd_fix17cs2_92 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs2_92"
+stress st_fixh_probe_fix17cs2_93 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_93"
+stress st_phone_probe_fix17cs2_93 probe --phone-style --adapter "$W/adapters/screens/fix17cs2_93"
+stress st_fixh_hd_fix17cs2_93 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs2_93"
+stress st_phone_hd_fix17cs2_93 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs2_93"
+cand fix17cs21 82 data/screens/fix17cs21.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cs2_82"
+cand fix17cs21 83 data/screens/fix17cs21.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cs2_83"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+echo "skipped: 6.21 fails R-094 hard_dev recall at 82 and 83 (R-113)"
+cand fix17cs2x 82 data/screens/fix17cr11.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cs2_82"
+cand fix17cs2x 83 data/screens/fix17cr11.jsonl --loss-on chat_decision --epochs 1 --learning-rate 1e-4 --init-adapter "$W/adapters/screens/fix17cs2_83"
+cand fix17cs3 82 data/screens/fix17cs3.jsonl --loss-on chat_decision
+cand fix17cs3 83 data/screens/fix17cs3.jsonl --loss-on chat_decision
+"$VP" scripts/records/gate_r086.py fix17cs3 || { echo "== 6.3 fails the unjudged gate (R-114)"; touch "$S/r114_stop"; }
+[ -f "$S/r114_stop" ] || stress st_fixh_probe_fix17cs3_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs3_82"
+[ -f "$S/r114_stop" ] || stress st_fixh_hd_fix17cs3_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs3_82"
+[ -f "$S/r114_stop" ] || stress st_phone_probe_fix17cs3_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs3_82"
+[ -f "$S/r114_stop" ] || stress st_phone_hd_fix17cs3_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs3_82"
+[ -f "$S/r114_stop" ] || stress st_fixh_probe_fix17cs3_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs3_83"
+[ -f "$S/r114_stop" ] || stress st_fixh_hd_fix17cs3_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs3_83"
+[ -f "$S/r114_stop" ] || stress st_phone_probe_fix17cs3_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs3_83"
+[ -f "$S/r114_stop" ] || stress st_phone_hd_fix17cs3_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs3_83"
+[ -f "$S/r114_stop" ] || cand fix17m 94 data/screens/strict_chat.jsonl --loss-on chat_decision
+[ -f "$S/r114_stop" ] || cand fix17m 95 data/screens/strict_chat.jsonl --loss-on chat_decision
+[ -f "$S/r114_stop" ] || cand fix17m 96 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17m 94 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17cs31 82 data/screens/fix17cs31.jsonl --loss-on chat_decision
+cand fix17cs31 83 data/screens/fix17cs31.jsonl --loss-on chat_decision
+"$VP" scripts/records/gate_r086.py fix17cs31 || { echo "== 6.31 fails the unjudged gate (R-117)"; touch "$S/r117_stop"; }
+cand fix17m 95 data/screens/strict_chat.jsonl --loss-on chat_decision
+cand fix17m 96 data/screens/strict_chat.jsonl --loss-on chat_decision
+[ -f "$S/r117_stop" ] || stress st_fixh_probe_fix17cs31_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs31_82"
+[ -f "$S/r117_stop" ] || stress st_fixh_hd_fix17cs31_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs31_82"
+[ -f "$S/r117_stop" ] || stress st_phone_probe_fix17cs31_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs31_82"
+[ -f "$S/r117_stop" ] || stress st_phone_hd_fix17cs31_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs31_82"
+[ -f "$S/r117_stop" ] || stress st_fixh_probe_fix17cs31_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs31_83"
+[ -f "$S/r117_stop" ] || stress st_fixh_hd_fix17cs31_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs31_83"
+[ -f "$S/r117_stop" ] || stress st_phone_probe_fix17cs31_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs31_83"
+[ -f "$S/r117_stop" ] || stress st_phone_hd_fix17cs31_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs31_83"
+cand fix17cs311 82 data/screens/fix17cs311.jsonl --loss-on chat_decision --epochs 1 --learning-rate 5e-5 --init-adapter "$W/adapters/screens/fix17cs31_82"
+cand fix17cs311 83 data/screens/fix17cs311.jsonl --loss-on chat_decision --epochs 1 --learning-rate 5e-5 --init-adapter "$W/adapters/screens/fix17cs31_83"
+cand fix17cs32 82 data/screens/fix17cs32.jsonl --loss-on chat_decision
+cand fix17cs32 83 data/screens/fix17cs32.jsonl --loss-on chat_decision
+"$VP" scripts/records/gate_r086.py fix17cs311 || { echo "== 6.311 fails the unjudged gate (R-118)"; touch "$S/r118_stop_311"; }
+"$VP" scripts/records/gate_r086.py fix17cs32 || { echo "== 6.32 fails the unjudged gate (R-118)"; touch "$S/r118_stop_32"; }
+[ -f "$S/r118_stop_311" ] || stress st_fixh_probe_fix17cs311_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs311_82"
+[ -f "$S/r118_stop_311" ] || stress st_fixh_hd_fix17cs311_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs311_82"
+[ -f "$S/r118_stop_311" ] || stress st_phone_probe_fix17cs311_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs311_82"
+[ -f "$S/r118_stop_311" ] || stress st_phone_hd_fix17cs311_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs311_82"
+[ -f "$S/r118_stop_311" ] || stress st_fixh_probe_fix17cs311_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs311_83"
+[ -f "$S/r118_stop_311" ] || stress st_fixh_hd_fix17cs311_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs311_83"
+[ -f "$S/r118_stop_311" ] || stress st_phone_probe_fix17cs311_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs311_83"
+[ -f "$S/r118_stop_311" ] || stress st_phone_hd_fix17cs311_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs311_83"
+[ -f "$S/r118_stop_32" ] || stress st_fixh_probe_fix17cs32_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs32_82"
+[ -f "$S/r118_stop_32" ] || stress st_fixh_hd_fix17cs32_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs32_82"
+[ -f "$S/r118_stop_32" ] || stress st_phone_probe_fix17cs32_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs32_82"
+[ -f "$S/r118_stop_32" ] || stress st_phone_hd_fix17cs32_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs32_82"
+[ -f "$S/r118_stop_32" ] || stress st_fixh_probe_fix17cs32_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs32_83"
+[ -f "$S/r118_stop_32" ] || stress st_fixh_hd_fix17cs32_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs32_83"
+[ -f "$S/r118_stop_32" ] || stress st_phone_probe_fix17cs32_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs32_83"
+[ -f "$S/r118_stop_32" ] || stress st_phone_hd_fix17cs32_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs32_83"
+cand fix17cs33 82 data/screens/fix17cs33.jsonl --loss-on chat_decision
+cand fix17cs33 83 data/screens/fix17cs33.jsonl --loss-on chat_decision
+"$VP" "$S/decide_r122.py" fix17cs33 r122_stop_33 --pick-next
+N=$(cat "$S/r122_next"); cand "$N" 82 "data/screens/$N.jsonl" --loss-on chat_decision
+N=$(cat "$S/r122_next"); cand "$N" 83 "data/screens/$N.jsonl" --loss-on chat_decision
+N=$(cat "$S/r122_next"); "$VP" "$S/decide_r122.py" "$N" r122_stop_next
+if [ -f "$S/r122_stop_next" ]; then cand fix17cs36 82 data/screens/fix17cs36.jsonl --loss-on chat_decision; fi
+if [ -f "$S/r122_stop_next" ]; then cand fix17cs36 83 data/screens/fix17cs36.jsonl --loss-on chat_decision; fi
+if [ -f "$S/r122_stop_next" ]; then "$VP" "$S/decide_r122.py" fix17cs36 r122_stop_36; else echo "== 6.34 passed; 6.36 not trained (R-124)"; touch "$S/r122_stop_36"; fi
+[ -f "$S/r122_stop_33" ] || stress st_fixh_probe_fix17cs33_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs33_82"
+[ -f "$S/r122_stop_33" ] || stress st_fixh_hd_fix17cs33_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs33_82"
+[ -f "$S/r122_stop_33" ] || stress st_phone_probe_fix17cs33_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs33_82"
+[ -f "$S/r122_stop_33" ] || stress st_phone_hd_fix17cs33_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs33_82"
+[ -f "$S/r122_stop_33" ] || stress st_fixh_probe_fix17cs33_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs33_83"
+[ -f "$S/r122_stop_33" ] || stress st_fixh_hd_fix17cs33_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs33_83"
+[ -f "$S/r122_stop_33" ] || stress st_phone_probe_fix17cs33_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs33_83"
+[ -f "$S/r122_stop_33" ] || stress st_phone_hd_fix17cs33_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs33_83"
+N=$(cat "$S/r122_next"); [ -f "$S/r122_stop_next" ] || stress st_fixh_probe_${N}_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/${N}_82"
+N=$(cat "$S/r122_next"); [ -f "$S/r122_stop_next" ] || stress st_fixh_hd_${N}_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/${N}_82"
+N=$(cat "$S/r122_next"); [ -f "$S/r122_stop_next" ] || stress st_phone_probe_${N}_82 probe --phone-style --adapter "$W/adapters/screens/${N}_82"
+N=$(cat "$S/r122_next"); [ -f "$S/r122_stop_next" ] || stress st_phone_hd_${N}_82 hard_dev --phone-style --adapter "$W/adapters/screens/${N}_82"
+N=$(cat "$S/r122_next"); [ -f "$S/r122_stop_next" ] || stress st_fixh_probe_${N}_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/${N}_83"
+N=$(cat "$S/r122_next"); [ -f "$S/r122_stop_next" ] || stress st_fixh_hd_${N}_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/${N}_83"
+N=$(cat "$S/r122_next"); [ -f "$S/r122_stop_next" ] || stress st_phone_probe_${N}_83 probe --phone-style --adapter "$W/adapters/screens/${N}_83"
+N=$(cat "$S/r122_next"); [ -f "$S/r122_stop_next" ] || stress st_phone_hd_${N}_83 hard_dev --phone-style --adapter "$W/adapters/screens/${N}_83"
+[ -f "$S/r122_stop_36" ] || stress st_fixh_probe_fix17cs36_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs36_82"
+[ -f "$S/r122_stop_36" ] || stress st_fixh_hd_fix17cs36_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs36_82"
+[ -f "$S/r122_stop_36" ] || stress st_phone_probe_fix17cs36_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs36_82"
+[ -f "$S/r122_stop_36" ] || stress st_phone_hd_fix17cs36_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs36_82"
+[ -f "$S/r122_stop_36" ] || stress st_fixh_probe_fix17cs36_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs36_83"
+[ -f "$S/r122_stop_36" ] || stress st_fixh_hd_fix17cs36_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs36_83"
+[ -f "$S/r122_stop_36" ] || stress st_phone_probe_fix17cs36_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs36_83"
+[ -f "$S/r122_stop_36" ] || stress st_phone_hd_fix17cs36_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs36_83"
+cand fix17cs37 82 data/screens/fix17cs37.jsonl --loss-on chat_decision
+cand fix17cs37 83 data/screens/fix17cs37.jsonl --loss-on chat_decision
+"$VP" "$S/decide_r122.py" fix17cs37 r127_stop_37
+[ -f "$S/r127_stop_37" ] || stress st_fixh_probe_fix17cs37_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_82"
+[ -f "$S/r127_stop_37" ] || stress st_fixh_hd_fix17cs37_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_82"
+[ -f "$S/r127_stop_37" ] || stress st_phone_probe_fix17cs37_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs37_82"
+[ -f "$S/r127_stop_37" ] || stress st_phone_hd_fix17cs37_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs37_82"
+[ -f "$S/r127_stop_37" ] || stress st_fixh_probe_fix17cs37_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_83"
+[ -f "$S/r127_stop_37" ] || stress st_fixh_hd_fix17cs37_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_83"
+[ -f "$S/r127_stop_37" ] || stress st_phone_probe_fix17cs37_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs37_83"
+[ -f "$S/r127_stop_37" ] || stress st_phone_hd_fix17cs37_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs37_83"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || cand fix17cs37 94 data/screens/fix17cs37.jsonl --loss-on chat_decision
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || cand fix17cs37 95 data/screens/fix17cs37.jsonl --loss-on chat_decision
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || cand fix17cs37 96 data/screens/fix17cs37.jsonl --loss-on chat_decision
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_fixh_probe_fix17cs37_94 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_94"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_fixh_hd_fix17cs37_94 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_94"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_phone_probe_fix17cs37_94 probe --phone-style --adapter "$W/adapters/screens/fix17cs37_94"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_phone_hd_fix17cs37_94 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs37_94"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_fixh_probe_fix17cs37_95 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_95"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_fixh_hd_fix17cs37_95 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_95"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_phone_probe_fix17cs37_95 probe --phone-style --adapter "$W/adapters/screens/fix17cs37_95"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_phone_hd_fix17cs37_95 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs37_95"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_fixh_probe_fix17cs37_96 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_96"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_fixh_hd_fix17cs37_96 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_96"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_phone_probe_fix17cs37_96 probe --phone-style --adapter "$W/adapters/screens/fix17cs37_96"
+[ -f "$S/r127_stop_37" ] || [ -f "$S/r128_stop_37" ] || stress st_phone_hd_fix17cs37_96 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs37_96"
+stress st_asked_probe_fix17cs37_82 probe --asked-before --adapter "$W/adapters/screens/fix17cs37_82"
+stress st_asked_hd_fix17cs37_82 hard_dev --asked-before --adapter "$W/adapters/screens/fix17cs37_82"
+stress st_style_probe_fix17cs37_82 probe --user-style --adapter "$W/adapters/screens/fix17cs37_82"
+stress st_style_hd_fix17cs37_82 hard_dev --user-style --adapter "$W/adapters/screens/fix17cs37_82"
+stress st_fix_probe_fix17cs37_82 probe --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_82"
+stress st_fix_hd_fix17cs37_82 hard_dev --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_82"
+stress st_asked_probe_fix17cs37_83 probe --asked-before --adapter "$W/adapters/screens/fix17cs37_83"
+stress st_asked_hd_fix17cs37_83 hard_dev --asked-before --adapter "$W/adapters/screens/fix17cs37_83"
+stress st_style_probe_fix17cs37_83 probe --user-style --adapter "$W/adapters/screens/fix17cs37_83"
+stress st_style_hd_fix17cs37_83 hard_dev --user-style --adapter "$W/adapters/screens/fix17cs37_83"
+stress st_fix_probe_fix17cs37_83 probe --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_83"
+stress st_fix_hd_fix17cs37_83 hard_dev --corrections --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_83"
+train fix17cs37 97 data/screens/fix17cs37.jsonl --loss-on chat_decision
+train fix17cs37 98 data/screens/fix17cs37.jsonl --loss-on chat_decision
+train fix17cs37 99 data/screens/fix17cs37.jsonl --loss-on chat_decision
+cand fix17cs38 82 data/screens/fix17cs38.jsonl --loss-on chat_decision
+cand fix17cs38 83 data/screens/fix17cs38.jsonl --loss-on chat_decision
+"$VP" "$S/decide_r134.py" fix17cs38 r134_stop_38
+[ -f "$S/r134_stop_38" ] || stress st_fixh_probe_fix17cs38_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r134_stop_38" ] || stress st_fixh_hd_fix17cs38_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r134_stop_38" ] || stress st_phone_probe_fix17cs38_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r134_stop_38" ] || stress st_phone_hd_fix17cs38_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r134_stop_38" ] || stress st_fixh_probe_fix17cs38_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r134_stop_38" ] || stress st_fixh_hd_fix17cs38_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r134_stop_38" ] || stress st_phone_probe_fix17cs38_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r134_stop_38" ] || stress st_phone_hd_fix17cs38_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r134_stop_38" ] || "$VP" "$S/decide_r134.py" fix17cs38 r134_stop_38
+dial fix17cs37 97 "$W/adapters/screens/fix17cs37_97"
+dial fix17cs37 98 "$W/adapters/screens/fix17cs37_98"
+dial fix17cs37 99 "$W/adapters/screens/fix17cs37_99"
+[ -f "$S/r134_stop_38" ] || cand fix17cs38 97 data/screens/fix17cs38.jsonl --loss-on chat_decision
+[ -f "$S/r134_stop_38" ] || cand fix17cs38 98 data/screens/fix17cs38.jsonl --loss-on chat_decision
+[ -f "$S/r134_stop_38" ] || cand fix17cs38 99 data/screens/fix17cs38.jsonl --loss-on chat_decision
+[ -f "$S/r134_stop_38" ] || stress st_fixh_probe_fix17cs38_97 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_97"
+[ -f "$S/r134_stop_38" ] || stress st_fixh_hd_fix17cs38_97 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_97"
+[ -f "$S/r134_stop_38" ] || stress st_phone_probe_fix17cs38_97 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_97"
+[ -f "$S/r134_stop_38" ] || stress st_phone_hd_fix17cs38_97 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_97"
+[ -f "$S/r134_stop_38" ] || stress st_fixh_probe_fix17cs38_98 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_98"
+[ -f "$S/r134_stop_38" ] || stress st_fixh_hd_fix17cs38_98 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_98"
+[ -f "$S/r134_stop_38" ] || stress st_phone_probe_fix17cs38_98 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_98"
+[ -f "$S/r134_stop_38" ] || stress st_phone_hd_fix17cs38_98 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_98"
+[ -f "$S/r134_stop_38" ] || stress st_fixh_probe_fix17cs38_99 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_99"
+[ -f "$S/r134_stop_38" ] || stress st_fixh_hd_fix17cs38_99 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_99"
+[ -f "$S/r134_stop_38" ] || stress st_phone_probe_fix17cs38_99 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_99"
+[ -f "$S/r134_stop_38" ] || stress st_phone_hd_fix17cs38_99 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_99"
+[ -f "$S/r134_stop_38" ] || stress st_style_probe_fix17cs38_82 probe --user-style --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r134_stop_38" ] || stress st_style_hd_fix17cs38_82 hard_dev --user-style --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r134_stop_38" ] || stress st_style_probe_fix17cs38_83 probe --user-style --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r134_stop_38" ] || stress st_style_hd_fix17cs38_83 hard_dev --user-style --adapter "$W/adapters/screens/fix17cs38_83"
+cand fix17cs38 82 data/screens/fix17cs38.jsonl --loss-on chat_decision
+cand fix17cs38 83 data/screens/fix17cs38.jsonl --loss-on chat_decision
+"$VP" "$S/decide_r134.py" fix17cs38 r136_stop_38
+[ -f "$S/r136_stop_38" ] || stress st_fixh_probe_fix17cs38_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || stress st_fixh_hd_fix17cs38_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || stress st_phone_probe_fix17cs38_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || stress st_phone_hd_fix17cs38_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || stress st_fixh_probe_fix17cs38_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r136_stop_38" ] || stress st_fixh_hd_fix17cs38_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r136_stop_38" ] || stress st_phone_probe_fix17cs38_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r136_stop_38" ] || stress st_phone_hd_fix17cs38_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r136_stop_38" ] || "$VP" "$S/decide_r134.py" fix17cs38 r136_stop_38
+clean; "$VP" scripts/run_recall_eval.py --pool probe --seed 73157 --items-per-kind 24 --index "C:/Users/Gaming/scratch/eval_q56_probe.sqlite" --label probe_base_prompta --arms tool_loop --max-vram-fraction 0.85 --system-prompt-file results/control/R-137/prompt_a.txt 2>&1 | quiet | tail -3; git add results/recall_eval/probe_base_prompta_seed_73157.json && git commit -q -m "probe_base_prompta (R-137 control)" -m "$ATTR"; push
+clean; "$VP" scripts/run_recall_eval.py --pool hard_dev --seed 73157 --items-per-kind 24 --index "C:/Users/Gaming/scratch/eval_q56_hard_dev.sqlite" --label hd_base_prompta --arms tool_loop --max-vram-fraction 0.85 --system-prompt-file results/control/R-137/prompt_a.txt 2>&1 | quiet | tail -3; git add results/recall_eval/hd_base_prompta_seed_73157.json && git commit -q -m "hd_base_prompta (R-137 control)" -m "$ATTR"; push
+clean; "$VP" scripts/run_recall_eval.py --pool probe --seed 73157 --items-per-kind 24 --index "C:/Users/Gaming/scratch/eval_q56_probe.sqlite" --label probe_base_promptb --arms tool_loop --max-vram-fraction 0.85 --system-prompt-file results/control/R-137/prompt_b.txt 2>&1 | quiet | tail -3; git add results/recall_eval/probe_base_promptb_seed_73157.json && git commit -q -m "probe_base_promptb (R-137 control)" -m "$ATTR"; push
+clean; "$VP" scripts/run_recall_eval.py --pool hard_dev --seed 73157 --items-per-kind 24 --index "C:/Users/Gaming/scratch/eval_q56_hard_dev.sqlite" --label hd_base_promptb --arms tool_loop --max-vram-fraction 0.85 --system-prompt-file results/control/R-137/prompt_b.txt 2>&1 | quiet | tail -3; git add results/recall_eval/hd_base_promptb_seed_73157.json && git commit -q -m "hd_base_promptb (R-137 control)" -m "$ATTR"; push
+source "$S/brk.sh"; echo "== R-138 break tests loaded $(date)"
+brk brk_plain_probe_fix17cs37_82 probe 74001 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_plain_hd_fix17cs37_82 hard_dev 74001 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_d4_probe_fix17cs37_82 probe 74001 --decoys 4 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_d4_hd_fix17cs37_82 hard_dev 74001 --decoys 4 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_long_probe_fix17cs37_82 probe 74001 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_long_hd_fix17cs37_82 hard_dev 74001 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_longfixh_probe_fix17cs37_82 probe 74001 --corrections-heldout --kinds older confirm --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_longfixh_hd_fix17cs37_82 hard_dev 74001 --corrections-heldout --kinds older confirm --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_askd4_probe_fix17cs37_82 probe 74001 --asked-before --decoys 4 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_askd4_hd_fix17cs37_82 hard_dev 74001 --asked-before --decoys 4 --adapter "$W/adapters/screens/fix17cs37_82"
+until [ -f "$S/r136_judged" ] || [ -f "$S/r136_stop_38" ]; do sleep 60; done; echo "== R-136 judged hold released $(date)"
+[ -f "$S/r136_stop_38" ] || cand fix17cs38 97 data/screens/fix17cs38.jsonl --loss-on chat_decision
+[ -f "$S/r136_stop_38" ] || cand fix17cs38 98 data/screens/fix17cs38.jsonl --loss-on chat_decision
+[ -f "$S/r136_stop_38" ] || cand fix17cs38 99 data/screens/fix17cs38.jsonl --loss-on chat_decision
+[ -f "$S/r136_stop_38" ] || stress st_fixh_probe_fix17cs38_97 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_97"
+[ -f "$S/r136_stop_38" ] || stress st_fixh_hd_fix17cs38_97 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_97"
+[ -f "$S/r136_stop_38" ] || stress st_phone_probe_fix17cs38_97 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_97"
+[ -f "$S/r136_stop_38" ] || stress st_phone_hd_fix17cs38_97 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_97"
+[ -f "$S/r136_stop_38" ] || stress st_fixh_probe_fix17cs38_98 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_98"
+[ -f "$S/r136_stop_38" ] || stress st_fixh_hd_fix17cs38_98 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_98"
+[ -f "$S/r136_stop_38" ] || stress st_phone_probe_fix17cs38_98 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_98"
+[ -f "$S/r136_stop_38" ] || stress st_phone_hd_fix17cs38_98 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_98"
+[ -f "$S/r136_stop_38" ] || stress st_fixh_probe_fix17cs38_99 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_99"
+[ -f "$S/r136_stop_38" ] || stress st_fixh_hd_fix17cs38_99 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs38_99"
+[ -f "$S/r136_stop_38" ] || stress st_phone_probe_fix17cs38_99 probe --phone-style --adapter "$W/adapters/screens/fix17cs38_99"
+[ -f "$S/r136_stop_38" ] || stress st_phone_hd_fix17cs38_99 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs38_99"
+[ -f "$S/r136_stop_38" ] || stress st_style_probe_fix17cs38_82 probe --user-style --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || stress st_style_hd_fix17cs38_82 hard_dev --user-style --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || stress st_style_probe_fix17cs38_83 probe --user-style --adapter "$W/adapters/screens/fix17cs38_83"
+[ -f "$S/r136_stop_38" ] || stress st_style_hd_fix17cs38_83 hard_dev --user-style --adapter "$W/adapters/screens/fix17cs38_83"
+source "$S/brk.sh"; echo "== R-138 break tests loaded $(date)"
+[ -f "$S/r136_stop_38" ] || brk brk_plain_probe_fix17cs38_82 probe 74001 --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || brk brk_plain_hd_fix17cs38_82 hard_dev 74001 --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || brk brk_d4_probe_fix17cs38_82 probe 74001 --decoys 4 --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || brk brk_d4_hd_fix17cs38_82 hard_dev 74001 --decoys 4 --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || brk brk_long_probe_fix17cs38_82 probe 74001 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || brk brk_long_hd_fix17cs38_82 hard_dev 74001 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || brk brk_longfixh_probe_fix17cs38_82 probe 74001 --corrections-heldout --kinds older confirm --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || brk brk_longfixh_hd_fix17cs38_82 hard_dev 74001 --corrections-heldout --kinds older confirm --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || brk brk_askd4_probe_fix17cs38_82 probe 74001 --asked-before --decoys 4 --adapter "$W/adapters/screens/fix17cs38_82"
+[ -f "$S/r136_stop_38" ] || brk brk_askd4_hd_fix17cs38_82 hard_dev 74001 --asked-before --decoys 4 --adapter "$W/adapters/screens/fix17cs38_82"
+brk brk_plain_probe_base probe 74001 --kinds older confirm
+brk brk_plain_hd_base hard_dev 74001 --kinds older confirm
+brk brk_d4_probe_base probe 74001 --decoys 4 --kinds older confirm
+brk brk_d4_hd_base hard_dev 74001 --decoys 4 --kinds older confirm
+brk brk_long_probe_base probe 74001 --sizes 1000 2000 --kinds older confirm
+brk brk_long_hd_base hard_dev 74001 --sizes 1000 2000 --kinds older confirm
+brk brk_longfixh_probe_base probe 74001 --corrections-heldout --kinds older confirm --sizes 1000 2000
+brk brk_longfixh_hd_base hard_dev 74001 --corrections-heldout --kinds older confirm --sizes 1000 2000
+brk brk_askd4_probe_base probe 74001 --asked-before --decoys 4 --kinds older confirm
+brk brk_askd4_hd_base hard_dev 74001 --asked-before --decoys 4 --kinds older confirm
+stress st_fixh_probe_fix17cs37_97 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_97"
+stress st_phone_probe_fix17cs37_97 probe --phone-style --adapter "$W/adapters/screens/fix17cs37_97"
+stress st_fixh_hd_fix17cs37_97 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_97"
+stress st_phone_hd_fix17cs37_97 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs37_97"
+stress st_fixh_probe_fix17cs37_98 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_98"
+stress st_phone_probe_fix17cs37_98 probe --phone-style --adapter "$W/adapters/screens/fix17cs37_98"
+stress st_fixh_hd_fix17cs37_98 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_98"
+stress st_phone_hd_fix17cs37_98 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs37_98"
+stress st_fixh_probe_fix17cs37_99 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_99"
+stress st_phone_probe_fix17cs37_99 probe --phone-style --adapter "$W/adapters/screens/fix17cs37_99"
+stress st_fixh_hd_fix17cs37_99 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs37_99"
+stress st_phone_hd_fix17cs37_99 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs37_99"
+source "$S/blind.sh"; until [ -f "$S/blind_ready" ] || [ "$(date +%s)" -gt "$(date -d "2026-11-09 09:00" +%s)" ]; do sleep 60; done; [ -f "$S/blind_ready" ] && echo "== R-142 independent set ready $(date)"
+[ -f "$S/blind_ready" ] && blind blind_base
+[ -f "$S/blind_ready" ] && blind blind_base_prompta --system-prompt-file results/control/R-137/prompt_a.txt
+[ -f "$S/blind_ready" ] && blind blind_base_promptb --system-prompt-file results/control/R-137/prompt_b.txt
+[ -f "$S/blind_ready" ] && blind blind_fix17cs37_82 --adapter "$W/adapters/screens/fix17cs37_82"
+[ -f "$S/blind_ready" ] && blind blind_fix17cs37_83 --adapter "$W/adapters/screens/fix17cs37_83"
+[ -f "$S/blind_ready" ] && blind blind_fix17cs37_94 --adapter "$W/adapters/screens/fix17cs37_94"
+[ -f "$S/blind_ready" ] && blind blind_fix17cs37_95 --adapter "$W/adapters/screens/fix17cs37_95"
+[ -f "$S/blind_ready" ] && blind blind_fix17cs37_96 --adapter "$W/adapters/screens/fix17cs37_96"
+[ -f "$S/blind_ready" ] && blind blind_fix17cs37_97 --adapter "$W/adapters/screens/fix17cs37_97"
+[ -f "$S/blind_ready" ] && blind blind_fix17cs37_98 --adapter "$W/adapters/screens/fix17cs37_98"
+[ -f "$S/blind_ready" ] && blind blind_fix17cs37_99 --adapter "$W/adapters/screens/fix17cs37_99"
+source "$S/brk.sh"; echo "== R-146 confirm the long break at 75001 $(date)"
+brk brk_plain_hd_fix17cs37_82 hard_dev 75001 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_long_hd_fix17cs37_82 hard_dev 75001 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_plain_probe_fix17cs37_82 probe 75001 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_long_probe_fix17cs37_82 probe 75001 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_d4_hd_fix17cs37_82 hard_dev 75001 --decoys 4 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_askd4_hd_fix17cs37_82 hard_dev 75001 --asked-before --decoys 4 --adapter "$W/adapters/screens/fix17cs37_82"
+cand fix17cs39 82 data/screens/fix17cs39.jsonl --loss-on chat_decision
+cand fix17cs39 83 data/screens/fix17cs39.jsonl --loss-on chat_decision
+"$VP" "$S/decide_r147.py" fix17cs39 r147_stop
+[ -f "$S/r147_stop" ] || stress st_fixh_probe_fix17cs39_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs39_82"
+[ -f "$S/r147_stop" ] || stress st_phone_probe_fix17cs39_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs39_82"
+[ -f "$S/r147_stop" ] || stress st_fixh_hd_fix17cs39_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs39_82"
+[ -f "$S/r147_stop" ] || stress st_phone_hd_fix17cs39_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs39_82"
+[ -f "$S/r147_stop" ] || stress st_fixh_probe_fix17cs39_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs39_83"
+[ -f "$S/r147_stop" ] || stress st_phone_probe_fix17cs39_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs39_83"
+[ -f "$S/r147_stop" ] || stress st_fixh_hd_fix17cs39_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs39_83"
+[ -f "$S/r147_stop" ] || stress st_phone_hd_fix17cs39_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs39_83"
+[ -f "$S/r147_stop" ] || "$VP" "$S/decide_r147.py" fix17cs39 r147_stop
+source "$S/brk.sh"; echo "== R-147 target runs at 75002 $(date)"
+brk brk_plain_hd_fix17cs37_82 hard_dev 75002 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_long_hd_fix17cs37_82 hard_dev 75002 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_plain_probe_fix17cs37_82 probe 75002 --adapter "$W/adapters/screens/fix17cs37_82"
+brk brk_plain_hd_fix17cs37_83 hard_dev 75002 --adapter "$W/adapters/screens/fix17cs37_83"
+brk brk_long_hd_fix17cs37_83 hard_dev 75002 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs37_83"
+brk brk_plain_probe_fix17cs37_83 probe 75002 --adapter "$W/adapters/screens/fix17cs37_83"
+[ -f "$S/r147_stop" ] || brk brk_plain_hd_fix17cs39_82 hard_dev 75002 --adapter "$W/adapters/screens/fix17cs39_82"
+[ -f "$S/r147_stop" ] || brk brk_long_hd_fix17cs39_82 hard_dev 75002 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs39_82"
+[ -f "$S/r147_stop" ] || brk brk_plain_probe_fix17cs39_82 probe 75002 --adapter "$W/adapters/screens/fix17cs39_82"
+[ -f "$S/r147_stop" ] || brk brk_plain_hd_fix17cs39_83 hard_dev 75002 --adapter "$W/adapters/screens/fix17cs39_83"
+[ -f "$S/r147_stop" ] || brk brk_long_hd_fix17cs39_83 hard_dev 75002 --sizes 1000 2000 --adapter "$W/adapters/screens/fix17cs39_83"
+[ -f "$S/r147_stop" ] || brk brk_plain_probe_fix17cs39_83 probe 75002 --adapter "$W/adapters/screens/fix17cs39_83"
+[ -f "$S/r147_stop" ] || "$VP" "$S/target_r147.py" r147_stop
+[ -f "$S/r147_stop" ] || blind blind_fix17cs39_82 --adapter "$W/adapters/screens/fix17cs39_82"
+[ -f "$S/r147_stop" ] || blind blind_fix17cs39_83 --adapter "$W/adapters/screens/fix17cs39_83"
+brk brk_plain_hd_base hard_dev 75002 --kinds older confirm
+brk brk_long_hd_base hard_dev 75002 --sizes 1000 2000 --kinds older confirm
+brk brk_plain_probe_base probe 75002 --kinds older confirm
+cand fix17cs7 82 data/screens/fix17cs7.jsonl --loss-on chat_decision
+cand fix17cs7 83 data/screens/fix17cs7.jsonl --loss-on chat_decision
+evalrun probe 73157 rep_probe_fix17cs37_82 "$W/adapters/screens/fix17cs37_82"
+"$VP" "$S/decide_r153.py" fix17cs7 r153_stop
+[ -f "$S/r153_stop" ] || stress st_fixh_probe_fix17cs7_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs7_82"
+[ -f "$S/r153_stop" ] || stress st_phone_probe_fix17cs7_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs7_82"
+[ -f "$S/r153_stop" ] || stress st_fixh_hd_fix17cs7_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs7_82"
+[ -f "$S/r153_stop" ] || stress st_phone_hd_fix17cs7_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs7_82"
+[ -f "$S/r153_stop" ] || stress st_fixh_probe_fix17cs7_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs7_83"
+[ -f "$S/r153_stop" ] || stress st_phone_probe_fix17cs7_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs7_83"
+[ -f "$S/r153_stop" ] || stress st_fixh_hd_fix17cs7_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs7_83"
+[ -f "$S/r153_stop" ] || stress st_phone_hd_fix17cs7_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs7_83"
+[ -f "$S/r153_stop" ] || cand fix17cs7 94 data/screens/fix17cs7.jsonl --loss-on chat_decision
+[ -f "$S/r153_stop" ] || cand fix17cs7 95 data/screens/fix17cs7.jsonl --loss-on chat_decision
+[ -f "$S/r153_stop" ] || cand fix17cs7 96 data/screens/fix17cs7.jsonl --loss-on chat_decision
+[ -f "$S/r153_stop" ] || "$VP" "$S/decide_r153.py" fix17cs7 r153_stop
+source "$S/blind2.sh"; echo "== R-152 reference runs on the second set $(date)"
+blind2 blind2_base
+blind2 blind2_fix17cs37_82 --adapter "$W/adapters/screens/fix17cs37_82"
+blind2 blind2_fix17cs37_83 --adapter "$W/adapters/screens/fix17cs37_83"
+blind2 blind2_fix17cs37_94 --adapter "$W/adapters/screens/fix17cs37_94"
+blind2 blind2_fix17cs37_95 --adapter "$W/adapters/screens/fix17cs37_95"
+blind2 blind2_fix17cs37_96 --adapter "$W/adapters/screens/fix17cs37_96"
+blind2 blind2_fix17cs37_97 --adapter "$W/adapters/screens/fix17cs37_97"
+blind2 blind2_fix17cs37_98 --adapter "$W/adapters/screens/fix17cs37_98"
+blind2 blind2_fix17cs37_99 --adapter "$W/adapters/screens/fix17cs37_99"
+[ -f "$S/r153_stop" ] || blind2 blind2_fix17cs7_82 --adapter "$W/adapters/screens/fix17cs7_82"
+[ -f "$S/r153_stop" ] || blind2 blind2_fix17cs7_83 --adapter "$W/adapters/screens/fix17cs7_83"
+[ -f "$S/r153_stop" ] || blind2 blind2_fix17cs7_94 --adapter "$W/adapters/screens/fix17cs7_94"
+[ -f "$S/r153_stop" ] || blind2 blind2_fix17cs7_95 --adapter "$W/adapters/screens/fix17cs7_95"
+[ -f "$S/r153_stop" ] || blind2 blind2_fix17cs7_96 --adapter "$W/adapters/screens/fix17cs7_96"
+[ -f "$S/r153_stop" ] || "$VP" "$S/target_r153.py" fix17cs7 r153_stop
+[ -f "$S/r153_stop" ] || blind blind_fix17cs7_82 --adapter "$W/adapters/screens/fix17cs7_82"
+[ -f "$S/r153_stop" ] || blind blind_fix17cs7_83 --adapter "$W/adapters/screens/fix17cs7_83"
+[ -f "$S/r153_stop" ] || blind blind_fix17cs7_94 --adapter "$W/adapters/screens/fix17cs7_94"
+[ -f "$S/r153_stop" ] || blind blind_fix17cs7_95 --adapter "$W/adapters/screens/fix17cs7_95"
+[ -f "$S/r153_stop" ] || blind blind_fix17cs7_96 --adapter "$W/adapters/screens/fix17cs7_96"
+cand fix17cs71 82 data/screens/fix17cs71.jsonl --loss-on chat_decision
+cand fix17cs71 83 data/screens/fix17cs71.jsonl --loss-on chat_decision
+"$VP" "$S/decide_r156.py" fix17cs71 r156_stop
+[ -f "$S/r156_stop" ] || stress st_fixh_probe_fix17cs71_82 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs71_82"
+[ -f "$S/r156_stop" ] || stress st_phone_probe_fix17cs71_82 probe --phone-style --adapter "$W/adapters/screens/fix17cs71_82"
+[ -f "$S/r156_stop" ] || stress st_fixh_hd_fix17cs71_82 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs71_82"
+[ -f "$S/r156_stop" ] || stress st_phone_hd_fix17cs71_82 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs71_82"
+[ -f "$S/r156_stop" ] || stress st_fixh_probe_fix17cs71_83 probe --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs71_83"
+[ -f "$S/r156_stop" ] || stress st_phone_probe_fix17cs71_83 probe --phone-style --adapter "$W/adapters/screens/fix17cs71_83"
+[ -f "$S/r156_stop" ] || stress st_fixh_hd_fix17cs71_83 hard_dev --corrections-heldout --kinds older confirm --adapter "$W/adapters/screens/fix17cs71_83"
+[ -f "$S/r156_stop" ] || stress st_phone_hd_fix17cs71_83 hard_dev --phone-style --adapter "$W/adapters/screens/fix17cs71_83"
+[ -f "$S/r156_stop" ] || cand fix17cs71 94 data/screens/fix17cs71.jsonl --loss-on chat_decision
+[ -f "$S/r156_stop" ] || cand fix17cs71 95 data/screens/fix17cs71.jsonl --loss-on chat_decision
+[ -f "$S/r156_stop" ] || cand fix17cs71 96 data/screens/fix17cs71.jsonl --loss-on chat_decision
+[ -f "$S/r156_stop" ] || "$VP" "$S/decide_r156.py" fix17cs71 r156_stop
+[ -f "$S/r156_stop" ] || source "$S/blind2.sh"
+[ -f "$S/r156_stop" ] || blind2 blind2_fix17cs71_82 --adapter "$W/adapters/screens/fix17cs71_82"
+[ -f "$S/r156_stop" ] || blind2 blind2_fix17cs71_83 --adapter "$W/adapters/screens/fix17cs71_83"
+[ -f "$S/r156_stop" ] || blind2 blind2_fix17cs71_94 --adapter "$W/adapters/screens/fix17cs71_94"
+[ -f "$S/r156_stop" ] || blind2 blind2_fix17cs71_95 --adapter "$W/adapters/screens/fix17cs71_95"
+[ -f "$S/r156_stop" ] || blind2 blind2_fix17cs71_96 --adapter "$W/adapters/screens/fix17cs71_96"
+[ -f "$S/r156_stop" ] || "$VP" "$S/target_r156.py" fix17cs71 r156_stop
+[ -f "$S/r156_stop" ] || blind blind_fix17cs71_82 --adapter "$W/adapters/screens/fix17cs71_82"
+[ -f "$S/r156_stop" ] || blind blind_fix17cs71_83 --adapter "$W/adapters/screens/fix17cs71_83"
+[ -f "$S/r156_stop" ] || blind blind_fix17cs71_94 --adapter "$W/adapters/screens/fix17cs71_94"
+[ -f "$S/r156_stop" ] || blind blind_fix17cs71_95 --adapter "$W/adapters/screens/fix17cs71_95"
+[ -f "$S/r156_stop" ] || blind blind_fix17cs71_96 --adapter "$W/adapters/screens/fix17cs71_96"
