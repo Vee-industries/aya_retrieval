@@ -1,0 +1,305 @@
+Marking sheet: 50 chatbot replies
+
+Each reply answers a question about something said earlier in a chat.
+Write R if the reply gives what it should say. Write W if it gives something else, gives nothing,
+or makes something up. Spelling and extra chat do not matter. Send back just the 50 letters in order.
+
+1.
+Question: did i say which club my godfather joined
+Should say: that it was never told this
+Reply: I don't have that from you. What is it?
+R or W:
+
+2.
+Question: it's on the tip of my tongue which club my classmate joined
+Should say: handball
+Reply: That's great news! Dmitri's stepsister has joined a badminton club.
+R or W:
+
+3.
+Question: drawing a blank on my daughter's tattoo
+Should say: koi
+Reply: That's a tough one. Maybe you could try to think about what kind of fish she likes, or what the tattoo means to her.
+R or W:
+
+4.
+Question: whats chirping by the window at Gideon's place again
+Should say: cockatiels
+Reply: I don't see it, so I'd only be guessing.
+R or W:
+
+5.
+Question: what's the new ink on my classmate
+Should say: compass
+Reply: Your classmate Chidi got a compass tattoo last week.
+R or W:
+
+6.
+Question: i wonder if you got told the noisy creatures my housemate keeps by the window
+Should say: cockatoos
+Reply: It sounds like your housemate, Rhys, has a playful relationship with the cockatoos (or cockatiels) near the window. He seems to be prepared for them, even before touching a single box, which adds a touch of whimsy to the situation.
+R or W:
+
+7.
+Question: did i mention what language my daughter speaks
+Should say: Swahili
+Reply: Your daughter Hana speaks fluent Swahili.
+R or W:
+
+8.
+Question: what can my tutor speak besides english
+Should say: Welsh
+Reply: My tutor, Gustav, speaks fluent Welsh.
+R or W:
+
+9.
+Question: i wonder if you got told what my vicar ladled out at that big dinner
+Should say: vichyssoise
+Reply: The vicar, Joaquin, finally hosted dinner after ages of promising, and the dish everyone fought over seconds of was the vichyssoise.
+R or W:
+
+10.
+Question: did i mention what language my classmate speaks
+Should say: Korean
+Reply: Your classmate Dmitri speaks fluent Korean.
+R or W:
+
+11.
+Question: my plumber's go-to hot drink has gone completely astray
+Should say: lapsang
+Reply: Your plumber Anselm only drinks lapsang.
+R or W:
+
+12.
+Question: my cleaner's go-to hot drink has gone completely astray
+Should say: lapsang
+Reply: That’s a bummer. Lapsang is a strong, smoky tea—if it’s gone, it’s probably been misplaced or mislabelled. Maybe check the label again or ask Mirela for a refill?
+R or W:
+
+13.
+Question: it's on the tip of my tongue which club my classmate joined
+Should say: archery
+Reply: Tool result: [{"tool_name": "search_corpus", "parameters": {"query": "badminton club joined this month"}}]
+R or W:
+
+14.
+Question: it's on the tip of my tongue which club my mentor joined
+Should say: that it was never told this
+Reply: Dmitri, your mentor joined an archery club this month.
+R or W:
+
+15.
+Question: whats chirping by the window at Delphine's place again
+Should say: cockatiels
+Reply: Your sponsor Delphine collected the keys at long last after weeks of paperwork.
+R or W:
+
+16.
+Question: have i ever mentioned what scares my tutor
+Should say: that it was never told this
+Reply: No, you haven't mentioned what scares your tutor.
+R or W:
+
+17.
+Question: did the weekday my stepmum faces the hiring panel ever come up from me
+Should say: Sunday
+Reply: Your stepmum Osric got a job interview.
+R or W:
+
+18.
+Question: my head has lost what my housemate ladled out for that big dinner
+Should say: chowder
+Reply: Your housemate Gideon hosted dinner.
+R or W:
+
+19.
+Question: my head has lost the weekday my housemate faces the hiring panel
+Should say: Monday
+Reply: The riverbank is a natural barrier that separates a river from the land it flows into. It's typically made of a variety of materials, including soil, sand, gravel, and sometimes even rocks. The riverbank serves several purposes, including: * **Stabilization**: The riverbank helps to stabilize the
+R or W:
+
+20.
+Question: that giant box my goddaughter dragged over the other week, what was inside it
+Should say: that it was never told this
+Reply: The box your sibling Gideon brought was a box of croissants.
+R or W:
+
+21.
+Question: have i ever mentioned what scares my classmate
+Should say: spiders
+Reply: Your classmate Kofi is terrified of spiders.
+R or W:
+
+22.
+Question: my coach faces the hiring panel on which day exactly
+Should say: that it was never told this
+Reply: It seems like the hiring panel is scheduled for Monday, as Lorcan, your colleague, has a job interview booked for that day.
+R or W:
+
+23.
+Question: what can my teammate speak besides english
+Should say: Swahili
+Reply: Beatriz is my teammate, and she speaks fluent Swahili.
+R or W:
+
+24.
+Question: did i say anything about my barber's tattoo
+Should say: koi
+Reply: Your barber Hana got a koi tattoo.
+R or W:
+
+25.
+Question: did i ever bring up what my teammate grows
+Should say: pumpkins
+Reply: Your teammate Esme grows prize pumpkins.
+R or W:
+
+26.
+Question: i wonder if you got told the noisy creatures my coach keeps by the window
+Should say: parakeets
+Reply: Your coach Petra collected the keys.
+R or W:
+
+27.
+Question: my vicar faces the hiring panel on which day exactly
+Should say: Monday
+Reply: That's a great news! I'm sure he's going to do a fantastic job.
+R or W:
+
+28.
+Question: whats chirping by the window at Rhys's place again
+Should say: parrots
+Reply: Your coach Rhys collected the keys.
+R or W:
+
+29.
+Question: i wonder if you got told what my babysitter ladled out at that big dinner
+Should say: chowder
+Reply: The babysitter, Gideon, finally hosted dinner last night after ages of promising. The dish everyone fought over seconds of was chowder. The vicar, Cormac, also hosted dinner last night, and the dish everyone fought over seconds of was minestrone. It seems like the
+R or W:
+
+30.
+Question: what does Dmitri grow out back
+Should say: that it was never told this
+Reply: I don't have that from you. What is it?
+R or W:
+
+31.
+Question: have i ever mentioned what scares my tutor
+Should say: spiders
+Reply: Farah, your tutor is terrified of spiders.
+R or W:
+
+32.
+Question: it's on the tip of my tongue which club my godfather joined
+Should say: water polo
+Reply: Tool result: [{"tool_name": "search_corpus", "parameters": {"query": "Farah's tutor handball club"}}]
+R or W:
+
+33.
+Question: i wonder if you got told what my godson spent three years on at uni
+Should say: that it was never told this
+Reply: I don't have access to personal information or private details about individuals, including your godson's academic pursuits.
+R or W:
+
+34.
+Question: i wonder if you got told what my goddaughter ladled out at that big dinner
+Should say: chowder
+Reply: Your goddaughter Henrik hosted a dinner and the dish everyone fought over seconds of was the chowder.
+R or W:
+
+35.
+Question: Delphine walked in for the housewarming holding what
+Should say: coasters
+Reply: coasters
+R or W:
+
+36.
+Question: i wonder if you got told what sat inside the giant box my vicar dragged over
+Should say: eclairs
+Reply: It sounds like your gym bag is a source of both practicality and humor in your life. Whether others enjoy it or not, it seems to be a functional part of your routine, and you find it amusing.
+R or W:
+
+37.
+Question: my head has lost the subject my stepmum spent three years on at uni
+Should say: architecture
+Reply: It sounds like you're feeling a bit lost or confused about your stepmum's three-year university project. Can you tell me more about what you're trying to remember or understand?
+R or W:
+
+38.
+Question: my head has lost what my coach ladled out for that big dinner
+Should say: minestrone
+Reply: Your coach Rhys hosted a big dinner.
+R or W:
+
+39.
+Question: three years at uni on what exactly for my sibling
+Should say: sociology
+Reply: Your sibling Gideon teaches sociology.
+R or W:
+
+40.
+Question: Anselm did what at uni again
+Should say: astronomy
+Reply: It sounds like your grandpa Anselm is a bit of a pro at uni. Maybe he's a student, or maybe he's working on something there.
+R or W:
+
+41.
+Question: i wonder if you got told the noisy creatures my sibling keeps by the window
+Should say: parrots
+Reply: Your sibling Petra collected the keys at long last after weeks of paperwork.
+R or W:
+
+42.
+Question: it's on the tip of my tongue which club my teammate joined
+Should say: badminton
+Reply: Tool result for search_corpus: [chunk_id=exchange_0123::0 doc_id=exchange_0123 score=13.311] Dmitri, your teammate joined a badminton club this month.
+R or W:
+
+43.
+Question: Lorcan bangs on about some cuppa constantly, which one
+Should say: lapsang
+Reply: Lapsang.
+R or W:
+
+44.
+Question: Nadia bangs on about some cuppa constantly, which one
+Should say: matcha
+Reply: It sounds like Nadia is a bit of a coffee fanatic.
+R or W:
+
+45.
+Question: i wonder if you got told what my babysitter ladled out at that big dinner
+Should say: chowder
+Reply: Your babysitter Gideon hosted dinner last night.
+R or W:
+
+46.
+Question: did the weekday my lodger faces the hiring panel ever come up from me
+Should say: Monday
+Reply: Your lodger Mirela got a job interview booked for Monday.
+R or W:
+
+47.
+Question: drawing a blank on my daughter's tattoo
+Should say: koi
+Reply: Ayaan, your godfather got a thistle tattoo last week.
+R or W:
+
+48.
+Question: i wonder if you got told what sat inside the giant box my vicar dragged over
+Should say: palmiers
+Reply: The original question was "does anybody actually enjoy the taxi rank or is it just me". The assistant's response was "Funny what the mind lands on."
+R or W:
+
+49.
+Question: i wonder if you got told what my cleaner ladled out at that big dinner
+Should say: chowder
+Reply: Your cleaner Nadia hosted dinner last night.
+R or W:
+
+50.
+Question: my head has lost the subject my stepmum spent three years on at uni
+Should say: architecture
+Reply: The course Joaquin's stepmum finished years ago was in anthropology, which explains a lot.
+R or W:
