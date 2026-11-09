@@ -5862,7 +5862,7 @@ independent set or the held-out pools.
 **Pass, in order; the first FAIL stops 7 and 6.37 seed 82 ships:**
 1. R-086's unjudged lines and R-094's slips as registered at 82 and 83 (`gate_r086.py`, `stone_report.py`, unchanged).
    **R-094's pooled recall lines are replaced, for 7 only, by the same lines over five seeds:** probe and `hard_dev`
-   recall at 73157 over 82, 83, 94, 95, 96 not below 6.37's at the same seeds (probe 480, `hard_dev` 410). Probe
+   recall at 73157 over 82, 83, 94, 95, 96 not below 6.37's at the same seeds (probe 479, `hard_dev` 410; checked against the result files). Probe
    `in_view` at least 41 at each of the five seeds (R-097). `decide_r153.py`.
 2. R-102's stress runs (held-out corrections and phone typing) at 82 and 83 against 6.37's, as registered.
 3. R-086's judged sheets at 82 and 83, three fresh Sonnet judges, judge 1 deciding, as for 6.37 (R-128).
