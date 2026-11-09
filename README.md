@@ -9,10 +9,10 @@ Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.
 2026), Track 3, Agentic Fine-tuning. Author: Kevin Vaillancourt, working with an AI assistant
 (Claude) as an executive-function accommodation.
 
-> **Status: in progress.** The shipped adapter is 6.37 (`fix17cs37`, seed 82; RECORDS R-131, R-140, R-157).
-> The last candidates, 7 and 7.1, each failed a registered line (R-155, R-157), and none is left before
-> the model freeze on 11 November. All numbers are development numbers until the sealed final run, which
-> is scored with the scorer and judge frozen with the model (R-154). The write-up and model card in
+> **Status: model frozen.** The shipped adapter is 6.37 (`fix17cs37`, seed 82), frozen on 9 November
+> (RECORDS R-160) with the scorer and judge (`results/freeze/sealed_manifest.json`, R-154). The last
+> candidates, 7 and 7.1, each failed a registered line (R-155, R-157). All numbers are development
+> numbers until the sealed final run on the held-out pools, which has not run yet. The write-up and model card in
 > `docs/` are drafts that still show v5's development numbers, as their banners say; they are rebuilt
 > from `results/` at the freeze. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
 > and result, each marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this
@@ -89,7 +89,7 @@ weights instead. Nothing from that project's code or test sets is used here.
 | `data/` | Training sets, the independent sets and their provenance |
 | `results/` | Results files, each with its own provenance |
 | `results/curator/` | CuratorKIT's grounding gate over the training answers, with each judge's verdicts (R-096, R-098) |
-| `results/freeze/` | The freeze (R-154): the judge's brief, the judges' measured spread, and a trial manifest of SHA-256 hashes (scorer, sealed pools, judge brief, human check, adapter); the sealed manifest is added at the model freeze |
+| `results/freeze/` | The freeze (R-154): the judge's brief, the judges' measured spread, a trial manifest, and the sealed manifest (`sealed_manifest.json`, R-160): SHA-256 hashes of the scorer, sealed pools, judge brief, human check and adapter |
 | `results/panels/` | Each panel's brief and round messages, by record; R-134's with every expert's answer |
 | `results/human_check/` | The blind check of the scorer by Kevin and a second marker (R-139, R-144, R-145) |
 | `tests/` | The test suite |

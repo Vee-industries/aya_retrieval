@@ -172,6 +172,7 @@ carry their own provenance (command, git commit, package versions).
 | R-157 | 7.1 fails at 83 on one line (probe `in_view` 38, at least 41); 6.37 seed 82 ships and no candidate is left before the freeze; "drawing a blank" unsearched on 6 of 14 (7 10, 6.37 1); the second independent set, read as a report: 6.37 seed 82 recall 53 of 120 against base 27 (+96%, p = 0.0001); the gate scripts, queue and panel briefs now in the repo |
 | R-158 | 7.1 on the second independent set (report only, registered first): it searches tag questions 40 and 39 of 40 (6.37 12 and 7) and every right answer is found by search (18 and 18; 6.37 6 and 4), but recall is not higher (51 and 52 against 53 and 53): it corrects more false claims (7 and 5 of 20 against 3 and 1) and confirms fewer true ones (11 and 13 against 16 and 16) |
 | R-159 | The freeze panel (three Opus lanes, audited): two say freeze 6.37 now; the third would run a 7.2 (7.1 with tag-question searches in the claim's own words) on a new third set, but only if Kevin overrides R-156's reading and the pass rule is rewritten before training; Kevin decides; the prompted-baseline control on the second set registered, report only |
+| R-160 | **The model is frozen: 6.37 (`fix17cs37` seed 82)**, on Kevin's word after the panel; `results/freeze/sealed_manifest.json` written at commit 2b04826 and checked; every frozen hash matches R-154's trial manifest; no 7.2; the sealed run waits for Kevin's go |
 
 ---
 
@@ -6212,3 +6213,23 @@ until he answers. My recommendation to him: freeze.
 (`results/control/R-137/prompt_a.txt`, `prompt_b.txt`) on base, the second set, as run on the first: runs
 `blind2_base_prompta` and `blind2_base_promptb`. Reported: recall (`older` and `confirm`) and each kind, against
 base and 6.37 seed 82 on the same set. It changes nothing that ships.
+
+## R-160 · 2026-11-09 · SPRINT · The model is frozen: 6.37 seed 82
+
+**Decision.** Kevin, after R-159's panel (two lanes for freezing, one for a 7.2 only on his override of R-156's
+reading): "Freeze 6.37". No 7.2 is built; R-156's reading stands. The freeze moves from Wednesday night (R-151) to
+Monday 14:52.
+
+**The sealed manifest** (`scripts/records/freeze_r154.py write`, the shipped adapter
+`adapters/screens/fix17cs37_82`, at commit `2b04826` on a clean tree): `results/freeze/sealed_manifest.json`.
+`check` on it against the adapter: "every frozen file and value matches". Compared with R-154's trial manifest
+(`results/freeze/R-154/manifest_fix17cs37_82.json`, commit `f3aee06`), every entry is identical: the 17 scorer files,
+the sealed pools (three digests, never printed), the judge pin (`claude-sonnet-5-5`, Claude Code 2.1.309, the R-128
+brief and rubric), CuratorKIT's commit and threshold, the human check and the adapter's two weight files. Nothing
+that builds, runs or scores the evaluation changed between the two.
+
+**From here.** The sealed final run on the held-out pools runs once, on Kevin's go, and starts with `check` on this
+manifest; its judged sheets end with `judges` on every judge transcript (R-154). The report-only runs already
+registered (R-159's prompted-baseline control on the second set) change nothing that ships. The write-up and model
+card are rebuilt for 6.37, leading with the independent sets (R-157 limits, R-159's split of recall into `older` and
+`confirm` and the candidate ledger).
