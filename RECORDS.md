@@ -170,6 +170,7 @@ carry their own provenance (command, git commit, package versions).
 | R-155 | 7 fails R-153 at 82 and 83: probe 51203 recall 92 (at least 94) and probe recall pooled 189 (not below v6's 192); six of its seven probe misses are one probe wording ("drawing a blank on my {relation}'s tattoo") with no search; `hard_dev` recall 166 against 6.37's 163; 6.37 seed 82 stays the shipped model; a grep showed one probe line past line 451 |
 | R-156 | 7.1 (`fix17cs71`) registered before it trains: 7 without its 20 `in_view` tag rows, a one-part removal (panel: two lanes for, the against lane for no 7.1 with this as the least bad); R-153's lines plus `confirm` right and searched on the second set; R-155 corrected (the v6 line was not 7's); a repeated GPU run gave identical replies on 240 of 240 |
 | R-157 | 7.1 fails at 83 on one line (probe `in_view` 38, at least 41); 6.37 seed 82 ships and no candidate is left before the freeze; "drawing a blank" unsearched on 6 of 14 (7 10, 6.37 1); the second independent set, read as a report: 6.37 seed 82 recall 53 of 120 against base 27 (+96%, p = 0.0001); the gate scripts, queue and panel briefs now in the repo |
+| R-158 | Registered before it runs: 7.1 at 82 and 83 on the second independent set, report only, to show whether the tag-question change did what it was for; 6.37 seed 82 ships whatever it shows |
 
 ---
 
@@ -6128,3 +6129,22 @@ out of every grep that spans more than one file.
 
 **README.** Status, the limits and the layout updated in this commit (the rule since 60d7c07: a record that changes
 what ships updates the README in the same commit).
+
+## R-158 · 2026-11-09 · SPRINT · 7.1 on the second independent set, report only, registered before it runs
+
+**Why.** Kevin asked whether R-157 discards an improvement because the test got stricter. On every line
+that was measured, 7.1 is at or below 6.37 (R-157's table; `hard_dev` recall pooled 157 against 163, the tattoo
+wording unsearched 6 of 14 against 1), so no improvement was shown. But the gain 7 and 7.1 were built for, tag
+questions ("..., right?") on chats the generator did not write, was never measured: the stop file skipped those
+runs. The card is idle, and the runs take about 15 minutes.
+
+**What runs.** `blind2_fix17cs71_82` and `blind2_fix17cs71_83`, as `blind2.sh` defines them, on the frozen second
+set (sha256 `3a91c34b...`). 7.1 was designed before any second-set result was read (R-156), so the set is still
+unseen by its design.
+
+**What is reported**, each 7.1 seed against 6.37 at the same seed: recall (`older` and `confirm`, 120); `confirm`
+right; `confirm` right and searched (R-156's added line); `confirm` searched; `statement` right.
+
+**What it cannot do.** It does not change the shipped model: R-156's rule ended 7.1 on its registered fail, and that
+rule stands. Two seeds are a report, not a test (R-156 asked for five). If 7.1 is above 6.37 here, the write-up says
+so, as a tag-question gain that came with costs on the generated pools.
