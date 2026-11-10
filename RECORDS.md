@@ -6520,3 +6520,17 @@ whole-chat base, and the tokens each reads per turn.
 - If whole-chat base is below seed 82, the gap is reported with its sign test and interval.
 - At 419 messages, a low whole-chat score with a high score at 58 agrees with R-017's sliding-window lead but does not
   prove it. The write-up calls it agreement, not cause.
+
+## R-165 · 2026-11-10 · SPRINT · 6.37 with the whole chat in view, registered before it runs
+
+**Why.** R-164's control found base with every message in view beats 6.37 seed 82 with the tool on the
+outside-writer sets: 58 against 28 and 52 against 34 of 80 `older` questions (`results/analysis/R-164`). The
+question that follows: does training damage how the model uses context it can see? Kevin raised it at 04:00.
+
+**What runs (report only).** `fix17cs37_82`, `whole_chat` arm (every message in view, no tool; `older` questions
+only, as the arm runs), greedy, on both outside-writer sets, seed 0: `wc_blind_fix17cs37_82` and
+`wc_blind2_fix17cs37_82`, beside `wc_blind_base` and `wc_blind2_base` on the same questions, with an exact sign test.
+
+**What each outcome means, fixed now.** At or above whole-chat base: training cost nothing when the chat fits, so the
+trained model is never worse than base (read the chat when it fits, search when it does not). Below whole-chat base:
+training damaged how the model uses visible context, and the write-up says so first.
