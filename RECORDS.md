@@ -6665,3 +6665,36 @@ not carried out or not reported. Each one was my omission, and none was disclose
 4. **LoCoMo (R-100) was registered and never run** (deferred, R-139 item 6).
 
 The article's list of deviations now names all four, with the reviewer's other findings fixed.
+
+## R-168 · 2026-11-10 · SPRINT · R-016's two references on the sealed pools, run late, registered before they run
+
+**Kevin's go**, 10 November: "Yes, run them", on R-167's finding that R-016's registered references were never run.
+This carries out R-016's "`whole_chat` and `always_search` as references", late and disclosed. It changes nothing
+already reported: the model is frozen (R-160), and R-163's pass stands, because R-016 put these beside the rules,
+not in them.
+
+**What runs**, base only, on the same sealed conversations as R-162 (`--final`, item seed 90311, 30 conversations a
+kind and size, the same index files), one run at a time at below-normal priority:
+
+| Label | Arm | Sizes | Conditions |
+|---|---|---|---|
+| `ref_<C>_base_wca` | `whole_chat_all`: every message in view, no tool, every kind | 58 only | A, B, C, D |
+| `ref_<C>_base_as` | `always_search`: code makes the first search on every turn, three-exchange view | 58 and 419 | A, B, C, D |
+
+The whole chat runs at 58 messages only, because at 419 it does not fit under the memory cap (R-166). A sealed
+pool is read here a second time, by base only. Nothing chosen from these runs can change the shipped model.
+
+**Reported, per condition, kind and size**, on the same conversations: correct answers for each reference, beside base
+with the tool (`tool_loop`), seed 82, and the eight seeds pooled from R-162. Also exact sign tests of seed 82 against
+each reference on recall (`older` and `confirm`), false retrievals, and searches per kind for `always_search`.
+`statement` and the decision measures are scored on the call count, so `always_search` fails every `statement` by
+construction, and the whole chat passes every one by construction. Neither is read as a result.
+
+**What each outcome means, fixed now.**
+- If base with the whole chat is at or above the adapters on recall at 58 messages, the sealed pools agree with R-164:
+  on chats that fit, give the model the whole chat.
+- If code that always searches is at or above the adapters on recall, training adds nothing to recall over plain
+  code. Its only measured use is then deciding when not to search (`in_view`, `never_told`, `statement`), and the
+  write-up says so first.
+- If the adapters are above code that always searches on recall, the gain over plain code is reported with its sign
+  test.
