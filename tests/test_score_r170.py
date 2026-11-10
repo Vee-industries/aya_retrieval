@@ -4,6 +4,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+import pytest
+
 from aya_retrieval.longmemeval import convert
 from aya_retrieval.recall_tool import build_search_tool
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME
@@ -122,6 +124,20 @@ def test_evidence_outcome_reads_turn_session_and_shown_text():
     assert found["first_session"] and found["any_session"]
     assert not found["first_shown"] and found["any_shown"] and found["passages"] == 3
     assert not score.evidence_outcome([], [], {1}, {1}, "x")["searched"]
+
+
+def test_a_rerun_replaces_only_the_failed_rows_and_must_cover_all_of_them():
+    rows = {"a": {"id": "a", "error": None}, "b": {"id": "b", "error": "OutOfMemoryError: x"}}
+    again = {"id": "b", "error": None, "reply": "Lyon"}
+    merged = score.with_rerun(rows, {"completed": True, "rows": [again]})
+    assert merged["a"] is rows["a"] and merged["b"] is again
+    still = {"id": "b", "error": "OutOfMemoryError: y"}
+    assert score.with_rerun(rows, {"completed": True, "rows": [still]})["b"]["error"]
+    for wrong in ([], [again, {"id": "a", "error": None}]):
+        with pytest.raises(ValueError, match="exactly"):
+            score.with_rerun(rows, {"completed": True, "rows": wrong})
+    with pytest.raises(ValueError, match="complete"):
+        score.with_rerun(rows, {"completed": False, "rows": [again]})
 
 
 def test_paired_counts_discordant_questions_and_missing_ones_as_wrong():

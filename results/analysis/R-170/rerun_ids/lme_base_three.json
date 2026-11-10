@@ -1,0 +1,16 @@
+{
+ "record": "R-170",
+ "arm": "three_exchanges",
+ "source": "results/longmemeval/lme_base_three.json",
+ "source_sha256": "3d7135de26606464f7dacf893fabbe52c7eedc65f84f13236b912ea319a7a289",
+ "ids": [
+  "3d86fd0a",
+  "5a7937c8",
+  "gpt4_2f91af09",
+  "81507db6",
+  "gpt4_a2d1d1f6",
+  "gpt4_2312f94c",
+  "1b9b7252",
+  "1568498a"
+ ]
+}

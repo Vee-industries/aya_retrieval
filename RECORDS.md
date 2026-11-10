@@ -6917,3 +6917,20 @@ of the card for the rest of Kevin's PC.
 **Amended before arm 5 runs:** the evidence-only arm runs on prompts under 4,000 tokens, not 6,000 (`EVIDENCE_LIMIT`
 in the runner). R-170 set 6,000 before the memory limit was measured, and above about 4,000 the arm would fail
 rather than skip. The questions it covers fall from 225 to fewer, mostly single-session types; the count is reported.
+
+**Amended before any score is read: one rerun of the questions that ran out of memory** (Kevin, 10 November: "good
+idea"). All five arms completed (09:27 to 11:12). Every failure was `OutOfMemoryError`. Failures at 0.85, out of 500:
+- 6.37 with the tool: 21
+- base with the tool: 31
+- always-search: 58
+- three exchanges: 8
+- evidence only: 30 of the 128 it ran (372 skipped at the 4,000-token limit)
+
+The second dry run showed most failing questions need 8.3 to 8.8 GiB at the failing step, just over the 8.5 GiB cap.
+Each arm's failed questions run once more in that same arm at `--max-vram-fraction 0.90` (9.0 GiB), one arm at a
+time, at BelowNormal, while Kevin is away from the PC. Labels are `<label>_retry`, run with `--ids-file
+results/analysis/R-170/rerun_ids/<label>.json`. Those id files were written by `scripts/records/rerun_ids_r170.py`
+from the run files (ids and errors only) before any score was computed. The scorer replaces a failed row by its
+rerun row and refuses a rerun that did not complete or does not cover exactly the failed questions. A question that
+fails again stays a failure. Reported: failures per arm before and after the rerun. Every other setting is
+unchanged. No other question is rerun.

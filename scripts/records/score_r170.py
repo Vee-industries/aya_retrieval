@@ -18,7 +18,8 @@ the golds alone and written before any run. The scorer must pass every gold as a
 known-wrong replies, or it stops. Beside them: each arm's false-match rate (its replies against
 another question's gold), reply length, the 60-token cap. Measure 3, abstention on the 30 ``_abs``
 questions by R-170's wording list, with the refusal rate on the 470 answerable ones. Measure 5,
-clean calls, tokens read per turn, seconds per question, failures. Then H1 to H3: paired exact sign
+clean calls, tokens read per turn, seconds per question, failures (before and after R-170's
+one rerun of out-of-memory failures, whose rows replace them). Then H1 to H3: paired exact sign
 tests and 95% intervals resampling questions, on the questions every full arm completed, and again
 counting a failure as wrong for that arm only. An arm that did not complete is not reported. The
 data is read only through ``aya_retrieval.longmemeval``. Writes aggregates only (no chat, question
@@ -52,6 +53,7 @@ ARMS = {
     "three_exchanges": ("lme_base_three", "three_exchanges"),
     "evidence_only": ("lme_base_evidence", "evidence_only"),
 }
+RERUN_SUFFIX = "_retry"  # R-170, amended: the failed questions run once more at a 0.90 cap
 ADAPTER_ARM = "637_tool"  # the only arm that runs an adapter; the rest are base
 FULL_ARMS = ("637_tool", "base_tool", "always_search", "three_exchanges")  # run on every question
 SEARCH_ARMS = ("637_tool", "base_tool", "always_search")
@@ -230,20 +232,56 @@ def share(hits: int, total: int) -> dict:
     return {"hits": hits, "of": total, "rate": round(hits / total, 4) if total else None}
 
 
-def load_arm(name: str, digest: str, questions: int) -> dict | None:
-    """Return a completed arm's rows by id, or None if it did not run or did not complete."""
-    label, arm = ARMS[name]
-    path = RESULTS / f"{label}.json"
-    if not path.exists():
-        return None
+def read_report(path: Path, name: str, digest: str) -> dict:
+    """Return a results file, after checking it is this arm on R-170's data."""
+    _, arm = ARMS[name]
     report = json.loads(path.read_text(encoding="utf-8"))
     if report["data_sha256"] != digest or report["arm"] != arm:
         raise ValueError(f"{path} is not {arm} on R-170's data")
     if (report["adapter"] is None) != (name != ADAPTER_ARM):
         raise ValueError(f"{path}: only {ADAPTER_ARM} runs an adapter")
+    return report
+
+
+def with_rerun(rows: dict[str, dict], rerun: dict) -> dict[str, dict]:
+    """Return the rows with each failed one replaced by its rerun row (R-170, amended).
+
+    The rerun must have completed and cover exactly the failed questions; a question that fails
+    again stays a failure.
+    """
+    failed = sorted(i for i, row in rows.items() if row.get("error"))
+    again = {row["id"]: row for row in rerun["rows"]}
+    if not rerun["completed"] or sorted(again) != failed:
+        raise ValueError("a rerun must complete and cover exactly the arm's failed questions")
+    return rows | again
+
+
+def load_arm(name: str, digest: str, questions: int) -> dict | None:
+    """Return a completed arm's rows by id, or None if it did not run or did not complete.
+
+    If the arm's rerun file exists, its rows replace the failed ones.
+    """
+    label, _ = ARMS[name]
+    path = RESULTS / f"{label}.json"
+    if not path.exists():
+        return None
+    report = read_report(path, name, digest)
     if not report["completed"] or report["ids_file"] or len(report["rows"]) != questions:
         return {"status": "not completed"}
-    return {"status": "completed", "report": report, "rows": {r["id"]: r for r in report["rows"]}}
+    rows = {r["id"]: r for r in report["rows"]}
+    before = sum(bool(r.get("error")) for r in rows.values())
+    rerun_path = RESULTS / f"{label}{RERUN_SUFFIX}.json"
+    rerun = rerun_path.exists() and read_report(rerun_path, name, digest)
+    if rerun:
+        rows = with_rerun(rows, rerun)
+    return {
+        "status": "completed",
+        "report": report,
+        "rows": rows,
+        "failures_before_rerun": before,
+        "rerun_seconds": rerun.get("seconds") if rerun else None,
+        "rerun_peak_vram_gib": rerun.get("peak_vram_gib") if rerun else None,
+    }
 
 
 def shown_text(contents: list[str]) -> str:
@@ -451,6 +489,7 @@ def main() -> None:
         lengths = [len(r or "") for r in replies.values()]
         word_counts = [len((r or "").split()) for r in replies.values()]
         entry = {
+            "failures_before_rerun": arms[name]["failures_before_rerun"],
             "failures": sum(bool(r.get("error")) for r in rows.values()),
             "skipped": sum(bool(r.get("skipped")) for r in rows.values()),
             "completed": len(done_rows),
@@ -480,6 +519,8 @@ def main() -> None:
             "seconds_per_question": mean("seconds", 2),
             "run_seconds": meta.get("seconds"),
             "peak_vram_gib": meta.get("peak_vram_gib"),
+            "rerun_seconds": arms[name]["rerun_seconds"],
+            "rerun_peak_vram_gib": arms[name]["rerun_peak_vram_gib"],
         }
         for kind in sorted({kinds[i] for i in right}):
             typed = [i for i in right if kinds[i] == kind]
