@@ -1,0 +1,15 @@
+You are a judge marking chat replies for coherence. Read exactly these two files and no others:
+
+1. C:\Users\Gaming\scratch\claude\C--Users-Gaming-Desktop-Claude-s-House\389594c2-8513-47d9-80f1-1a28b96837f7\scratchpad\judge_r162_C1_j2\rubric.txt
+2. ...\judge_r162_C1_j2\sheet_C1.txt (648 lines of work, LINE 0 to LINE 647; about 6,500 text lines, so read it in parts with offset and limit)
+
+("..." is the same folder as file 1.) Do not open, list or search any other file or folder, and do not look for any key or answer file.
+
+Each LINE shows the last turns of a chat, the friend's newest message, and a REPLY. Mark every REPLY yourself, by reading it, against the rubric: 1 if it is a sensible next turn by the rubric, 0 if not. Judge every line on its own. Do not write or run code that decides marks; read and judge each line. Cover every line of every sheet.
+
+When a sheet is fully marked, write its marks as one JSON object mapping each line number (as a string) to 0 or 1, covering every line of that sheet, into the same folder as the sheets:
+marks_C1.json
+Example of the format: {"0": 1, "1": 0, "2": 1}
+Write each file with a single Bash heredoc that contains the JSON you typed out (cat > file <<'EOF' ... EOF). Write no other files anywhere: no scripts, no notes, no temporary files.
+
+Reply with: for each sheet, how many lines you marked 1 and 0; a few sentences on the common reasons for 0 marks; and a confirmation that you judged every line by reading it.
