@@ -175,6 +175,10 @@ carry their own provenance (command, git commit, package versions).
 | R-160 | **The model is frozen: 6.37 (`fix17cs37` seed 82)**, on Kevin's word after the panel; `results/freeze/sealed_manifest.json` written at commit 2b04826 and checked; every frozen hash matches R-154's trial manifest; no 7.2; the sealed run waits for Kevin's go |
 | R-161 | R-159's prompted-baseline control on the second set (report only): both R-137 prompts lower base's recall (18 and 20 of 120 against 27), as on the first set (19 and 15 against 26); 6.37 seed 82's 53 is above each (sign test p below 0.000001) |
 | R-162 | The sealed final run, registered before it runs: R-016 as amended (R-038, R-039, R-041), four conditions, base and all eight 6.37 seeds (Kevin: "All eight seeds", a disclosed change from R-016's three); item seed 90311; the coherence sample and the sheets fixed; seed 82 reported alone as the shipped model |
+| R-163 | ★ **The sealed final run: every rule passes in every condition.** Recall pooled 85 to 90% against base's 8 to 28%; every right answer found by search; false retrievals each at or below base; coherent above base under all three judges; seed 82 91 to 107 of 120 against 13 to 32, weakest seed on `independent` `confirm`; cost table; disclosures |
+| R-164 | The write-up plan, panelled (method, sources, against); a whole-chat control registered: ★ **base with every message in view beats 6.37 with the tool on the outside-writer sets** (58 and 52 against 28 and 34 of 80 `older`) |
+| R-165 | ★ **6.37 given the whole chat scores as base does**: on `older` (59 and 56 against 58 and 52), and with the tool on every kind against base with the whole chat, no gap near significance; new arms `whole_chat_tool`, `whole_chat_all` |
+| R-166 | The whole-chat runs at 419 messages ran out of card memory (log in `results/control/R-164`); the runner was blocked by my uncommitted file, not stuck; leftover scripts stopped; the write-up and model card rebuilt for 6.37 |
 
 ---
 
@@ -6609,3 +6613,55 @@ the trained model with the tool scores as base does on every kind, on both sets;
 largest is `statement` on set 2, 37 against 40: three needless searches, and base cannot search, so it scores 40 by
 construction. The combined design (read the chat when it fits, search when it does not) is supported as never worse
 than base, within what one seed and 40 chats a set can show.
+
+## R-166 · 2026-11-10 · SPRINT · The whole-chat runs at 419 messages; the write-up rebuilt; corrections
+
+**The two `wc_*_base` runs on generated pools have no results, because they ran out of card memory.** The queue log
+excerpt is `results/control/R-164/wc_hd_base_oom.log`. `wc_hd_base` failed three tries at 21:39 to 21:41 on
+9 November with `torch.OutOfMemoryError`: it tried to allocate 2.35 GiB more, with 6.84 GiB already allocated and
+8.50 GiB allowed (the 0.85 cap of a 10 GB card). `wc_probe_base` failed its first try the same way at 21:42 (1.77 GiB
+more, 6.74 allocated). Both pools hold 58- and 419-message chats; at 419 messages the whole chat is about 6,200
+tokens. The earlier uncapped whole-chat runs peaked at 11.22 and 11.62 GiB (R-014, R-017). So with every message in
+view, base does not fit under this project's memory cap at 419 messages. Every run with the three-exchange view in
+the sealed run, base and adapters, peaked at 6.71 to 7.02 GiB (R-163), on chats of the same two sizes.
+
+**Corrected: the runner was not stuck; I blocked it** (R-165 said "stuck since 21:42"). After `wc_probe_base`'s first
+try, the runner waited for a clean tree from 21:43 to 04:07, 424 log lines. I had left
+`results/analysis/R-164/writeup_numbers.json` modified and uncommitted overnight. When R-165's registration commit
+cleaned the tree at 04:07, it ran try 2 (04:08) and try 3 (04:14). Try 3 shared the card with
+`wc_blind2_fix17cs37_82`, which was then stopped. Afterwards the runner script itself and six old watcher scripts
+were found still running (stopping the task had not stopped them), and they were stopped by PID at about 05:40. No GPU
+work now runs through a queue; each run is started on its own at below-normal priority.
+
+**The write-up and model card are rebuilt for 6.37.** One fresh Opus builder agent worked from a brief
+(the whole-chat finding first, then the gain under a three-exchange view, then what is not measured), and its
+transcript was audited: no file written outside the repository, no git change, no model or evaluation run, no sealed
+raw run read. `scripts/make_article.py` now fills every number from committed results files and stops on any check
+that fails. The v5 figures were removed and two new ones drawn from R-164 and R-165. **Disclosed:** one repository-wide
+`grep -rln` by the builder excluded `pools.py`, `docs/independent_pool` and names with "token", but still scanned the
+bytes of `src/aya_retrieval/pool_independent.py`. It printed matching file names only; that file did not match, and
+nothing from it was shown. Two later searches by the builder, over `src/`, `tests/` and `scripts/` (for
+`make_article` and for the model's window size), also scanned `pools.py` whole and `pool_independent.py`; their
+output, checked line by line in the transcript, holds nothing from either file. A fresh reviewer then read the built
+article against the records (R-167), and its fifteen findings were fixed before this commit.
+
+## R-167 · 2026-11-10 · SPRINT · Omissions from R-016 found by the write-up's reviewer
+
+A fresh reviewer read the rebuilt article against the records. These are the parts of the registered plan that were
+not carried out or not reported. Each one was my omission, and none was disclosed before this record:
+
+1. **R-016's references were not run in the sealed run.** R-016, "Reported beside these, not gating", lists
+   "`whole_chat` and `always_search` as references". R-162 registered the sealed run without them, said nothing about
+   dropping them, and ran `tool_loop` only. The pass rules did not depend on them, so R-163's pass stands. But a
+   registered reference was left out, and it was the one that turned out to beat the adapter on short chats (R-164).
+   R-164's text and the README said the opposite: that R-016 "did not include base with every message in view".
+   Both are wrong, and the README is corrected in this commit.
+2. **R-016's coherence interval was not reported.** R-016 asks for "the paired disagreement counts and an exact 95%
+   interval on the difference" beside the coherence gate. R-163 reports counts per model, not the interval.
+3. **The training recipe differs from R-016's.** R-016 registered r = 16 on the attention projections, learning rate
+   2e-4 and 750 rows (150 a kind). 6.37 is rank 32 on all seven projections, learning rate 3e-4, 1,094 rows, with the
+   loss on the demonstrated turns only (R-044, R-046, R-052, R-076, R-127). Each change has its own record, but the
+   write-up's list of deviations did not name them.
+4. **LoCoMo (R-100) was registered and never run** (deferred, R-139 item 6).
+
+The article's list of deviations now names all four, with the reviewer's other findings fixed.

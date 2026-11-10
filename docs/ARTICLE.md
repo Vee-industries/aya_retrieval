@@ -1,34 +1,64 @@
-# Teaching a 3B model to remember a long chat it can no longer see
+# Teaching a 3B model to search a long chat it can no longer see
 
 *Kevin Vaillancourt · Lexsi AI Safety and Alignment Hackathon, Track 3 (Agentic Fine-tuning) · November 2026*
 
-> **Draft. Numbers are development results on the probe pool, for v5. The model was frozen on 2026-11-09 as 6.37 (fix17cs37 seed 82, R-160); this draft is being rebuilt for it, and the registered held-out run replaces development numbers before submission.**
+> **Final numbers for the shipped model, 6.37 (`fix17cs37` seed 82, frozen in R-160): the sealed final run (registered in R-162, results in R-163), the outside-writer sets (R-146, R-157) and the whole-chat control (R-164, R-165). Every number is computed from committed results files by `scripts/make_article.py`.**
 
 ## Abstract
 
-A small model in a long chat forgets: once a fact scrolls out of its context window, it either says
-it was never told or makes something up. We train a LoRA adapter on Tiny Aya Global (3.35B
-parameters) to search the earlier conversation when, and only when, the answer is out of view, to
-read what comes back, and to answer in the model's own voice. With only the last three exchanges
-in view, the adapter answers questions about earlier facts correctly 98% of the
-time in 58-message chats and 96% in 419-message chats, against
-31% and 31% for the untrained model (+213% and
-+207%). A blind judge finds the adapter's replies 14% more often coherent than the untrained model's, and at or above it on every kind judged. It names the wrong person's fact in 0.3% of replies, against 5.4% for the untrained model. On a harder development pool written by an independent agent, recall falls to 60% (untrained: 21%), because the adapter searches unfamiliar kinds of fact as if they were ones it was trained on. Every training change was
-screened against a rule written before its run, and the final test was registered in advance and
-then only made harder: a crowded condition with four distracting facts per chat, and a second
-test pool written by an independent agent and never read by the authors. We also report two
-findings about the toolkits we built on: a defect in AuditKIT's significance test, and a change to
-TRL's loss that gives the same results with 2.7 GiB less memory.
+When a chat fits in what the model can read, give it the whole chat. On two sets of chats written
+by outside writers who never saw this project's generator (about 1,400 tokens a chat),
+untrained Tiny Aya Global (3.35B) with every message in view answers 58 and
+52 of 80 questions about facts told earlier. Our trained model, 6.37, with
+a search tool and only the last three exchanges in view, answers 28 and
+34 (R-164). Given the whole chat and the tool, 6.37 and the untrained model show
+no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions could not be seen, R-142) on every kind
+of message (R-165). So the gain below is for chats too long to show whole.
 
-![Recall before and after training](../figures/recall_by_length.png)
+For those chats, 6.37 is a LoRA adapter trained to search the earlier conversation when the answer
+is out of view, to read what comes back, and to answer in the model's own voice. With only the last
+three exchanges in view, as a stand-in for a chat too long to show, the shipped seed answers
+39 and 53 of 120 recall questions on the two
+outside-writer sets, against the untrained model's 26 and 27
+(gain +2.5 to +19.2 and +13.3 to +30.0 points, 95% intervals resampling chats; on the first set
+the sign test gives p = 0.047, above the registered 0.01) (R-146, R-157). The gain is on
+facts asked about directly. On "..., right?" questions that make a false claim, 6.37 corrects
+1 and 3 of 20 and goes along with
+the rest (R-164). The shipped seed, 82, is the lowest of the eight training seeds on the first
+outside-writer set, on sealed conditions C and D, and on `hard_dev`; the eight seeds pooled gain
++18.0 and +20.8 points on the two sets (+9.7 to +26.1 and
++12.9 to +28.3) (R-141, R-146, R-157, R-163). The outside writers are 4 fresh
+Claude Opus agents a set, and the coherence judges are Claude Sonnet agents only, never checked
+against a person. On the registered sealed test, run once on the untrained model and all eight
+training seeds in four conditions, every registered rule passes: recall 85.2 to 90.4%
+pooled over the eight against the untrained model's 8.3 to 28.3%, every right answer from
+a search that found the fact, no adapter with more false retrievals than the untrained model, and
+every adapter judged coherent more often (R-163). Both sealed pools come from the project's own
+generator. Not measured: the untrained model reading the whole chat at 419 messages.
 
 ## 1. Introduction
 
-Chat products keep long conversations, but a small model can only attend to a short window. The
-usual answers are to send the whole conversation every turn, which costs more with every message,
-or to bolt retrieval on with code around the model. We ask whether a 3B model can learn the
-retrieval behaviour itself: decide when an answer is out of view, write a search, read the
-result, and answer without sounding any different from before.
+A chat assistant keeps a long conversation, but a model attends to a limited window. Tiny Aya Global
+takes at most 8,192 tokens, and 9 of its 36 layers
+attend to all of them; the other layers attend to the last 4,096 (the model's config).
+Past that, a fact told early in the chat is either out of the prompt or in a part most layers do
+not see.
+
+**The first answer is to show the whole chat when it fits.** We measured it late, after the
+sealed run (R-164, R-165), and it changes how the rest of this paper should be read. On chats of
+about 1,400 tokens, the untrained model with every message in view beats our trained
+model working from the last three exchanges and a search, by a wide margin (section 6). Given the
+whole chat as well, the trained model and the untrained one show no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions could not be seen, R-142) on every kind. The design
+this supports is plain: show the model the whole chat when it fits, and let it search when it does
+not.
+
+**What the trained model adds** is the second half: a model that, shown only the last part of a
+chat, decides when an answer is out of view, writes a search, reads the result and answers without
+sounding different from before. We test it with the last three exchanges in view, as a stand-in for
+a chat too long to show. It beats the untrained model there on every test set: on the
+outside-writer sets by +10.8 and +21.7 points (+50% and
++96% over base; R-146, R-157), and by 60 to 82 points on the generator's
+sealed pools (sections 7 and 8).
 
 The Track 3 statement asks for a model that "decides when and what to retrieve, grounds its answers
 in the retrieved text and ignores distracting documents". Each phrase maps to a measure here:
@@ -37,18 +67,19 @@ in the retrieved text and ignores distracting documents". Each phrase maps to a 
 |---|---|
 | decides **when** to retrieve | right decisions: searched exactly when the answer was out of view |
 | decides **what** to retrieve | the fact was found by the model's own query |
-| **grounds** its answers | recall: the right fact in the reply |
+| **grounds** its answers | recall: the right fact in the reply, counted again on retrieved answers alone |
 | **ignores distracting documents** | false retrieval: a decoy's fact in the reply, with one and four decoys a chat |
 
 **Contributions.**
-1. A training recipe that teaches the habit without changing the voice: the model is trained on
-   its own replies wherever they are right, and the tool's real output is always shown.
-2. A test that is hard to game: pre-registered, amended only to make it harder, with a sealed pool
-   written by an independent agent, a crowded condition, blind coherence judges and a second
-   scorer from AuditKIT.
-3. An ablation record of every change tried, kept or dropped, each against its own reference.
-4. Two toolkit findings (AuditKIT's bootstrap, TRL's loss memory) and a cost comparison against
-   closed models.
+1. A measured answer to "why not show the whole chat": on short chats, do; given the whole chat,
+   the trained model and the untrained one show no measured difference (R-164, R-165; one seed,
+   two sets of 40 chats).
+2. A training recipe that teaches the search habit while keeping the model's own voice (section 4).
+3. A test that is hard to game: registered before training, amended only to make it harder, frozen
+   with its scorer and judge, run once on every training seed (R-016, R-038, R-039, R-041, R-154,
+   R-162), and two sets of chats by writers who never saw the generator.
+4. A ledger of every candidate tried, with the line each failed (section 10), and three toolkit
+   findings (section 11).
 
 ## 2. Related work
 
@@ -65,303 +96,541 @@ instead. Training on a model's own outputs that pass a check follows STaR (Zelik
 Coherence is judged by a model, as in LLM-as-a-judge evaluation (Zheng et al., 2023), but blind to
 which model wrote each reply. Adapters are LoRA (Hu et al., 2022).
 
-## 3. Task
+## 3. Task and pools
 
-A conversation has run for 58 or 419 messages. The model sees the system prompt, the last three
-exchanges and the friend's newest message. Everything earlier sits behind one tool,
-`search_corpus`, a full-text search over the earlier conversation that returns the top five
-passages; the model may call it up to three times a turn. The newest message is one of five kinds:
+A conversation has run for some time. In the main tests the model sees the system prompt, the last
+three exchanges and the friend's newest message. Everything earlier sits behind one tool,
+`search_corpus`, a full-text search over the earlier conversation that returns the top 5
+passages, one passage per exchange; the model may call it up to 3 times a turn. The
+newest message is one of five kinds, each scored by a fixed rule (`src/aya_retrieval/scoring.py`,
+R-015):
 
-| Kind | Example | What a good reply does |
+| Kind | Example | Scored right when |
 |---|---|---|
-| Fact told long ago | "drawing a blank on my daughter's tattoo" | searches, then answers ("a koi") |
-| "Did I tell you…?" | "did i say anything about my godfather's tattoo" | searches, then confirms with the fact |
-| Fact still on screen | "what language does Chidi speak" | answers from view, no search |
-| Never told | "did i ever bring up what my mentor grows" | searches, finds nothing, says so |
-| Just chatting | "i got stuck talking to Lucia for an hour" | replies, no search |
+| `older`: fact told long ago | "drawing a blank on my daughter's tattoo" | the reply names the answer and no listed wrong value |
+| `confirm`: "did I tell you…?" | "did i say anything about my godfather's tattoo" | the same; saying it was never told is wrong |
+| `in_view`: fact still in view | "what language does Chidi speak" | the same |
+| `never_told` | "did i ever bring up what my mentor grows" | the reply names no value of that type |
+| `statement`: just chatting | "i got stuck talking to Lucia for an hour" | the model makes no search (the reply's words are not scored) |
 
-Every chat also holds **decoys**: the same type of fact about other people ("my classmate is scared
-of heights" beside "my tutor is scared of spiders"), so a search can bring back the wrong person's
-fact.
+`older` and `confirm` together are **recall**, the registered primary measure (R-016). Every chat
+also holds **decoys**: the same type of fact about other people ("my classmate is scared of heights"
+beside "my tutor is scared of spiders"), so a search can bring back the wrong person's fact.
 
-**Pools.** Conversations are built from templates in four pools that share no people, relations,
-values, subjects or wording: **train**, **probe** (development; never trained on), **held-out**
-(sealed) and **independent** (sealed, written by a separate agent; section 5).
+**Pools.** Generated conversations are built from pools of people, relations, fact types and small
+talk that share no content; tests enforce it (README, Pools).
+
+| Pool | Written by | Used for |
+|---|---|---|
+| `train`, `wide` | Claude; `wide` by a fresh agent from a brief | training (R-015, R-069) |
+| `probe` | Claude | development screens and confirmations |
+| `hard_dev` | a fresh agent, from the sealed pool's brief | development: a readable twin of `independent` (R-066) |
+| `heldout` | Claude | the sealed test only (conditions A and B); run once (R-162) |
+| `independent` (generator-built, sealed) | a fresh agent, from a brief; never read | the sealed test only (conditions C and D); run once (R-039, R-162) |
+
+The generated tests use chats of 58 and 419 messages. A development run holds 24 conversations of
+each kind at each size; a sealed condition holds 30, 300 in all.
+
+**The outside-writer sets** are different in kind. Each is 40 chats with 240
+questions, written by 4 fresh Opus agents from one behaviour brief, with no access to
+the generator, its pools or any result, and frozen by SHA-256 before anyone read a chat (R-142,
+R-143, R-152). The chats have 20 to 30 exchanges and about 1,400 tokens (at most
+1,786). Half the `confirm` questions claim a wrong value, so agreeing with the user
+cannot pass (R-142). They are tag questions: a count of the `confirm` messages finds a tag
+("right?", "yeah?", "isn't it" and the like) in 40 of 40 on set 1 and 40 of 40 on set 2, ending
+the message in 37 and 33 (the rest carry it mid-message, before a further
+sentence; R-153 found all 40 on set 1 to be tags). A
+loader turns each question into the same harness item as every other test (R-142). The first set
+(`data/blind_dev/`) was registered as report only and became a development set when 7 was designed
+from its failures (R-151); the second (`data/blind_dev2/`) was written after 6.37 was fixed and was
+read by no decision that changed 6.37 (R-152, R-157). It was 7's judge (R-151, R-153), and the
+freeze panel's lane cited it in arguing for the freeze (R-159).
 
 ## 4. Method
 
-**Training data.** 800 rows (Fact told long ago 200, “Did I tell you…?” 150, Fact still on screen 150, Never told 150, Just chatting 150); LoRA rank 32 on the attention and MLP projections, learning rate 3e-4, 3 epochs, batch 2. For every training conversation the untrained model is run on
-the same turn. Where its reply passes the scorer, that reply is the target, so training teaches
-the habit of searching and reading without teaching a new voice. Where a search is needed, the row
-shows a clean call with the demonstrated query, the tool's real output and then the answer; if the
-real search missed the fact, the row says the model does not know, so a demonstration never
-contradicts what the tool returned. Where the untrained model's answer fails, a short scripted
-answer stands in. The number of decoys varies per row, so the number of passages a search returns
-never gives the answer away. Plain chat lines take the untrained model's reply when it is asked to
-be brief (the instruction is not part of the row), and a blind judge marks every such target on the
-coherence rubric before training; the 8% it rejects are swapped for spares it accepted (R-058,
-R-060). This filters the targets by the same rubric the coherence judges use, so the adapter is
-trained toward what this kind of judge accepts; the held-out judges are the same kind.
+**The loop.** The model's turn either answers or calls `search_corpus`; the harness runs the search,
+returns the passages, and the model answers from them, up to 3 searches a message
+(`src/aya_retrieval/harness.py`). Decoding is greedy.
 
-**Training.** LoRA on Tiny Aya Global through AgentTune's distillation trainer (TRL underneath),
-with the loss replaced by an equivalent that uses less memory (section 9). Three training seeds per
-version. Rows were passed to TRL as chat messages with its defaults, which put the loss on every
-token of a row, not only on the turns it teaches (4% of the tokens): the model also learned to
-write the friend's lines, the tool's passages and the scripted small talk in view (R-076).
+**6.37's training set** (`data/screens/fix17cs37.jsonl`, 1,094 rows: `older` 332, `confirm` 230, `in_view` 150, `never_told` 160, `statement` 222) was built in
+steps, each recorded before it trained:
 
-**How changes were made.** One change at a time. A change is screened on one training seed against
-its reference on a development probe; if it gains, a rule is written down and then it is trained on
-three seeds and confirmed on a second probe, with blind coherence sheets. Every step is a dated
-entry in [`RECORDS.md`](../RECORDS.md), and every rule is committed before its runs.
+- *Targets in the model's own voice* (R-016, R-020). Where the untrained model's reply passes the
+  scorer, that reply is the target; where a search is needed, the row shows a clean call with the
+  demonstrated query, the tool's real output and then the answer, and if the real search missed the
+  fact the answer says it does not know. Decoy counts vary per row (0 to 2 for recall rows, 1 to 3
+  for `never_told`), because the first adapter learned that the number of passages gave the answer
+  away (R-018, R-020).
+- *Plain chat* (R-055 to R-061). More plain-chat lines; their targets are the untrained model's
+  replies when asked to be brief, vetted by a blind judge on the coherence rubric (v5).
+- *Loss on what is taught* (R-076, R-077, R-088, R-092, R-093). Until v5, TRL's default put the loss
+  on every token of a row, scripted small talk included. Loss now falls on the taught turns, and on
+  plain-chat rows only on the reply's first token and its end-of-turn marker, so the reply's words
+  stay the model's own (17m, v6).
+- *Stricter plain-chat targets* (R-078 to R-080): two judges re-vetted the targets on a rubric that
+  names reading a complaint as good news, a wrong name and an invented event.
+- *Who-is-who answers* (R-094 to R-098, R-105): answers that pinned the friend's relation on the
+  wrong person were rewritten in the form "Your {relation} {person} ...", with replacements first
+  passed by CuratorKIT's grounding gate.
+- *Corrections and an earlier question in view* (R-102, R-104): 170 train-pool rows where a fact is
+  corrected later, with cue controls, and rows with an earlier question still in view. Built from
+  6.1 to 6.2 (R-105 to R-109), trained from scratch.
+- *Statements and indirect questions* (R-114, R-117): chat lines that name a fact type answered
+  without a search, questions asked as statements answered from one with the pool's scripted
+  answer, and contrast lines where someone else forgets or loses something, answered without a
+  search (6.31).
+- *Removals* (R-122 to R-127): 6.37 is 6.31 less 9 of those contrast lines (the lost wallet, the
+  forgotten umbrella, lost track of time), which went with one missed probe question.
+
+No row comes from `probe`, `hard_dev`, either outside-writer set or a sealed pool. Several rows were
+designed after reading failures on development pools, so those pools are development evidence for
+6.37, not tests of it (R-117, R-122, R-128).
+
+**Training.** LoRA rank 32 on `q_proj`, `k_proj`, `v_proj`, `o_proj`, `gate_proj`, `up_proj`, `down_proj`; peak learning rate 3e-4, 3 epochs, batch 2, loss mode `chat_decision`, with TRL's chunked loss replaced by `lean_loss.lean_chunk`; trained from no adapter; 222 plain-chat rows carry loss only on the reply's first token and its end-of-turn marker. Through AgentTune's distillation trainer (TRL underneath). Eight
+training seeds (82, 83, 94 to 99) were trained on the same set; seed 82 was named to ship before
+seeds 94 to 99 or any outside-writer chat existed (R-114, R-141), and is the frozen model (R-160).
+Training took 33 to 35 minutes a seed, peaking at 7.81 to 7.84 GiB of card memory.
+
+**The Lexsi toolkits.** AgentTune trains every adapter (R-003, R-016). AuditKIT re-scored recorded
+replies as a second scorer during development: its files are `fix5c_probe73157`, `v3_probe73157`, `v5_probe73157` (R-030, R-031); no
+AuditKIT run on 6.37 exists. CuratorKIT's grounding gate audited v6's found-fact training answers
+and passed the replacements before they were used (R-096, R-098). Section 11 reports what each
+showed.
 
 ## 5. Evaluation protocol
 
-**Measures.** Recall (correct answers on the two kinds that need a search), right decisions,
-correct answers per kind, false retrieval (a reply naming a wrong value of the fact asked about:
-a decoy's, or for a question never told, any value), and coherence. Our scorer fails a reply that
-names any wrong value; AuditKIT's agent evaluation scores every reply a second time with its own
-oracles.
+**Registration.** R-016 registered the test before any recall adapter existed: base and adapters on
+identical held-out conversations, 30 per kind at each of 58 and 419 messages, greedy, run once.
+Three amendments, each made before any held-out run and each only adding requirements: four decoys
+a chat as a second condition and false retrieval as a gated measure (R-038); a second sealed pool,
+`independent`, written by a fresh agent and never read (R-039); and the recall rule must also hold
+when only retrieved answers count (R-041). R-020 changed one thing in every pool before any was
+read: `never_told` questions use the `confirm` wording half the time, so a `confirm` wording does
+not mean the fact exists.
 
-**Coherence.** A fresh judge model receives only a rubric and a shuffled sheet of replies, without
-knowing which model wrote which, and marks each 1 or 0: does it respond to the newest message, fit
-what was said, read as ordinary language, and avoid contradicting what is in view? The key is
-opened only after the marks are in. Fact questions are judged with the tool for both models;
-on-screen facts and ordinary chat are judged against the untrained model with no tool at all, so
-the adapter is held to the model's own ordinary talk.
+**The freeze.** The scorer, the sealed pools, the judge's brief and rubric, the human check and the
+adapter's weights were hashed into `results/freeze/sealed_manifest.json`, the judge pinned to
+`claude-sonnet-5-5` (R-154, R-160). The sealed run began with a check of that manifest and ended
+with a check of every judge's transcript (R-162, R-163).
 
-**Statistics.** Base and adapter run on identical conversations. Paired comparisons use the exact
-sign test on the conversations where they differ; intervals are 95% percentile bootstraps over
-conversations, keeping the pairing.
-
-**The final test.** Registered before training (R-016) and amended twice before any run, each time
-to make it harder: four conditions, base and three adapters on identical conversations, 300
-conversations each.
+**The sealed run** (R-162). Four conditions, each run once, base and all eight 6.37 seeds on the
+same 300 conversations, item seed 90311:
 
 | Condition | Pool | Decoys a chat | Added by |
 |---|---|---|---|
-| A | held-out | 1 | R-016 |
-| B | held-out | 4 | R-038 |
-| C | independent | 1 | R-039 |
-| D | independent | 4 | R-039 |
+| A | `heldout` | 1 | R-016 |
+| B | `heldout` | 4 | R-038 |
+| C | `independent` (generator-built, sealed) | 1 | R-039 |
+| D | `independent` (generator-built, sealed) | 4 | R-039 |
 
-Recall must be at least 20 points above the untrained model at each chat length with a sign test
-below p = 0.01, counting all right answers and again counting only retrieved ones (R-041), false retrieval no higher than the untrained model's, and coherence at or above
-it, in every condition. The held-out pool was written by Claude, the author's AI assistant, in the same
-session as the training pool; the independent pool was written by a fresh agent that saw only a brief, an
-avoid-list and a checker, and nobody on the project has read it (R-039).
+Rules, every one in every condition: (1) recall pooled over the adapters at least 20 points above
+base at each size, with a paired exact sign test below 0.01; (2) rule 1 again on retrieved answers
+only; (3) each adapter's false retrievals no more than base's; (4) each adapter's coherent count at
+or above base's, on all 300 conversations in A and a fixed sample of 120 in B to D.
 
-**Development tests beyond the probe.** Every probe used in development shares the training pool's
-author and style, so three harder checks were added before the final test, none of them deciding a
-version: the crowded condition on the probe; `hard_dev`, a twin of the independent pool written by
-a second fresh agent from the same brief, readable and used for development only (R-066); and
-stress transforms applied to any pool, taken from the failure categories of the author's earlier
-chat engine (its categories only, none of its text): the user's typing style, facts corrected
-later, and 1,000-message chats (R-067). Writing the twin from the independent pool's brief, and
-training on material written to a similar brief, makes the sealed independent pool less
-independent of development than it was; it still shares no content with any other pool.
+**Coherence.** A judge sees the turns in view, the newest message and a reply, and marks 1 if the
+reply "is a sensible next turn: it responds to the newest message, fits what was said in the turns
+shown, reads as ordinary language, and does not contradict or deny anything said there"
+(`coherence.RUBRIC`). Each sheet shuffles every model's reply to the same conversations with the
+names removed, so one judge marks base and every adapter (R-090, R-162). Three fresh judges mark
+each sheet; judge 1 decides and judges 2 and 3 are reported. Every judge's transcript was audited
+(model, folders touched, commands run, every line marked) before its marks were filed
+(`scripts/records/audit_judge_r162.py`, R-163). Measured spread: R-128's three judges split on
+13 of 576 lines (R-154). **The judges were never checked against a person.** The human checks check
+the recall scorer: Kevin agreed with the scorer on 47 of 50 lines (Cohen's kappa 0.88), and the scorer passed no reply he failed (R-144). A second marker agreed with the scorer on 48 of 50 (kappa 0.92) and with Kevin on 49 (kappa 0.96) (R-145). In every disagreement the scorer was the stricter; the two lines
+both people passed and the scorer failed name the answer and a wrong value together (R-144, R-145).
 
-## 6. Results
+**Statistics.** Paired exact sign tests on the questions where two runs differ, and 95% percentile
+bootstrap intervals that resample whole conversations or chats, keeping the pairing. The adapter
+pairs in rule 1 share conversations, so its p-value overstates independence; the whole-conversation
+interval is the figure to read (R-162). Generated questions share fact templates: the development
+pools' recall questions come from 5 templates (`probe`) and 8
+(`hard_dev`), so item-level p-values there overstate the evidence (R-141). The sealed pools' template
+count is not known without opening them, which this project's rules forbid, and the sealed intervals
+do not resample templates (R-164).
 
-Development numbers: the probe pool, 240 conversations (24 of each kind at each length), the untrained model against 3 adapters (v5) trained on seeds 82, 83, 84. The held-out run replaces these.
+**Every deviation from the registered plan, in one place.**
+1. *Eight seeds, not three.* R-016 named three adapters; the sealed run used all eight trained on
+   6.37's set, at Kevin's word, so no seed was chosen after a result (R-162). Rule 1 on R-016's own
+   three seeds (82, 83, 94) is in section 7 and is met in every condition.
+2. *A brief's word count* (R-163, disclosure 1): the judges' brief named "two files" instead of
+   "these five files", to match the files given.
+3. *The judge audit tightened during condition A* (R-163, disclosure 2): counting commands were
+   allowed; one judge's command was read and filed by hand.
+4. *A duplicate line in the judge list* (R-163, disclosure 3), removed before the record.
+5. *Fields added to the scorer after the run* (R-163, disclosure 4): reported fields only; every
+   earlier value unchanged, no rule changed.
+6. *The first outside-writer set became a development set* (R-151), when 7 was designed from its
+   failures. 6.37's result on it was measured before that.
+7. *R-016's references were not run.* R-016 lists `whole_chat` and `always_search` as references
+   to report beside the rules; R-162 ran neither and did not say so, and the omission was first
+   disclosed in R-167. The pass rules did not depend on them. The whole-chat reference was run
+   afterwards, on the outside-writer sets only (R-164, R-165); `always_search` was never run on a
+   set the trained model was tested on (section 6).
+8. *No exact interval on the coherence difference.* R-016 asks for the paired disagreement counts
+   and an exact 95% interval on the coherence difference; R-163 reports counts per model only
+   (R-167).
+9. *The training recipe differs from R-016's.* R-016 registered LoRA r = 16 on the attention
+   projections, learning rate 2e-4 and 750 rows (R-016, R-018). 6.37 is rank
+   32 on all seven projections, learning rate 3e-4,
+   1,094 rows, with the loss on the taught turns only (R-044, R-046, R-052, R-076,
+   R-127). Each change has its own record; none was listed as a deviation before R-167.
+10. *LoCoMo* was registered as an outside check (R-100), deferred (R-139 item 6) and never run
+    (R-167).
 
-Recall above the untrained model, at 58 messages +213% (95% interval +119% to +422%, 48 conversations); at 419 messages +207% (95% interval +116% to +407%, 48 conversations).
+## 6. Results: whole chat or search
 
-### Retrieved, not guessed
+On the outside-writer sets, `older` questions (R-164, R-165; one seed, 40 chats a set; in brackets,
+the paired counts against base with the whole chat):
 
-A right answer can come from reading the fact or from guessing among plausible values. Each answer is
-counted by where it came from: **retrieved** if the exchange holding the fact was among the results
-of a search the model itself made, and a **guess** otherwise.
+| Set | Base, last three exchanges and the tool | 6.37, last three exchanges and the tool | Base, whole chat | 6.37, whole chat (only base right, only 6.37 right, sign test) | 6.37, whole chat and the tool (the same, against base with the whole chat) |
+|---|---|---|---|---|---|
+| Set 1 | 11 | 28 | 58 | 59 (8, 9, p = 1.0) | 57 (12, 11, p = 1.0) |
+| Set 2 | 12 | 34 | 52 | 56 (10, 14, p = 0.54) | 54 (12, 14, p = 0.85) |
 
-| Questions that need a search | Untrained (96) | Adapter, 3 seeds (288) |
-|---|---|---|
-| Right, fact in its own search results | 30 | 279 |
-| Right, searched but the fact was not returned | 0 | 0 |
-| Right without searching | 0 | 0 |
-| Wrong although the fact was returned | 4 | 9 |
+![Whole chat or search](../figures/whole_chat_or_search.png)
 
-Of the adapter's 279 right answers, 279 were retrieved and 0 were guesses (the untrained model: 30 and 0). The gain is recovered information, not better guessing. The final test applies the recall rule to retrieved answers alone as well (R-041).
+Base with every message in view beats 6.37 working from the last three exchanges on both sets
+(set 1: 36 right only for base with the whole chat and 6 only for 6.37 with the tool, p = 2.8 × 10<sup>-6</sup>; set 2: 28 right only for base with the whole chat and 10 only for 6.37 with the tool, p = 0.0051; R-164). Given the whole chat, 6.37 and base
+show no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions could not be seen, R-142), with or without the tool (R-165): no measured damage to how the model uses the context it
+can see.
 
-### Every kind of message
+Every kind, base with the whole chat and no tool (`whole_chat_all`) against 6.37 with the whole chat
+and the tool (`whole_chat_tool`), with both models' scores from the last three exchanges beside
+them (R-165):
 
-![Every kind, before and after](../figures/by_kind.png)
-
-| Kind | Untrained | Adapter | Above untrained |
-|---|---|---|---|
-| Fact told long ago | 48% | 97% | +101% |
-| “Did I tell you…?” | 15% | 97% | +567% |
-| Fact still on screen | 71% | 90% | +27% |
-| Never told | 88% | 99% | +13% |
-| Just chatting | 65% | 100% | +55% |
-
-Right decisions, searching exactly when the answer is out of view: 119 of
-240 untrained, 240, 240, 240 (seeds 82, 83, 84) of 240 with the adapter. Every kind of message improves.
-
-### Coherence, judged blind
-
-![Coherence by kind](../figures/coherence_by_kind.png)
-
-Pooled over 3 adapter seeds and 6 sheets, each with its own judge:
-
-| Kind | Setting | Untrained | Adapter | Above untrained |
-|---|---|---|---|---|
-| Fact told long ago | both with the tool | 95 of 144 | 129 of 144 | +36% |
-| “Did I tell you…?” | both with the tool | 141 of 144 | 144 of 144 | +2% |
-| Fact still on screen | untrained with no tool | 99 of 144 | 119 of 144 | +20% |
-| Just chatting | untrained with no tool | 135 of 144 | 142 of 144 | +5% |
-
-Fact questions are judged with the search tool for both models. On-screen facts and ordinary chat are judged against the untrained model with no tool at all, so the adapter is held to the model's own ordinary talk.
-
-### False retrieval: the wrong person's fact
-
-![False retrieval by kind](../figures/false_retrieval.png)
-
-| Kind | Untrained | Adapter |
-|---|---|---|
-| Fact told long ago | 1 of 48 | 0 of 144 |
-| “Did I tell you…?” | 0 of 48 | 0 of 144 |
-| Fact still on screen | 5 of 48 | 0 of 144 |
-| Never told | 6 of 48 | 2 of 144 |
-| Just chatting | 1 of 48 | 0 of 144 |
-| **All** | **13 of 240** | **2 of 720** |
-
-Over every kind the adapter names a wrong value in 0.3% of replies against 5.4%, -95%. Most of the gain is on facts still on screen and questions never told, where the untrained model fills in a value. On the two kinds that need a search the counts are small, 1 and 0, and the untrained model searches far less often (37 of 96 questions against 288 of 288), so it has fewer chances to pick up a decoy. The registered final test adds a crowded condition with four decoys a chat for exactly this reason.
-
-### Harder development checks: where it still fails
-
-With four decoys a chat instead of one, the adapter keeps 277 of 288 recall answers (279 with one) and names a wrong person's fact in 0 of 720 replies; the untrained model does so in 19 of 240 (R-065).
-
-On `hard_dev`, the adapter answers 172 of 288 recall questions (60%) against the untrained model's 20 of 96 (21%): still +187%, but far below its 97% on the probe. In 103 of its 116 misses the search brought the fact back. The searches show why: the adapter writes the query phrase of the nearest training fact type, not words from the question, so a question about where someone grew up is searched as a birthday month, and the reply then denies the fact or answers the question it searched for (R-068). This is the largest gap found, and the sealed independent pool, written to the
-same brief, is likely to show it. Fixes 14 to 17b are aimed at it (section 7 and section 11's
-failure modes).
-
-### A second scorer: AuditKIT
-
-Each turn becomes an AuditKIT episode (the friend's message, the search calls, the final reply),
-and AuditKIT's own oracles decide each case; for the fact questions this is its `AnswerAssertion`,
-which matches whole words and is stricter than our scorer. AuditKIT agrees with our scorer on 959 of 960 cases. The exact sign test on AuditKIT's verdicts puts every adapter seed above the untrained model with p between 7e-26 and 1e-24.
-
-## 7. Ablations: every change tried
-
-Each row is one training seed on the development screen, against its own reference. Recall is out
-of 96, on-screen answers out of 48, right decisions out of 240; the paired counts and sign test are
-over all 240 conversations.
-
-![Recall across training sets](../figures/development_path.png)
-
-| Change | Recall of 96 (reference) | On screen of 48 | Right decisions of 240 | Right, all kinds: only reference / only change | Sign test p | Outcome |
+| Set | Kind (questions) | Base, whole chat | 6.37, whole chat and the tool | Only base right, only 6.37 right, sign test | 6.37, last three exchanges and the tool | Base, last three exchanges and the tool |
 |---|---|---|---|---|---|---|
-| Untrained model | 38 | 32 | 109 | | | |
-| v2: the full training set | 70 (38) | 33 | 232 | 20 / 76 | <0.01 | the reference for fixes 1 and 1b |
-| Fix 1: read in-view facts through a hint | 69 (70) | 37 | 235 | 12 / 16 | 0.57 | led to 1b (R-024) |
-| Fix 1b: 75 hard in-view rows | 75 (70) | 38 | 234 | 7 / 19 | 0.03 | **v3** (R-026) |
-| Fix 3: fewer never-told rows | 73 (75) | 37 | 228 | 19 / 11 | 0.20 | dropped (R-028) |
-| v3 retrained with the lean loss | 74 (75) | 37 | 233 | 8 / 5 | 0.58 | same results (R-032) |
-| Fix 4: a second search after an empty one | 62 (74) | 37 | 233 | 22 / 11 | 0.08 | dropped (R-032) |
-| Fix 5: a judge filters the training answers | 76 (74) | 41 | 233 | 8 / 14 | 0.29 | dropped on coherence (R-032) |
-| Fix 5b: plain answers on “did I tell you…?” | 71 (74) | 37 | 232 | 14 / 12 | 0.85 | failed its coherence rule (R-034) |
-| Fix 5c: 5b, and answers name the relation | 76 (74) | 37 | 232 | 12 / 15 | 0.70 | **v4** (R-036) |
-| 4 epochs instead of 3 | 78 (76) | 39 | 231 | 3 / 7 | 0.34 | candidate (R-037) |
-| Learning rate 1e-4 instead of 2e-4 | 67 (76) | 35 | 228 | 33 / 9 | <0.01 | dropped (R-040) |
-| Fix 6: more ways of saying “I forgot” | 84 (76) | 36 | 235 | 10 / 16 | 0.33 | candidate (R-040) |
-| LoRA on the MLP layers too | 87 (76) | 37 | 234 | 6 / 17 | 0.03 | candidate (R-044) |
-| LoRA rank 32 | 86 (76) | 43 | 233 | 5 / 20 | <0.01 | candidate (R-044) |
-| Learning rate 3e-4 | 86 (76) | 39 | 235 | 3 / 15 | <0.01 | candidate (R-046) |
-| Fix 6 with LoRA on the MLP layers | 87 (84) | 39 | 235 | 16 / 18 | 0.86 | no gain over fix 6 (R-047) |
-| Fix 6 at rank 32 | 92 (84) | 39 | 235 | 11 / 19 | 0.20 | beaten (R-052) |
-| Fix 6 at rank 32 with the MLP layers | 90 (84) | 43 | 235 | 11 / 20 | 0.15 | ties rank 32 alone (R-048) |
-| Fix 7: searches in the friend's own words | 94 (84) | 39 | 229 | 36 / 19 | 0.03 | dropped on false retrieval (R-050) |
-| Fix 8: more ways of stating each fact | 86 (84) | 41 | 238 | 9 / 15 | 0.31 | candidate on the lead's settings (R-054) |
-| Fix 6 at 3e-4 | 92 (84) | 41 | 238 | 4 / 16 | 0.01 | ties rank 32 (R-052) |
-| Fix 6 at rank 32, with MLP, at 3e-4 | 95 (84) | 44 | 238 | 4 / 22 | <0.01 | failed its coherence rule (R-055) |
-| Fix 6 at rank 64 | 91 (92) | 35 | 235 | 12 / 10 | 0.83 | no gain over rank 32 (R-053) |
-| Fix 7b: 7, never-told rows only with results | 95 (84) | 38 | 222 | 27 / 19 | 0.30 | dropped on statements (R-054) |
-| Fix 6 at rank 32 and 3e-4, attention only | 93 (95) | 42 | 231 | 15 / 4 | 0.02 | loses statements (R-053) |
-| Fix 9: more plain-chat lines, lead's settings | 94 (95) | 45 | 240 | 3 / 4 | 1.00 | failed coherence at one seed of three (R-057) |
-| Fix 8 data on the lead's settings | 94 (95) | 42 | 232 | 16 / 4 | 0.01 | loses statements (R-056) |
-| Fix 10: fix 9 with judge-vetted chat targets | 96 (94) | 43 | 240 | 2 / 2 | 1.00 | failed coherence at one seed by one reply (R-059) |
-| Fix 11: fix 10 with brief chat targets | 95 (96) | 42 | 240 | 4 / 3 | 1.00 | **v5** (R-061) |
-| Fix 12: v5 with brief, vetted in-view answers | 90 (95) | 45 | 239 | 7 / 5 | 0.77 | dropped at the screen gate (R-063) |
-| Fix 13: v5 with more indirect in-view questions | 91 (95) | 45 | 240 | 7 / 6 | 1.00 | dropped at the screen gate (R-064) |
-| Lead's settings, 4 epochs | 93 (95) | 44 | 230 | 13 / 3 | 0.02 | loses statements (R-056) |
-| Fix 14: v5 with half its fact rows from 47 new fact types | 92 (95) | 47 | 236 | 11 / 7 | 0.48 | dropped at the screen gate (R-071) |
-| Fix 14c: a quarter of the fact rows from the new fact types | 93 (95) | 43 | 239 | 7 / 5 | 0.77 | dropped at the screen gate (R-073) |
-| Fix 14b: fix 14 with plain-chat lines naming the new pool's people | 92 (92) | 44 | 240 | 9 / 8 | 1.00 | dropped at the screen gate (R-073) |
-| Fix 15: fix 14c with 250 never-told rows that return someone else's fact | 96 (93) | 44 | 240 | 3 / 8 | 0.23 | dropped at confirmation, on plain-chat coherence (R-075) |
-| Fix 16a: v5 with the loss on the taught turns only | 96 (95) | 43 | 240 | 3 / 5 | 0.73 | dropped at the screen gate, on plain-chat coherence (R-077) |
-| Fix 16b: v5 with the loss on all but the scripted small talk | 87 (95) | 44 | 240 | 10 / 4 | 0.18 | dropped at the screen gate (R-079) |
-| Fix 16c: fix 16a at learning rate 1e-4 | 93 (96) | 43 | 238 | 6 / 1 | 0.12 | dropped at the screen gate (R-079) |
-| Fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric | 91 (93) | 45 | 237 | 3 / 2 | 1.00 | dropped at the screen gate (R-080) |
-| Fix 17b: fix 16a with the stricter-vetted plain-chat targets | 94 (96) | 44 | 239 | 6 / 2 | 0.29 | passed the screen gate; failed confirmation on one sheet by one line (R-082) |
-| Fix 18a: fix 17b plus 57 vetted chat lines that name a fact type in passing | 94 (94) | 41 | 240 | 6 / 6 | 1.00 | dropped at the screen gate: hard_dev recall 56 against 72 (R-085) |
-| Fix 18c, control: fix 17b plus 57 vetted chat lines that name no fact type | 92 (94) | 43 | 236 | 5 / 5 | 1.00 | dropped at the screen gate: recall 92 against 94, hard_dev 66 against 72 (R-085) |
-| Fix 19a: fix 18a plus 57 questions on the same topics asked as statements | 95 (94) | 43 | 239 | 3 / 6 | 0.51 | passed every count at two seeds; failed the judged check set by one line (R-089) |
-| Fix A: 17m with its 27 slip-shaped fact answers rewritten as "Your <relation> <name>" | 96 (95) | 44 | 239 | 4 / 3 | 1.00 | cleared the slip gate and every count; failed a judged sheet by one line (R-095) |
-| Fix B: 17m with base-reply fact answers trained only on their first token | 95 (95) | 43 | 240 | 5 / 3 | 0.73 | dropped: hard_dev slips 4 and 6 against at most 3 (R-095) |
-| Fix C1: fix A's set without the 15 answers CuratorKIT's gate rejected | 96 (95) | 43 | 240 | 4 / 3 | 1.00 | slips 1 and 1 of 96, but probe recall at seeds 82 and 83 one below v6's (191, 192); stopped before judging (R-098) |
-| Fix C2: the same 15 answers scripted, accepted by CuratorKIT's gate first | 96 (95) | 45 | 239 | 2 / 3 | 1.00 | slips 0 and 0 of 96, but hard_dev recall at seeds 82 and 83 below v6's (149, 157); stopped before judging; the track ends and v6 stands (R-101) |
-| Fix 20: fix 17b plus one fact-word chat line and one such question a fact type | 93 (94) | 44 | 230 | 14 / 7 | 0.19 | dropped at the screen gate: nine chat lines searched, hard_dev recall 125 of 145 (R-092) |
-| 17m: fix 17b with the loss on chat replies only on the decision and the end marker | 95 (94) | 45 | 240 | 2 / 7 | 0.18 | passed the whole screen gate at two seeds, counts and judged sheets (R-092) |
+| 1 | `older` (80) | 58 | 57 | 12, 11, p = 1.0 | 28 | 11 |
+| 1 | `confirm` (40) | 13 | 14 | 6, 7, p = 1.0 | 11 | 15 |
+| 1 | `in_view` (40) | 35 | 35 | 1, 1, p = 1.0 | 35 | 36 |
+| 1 | `never_told` (40) | 31 | 35 | 3, 7, p = 0.34 | 37 | 34 |
+| 1 | `statement` (40) | 40 (no tool, so right by construction) | 39 | 1, 0, p = 1.0 | 37 | 38 |
+| 2 | `older` (80) | 52 | 54 | 12, 14, p = 0.85 | 34 | 12 |
+| 2 | `confirm` (40) | 13 | 13 | 6, 6, p = 1.0 | 19 | 15 |
+| 2 | `in_view` (40) | 32 | 36 | 2, 6, p = 0.29 | 37 | 34 |
+| 2 | `never_told` (40) | 28 | 27 | 8, 7, p = 1.0 | 36 | 32 |
+| 2 | `statement` (40) | 40 (no tool, so right by construction) | 37 | 3, 0, p = 0.25 | 35 | 39 |
 
-What the path shows:
+No kind differs near significance (smallest p = 0.25). The largest gap is `statement` on
+set 2, 37 of 40 for 6.37: 3 needless searches, where base
+cannot search at all. With the whole chat in view the trained model searches far less on `older`
+and `confirm`, but still searches about half the `never_told` questions: set 1, `older` 15 of 80 (with the last three exchanges: 80), `confirm` 0 of 40 (9), `never_told` 22 of 40 (40); set 2, `older` 13 of 80 (with the last three exchanges: 78), `confirm` 0 of 40 (12), `never_told` 24 of 40 (40). On set 2,
+`never_told` falls to 27 and `confirm` to 13 with the whole chat,
+against 36 and 19 from the last three exchanges; base with
+the whole chat is as low (28 and 13), so the drop comes with
+having the whole chat in view, not with training (R-165).
 
-1. **The first adapter memorised.** It scored 119 of 120 on training-style conversations and then
-   failed on the probe pool's unseen content. In training, the number of passages a search returned
-   gave the answer away, so it learned to search, not to read. Varying the decoys fixed it (**v1**).
-2. **A false denial from one training sentence.** Many found-fact answers opened with the same word
-   as a training sentence meaning "I don't know", and one seed slid into it. Changing that sentence
-   fixed it (**v2**).
-3. **Facts still on screen.** Rows where the untrained model had failed were added, answered through
-   a hint that is removed from the row (**v3**).
-4. **Coherence on "Did I tell you…?" fell below the untrained model.** The adapter answered a
-   question with "That's great news!", or "Esme, who is my tutor, speaks fluent Turkish". Both came
-   from training answers: some of the untrained model's own answers on this kind opened with a
-   reaction to news, and most scripted answers left the relation out, so the model never saw the
-   friend's "my tutor" turned into "your tutor". Plain answers that name the relation from the
-   friend's side closed the gap (**v4**).
-5. **Changes that did not help were dropped**, with their numbers in the table: fix 3: fewer never-told rows; fix 4: a second search after an empty one; fix 5: a judge filters the training answers; learning rate 1e-4 instead of 2e-4; fix 7: searches in the friend's own words; fix 7b: 7, never-told rows only with results; fix 12: v5 with brief, vetted in-view answers; fix 13: v5 with more indirect in-view questions; fix 14: v5 with half its fact rows from 47 new fact types; fix 14c: a quarter of the fact rows from the new fact types; fix 14b: fix 14 with plain-chat lines naming the new pool's people; fix 15: fix 14c with 250 never-told rows that return someone else's fact; fix 16a: v5 with the loss on the taught turns only; fix 16b: v5 with the loss on all but the scripted small talk; fix 16c: fix 16a at learning rate 1e-4; fix 17: fix 16c with plain-chat targets vetted by two judges on a stricter rubric; fix 18a: fix 17b plus 57 vetted chat lines that name a fact type in passing; fix 18c, control: fix 17b plus 57 vetted chat lines that name no fact type; fix B: 17m with base-reply fact answers trained only on their first token; fix 20: fix 17b plus one fact-word chat line and one such question a fact type. Having a judge filter the training answers (fix 5) left “Did I tell you…?” coherence at 35 of 48 against the untrained model's 47, because the judge passed the same openers.
-6. **Training harder raised recall and cost coherence on plain chat.** A higher rank, LoRA on the
-   MLP layers and a higher learning rate each gained recall on the screen, and all three together
-   came close to every recall question. Its confirmation failed on the blind check of plain chat
-   lines: told "my tutor has been acting strange lately", it searched and stated a stored fact about
-   the tutor (R-055). The training set had six chat lines against 25 fact templates, so a model
-   trained harder treated any line about a named person as a lookup. Searching in the friend's own
-   words (fix 7) showed the same pull from the other side: recall rose and never-told questions
-   were answered with other people's facts (R-050, R-054).
-7. **The plain-chat habits came from the targets.** Adding 48 chat lines (fix 9) fixed the lookups,
-   and its recall was 34% above v4's, but at one seed of three the judge still marked six chat
-   replies incoherent, among them "Lucia is a great name." Those were the untrained model's own
-   habits, copied from its replies in the training set. A blind judge vetting those targets first
-   (fix 10) cut that seed's misses from six to three, one short of the untrained model; asking the
-   untrained model for brief replies before vetting them (fix 11) passed on every seed (**v5**,
-   R-057 to R-061).
+Tokens read per turn: set 1, base with the whole chat 1,399, 6.37 with the last three exchanges and the tool 1,707, 6.37 with the whole chat and the tool 1,948; set 2, base with the whole chat 1,401, 6.37 with the last three exchanges and the tool 1,690, 6.37 with the whole chat and the tool 1,945 (R-164; whole-chat-and-tool from the raw runs). On chats this
+short, reading the whole chat costs fewer tokens than searching, not more.
 
-## 8. Cost
+**What is not measured.** Base with the whole chat on the generated pools, whose 419-message chats
+run about 6,236 tokens on `hard_dev` and 5,409 on `probe`. Those runs were
+registered (R-164) and have no results, because they ran out of card memory (R-166; the queue log is
+`results/control/R-164/wc_hd_base_oom.log`). The `hard_dev` run failed three tries with
+`torch.OutOfMemoryError`: it asked for 2.35 GiB more with 6.84 GiB already
+allocated and 8.50 GiB allowed, the cap these runs use (`--max-vram-fraction 0.85` of a
+10 GB card, `scripts/records/queue/wc.sh`). The `probe` run failed the same way on its first try
+(1.77 GiB more, 6.74 allocated); it was started three
+times, tries 2 and 3 show no error line in the log, and try 3 shared the card with another run and
+was stopped (R-166). Both pools hold 58- and 419-message
+chats, and R-166 reads the failure as the whole 419-message chat not fitting under the cap. With the
+three-exchange view, every run in the sealed run, base and adapters, peaked at 6.71 to 7.02
+GiB on chats of the same two sizes (R-163). Earlier whole-chat runs at 419 messages, before any cap,
+peaked at 11.22 and 11.62 GiB, more than the card holds (R-014, R-017); 6.37's
+whole-chat runs on the outside-writer sets peaked at 7.11 to 7.59 GiB.
 
-At 419 messages the adapter reads 1,214 tokens a turn on average over 1.60 model calls and writes 28; the whole chat is 5,409 tokens, so it reads 78% less. Sending the whole chat costs more with every message; the adapter's cost per turn
-stays flat.
+The only whole-chat readings at 419 messages are two development runs on the training pool, both
+uncapped, and neither is a ceiling. R-014: 2 of 40 right at 419 messages against
+31 of 40 at 58, ruled not valid because most replies copied the repeated scripted small
+talk. R-017, after the small talk was varied: 0 of 12 `older` questions right at 419 messages
+against 8 of 12 at 58, failing its own control. A low score at 419 messages agrees with the
+model's sliding window but does not show it is the cause (R-017, R-164).
 
-| Per million turns | Cost | With the chat prefix cached |
-|---|---|---|
-| This adapter, self-hosted, batch 1 | $457 | |
-| This adapter, self-hosted, batch 4 | $145 | |
-| This adapter, self-hosted, batch 8 | $96 | |
-| This adapter, self-hosted, batch 16 | $76 | |
-| gpt-6-astra, whole chat each turn | $55,469 | $6,792 |
-| gpt-6.1-sol, whole chat each turn | $11,094 | $817 |
-| gpt-6.1-terra, whole chat each turn | $5,547 | $409 |
-| gpt-6-luna, whole chat each turn | $555 | $68 |
+**Code that always searches is a competitor for long chats, and was not tested against.** R-014's
+`always_search` arm (code makes a search on every turn and hands base the result; no training)
+answered 28 of 40 at 419 messages, against the whole chat's
+2 of 40, and 34 of 40 at 58. It has a cost: in R-017 it answered
+5 of 24 facts in view (base with no tool 22 of 24) and
+0 of 24 plain-chat lines without a search (base with no tool
+24 of 24), because it searches on every turn. R-016 registered it as a
+reference; it was never run on any set the trained model was tested on (R-167, item 1).
 
-At batch 16 the adapter costs $76 per million turns, 7× to 730× less than these closed models sent the whole chat. With every chat token billed at the cached rate, the cheapest closed model (gpt-6-luna, $68) costs about the same or less, so the saving there is privacy and control rather than money.
+## 7. Results: the sealed run
 
-**Assumptions.** Self-hosted cost assumes the NVIDIA A10G on Hugging Face Inference Endpoints (AWS) at $1.00 an hour serves calls as fast as the measured card (NVIDIA GeForce RTX 3080, plain Transformers, calls of about 714 prompt tokens). The A10G has less memory bandwidth than that card, so it would likely be somewhat slower, while a dedicated serving engine would be faster. Closed-model cost sends the whole chat each turn and writes as many tokens as the adapter; the cached column charges every chat token at the cached rate, the most favourable case for the closed model. A closed model could also retrieve instead of reading the whole chat; the point here is that a 3B model can do the retrieval itself.
+Every rule passes in every condition (R-163). Recall, rule 1 (counts of right answers, `older` and
+`confirm`):
 
-## 9. Toolkit findings
+| Condition | Base, 58 messages | Eight adapters pooled, 58 | Points | Base, 419 messages | Eight adapters pooled, 419 | Points | Gain, 95% interval resampling conversations (points) |
+|---|---|---|---|---|---|---|---|
+| A, `heldout`, 1 decoy | 17 of 60 (28.3%) | 426 of 480 (88.8%) | +60.4 | 15 of 60 (25.0%) | 409 of 480 (85.2%) | +60.2 | +50.8 to +69.7 |
+| B, `heldout`, 4 decoys | 15 of 60 (25.0%) | 434 of 480 (90.4%) | +65.4 | 14 of 60 (23.3%) | 409 of 480 (85.2%) | +61.9 | +54.4 to +72.8 |
+| C, `independent`, 1 decoy | 10 of 60 (16.7%) | 434 of 480 (90.4%) | +73.8 | 11 of 60 (18.3%) | 429 of 480 (89.4%) | +71.0 | +64.9 to +79.4 |
+| D, `independent`, 4 decoys | 5 of 60 (8.3%) | 434 of 480 (90.4%) | +82.1 | 8 of 60 (13.3%) | 424 of 480 (88.3%) | +75.0 | +71.9 to +84.6 |
 
-**AuditKIT's paired bootstrap does not centre its resamples.** A gain on 100 of 100 pairs comes out
-as p = 1.0, and on this project's data it reported p = 0.52 for 57% → 88% over 240 paired cases. It is
-shared by AuditKIT's model comparison, run comparison and experiment significance. We use the exact
-sign test and a correctly centred bootstrap instead; the defect, a reproduction and a one-line fix
-are in [`docs/auditkit_bootstrap_defect.md`](auditkit_bootstrap_defect.md).
+![Recall out of view](../figures/recall_out_of_view.png)
+
+The gain is 60 to 82 points at each size against the 20 required; the registered sign
+test is met in every condition, p below 0.01. Base is low here (8.3 to 28.3%), so ratios
+over it are unstable and are not given. **Rule 2** (R-041): every right adapter answer came from a
+search that found the fact, and so did every right base answer, so rule 2's numbers equal rule 1's
+in every condition.
+
+**Rule 3**, false retrievals (a reply naming a wrong value of the fact asked about):
+
+| Condition | Base | Eight adapters | Seed 82 |
+|---|---|---|---|
+| A | 12 | 0 to 2 | 0 |
+| B | 23 | 0 to 11 | 0 |
+| C | 24 | 3 to 9 | 7 |
+| D | 24 | 0 to 9 | 4 |
+
+**Rule 4**, coherent replies (judge 1 decides; judges 2 and 3 reported). Every adapter is above base
+under every judge:
+
+| Condition | Conversations judged | Judge 1 (decides): base / eight adapters / seed 82 | Judge 2 | Judge 3 |
+|---|---|---|---|---|
+| A | 300 | 173 / 264 to 288 / 282 | 167 / 267 to 283 / 269 | 166 / 258 to 281 / 277 |
+| B | 120 | 59 / 105 to 113 / 105 | 59 / 104 to 113 / 105 | 61 / 106 to 114 / 108 |
+| C | 120 | 75 / 108 to 116 / 114 | 65 / 109 to 114 / 114 | 72 / 107 to 116 / 109 |
+| D | 120 | 71 / 110 to 116 / 115 | 77 / 110 to 117 / 115 | 73 / 109 to 116 / 116 |
+
+Base here has the search tool in its prompt; R-017 found the tool alone lowers the untrained
+model's ordinary talk, so rule 4 compares with that base. In development, 6.37 was also judged
+against base with no tool on plain chat and facts in view, and was at or above it (R-128, R-130).
+
+**R-016's three seeds.** Rule 1 recomputed on seeds 82, 83 and 94, the test as first registered:
+
+| Condition | 58 messages: base → seeds 82, 83, 94 pooled (points) | 419 messages | Rule 1 |
+|---|---|---|---|
+| A | 28.3% → 88.9% (+60.6) | 25.0% → 85.6% (+60.6) | met |
+| B | 25.0% → 90.6% (+65.6) | 23.3% → 85.6% (+62.2) | met |
+| C | 16.7% → 84.4% (+67.8) | 18.3% → 82.2% (+63.9) | met |
+| D | 8.3% → 85.0% (+76.7) | 13.3% → 80.6% (+67.2) | met |
+
+**Seed 82 beside the eight.** Recall of 120 for each seed (82, 83, 94 to 99):
+A, 106, 104, 104, 106, 101, 102, 107, 105; B, 107, 105, 105, 107, 102, 103, 108, 106; C, 92, 109, 99, 116, 108, 108, 120, 111; D, 91, 109, 98, 116, 108, 108, 119, 109. Seed 82 against base: 106 against 32 (A), 107 against 29 (B), 92 against 21 (C), 91 against 13 (D); its sign test is below 0.01
+in each. On `heldout` it is level with the other seeds. On `independent` it is the lowest of the
+eight, most of all on `confirm` (42 of 60 in C and 40 of 60 in D, against up to
+60): it found the fact in 111 and answered 92 right (C) and found the fact in 111 and answered 91 right (D), so most misses there are facts it found
+and did not use (R-163).
+
+**`older` and `confirm` apart** (of 60 a model; pooled of 480):
+
+| Condition | `older`: base | seed 82 | eight seeds | eight pooled | `confirm`: base | seed 82 | eight seeds | eight pooled |
+|---|---|---|---|---|---|---|---|---|
+| A | 26 | 56 | 54 to 57 | 446 of 480 | 6 | 50 | 45 to 50 | 389 of 480 |
+| B | 23 | 56 | 54 to 57 | 446 of 480 | 6 | 51 | 46 to 51 | 397 of 480 |
+| C | 15 | 50 | 50 to 60 | 440 of 480 | 6 | 42 | 42 to 60 | 423 of 480 |
+| D | 11 | 51 | 50 to 59 | 440 of 480 | 2 | 40 | 40 to 60 | 418 of 480 |
+
+**The other kinds** (of 60):
+
+| Condition | `in_view`: base / seed 82 / eight seeds | `never_told`: the same | `statement`: the same |
+|---|---|---|---|
+| A | 55 / 59 / 50 to 59 | 54 / 60 / 60 | 38 / 59 / 52 to 60 |
+| B | 56 / 59 / 50 to 59 | 47 / 60 / 57 to 60 | 38 / 59 / 52 to 60 |
+| C | 43 / 57 / 49 to 59 | 50 / 55 / 51 to 57 | 52 / 56 / 55 to 60 |
+| D | 45 / 57 / 49 to 59 | 54 / 59 / 52 to 60 | 52 / 56 / 55 to 60 |
+
+Below base, in the sealed run: on `in_view` in `heldout`, 8 of the 16 adapter runs
+score below base, so some seeds lose a few questions whose answer is in view (R-163); every kind
+where any seed is below base is listed at the end of section 8.
+
+**Behaviour**, reported beside the rules (of 300; clean first calls are calls with nothing written
+after them):
+
+| Condition | Right search decisions: base | seed 82 | eight seeds | Clean first calls: base | seed 82 | Ran out of calls: base | all eight adapters | Seed 82 recall: fact found / right |
+|---|---|---|---|---|---|---|---|---|
+| A | 180 | 298 | 283 to 300 | 52 of 136 | 180 of 180 | 1 | 0 | 106 / 106 |
+| B | 180 | 298 | 283 to 300 | 52 of 136 | 180 of 180 | 2 | 0 | 107 / 107 |
+| C | 193 | 296 | 294 to 300 | 49 of 107 | 184 of 184 | 3 | 0 | 111 / 92 |
+| D | 193 | 296 | 294 to 300 | 49 of 107 | 184 of 184 | 3 | 0 | 111 / 91 |
+
+## 8. Results: the outside-writer sets
+
+Recall (`older` and `confirm`, of 120) with the last three exchanges in view (R-146,
+R-157, R-164):
+
+| Set | Base | 6.37 seed 82 | Only base right, only seed 82 right, sign test | Seed 82 gain, 95% interval resampling chats (points) | Each seed (82, 83, 94 to 99) | Eight seeds pooled, gain interval (points) |
+|---|---|---|---|---|---|---|
+| Set 1 | 26 | 39 | 12, 25, p = 0.047 | +2.5 to +19.2 | 39, 43, 57, 46, 48, 52, 46, 50 | +9.7 to +26.1 |
+| Set 2 | 27 | 53 | 9, 35, p = 1.1 × 10<sup>-4</sup> | +13.3 to +30.0 | 53, 53, 47, 56, 51, 56, 56, 44 | +12.9 to +28.3 |
+
+On set 1 seed 82's gain is +10.8 points and its sign test p = 0.047, above the
+registered 0.01; it is the lowest of the eight on that set. On set 2 it is +21.7 points, p =
+1.1 × 10<sup>-4</sup>. The eight seeds pooled gain +18.0 and +20.8 points. Both
+sets' gains are far below the generator's: on `hard_dev` the same seed goes from 20 to
+73 of 96 (R-141, R-164). The eight seeds are runs over the same questions, not
+independent cases (R-137). Each set has only 4 writers, all one model family, and the
+intervals resample chats, not writers (R-142):
+
+| Set | Recall per writer: base / seed 82 / eight seeds |
+|---|---|
+| Set 1 | w1: 6 / 11 / 11 to 16; w2: 7 / 10 / 10 to 17; w3: 7 / 9 / 9 to 16; w4: 6 / 9 / 7 to 9 (of 30 each) |
+| Set 2 | x1: 6 / 10 / 7 to 12; x2: 4 / 14 / 11 to 15; x3: 8 / 14 / 11 to 15; x4: 9 / 15 / 14 to 17 (of 30 each) |
+
+Seed 82 is above base in every writer's chats on both sets.
+
+**Each kind** (R-146, R-157):
+
+| Set | `older`: base / seed 82 / eight seeds | `confirm`: base / seed 82 / eight seeds | `in_view`: base / seed 82 / eight seeds | `never_told`: base / seed 82 / eight seeds | `statement`: base / seed 82 / eight seeds |
+|---|---|---|---|---|---|
+| Set 1 | 11 / 28 / 26 to 35 of 80 | 15 / 11 / 11 to 22 of 40 | 36 / 35 / 32 to 37 of 40 | 34 / 37 / 33 to 39 of 40 | 38 / 37 / 33 to 39 of 40 |
+| Set 2 | 12 / 34 / 28 to 42 of 80 | 15 / 19 / 11 to 23 of 40 | 34 / 37 / 36 to 40 of 40 | 32 / 36 / 31 to 36 of 40 | 39 / 35 / 30 to 36 of 40 |
+
+The gain is nearly all `older` (28 against 11 and 34 against 12). On `confirm` seed 82 is below
+base on set 1 (11 against 15) and above on set 2 (19 against 15). On `statement` it is below
+base on both sets (37 against 38, 35 against 39): it searched on chat lines where base did
+not (R-146, R-157).
+
+**Every kind where seed 82 or any seed is below base** (outside-writer sets and sealed run, counts
+of right answers; R-146, R-157, R-163): set 1 `confirm`: seed 82 11 against base's 15; three of the eight seeds below base (11 to 14); set 1 `in_view`: seed 82 35 against base's 36; six of the eight seeds below base (32 to 35); set 1 `never_told`: seed 82 37 against base's 34; one of the eight seeds below base (33); set 1 `statement`: seed 82 37 against base's 38; six of the eight seeds below base (33 to 37); set 2 `confirm`: seed 82 19 against base's 15; three of the eight seeds below base (11 to 14); set 2 `never_told`: seed 82 36 against base's 32; one of the eight seeds below base (31); set 2 `statement`: seed 82 35 against base's 39; eight of the eight seeds below base (30 to 36); sealed A `in_view`: seed 82 59 against base's 55; four of the eight seeds below base (50 to 53); sealed B `in_view`: seed 82 59 against base's 56; four of the eight seeds below base (50 to 53); sealed D `never_told`: seed 82 59 against base's 54; two of the eight seeds below base (52).
+
+**Tag questions.** Half the `confirm` questions claim the right value and half a wrong one (R-142).
+6.37 rarely searches a tag question (set 1: 9 of 40, base 5; set 2:
+12 of 40, base 2) and mostly agrees with the claim:
+
+| Set | True claims confirmed: base / seed 82 | False claims corrected: base / seed 82 | False claims corrected, eight seeds | Tag questions searched: base / seed 82 |
+|---|---|---|---|---|
+| Set 1 | 14 / 10 of 20 | 1 / 1 of 20 | 0 to 7 | 5 / 9 |
+| Set 2 | 15 / 16 of 20 | 0 / 3 of 20 | 0 to 8 | 2 / 12 |
+
+So seed 82 goes along with most false claims: it corrects 1 and
+3 of 20, about as often as base. This is a result, not only
+a limit. 7.1, trained to search tag questions, searched nearly all of them and grounded every right
+answer, but did not raise recall and failed a development line (R-157, R-158).
+
+**The prompted baseline.** Two fixed system prompts on base, written before any result: A states
+five rules, B adds four worked examples (R-137, R-161). Recall:
+
+| Set | Base | Base, prompt A (rules) | Base, prompt B (rules and four worked examples) | 6.37 seed 82 | Prompt A against seed 82: only A right, only 6.37 right, sign test | Prompt B against seed 82 |
+|---|---|---|---|---|---|---|
+| Set 1 | 26 | 19 | 15 | 39 | 8, 28, p = 0.0012 | 8, 32, p = 1.8 × 10<sup>-4</sup> |
+| Set 2 | 27 | 18 | 20 | 53 | 4, 39, p = 3.1 × 10<sup>-8</sup> | 5, 38, p = 2.5 × 10<sup>-7</sup> |
+
+Both prompts lower base's recall on both sets: they make base search less. For these two prompts, a
+written prompt does not buy the gain. A search over prompts was not tried.
+
+**Where seed 82's wrong answers go wrong** (R-139's stages, R-146, R-157):
+
+| Set | Wrong recall answers, seed 82 | Did not search | Searched, the fact not found | Named a listed wrong value | Found the fact, wrong otherwise |
+|---|---|---|---|---|---|
+| Set 1 | 81 | 23 | 38 | 6 | 14 |
+| Set 2 | 67 | 17 | 36 | 5 | 9 |
+
+The leading stage on both sets is a search that missed the fact. Read by hand (R-146): a tag
+question does not trigger a search; queries reuse training wording ("aunt keeps animals yard") and
+miss; a fact told with a pronoun ("she has a cockatiel") cannot be matched by a search for the
+relation; and a found fact is answered from the line's first clause. On set 1, most misses state
+something false, usually another person's fact from the found passage (R-146); on `hard_dev` almost
+none did (R-144). The scorer checks only the answer on questions whose writer listed no wrong value;
+on the questions that list one, seed 82 gets 31 against 19 of 88 (set 1) and 41 against 18 of 84
+(set 2) (R-143, R-152).
+
+## 9. Cost
+
+The sealed run's times, on this machine (an RTX 3080, 10 GB, each run with the card to itself)
+(R-163):
+
+| Condition | Base: seconds, per conversation | Seed 82: seconds, per conversation | Eight adapters: seconds per conversation | Tokens read per turn, base / seed 82 | Whole chat, tokens | Seed 82 reads, share of the whole chat | Tokens written per turn, base / seed 82 | Searches per conversation, base / eight adapters |
+|---|---|---|---|---|---|---|---|---|
+| A | 389, 1.30 | 535, 1.78 | 1.73 to 2.18 | 1,148 / 1,196 | 3,227 | 37% | 37 / 26 | 0.47 / 0.57 to 0.63 |
+| B | 385, 1.28 | 502, 1.67 | 1.67 to 1.92 | 1,154 / 1,207 | 3,239 | 37% | 38 / 26 | 0.48 / 0.57 to 0.63 |
+| C | 381, 1.27 | 524, 1.75 | 1.75 to 2.03 | 1,122 / 1,239 | 3,496 | 35% | 36 / 27 | 0.39 / 0.60 to 0.62 |
+| D | 434, 1.45 | 624, 2.08 | 2.08 to 2.34 | 1,145 / 1,266 | 3,610 | 35% | 37 / 27 | 0.39 / 0.60 to 0.62 |
+
+Seed 82 reads 35 to 37% of the whole chat's tokens a turn and writes fewer tokens than base.
+It takes longer per conversation than base because it searches more often, and each search adds a
+model call. Peak card memory in the sealed run was 7.02 GiB. The 33 judges took
+53 to 129 s each, median 80 s (`results/coherence/R-162/judge_times.json`). Training took 33 to 35
+minutes a seed. On the outside-writer sets the comparison runs the other way: a chat of about
+1,400 tokens costs less to read whole than to search (section 6).
+
+## 10. How 6.37 was chosen: the candidate ledger
+
+Every candidate after v5, in order, with the line it failed. The records number the candidates read
+at seeds 82 and 83 since v6 (R-093); by that count 6.37 is candidate 16 and 7.1 is
+the 20th (R-127, R-134). Fix B was run in that time and is outside the records'
+count. Before v6, 16 candidates were screened against v5. Screen recall is the
+development screen (`probe`, seed 51203) at training seed 82; `hard_dev` is seed 73157 at seed 82;
+both are development numbers, read many times.
+
+**Before v6** (v5 stands until 17m):
+
+| # | Candidate (set) | What it changed | How it ended | Screen recall, seed 82 (of 96) | `hard_dev` recall, seed 82 (of 96) | Record |
+|---|---|---|---|---|---|---|
+| | Base, untrained | | | 38 | 20 | R-017 |
+| | v5 (`fix11_all`) | | the reference for this table | 95 | 58 | R-061 |
+| | Fix 12 (`fix12_all`) | brief, vetted in-view answers | dropped at the screen gate, recall | 90 | not run | R-063 |
+| | Fix 13 (`fix13_all`) | more indirect in-view questions | dropped at the screen gate, recall | 91 | not run | R-064 |
+| | Fix 14 (`fix14_all`) | half the fact rows from 47 new fact types (the wide pool) | failed its gate on `statement` and `never_told` | 92 | 76 | R-069, R-071 |
+| | Fix 14b (`fix14b_all`) | fix 14, with chat lines naming the wide pool's people | failed on `hard_dev` `never_told` | 92 | 74 | R-073 |
+| | Fix 14c (`fix14c_all`) | a quarter of the fact rows from the new types | failed on `hard_dev` `never_told` | 93 | 79 | R-073 |
+| | Fix 15 (`fix15_all`) | fix 14c, with never-told rows whose search returns someone else's fact | passed its gate; failed confirmation on judged coherence items | 96 | 81 | R-074, R-075 |
+| | Fix 16a (`fix16a`) | the loss on the taught turns only | failed the screen gate on plain-chat coherence | 96 | 70 | R-076, R-077 |
+| | Fix 16b (`fix16b`) | the loss on all but the scripted small talk | failed its gate on counts | 87 | 55 | R-079 |
+| | Fix 16c (`fix16c`) | fix 16a at learning rate 1e-4 | failed its gate on counts | 93 | 48 | R-079 |
+| | Fix 17 (`fix17`) | fix 16c, with plain-chat targets re-vetted on a stricter rubric | failed on counts | 91 | 53 | R-078, R-080 |
+| | Fix 17b (`fix17b`) | fix 16a with the strictly vetted targets | failed R-076's rule on a judged sheet at seed 83, and again at fresh seeds 85 to 87 | 94 | 72 | R-082, R-091 |
+| | Fix 18a (`fix18a`) | fix 17b, with chat lines that name a fact type | dropped at the screen gate, recall | 94 | 56 | R-083, R-085 |
+| | Fix 18c (`fix18c`) | control for 18a: chat lines that name none | dropped at the screen gate, recall | 92 | 66 | R-085 |
+| | Fix 19a (`fix19a`) | fix 18a, with questions asked as statements and answered from a search | passed every count; failed the judged check set | 95 | 74 | R-086, R-089 |
+| | Fix 20 (`fix20`) | fix 17b, with one fact-word chat line and one indirect question a type | failed several counted lines | 93 | 62 | R-087, R-092 |
+| | 17m (**v6**) (`fix17m`) | fix 17b, with plain-chat rows' loss only on the decision and the end marker | passed at 82 and 83 and at fresh seeds 85 to 87: v6 | 95 | 74 | R-088, R-092, R-093 |
+
+**Since v6** (from R-103 on, Kevin's tree names: 6.1 is v6 plus a first stepping stone, 6.11 a second
+on top of it, 6.2 a different first stone):
+
+| # | Candidate (set) | What it changed | How it ended | Screen recall, seed 82 (of 96) | `hard_dev` recall, seed 82 (of 96) | Record |
+|---|---|---|---|---|---|---|
+| 1 | Fix A (`fix17w`) | v6, with its 27 slip-shaped answers rewritten | failed a judged sheet under judge 1 | 96 | 78 | R-094, R-095 |
+| — | Fix B (`fix17mb`) | v6, with base-written answers' loss only on the first token and end marker | trained and scored at 82 and 83 and counted (R-101); no record states its result | 95 | 75 | R-095, R-101 |
+| 2 | Fix C1 (`fix17y`) | fix A without the 15 answers CuratorKIT's gate rejected | probe recall pooled below v6's | 96 | 74 | R-097, R-098 |
+| 3 | Fix C2 (`fix17z`) | fix A with those 15 answers scripted | `hard_dev` recall pooled below v6's; the track ends | 96 | 77 | R-098, R-101 |
+| 4 | 6.1 (`fix17cr`) | v6 plus 170 train-pool rows: corrections in training's wordings, cue controls, earlier questions in view | a stepping stone, not gated; it broke the screen recall and `hard_dev` recall lines | 93 | 82 | R-102 to R-104 |
+| 5 | 6.11 (`fix17cr11`) | 6.1 with fix C2's 41 rewritten answers, one epoch on top | probe recall pooled below v6's | 95 | 85 | R-105, R-106 |
+| 6 | 6.111 (`fix17cr111`) | one more epoch on 6.11, nothing added | recall below v6's on both sets | 94 | 84 | R-107, R-108 |
+| 7 | 6.2 (`fix17cs2`) | 6.11's rows, from scratch | passed at 82 and 83; failed a judged `statement` sheet at fresh seed 92 | 96 | 85 | R-109, R-112 |
+| 8 | 6.21 (`fix17cs21`) | 6.2 plus 100 rows whose found line says more than the asked detail, one epoch on top | `hard_dev` recall pooled below v6's | 96 | 81 | R-110, R-113 |
+| 9 | 6.3 (`fix17cs3`) | 6.2 plus 57 chat lines naming a fact type and 52 questions asked as statements | probe slips at seed 83; screen `statement` | 96 | 85 | R-114, R-116 |
+| 10 | 6.31 (`fix17cs31`) | 6.3 with those 52 answers scripted, plus 24 contrast statements (someone else forgets or loses something; no search) | probe recall pooled below v6's | 95 | 82 | R-117, R-119 |
+| 11 | 6.311 (`fix17cs311`) | 6.31 plus 72 scripted in-view rows, one epoch on top (Kevin's call) | `hard_dev` recall pooled | 95 | 65 | R-118, R-120 |
+| 12 | 6.32 (`fix17cs32`) | the same 72 rows, from scratch | `hard_dev` recall, probe recall, probe slips | 96 | 57 | R-118, R-121 |
+| 13 | 6.33 (`fix17cs33`) | 6.31 less the 15 memory-word contrast rows | probe recall pooled below v6's, on a new question | 96 | 73 | R-122, R-123 |
+| 14 | 6.34 (`fix17cs34`) | 6.33 less the 22 in-view targets that open “It sounds like” | screen `statement` and probe recall | 94 | 80 | R-122, R-125 |
+| 15 | 6.36 (`fix17cs36`) | 6.31 less the 6 contrast rows whose reply has “Maybe” | screen `statement` and probe recall | 96 | 83 | R-124, R-126 |
+| 16 | **6.37** (`fix17cs37`) | 6.31 less the 9 wallet, umbrella and lost-track contrast rows | passed every line at 82 and 83 and at fresh seeds 94 to 96; shipped and frozen | 94 | 73 | R-127 to R-131, R-160 |
+| 17 | 6.38 (`fix17cs38`) | 6.37 with 28 deflecting in-view targets rewritten | `hard_dev` recall pooled below 6.37's | 95 | 80 | R-134, R-140 |
+| 18 | 6.39 (`fix17cs39`) | 6.37 plus R-110's 100 rows, from scratch | `hard_dev` recall pooled below 6.37's | 94 | 71 | R-147, R-149 |
+| 19 | 7 (`fix17cs7`) | 6.37 with 140 user messages reworded as tag questions (“..., right?”) | screen recall at seed 82 | 92 | 81 | R-153, R-155, R-156 |
+| 20 | 7.1 (`fix17cs71`) | 7 without its 20 `in_view` tag rows | probe `in_view` at seed 83 | 94 | 83 | R-156, R-157 |
+
+Not counted as candidates: the scaled and mixed 17b adapters of R-090, registered as diagnostics,
+not shippable models (R-088); the controls `fix17crx` and `fix17cs2x`, reported only (R-106,
+R-115); fix 15b and 6.35, registered and never trained (R-075, R-122). Trained and scored, with no
+record reading the result: 17b at 2 epochs and 3e-4 (`fix17e2`: screen recall 94, `hard_dev` 74); 17b at 2 epochs and 2e-4 (`fix17e2lr2`: screen recall 85, `hard_dev` 54); 17r (`fix17r`: screen recall 95, `hard_dev` 79). The 40 counted here are trained candidate
+sets: 16 before v6 (17m included), 21 since (fix B included) and
+these 3. Listed but not counted: base and v5 (reference rows), the controls
+`fix17crx` and `fix17cs2x`, and R-090's diagnostics.
+
+What the ledger shows. Probe recall sits at its ceiling, so a copy with no real defect often misses
+one question by chance, and each removal copy from 6.33 to 6.36 fell short of v6's probe recall
+(R-123 to R-127). `hard_dev` recall moves between training seeds alone (73 to 90 of 96 for
+6.37, R-141) by more than most changes moved it. Later panels judged that a
+further candidate could not be told from a draw (R-150, R-159). The gates did not move; 6.37 is the
+only copy after v6 that passed every registered line.
+
+## 11. Toolkit findings
+
+**AuditKIT's paired bootstrap does not centre its resamples.** It reports a large gain as not
+significant: on this project's data it did so for 57% → 88% over 240 paired cases (R-031; the value it gave
+and a reproduction are in the defect note). It is shared by AuditKIT's model comparison, run comparison and experiment significance. We use the
+exact sign test and a centred bootstrap instead; the defect, a reproduction and a one-line fix are
+in [`docs/auditkit_bootstrap_defect.md`](auditkit_bootstrap_defect.md). As a second scorer on v3,
+AuditKIT's whole-word oracles agreed with ours on 959 of 960 cases (R-031,
+`results/audit/v3_probe73157.json`). Runs on fix 5c and v5 exist in `results/audit/`; no record reads
+the v5 file. AuditKIT was not run on 6.37.
 
 **TRL's chunked loss copies the output layer for every chunk.** Training first peaked at
 9.81 GiB on a 10 GiB card, so any other program on the card pushed it into shared memory
@@ -369,350 +638,158 @@ at several times the step time. The loss computes `h.float() @ w.float().t()`; u
 both float32 copies of the 262,144-word output layer are cast straight back to bf16, so they change
 nothing but memory. A replacement that takes the bf16 product directly gives TRL's loss, scores and
 gradients bit for bit (tested), and training peaks at 7.12 GiB at about 1.1 s
-a step. Retrained with it, v3 differed from its original on 13 of 240 conversations, inside
-run-to-run variation (R-032).
+a step. Retrained with it, v3 differed from its original on 13 of 240 conversations,
+inside run-to-run variation (R-029, R-032). 6.37 is trained with it.
 
 ![Training memory](../figures/training_memory.png)
 
-**CuratorKIT's grounding gate finds faulty training answers our own checks missed.** The gate asks
-a judge whether each answer is supported by the source it came from. We ran it over the 350 training
-answers that follow a search, with Claude judges plugged into CuratorKIT's own backend class: the
-gate's prompts were recorded, answered by three judges in turn, and replayed, so CuratorKIT's
-prompt, parsing and threshold decide every verdict, and the saved verdicts rerun to the same result.
-It rejected 22 answers (21 of them by all three judges): 8 that pin a relation on the wrong person,
-and 14 our pattern check could not see, such as "Greta's brother adopted a dog named Pepper." for
-"the dog Greta adopted", claims the passage does not make, and off-topic talk (R-096). It is an
-audit of the training targets, not an independent test of the model: its judges are the same model
-family as our coherence judges.
+**CuratorKIT's grounding gate finds faulty training answers our own checks missed.** The gate asks a
+judge whether each answer is supported by its source. Run over v6's found-fact training answers with
+three Claude judges plugged into CuratorKIT's own backend class (prompts recorded, answered, then
+replayed, so CuratorKIT's prompt, parsing and threshold decide every verdict), it rejected
+22 of 350: 8 that pin a relation on the wrong person and 14 that
+our pattern check could not see, such as claims the passage does not make (R-096). As an acceptance
+test for replacement answers, it passed every replacement, rejected the old rejections hidden on the
+sheet as controls (22 of 22) and rejected no answer it had passed before (R-098). It is
+an audit of training targets, not a test of the model, and its judges are the same model family as
+the coherence judges.
 
-The same gate then served as an acceptance test for new training answers before any training run
-(R-098): one blind, shuffled sheet held 15 scripted replacements, the 22 rejected answers as hidden
-controls and 20 answers it had passed. Three fresh judges passed all 15 replacements, rejected all
-22 controls again and rejected none of the 20.
+## 12. Threats to validity
 
-## 10. Threats to validity
+- **Both sealed pools come from the project's generator.** `independent` was written by a fresh
+  agent and never read, but its chats follow the generator's structure: where facts sit, how
+  questions are worded, how decoys look. The sealed run shows the gain holds on unseen people, facts
+  and small talk; the outside-writer sets are the measure of chats with a different structure
+  (R-163, disclosure 5).
+- **The outside-writer sets are small and close.** 4 writers a set, all fresh agents of
+  one model family, about 40 questions a kind; the intervals resample chats, not writers (R-142).
+  The first set also became a development set (R-151).
+- **Development data was read many times.** Every candidate in section 10 was chosen on `probe`,
+  `hard_dev` and later the first outside-writer set; their numbers flatter whatever was chosen.
+  Seed 82 was fixed before seeds 94 to 99 existed and is the lowest of the eight on `hard_dev` (R-141).
+- **Few templates.** The generated recall questions come from few fact templates, so item-level
+  p-values overstate the evidence; template-resampled intervals still exclude zero on development
+  pools (R-141). The sealed intervals do not resample templates (R-164).
+- **Training seeds differ more than one run can show.** On `hard_dev` 6.37 ranges 73 to 90
+  of 96 by seed (R-141); fix 17b's plain chat fell below base at some seeds and not others (R-091).
+  Training is not bit-reproducible on this card (R-029); generation is: a repeated run of seed 82
+  gave the same reply on 240 of 240 questions (R-156).
+- **The judges are Claude models only, and see only the turns in view.** Agreement among them is
+  weaker evidence than agreement across model families (R-096); they cannot tell a false "you never
+  told me" from a true one, so recall is always read beside coherence (R-020). No person checked
+  their marks.
+- **The scorer.** It fails a reply that names the answer and a wrong value together, which the two
+  people passed (R-144, R-145). On the development runs counted (base and seed 82 on `probe` and
+  `hard_dev`), this lowered only base's recall, on `hard_dev` by at most 9 of 96; it was
+  not counted on other runs (R-144). On `never_told` it passes an
+  invented value outside the listed ones (R-020). On the outside-writer sets many questions list no
+  wrong value, so a reply that adds something false is not caught there (R-143, R-152). It does not
+  look for leaked tool text, which only base produced (R-144).
+- **Shared briefs.** `hard_dev` and the wide training pool were written to briefs like the sealed
+  `independent` pool's, so condition C and D are less independent of development than when
+  registered; one discarded writer saw fragments of sealed wording (R-066, R-069, R-070).
+- **The baselines tried.** Base with the tool, base with two fixed prompts (R-137, R-161) and base
+  with the whole chat on short chats (R-164, R-165). No search over prompts and no other retrieval
+  system was tried.
 
-- **Synthetic conversations.** All chats are generated from templates; real chats are messier. The
-  independent pool was written to be harder (run-on messages, texting style, values that are easy to
-  confuse), but it is still templated. Messy input is measured on the frozen model, paired against
-  the same items typed cleanly: lower-case texting, facts corrected later, an earlier question still
-  in view, and a phone-typing form (dropped apostrophes, "u" for "you", a slipped letter) that no
-  training row uses. Training on messy rows was registered to happen only if one of these costs at
-  least 8 of 192 recall answers (R-099). Typing style cost v5 at most two answers of 96; an earlier
-  question in view cost v6 none on the probe and 7 of 96 on `hard_dev`.
-  An outside check on a public chat set built by others, LoCoMo (Maharana et al., 2024), is
-  registered for the frozen model, with base on the same questions; it decides nothing (R-100).
-  The measurement found one large weakness: when the user corrects a fact later in the chat, v6
-  searches, finds both versions and answers with the old one (5 of 96 right on the probe, against
-  base's 19; R-102). The messy-input plan registered in R-099 would have judged a fix for this on
-  phone typing, which a fix for corrections is not built to change, so the researcher amended that
-  one test before any fix existed: a fix is now judged on corrections worded in ways it never
-  trained on, written by an agent that saw no project file, with every other check unchanged.
-  On November 6 the researcher also changed how fixes are built: a fix that fails a check is kept as
-  a stepping stone and trained further on what it broke, instead of starting again from v6, and only
-  the final copy is judged by the full set of checks, which do not change (R-103). Before this, each
-  fix started from v6, so one that fixed something and broke something else lost both: the
-  who-is-who fix removed the slip at both seeds tried but cost hard-question recall, and was
-  discarded with its gain (R-101).
-  The first stone, 6.1, trained on corrections worded in training's own ways, gives the corrected
-  value on all 192 of the held-out probe corrections and 159 of 192 on `hard_dev`, against v6's 1
-  and 5 and base's 9 and 8 a seed; phone typing held. It broke three smaller things, which became
-  the next stone's targets: `hard_dev` recall fell below v6's at one seed (69 against 83, mostly
-  replies that found the fact and left out the detail asked for), the who-is-who slip rose to 4 at
-  the other, and one screen recall answer was lost (R-104).
-  The second stone, 6.11, keeps 6.1's rows, swaps in the who-is-who fix's 41 answers, and trains one
-  more gentle epoch from 6.1's saved weights, beside a control that trains the same epoch without the
-  swap; it is judged by the full set of checks, and only fresh seeds count as evidence (R-105).
-  6.11 removed the who-is-who slip at every seed, kept the corrections gain (190 of 192 on the probe,
-  167 of 192 on `hard_dev`) and lifted `hard_dev` recall above v6's, but answered 190 of 192 probe
-  recall questions where v6 answered all 192, so it misses one check by two answers; the control,
-  without the swap, kept the slips, so the swap is what removed them (R-106).
-  The probe check asks for a perfect score, since v6 answered all 192; copies no worse than v6 met
-  that at 9 of 12 seeds tried. The next step, 6.111, trains one more gentle epoch on 6.11's own rows
-  with nothing added, because rows aimed at the two missed questions would be built from the
-  development questions themselves; if it fails, a single from-scratch run of 6.11's rows comes next,
-  chosen before the result. Each try at the development seeds is counted and reported (R-107).
-  6.111 kept the slips at or near zero but lost recall on both sets (189 of 192 on the probe, 153 on
-  `hard_dev` against v6's 157), so the extra epoch did not help; 6.2, the from-scratch run fixed in
-  advance, is the next try (R-108).
-  6.2 passed every check at the development seeds: every probe recall question answered, no who-is-who
-  slip at either seed, `hard_dev` recall 166 against v6's 157, held-out corrections 192 and 169 of 192
-  where v6 answered 1 and 5, and the coherence sheets under the deciding judge; one of the two other
-  judges would have failed one sheet by two lines. It is the eighth copy tried at those seeds; fresh
-  seeds decide (R-109).
-  Every passage in 6.2's training set is one short fact line, while the development set states facts
-  in long run-on lines, and most of 6.2's remaining misses find the right line and leave out the asked
-  detail. The next stone, 6.21, adds 100 training-pool rows whose found line says more than the asked
-  detail (two facts about one person, or the fact among other talk) and trains one gentle epoch on
-  6.2, beside a control; the shapes of the development questions it misses are kept out (R-110).
-  At the three fresh seeds 6.2 passed every counted check (every probe recall question, 244 of 288
-  on `hard_dev` against v6's 238, at most one slip a seed, held-out corrections 82 to 96 of 96), but at
-  one seed it failed a judged coherence check, with 4 fewer sensible replies to plain statements than
-  base: the friend said something like "Hana forgot my birthday again" and 6.2 searched and answered
-  with an unrelated stored fact. All three judges agreed. 6.2 is not shipped; its successor 6.21 goes to the fresh seeds
-  (R-112).
-  6.21 did not get that far: at the development seeds its hard-question recall fell to 155, below
-  v6's 157, and the misses it was built to remove (the right line found, the asked detail left out)
-  rose from 18 to 29. Neither stone replaces v6 (R-113).
-  A last try, 6.3, is trained from scratch on 6.2's rows plus 109 rows from an earlier fix built
-  for plain statements (57 chat lines that name a fact type, answered without a search, and 52
-  questions asked as statements, answered from one). It is confirmed on three training seeds never
-  used before; if it fails any line, v6 ships (R-114).
-  A control, one more epoch on 6.2's own rows, lost 6 hard questions by itself, so about half of
-  6.21's drop came from the extra epoch and half from its added rows (R-115).
-  6.3 failed at the development seeds: at one seed it answered 7 questions in the form "Ayaan, who
-  is my teammate, speaks fluent Korean.", copying a stored line's wording, and it still answered
-  "Esme forgot my birthday again" with a search 3 times (R-116).
-  The next try, 6.31, again from scratch, gives its question-as-statement rows one fixed answer
-  form ("Your sister Tomas keeps geckos.") and adds 24 chats where someone else forgets or loses
-  something and the reply needs no search (R-117).
-  6.31 answered fewer questions whose answer is still in the chat; it offered sympathy instead.
-  Two copies add 72 such chats answered plainly: 6.311, one short epoch on top of 6.31 (Kevin's
-  call), and 6.32, from scratch. Which goes on was fixed before either was read (R-118).
-  6.31 itself fell one question short of v6 on the probe's recall (191 against 192): the missed
-  question got sympathy instead of a search (R-119).
-  6.311 answered every probe in-view question, but its recall of searched facts on the harder set
-  fell from 163 to 122: it found the line and then gave only the kind of fact, not the detail (R-120).
-  6.32, the same rows from scratch, lost the detail too (133): the short scripted answers, not the
-  training on top, were the cost (R-121).
-  The next tries only remove rows from 6.31. 6.33 drops the 15 small-talk rows that pair "forgot"
-  or "lost" with no search, the likely cause of 6.31's one miss (R-122).
-  It fixed that question and missed another by one, a search that split "stepsister" into
-  "sister steps out" (R-123).
-  6.34, with the in-view rows also removed, began searching on "Esme forgot my birthday again"
-  and split "stepsister" on a second question (R-125).
-  6.36, removing only 6 of those small-talk rows, brought back the tattoo miss and searched on
-  most "forgot my birthday" lines (R-126).
-  The rows split into frames: the "lost wallet", "forgot umbrella" and "lost track of time" ones
-  go with the tattoo miss, the "forgetting to text" and "forgot lunch" ones with the birthday
-  lines. 6.37 drops only the first three (R-127).
-  6.37 passed every counted and judged line at seeds 82 and 83, all three judges agreeing, and is
-  being confirmed at fresh seeds 94 to 96 (R-128).
-  It also kept answering with corrected facts and with phone-style typing (R-129).
-  At fresh seeds 94 to 96 it matched v6's recall on the probe (287 each) and beat it on the
-  harder set (247 against 237), and every coherence sheet was at or above base under all three
-  judges (R-130).
-  It kept the corrected facts and the phone-typing answers at those seeds too, so 6.37 replaced
-  v6 as the copy that ships (R-131).
-- **One author for train and held-out.** The held-out pool shares no content with training but was
-  written by the same assistant; condition C and D's independent pool exists for this reason.
-- **Development numbers.** The probe pool guided every change, so its numbers flatter the adapter;
-  only the sealed pools decide.
-- **The never-told scorer** passes any reply that names none of the listed values, so an invented
-  value outside the list can pass; false retrieval undercounts for that kind.
-- **The coherence judge** sees only the turns in view, so it cannot tell a false "you never told me"
-  from a true one; recall is always read beside it. In development, "never told" replies were not
-  on a coherence sheet; the final sheets cover every kind.
-- **Judges disagree by a few lines.** The untrained model's replies are the same on every sheet of a
-  kind, so its score shows how much judges agree. On plain-chat and in-view lines they agreed within
-  one line in 48; on "fact told long ago" lines, three judges gave the same 48 replies 34, 17 and
-  30, because one marked down any reply that opens with a name (R-057). Claims on that kind rest on
-  the pooled, paired comparison, where the adapter's lead (130 against 81) is larger than that
-  spread. Late in development each sheet had three judges, one named in advance to decide; on the
-  same 96 check-set lines they differed by up to five (R-089), so a one-line verdict is close to
-  that spread. To compare candidates, every model's replies went on one blind sheet, so the same
-  judges marked them all (R-090).
-- **Many candidates, one set of development data.** Every change in section 7, and every scaled or
-  mixed adapter tried (R-090), was chosen on the probe, `hard_dev` and, from R-085, the blind chat
-  check set; section 7's table lists each one scored, failed ones included. Those numbers flatter
-  whatever was chosen; only the sealed pools, run once, decide.
-- **Development pools and the sealed one share a brief.** `hard_dev` and the wide training pool
-  were written to briefs like the independent pool's, so the final test's independent condition is
-  less independent of development than when it was registered (R-066, R-069). One writer of the
-  wide pool, since discarded, saw fragments of sealed wording through a checker that reported
-  only counts; that pool was never used (R-070).
-- **Training is not bit-reproducible on this card.** With the same rows and seed, TRL's own first
-  gradient norm varied from run to run (R-029), so every claim pools three seeds.
-- **Seeds differ more than a screen can show.** Trained six times with the same rows, fix 17b's
-  `hard_dev` recall ran from 65 to 83 of 96 and its plain chat fell below the untrained model's at
-  two seeds of six (R-091). A single-seed screen can only rule a change out when the change is
-  large; every candidate that went further was checked at two or three seeds, and the rule that
-  decides needs three.
-## 11. Errors and corrections
+## 13. Errors and corrections
 
-Every error of method below was found during the work and is recorded where it happened; none is
-hidden by a later result.
+Each error below was found during the work and is recorded where it happened.
 
-- **The first adapter's score was memorised.** It answered 119 of 120 on conversations like its
-  training set and failed on a fresh probe, because in training the number of passages a search
-  returned gave the answer away. Decoy counts now vary per row so the count carries no signal
-  (R-018, R-020).
-- **A plateau called too early.** After two fixes failed, we called v5 final on the strength of
-  the probe alone (R-064). Challenged, we tested harder conditions: the crowded condition held,
-  but the `hard_dev` twin showed recall of 60% against 97% on the probe (R-065, R-068). The probe
-  shared the training pool's author and style and hid the gap.
-- **A screen that counted the wrong thing.** The screen scored plain chat by whether the model
-  searched, not whether its reply made sense, so a stronger adapter passed the screen and failed
-  the blind judge (R-055). Every confirmation since judges plain chat on every seed.
-- **One judge a sheet.** Three judges gave the same 48 untrained replies 34, 17 and 30 on one kind
-  (R-057). Conclusions on that kind rest on pooled, paired comparisons, and section 10 says so.
-- **A checker that pushed a writer to the sealed data.** The checker for an independent writer
-  reported only how many of its lines clashed with other pools, so the writer wrote its own
-  script, which printed fragments of sealed wording. That pool, meant for training, was discarded
-  unused, and the checker now names only the writer's own lines (R-070).
-- **A toolkit defect.** AuditKIT's paired bootstrap does not centre its resamples, so it reports
-  large gains as not significant; we use an exact sign test and a centred bootstrap (section 9,
-  R-031).
-- **A training default not checked.** Every adapter through v5 was trained with TRL's default of a
-  loss on every token of a row, found only when replies turned out to be copied from the scripted
-  history (R-076; see the failure modes below).
-- **A build that wrote before it checked.** The training-set build wrote its file before checking
-  that no row exceeded the 1,024 tokens training keeps, so three screens (fixes 14, 14b and 14c)
-  trained on sets with three to five rows whose answers were cut. The build now skips such rows
-  and checks before writing; those screens are reported as screens of the sets they used (R-073).
+- **Generation did not stop at the end of a turn.** The first test's readings were withdrawn and
+  rerun with stops (R-010, R-013).
+- **The first adapter's score was memorised.** It answered 119 of 120 on conversations like
+  its training set and failed on a fresh probe: the number of passages a search returned gave the
+  answer away. Decoy counts now vary per row (R-018, R-020).
+- **A screen counted the wrong thing.** It scored plain chat by whether the model searched, so a
+  stronger adapter passed it and failed the blind judge (R-055); confirmations since judge plain chat
+  on every seed.
+- **A plateau called too early.** v5 was called final on the probe alone (R-064); harder checks then
+  showed a large gap on `hard_dev` (R-065, R-068).
+- **A checker that pushed a writer to the sealed data.** A count-only checker led a writer to print
+  fragments of sealed wording; that pool was discarded unused and the checker now names only the
+  writer's own lines (R-070).
+- **A toolkit defect** in AuditKIT's bootstrap (R-031, section 11).
+- **A training default not checked.** Every adapter through v5 put the loss on every token of a row
+  (R-076).
+- **A build that wrote before it checked** (R-073), and **a build that doubled line endings**
+  (R-136); both builds now check what they wrote.
+- **A second queue runner** trained on the card beside another run (R-114); it was stopped.
+- **Counts corrected.** R-130's slip counts took every kind instead of R-094's two (R-131); R-139's
+  first text said ten tests where there were nine (R-139); R-155 counted a line that was not 7's
+  (R-156); R-144's finding that 6.37's misses never state a false value did not hold on the first
+  outside-writer set (R-146).
+- **Rows built before the baseline they were to follow** (R-103), and **a panel's claim queued
+  unchecked** (R-126); both disclosed where they happened.
+- **Greps past the readable part of `pools.py`** printed one probe line and one assignment line,
+  nothing sealed (R-155, R-157); multi-file searches now leave `pools.py` out.
+- **The sealed run's disclosures** (R-163, items 1 to 4; section 5's deviation list).
+- **A panel's claim corrected.** A panel lane wrote that no record had base reading the whole chat;
+  R-014 and R-017 had (R-164). The control it asked for was then run (R-164, R-165).
+- **A queue runner left waiting, and a record corrected.** R-165 called the queue runner stuck; it
+  was waiting for a clean tree, which a results file left uncommitted overnight had blocked. When a
+  commit cleaned the tree, it resumed and started a second run on the card; both were stopped, and
+  every later GPU run was started on its own (R-165, corrected in R-166).
 
-**Failure modes found in the model.** Each was found by reading replies, not totals, and each
-came from something in the training data.
+## 14. Limitations
 
-- **A name became a search instruction.** Trained harder, the adapter treated any line about a
-  named person as a lookup: told "my tutor has been acting strange lately", it searched and
-  stated a stored fact about the tutor (R-055). The training set had six plain-chat lines against
-  25 fact templates. Forty-eight more chat lines fixed the lookups (fix 9). The same bug came back
-  with the wide pool: its names appeared only in rows that need a search, so "i should really
-  call my mentor" was searched as "mentor phone number" (R-071; fix 14b adds the wide pool's
-  people to plain-chat rows).
-- **The untrained model's habits, copied.** Plain-chat targets are the untrained model's own
-  replies, so the adapter learned its weak ones: "Lucia is a great name.", a book character for a
-  friend's name, an earlier topic pulled into a reply (R-057, R-059). Vetting the targets with a
-  blind judge, then asking for brief replies before vetting, removed them (fixes 10 and 11, v5).
-- **Unfamiliar facts forced into familiar ones.** On text written by someone else, the adapter
-  searched for an unfamiliar kind of fact with the query phrase of the nearest training fact type:
-  "where my babysitter came of age" became "babysitter born birthday month". The right passage
-  came back and the reply denied it or answered the question it had searched for (R-068).
-  Training on 47 new fact types lifted recall there from 58 to 76 of 96 at one seed (fix 14,
-  R-071); not yet confirmed.
-- **Another person's fact, stated as the answer.** With the new fact types, a question about a
-  fact never told brought back someone else's fact of that type, and the reply gave it as the
-  answer: asked what "my goddaughter" studied, it replied "Isolde finished a course in
-  philosophy", from a line about Isolde, the babysitter (R-071). All 16 such misses at one seed
-  repeat the other person's value. When a search returned passages, v5 declined correctly 22
-  times of 23 and the wide-trained adapter 17 of 33: it finds more and checks less whose fact it
-  found (R-073). Showing it 100 more same-type facts about other people (fix 15) brought
-  `never_told` back to 136 of 144 over three seeds with recall kept (R-075).
-- **Scripted small talk, copied word for word.** Some plain-chat replies are lines from the
-  scripted small talk that fills each training conversation: "Hm, good question, i'd say it
-  depends", "Hope my barber settles down soon" (R-061, R-075). Training put its loss on every token
-  of a row, and the five most common scripted replies each appear more than 100 times in the
-  assistant's place, against at most 16 for any reply a row teaches (R-076). With the loss on the
-  taught turns only (fix 16a), no `hard_dev` reply at seed 82 repeats a scripted line, against one
-  for v5 and up to eight for fix 15, and `hard_dev` recall rose from 58 to 70 of 96 with no new data
-  (R-077).
-- **Faults in the targets, copied more closely.** With the loss on the targets alone, the adapter
-  copies its plain-chat targets more faithfully, faults included, and fix 16a fell below the
-  untrained model on plain chat (R-077). Some targets that the first vetting had accepted read a
-  complaint as good news, call the friend by another person's name, or wish someone a good time
-  at an event the friend never mentioned: "Good luck with your date with Marc." for "Ivan asked me
-  to be their plus one". Two judges re-vetted the targets on a stricter rubric that names these
-  faults and replaced 15 of 150 (R-078). Trained on them, fix 17b matched or beat the untrained
-  model on both plain-chat sheets at seed 82, with `hard_dev` recall 72 of 96 (R-080). Over three
-  seeds it raised `hard_dev` recall from v5's 172 of 288 to 228 and passed every count, but at one
-  seed it scored one plain-chat line below the untrained model, so by the rule set in advance it
-  does not replace v5 (R-082).
-- **A chat line that names a fact type, read as a question.** Told "Esme forgot my birthday
-  again", fix 17b replied "I don't have that from you. What is it?" at two seeds of three. No
-  plain-chat line in training mentions a birthday or any other fact type, so a fact word on its own
-  reads as a question about it (R-082). At a sixth seed 17b searched on six chat lines that name a
-  person and answered with an unrelated fact: "i should really call my classmate" got "Hana is your
-  classmate and is terrified of spiders." (R-091). On 48 fresh chat lines of this kind, written blind by
-  another author and never trained on, v5 kept 36 coherent against the untrained model's 44; it
-  echoes the friend's "my" ("Hope my godfather gets some rest soon") and repeats one stock reply.
-  Fix 17b kept 44 against 45. Adding 57 vetted chat lines that name a fact type (fix 18a) brought
-  this to 48 of 48, and 57 lines that name none (fix 18c, a control) to 47, but both cost recall
-  on questions asked indirectly: `hard_dev` 56 and 66 of 96 against 17b's 72. Fix 18a found the
-  fact as often as 17b, then restated the friend's situation instead of answering ("Your coach
-  Rhys got a job interview.") (R-085). Pairing each of those lines with a question about the same
-  topic asked as a statement, answered from a search (fix 19a), brought `hard_dev` recall back to 74
-  at each of two seeds, above 17b, and kept plain chat above the untrained model at one seed; at
-  the other it answered five unrelated complaints with one stock line, "That sounds like a lot of
-  work ...", and fell one line short on the check set (R-089). Open.
-- **A relation pinned on the wrong person.** v6's fact answers are right but sometimes say whose
-  relation it is wrongly: "Hana's barber is scared of clowns." for "what is my barber scared of",
-  where the barber is Hana. A pattern check counts 1 to 4 of 96 at five training seeds and 14 at a
-  sixth; the untrained model makes it twice. The source is the training answers that are the
-  untrained model's own replies: 27 of 350 have this shape, and CuratorKIT's gate rejects 22 for
-  this and other faults (R-094, R-096). Rewriting the 27 removed it at every seed tried, including
-  the bad one (2, 1 and 0 of 96), but cost one judged line on facts in view (R-095). Dropping the
-  15 answers the gate rejected kept the slip down (1 and 1 of 96) and facts in view up at one seed,
-  but fell one recall answer short of v6 over two seeds and stopped (R-098). With those 15 answers
-  scripted instead, accepted by the gate first, the slip was 0 of 96 at both seeds, but `hard_dev`
-  recall fell below v6's (149 against 157 over two seeds), so it stopped too. The registered plan
-  allowed two tries; v6 shipped with this failure (R-101). 6.37, which replaced v6, made it once
-  in 480 probe answers over five seeds and never on `hard_dev`; v6 made it 16 times in 288 probe
-  answers at the fresh seeds 94 to 96 (R-131).
-- **A search built from the wrong message.** In the demo chat, "what did i fix under the sink"
-  was searched as "brother new job", the query for a question two messages earlier, and declined
-  (R-076). No training row or test item had an earlier question in view (R-081). A stress test
-  that puts one there, declined, cost v5 two to four recall answers of 96 and the untrained model
-  most of its plain chat (31 to 11 of 48 on the probe). Fix 17b kept its recall but turned away
-  facts still on screen after an earlier decline ("You can ask your godfather what he grows"), 43
-  to 37 of 48; v5 did not (R-084). Open.
-- **A found fact denied.** Shorter in-view answers (fix 12) and more indirect in-view questions
-  (fix 13) each made the model trust the turns in view more and a search result less: searches
-  found the fact and the reply said "I don't have that from you" (R-063, R-064). Both dropped.
-- **Forgetting read as wordplay.** "drawing a blank on my tutor's tattoo", with the tattoo still on
-  screen, is read as a joke, a drawing request or disappointment, by the untrained model and every
-  adapter; it is most of v5's remaining misses on facts in view (R-063). Open.
-- **"It sounds like" on facts in view.** On the harder set, 32 of 6.37's 40 misses on facts in
-  view, over five seeds, open "It sounds like" and talk about the feeling instead of the fact.
-  Removing the 22 training answers that open that way (6.34) removed the opener but not the
-  misses: correct answers fell from 78 to 69 over two seeds, the misses moving to searches and to
-  denials of the fact on screen. No version 7 was trained (R-132). Open.
-- **One sentence, one false denial.** Many found-fact answers opened with the same word as a
-  training sentence meaning "I don't know", and one seed slid from one into the other (v2).
+- **Short chats are better shown whole.** Given the whole chat, the trained model and base show
+  no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions could not be seen, R-142). On chats of about 1,400 tokens the whole
+  chat beats the three-exchange view with search (section 6). The adapter's case rests on chats too
+  long to show, and the whole-chat reading at that length is not measured.
+- **Tag questions.** 6.37 goes along with most false claims in "..., right?" questions (section 8).
+- **Found but not used.** Its commonest miss on generated chats finds the right line and answers
+  from its first clause, leaving out a detail later in the line (R-144, R-149); on outside-writer
+  chats the commonest is a search that misses, including facts told with a pronoun (R-146).
+- **One model, one size, English only.** Only Tiny Aya Global was trained; the friend's messages are
+  all English.
+- **Generated or agent-written chats only.** No chat is from a real person. Corrections, phone-style
+  typing, an earlier question in view, four decoys and chats of 1,000 and 2,000 messages were tested
+  on generated chats (R-102 to R-133, R-138, R-148). LoCoMo, a public chat set, was registered as an
+  outside check and deferred; it was never run (R-100, R-139 item 6).
+- **One tool, read only**, with a fixed three-exchange view. The model cannot save a note.
+- **No hostile text.** Instructions hidden in retrieved passages are out of scope.
+- **Greedy decoding only**, and **one machine**: times are an RTX 3080's.
+- **Judged by models, not people** (sections 5 and 12).
 
-## 12. Limitations
+## 15. Future work
 
-What this work does not cover, whatever its numbers:
-
-- **One model, one size.** Only Tiny Aya Global (3.35B) was trained. Whether the recipe carries to
-  Aya Expanse 8B or 32B, or to other families, is untested.
-- **English only.** Tiny Aya is multilingual, and the friend's messages here are all English.
-- **Facts never change.** Each fact is told once and stays true. Real friends correct themselves
-  ("actually they moved again"), and the model is never asked to prefer the newer of two facts.
-- **One tool, read only.** The model searches but never writes: it cannot save a note, update a
-  fact or forget one, which a real memory needs.
-- **A fixed window.** The view is always the last three exchanges, and conversations are 58 or 419
-  messages. Other window sizes and much longer histories are untested.
-- **No hostile text.** Retrieved passages are the friend's own words. Instructions hidden inside
-  retrieved text, a risk for any model that reads search results, are out of scope here.
-- **Greedy decoding only.** Every reply is greedy; behaviour under sampling is not measured.
-- **Judged by models, not people.** Coherence is marked by a language model with a fixed rubric;
-  no human panel checked the marks.
-- **One machine.** All training and timing ran on one consumer card; costs elsewhere are estimates
-  from measured speed and published prices.
-
-## 13. Future work
-
-- **Facts that change.** Train and test conversations where a fact is told, then corrected, and
-  score whether the reply uses the newer one.
+- **Measure the whole chat at length.** Base and 6.37 with every message in view on 419-message
+  chats, on a card that holds them, to find where searching starts to beat reading.
+- **Ground tag questions.** 7.1 showed the search can be trained (R-158); the next step is queries in
+  the claim's own words (R-159's 7.2 design), judged on a new outside-writer set.
 - **Injection in retrieved text.** Train the model to treat instructions inside search results as
-  content, not commands, and test it with hidden instructions in the friend's earlier messages.
-  This was the second behaviour in the original plan.
-- **Writing memory.** Add a tool that saves a note, so the model decides what is worth keeping, and
-  measure recall when only the notes, not the full history, are searchable.
-- **Reinforcement on verified outcomes.** The decision to search and the answer are both checkable
-  by code, so they suit reward-based training (for example GRPO through AgentTune) on top of the
-  supervised adapter.
-- **Other languages and larger models.** Repeat the recipe in the languages Tiny Aya supports, and
-  on Aya Expanse 8B, with the same sealed-test protocol.
-- **Real conversations.** Test on consented real chat logs, and add a human panel beside the model
-  judge.
-- **Upstream fixes.** Offer the memory-lean loss to TRL and the bootstrap fix to AuditKIT.
+  content, and test it with hidden instructions in earlier messages.
+- **Writing memory.** A tool that saves a note, so the model decides what is worth keeping.
+- **Reinforcement on verified outcomes.** The decision to search and the answer are checkable by
+  code, so they suit reward-based training (for example GRPO through AgentTune).
+- **Other languages and larger models**, with the same sealed-test protocol.
+- **Real conversations**, with consent, and a human panel beside the model judges.
+- **Upstream fixes.** Offer the lean loss to TRL and the bootstrap fix to AuditKIT.
 
-## 14. Reproduce
+## 16. Reproduce
 
-Everything runs on one 10 GB card. The repository holds the pinned model revision, the data
-builder, training and evaluation scripts, every results file with its provenance (command, commit,
-package versions), every coherence sheet with its key and the judge's marks, and the scripts that
-make every number and figure here: `python scripts/make_figures.py` and
-`python scripts/make_article.py`. No number in this article is typed by hand.
+Everything runs on one 10 GB card. Every results file carries its provenance (command, commit,
+package versions).
+
+- **The sealed run:** `scripts/records/queue/final.sh` (run by the queue), starting with
+  `scripts/records/freeze_r154.py check` on `results/freeze/sealed_manifest.json`; scored by
+  `scripts/records/score_r162.py` into `results/analysis/R-162/`; sheets from
+  `scripts/records/sheets_r162.py`, judges' briefs from `scripts/records/briefs_r162.py`, judge
+  transcripts audited by `scripts/records/audit_judge_r162.py`.
+- **Analyses:** `scripts/records/writeup_r164.py` (`results/analysis/R-164/`),
+  `scripts/records/blind_r146.py` and `scripts/records/blind2_r157.py` (the outside-writer sets),
+  `scripts/records/rigor_r139.py` (development rigor).
+- **This article and the model card:** `PYTHONPATH=src python scripts/make_article.py`, from their
+  templates in `docs/`; figures by `scripts/make_figures.py`. No result number in either is typed by
+  hand.
 
 ## Author contributions
 
 Kevin Vaillancourt directed this work, carried out with an AI assistant, Claude (Anthropic), as an
-executive-function accommodation. Test pools meant to be independent were written by fresh AI
-agents that saw only a brief, and coherence was marked by fresh AI judges that saw only a rubric
-and a sheet.
+executive-function accommodation. Test pools and chat sets meant to be independent were written by
+fresh AI agents that saw only a brief, and coherence was marked by fresh AI judges that saw only a
+rubric and a sheet.
 
 ## References
 
@@ -730,5 +807,5 @@ and a sheet.
 
 *Prior work: Latent Lab Explorer, the author's local chat engine, enforces these behaviours with
 code around a Llama model; this project trains them into a model, and uses none of its code or test
-sets. Built with AgentTune and AuditKIT from Lexsi Labs. Tiny Aya is CC-BY-NC-4.0, and the adapter
-carries that licence.*
+sets. Built with AgentTune, AuditKIT and CuratorKIT from Lexsi Labs. Tiny Aya is CC-BY-NC-4.0, and
+the adapter carries that licence.*

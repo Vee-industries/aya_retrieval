@@ -17,8 +17,8 @@ Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.
 > base's 8 to 28%. Every right answer came from a search that found the fact. Each adapter made no
 > more false retrievals than base, and was judged coherent more often than base by all three judges.
 > Seed 82 alone gets 91 to 107 of 120 recall questions against base's 13 to 32
-> (`results/analysis/R-162/`). The write-up and model card in `docs/` are drafts that still show v5's
-> development numbers, as their banners say, and are being rebuilt on these. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
+> (`results/analysis/R-162/`). The write-up and model card in `docs/` are built from these results
+> and R-164 to R-166 by `scripts/make_article.py`. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
 > and result, each marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this
 > repository is built to.
 
@@ -28,16 +28,22 @@ The tests above show the model only the last three exchanges, as a stand-in for 
 show. When a chat is short enough to show whole, that is the better choice. On the outside-writer
 sets (chats of about 1,400 tokens), base with every message in view answers 58 and 52 of 80 `older`
 questions, against 28 and 34 for 6.37 seed 82 with the tool and the last three exchanges (R-164).
-Training costs nothing there: given the whole chat and the tool, 6.37 scores as base given the whole
-chat does on every kind, on both sets, with no gap near significance (R-165). So the design this
-supports is to show the trained model the whole chat when it fits, and let it search when it does
-not. It is never worse than base given the whole chat (one seed, two sets of 40 chats), and much
-better than base once only part of the chat can be shown.
+Given the whole chat and the tool, 6.37 shows no measured difference from base given the whole chat,
+on any kind, on both sets (R-165). That is one seed and two sets of 40 chats, so gaps under about
+15 points on a kind of 40 questions could not be seen (R-142). So the design this supports is to
+show the trained model the whole chat when it fits, and let it search when it does not: no measured
+loss against base when the chat fits, and much better than base once only part of the chat can be
+shown. Code that searches every turn, with no training, is a competitor for long chats: in R-014 it
+got 28 of 40 at 419 messages against the whole chat's 2 of 40. It was registered as a reference in
+R-016 and not run on any set the trained model was tested on (R-167).
 
-What is not measured: base with the whole chat at 419 messages (about 6,200 tokens). That run needs
-more card memory than the 8.5 GiB cap on a 10 GB card (R-164); 6.37's runs on those chats peak at
-about 7 GiB. Tiny Aya's limit is 8,192 tokens, and most of its layers attend to the last 4,096. The
-only whole-chat reading at that length is R-017's, 0 of 12 `older` questions, on the training pool.
+What is not measured: base with the whole chat at 419 messages (about 6,200 tokens). Those runs
+ran out of card memory under the 8.5 GiB cap on a 10 GB card (R-166, log in
+`results/control/R-164/`); every three-exchange run in the sealed run peaked at 6.7 to 7.0 GiB
+(R-163). Tiny Aya's limit is 8,192 tokens, and most of its layers attend to the last 4,096 (its
+`config.json`). The only whole-chat readings at that length are R-014's (1 of 20 and 1 of 20,
+ruled invalid for repeated small talk) and R-017's (0 of 12 `older` questions), both on the
+training pool, uncapped.
 
 ## Pools
 
@@ -72,9 +78,10 @@ writing from one brief (in the set's folder), frozen by SHA-256 before anyone re
 
 The holes a reviewer will look for first, each measured and recorded where it was found:
 
-- **On short chats the whole chat beats the tool.** See the section above. The registered test
-  (R-016) compared base and adapter with the same three-exchange view, and did not include base
-  with every message in view. It was added after the sealed run (R-164, R-165).
+- **On short chats the whole chat beats the tool.** See the section above. R-016 registered
+  `whole_chat` and `always_search` as references to report beside the rules; the sealed run
+  (R-162) ran neither, and that omission was not disclosed until R-167. The whole-chat reference
+  was run afterwards, on the outside-writer sets only (R-164, R-165).
 
 - **Few templates behind the generated sets.** The 96 recall questions per run come from only 5 fact
   templates on `probe` and 8 on `hard_dev`, so item-level p-values overstate the evidence. Intervals

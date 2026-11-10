@@ -1,0 +1,21 @@
+# Excerpt of the session's queue log (runner.log), 2026-11-09 to 11-10; tracebacks trimmed to the error line. R-164, R-165.
+== line 507: wcrun wc_hd_base --seed 73157 --pool hard_dev --items-per-kind 24 --decoys 1 --index C:/Users/Gaming/scratch/eval_hard_dev_1.sqlite Mon Nov  9 21:38:33 EST 2026
+waiting for a clean tree Mon Nov  9 21:38:33 EST 2026
+== whole chat wc_hd_base try 1 Mon Nov  9 21:39:33 EST 2026
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.35 GiB. GPU 0 has a total capacity of 10.00 GiB of which 1.86 GiB is free. 8.50 GiB allowed; Of the allocated memory 6.84 GiB is allocated by PyTorch, and 91.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+== whole chat wc_hd_base try 2 Mon Nov  9 21:40:35 EST 2026
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.35 GiB. GPU 0 has a total capacity of 10.00 GiB of which 1.85 GiB is free. 8.50 GiB allowed; Of the allocated memory 6.84 GiB is allocated by PyTorch, and 91.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+== whole chat wc_hd_base try 3 Mon Nov  9 21:41:36 EST 2026
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.35 GiB. GPU 0 has a total capacity of 10.00 GiB of which 1.87 GiB is free. 8.50 GiB allowed; Of the allocated memory 6.84 GiB is allocated by PyTorch, and 91.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+NO RESULTS wc_hd_base
+== line 507 FAILED Mon Nov  9 21:42:36 EST 2026
+== line 508: wcrun wc_probe_base --seed 73157 --pool probe --items-per-kind 24 --index C:/Users/Gaming/scratch/eval_probe.sqlite Mon Nov  9 21:42:37 EST 2026
+== whole chat wc_probe_base try 1 Mon Nov  9 21:42:37 EST 2026
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.77 GiB. GPU 0 has a total capacity of 10.00 GiB of which 1.91 GiB is free. 8.50 GiB allowed; Of the allocated memory 6.74 GiB is allocated by PyTorch, and 152.82 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+waiting for a clean tree Mon Nov  9 21:43:38 EST 2026
+...
+== whole chat wc_probe_base try 2 Tue Nov 10 04:08:08 EST 2026
+== whole chat wc_probe_base try 3 Tue Nov 10 04:14:26 EST 2026
+== line 508 FAILED Tue Nov 10 04:17:15 EST 2026
+== backlog empty Tue Nov 10 04:17:15 EST 2026
+total "waiting for a clean tree" lines in the log: 424

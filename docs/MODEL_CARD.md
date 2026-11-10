@@ -12,57 +12,84 @@ tags:
 - memory
 ---
 
-# aya_retrieval: out-of-view recall for Tiny Aya Global
+# aya_retrieval 6.37: search a long chat for Tiny Aya Global
 
 A LoRA adapter for [Tiny Aya Global](https://huggingface.co/CohereLabs/tiny-aya-global) (revision
-`af89d219`) that lets the model answer questions about things said earlier in a long chat, after
-they have left its view. The model sees only the last three exchanges. When a question needs
-something older, it calls a `search_corpus` tool over the earlier conversation, reads what comes
-back, and answers; when the fact was never told, it says so; when the user is just chatting, it
-does not search.
+`af89d219`), shipped as 6.37 (`fix17cs37` seed 82). Shown only the last part of a chat, the model
+calls a `search_corpus` tool over the earlier conversation when a question needs something out of
+view, reads what comes back, and answers. When the fact was never told it should decline; the
+scorer passes any reply that names none of the listed values, so an invented value outside the list
+passes (R-020). When the friend is just chatting it should not search; on the outside-writer sets it
+searched 3 and 5 of 40 such lines,
+more than base (2 and 1) on both sets (R-146,
+R-157).
 
-Draft. Numbers are development results on the probe pool, for v5. The model was frozen on 2026-11-09 as 6.37 (fix17cs37 seed 82, R-160); this draft is being rebuilt for it, and the registered held-out run replaces development numbers before submission.
+Final numbers for the shipped model, 6.37 (`fix17cs37` seed 82, frozen in R-160): the sealed final run (registered in R-162, results in R-163), the outside-writer sets (R-146, R-157) and the whole-chat control (R-164, R-165). Every number is computed from committed results files by `scripts/make_article.py`.
 
-## Results
+## First: when the chat fits, give it the whole chat
 
-Development numbers: the probe pool, 240 conversations (24 of each kind at each length), the untrained model against 3 adapters (v5) trained on seeds 82, 83, 84. The held-out run replaces these.
+On two sets of chats by outside writers who never saw this project's generator (about
+1,400 tokens a chat), the untrained model with every message in view answers
+58 and 52 of 80 questions about facts told earlier,
+against 28 and 34 for this adapter with the tool and the last three
+exchanges (R-164). Given the whole chat and the tool, the adapter and the untrained model show
+no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions could not be seen, R-142) on every kind of message
+(R-165). The adapter is for chats
+too long to show whole. Not measured: the untrained model reading the whole chat at 419 messages
+(about 6,236 tokens on `hard_dev`). Those runs ran out of card memory under the
+8.50 GiB cap on a 10 GB card (R-166); every three-exchange run in the sealed run peaked at
+6.71 to 7.02 GiB (R-163).
 
-- Questions about earlier facts: 98% right in 58-message chats and
-  96% in 419-message chats, against 31% and
-  31% for the untrained model given the same tool (+213% and
-  +207%).
-- A blind judge finds the adapter's replies 14% more often coherent than the untrained model's, and at or above it on every kind judged.
-- It names the wrong person's fact in 0.3% of replies, against 5.4% for the untrained model.
-- On a harder development pool written by an independent agent, recall falls to 60% (untrained: 21%), because the adapter searches unfamiliar kinds of fact as if they were ones it was trained on.
+## Results with only the last three exchanges in view
 
-Training: 800 rows (Fact told long ago 200, “Did I tell you…?” 150, Fact still on screen 150, Never told 150, Just chatting 150); LoRA rank 32 on the attention and MLP projections, learning rate 3e-4, 3 epochs, batch 2.
+- **Outside-writer sets** (40 chats each, written blind to the generator): recall
+  39 and 53 of 120 against the untrained model's
+  26 and 27 (gain +2.5 to +19.2 and +13.3 to +30.0 points, 95%
+  intervals resampling chats; set 1's p = 0.047 is above the registered 0.01) (R-146, R-157).
+  The gain is on direct questions; on "..., right?" questions with a false claim it corrects
+  1 and 3 of 20 and goes along with
+  the rest (R-164).
+- **The shipped seed is not the strongest.** Seed 82 is the lowest of the eight training seeds on
+  the first outside-writer set, on sealed conditions C and D, and on `hard_dev`; the eight seeds
+  pooled gain +18.0 and +20.8 points on the two sets
+  (+9.7 to +26.1 and +12.9 to +28.3) (R-141, R-146, R-157, R-163).
+- **Who wrote and judged the tests.** The outside writers are 4 fresh Claude Opus agents
+  a set; the coherence judges are Claude Sonnet agents only, never checked against a person.
+- **The registered sealed test** (R-162, R-163): two generator-built pools, one and four decoys a
+  chat, the untrained model and all eight training seeds run once. Every registered rule passes in
+  all four conditions. Recall pooled over the eight seeds is 85.2 to 90.4% against the
+  untrained model's 8.3 to 28.3% (60 to 82 points; registered rule met, p below
+  0.01); this seed gets 91 to 107 of 120 against 13 to 32.
+  Every right answer came from a search that found the fact; no seed made more false retrievals than
+  the untrained model; every seed was judged coherent more often by all three judges.
 
 ## How to use it
 
-The adapter expects the harness it was trained in: a system prompt that describes the
+When the chat is short enough to show whole, show it the whole chat; the tool may stay in the
+prompt (R-165). The measured chats were about 1,400 tokens; whole chats near the model's
+8,192-token limit were not measured.
+When it does not, use the harness the adapter was trained in: a system prompt that describes the
 `search_corpus` tool (`aya_retrieval.tool_prompt.system_prompt_with_tools`), the last three
 exchanges as chat turns, and the earlier exchanges indexed for search, one passage per exchange.
-`run_turn` in `src/aya_retrieval/harness.py` runs that loop: the model decides, the tool runs, the
-model answers from the result, up to three searches a message.
+`run_turn` in `src/aya_retrieval/harness.py` runs that loop: up to 3 searches a
+message, top 5 passages each. Decoding in every test was greedy.
 
 ## Limitations
 
-- English only, and tested only on made-up people and facts in generated chats.
-- On a development pool written by another author, recall is lower and the adapter sometimes
-  states another person's fact as the answer to a question about a fact never told. The
-  write-up's failure-modes section lists each known failure and its status.
-- It answers from what the search returns. It cannot know what a search missed, and an earlier
-  message that was wrong will be repeated.
+- On short chats the whole chat beats the three-exchange view with search (above).
+- It goes along with most false claims in tag questions ("..., right?").
+- Its commonest misses: a search that misses the fact (including facts told with a pronoun), and a
+  found fact answered from the line's first clause, leaving out the detail asked for.
+- English only; tested on generated and agent-written chats, never on real ones.
+- Coherence was judged by Claude models only, never checked against a person.
 - Licence: Tiny Aya is CC-BY-NC-4.0 and this adapter, trained from it, carries that licence.
 
-## Training data and method
+## Training
 
-Every training row is generated from a seed: scripted conversations of made-up people and facts,
-with a final message of one of five kinds (an older fact, a confirmation, a fact still in view, a
-fact never told, plain chat). Target replies are the untrained model's own replies where it
-answered well (with the found passage in view for older facts; plain-chat replies vetted by a
-blind judge), and scripted sentences for confirmations and for facts never told. The full method, the registered tests, the errors found and
-corrected, and every results file are in the repository: `docs/ARTICLE.md` and `RECORDS.md`.
+1,094 rows (`older` 332, `confirm` 230, `in_view` 150, `never_told` 160, `statement` 222), built from the training pool only: targets are the
+untrained model's own replies where they pass the scorer, vetted plain-chat replies, and scripted
+answers where needed. LoRA rank 32 on `q_proj`, `k_proj`, `v_proj`, `o_proj`, `gate_proj`, `up_proj`, `down_proj`; peak learning rate 3e-4, 3 epochs, batch 2, loss mode `chat_decision`, with TRL's chunked loss replaced by `lean_loss.lean_chunk`; trained from no adapter; 222 plain-chat rows carry loss only on the reply's first token and its end-of-turn marker. The method, the registered tests, every candidate tried,
+the errors found and every results file are in the repository: `docs/ARTICLE.md` and `RECORDS.md`.
 
 ## Authors
 

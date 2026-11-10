@@ -3,11 +3,14 @@
 Usage:
     python scripts/make_figures.py
 
-Every value plotted comes from ``aya_retrieval.report_data`` on files under ``results/``. The
-current set is v3 on probe seed 73157 (R-026, R-027); the final run swaps in the held-out files.
+Every value plotted comes from files under ``results/``: the whole-chat control (R-164, R-165),
+the outside-writer sets (R-146, R-157), the sealed final run (R-162, R-163) and the training-memory
+comparison (R-029, R-032). The model shown is the shipped one, 6.37 (``fix17cs37``).
 """
 
 from __future__ import annotations
+
+import json
 
 import matplotlib
 
@@ -16,33 +19,17 @@ import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.lines import Line2D  # noqa: E402
 
 from aya_retrieval.provenance import REPO_ROOT  # noqa: E402
-from aya_retrieval.report_data import (  # noqa: E402
-    KINDS,
-    SIZES,
-    by_kind,
-    coherence_pooled,
-    eval_rows,
-    false_retrieval,
-    pooled,
-    recall,
-    train_report,
-    weights_gib,
-)
+from aya_retrieval.report_data import RECALL_KINDS, eval_rows, train_report, weights_gib  # noqa: E402
 
 OUT = REPO_ROOT / "figures"
-PROBE = 73157
-SEEDS = (82, 83, 84)
-BASE_LABEL = "probe2_base"
-VERSIONS = {
-    "v1": "probe2_tuned",
-    "v2": "probe3_tuned",
-    "v3": "probe4_tuned",
-    "v4": "probe6_tuned",
-    "v5": "probe12_tuned",
-}
-CURRENT = "v5"
-SHEET_A_RECORD = "R-061"  # v5, older and confirm, with the tool
-SHEET_B_RECORD = "R-061B"  # v5, statement and in_view, base with no tool
+ANALYSIS = REPO_ROOT / "results" / "analysis"
+SHIP = "fix17cs37_82"
+SEEDS = (82, 83, 94, 95, 96, 97, 98, 99)
+ADAPTERS = tuple(f"fix17cs37_{s}" for s in SEEDS)
+SETS = {1: "blind", 2: "blind2"}
+SET_FILES = {1: ANALYSIS / "R-146" / "blind.json", 2: ANALYSIS / "R-157" / "blind2.json"}
+CONDITIONS = {"A": "heldout, 1 decoy", "B": "heldout, 4 decoys", "C": "independent, 1 decoy"}
+CONDITIONS["D"] = "independent, 4 decoys"
 TRL_LOSS_RUN = "hard_in_view_84"  # v3 data, TRL's loss (R-026)
 LEAN_LOSS_RUN = "screen_hard_in_view_lean_82"  # same data, lean loss (R-032)
 
@@ -57,14 +44,6 @@ BASE_C = "#86b6ef"
 TUNED_C = "#1c5cab"
 SEED_C = "#2a78d6"
 CARD_C = "#d03b3b"
-
-KIND_NAMES = {
-    "older": "Fact told long ago",
-    "confirm": "“Did I tell you…?”",
-    "in_view": "Fact still on screen",
-    "never_told": "Never told",
-    "statement": "Just chatting",
-}
 
 plt.rcParams.update(
     {
@@ -88,8 +67,9 @@ plt.rcParams.update(
 )
 
 
-def pct(hits_total: tuple[int, int]) -> float:
-    return 100 * hits_total[0] / hits_total[1]
+def load(path) -> dict:
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def titled(fig, title: str, subtitle: str) -> None:
@@ -109,30 +89,10 @@ def save(fig, name: str) -> None:
     print(f"wrote figures/{name}.png and .svg")
 
 
-def legend(ax) -> None:
+def legend(ax, base_label: str, tuned_label: str) -> None:
     handles = [
-        Line2D(
-            [],
-            [],
-            marker="o",
-            ls="",
-            ms=9,
-            mfc=BASE_C,
-            mec=SURFACE,
-            mew=2,
-            label="Tiny Aya, untrained",
-        ),
-        Line2D(
-            [],
-            [],
-            marker="o",
-            ls="",
-            ms=9,
-            mfc=TUNED_C,
-            mec=SURFACE,
-            mew=2,
-            label="With the adapter",
-        ),
+        Line2D([], [], marker="o", ls="", ms=9, mfc=c, mec=SURFACE, mew=2, label=label)
+        for c, label in ((BASE_C, base_label), (TUNED_C, tuned_label))
     ]
     ax.legend(
         handles=handles,
@@ -148,13 +108,9 @@ def legend(ax) -> None:
 
 
 def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None, xmax=100) -> None:
-    """Rows top to bottom; a hairline from base to adapter, value labels at both ends.
-
-    The adapter's value is always the bold one, on whichever side it falls.
-    """
+    """Rows top to bottom; a hairline from base to adapter, value labels at both ends."""
     ys = list(range(len(labels)))[::-1]
     pad = 0.022 * xmax
-    fmt = "{:.0f}%" if xmax > 40 else "{:.1f}%"
     for y, b, t in zip(ys, base_vals, tuned_vals, strict=True):
         ax.plot([b, t], [y, y], color=AXIS, lw=2, solid_capstyle="round", zorder=1)
         ax.scatter([b], [y], s=110, color=BASE_C, edgecolor=SURFACE, linewidth=2, zorder=3)
@@ -164,7 +120,7 @@ def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None, xmax=100) -> Non
             ax.text(
                 value + pad if on_right else value - pad,
                 y,
-                fmt.format(value),
+                f"{value:.0f}%",
                 ha="left" if on_right else "right",
                 va="center",
                 color=INK if tuned else INK_2,
@@ -174,7 +130,7 @@ def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None, xmax=100) -> Non
     if seed_vals:
         for y, seeds in zip(ys, seed_vals, strict=True):
             ax.scatter(
-                seeds, [y - 0.22] * len(seeds), s=14, color=SEED_C, alpha=0.7, zorder=2, lw=0
+                seeds, [y - 0.24] * len(seeds), s=14, color=SEED_C, alpha=0.7, zorder=2, lw=0
             )
     ax.set_yticks(ys, labels)
     ax.set_ylim(-0.6, len(labels) - 0.45)
@@ -186,146 +142,71 @@ def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None, xmax=100) -> Non
     ax.spines["left"].set_visible(False)
 
 
-def current_rows():
-    base = eval_rows(BASE_LABEL, PROBE)
-    tuned = {s: eval_rows(f"{VERSIONS[CURRENT]}{s}", PROBE) for s in SEEDS}
-    return base, tuned
+def right(rows: list[dict], kind: str) -> float:
+    asked = [r for r in rows if r["kind"] == kind]
+    return 100 * sum(bool(r["correct"]) for r in asked) / len(asked)
 
 
-def fig_recall_by_length() -> None:
-    base, tuned = current_rows()
-    labels = [f"{size} messages" for size in SIZES]
-    b = [pct(recall(base, s)) for s in SIZES]
-    t = [pct(pooled([recall(tuned[k], s) for k in SEEDS])) for s in SIZES]
-    seeds = [[pct(recall(tuned[k], s)) for k in SEEDS] for s in SIZES]
-    fig, ax = plt.subplots(figsize=(8, 3.1))
-    fig.subplots_adjust(left=0.17, right=0.97, top=0.68, bottom=0.2)
-    dumbbell(ax, labels, b, t, seeds)
-    ax.set_xlabel("Questions about earlier facts answered correctly")
-    legend(ax)
-    titled(
-        fig,
-        "Recall out of view, before and after training",
-        f"Probe pool, {len(SEEDS)} adapter seeds pooled (small dots: each seed). "
-        "Only the last 3 exchanges are in view.",
-    )
-    save(fig, "recall_by_length")
-
-
-def fig_by_kind() -> None:
-    base, tuned = current_rows()
-    kb = by_kind(base)
-    kt = {k: pooled([by_kind(tuned[s])[k] for s in SEEDS]) for k in KINDS}
-    seeds = [[pct(by_kind(tuned[s])[k]) for s in SEEDS] for k in KINDS]
-    fig, ax = plt.subplots(figsize=(8, 4.3))
-    fig.subplots_adjust(left=0.24, right=0.97, top=0.75, bottom=0.13)
-    dumbbell(
-        ax,
-        [KIND_NAMES[k] for k in KINDS],
-        [pct(kb[k]) for k in KINDS],
-        [pct(kt[k]) for k in KINDS],
-        seeds,
-    )
-    ax.set_xlabel("Right answer or right action")
-    legend(ax)
-    titled(
-        fig,
-        "Every kind of message, before and after",
-        "Probe pool, both chat lengths. “Never told”: says so instead of inventing. "
-        "“Just chatting”: no needless search.",
-    )
-    save(fig, "by_kind")
-
-
-def fig_coherence() -> None:
-    with_tool = coherence_pooled(SHEET_A_RECORD, [f"a{s}" for s in SEEDS])
-    no_tool = coherence_pooled(SHEET_B_RECORD, [f"b{s}" for s in SEEDS])
-    kinds = [k for k in KINDS if k in with_tool["tuned"] or k in no_tool["tuned"]]
-    counts = {k: with_tool if k in with_tool["tuned"] else no_tool for k in kinds}
+def fig_whole_chat_or_search() -> None:
+    """`older` on the outside-writer sets: three exchanges and search, or the whole chat."""
+    labels, base, tuned, tokens = [], [], [], []
+    for n, prefix in SETS.items():
+        tokens += [r["whole_chat_tokens"] for r in eval_rows(f"{prefix}_base", 0)]
+        labels += [f"Set {n}: last 3 exchanges, search", f"Set {n}: whole chat"]
+        base += [
+            right(eval_rows(f"{prefix}_base", 0), "older"),
+            right(eval_rows(f"wc_{prefix}_base", 0, "whole_chat"), "older"),
+        ]
+        tuned += [
+            right(eval_rows(f"{prefix}_{SHIP}", 0), "older"),
+            right(eval_rows(f"wc_{prefix}_{SHIP}", 0, "whole_chat"), "older"),
+        ]
     fig, ax = plt.subplots(figsize=(8, 3.9))
-    fig.subplots_adjust(left=0.24, right=0.97, top=0.72, bottom=0.14)
-    dumbbell(
-        ax,
-        [KIND_NAMES[k] for k in kinds],
-        [pct(counts[k]["base"][k]) for k in kinds],
-        [pct(counts[k]["tuned"][k]) for k in kinds],
-    )
-    ax.set_xlabel("Replies a blind judge marked coherent")
-    legend(ax)
+    fig.subplots_adjust(left=0.33, right=0.97, top=0.75, bottom=0.14)
+    dumbbell(ax, labels, base, tuned)
+    ax.set_xlabel("Questions about facts told earlier answered right")
+    legend(ax, "Tiny Aya, untrained", "6.37, seed 82")
     titled(
         fig,
-        "Coherence, judged blind",
-        f"Probe pool, {len(SEEDS)} seeds pooled. Fact questions with the tool; "
-        "the rest against the untrained model with no tool.",
+        "When the chat fits, the whole chat wins",
+        f"Outside-writer sets, about {round(sum(tokens) / len(tokens), -2):,.0f} tokens a chat "
+        "(R-164, R-165). Given the whole chat, 6.37 scores as base does.",
     )
-    save(fig, "coherence_by_kind")
+    save(fig, "whole_chat_or_search")
 
 
-def fig_false_retrieval() -> None:
-    base, _ = current_rows()
-    b = false_retrieval(BASE_LABEL, PROBE)
-    t = {
-        k: pooled([false_retrieval(f"{VERSIONS[CURRENT]}{s}", PROBE)[k] for s in SEEDS])
-        for k in KINDS
-    }
-    seeds = [
-        [pct(false_retrieval(f"{VERSIONS[CURRENT]}{s}", PROBE)[k]) for s in SEEDS] for k in KINDS
-    ]
-    top = max(
-        10.0, max(max(pct(b[k]), pct(t[k]), *row) for k, row in zip(KINDS, seeds, strict=True))
-    )
-    fig, ax = plt.subplots(figsize=(8, 4.3))
-    fig.subplots_adjust(left=0.24, right=0.97, top=0.75, bottom=0.13)
-    dumbbell(
-        ax,
-        [KIND_NAMES[k] for k in KINDS],
-        [pct(b[k]) for k in KINDS],
-        [pct(t[k]) for k in KINDS],
-        seeds,
-        xmax=20 * -(-top // 20),
-    )
-    ax.set_xlabel("Replies naming a wrong value of the fact asked about (lower is better)")
-    legend(ax)
+def fig_recall_out_of_view() -> None:
+    """Recall with the last three exchanges in view: outside-writer sets and the sealed run."""
+    labels, base, pooled, seeds = [], [], [], []
+    for n in SETS:
+        blind = load(SET_FILES[n])
+        per = blind["recall_per_seed"]
+        items = blind["primary"]["items"]
+        labels.append(f"Outside-writer set {n}")
+        base.append(100 * blind["primary"]["base"] / items)
+        pooled.append(100 * sum(per[str(s)] for s in SEEDS) / (items * len(SEEDS)))
+        seeds.append([100 * per[str(s)] / items for s in SEEDS])
+    for c, name in CONDITIONS.items():
+        d = load(ANALYSIS / "R-162" / f"{c}.json")
+        kinds = d["per_kind_correct"]
+        items = d["shipped_seed_82"]["questions"]
+        per = {a: sum(kinds[k][a] for k in RECALL_KINDS) for a in ("base", *ADAPTERS)}
+        labels.append(f"Sealed {c}: {name}")
+        base.append(100 * per["base"] / items)
+        pooled.append(100 * sum(per[a] for a in ADAPTERS) / (items * len(ADAPTERS)))
+        seeds.append([100 * per[a] / items for a in ADAPTERS])
+    fig, ax = plt.subplots(figsize=(8, 4.6))
+    fig.subplots_adjust(left=0.33, right=0.97, top=0.78, bottom=0.12)
+    dumbbell(ax, labels, base, pooled, seeds)
+    ax.set_xlabel("Recall (older and confirm questions), last 3 exchanges in view")
+    legend(ax, "Tiny Aya, untrained", "6.37, eight seeds pooled")
     titled(
         fig,
-        "False retrieval: the wrong person's fact",
-        f"Probe pool, one decoy a chat, {len(SEEDS)} seeds pooled (small dots: each seed). "
-        "Never told: any value at all.",
+        "Recall out of view, untrained and trained",
+        "Small dots: each training seed. Outside-writer sets R-146, R-157; "
+        "sealed run R-163, both pools generator-built.",
     )
-    save(fig, "false_retrieval")
-
-
-def fig_development_path() -> None:
-    base = eval_rows(BASE_LABEL, PROBE)
-    names = list(VERSIONS)
-    fig, ax = plt.subplots(figsize=(8, 3.8))
-    fig.subplots_adjust(left=0.1, right=0.86, top=0.76, bottom=0.14)
-    xs = list(range(len(names) + 1))
-    means = [pct(recall(base))]
-    for i, v in enumerate(names, start=1):
-        per_seed = [pct(recall(eval_rows(f"{VERSIONS[v]}{s}", PROBE))) for s in SEEDS]
-        ax.scatter([i] * len(per_seed), per_seed, s=22, color=SEED_C, alpha=0.7, lw=0, zorder=2)
-        means.append(pct(pooled([recall(eval_rows(f"{VERSIONS[v]}{s}", PROBE)) for s in SEEDS])))
-    ax.plot(xs, means, color=TUNED_C, lw=2, zorder=3, solid_capstyle="round")
-    ax.scatter(xs[1:], means[1:], s=70, color=TUNED_C, edgecolor=SURFACE, linewidth=2, zorder=4)
-    ax.scatter(xs[:1], means[:1], s=70, color=BASE_C, edgecolor=SURFACE, linewidth=2, zorder=4)
-    ax.text(
-        xs[-1] + 0.12, means[-1], f"{means[-1]:.0f}%", va="center", color=INK, fontweight="semibold"
-    )
-    ax.text(xs[0] + 0.12, means[0], f"{means[0]:.0f}%", va="center", color=INK_2)
-    ax.set_xticks(xs, ["Untrained", *(f"Adapter {v}" for v in names)])
-    ax.tick_params(axis="x", length=0, colors=INK_2)
-    ax.set_ylim(0, 100)
-    ax.set_yticks([0, 25, 50, 75, 100], ["0%", "25%", "50%", "75%", "100%"])
-    ax.grid(axis="x", visible=False)
-    ax.set_ylabel("Recall out of view")
-    titled(
-        fig,
-        "Each training set, one fix at a time",
-        "Probe pool, line: 3 seeds pooled, dots: each seed. "
-        "Each kept only if it passed a rule written before its 3-seed runs.",
-    )
-    save(fig, "development_path")
+    save(fig, "recall_out_of_view")
 
 
 def fig_memory() -> None:
@@ -388,9 +269,6 @@ def fig_memory() -> None:
 
 
 if __name__ == "__main__":
-    fig_recall_by_length()
-    fig_by_kind()
-    fig_coherence()
-    fig_development_path()
+    fig_whole_chat_or_search()
+    fig_recall_out_of_view()
     fig_memory()
-    fig_false_retrieval()
