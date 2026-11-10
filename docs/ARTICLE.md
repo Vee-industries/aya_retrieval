@@ -2,6 +2,10 @@
 
 *Kevin Vaillancourt · Lexsi AI Safety and Alignment Hackathon, Track 3 (Agentic Fine-tuning) · November 2026*
 
+This is the full write-up. A short version (about five pages) is on Hugging Face,
+[ARTICLE.md in the model repository](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37/blob/main/ARTICLE.md), with its source in
+`docs/submission/HF_ARTICLE.md`.
+
 > **Final numbers for the shipped model, 6.37 (`fix17cs37` seed 82, frozen in R-160): the sealed final run (registered in R-162, results in R-163), the outside-writer sets (R-146, R-157), the whole-chat control (R-164, R-165), R-016's two references run late (R-168, R-169) and LongMemEval-S as an outside check (R-170). Every number is computed from committed results files by `scripts/make_article.py`.**
 
 ## Abstract

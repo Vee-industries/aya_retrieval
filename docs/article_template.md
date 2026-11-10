@@ -2,6 +2,10 @@
 
 *Kevin Vaillancourt · Lexsi AI Safety and Alignment Hackathon, Track 3 (Agentic Fine-tuning) · November 2026*
 
+This is the full write-up. A short version (about five pages) is on Hugging Face,
+[ARTICLE.md in the model repository](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37/blob/main/ARTICLE.md), with its source in
+`docs/submission/HF_ARTICLE.md`.
+
 > **{{status_line}}**
 
 ## Abstract
