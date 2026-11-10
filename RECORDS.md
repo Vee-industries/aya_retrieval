@@ -6896,3 +6896,11 @@ data only). Raw run files go to `results/longmemeval/`, ignored by git, because 
 4. "Evidence shown" is read on the 408 questions in both the measure-1 and measure-2 sets. It is matched on the
    passage text without the tool's header lines, whose numbers would match numeric golds.
 5. Labels: `lme_637_82_tool`, `lme_base_tool`, `lme_base_as`, `lme_base_three`, `lme_base_evidence`.
+
+**Dry run** (arm 1 on the 20 longest views, 09:22, read for format, time and memory only; no score computed).
+17 of 20 ran out of card memory under the 8.5 GiB cap. The 7 longest views asked for 0.9 to 1.4 GiB more. The next
+10 asked for about 200 MiB, with 8.2 GiB already held: a runner bug. Memory was freed inside the `except` block,
+while the error's frames still held the tensors, so one failure made the next ones fail. Fixed before the scored
+run: the card is freed after the error is released (`gc.collect`, then `empty_cache`). A second dry run on the same
+20 ids checks the fix. The longest views (top 1%, 4,000 to 4,900 tokens) may still fail, and are reported as
+failures per arm, as registered. Median 1.6 s a question, 4.7 s at most. Peak 8.43 GiB.

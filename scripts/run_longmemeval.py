@@ -22,6 +22,7 @@ Writes results/longmemeval/<label>.json.
 from __future__ import annotations
 
 import argparse
+import gc
 import json
 import logging
 import sys
@@ -181,10 +182,13 @@ def main() -> None:
                 "error": None,
             }
         except Exception as error:  # R-170: each question is caught on its own
-            if isinstance(error, torch.cuda.OutOfMemoryError):
-                torch.cuda.empty_cache()
             row |= {"reply": None, "error": f"{type(error).__name__}: {error}"}
             LOG.info("%s failed: %s", item.item_id, row["error"])
+        if row.get("error"):
+            # Free the card only once the error, and the frames holding its tensors, are gone:
+            # freeing inside the except block left them held, and the next questions failed too.
+            gc.collect()
+            torch.cuda.empty_cache()
         row |= {
             "tokens_read": spent["read"],
             "tokens_written": spent["written"],
