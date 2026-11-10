@@ -1,0 +1,165 @@
+W1110 11:51:38.613000 19916 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+[
+ {
+  "file": "agent-a11a212fdeec6db13.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a2014e7343f7379a9.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a5975d745ac679246.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-af674da6b794078fd.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-ab45c2f97152e76c0.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a400b9536ad497936.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a7919adb40290f853.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-ad9538cb6a1029603.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a89578afb132a381d.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a820b792cdd3ccd87.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-ae8ce33f85648e0e1.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a210dcc7aaa9d6d63.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a836d3c6cc37c5d07.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a1dcba221e36d5630.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a87bb07ea16aa18d2.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-aa423e44b3c5cff53.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a1fae37aa3a0ecdd9.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-affc957b33b13c817.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ }
+]

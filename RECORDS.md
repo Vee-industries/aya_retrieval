@@ -7012,3 +7012,18 @@ before any judged number is read.
   - Its temperature cannot be set.
   - Each judge reads a sheet of many prompts, not one prompt per call.
   - The brief is new, because R-154's frozen brief is for coherence. It keeps that brief's structure and rules.
+
+**Judging done, before any mark was read** (11:45 to 12:20).
+- **Judges.** 18 agents: three judges, one agent per sheet. Agent ids are in `results/analysis/R-170/judge/judges.txt`.
+- **R-154's check.** `freeze_r154.py judges` on all 18 transcripts: every reply came from `claude-sonnet-5-5`, under
+  Claude Code 2.1.309 (`judges_check.json`).
+- **My audit.** I audited every transcript without printing a mark. Each judge read only its own sheet in parts. Each
+  marks file covers its sheet's lines exactly, with "yes" or "no" only.
+- **Disclosed: code after the marks.** Most judges wrote their marks as typed JSON in a heredoc, then ran a one-line
+  count of the file's entries. The brief said "no scripts". The count decides no mark.
+- **Disclosed: a list turned into JSON.** One judge (judge 3, sheet L1) typed the line numbers it answered "yes" and
+  had a shell loop turn that list into the JSON. The loop only formats the judge's own list, as checked from the
+  command with the numbers hidden. My audit printed part of that bare list of line numbers, with no arm attached.
+- **Kept, unread.** The marks were copied unread into `results/analysis/R-170/judge/marks/`.
+- **Scorer written before reading.** `scripts/records/score_judged_r170.py` was written before any mark was read. It
+  stops unless Kevin's 50 marks (`kevin_marks.json`) are in.
