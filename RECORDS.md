@@ -6555,3 +6555,28 @@ card, at below-normal priority, nothing else alongside:
    it is not read for this arm. The `view` field still holds the last three exchanges. **Meaning:** at or above
    whole-chat base on `older`, and no worse than `tool_loop` on the other kinds, supports "never worse than base"
    for the combined design; anything below is reported as it falls.
+
+**Result, the remaining runs** (04:24 to 04:41, one at a time, below-normal priority; peak 7.11 to 7.59 GiB).
+
+Set 2, whole chat in view, `older` of 80: 6.37 seed 82 56, base 52 (only base 10, only 6.37 14, p = 0.54).
+
+Whole chat and the tool together (`whole_chat_tool`), seed 82, against whole-chat base on `older` and against the tool
+arms on the other kinds, same conversations:
+
+| Kind (of) | Set 1: whole+tool | 6.37 tool | base tool | Set 2: whole+tool | 6.37 tool | base tool |
+|---|---|---|---|---|---|---|
+| `older` (80) | 57 (whole-chat base 58) | 28 | 11 | 54 (whole-chat base 52) | 34 | 12 |
+| `confirm` (40) | 14 | 11 | 15 | 13 | 19 | 15 |
+| `in_view` (40) | 35 | 35 | 36 | 36 | 37 | 34 |
+| `never_told` (40) | 35 | 37 | 34 | 27 | 36 | 32 |
+| `statement` (40) | 39 | 37 | 38 | 37 | 35 | 39 |
+
+`older` against whole-chat base: 12 and 11 (p = 1.0) on set 1, 12 and 14 (p = 0.85) on set 2. With the whole chat in
+view the model searches far less: `older` 15 and 13 of 80 (78 to 80 with the tool alone); `confirm` 0 of 40 on both
+sets; `never_told` 22 and 24 of 40 (40 with the tool alone).
+
+**Reading, as registered.** Given the whole chat, the trained model matches base on `older` on both sets, with or
+without the tool. The combined design is not shown to be never worse than base on every kind. On set 2, `never_told`
+falls to 27 against 36 with the tool alone and base's 32 with the tool. `confirm` falls to 13 against 19 and 15. Base
+with the whole chat was not run on those kinds, because the `whole_chat` arm runs `older` only, so the right reference
+for them is not measured. One seed, two sets of 40 chats; a report, not a test.
