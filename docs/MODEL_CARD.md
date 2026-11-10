@@ -131,7 +131,8 @@ message, top 5 passages each. Decoding in every test was greedy.
 1,094 rows (`older` 332, `confirm` 230, `in_view` 150, `never_told` 160, `statement` 222), built from the training pool only: targets are the
 untrained model's own replies where they pass the scorer, vetted plain-chat replies, and scripted
 answers where needed. LoRA rank 32 on `q_proj`, `k_proj`, `v_proj`, `o_proj`, `gate_proj`, `up_proj`, `down_proj`; peak learning rate 3e-4, 3 epochs, batch 2, loss mode `chat_decision`, with TRL's chunked loss replaced by `lean_loss.lean_chunk`; trained from no adapter; 222 plain-chat rows carry loss only on the reply's first token and its end-of-turn marker. The method, the registered tests, every candidate tried,
-the errors found and every results file are in the repository: `docs/ARTICLE.md` and `RECORDS.md`.
+the errors found and every results file are in the repository,
+[github.com/Vee-industries/aya_retrieval](https://github.com/Vee-industries/aya_retrieval): `docs/ARTICLE.md` and `RECORDS.md`.
 
 ## Authors
 

@@ -131,7 +131,8 @@ message, top {{top_k}} passages each. Decoding in every test was greedy.
 {{training_rows}} rows ({{training_kinds}}), built from the training pool only: targets are the
 untrained model's own replies where they pass the scorer, vetted plain-chat replies, and scripted
 answers where needed. {{training_setup}}. The method, the registered tests, every candidate tried,
-the errors found and every results file are in the repository: `docs/ARTICLE.md` and `RECORDS.md`.
+the errors found and every results file are in the repository,
+[github.com/Vee-industries/aya_retrieval](https://github.com/Vee-industries/aya_retrieval): `docs/ARTICLE.md` and `RECORDS.md`.
 
 ## Authors
 
