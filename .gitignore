@@ -14,3 +14,6 @@ dist/
 *.bin
 *.pt
 checkpoints/
+
+# LongMemEval runs quote the downloaded chats; only aggregates are committed (R-170)
+results/longmemeval/

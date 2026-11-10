@@ -1,0 +1,202 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-10T14:03:49+00:00",
+  "command": [
+   "scripts/records/profile_r170.py",
+   "--data",
+   "C:/Users/Gaming/Downloads/longmemeval/longmemeval_s_cleaned.json"
+  ],
+  "git_commit": "769d3820a3249b4e97c547de863020c34fc814fa",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "data_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+ "questions": 500,
+ "types": {
+  "knowledge-update": 78,
+  "multi-session": 133,
+  "single-session-assistant": 56,
+  "single-session-preference": 30,
+  "single-session-user": 70,
+  "temporal-reasoning": 133
+ },
+ "abstention": 30,
+ "marked": 479,
+ "evidence_in_view": [
+  "0e4e4c46",
+  "58ef2f1c",
+  "b46e15ed"
+ ],
+ "exchanges_per_question": {
+  "n": 500,
+  "min": 197,
+  "median": 244.0,
+  "mean": 244.9,
+  "p90": 264,
+  "p99": 293,
+  "max": 305
+ },
+ "view_tokens": {
+  "n": 500,
+  "min": 889,
+  "median": 1941.0,
+  "mean": 1969.8,
+  "p90": 2627,
+  "p99": 3977,
+  "max": 4900
+ },
+ "views_over_context": 0,
+ "views_over_6000": 0,
+ "chunks_per_older_exchange": {
+  "n": 120932,
+  "min": 1,
+  "median": 7.0,
+  "mean": 8.1,
+  "p90": 14,
+  "p99": 19,
+  "max": 287
+ },
+ "older_exchanges_over_one_chunk": 116939,
+ "older_exchanges": 120932,
+ "turns_joined": 1932,
+ "turns_joined_across_sessions": 1900,
+ "histories_opened_by_assistant": 46,
+ "exchanges_from_two_sessions": 1894,
+ "evidence_only_prompt_tokens": {
+  "n": 500,
+  "min": 582,
+  "median": 6276.0,
+  "mean": 6262.6,
+  "p90": 10276,
+  "p99": 17493,
+  "max": 23147
+ },
+ "evidence_only_under_6000": 225,
+ "evidence_only_under_6000_by_type": {
+  "knowledge-update": 22,
+  "multi-session": 20,
+  "single-session-assistant": 56,
+  "single-session-preference": 29,
+  "single-session-user": 70,
+  "temporal-reasoning": 28
+ },
+ "longest_views": [
+  {
+   "id": "1b9b7252",
+   "type": "single-session-assistant",
+   "tokens": 4900
+  },
+  {
+   "id": "gpt4_a2d1d1f6",
+   "type": "temporal-reasoning",
+   "tokens": 4588
+  },
+  {
+   "id": "gpt4_2312f94c",
+   "type": "temporal-reasoning",
+   "tokens": 4111
+  },
+  {
+   "id": "3d86fd0a",
+   "type": "single-session-user",
+   "tokens": 4068
+  },
+  {
+   "id": "5a7937c8",
+   "type": "multi-session",
+   "tokens": 3977
+  },
+  {
+   "id": "1568498a",
+   "type": "single-session-assistant",
+   "tokens": 3890
+  },
+  {
+   "id": "81507db6",
+   "type": "multi-session",
+   "tokens": 3852
+  },
+  {
+   "id": "gpt4_2f91af09",
+   "type": "multi-session",
+   "tokens": 3699
+  },
+  {
+   "id": "gpt4_2f584639",
+   "type": "temporal-reasoning",
+   "tokens": 3632
+  },
+  {
+   "id": "1c549ce4",
+   "type": "multi-session",
+   "tokens": 3456
+  },
+  {
+   "id": "8a137a7f",
+   "type": "single-session-user",
+   "tokens": 3217
+  },
+  {
+   "id": "e831120c",
+   "type": "multi-session",
+   "tokens": 3153
+  },
+  {
+   "id": "ce6d2d27",
+   "type": "knowledge-update",
+   "tokens": 3142
+  },
+  {
+   "id": "gpt4_59149c77",
+   "type": "temporal-reasoning",
+   "tokens": 3129
+  },
+  {
+   "id": "gpt4_98f46fc6",
+   "type": "temporal-reasoning",
+   "tokens": 3109
+  },
+  {
+   "id": "6a27ffc2",
+   "type": "knowledge-update",
+   "tokens": 3082
+  },
+  {
+   "id": "6b168ec8",
+   "type": "single-session-user",
+   "tokens": 3073
+  },
+  {
+   "id": "gpt4_cd90e484",
+   "type": "temporal-reasoning",
+   "tokens": 2880
+  },
+  {
+   "id": "a3838d2b",
+   "type": "temporal-reasoning",
+   "tokens": 2872
+  },
+  {
+   "id": "80ec1f4f",
+   "type": "multi-session",
+   "tokens": 2850
+  }
+ ]
+}

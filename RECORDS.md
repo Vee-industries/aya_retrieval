@@ -6858,3 +6858,41 @@ No whole-chat arm: about 115k tokens, against the model's 8,192.
 - Paired tests use the questions every arm completed. A second reading counts a failure as wrong for that arm only.
 - A floor result, with every arm near zero on answers, is uninformative, as stated here.
 - Forbidden: a ranking against published systems.
+
+**Built, before any run** (one fresh Opus builder from a brief; transcript audited: nothing sealed opened, no git
+change, the model never loaded; its CPU smoke runs used a fake model). Files: `src/aya_retrieval/longmemeval.py`
+(converter, checks the sha256), `scripts/run_longmemeval.py` (runner, one arm per call, errors caught per question,
+saved every 25), `scripts/records/score_r170.py`, `scripts/records/profile_r170.py`, and two test files (synthetic
+data only). Raw run files go to `results/longmemeval/`, ignored by git, because they quote the chats. Only
+`results/analysis/R-170/` is committed.
+
+**Profile (CPU, `results/analysis/R-170/profile.json`).**
+- Exchanges per question: median 244 (197 to 305). The 126 above was wrong: it came from a first count on 60
+  questions that paired only even-numbered turns.
+- View tokens (tool prompt, three exchanges, dated question): median 1,941, 90th percentile 2,627, max 4,900. None
+  is over 6,000.
+- Chunks per older exchange: median 7. 116,939 of 120,932 older exchanges become more than one chunk, so the top 5
+  often repeats one exchange.
+- 1,932 unpaired turns joined, 1,900 of them across a session boundary. 46 histories open with an assistant turn;
+  that exchange's user side holds only the date.
+- Evidence-only prompts: median 6,276 tokens. 225 questions fit under 6,000 (single-session-user 70,
+  single-session-assistant 56, preference 29, temporal 28, knowledge-update 22, multi-session 20). So the reading
+  ceiling covers mostly single-session types.
+- Sessions out of date order in 211 questions, and 13 repeat a session. Both are kept as the file gives them.
+- 54 answer marks sit on assistant turns.
+- CPU references, turn level, of 476: a search on the question text finds an answer turn for 395, and 5 random
+  passages for 22.
+- Scorer self-test: 411 golds pass as replies, and every known-wrong reply fails.
+
+**Choices fixed now, before any run:**
+1. Measure 2's alternatives rule also takes a written range ("from 7 days to 10 days", one gold, `993da5e2`).
+   "(or Y, ...)" takes Y to the first comma, and "X or Y" splits only for golds of six words or fewer with no
+   punctuation. Read list: 411 questions (`answer_read_ids.json`).
+2. **H1's primary reading:** each question counts as found or not found at the first search's top 5, and an arm that
+   did not search counts as not found. It is paired over all 476. Secondary: the same on questions both arms
+   searched.
+3. Paired tests ("every arm completed") use the four full arms; evidence-only skips questions by design. H3 compares
+   with base with the tool.
+4. "Evidence shown" is read on the 408 questions in both the measure-1 and measure-2 sets. It is matched on the
+   passage text without the tool's header lines, whose numbers would match numeric golds.
+5. Labels: `lme_637_82_tool`, `lme_base_tool`, `lme_base_as`, `lme_base_three`, `lme_base_evidence`.

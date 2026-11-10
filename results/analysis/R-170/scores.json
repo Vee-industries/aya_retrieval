@@ -1,0 +1,300 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-10T14:19:42+00:00",
+  "command": [
+   "scripts/records/score_r170.py",
+   "--data",
+   "C:/Users/Gaming/Downloads/longmemeval/longmemeval_s_cleaned.json",
+   "--index",
+   "C:/Users/Gaming/scratch/claude/C--Users-Gaming-Desktop-Claude-s-House/389594c2-8513-47d9-80f1-1a28b96837f7/scratchpad/lme/builder/score.sqlite"
+  ],
+  "git_commit": "769d3820a3249b4e97c547de863020c34fc814fa",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "record": "R-170",
+ "data_sha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+ "arms": {
+  "637_tool": "not run",
+  "base_tool": "not run",
+  "always_search": "not run",
+  "three_exchanges": "not run",
+  "evidence_only": "not run"
+ },
+ "answer_scorer_self_test": {
+  "golds": 411,
+  "failed": 0
+ },
+ "answer_read": {
+  "rule_counts": {
+   "abstention (measure 3)": 30,
+   "preference: the gold is a rubric": 30,
+   "read": 411,
+   "temporal: the gold is not a single value": 29
+  },
+  "read": 411
+ },
+ "evidence_questions": 476,
+ "evidence_shown_questions": 408,
+ "abstention_questions": 30,
+ "completed_by_every_full_arm": null,
+ "references": {
+  "question_search": {
+   "questions": 476,
+   "completed": 476,
+   "searched": {
+    "hits": 476,
+    "of": 476,
+    "rate": 1.0
+   },
+   "first_search_turn": {
+    "hits": 395,
+    "of": 476,
+    "rate": 0.8298
+   },
+   "any_search_turn": {
+    "hits": 395,
+    "of": 476,
+    "rate": 0.8298
+   },
+   "first_search_session": {
+    "hits": 444,
+    "of": 476,
+    "rate": 0.9328
+   },
+   "any_search_session": {
+    "hits": 444,
+    "of": 476,
+    "rate": 0.9328
+   },
+   "passages_per_searched_question": 5.0,
+   "evidence_shown_first": {
+    "hits": 168,
+    "of": 408,
+    "rate": 0.4118
+   },
+   "evidence_shown_any": {
+    "hits": 168,
+    "of": 408,
+    "rate": 0.4118
+   },
+   "by_type": {
+    "knowledge-update": {
+     "trained_for": true,
+     "first_search_turn": {
+      "hits": 66,
+      "of": 71,
+      "rate": 0.9296
+     },
+     "any_search_turn": {
+      "hits": 66,
+      "of": 71,
+      "rate": 0.9296
+     }
+    },
+    "multi-session": {
+     "trained_for": false,
+     "first_search_turn": {
+      "hits": 101,
+      "of": 125,
+      "rate": 0.808
+     },
+     "any_search_turn": {
+      "hits": 101,
+      "of": 125,
+      "rate": 0.808
+     }
+    },
+    "single-session-assistant": {
+     "trained_for": false,
+     "first_search_turn": {
+      "hits": 51,
+      "of": 56,
+      "rate": 0.9107
+     },
+     "any_search_turn": {
+      "hits": 51,
+      "of": 56,
+      "rate": 0.9107
+     }
+    },
+    "single-session-preference": {
+     "trained_for": false,
+     "first_search_turn": {
+      "hits": 13,
+      "of": 30,
+      "rate": 0.4333
+     },
+     "any_search_turn": {
+      "hits": 13,
+      "of": 30,
+      "rate": 0.4333
+     }
+    },
+    "single-session-user": {
+     "trained_for": true,
+     "first_search_turn": {
+      "hits": 58,
+      "of": 63,
+      "rate": 0.9206
+     },
+     "any_search_turn": {
+      "hits": 58,
+      "of": 63,
+      "rate": 0.9206
+     }
+    },
+    "temporal-reasoning": {
+     "trained_for": false,
+     "first_search_turn": {
+      "hits": 106,
+      "of": 131,
+      "rate": 0.8092
+     },
+     "any_search_turn": {
+      "hits": 106,
+      "of": 131,
+      "rate": 0.8092
+     }
+    }
+   }
+  },
+  "random_passages": {
+   "questions": 476,
+   "completed": 476,
+   "searched": {
+    "hits": 476,
+    "of": 476,
+    "rate": 1.0
+   },
+   "first_search_turn": {
+    "hits": 22,
+    "of": 476,
+    "rate": 0.0462
+   },
+   "any_search_turn": {
+    "hits": 22,
+    "of": 476,
+    "rate": 0.0462
+   },
+   "first_search_session": {
+    "hits": 106,
+    "of": 476,
+    "rate": 0.2227
+   },
+   "any_search_session": {
+    "hits": 106,
+    "of": 476,
+    "rate": 0.2227
+   },
+   "passages_per_searched_question": 5.0,
+   "evidence_shown_first": {
+    "hits": 33,
+    "of": 408,
+    "rate": 0.0809
+   },
+   "evidence_shown_any": {
+    "hits": 33,
+    "of": 408,
+    "rate": 0.0809
+   },
+   "by_type": {
+    "knowledge-update": {
+     "trained_for": true,
+     "first_search_turn": {
+      "hits": 1,
+      "of": 71,
+      "rate": 0.0141
+     },
+     "any_search_turn": {
+      "hits": 1,
+      "of": 71,
+      "rate": 0.0141
+     }
+    },
+    "multi-session": {
+     "trained_for": false,
+     "first_search_turn": {
+      "hits": 10,
+      "of": 125,
+      "rate": 0.08
+     },
+     "any_search_turn": {
+      "hits": 10,
+      "of": 125,
+      "rate": 0.08
+     }
+    },
+    "single-session-assistant": {
+     "trained_for": false,
+     "first_search_turn": {
+      "hits": 0,
+      "of": 56,
+      "rate": 0.0
+     },
+     "any_search_turn": {
+      "hits": 0,
+      "of": 56,
+      "rate": 0.0
+     }
+    },
+    "single-session-preference": {
+     "trained_for": false,
+     "first_search_turn": {
+      "hits": 1,
+      "of": 30,
+      "rate": 0.0333
+     },
+     "any_search_turn": {
+      "hits": 1,
+      "of": 30,
+      "rate": 0.0333
+     }
+    },
+    "single-session-user": {
+     "trained_for": true,
+     "first_search_turn": {
+      "hits": 0,
+      "of": 63,
+      "rate": 0.0
+     },
+     "any_search_turn": {
+      "hits": 0,
+      "of": 63,
+      "rate": 0.0
+     }
+    },
+    "temporal-reasoning": {
+     "trained_for": false,
+     "first_search_turn": {
+      "hits": 10,
+      "of": 131,
+      "rate": 0.0763
+     },
+     "any_search_turn": {
+      "hits": 10,
+      "of": 131,
+      "rate": 0.0763
+     }
+    }
+   }
+  }
+ },
+ "measures": {},
+ "hypotheses": {}
+}
