@@ -49,7 +49,7 @@ from run_recall_eval import MAX_TOKENS, SYSTEM, SYSTEM_WITH_TOOL, run_arm  # noq
 LOG = logging.getLogger("longmemeval")
 
 ARMS = ("tool_loop", "always_search", "three_exchanges", "evidence_only")
-EVIDENCE_LIMIT = 6000  # R-170: evidence-only runs on prompts under this many tokens
+EVIDENCE_LIMIT = 4000  # R-170, amended after the dry run: evidence-only runs on prompts under this
 HARD_STOP = "2026-11-11T18:00"  # R-170: an arm not finished by then is not completed
 SAVE_EVERY = 25
 

@@ -6904,3 +6904,16 @@ while the error's frames still held the tensors, so one failure made the next on
 run: the card is freed after the error is released (`gc.collect`, then `empty_cache`). A second dry run on the same
 20 ids checks the fix. The longest views (top 1%, 4,000 to 4,900 tokens) may still fail, and are reported as
 failures per arm, as registered. Median 1.6 s a question, 4.7 s at most. Peak 8.43 GiB.
+
+**Corrected, after a second dry run** (09:25, the same 20 ids, with the change above): 19 of 20 failed. So the
+"runner bug" reading above was wrong. The 8.1 to 8.2 GiB held at each failure is that question's own forward pass,
+not memory left from an earlier failure. These 20 are the longest views by design: the view plus passages from a
+search reach past about 4,000 tokens in one turn, and that does not fit under the 8.5 GiB cap. The change is kept
+(it is harmless). Expected effect on the full run: views over about 3,000 tokens (the top few percent; the 99th
+percentile is 3,977) are at risk in the tool arms. They are reported as failures per arm, with paired tests on the
+questions every arm completed, as registered. Not done: raising the cap toward 9.5 GiB, which would leave too little
+of the card for the rest of Kevin's PC.
+
+**Amended before arm 5 runs:** the evidence-only arm runs on prompts under 4,000 tokens, not 6,000 (`EVIDENCE_LIMIT`
+in the runner). R-170 set 6,000 before the memory limit was measured, and above about 4,000 the arm would fail
+rather than skip. The questions it covers fall from 225 to fewer, mostly single-session types; the count is reported.
