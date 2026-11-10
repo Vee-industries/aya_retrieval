@@ -87,6 +87,9 @@ counting a failure or no search as not found:
   233 answerable ones it ties code (40 and 40) and shows no measured difference from base (40 against 32,
   p = 0.29); that split was read after the registered result. The judges agree on 1,027 to 1,030 of 1,035
   lines; Kevin agrees with each on 46 of his 50 blind lines (kappa 0.78).
+  Where he differs: he counts "I can't know, I'm a language model" as a failure on an unanswerable question; the
+  judge prompt counts it right. Only base with three exchanges gives such replies among the judged-right lines (4
+  of its 5), so his rule would change no comparison with 6.37 (R-170).
 
 Each arm's questions that ran out of card memory at 8.5 GiB were rerun once at 9.0 GiB, as amended
 before any score: failures 21, 31, 58 and 8 fell to 10, 16, 28 and 3 (`results/analysis/R-170/scores.json`).

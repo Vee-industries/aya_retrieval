@@ -7074,3 +7074,17 @@ from the unanswerable questions.
 that searches every question. The trained model also declines the unanswerable questions, which code never does, but
 declines on half of the answerable ones (measure 3). Every arm is right on few questions: 53 of 248 at best. Base
 reading only the evidence sessions is right on 47 of its 71 lines.
+
+**Where Kevin and the judges differ** (Kevin, 10 November, on the two unanswerable lines: "it's wrong because it's a
+failure mode"; then "just keep it an note where we differ").
+- **Kevin's position.** A reply that cannot answer because "I'm a large language model, I don't have access to your
+  personal data" is a failure, not a correct abstention.
+- **The judge prompt.** LongMemEval's abstention prompt accepts "the information is incomplete", and the judges
+  marked such replies right.
+- **What was kept.** The registered result stands. A re-judging of all 61 unanswerable lines under Kevin's rule was
+  built and then dropped at his word before any judge saw it.
+- **How much his rule would move.** Counted mechanically (a phrase match: "language model", "as an AI", "don't have
+  access to your personal or real-time"), 4 of the 20 judge-right unanswerable lines are such replies. All 4 are base
+  with three exchanges (5 right would become 1). None are 6.37's 13, base with the tool's 2, or always-search's 0. So
+  his rule changes no comparison with 6.37 except against base with three exchanges, which is lower either way.
+- **His other two differences.** On a preference line and a temporal line, he said right where the judges said wrong.
