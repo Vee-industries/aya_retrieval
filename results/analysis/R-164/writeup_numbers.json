@@ -521,7 +521,24 @@
    }
   },
   "set_2": {
-   "status": "not run yet: wc_blind2_base_seed_0"
+   "kinds_run": [
+    "older"
+   ],
+   "all": {
+    "questions": 80,
+    "whole_chat_base": 52,
+    "tool_base": 12,
+    "tool_seed_82": 34,
+    "whole_chat_vs_seed_82": {
+     "only_first": 28,
+     "only_second": 10,
+     "p": 0.0050976432976312935
+    },
+    "tokens_read_per_turn": {
+     "whole_chat_base": 1401,
+     "tool_seed_82": 1690
+    }
+   }
   },
   "hard_dev": {
    "status": "not run yet: wc_hd_base_seed_73157"
