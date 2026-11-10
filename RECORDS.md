@@ -7027,3 +7027,11 @@ before any judged number is read.
 - **Kept, unread.** The marks were copied unread into `results/analysis/R-170/judge/marks/`.
 - **Scorer written before reading.** `scripts/records/score_judged_r170.py` was written before any mark was read. It
   stops unless Kevin's 50 marks (`kevin_marks.json`) are in.
+
+**Kevin's 50 lines** (marked in chat, 12:40 to 13:30, before any judged number was read; `results/analysis/R-170/judge/kevin_marks.json`).
+- **Format.** He marked r or w, saved as yes or no. He restarted once from line 1 at his own word, and the first
+  attempt's marks were discarded.
+- **Unsure lines.** Line 18 was marked "r?". Line 21 was first "w?", with his question whether "I don't know, I'm an
+  LLM" counts on the unanswerable lines. I quoted the judge prompt's rule without saying how it applies. He then wrote
+  "agreed", taken as w on 21 and 28; I told him so and offered to change it.
+- **Kept.** Line 5 stays w.
