@@ -6731,3 +6731,21 @@ over both sizes.
 
 **Not run:** code that always searches on the outside-writer sets. That is the comparison against plain code on
 chats people write.
+
+## R-169 · 2026-11-10 · SPRINT · Code that always searches, on the outside-writer sets, registered before it runs
+
+**Why.** R-168 found the adapters far above code that always searches on the sealed generated pools. The same
+comparison on chats people write was never run (R-168, "Not run"). By the rule Kevin set on 10 November (any simple
+baseline that could beat the method is run and reported first), it runs now. Base, `always_search` arm, greedy, seed
+0: `as_blind_base` on `data/blind_dev/chats` and `as_blind2_base` on `data/blind_dev2/chats`. One run at a time, at
+below-normal priority.
+
+**Reported.** Each kind, against seed 82 with the tool, base with the tool, and base with the whole chat
+(`wca_*_base`), on the same questions. An exact sign test of seed 82 against it on recall (`older` and `confirm`).
+`statement` fails by construction and is not read.
+
+**What each outcome means, fixed now.**
+- If code that always searches is at or above seed 82 on recall, then on chats people write training adds nothing to
+  recall over plain code. The write-up then says so first, with what training does add: deciding when not to search
+  (`in_view`, `never_told`, `statement`).
+- If it is below seed 82, the gap is reported with its sign test.
