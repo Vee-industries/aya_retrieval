@@ -6580,3 +6580,13 @@ without the tool. The combined design is not shown to be never worse than base o
 falls to 27 against 36 with the tool alone and base's 32 with the tool. `confirm` falls to 13 against 19 and 15. Base
 with the whole chat was not run on those kinds, because the `whole_chat` arm runs `older` only, so the right reference
 for them is not measured. One seed, two sets of 40 chats; a report, not a test.
+
+**Added before it runs** (Kevin, 04:45: "can you run that last test?"). The missing reference: base with the whole
+chat in view on every kind, not only `older`. New arm `whole_chat_all` in `run_recall_eval.py`: the same prompt as
+`whole_chat` (every message in view, no tool), on all five kinds. Runs: `wca_blind_base` and `wca_blind2_base`, seed
+0, one at a time, below-normal priority. Reported per kind against `whole_chat_tool` (6.37 seed 82) on the same
+conversations. Its `older` rows repeat `whole_chat` and should match `wc_*_base` exactly (greedy); a mismatch is
+reported. `statement` is scored on not searching, so with no tool it is right by construction and is not read. The
+same goes for any other kind whose score turns on the call count. **Meaning:** if base with the whole chat is also
+low on `never_told` and `confirm`, the R-165 drop belongs to having the whole chat in view, not to training. If base
+is clearly higher, training hurts those kinds when the whole chat is in view, and the write-up says so.
