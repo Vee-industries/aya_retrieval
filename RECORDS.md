@@ -179,6 +179,10 @@ carry their own provenance (command, git commit, package versions).
 | R-164 | The write-up plan, panelled (method, sources, against); a whole-chat control registered: ★ **base with every message in view beats 6.37 with the tool on the outside-writer sets** (58 and 52 against 28 and 34 of 80 `older`) |
 | R-165 | ★ **6.37 given the whole chat scores as base does**: on `older` (59 and 56 against 58 and 52), and with the tool on every kind against base with the whole chat, no gap near significance; new arms `whole_chat_tool`, `whole_chat_all` |
 | R-166 | The whole-chat runs at 419 messages ran out of card memory (log in `results/control/R-164`); the runner was blocked by my uncommitted file, not stuck; leftover scripts stopped; the write-up and model card rebuilt for 6.37 |
+| R-167 | What R-016 registered and the sealed run left out, found by the write-up's reviewer: the whole-chat and always-search references, the coherence interval, the training recipe, LoCoMo |
+| R-168 | R-016's two references on the sealed pools, run late: ★ **seed 82 far above both** (46 to 55 of 60 against base with the whole chat 21 to 33, and code that always searches 14 to 32) |
+| R-169 | Code that always searches, on the outside-writer sets: ★ **recalls as well as seed 82** (42 and 47 against 39 and 53 of 120); training adds deciding when not to search (`in_view`, `never_told`, `statement`) |
+| R-170 | LongMemEval-S as an outside check: registration, build, dry runs, rerun of out-of-memory failures; ★ **code that always searches finds more evidence than 6.37 (372 against 333 of 476); 6.37 declines 233 of 470 answerable questions**; answers in the reply 51, 51, 63 (no measured difference) |
 
 ---
 
@@ -6934,3 +6938,55 @@ from the run files (ids and errors only) before any score was computed. The scor
 rerun row and refuses a rerun that did not complete or does not cover exactly the failed questions. A question that
 fails again stays a failure. Reported: failures per arm before and after the rerun. Every other setting is
 unchanged. No other question is rerun.
+
+**Rerun** (11:16 to 11:31, at 0.90, one arm at a time; Kevin, 11:15: "just go for it", while using the browser).
+Failures before and after the rerun:
+
+| Arm | 6.37, tool | base, tool | always-search | three exchanges | evidence only |
+|---|---|---|---|---|---|
+| failures at 0.85 | 21 | 31 | 58 | 8 | 30 |
+| failures after the rerun | 10 | 16 | 28 | 3 | 5 |
+
+Every remaining failure is `OutOfMemoryError`. Peak 8.79 to 8.93 GiB.
+
+**Result** (scored 11:32; `scripts/records/score_r170.py`, `results/analysis/R-170/scores.json`). This is the
+mechanical score, not the official one. The scorer passed its self-test: all 411 golds pass as replies, and the
+known-wrong replies fail. 469 questions were completed by all four full arms.
+
+| Measure | 6.37 seed 82, tool | base, tool | always-search | base, three exchanges |
+|---|---|---|---|---|
+| searched (of the questions with evidence it completed) | 421 of 466 | 309 of 460 | 450 of 450 | — |
+| evidence found, first search, failures and no search as not found (476) | 333 | 238 | 372 | — |
+| gold answer in the reply (411 read; failures as wrong) | 51 | 51 | 63 | 34 |
+| false matches (reply against another question's gold) | 1 of 402 | 7 of 398 | 2 of 389 | 4 of 408 |
+| declines, 30 unanswerable | 21 | 2 | 0 | 10 |
+| declines, 470 answerable | 233 | 22 | 1 | 140 |
+| clean first calls | 441 of 441 | 146 of 328 | 472 of 472 (scripted) | — |
+| ran out of calls | 0 | 12 | 31 | 0 |
+| words a reply / at the 60-token cap | 12.7 / 22 of 490 | 39.1 / 177 of 484 | 40.4 / 178 of 472 | 45.6 / 338 of 497 |
+| tokens read / seconds a question | 4,055 / 3.81 | 3,794 / 3.47 | 3,161 / 3.09 | 1,730 / 2.09 |
+
+CPU references: a search on the question text finds the evidence on 395 of 476 at its top 5. Base reading only the
+evidence sessions (prompts under 4,000 tokens; 123 completed, 372 skipped) has the gold in 63 of 114 replies; on those
+same 114 questions, 6.37 28, base with the tool 19, always-search 23, three exchanges 6.
+
+**Hypotheses, as registered.**
+- **H1, 6.37 above base with the tool on the first search: holds.** 333 against 238 of 476, difference 20 points
+  (95% interval 15 to 25), p = 1.5e-13. On the 447 every arm completed: 321 against 234, p = 2.5e-12. Secondary, on
+  the 294 both searched: 226 and 226, p = 1.0. The whole gain is that 6.37 searches more often (90% against 67%), not
+  that its searches find more.
+- **H2, 6.37 against code that always searches: code is ahead on evidence; no measured difference on answers.**
+  First search 333 against 372 of 476 (difference -8 points, -13 to -4, p = 0.0004); on the 447 completed 321 against
+  369, p = 2.7e-6. Any search 333 against 375. Answer in the reply 51 against 63 of 411 (-3 points, -7 to +1,
+  p = 0.20).
+- **H3, 6.37's abstention not more than 5 points below base's: holds.** 21 against 2 of 30 (+63 points, 43 to 83,
+  p = 2.1e-5). Beside it, as registered: 6.37 declines on 233 of the 470 answerable questions, against base's 22
+  (+45 points, 40 to 50). Its right answers equal base's (51 and 51).
+- Floor: the four full arms have the gold in 8 to 16% of replies. That is low but not near zero; the evidence-only
+  arm shows the short questions are answerable (63 of 114) when the evidence is in view.
+
+**Reading.** On this third kind of chat, training made the model search more often and with clean calls every time,
+and it declines far more, including on half the questions it should answer. Plain code that searches every question
+finds the evidence more often than 6.37 and is faster (3.09 against 3.81 s a question), with no measured difference
+in answers. Measure 4 (judged accuracy, labelled not the official score) is next, with Kevin's 50 blind lines marked
+before any judged number is read.

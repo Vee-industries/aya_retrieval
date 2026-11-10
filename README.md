@@ -18,7 +18,8 @@ Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.
 > more false retrievals than base, and was judged coherent more often than base by all three judges.
 > Seed 82 alone gets 91 to 107 of 120 recall questions against base's 13 to 32
 > (`results/analysis/R-162/`). The write-up and model card in `docs/` are built from these results
-> and R-164 to R-166 by `scripts/make_article.py`. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
+> and R-164 to R-166 by `scripts/make_article.py`; they do not yet include R-168 to R-170, which
+> this README does. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
 > and result, each marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this
 > repository is built to.
 
@@ -33,9 +34,17 @@ on any kind, on both sets (R-165). That is one seed and two sets of 40 chats, so
 15 points on a kind of 40 questions could not be seen (R-142). So the design this supports is to
 show the trained model the whole chat when it fits, and let it search when it does not: no measured
 loss against base when the chat fits, and much better than base once only part of the chat can be
-shown. Code that searches every turn, with no training, is a competitor for long chats: in R-014 it
-got 28 of 40 at 419 messages against the whole chat's 2 of 40. It was registered as a reference in
-R-016 and not run on any set the trained model was tested on (R-167).
+shown. The whole-chat result holds on chats people write, not on this project's generated chats:
+on the sealed pools, base with the whole chat got 21 to 33 of 60 recall questions against seed 82's
+46 to 55 (R-168).
+
+**Code that searches every turn, with no training,** was registered as a reference in R-016 and run
+late (R-167). On chats people write it recalls as well as 6.37 (42 and 47 of 120 against 39 and 53;
+p = 0.76 and 0.45, R-169). What training adds there is deciding when not to search: answers already
+on screen 35 and 37 of 40 against code's 13 and 16; facts never told 37 and 36 against 31 and 24;
+plain statements 37 and 35 against 0. On the generated sealed pools the adapters are also far above
+code on recall (seed 82 44 to 55 of 60 against 14 to 32, R-168). The code is faster: 1.0 to 1.2 s a
+conversation against 1.7 to 2.1 s (R-169).
 
 What is not measured: base with the whole chat at 419 messages (about 6,200 tokens). Those runs
 ran out of card memory under the 8.5 GiB cap on a 10 GB card (R-166, log in
@@ -44,6 +53,34 @@ ran out of card memory under the 8.5 GiB cap on a 10 GB card (R-166, log in
 `config.json`). The only whole-chat readings at that length are R-014's (1 of 20 and 1 of 20,
 ruled invalid for repeated small talk) and R-017's (0 of 12 `older` questions), both on the
 training pool, uncapped.
+
+## Outside check: LongMemEval-S
+
+A third kind of chat: LongMemEval-S (Wu et al., ICLR 2025), 500 questions, each over its own
+user-to-assistant history of about 115,000 tokens, partly real logs and partly model-simulated (R-170).
+Every arm sees the last three exchanges. This is a mechanical score, not the official one (that uses
+a GPT-4o judge), and it is never pooled with the other sets. Of 476 questions with marked evidence,
+counting a failure or no search as not found:
+
+| | 6.37 seed 82, tool | base, tool | code always searches | base, three exchanges |
+|---|---|---|---|---|
+| evidence found by the first search (of 476) | 333 | 238 | 372 | — |
+| gold answer in the reply (of 411 read) | 51 | 51 | 63 | 34 |
+| declines on the 30 unanswerable | 21 | 2 | 0 | 10 |
+| declines on the 470 answerable | 233 | 22 | 1 | 140 |
+| seconds a question | 3.81 | 3.47 | 3.09 | 2.09 |
+
+- 6.37 finds evidence more often than base with the tool (p below 0.000001) only because it searches
+  more often: on the 294 questions both searched, each found it on 226.
+- Code that always searches finds evidence more often than 6.37 (372 against 333, p = 0.0004) and is
+  faster. Gold answers in the reply show no measured difference (63 against 51, p = 0.20).
+- 6.37 declines far more than base: on 21 of the 30 questions that should be declined, and on 233 of
+  the 470 that should be answered.
+- Every arm that ran all 500 answers few (8 to 16%). Base reading only the evidence sessions gets 63 of 114 on
+  the short questions it can fit. Judged accuracy, R-170's measure 4, is not yet read.
+
+Each arm's questions that ran out of card memory at 8.5 GiB were rerun once at 9.0 GiB, as amended
+before any score: failures 21, 31, 58 and 8 fell to 10, 16, 28 and 3 (`results/analysis/R-170/scores.json`).
 
 ## Pools
 
