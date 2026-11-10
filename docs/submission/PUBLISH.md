@@ -34,3 +34,13 @@ Requirements read from hackathon.lexsi.ai on 10 November (R-171). A later submis
 4. GitHub: make the repository public (Kevin, in its settings).
 5. The form (Kevin): his registered email, the abstract, the links.
 6. Shortlisted teams are told by 16 November and submit a video presentation or slides by 22 November.
+
+## Done, 10 November (R-172)
+
+- Model: https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37 (weights SHA-256 matches the sealed manifest)
+- Datasets: https://huggingface.co/datasets/KevinVaillancourt/aya-retrieval-chats and
+  https://huggingface.co/datasets/KevinVaillancourt/aya-retrieval-eval-logs
+- Collections: https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-models-6af35d3c521e8481db061df5 and
+  https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-datasets-6af35d3cf9a91556f52af373
+- Code: https://github.com/Vee-industries/aya_retrieval (public)
+- Left for Kevin: the form.

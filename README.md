@@ -5,9 +5,16 @@
 out of view, to read what comes back, and to answer in its own voice, while staying as coherent as
 the untrained model. The write-up is [`docs/ARTICLE.md`](docs/ARTICLE.md).
 
-Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.ai) (1–14 November
+Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.ai) (1 to 15 November
 2026), Track 3, Agentic Fine-tuning. Author: Kevin Vaillancourt, working with an AI assistant
 (Claude) as an executive-function accommodation.
+
+Published on Hugging Face: the adapter
+([aya-retrieval-6.37](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37)), the training and test chats
+([aya-retrieval-chats](https://huggingface.co/datasets/KevinVaillancourt/aya-retrieval-chats)) and every evaluation log
+([aya-retrieval-eval-logs](https://huggingface.co/datasets/KevinVaillancourt/aya-retrieval-eval-logs)), in two collections
+([models](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-models-6af35d3c521e8481db061df5),
+[datasets](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-datasets-6af35d3cf9a91556f52af373)).
 
 > **Status: sealed final run done, every registered rule passes.** The shipped adapter is 6.37
 > (`fix17cs37`, seed 82), frozen on 9 November (RECORDS R-160) with the scorer and judge
@@ -198,7 +205,15 @@ is printed before its reply.
 ../venv/Scripts/python scripts/run_chat.py --adapter ../adapters/screens/fix17cs37_82 --index chat.sqlite
 ```
 
-The adapters are not in this repository and are not published yet. To train the shipped one from
+The shipped adapter is published at
+[huggingface.co/KevinVaillancourt/aya-retrieval-6.37](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37);
+its weights' SHA-256 matches the sealed manifest (`results/freeze/sealed_manifest.json`). To fetch it:
+
+```bash
+../venv/Scripts/hf download KevinVaillancourt/aya-retrieval-6.37 --local-dir ../adapters/screens/fix17cs37_82
+```
+
+To train the shipped one from
 scratch (about 35 minutes on an RTX 3080):
 
 ```bash
