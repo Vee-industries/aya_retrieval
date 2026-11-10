@@ -501,177 +501,23 @@
  },
  "whole_chat_control": {
   "set_1": {
-   "40": {
-    "questions": 2,
-    "whole_chat_base": 1,
-    "tool_base": 0,
-    "tool_seed_82": 1,
+   "kinds_run": [
+    "older"
+   ],
+   "all": {
+    "questions": 80,
+    "whole_chat_base": 58,
+    "tool_base": 11,
+    "tool_seed_82": 28,
     "whole_chat_vs_seed_82": {
-     "only_first": 0,
-     "only_second": 0,
-     "p": 1.0
+     "only_first": 36,
+     "only_second": 6,
+     "p": 2.8288777684792876e-06
     },
     "tokens_read_per_turn": {
-     "whole_chat_base": 1254,
-     "tool_seed_82": 1628
+     "whole_chat_base": 1399,
+     "tool_seed_82": 1707
     }
-   },
-   "42": {
-    "questions": 8,
-    "whole_chat_base": 4,
-    "tool_base": 0,
-    "tool_seed_82": 2,
-    "whole_chat_vs_seed_82": {
-     "only_first": 4,
-     "only_second": 2,
-     "p": 0.6875
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1103,
-     "tool_seed_82": 1615
-    }
-   },
-   "44": {
-    "questions": 8,
-    "whole_chat_base": 8,
-    "tool_base": 1,
-    "tool_seed_82": 4,
-    "whole_chat_vs_seed_82": {
-     "only_first": 4,
-     "only_second": 0,
-     "p": 0.125
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1411,
-     "tool_seed_82": 1741
-    }
-   },
-   "46": {
-    "questions": 8,
-    "whole_chat_base": 5,
-    "tool_base": 2,
-    "tool_seed_82": 2,
-    "whole_chat_vs_seed_82": {
-     "only_first": 4,
-     "only_second": 1,
-     "p": 0.375
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1288,
-     "tool_seed_82": 1693
-    }
-   },
-   "48": {
-    "questions": 14,
-    "whole_chat_base": 11,
-    "tool_base": 2,
-    "tool_seed_82": 5,
-    "whole_chat_vs_seed_82": {
-     "only_first": 6,
-     "only_second": 0,
-     "p": 0.03125
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1431,
-     "tool_seed_82": 1727
-    }
-   },
-   "50": {
-    "questions": 10,
-    "whole_chat_base": 8,
-    "tool_base": 1,
-    "tool_seed_82": 4,
-    "whole_chat_vs_seed_82": {
-     "only_first": 4,
-     "only_second": 0,
-     "p": 0.125
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1455,
-     "tool_seed_82": 1724
-    }
-   },
-   "52": {
-    "questions": 10,
-    "whole_chat_base": 7,
-    "tool_base": 0,
-    "tool_seed_82": 3,
-    "whole_chat_vs_seed_82": {
-     "only_first": 4,
-     "only_second": 0,
-     "p": 0.125
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1558,
-     "tool_seed_82": 1749
-    }
-   },
-   "54": {
-    "questions": 8,
-    "whole_chat_base": 5,
-    "tool_base": 3,
-    "tool_seed_82": 3,
-    "whole_chat_vs_seed_82": {
-     "only_first": 3,
-     "only_second": 1,
-     "p": 0.625
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1457,
-     "tool_seed_82": 1732
-    }
-   },
-   "56": {
-    "questions": 6,
-    "whole_chat_base": 4,
-    "tool_base": 0,
-    "tool_seed_82": 2,
-    "whole_chat_vs_seed_82": {
-     "only_first": 3,
-     "only_second": 1,
-     "p": 0.625
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1380,
-     "tool_seed_82": 1636
-    }
-   },
-   "58": {
-    "questions": 2,
-    "whole_chat_base": 2,
-    "tool_base": 0,
-    "tool_seed_82": 0,
-    "whole_chat_vs_seed_82": {
-     "only_first": 2,
-     "only_second": 0,
-     "p": 0.5
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1528,
-     "tool_seed_82": 1766
-    }
-   },
-   "60": {
-    "questions": 4,
-    "whole_chat_base": 3,
-    "tool_base": 2,
-    "tool_seed_82": 2,
-    "whole_chat_vs_seed_82": {
-     "only_first": 2,
-     "only_second": 1,
-     "p": 1.0
-    },
-    "tokens_read_per_turn": {
-     "whole_chat_base": 1466,
-     "tool_seed_82": 1699
-    }
-   },
-   "kinds_whole_chat_base": {
-    "older": 58,
-    "confirm": 0,
-    "in_view": 0,
-    "never_told": 0,
-    "statement": 0
    }
   },
   "set_2": {

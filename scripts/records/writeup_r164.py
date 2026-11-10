@@ -14,7 +14,10 @@ computes them from the raw runs in ``results/recall_eval`` and writes
 - every 6.37 seed present on each set, so seed 82 can be shown beside the others;
 - ``hard_dev`` recall for base and seed 82 (the +265% in the README);
 - the whole-chat control registered in R-164, for each run that has finished: base with every
-  message in view against base and seed 82 with the tool, on the same conversations, at each size.
+  message in view against base and seed 82 with the tool, on the same questions. The
+  ``whole_chat`` arm runs on ``older`` questions only (``run_recall_eval.py``, as R-015 set it up),
+  so the comparison is on ``older``: in all, and at each size on the generated pools (the writer
+  chats vary in length).
 """
 
 from __future__ import annotations
@@ -135,12 +138,13 @@ def whole_chat() -> dict:
             out[name] = {"status": f"not run yet: {wc_name}"}
             continue
         base, ship = rows(base_name, "tool_loop"), rows(ship_name, "tool_loop")
-        entry = {}
-        for size in sorted({r["size"] for r in whole.values()}):
-            ids = recall_ids(whole, size)
-            if not ids:
-                continue
-            entry[str(size)] = {
+        sizes = sorted({r["size"] for r in whole.values()})
+        groups = {"all": sorted(whole)}
+        if set(sizes) <= {58, 419}:  # generated pools; writer chats vary in length
+            groups |= {str(s): sorted(i for i in whole if whole[i]["size"] == s) for s in sizes}
+        entry = {"kinds_run": sorted({r["kind"] for r in whole.values()})}
+        for group, ids in groups.items():
+            entry[group] = {
                 "questions": len(ids),
                 "whole_chat_base": sum(bool(whole[i]["correct"]) for i in ids),
                 "tool_base": sum(bool(base[i]["correct"]) for i in ids),
@@ -151,7 +155,6 @@ def whole_chat() -> dict:
                     "tool_seed_82": round(sum(ship[i]["tokens_read"] for i in ids) / len(ids)),
                 },
             }
-        entry["kinds_whole_chat_base"] = kinds(whole)
         out[name] = entry
     return out
 
