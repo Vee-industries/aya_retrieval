@@ -22,6 +22,23 @@ Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.
 > and result, each marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this
 > repository is built to.
 
+## When the chat fits: give it the whole chat
+
+The tests above show the model only the last three exchanges, as a stand-in for a chat too long to
+show. When a chat is short enough to show whole, that is the better choice. On the outside-writer
+sets (chats of about 1,400 tokens), base with every message in view answers 58 and 52 of 80 `older`
+questions, against 28 and 34 for 6.37 seed 82 with the tool and the last three exchanges (R-164).
+Training costs nothing there: given the whole chat and the tool, 6.37 scores as base given the whole
+chat does on every kind, on both sets, with no gap near significance (R-165). So the design this
+supports is to show the trained model the whole chat when it fits, and let it search when it does
+not. It is never worse than base given the whole chat (one seed, two sets of 40 chats), and much
+better than base once only part of the chat can be shown.
+
+What is not measured: base with the whole chat at 419 messages (about 6,200 tokens). That run needs
+more card memory than the 8.5 GiB cap on a 10 GB card (R-164); 6.37's runs on those chats peak at
+about 7 GiB. Tiny Aya's limit is 8,192 tokens, and most of its layers attend to the last 4,096. The
+only whole-chat reading at that length is R-017's, 0 of 12 `older` questions, on the training pool.
+
 ## Pools
 
 Conversations are built from pools of people, relations, fact types and small talk
@@ -54,6 +71,10 @@ writing from one brief (in the set's folder), frozen by SHA-256 before anyone re
 ## Known limits
 
 The holes a reviewer will look for first, each measured and recorded where it was found:
+
+- **On short chats the whole chat beats the tool.** See the section above. The registered test
+  (R-016) compared base and adapter with the same three-exchange view, and did not include base
+  with every message in view. It was added after the sealed run (R-164, R-165).
 
 - **Few templates behind the generated sets.** The 96 recall questions per run come from only 5 fact
   templates on `probe` and 8 on `hard_dev`, so item-level p-values overstate the evidence. Intervals
