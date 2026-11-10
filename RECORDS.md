@@ -6698,3 +6698,36 @@ construction, and the whole chat passes every one by construction. Neither is re
   write-up says so first.
 - If the adapters are above code that always searches on recall, the gain over plain code is reported with its sign
   test.
+
+**Result** (07:02 to 07:34, every run on its first try; `scripts/records/refs_r168.py`, `results/analysis/R-168/refs.json`).
+Recall (`older` and `confirm`, of 60 at each size) on the same sealed conversations:
+
+| Condition | Base, whole chat, 58 | Code always searches, 58 / 419 | Base, tool, 58 / 419 | Seed 82, 58 / 419 | Eight adapters, 58 |
+|---|---|---|---|---|---|
+| A | 33 | 32 / 32 | 17 / 15 | 54 / 52 | 51 to 55 |
+| B | 28 | 31 / 30 | 15 / 14 | 55 / 52 | 52 to 56 |
+| C | 21 | 20 / 17 | 10 / 11 | 46 / 46 | 46 to 60 |
+| D | 22 | 15 / 14 | 5 / 8 | 47 / 44 | 47 to 60 |
+
+Seed 82 against each reference, exact sign test on recall: p at or below 0.0003 in every condition and size (only
+the reference right 1 to 7, only seed 82 right 23 to 33). False retrievals, base with the whole chat: 7, 16, 9 and 16
+(58 messages only). Code that always searches: 42, 56, 53 and 69 (both sizes). In R-163 every adapter made 0 to 11
+over both sizes.
+
+**Other kinds.**
+- Code that always searches answers `in_view` (the answer is on screen) 2 to 11 of 30, against seed 82's 28 to 30.
+  It fails every `statement` by construction.
+- Base with the whole chat answers `in_view` 16 to 21 of 30 at 58 messages, below base with three exchanges and the
+  tool (21 to 27). Seeing more of these chats makes base worse at what is in front of it.
+
+**Reading, as registered.**
+- On the sealed pools, the adapters are far above both references on recall, at 58 and 419 messages. Training adds
+  more than plain code that always searches: higher recall, and no loss on what is in view.
+- The whole-chat reference splits by the kind of chat. On these generated chats, base with the whole chat does
+  badly: 21 to 33 of 60, against seed 82's 46 to 55. On the outside-writer chats it beat seed 82 with the tool
+  (R-164). R-014 recorded the likely cause on generated chats: base copies their repeated scripted small talk.
+- So "give it the whole chat when it fits" is shown on chats people write (R-164, R-165), not on this generator's
+  chats. The write-up must say which kind of chat each result is on.
+
+**Not run:** code that always searches on the outside-writer sets. That is the comparison against plain code on
+chats people write.

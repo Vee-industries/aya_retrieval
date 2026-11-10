@@ -1,0 +1,830 @@
+{
+ "A": {
+  "whole_chat": {
+   "false_retrievals": 7,
+   "sizes": {
+    "58": {
+     "recall": {
+      "of": 60,
+      "reference": 33,
+      "base_tool": 17,
+      "seed_82": 54,
+      "adapters": {
+       "fix17cs37_82": 54,
+       "fix17cs37_83": 53,
+       "fix17cs37_94": 53,
+       "fix17cs37_95": 55,
+       "fix17cs37_96": 52,
+       "fix17cs37_97": 51,
+       "fix17cs37_98": 55,
+       "fix17cs37_99": 53
+      },
+      "reference_vs_seed_82": {
+       "only_first": 2,
+       "only_second": 23,
+       "p": 1.9431114196777344e-05
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 19,
+       "base_tool": 14,
+       "seed_82": 28,
+       "adapters_mean": 28.1,
+       "reference_searched": 0
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 14,
+       "base_tool": 3,
+       "seed_82": 26,
+       "adapters_mean": 25.1,
+       "reference_searched": 0
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 19,
+       "base_tool": 26,
+       "seed_82": 30,
+       "adapters_mean": 27.0,
+       "reference_searched": 0
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 25,
+       "base_tool": 28,
+       "seed_82": 30,
+       "adapters_mean": 30.0,
+       "reference_searched": 0
+      },
+      "statement": {
+       "of": 30,
+       "reference": 30,
+       "base_tool": 17,
+       "seed_82": 29,
+       "adapters_mean": 28.0,
+       "reference_searched": 0
+      }
+     }
+    }
+   }
+  },
+  "always_search": {
+   "false_retrievals": 42,
+   "sizes": {
+    "58": {
+     "recall": {
+      "of": 60,
+      "reference": 32,
+      "base_tool": 17,
+      "seed_82": 54,
+      "adapters": {
+       "fix17cs37_82": 54,
+       "fix17cs37_83": 53,
+       "fix17cs37_94": 53,
+       "fix17cs37_95": 55,
+       "fix17cs37_96": 52,
+       "fix17cs37_97": 51,
+       "fix17cs37_98": 55,
+       "fix17cs37_99": 53
+      },
+      "reference_vs_seed_82": {
+       "only_first": 2,
+       "only_second": 24,
+       "p": 1.049041748046875e-05
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 23,
+       "base_tool": 14,
+       "seed_82": 28,
+       "adapters_mean": 28.1,
+       "reference_searched": 30
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 9,
+       "base_tool": 3,
+       "seed_82": 26,
+       "adapters_mean": 25.1,
+       "reference_searched": 30
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 6,
+       "base_tool": 26,
+       "seed_82": 30,
+       "adapters_mean": 27.0,
+       "reference_searched": 30
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 24,
+       "base_tool": 28,
+       "seed_82": 30,
+       "adapters_mean": 30.0,
+       "reference_searched": 30
+      },
+      "statement": {
+       "of": 30,
+       "reference": 0,
+       "base_tool": 17,
+       "seed_82": 29,
+       "adapters_mean": 28.0,
+       "reference_searched": 30
+      }
+     }
+    },
+    "419": {
+     "recall": {
+      "of": 60,
+      "reference": 32,
+      "base_tool": 15,
+      "seed_82": 52,
+      "adapters": {
+       "fix17cs37_82": 52,
+       "fix17cs37_83": 51,
+       "fix17cs37_94": 51,
+       "fix17cs37_95": 51,
+       "fix17cs37_96": 49,
+       "fix17cs37_97": 51,
+       "fix17cs37_98": 52,
+       "fix17cs37_99": 52
+      },
+      "reference_vs_seed_82": {
+       "only_first": 5,
+       "only_second": 25,
+       "p": 0.00032491423189640045
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 24,
+       "base_tool": 12,
+       "seed_82": 28,
+       "adapters_mean": 27.6,
+       "reference_searched": 30
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 8,
+       "base_tool": 3,
+       "seed_82": 24,
+       "adapters_mean": 23.5,
+       "reference_searched": 30
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 11,
+       "base_tool": 29,
+       "seed_82": 29,
+       "adapters_mean": 27.5,
+       "reference_searched": 30
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 23,
+       "base_tool": 26,
+       "seed_82": 30,
+       "adapters_mean": 30.0,
+       "reference_searched": 30
+      },
+      "statement": {
+       "of": 30,
+       "reference": 0,
+       "base_tool": 21,
+       "seed_82": 30,
+       "adapters_mean": 29.4,
+       "reference_searched": 30
+      }
+     }
+    }
+   }
+  }
+ },
+ "B": {
+  "whole_chat": {
+   "false_retrievals": 16,
+   "sizes": {
+    "58": {
+     "recall": {
+      "of": 60,
+      "reference": 28,
+      "base_tool": 15,
+      "seed_82": 55,
+      "adapters": {
+       "fix17cs37_82": 55,
+       "fix17cs37_83": 54,
+       "fix17cs37_94": 54,
+       "fix17cs37_95": 56,
+       "fix17cs37_96": 53,
+       "fix17cs37_97": 52,
+       "fix17cs37_98": 56,
+       "fix17cs37_99": 54
+      },
+      "reference_vs_seed_82": {
+       "only_first": 1,
+       "only_second": 28,
+       "p": 1.1175870895385742e-07
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 17,
+       "base_tool": 12,
+       "seed_82": 28,
+       "adapters_mean": 28.1,
+       "reference_searched": 0
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 11,
+       "base_tool": 3,
+       "seed_82": 27,
+       "adapters_mean": 26.1,
+       "reference_searched": 0
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 21,
+       "base_tool": 27,
+       "seed_82": 30,
+       "adapters_mean": 27.0,
+       "reference_searched": 0
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 23,
+       "base_tool": 22,
+       "seed_82": 30,
+       "adapters_mean": 29.5,
+       "reference_searched": 0
+      },
+      "statement": {
+       "of": 30,
+       "reference": 30,
+       "base_tool": 17,
+       "seed_82": 29,
+       "adapters_mean": 28.0,
+       "reference_searched": 0
+      }
+     }
+    }
+   }
+  },
+  "always_search": {
+   "false_retrievals": 56,
+   "sizes": {
+    "58": {
+     "recall": {
+      "of": 60,
+      "reference": 31,
+      "base_tool": 15,
+      "seed_82": 55,
+      "adapters": {
+       "fix17cs37_82": 55,
+       "fix17cs37_83": 54,
+       "fix17cs37_94": 54,
+       "fix17cs37_95": 56,
+       "fix17cs37_96": 53,
+       "fix17cs37_97": 52,
+       "fix17cs37_98": 56,
+       "fix17cs37_99": 54
+      },
+      "reference_vs_seed_82": {
+       "only_first": 1,
+       "only_second": 25,
+       "p": 8.046627044677734e-07
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 22,
+       "base_tool": 12,
+       "seed_82": 28,
+       "adapters_mean": 28.1,
+       "reference_searched": 30
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 9,
+       "base_tool": 3,
+       "seed_82": 27,
+       "adapters_mean": 26.1,
+       "reference_searched": 30
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 8,
+       "base_tool": 27,
+       "seed_82": 30,
+       "adapters_mean": 27.0,
+       "reference_searched": 30
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 22,
+       "base_tool": 22,
+       "seed_82": 30,
+       "adapters_mean": 29.5,
+       "reference_searched": 30
+      },
+      "statement": {
+       "of": 30,
+       "reference": 0,
+       "base_tool": 17,
+       "seed_82": 29,
+       "adapters_mean": 28.0,
+       "reference_searched": 30
+      }
+     }
+    },
+    "419": {
+     "recall": {
+      "of": 60,
+      "reference": 30,
+      "base_tool": 14,
+      "seed_82": 52,
+      "adapters": {
+       "fix17cs37_82": 52,
+       "fix17cs37_83": 51,
+       "fix17cs37_94": 51,
+       "fix17cs37_95": 51,
+       "fix17cs37_96": 49,
+       "fix17cs37_97": 51,
+       "fix17cs37_98": 52,
+       "fix17cs37_99": 52
+      },
+      "reference_vs_seed_82": {
+       "only_first": 7,
+       "only_second": 29,
+       "p": 0.00031255115754902363
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 21,
+       "base_tool": 11,
+       "seed_82": 28,
+       "adapters_mean": 27.6,
+       "reference_searched": 30
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 9,
+       "base_tool": 3,
+       "seed_82": 24,
+       "adapters_mean": 23.5,
+       "reference_searched": 30
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 11,
+       "base_tool": 29,
+       "seed_82": 29,
+       "adapters_mean": 27.5,
+       "reference_searched": 30
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 21,
+       "base_tool": 25,
+       "seed_82": 30,
+       "adapters_mean": 29.2,
+       "reference_searched": 30
+      },
+      "statement": {
+       "of": 30,
+       "reference": 0,
+       "base_tool": 21,
+       "seed_82": 30,
+       "adapters_mean": 29.4,
+       "reference_searched": 30
+      }
+     }
+    }
+   }
+  }
+ },
+ "C": {
+  "whole_chat": {
+   "false_retrievals": 9,
+   "sizes": {
+    "58": {
+     "recall": {
+      "of": 60,
+      "reference": 21,
+      "base_tool": 10,
+      "seed_82": 46,
+      "adapters": {
+       "fix17cs37_82": 46,
+       "fix17cs37_83": 55,
+       "fix17cs37_94": 51,
+       "fix17cs37_95": 58,
+       "fix17cs37_96": 54,
+       "fix17cs37_97": 54,
+       "fix17cs37_98": 60,
+       "fix17cs37_99": 56
+      },
+      "reference_vs_seed_82": {
+       "only_first": 4,
+       "only_second": 29,
+       "p": 1.0928604751825333e-05
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 15,
+       "base_tool": 7,
+       "seed_82": 26,
+       "adapters_mean": 27.9,
+       "reference_searched": 0
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 6,
+       "base_tool": 3,
+       "seed_82": 20,
+       "adapters_mean": 26.4,
+       "reference_searched": 0
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 19,
+       "base_tool": 21,
+       "seed_82": 28,
+       "adapters_mean": 26.5,
+       "reference_searched": 0
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 29,
+       "base_tool": 26,
+       "seed_82": 26,
+       "adapters_mean": 25.9,
+       "reference_searched": 0
+      },
+      "statement": {
+       "of": 30,
+       "reference": 30,
+       "base_tool": 26,
+       "seed_82": 29,
+       "adapters_mean": 29.2,
+       "reference_searched": 0
+      }
+     }
+    }
+   }
+  },
+  "always_search": {
+   "false_retrievals": 53,
+   "sizes": {
+    "58": {
+     "recall": {
+      "of": 60,
+      "reference": 20,
+      "base_tool": 10,
+      "seed_82": 46,
+      "adapters": {
+       "fix17cs37_82": 46,
+       "fix17cs37_83": 55,
+       "fix17cs37_94": 51,
+       "fix17cs37_95": 58,
+       "fix17cs37_96": 54,
+       "fix17cs37_97": 54,
+       "fix17cs37_98": 60,
+       "fix17cs37_99": 56
+      },
+      "reference_vs_seed_82": {
+       "only_first": 4,
+       "only_second": 30,
+       "p": 6.16488978266716e-06
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 16,
+       "base_tool": 7,
+       "seed_82": 26,
+       "adapters_mean": 27.9,
+       "reference_searched": 30
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 4,
+       "base_tool": 3,
+       "seed_82": 20,
+       "adapters_mean": 26.4,
+       "reference_searched": 30
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 3,
+       "base_tool": 21,
+       "seed_82": 28,
+       "adapters_mean": 26.5,
+       "reference_searched": 30
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 19,
+       "base_tool": 26,
+       "seed_82": 26,
+       "adapters_mean": 25.9,
+       "reference_searched": 30
+      },
+      "statement": {
+       "of": 30,
+       "reference": 0,
+       "base_tool": 26,
+       "seed_82": 29,
+       "adapters_mean": 29.2,
+       "reference_searched": 30
+      }
+     }
+    },
+    "419": {
+     "recall": {
+      "of": 60,
+      "reference": 17,
+      "base_tool": 11,
+      "seed_82": 46,
+      "adapters": {
+       "fix17cs37_82": 46,
+       "fix17cs37_83": 54,
+       "fix17cs37_94": 48,
+       "fix17cs37_95": 58,
+       "fix17cs37_96": 54,
+       "fix17cs37_97": 54,
+       "fix17cs37_98": 60,
+       "fix17cs37_99": 55
+      },
+      "reference_vs_seed_82": {
+       "only_first": 2,
+       "only_second": 31,
+       "p": 1.3085082173347473e-07
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 7,
+       "base_tool": 8,
+       "seed_82": 24,
+       "adapters_mean": 27.1,
+       "reference_searched": 30
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 10,
+       "base_tool": 3,
+       "seed_82": 22,
+       "adapters_mean": 26.5,
+       "reference_searched": 30
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 2,
+       "base_tool": 22,
+       "seed_82": 29,
+       "adapters_mean": 26.8,
+       "reference_searched": 30
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 25,
+       "base_tool": 24,
+       "seed_82": 29,
+       "adapters_mean": 28.5,
+       "reference_searched": 30
+      },
+      "statement": {
+       "of": 30,
+       "reference": 0,
+       "base_tool": 26,
+       "seed_82": 27,
+       "adapters_mean": 27.6,
+       "reference_searched": 30
+      }
+     }
+    }
+   }
+  }
+ },
+ "D": {
+  "whole_chat": {
+   "false_retrievals": 16,
+   "sizes": {
+    "58": {
+     "recall": {
+      "of": 60,
+      "reference": 22,
+      "base_tool": 5,
+      "seed_82": 47,
+      "adapters": {
+       "fix17cs37_82": 47,
+       "fix17cs37_83": 55,
+       "fix17cs37_94": 51,
+       "fix17cs37_95": 58,
+       "fix17cs37_96": 54,
+       "fix17cs37_97": 54,
+       "fix17cs37_98": 60,
+       "fix17cs37_99": 55
+      },
+      "reference_vs_seed_82": {
+       "only_first": 3,
+       "only_second": 28,
+       "p": 4.649162292480469e-06
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 13,
+       "base_tool": 4,
+       "seed_82": 28,
+       "adapters_mean": 28.1,
+       "reference_searched": 0
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 9,
+       "base_tool": 1,
+       "seed_82": 19,
+       "adapters_mean": 26.1,
+       "reference_searched": 0
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 16,
+       "base_tool": 22,
+       "seed_82": 28,
+       "adapters_mean": 26.5,
+       "reference_searched": 0
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 28,
+       "base_tool": 27,
+       "seed_82": 29,
+       "adapters_mean": 27.5,
+       "reference_searched": 0
+      },
+      "statement": {
+       "of": 30,
+       "reference": 30,
+       "base_tool": 26,
+       "seed_82": 29,
+       "adapters_mean": 29.2,
+       "reference_searched": 0
+      }
+     }
+    }
+   }
+  },
+  "always_search": {
+   "false_retrievals": 69,
+   "sizes": {
+    "58": {
+     "recall": {
+      "of": 60,
+      "reference": 15,
+      "base_tool": 5,
+      "seed_82": 47,
+      "adapters": {
+       "fix17cs37_82": 47,
+       "fix17cs37_83": 55,
+       "fix17cs37_94": 51,
+       "fix17cs37_95": 58,
+       "fix17cs37_96": 54,
+       "fix17cs37_97": 54,
+       "fix17cs37_98": 60,
+       "fix17cs37_99": 55
+      },
+      "reference_vs_seed_82": {
+       "only_first": 1,
+       "only_second": 33,
+       "p": 4.0745362639427185e-09
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 12,
+       "base_tool": 4,
+       "seed_82": 28,
+       "adapters_mean": 28.1,
+       "reference_searched": 30
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 3,
+       "base_tool": 1,
+       "seed_82": 19,
+       "adapters_mean": 26.1,
+       "reference_searched": 30
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 3,
+       "base_tool": 22,
+       "seed_82": 28,
+       "adapters_mean": 26.5,
+       "reference_searched": 30
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 17,
+       "base_tool": 27,
+       "seed_82": 29,
+       "adapters_mean": 27.5,
+       "reference_searched": 30
+      },
+      "statement": {
+       "of": 30,
+       "reference": 0,
+       "base_tool": 26,
+       "seed_82": 29,
+       "adapters_mean": 29.2,
+       "reference_searched": 30
+      }
+     }
+    },
+    "419": {
+     "recall": {
+      "of": 60,
+      "reference": 14,
+      "base_tool": 8,
+      "seed_82": 44,
+      "adapters": {
+       "fix17cs37_82": 44,
+       "fix17cs37_83": 54,
+       "fix17cs37_94": 47,
+       "fix17cs37_95": 58,
+       "fix17cs37_96": 54,
+       "fix17cs37_97": 54,
+       "fix17cs37_98": 59,
+       "fix17cs37_99": 54
+      },
+      "reference_vs_seed_82": {
+       "only_first": 2,
+       "only_second": 32,
+       "p": 6.938353180885315e-08
+      }
+     },
+     "kinds": {
+      "older": {
+       "of": 30,
+       "reference": 8,
+       "base_tool": 7,
+       "seed_82": 23,
+       "adapters_mean": 26.9,
+       "reference_searched": 30
+      },
+      "confirm": {
+       "of": 30,
+       "reference": 6,
+       "base_tool": 1,
+       "seed_82": 21,
+       "adapters_mean": 26.1,
+       "reference_searched": 30
+      },
+      "in_view": {
+       "of": 30,
+       "reference": 4,
+       "base_tool": 23,
+       "seed_82": 29,
+       "adapters_mean": 26.8,
+       "reference_searched": 30
+      },
+      "never_told": {
+       "of": 30,
+       "reference": 22,
+       "base_tool": 27,
+       "seed_82": 30,
+       "adapters_mean": 29.4,
+       "reference_searched": 30
+      },
+      "statement": {
+       "of": 30,
+       "reference": 0,
+       "base_tool": 26,
+       "seed_82": 27,
+       "adapters_mean": 27.6,
+       "reference_searched": 30
+      }
+     }
+    }
+   }
+  }
+ }
+}

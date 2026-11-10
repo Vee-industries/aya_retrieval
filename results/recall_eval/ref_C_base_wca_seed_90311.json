@@ -1,0 +1,5021 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-10T12:17:14+00:00",
+  "command": [
+   "scripts/run_recall_eval.py",
+   "--final",
+   "--pool",
+   "independent",
+   "--decoys",
+   "1",
+   "--seed",
+   "90311",
+   "--items-per-kind",
+   "30",
+   "--index",
+   "C:/Users/Gaming/scratch/eval_final_independent_1.sqlite",
+   "--label",
+   "ref_C_base_wca",
+   "--arms",
+   "whole_chat_all",
+   "--max-vram-fraction",
+   "0.85",
+   "--sizes",
+   "58"
+  ],
+  "git_commit": "6f006e343e2ac8169cade8520318ad71807a3609",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+ "adapter": null,
+ "seed": 90311,
+ "pool": "independent",
+ "decoys": 1,
+ "sizes": [
+  58
+ ],
+ "kinds": [
+  "older",
+  "confirm",
+  "in_view",
+  "never_told",
+  "statement"
+ ],
+ "user_style": false,
+ "phone_style": false,
+ "corrections": false,
+ "corrections_heldout": false,
+ "asked_before": false,
+ "chat_check": null,
+ "rows": [
+  {
+   "id": "58_older_00",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "hey whats the name of Bastian's dog",
+   "view": [
+    [
+     "not to complain but my socks is the worst right now",
+     "Sounds like a proper headache, sorry"
+    ],
+    [
+     "the mattress got me thinking about how fast the year went",
+     "Funny how ordinary stuff can do that"
+    ],
+    [
+     "cant believe my houseplants chose today of all days",
+     "Ugh, some days nothing cooperates"
+    ]
+   ],
+   "answer": "Bramble",
+   "reply": "Pudding, that's a cute name!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1224,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1224,
+   "ran_out_of_calls": false,
+   "first_reply": "Pudding, that's a cute name!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_01",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "wait what was Marisol allergic to again",
+   "view": [
+    [
+     "ugh the lightbulb is acting up again",
+     "Ugh, some days nothing cooperates"
+    ],
+    [
+     "small win today, the window blinds is all good now",
+     "That's the kind of news i like"
+    ],
+    [
+     "weirdly happy about the ice cream van today",
+     "That's lovely, enjoy it"
+    ]
+   ],
+   "answer": "almonds",
+   "reply": "Oh, sorry, I didn't catch that. Can you clarify?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1242,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1242,
+   "ran_out_of_calls": false,
+   "first_reply": "Oh, sorry, I didn't catch that. Can you clarify?",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_02",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what does Ottilie play again",
+   "view": [
+    [
+     "finally sorted the crossword this morning",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "finally sorted the noisy pipes this morning",
+     "Ha, celebrate the tiny victories"
+    ],
+    [
+     "honestly the shower made my morning lol",
+     "Ha, that's great to hear"
+    ]
+   ],
+   "answer": "flute",
+   "reply": "Ottilie is a character from the book \"The Tale of the Curiosity Shop\" by E.B. White. She is a magical, talking cat who plays the flute.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1220,
+   "tokens_written": 37,
+   "whole_chat_tokens": 1220,
+   "ran_out_of_calls": false,
+   "first_reply": "Ottilie is a character from the book \"The Tale of the Curiosity Shop\" by E.B. White. She is a magical, talking cat who plays the flute.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_03",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what does Imogen play again",
+   "view": [
+    [
+     "the ice cream van is driving me up the wall honestly",
+     "Oh no, that sounds really annoying"
+    ],
+    [
+     "ok my sourdough starter actually went fine for once",
+     "Yes! a good start to the day"
+    ],
+    [
+     "ok the lightbulb actually went fine for once",
+     "See, things do work out sometimes"
+    ]
+   ],
+   "answer": "bassoon",
+   "reply": "Imogen plays the bassoon, which is a really cool instrument. It's a double-reed woodwind instrument, and it's known for its rich, warm sound. It's often used in classical music, but also in jazz and other genres.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1205,
+   "tokens_written": 48,
+   "whole_chat_tokens": 1205,
+   "ran_out_of_calls": false,
+   "first_reply": "Imogen plays the bassoon, which is a really cool instrument. It's a double-reed woodwind instrument, and it's known for its rich, warm sound. It's often used in classical music, but also in jazz and other genres.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_04",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "i forgot where my physio is heading next month and i'm supposed to help pack",
+   "view": [
+    [
+     "so my umbrella has officially given up on me",
+     "Honestly that would wind me up too"
+    ],
+    [
+     "honestly the school run made my morning lol",
+     "Ha, celebrate the tiny victories"
+    ],
+    [
+     "small win today, the smoke alarm is all good now",
+     "Nice one, you earned that"
+    ]
+   ],
+   "answer": "Krakow",
+   "reply": "Ha, sounds like a good time to catch up on some packing and maybe even reminisce about the old days.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1221,
+   "tokens_written": 24,
+   "whole_chat_tokens": 1221,
+   "ran_out_of_calls": false,
+   "first_reply": "Ha, sounds like a good time to catch up on some packing and maybe even reminisce about the old days.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_05",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what does Imogen drive these days",
+   "view": [
+    [
+     "honestly my umbrella made my morning lol",
+     "Nice, love a small win"
+    ],
+    [
+     "do you ever just stare at my umbrella and zone out",
+     "Funny how ordinary stuff can do that"
+    ],
+    [
+     "was thinking about the heatwave on the walk home",
+     "Ha, i do that all the time"
+    ]
+   ],
+   "answer": "blue Fiesta",
+   "reply": "A black Jetta, second-hand, seems like a cool choice for a teen driver.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1225,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1225,
+   "ran_out_of_calls": false,
+   "first_reply": "A black Jetta, second-hand, seems like a cool choice for a teen driver.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_06",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "i forgot what my bandmate was playing that night and they keep bringing it up",
+   "view": [
+    [
+     "finally sorted the shower this morning",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "so the train strike has officially given up on me",
+     "Sounds like a proper headache, sorry"
+    ],
+    [
+     "cant believe the school run chose today of all days",
+     "Yikes, that's a lot to deal with"
+    ]
+   ],
+   "answer": "bassoon",
+   "reply": "That's a tough spot, but it's good that you're able to laugh it off. It's not uncommon to have a few missteps, especially when you're in a new situation.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1240,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1240,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a tough spot, but it's good that you're able to laugh it off. It's not uncommon to have a few missteps, especially when you're in a new situation.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_07",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what did my grandad end up calling the little furball",
+   "view": [
+    [
+     "finally sorted the duvet this morning",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "finally sorted my haircut this morning",
+     "Yes! a good start to the day"
+    ],
+    [
+     "ok the roadworks actually went fine for once",
+     "That's lovely, enjoy it"
+    ]
+   ],
+   "answer": "Crumble",
+   "reply": "Crumble, that's a cute name",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1218,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1218,
+   "ran_out_of_calls": false,
+   "first_reply": "Crumble, that's a cute name",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_08",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "which city is my grandad relocating to, the cheap rent one",
+   "view": [
+    [
+     "the shower got me thinking about how fast the year went",
+     "Sounds like a thoughtful sort of day"
+    ],
+    [
+     "not to complain but the pothole is the worst right now",
+     "Ugh, the timing on these things is always terrible"
+    ],
+    [
+     "cant believe the hoover chose today of all days",
+     "That's rough, hope it sorts itself out soon"
+    ]
+   ],
+   "answer": "Krakow",
+   "reply": "He’s moving to Krakow, Poland. That’s a great choice—it’s a beautiful city with a rich history, great food, and a vibrant cultural scene. Good luck to him!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1256,
+   "tokens_written": 38,
+   "whole_chat_tokens": 1256,
+   "ran_out_of_calls": false,
+   "first_reply": "He’s moving to Krakow, Poland. That’s a great choice—it’s a beautiful city with a rich history, great food, and a vibrant cultural scene. Good luck to him!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_09",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "i keep forgetting what my stepdad named that new pup and it's getting awkward",
+   "view": [
+    [
+     "was thinking about the bike lane on the walk home",
+     "Sounds like a thoughtful sort of day"
+    ],
+    [
+     "the curtains got me thinking about how fast the year went",
+     "Ha, deep thoughts on a weekday"
+    ],
+    [
+     "honestly the crossword made my morning lol",
+     "Nice one, you earned that"
+    ]
+   ],
+   "answer": "Nutmeg",
+   "reply": "Ah, classic parent-child confusion. Maybe you can ask him directly?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1217,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1217,
+   "ran_out_of_calls": false,
+   "first_reply": "Ah, classic parent-child confusion. Maybe you can ask him directly?",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_10",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "so i forgot what my choirmate bought and now i cant spot them in the pickup line lol",
+   "view": [
+    [
+     "my inbox got me thinking about how fast the year went",
+     "That's a nice thought actually"
+    ],
+    [
+     "honestly the crossword made my morning lol",
+     "Ha, celebrate the tiny victories"
+    ],
+    [
+     "my notebook got me thinking about how fast the year went",
+     "That's a nice thought actually"
+    ]
+   ],
+   "answer": "green Mini",
+   "reply": "Ah, the art of not remembering things is a skill in itself. It's like a secret code to your own mind.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1222,
+   "tokens_written": 24,
+   "whole_chat_tokens": 1222,
+   "ran_out_of_calls": false,
+   "first_reply": "Ah, the art of not remembering things is a skill in itself. It's like a secret code to your own mind.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_11",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "whats the thing my stepdad cant eat without puffing up like a balloon",
+   "view": [
+    [
+     "was thinking about the shower on the walk home",
+     "I know exactly that feeling"
+    ],
+    [
+     "the lightbulb got me thinking about how fast the year went",
+     "It's odd what sets the memories off"
+    ],
+    [
+     "ugh the jigsaw is acting up again",
+     "Oof, the jigsaw again? what a pain"
+    ]
+   ],
+   "answer": "almonds",
+   "reply": "Oh, I think I know what you mean. It's probably a nut, like almonds or cashews.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1257,
+   "tokens_written": 21,
+   "whole_chat_tokens": 1257,
+   "ran_out_of_calls": false,
+   "first_reply": "Oh, I think I know what you mean. It's probably a nut, like almonds or cashews.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_12",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what does Theo play again",
+   "view": [
+    [
+     "random thought but the smoke alarm always reminds me of being a kid",
+     "Ha, i get that, little things stick with you"
+    ],
+    [
+     "was thinking about the leaky tap on the walk home",
+     "Ha, i do that all the time"
+    ],
+    [
+     "weirdly happy about the duvet today",
+     "Ha, that's great to hear"
+    ]
+   ],
+   "answer": "flute",
+   "reply": "You mentioned that Imogen played the clarinet like a pro at the community hall. If Theo is Imogen's sibling or someone else, it's possible that Theo is also playing the clarinet. If you have more context, I can try to provide a more specific answer.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1224,
+   "tokens_written": 53,
+   "whole_chat_tokens": 1224,
+   "ran_out_of_calls": false,
+   "first_reply": "You mentioned that Imogen played the clarinet like a pro at the community hall. If Theo is Imogen's sibling or someone else, it's possible that Theo is also playing the clarinet. If you have more context, I can try to provide a more specific answer.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_13",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "i forgot where my flatmate is heading next month and i'm supposed to help pack",
+   "view": [
+    [
+     "the smoke alarm is driving me up the wall honestly",
+     "Ugh, the timing on these things is always terrible"
+    ],
+    [
+     "ok the mattress actually went fine for once",
+     "Nice one, you earned that"
+    ],
+    [
+     "do you ever just stare at the crossword and zone out",
+     "That's a nice thought actually"
+    ]
+   ],
+   "answer": "Gdansk",
+   "reply": "That's a lot of responsibility, but also a great opportunity to help your flatmate. Where are they moving to?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1206,
+   "tokens_written": 23,
+   "whole_chat_tokens": 1206,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a lot of responsibility, but also a great opportunity to help your flatmate. Where are they moving to?",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_14",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what does Ottilie drive these days",
+   "view": [
+    [
+     "cant believe the doorbell chose today of all days",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "the lightbulb got me thinking about how fast the year went",
+     "Ha, i do that all the time"
+    ],
+    [
+     "ugh the jigsaw is acting up again",
+     "Ah man, want to vent about it?"
+    ]
+   ],
+   "answer": "white Mazda",
+   "reply": "Amazing, love that",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1212,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1212,
+   "ran_out_of_calls": false,
+   "first_reply": "Amazing, love that",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_15",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what did my bandmate end up calling the little furball",
+   "view": [
+    [
+     "ugh my backpack is acting up again",
+     "Ugh, some days nothing cooperates"
+    ],
+    [
+     "was thinking about my backpack on the walk home",
+     "I know exactly that feeling"
+    ],
+    [
+     "random thought but my sourdough starter always reminds me of being a kid",
+     "Aw, that's kind of sweet"
+    ]
+   ],
+   "answer": "Pudding",
+   "reply": "Pudding, as you mentioned earlier. It's a cute name for a puppy.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1215,
+   "tokens_written": 17,
+   "whole_chat_tokens": 1215,
+   "ran_out_of_calls": false,
+   "first_reply": "Pudding, as you mentioned earlier. It's a cute name for a puppy.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_16",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "whats the thing my bandmate cant eat without puffing up like a balloon",
+   "view": [
+    [
+     "cant believe the curtains chose today of all days",
+     "Oof, the curtains again? what a pain"
+    ],
+    [
+     "small win today, the noisy pipes is all good now",
+     "Good stuff, sometimes the little things count"
+    ],
+    [
+     "was thinking about the duvet on the walk home",
+     "Sounds like a thoughtful sort of day"
+    ]
+   ],
+   "answer": "mango",
+   "reply": "Oh, I think I know what you mean. It's probably the cheese, right?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1235,
+   "tokens_written": 17,
+   "whole_chat_tokens": 1235,
+   "ran_out_of_calls": false,
+   "first_reply": "Oh, I think I know what you mean. It's probably the cheese, right?",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_17",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what's my bandmate rolling around in now, the one they got second hand",
+   "view": [
+    [
+     "do you ever just stare at the jigsaw and zone out",
+     "That's a nice thought actually"
+    ],
+    [
+     "weirdly happy about the roadworks today",
+     "Nice one, you earned that"
+    ],
+    [
+     "small win today, the jigsaw is all good now",
+     "Yes! a good start to the day"
+    ]
+   ],
+   "answer": "white Mazda",
+   "reply": "That's a cool choice. A white Mazda, huh?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1216,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1216,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a cool choice. A white Mazda, huh?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_18",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what did my landlady end up calling the little furball",
+   "view": [
+    [
+     "do you ever just stare at the doorbell and zone out",
+     "That's a nice thought actually"
+    ],
+    [
+     "ok the noisy pipes actually went fine for once",
+     "Good stuff, sometimes the little things count"
+    ],
+    [
+     "ok the jigsaw actually went fine for once",
+     "Yes! a good start to the day"
+    ]
+   ],
+   "answer": "Pudding",
+   "reply": "Pudding, that's a cute name!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1228,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1228,
+   "ran_out_of_calls": false,
+   "first_reply": "Pudding, that's a cute name!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_19",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "hey whats the name of Bastian's dog",
+   "view": [
+    [
+     "not to complain but the crossword is the worst right now",
+     "Oof, the crossword again? what a pain"
+    ],
+    [
+     "honestly the mattress made my morning lol",
+     "Love that for you"
+    ],
+    [
+     "so the jigsaw has officially given up on me",
+     "Ugh, the timing on these things is always terrible"
+    ]
+   ],
+   "answer": "Nutmeg",
+   "reply": "Nutmeg, that's the name of Bastian's dog.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1221,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1221,
+   "ran_out_of_calls": false,
+   "first_reply": "Nutmeg, that's the name of Bastian's dog.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_20",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what does Jasper drive these days",
+   "view": [
+    [
+     "ok the microwave actually went fine for once",
+     "Ha, that's great to hear"
+    ],
+    [
+     "the doorbell got me thinking about how fast the year went",
+     "I know exactly that feeling"
+    ],
+    [
+     "honestly the pothole made my morning lol",
+     "Ha, celebrate the tiny victories"
+    ]
+   ],
+   "answer": "blue Fiesta",
+   "reply": "A blue Fiesta, seems like a fun choice",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1209,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1209,
+   "ran_out_of_calls": false,
+   "first_reply": "A blue Fiesta, seems like a fun choice",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_21",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "hey whats the name of Jasper's dog",
+   "view": [
+    [
+     "ok my inbox actually went fine for once",
+     "See, things do work out sometimes"
+    ],
+    [
+     "the smoke alarm got me thinking about how fast the year went",
+     "The year really has flown by"
+    ],
+    [
+     "my haircut is driving me up the wall honestly",
+     "Honestly that would wind me up too"
+    ]
+   ],
+   "answer": "Nutmeg",
+   "reply": "Jasper's dog is called Toffee.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1212,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1212,
+   "ran_out_of_calls": false,
+   "first_reply": "Jasper's dog is called Toffee.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_22",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "wait what was Rafael allergic to again",
+   "view": [
+    [
+     "the jigsaw is driving me up the wall honestly",
+     "That's rough, hope it sorts itself out soon"
+    ],
+    [
+     "do you ever just stare at the leaky tap and zone out",
+     "I love those random moments"
+    ],
+    [
+     "finally sorted my sunglasses this morning",
+     "That's lovely, enjoy it"
+    ]
+   ],
+   "answer": "cashews",
+   "reply": "Ah, yes, I see, I didn't catch that. I'm sorry for the confusion. Rafael is allergic to lupin, which is why the sauce was a problem.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1208,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1208,
+   "ran_out_of_calls": false,
+   "first_reply": "Ah, yes, I see, I didn't catch that. I'm sorry for the confusion. Rafael is allergic to lupin, which is why the sauce was a problem.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_23",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "wait what was Ezra allergic to again",
+   "view": [
+    [
+     "so my wallet has officially given up on me",
+     "Oh no, that sounds really annoying"
+    ],
+    [
+     "cant believe the mattress chose today of all days",
+     "Yikes, that's a lot to deal with"
+    ],
+    [
+     "small win today, the duvet is all good now",
+     "Glad that went your way for once"
+    ]
+   ],
+   "answer": "mango",
+   "reply": "Ah, yes, I see, I didn't catch that in the previous conversation. It seems like Ezra is allergic to mango in the sauce, which caused an allergic reaction.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1231,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1231,
+   "ran_out_of_calls": false,
+   "first_reply": "Ah, yes, I see, I didn't catch that in the previous conversation. It seems like Ezra is allergic to mango in the sauce, which caused an allergic reaction.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_24",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what did my choirmate end up calling the little furball",
+   "view": [
+    [
+     "was thinking about my lunchbox on the walk home",
+     "Ha, deep thoughts on a weekday"
+    ],
+    [
+     "the smoke alarm got me thinking about how fast the year went",
+     "Funny how ordinary stuff can do that"
+    ],
+    [
+     "ok the curtains actually went fine for once",
+     "Nice one, you earned that"
+    ]
+   ],
+   "answer": "Pudding",
+   "reply": "Pudding, sounds adorable",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1222,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1222,
+   "ran_out_of_calls": false,
+   "first_reply": "Pudding, sounds adorable",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_25",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what does Jasper do for work now",
+   "view": [
+    [
+     "weirdly happy about the curtains today",
+     "Nice, love a small win"
+    ],
+    [
+     "not to complain but the crossword is the worst right now",
+     "Ugh, some days nothing cooperates"
+    ],
+    [
+     "ugh the jigsaw is acting up again",
+     "Hang in there, it'll calm down"
+    ]
+   ],
+   "answer": "optometrist",
+   "reply": "Congratulations to Jasper on their new job as an optometrist! That's a great career choice.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1213,
+   "tokens_written": 20,
+   "whole_chat_tokens": 1213,
+   "ran_out_of_calls": false,
+   "first_reply": "Congratulations to Jasper on their new job as an optometrist! That's a great career choice.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_26",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what was my hairdresser making all that noise with up on the stage at the hall",
+   "view": [
+    [
+     "random thought but the curtains always reminds me of being a kid",
+     "Aw, that's kind of sweet"
+    ],
+    [
+     "cant believe the jigsaw chose today of all days",
+     "Ah man, want to vent about it?"
+    ],
+    [
+     "finally sorted my running shoes this morning",
+     "Nice one, you earned that"
+    ]
+   ],
+   "answer": "bassoon",
+   "reply": "That sounds like a fun story! Did Marisol really play the bassoon like a pro?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1225,
+   "tokens_written": 19,
+   "whole_chat_tokens": 1225,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a fun story! Did Marisol really play the bassoon like a pro?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_27",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "where's Jasper moving to again",
+   "view": [
+    [
+     "random thought but the crossword always reminds me of being a kid",
+     "Time is strange like that"
+    ],
+    [
+     "kinda nostalgic about my sunglasses today no idea why",
+     "Ha, deep thoughts on a weekday"
+    ],
+    [
+     "honestly the school run made my morning lol",
+     "Good stuff, sometimes the little things count"
+    ]
+   ],
+   "answer": "Ljubljana",
+   "reply": "Ljubljana, I think. That's a cool place, by the way.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1233,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1233,
+   "ran_out_of_calls": false,
+   "first_reply": "Ljubljana, I think. That's a cool place, by the way.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_28",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what does Quentin play again",
+   "view": [
+    [
+     "so my haircut has officially given up on me",
+     "Ugh, the timing on these things is always terrible"
+    ],
+    [
+     "kinda nostalgic about my socks today no idea why",
+     "Time is strange like that"
+    ],
+    [
+     "finally sorted my notebook this morning",
+     "See, things do work out sometimes"
+    ]
+   ],
+   "answer": "French horn",
+   "reply": "Quentin plays the French horn, which is quite an impressive feat!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1195,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1195,
+   "ran_out_of_calls": false,
+   "first_reply": "Quentin plays the French horn, which is quite an impressive feat!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_older_29",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat_all",
+   "message": "what was my flatmate making all that noise with up on the stage at the hall",
+   "view": [
+    [
+     "honestly the smoke alarm made my morning lol",
+     "Ha, celebrate the tiny victories"
+    ],
+    [
+     "not to complain but the doorbell is the worst right now",
+     "Oof, the doorbell again? what a pain"
+    ],
+    [
+     "weirdly happy about my sourdough starter today",
+     "That's the kind of news i like"
+    ]
+   ],
+   "answer": "flute",
+   "reply": "It sounds like your flatmate had a great performance! 🎶",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1230,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1230,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your flatmate had a great performance! 🎶",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_00",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my physio has to stay away from at restaurants",
+   "view": [
+    [
+     "random thought but the jigsaw always reminds me of being a kid",
+     "Aw, that's kind of sweet"
+    ],
+    [
+     "random thought but the noisy pipes always reminds me of being a kid",
+     "I know exactly that feeling"
+    ],
+    [
+     "cant believe the doorbell chose today of all days",
+     "Honestly that would wind me up too"
+    ]
+   ],
+   "answer": "cashews",
+   "reply": "No, you didn't. But I can guess based on your previous message that you did.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1243,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1243,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But I can guess based on your previous message that you did.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_01",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my grandad played at the open evening",
+   "view": [
+    [
+     "ugh the noisy pipes is acting up again",
+     "Honestly that would wind me up too"
+    ],
+    [
+     "do you ever just stare at my sourdough starter and zone out",
+     "Time is strange like that"
+    ],
+    [
+     "random thought but the mattress always reminds me of being a kid",
+     "Time is strange like that"
+    ]
+   ],
+   "answer": "viola",
+   "reply": "No, you didn't. But it sounds like a great story!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1249,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1249,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it sounds like a great story!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_02",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention the new gig my hairdresser landed",
+   "view": [
+    [
+     "honestly the roadworks made my morning lol",
+     "Nice one, you earned that"
+    ],
+    [
+     "the curtains is driving me up the wall honestly",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "do you ever just stare at my notebook and zone out",
+     "I know exactly that feeling"
+    ]
+   ],
+   "answer": "optometrist",
+   "reply": "No, but I can tell you were excited about it!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1243,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1243,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I can tell you were excited about it!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_03",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you where my hairdresser is moving",
+   "view": [
+    [
+     "small win today, my alarm clock is all good now",
+     "That's the kind of news i like"
+    ],
+    [
+     "random thought but the hoover always reminds me of being a kid",
+     "Time is strange like that"
+    ],
+    [
+     "ugh the crossword is acting up again",
+     "Oh no, that sounds really annoying"
+    ]
+   ],
+   "answer": "Bilbao",
+   "reply": "No, but I can guess based on your previous messages. Your hairdresser is moving to Bilbao, and Quentin is moving to Krakow. That's quite a change!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1208,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1208,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I can guess based on your previous messages. Your hairdresser is moving to Bilbao, and Quentin is moving to Krakow. That's quite a change!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_04",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my flatmate called their puppy",
+   "view": [
+    [
+     "not to complain but my sunglasses is the worst right now",
+     "That's rough, hope it sorts itself out soon"
+    ],
+    [
+     "not to complain but my notebook is the worst right now",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "was thinking about my umbrella on the walk home",
+     "I know exactly that feeling"
+    ]
+   ],
+   "answer": "Toffee",
+   "reply": "No, but it's Toffee, right?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1216,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1216,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it's Toffee, right?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_05",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my choirmate called their puppy",
+   "view": [
+    [
+     "honestly my running shoes made my morning lol",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "so my wallet has officially given up on me",
+     "Ah man, want to vent about it?"
+    ],
+    [
+     "not to complain but the shower is the worst right now",
+     "Oh no, that sounds really annoying"
+    ]
+   ],
+   "answer": "Crumble",
+   "reply": "No, but it sounds like a cute name!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1230,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1230,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it sounds like a cute name!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_06",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my physio has to stay away from at restaurants",
+   "view": [
+    [
+     "was thinking about the shower on the walk home",
+     "Ha, i get that, little things stick with you"
+    ],
+    [
+     "kinda nostalgic about my alarm clock today no idea why",
+     "I love those random moments"
+    ],
+    [
+     "the window blinds is driving me up the wall honestly",
+     "Oof, the window blinds again? what a pain"
+    ]
+   ],
+   "answer": "almonds",
+   "reply": "No, you didn't. But I can guess based on your previous messages that you have some dietary restrictions or allergies that you need to be aware of when eating out.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1255,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1255,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But I can guess based on your previous messages that you have some dietary restrictions or allergies that you need to be aware of when eating out.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_07",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my bandmate has to stay away from at restaurants",
+   "view": [
+    [
+     "weirdly happy about the duvet today",
+     "Oh good, one less thing to worry about"
+    ],
+    [
+     "not to complain but the leaky tap is the worst right now",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "weirdly happy about the curtains today",
+     "Good stuff, sometimes the little things count"
+    ]
+   ],
+   "answer": "eggplant",
+   "reply": "No, you didn't. Let's not bring it up, shall we?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1224,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1224,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. Let's not bring it up, shall we?",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_08",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my stepdad played at the open evening",
+   "view": [
+    [
+     "small win today, the lightbulb is all good now",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "weirdly happy about the heatwave today",
+     "Good stuff, sometimes the little things count"
+    ],
+    [
+     "weirdly happy about my wallet today",
+     "Nice one, you earned that"
+    ]
+   ],
+   "answer": "bassoon",
+   "reply": "No, but I can guess it was the bassoon, Leila played it like a pro",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1218,
+   "tokens_written": 19,
+   "whole_chat_tokens": 1218,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I can guess it was the bassoon, Leila played it like a pro",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_09",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever say what my hairdresser picked up at that garage",
+   "view": [
+    [
+     "cant believe my inbox chose today of all days",
+     "Ugh, some days nothing cooperates"
+    ],
+    [
+     "do you ever just stare at my sourdough starter and zone out",
+     "Aw, that's kind of sweet"
+    ],
+    [
+     "ok the hoover actually went fine for once",
+     "Love that for you"
+    ]
+   ],
+   "answer": "black Jetta",
+   "reply": "No, you didn't. But it sounds like a fun story!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1218,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1218,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it sounds like a fun story!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_10",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my bandmate has to stay away from at restaurants",
+   "view": [
+    [
+     "the noisy pipes got me thinking about how fast the year went",
+     "Sounds like a thoughtful sort of day"
+    ],
+    [
+     "weirdly happy about the shower today",
+     "Glad that went your way for once"
+    ],
+    [
+     "random thought but my lunchbox always reminds me of being a kid",
+     "I know exactly that feeling"
+    ]
+   ],
+   "answer": "cashews",
+   "reply": "No, but it's a good idea to be aware of potential allergens, especially if it's a recurring issue.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1253,
+   "tokens_written": 21,
+   "whole_chat_tokens": 1253,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it's a good idea to be aware of potential allergens, especially if it's a recurring issue.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_11",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my landlady has to stay away from at restaurants",
+   "view": [
+    [
+     "do you ever just stare at my alarm clock and zone out",
+     "That's a nice thought actually"
+    ],
+    [
+     "was thinking about the bathroom scale on the walk home",
+     "I know exactly that feeling"
+    ],
+    [
+     "do you ever just stare at my sourdough starter and zone out",
+     "Funny how ordinary stuff can do that"
+    ]
+   ],
+   "answer": "almonds",
+   "reply": "No, you didn't. But it's a good idea to be aware of potential allergens, especially if Bastian has a history of reactions.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1228,
+   "tokens_written": 27,
+   "whole_chat_tokens": 1228,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it's a good idea to be aware of potential allergens, especially if Bastian has a history of reactions.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_12",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my physio called their puppy",
+   "view": [
+    [
+     "ok my wallet actually went fine for once",
+     "Nice, love a small win"
+    ],
+    [
+     "weirdly happy about my notebook today",
+     "Good stuff, sometimes the little things count"
+    ],
+    [
+     "random thought but the hoover always reminds me of being a kid",
+     "Time is strange like that"
+    ]
+   ],
+   "answer": "Crumble",
+   "reply": "You did, you called it Crumble",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1248,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1248,
+   "ran_out_of_calls": false,
+   "first_reply": "You did, you called it Crumble",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_13",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my choirmate played at the open evening",
+   "view": [
+    [
+     "honestly the duvet made my morning lol",
+     "Glad that went your way for once"
+    ],
+    [
+     "not to complain but the lightbulb is the worst right now",
+     "Oof, the lightbulb again? what a pain"
+    ],
+    [
+     "ok my haircut actually went fine for once",
+     "Ha, celebrate the tiny victories"
+    ]
+   ],
+   "answer": "bassoon",
+   "reply": "No, you didn't. But it sounds like a great evening!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1237,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1237,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it sounds like a great evening!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_14",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my stepson has to stay away from at restaurants",
+   "view": [
+    [
+     "not to complain but my haircut is the worst right now",
+     "That's rough, hope it sorts itself out soon"
+    ],
+    [
+     "finally sorted my sourdough starter this morning",
+     "Love that for you"
+    ],
+    [
+     "cant believe my sunglasses chose today of all days",
+     "That's rough, hope it sorts itself out soon"
+    ]
+   ],
+   "answer": "mango",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1231,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1231,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_15",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my godmother called their puppy",
+   "view": [
+    [
+     "ugh my lunchbox is acting up again",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "was thinking about the noisy pipes on the walk home",
+     "Sounds like a thoughtful sort of day"
+    ],
+    [
+     "was thinking about my notebook on the walk home",
+     "It's odd what sets the memories off"
+    ]
+   ],
+   "answer": "Bramble",
+   "reply": "No, I didn't. Can I ask what it is?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1231,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1231,
+   "ran_out_of_calls": false,
+   "first_reply": "No, I didn't. Can I ask what it is?",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_16",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you where my bandmate is moving",
+   "view": [
+    [
+     "cant believe the roadworks chose today of all days",
+     "Ugh, the timing on these things is always terrible"
+    ],
+    [
+     "ok the shower actually went fine for once",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "the curtains got me thinking about how fast the year went",
+     "The year really has flown by"
+    ]
+   ],
+   "answer": "Gdansk",
+   "reply": "No, you didn't. But it's a nice story to hear about your bandmate's move to Gdansk.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1207,
+   "tokens_written": 22,
+   "whole_chat_tokens": 1207,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it's a nice story to hear about your bandmate's move to Gdansk.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_17",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention the new gig my landlady landed",
+   "view": [
+    [
+     "so the microwave has officially given up on me",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "ok my running shoes actually went fine for once",
+     "Good stuff, sometimes the little things count"
+    ],
+    [
+     "finally sorted the hoover this morning",
+     "That's the kind of news i like"
+    ]
+   ],
+   "answer": "pharmacist",
+   "reply": "No, but it sounds like a big win for you",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1247,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1247,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it sounds like a big win for you",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_18",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my landlady called their puppy",
+   "view": [
+    [
+     "ok the window blinds actually went fine for once",
+     "Ha, that's great to hear"
+    ],
+    [
+     "random thought but my umbrella always reminds me of being a kid",
+     "I know exactly that feeling"
+    ],
+    [
+     "kinda nostalgic about the smoke alarm today no idea why",
+     "Ha, i do that all the time"
+    ]
+   ],
+   "answer": "Bramble",
+   "reply": "You did, you called it Bramble",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1220,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1220,
+   "ran_out_of_calls": false,
+   "first_reply": "You did, you called it Bramble",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_19",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention the new gig my choirmate landed",
+   "view": [
+    [
+     "my notebook got me thinking about how fast the year went",
+     "Ha, i get that, little things stick with you"
+    ],
+    [
+     "not to complain but my inbox is the worst right now",
+     "Oh no, that sounds really annoying"
+    ],
+    [
+     "ugh my sourdough starter is acting up again",
+     "Honestly that would wind me up too"
+    ]
+   ],
+   "answer": "dental hygienist",
+   "reply": "No, but it sounds like a big deal! How's it going with the training?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1225,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1225,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it sounds like a big deal! How's it going with the training?",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_20",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my flatmate called their puppy",
+   "view": [
+    [
+     "my haircut is driving me up the wall honestly",
+     "Ah man, want to vent about it?"
+    ],
+    [
+     "ugh my haircut is acting up again",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "do you ever just stare at the heatwave and zone out",
+     "Ha, i get that, little things stick with you"
+    ]
+   ],
+   "answer": "Nutmeg",
+   "reply": "No, but it's a great name!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1240,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1240,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it's a great name!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_21",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my grandad played at the open evening",
+   "view": [
+    [
+     "so my alarm clock has officially given up on me",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "kinda nostalgic about the pothole today no idea why",
+     "I love those random moments"
+    ],
+    [
+     "was thinking about the train strike on the walk home",
+     "The year really has flown by"
+    ]
+   ],
+   "answer": "mandolin",
+   "reply": "No, you didn't. But it sounds like a great story!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1244,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1244,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it sounds like a great story!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_22",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my stepdad has to stay away from at restaurants",
+   "view": [
+    [
+     "my sourdough starter is driving me up the wall honestly",
+     "Ugh, some days nothing cooperates"
+    ],
+    [
+     "the hoover got me thinking about how fast the year went",
+     "Time is strange like that"
+    ],
+    [
+     "do you ever just stare at the roadworks and zone out",
+     "Aw, that's kind of sweet"
+    ]
+   ],
+   "answer": "lupin",
+   "reply": "No, but it's a good thing you did, as it sounds like a serious issue.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1246,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1246,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it's a good thing you did, as it sounds like a serious issue.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_23",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever say what my physio picked up at that garage",
+   "view": [
+    [
+     "my socks got me thinking about how fast the year went",
+     "I love those random moments"
+    ],
+    [
+     "cant believe the train strike chose today of all days",
+     "Ugh, some days nothing cooperates"
+    ],
+    [
+     "so my umbrella has officially given up on me",
+     "Oh no, that sounds really annoying"
+    ]
+   ],
+   "answer": "white Mazda",
+   "reply": "No, you didn't. But it sounds like a fun story!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1231,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1231,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it sounds like a fun story!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_24",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you where my godmother is moving",
+   "view": [
+    [
+     "my socks is driving me up the wall honestly",
+     "That's so frustrating, i'm sorry"
+    ],
+    [
+     "finally sorted the bathroom scale this morning",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "honestly the crossword made my morning lol",
+     "Ha, that's great to hear"
+    ]
+   ],
+   "answer": "Valletta",
+   "reply": "No, but I can tell you that it's a big change for her and her family.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1196,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1196,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I can tell you that it's a big change for her and her family.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_25",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention the new gig my stepson landed",
+   "view": [
+    [
+     "finally sorted the jigsaw this morning",
+     "Ha, celebrate the tiny victories"
+    ],
+    [
+     "kinda nostalgic about my umbrella today no idea why",
+     "The year really has flown by"
+    ],
+    [
+     "not to complain but my houseplants is the worst right now",
+     "Hang in there, it'll calm down"
+    ]
+   ],
+   "answer": "locksmith",
+   "reply": "No, but it sounds like a big win for him",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1227,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1227,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it sounds like a big win for him",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_26",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my godmother called their puppy",
+   "view": [
+    [
+     "kinda nostalgic about the mattress today no idea why",
+     "I love those random moments"
+    ],
+    [
+     "finally sorted the crossword this morning",
+     "Ha, celebrate the tiny victories"
+    ],
+    [
+     "finally sorted the noisy pipes this morning",
+     "Oh good, one less thing to worry about"
+    ]
+   ],
+   "answer": "Muffin",
+   "reply": "You did, Muffin.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1211,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1211,
+   "ran_out_of_calls": false,
+   "first_reply": "You did, Muffin.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_27",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention the new gig my hairdresser landed",
+   "view": [
+    [
+     "ugh the pothole is acting up again",
+     "That's rough, hope it sorts itself out soon"
+    ],
+    [
+     "random thought but my lunchbox always reminds me of being a kid",
+     "It's odd what sets the memories off"
+    ],
+    [
+     "ugh my backpack is acting up again",
+     "That's so frustrating, i'm sorry"
+    ]
+   ],
+   "answer": "sommelier",
+   "reply": "No, you didn't. But it's great news! Congratulations!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1219,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1219,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it's great news! Congratulations!",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_28",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my bandmate has to stay away from at restaurants",
+   "view": [
+    [
+     "my running shoes is driving me up the wall honestly",
+     "That's rough, hope it sorts itself out soon"
+    ],
+    [
+     "weirdly happy about the roadworks today",
+     "Nice, love a small win"
+    ],
+    [
+     "ugh my sunglasses is acting up again",
+     "Yikes, that's a lot to deal with"
+    ]
+   ],
+   "answer": "cashews",
+   "reply": "No, but I can guess it was something related to the sauce incident with Rafael.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1225,
+   "tokens_written": 17,
+   "whole_chat_tokens": 1225,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I can guess it was something related to the sauce incident with Rafael.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_confirm_29",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my choirmate called their puppy",
+   "view": [
+    [
+     "small win today, the roadworks is all good now",
+     "Glad that went your way for once"
+    ],
+    [
+     "do you ever just stare at the bike lane and zone out",
+     "It's odd what sets the memories off"
+    ],
+    [
+     "the smoke alarm is driving me up the wall honestly",
+     "Hang in there, it'll calm down"
+    ]
+   ],
+   "answer": "Crumble",
+   "reply": "Ezra, the puppy",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1257,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1257,
+   "ran_out_of_calls": false,
+   "first_reply": "Ezra, the puppy",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_00",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "where's Rafael moving to again",
+   "view": [
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my godmother is packing up the whole flat and moving to Tallinn next month, Rafael says the rent is half of here so who can blame them",
+     "ooh, how exciting"
+    ],
+    [
+     "was thinking about the school run on the walk home",
+     "Ha, i do that all the time"
+    ],
+    [
+     "ok my running shoes actually went fine for once",
+     "Good stuff, sometimes the little things count"
+    ]
+   ],
+   "answer": "Tallinn",
+   "reply": "Tallinn, Estonia. That's a great city, by the way.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1206,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1206,
+   "ran_out_of_calls": false,
+   "first_reply": "Tallinn, Estonia. That's a great city, by the way.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_01",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "which city is my bandmate relocating to, the cheap rent one",
+   "view": [
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my bandmate is packing up the whole flat and moving to Bilbao next month, Bastian says the rent is half of here so who can blame them",
+     "wow, that's big news"
+    ],
+    [
+     "my running shoes got me thinking about how fast the year went",
+     "That's a nice thought actually"
+    ],
+    [
+     "kinda nostalgic about my sourdough starter today no idea why",
+     "The year really has flown by"
+    ]
+   ],
+   "answer": "Bilbao",
+   "reply": "Bilbao, Spain",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1229,
+   "tokens_written": 4,
+   "whole_chat_tokens": 1229,
+   "ran_out_of_calls": false,
+   "first_reply": "Bilbao, Spain",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_02",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what did my physio end up calling the little furball",
+   "view": [
+    [
+     "the window blinds got me thinking about how fast the year went",
+     "Ha, deep thoughts on a weekday"
+    ],
+    [
+     "so the doorbell has officially given up on me",
+     "Sounds like a proper headache, sorry"
+    ],
+    [
+     "anyway after all that rain i walked past the park and guess who's out there throwing a frisbee, Imogen obviously, and the new puppy my physio got is called Toffee and it kept stealing other people's shoes, i nearly died laughing",
+     "huh, interesting"
+    ]
+   ],
+   "answer": "Toffee",
+   "reply": "I think you meant \"my physiotherapist\" and \"the new puppy my physiotherapist got\" was Toffee.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1217,
+   "tokens_written": 24,
+   "whole_chat_tokens": 1217,
+   "ran_out_of_calls": false,
+   "first_reply": "I think you meant \"my physiotherapist\" and \"the new puppy my physiotherapist got\" was Toffee.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_03",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "i forgot where my physio is heading next month and i'm supposed to help pack",
+   "view": [
+    [
+     "not to complain but the mattress is the worst right now",
+     "Honestly that would wind me up too"
+    ],
+    [
+     "my houseplants is driving me up the wall honestly",
+     "Ugh, the timing on these things is always terrible"
+    ],
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my physio is packing up the whole flat and moving to Ljubljana next month, Quentin says the rent is half of here so who can blame them",
+     "good for them honestly"
+    ]
+   ],
+   "answer": "Ljubljana",
+   "reply": "That's a good thing to remember, help them out with the packing",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1239,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1239,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a good thing to remember, help them out with the packing",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_04",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "i forgot what my landlady was playing that night and they keep bringing it up",
+   "view": [
+    [
+     "ok the crossword actually went fine for once",
+     "Love that for you"
+    ],
+    [
+     "kinda nostalgic about the hoover today no idea why",
+     "Time is strange like that"
+    ],
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Ezra got up on stage and played the French horn like a pro, i never knew my landlady had it in them, everyone clapped for ages",
+     "ooh, how exciting"
+    ]
+   ],
+   "answer": "French horn",
+   "reply": "It sounds like a memorable night! It's great that your landlady had such a talent and that everyone enjoyed it.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1236,
+   "tokens_written": 23,
+   "whole_chat_tokens": 1236,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like a memorable night! It's great that your landlady had such a talent and that everyone enjoyed it.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_05",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "which city is my choirmate relocating to, the cheap rent one",
+   "view": [
+    [
+     "finally sorted the bike lane this morning",
+     "That's the kind of news i like"
+    ],
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my choirmate is packing up the whole flat and moving to Ljubljana next month, Saoirse says the rent is half of here so who can blame them",
+     "noted, sounds like a lot going on"
+    ],
+    [
+     "do you ever just stare at the school run and zone out",
+     "I know exactly that feeling"
+    ]
+   ],
+   "answer": "Ljubljana",
+   "reply": "Ljubljana, correct",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1246,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1246,
+   "ran_out_of_calls": false,
+   "first_reply": "Ljubljana, correct",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_06",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what does Jasper play again",
+   "view": [
+    [
+     "kinda nostalgic about my inbox today no idea why",
+     "Time is strange like that"
+    ],
+    [
+     "random thought but the crossword always reminds me of being a kid",
+     "I love those random moments"
+    ],
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Jasper got up on stage and played the bassoon like a pro, i never knew my stepdad had it in them, everyone clapped for ages",
+     "right, makes sense"
+    ]
+   ],
+   "answer": "bassoon",
+   "reply": "I think you meant \"bassoonist\"",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1199,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1199,
+   "ran_out_of_calls": false,
+   "first_reply": "I think you meant \"bassoonist\"",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_07",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what does Ottilie play again",
+   "view": [
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Ottilie got up on stage and played the clarinet like a pro, i never knew my hairdresser had it in them, everyone clapped for ages",
+     "oh nice, thanks for telling me"
+    ],
+    [
+     "the lightbulb is driving me up the wall honestly",
+     "Honestly that would wind me up too"
+    ],
+    [
+     "the train strike is driving me up the wall honestly",
+     "Sounds like a proper headache, sorry"
+    ]
+   ],
+   "answer": "clarinet",
+   "reply": "Clarinet, as per your previous message.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1242,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1242,
+   "ran_out_of_calls": false,
+   "first_reply": "Clarinet, as per your previous message.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_08",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what was my choirmate making all that noise with up on the stage at the hall",
+   "view": [
+    [
+     "random thought but the lightbulb always reminds me of being a kid",
+     "Ha, i get that, little things stick with you"
+    ],
+    [
+     "weirdly happy about the lightbulb today",
+     "Ha, that's great to hear"
+    ],
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Marisol got up on stage and played the viola like a pro, i never knew my choirmate had it in them, everyone clapped for ages",
+     "huh, interesting"
+    ]
+   ],
+   "answer": "viola",
+   "reply": "That sounds like a really cool moment! Did your bandmate play a specific piece or just impress everyone with their viola skills?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1237,
+   "tokens_written": 25,
+   "whole_chat_tokens": 1237,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a really cool moment! Did your bandmate play a specific piece or just impress everyone with their viola skills?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_09",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "i forgot where my landlady is heading next month and i'm supposed to help pack",
+   "view": [
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my landlady is packing up the whole flat and moving to Ljubljana next month, Quentin says the rent is half of here so who can blame them",
+     "good for them honestly"
+    ],
+    [
+     "kinda nostalgic about my sunglasses today no idea why",
+     "Aw, that's kind of sweet"
+    ],
+    [
+     "small win today, my sunglasses is all good now",
+     "Nice, love a small win"
+    ]
+   ],
+   "answer": "Ljubljana",
+   "reply": "That's a lot of responsibility, but also a great opportunity to help out. Where is she moving to?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1216,
+   "tokens_written": 21,
+   "whole_chat_tokens": 1216,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a lot of responsibility, but also a great opportunity to help out. Where is she moving to?",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_10",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "i forgot where my landlady is heading next month and i'm supposed to help pack",
+   "view": [
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my landlady is packing up the whole flat and moving to Krakow next month, Leila says the rent is half of here so who can blame them",
+     "ha, love that"
+    ],
+    [
+     "honestly the roadworks made my morning lol",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "do you ever just stare at the doorbell and zone out",
+     "That's a nice thought actually"
+    ]
+   ],
+   "answer": "Krakow",
+   "reply": "Ah, that's a lot to take in. It sounds like you're dealing with a lot of changes and responsibilities. Is there anything specific you'd like to talk about or ask? I'm here to help.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1192,
+   "tokens_written": 39,
+   "whole_chat_tokens": 1192,
+   "ran_out_of_calls": false,
+   "first_reply": "Ah, that's a lot to take in. It sounds like you're dealing with a lot of changes and responsibilities. Is there anything specific you'd like to talk about or ask? I'm here to help.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_11",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what did my hairdresser end up calling the little furball",
+   "view": [
+    [
+     "weirdly happy about my sourdough starter today",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "anyway after all that rain i walked past the park and guess who's out there throwing a frisbee, Niamh obviously, and the new puppy my hairdresser got is called Bramble and it kept stealing other people's shoes, i nearly died laughing",
+     "huh, interesting"
+    ],
+    [
+     "the noisy pipes got me thinking about how fast the year went",
+     "Ha, i do that all the time"
+    ]
+   ],
+   "answer": "Bramble",
+   "reply": "I didn't know your hairdresser had a new puppy. That's adorable!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1238,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1238,
+   "ran_out_of_calls": false,
+   "first_reply": "I didn't know your hairdresser had a new puppy. That's adorable!",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_12",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "i forgot what my choirmate was playing that night and they keep bringing it up",
+   "view": [
+    [
+     "kinda nostalgic about the lightbulb today no idea why",
+     "Aw, that's kind of sweet"
+    ],
+    [
+     "not to complain but the doorbell is the worst right now",
+     "Oh no, that sounds really annoying"
+    ],
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Niamh got up on stage and played the mandolin like a pro, i never knew my choirmate had it in them, everyone clapped for ages",
+     "ooh, how exciting"
+    ]
+   ],
+   "answer": "mandolin",
+   "reply": "It sounds like you had a great time at the community hall! It's always nice to have a good time with friends.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1219,
+   "tokens_written": 24,
+   "whole_chat_tokens": 1219,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you had a great time at the community hall! It's always nice to have a good time with friends.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_13",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "so i forgot what my choirmate bought and now i cant spot them in the pickup line lol",
+   "view": [
+    [
+     "was thinking about the bike lane on the walk home",
+     "Funny how ordinary stuff can do that"
+    ],
+    [
+     "so the school run has officially given up on me",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "work was dead so i left early, popped into the garage for my tyres, and who's at the next bay but my choirmate, picking up a black Jetta they just bought second hand, Leila seemed weirdly proud of it tbh",
+     "oh nice, thanks for telling me"
+    ]
+   ],
+   "answer": "black Jetta",
+   "reply": "Ah, the classic \"forgotten details\" moment. It's like a tiny puzzle piece that just won't fit in the picture.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1228,
+   "tokens_written": 26,
+   "whole_chat_tokens": 1228,
+   "ran_out_of_calls": false,
+   "first_reply": "Ah, the classic \"forgotten details\" moment. It's like a tiny puzzle piece that just won't fit in the picture.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_14",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what was my stepdad making all that noise with up on the stage at the hall",
+   "view": [
+    [
+     "so the hoover has officially given up on me",
+     "That's rough, hope it sorts itself out soon"
+    ],
+    [
+     "was thinking about the window blinds on the walk home",
+     "I love those random moments"
+    ],
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Leila got up on stage and played the flute like a pro, i never knew my stepdad had it in them, everyone clapped for ages",
+     "ha, love that"
+    ]
+   ],
+   "answer": "flute",
+   "reply": "I think you might be thinking of a different event or person. Can you clarify?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1227,
+   "tokens_written": 17,
+   "whole_chat_tokens": 1227,
+   "ran_out_of_calls": false,
+   "first_reply": "I think you might be thinking of a different event or person. Can you clarify?",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_15",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "i forgot what my flatmate was playing that night and they keep bringing it up",
+   "view": [
+    [
+     "kinda nostalgic about my socks today no idea why",
+     "Aw, that's kind of sweet"
+    ],
+    [
+     "was thinking about the window blinds on the walk home",
+     "I love those random moments"
+    ],
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Jasper got up on stage and played the mandolin like a pro, i never knew my flatmate had it in them, everyone clapped for ages",
+     "huh, interesting"
+    ]
+   ],
+   "answer": "mandolin",
+   "reply": "It sounds like a fun night out!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1222,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1222,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like a fun night out!",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_16",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "where's Theo moving to again",
+   "view": [
+    [
+     "not to complain but the smoke alarm is the worst right now",
+     "Sounds like a proper headache, sorry"
+    ],
+    [
+     "weirdly happy about my sourdough starter today",
+     "See, things do work out sometimes"
+    ],
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my choirmate is packing up the whole flat and moving to Krakow next month, Theo says the rent is half of here so who can blame them",
+     "ooh, how exciting"
+    ]
+   ],
+   "answer": "Krakow",
+   "reply": "I think you meant \"the flat\" instead of \"the flatmate\". Theo is moving to Krakow, Poland.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1206,
+   "tokens_written": 23,
+   "whole_chat_tokens": 1206,
+   "ran_out_of_calls": false,
+   "first_reply": "I think you meant \"the flat\" instead of \"the flatmate\". Theo is moving to Krakow, Poland.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_17",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "wait what was Imogen allergic to again",
+   "view": [
+    [
+     "the doorbell is driving me up the wall honestly",
+     "Honestly that would wind me up too"
+    ],
+    [
+     "honestly the jigsaw made my morning lol",
+     "Yes! a good start to the day"
+    ],
+    [
+     "so the whole dinner thing got cancelled which honestly fine, but the reason is Imogen ended up in urgent care again, yeah my hairdresser, turns out the sauce had pistachios in it and nobody checked, swelled right up, they're ok now but wow what a night",
+     "right, makes sense"
+    ]
+   ],
+   "answer": "pistachios",
+   "reply": "Ah, yes, pistachios. It's a common allergen that can cause severe reactions. I'm glad Imogen is okay, but it's a reminder to always check labels carefully.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1215,
+   "tokens_written": 36,
+   "whole_chat_tokens": 1215,
+   "ran_out_of_calls": false,
+   "first_reply": "Ah, yes, pistachios. It's a common allergen that can cause severe reactions. I'm glad Imogen is okay, but it's a reminder to always check labels carefully.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_18",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "i keep forgetting what my stepson named that new pup and it's getting awkward",
+   "view": [
+    [
+     "anyway after all that rain i walked past the park and guess who's out there throwing a frisbee, Niamh obviously, and the new puppy my stepson got is called Muffin and it kept stealing other people's shoes, i nearly died laughing",
+     "oh cool, glad you told me"
+    ],
+    [
+     "my houseplants is driving me up the wall honestly",
+     "Yikes, that's a lot to deal with"
+    ],
+    [
+     "finally sorted the mattress this morning",
+     "Love that for you"
+    ]
+   ],
+   "answer": "Muffin",
+   "reply": "It's totally normal to forget names, especially if they're new! Maybe you can ask him what he calls it? Or just enjoy the moment and laugh about it. It's a small win, though!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1214,
+   "tokens_written": 39,
+   "whole_chat_tokens": 1214,
+   "ran_out_of_calls": false,
+   "first_reply": "It's totally normal to forget names, especially if they're new! Maybe you can ask him what he calls it? Or just enjoy the moment and laugh about it. It's a small win, though!",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_19",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what's my flatmate rolling around in now, the one they got second hand",
+   "view": [
+    [
+     "weirdly happy about the pothole today",
+     "Nice one, you earned that"
+    ],
+    [
+     "work was dead so i left early, popped into the garage for my tyres, and who's at the next bay but my flatmate, picking up a blue Fiesta they just bought second hand, Marisol seemed weirdly proud of it tbh",
+     "ooh, how exciting"
+    ],
+    [
+     "was thinking about the bathroom scale on the walk home",
+     "That's a nice thought actually"
+    ]
+   ],
+   "answer": "blue Fiesta",
+   "reply": "A blue Fiesta, sounds like a cool car!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1231,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1231,
+   "ran_out_of_calls": false,
+   "first_reply": "A blue Fiesta, sounds like a cool car!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_20",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what does Bastian play again",
+   "view": [
+    [
+     "not to complain but my notebook is the worst right now",
+     "Sounds like a proper headache, sorry"
+    ],
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Bastian got up on stage and played the viola like a pro, i never knew my godmother had it in them, everyone clapped for ages",
+     "ha, love that"
+    ],
+    [
+     "so the heatwave has officially given up on me",
+     "That's rough, hope it sorts itself out soon"
+    ]
+   ],
+   "answer": "viola",
+   "reply": "I think you meant to say \"Bastian played the French horn like a pro\"",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1208,
+   "tokens_written": 17,
+   "whole_chat_tokens": 1208,
+   "ran_out_of_calls": false,
+   "first_reply": "I think you meant to say \"Bastian played the French horn like a pro\"",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_21",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what does Theo play again",
+   "view": [
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Theo got up on stage and played the clarinet like a pro, i never knew my stepson had it in them, everyone clapped for ages",
+     "right, makes sense"
+    ],
+    [
+     "honestly the heatwave made my morning lol",
+     "Nice, love a small win"
+    ],
+    [
+     "the ice cream van is driving me up the wall honestly",
+     "Ugh, the timing on these things is always terrible"
+    ]
+   ],
+   "answer": "clarinet",
+   "reply": "Clarinet, as mentioned earlier",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1205,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1205,
+   "ran_out_of_calls": false,
+   "first_reply": "Clarinet, as mentioned earlier",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_22",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what did my physio end up calling the little furball",
+   "view": [
+    [
+     "anyway after all that rain i walked past the park and guess who's out there throwing a frisbee, Quentin obviously, and the new puppy my physio got is called Nutmeg and it kept stealing other people's shoes, i nearly died laughing",
+     "noted, sounds like a lot going on"
+    ],
+    [
+     "ok the noisy pipes actually went fine for once",
+     "Love that for you"
+    ],
+    [
+     "cant believe my umbrella chose today of all days",
+     "That's rough, hope it sorts itself out soon"
+    ]
+   ],
+   "answer": "Nutmeg",
+   "reply": "That’s adorable! \"Nutmeg\" is a great name for a puppy.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1229,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1229,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s adorable! \"Nutmeg\" is a great name for a puppy.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_23",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "whats the thing my hairdresser cant eat without puffing up like a balloon",
+   "view": [
+    [
+     "so the whole dinner thing got cancelled which honestly fine, but the reason is Niamh ended up in urgent care again, yeah my hairdresser, turns out the sauce had cashews in it and nobody checked, swelled right up, they're ok now but wow what a night",
+     "oh wow, ok then"
+    ],
+    [
+     "weirdly happy about my umbrella today",
+     "That's the kind of news i like"
+    ],
+    [
+     "do you ever just stare at the bike lane and zone out",
+     "I know exactly that feeling"
+    ]
+   ],
+   "answer": "cashews",
+   "reply": "Cashews, apparently. They can cause a reaction in some people, leading to swelling.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1230,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1230,
+   "ran_out_of_calls": false,
+   "first_reply": "Cashews, apparently. They can cause a reaction in some people, leading to swelling.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_24",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "which city is my choirmate relocating to, the cheap rent one",
+   "view": [
+    [
+     "so the hoover has officially given up on me",
+     "That's so frustrating, i'm sorry"
+    ],
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my choirmate is packing up the whole flat and moving to Bilbao next month, Ezra says the rent is half of here so who can blame them",
+     "right, makes sense"
+    ],
+    [
+     "so my wallet has officially given up on me",
+     "Ah man, want to vent about it?"
+    ]
+   ],
+   "answer": "Bilbao",
+   "reply": "Yeah, that's a pretty common move. It's always a bit of a bummer when friends move away, but it's also a chance for them to start fresh. I'm sure your flatmate will be doing just fine in Bilbao.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1215,
+   "tokens_written": 45,
+   "whole_chat_tokens": 1215,
+   "ran_out_of_calls": false,
+   "first_reply": "Yeah, that's a pretty common move. It's always a bit of a bummer when friends move away, but it's also a chance for them to start fresh. I'm sure your flatmate will be doing just fine in Bilbao.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_25",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what does Quentin drive these days",
+   "view": [
+    [
+     "work was dead so i left early, popped into the garage for my tyres, and who's at the next bay but my stepdad, picking up a silver Prius they just bought second hand, Quentin seemed weirdly proud of it tbh",
+     "oh nice, thanks for telling me"
+    ],
+    [
+     "not to complain but my umbrella is the worst right now",
+     "Ugh, the timing on these things is always terrible"
+    ],
+    [
+     "not to complain but the bike lane is the worst right now",
+     "Ugh, the timing on these things is always terrible"
+    ]
+   ],
+   "answer": "silver Prius",
+   "reply": "A silver Prius, apparently.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1234,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1234,
+   "ran_out_of_calls": false,
+   "first_reply": "A silver Prius, apparently.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_26",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "where's Bastian moving to again",
+   "view": [
+    [
+     "not to complain but the doorbell is the worst right now",
+     "Honestly that would wind me up too"
+    ],
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my grandad is packing up the whole flat and moving to Valletta next month, Bastian says the rent is half of here so who can blame them",
+     "oh nice, thanks for telling me"
+    ],
+    [
+     "honestly my alarm clock made my morning lol",
+     "Glad that went your way for once"
+    ]
+   ],
+   "answer": "Valletta",
+   "reply": "Valletta, Malta. That's a great move, sounds like a nice change of scenery.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1230,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1230,
+   "ran_out_of_calls": false,
+   "first_reply": "Valletta, Malta. That's a great move, sounds like a nice change of scenery.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_27",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "which city is my flatmate relocating to, the cheap rent one",
+   "view": [
+    [
+     "weirdly happy about the duvet today",
+     "Nice, love a small win"
+    ],
+    [
+     "my lunchbox is driving me up the wall honestly",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my flatmate is packing up the whole flat and moving to Ljubljana next month, Imogen says the rent is half of here so who can blame them",
+     "oh fun, love hearing that"
+    ]
+   ],
+   "answer": "Ljubljana",
+   "reply": "Ljubljana, it seems. That's a great opportunity for your flatmate.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1215,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1215,
+   "ran_out_of_calls": false,
+   "first_reply": "Ljubljana, it seems. That's a great opportunity for your flatmate.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_28",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "what does Leila play again",
+   "view": [
+    [
+     "so the community hall had that open evening, too many folding chairs and terrible tea, and Leila got up on stage and played the flute like a pro, i never knew my grandad had it in them, everyone clapped for ages",
+     "right, makes sense"
+    ],
+    [
+     "random thought but my lunchbox always reminds me of being a kid",
+     "The year really has flown by"
+    ],
+    [
+     "weirdly happy about the noisy pipes today",
+     "Ha, that's great to hear"
+    ]
+   ],
+   "answer": "flute",
+   "reply": "Flute, as I recall.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1234,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1234,
+   "ran_out_of_calls": false,
+   "first_reply": "Flute, as I recall.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_in_view_29",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "whole_chat_all",
+   "message": "which city is my stepson relocating to, the cheap rent one",
+   "view": [
+    [
+     "random thought but the pothole always reminds me of being a kid",
+     "Time is strange like that"
+    ],
+    [
+     "small win today, the lightbulb is all good now",
+     "Oh good, one less thing to worry about"
+    ],
+    [
+     "the farewell drinks went late, my feet are killing me, but it's real now, my stepson is packing up the whole flat and moving to Tallinn next month, Leila says the rent is half of here so who can blame them",
+     "aw that's sweet"
+    ]
+   ],
+   "answer": "Tallinn",
+   "reply": "Tallinn, Estonia. It's known for its affordable living costs compared to other European cities.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1235,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1235,
+   "ran_out_of_calls": false,
+   "first_reply": "Tallinn, Estonia. It's known for its affordable living costs compared to other European cities.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_00",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "so i forgot what my stepson bought and now i cant spot them in the pickup line lol",
+   "view": [
+    [
+     "so the doorbell has officially given up on me",
+     "Oh no, that sounds really annoying"
+    ],
+    [
+     "was thinking about the hoover on the walk home",
+     "That's a nice thought actually"
+    ],
+    [
+     "do you ever just stare at the duvet and zone out",
+     "It's odd what sets the memories off"
+    ]
+   ],
+   "answer": "",
+   "reply": "Ha, that's a fun one!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1183,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1183,
+   "ran_out_of_calls": false,
+   "first_reply": "Ha, that's a fun one!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_01",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever say what my stepson picked up at that garage",
+   "view": [
+    [
+     "was thinking about my sunglasses on the walk home",
+     "Ha, deep thoughts on a weekday"
+    ],
+    [
+     "was thinking about the bike lane on the walk home",
+     "I know exactly that feeling"
+    ],
+    [
+     "ok my socks actually went fine for once",
+     "That's lovely, enjoy it"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1188,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1188,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_02",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "what does Marisol drive these days",
+   "view": [
+    [
+     "not to complain but the ice cream van is the worst right now",
+     "Yikes, that's a lot to deal with"
+    ],
+    [
+     "not to complain but the duvet is the worst right now",
+     "Yikes, that's a lot to deal with"
+    ],
+    [
+     "ugh the lightbulb is acting up again",
+     "Classic, it always goes wrong when you need it"
+    ]
+   ],
+   "answer": "",
+   "reply": "Ah, the classic \"What does Marisol drive these days?\" moment.  It's a fun one, isn't it?  Maybe a sleek electric car, or maybe a vintage classic.  What do you think?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1210,
+   "tokens_written": 43,
+   "whole_chat_tokens": 1210,
+   "ran_out_of_calls": false,
+   "first_reply": "Ah, the classic \"What does Marisol drive these days?\" moment.  It's a fun one, isn't it?  Maybe a sleek electric car, or maybe a vintage classic.  What do you think?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_03",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my hairdresser played at the open evening",
+   "view": [
+    [
+     "small win today, the school run is all good now",
+     "Nice, love a small win"
+    ],
+    [
+     "weirdly happy about my alarm clock today",
+     "Ha, celebrate the tiny victories"
+    ],
+    [
+     "small win today, the ice cream van is all good now",
+     "That's the kind of news i like"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, you didn't. But it sounds like a great evening!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1180,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1180,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it sounds like a great evening!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_04",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "i forgot where my flatmate is heading next month and i'm supposed to help pack",
+   "view": [
+    [
+     "weirdly happy about the doorbell today",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "kinda nostalgic about the crossword today no idea why",
+     "Aw, that's kind of sweet"
+    ],
+    [
+     "finally sorted the pothole this morning",
+     "Oh good, one less thing to worry about"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a lot to juggle! You might want to check with your flatmate or ask around to confirm their plans. It's always good to have a clear understanding of what you're dealing with.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1165,
+   "tokens_written": 38,
+   "whole_chat_tokens": 1165,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a lot to juggle! You might want to check with your flatmate or ask around to confirm their plans. It's always good to have a clear understanding of what you're dealing with.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_05",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "what does Leila play again",
+   "view": [
+    [
+     "the hoover got me thinking about how fast the year went",
+     "Ha, deep thoughts on a weekday"
+    ],
+    [
+     "weirdly happy about my inbox today",
+     "Yes! a good start to the day"
+    ],
+    [
+     "small win today, my inbox is all good now",
+     "Nice, love a small win"
+    ]
+   ],
+   "answer": "",
+   "reply": "I'm sorry, I don't have any information about Leila. Can you provide more context or details about who Leila is?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1169,
+   "tokens_written": 25,
+   "whole_chat_tokens": 1169,
+   "ran_out_of_calls": false,
+   "first_reply": "I'm sorry, I don't have any information about Leila. Can you provide more context or details about who Leila is?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_06",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "what does Rafael drive these days",
+   "view": [
+    [
+     "so the roadworks has officially given up on me",
+     "That's so frustrating, i'm sorry"
+    ],
+    [
+     "kinda nostalgic about the train strike today no idea why",
+     "The year really has flown by"
+    ],
+    [
+     "so my umbrella has officially given up on me",
+     "Ugh, the timing on these things is always terrible"
+    ]
+   ],
+   "answer": "",
+   "reply": "I'm sorry, I don't have any information about Rafael's car. Can you provide more context or details?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1207,
+   "tokens_written": 21,
+   "whole_chat_tokens": 1207,
+   "ran_out_of_calls": false,
+   "first_reply": "I'm sorry, I don't have any information about Rafael's car. Can you provide more context or details?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_07",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "wait what was Theo allergic to again",
+   "view": [
+    [
+     "so the crossword has officially given up on me",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "honestly the heatwave made my morning lol",
+     "Yes! a good start to the day"
+    ],
+    [
+     "not to complain but my houseplants is the worst right now",
+     "That's so frustrating, i'm sorry"
+    ]
+   ],
+   "answer": "",
+   "reply": "Oh, I see, I didn't catch that. Can you tell me more about Theo's allergy?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1172,
+   "tokens_written": 20,
+   "whole_chat_tokens": 1172,
+   "ran_out_of_calls": false,
+   "first_reply": "Oh, I see, I didn't catch that. Can you tell me more about Theo's allergy?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_08",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you where my grandad is moving",
+   "view": [
+    [
+     "finally sorted the shower this morning",
+     "Yes! a good start to the day"
+    ],
+    [
+     "kinda nostalgic about the school run today no idea why",
+     "Ha, i get that, little things stick with you"
+    ],
+    [
+     "random thought but my umbrella always reminds me of being a kid",
+     "That's a nice thought actually"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, not yet. Would you like to share?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1211,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1211,
+   "ran_out_of_calls": false,
+   "first_reply": "No, not yet. Would you like to share?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_09",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my stepdad called their puppy",
+   "view": [
+    [
+     "honestly my sunglasses made my morning lol",
+     "Yes! a good start to the day"
+    ],
+    [
+     "honestly my notebook made my morning lol",
+     "Glad that went your way for once"
+    ],
+    [
+     "small win today, the ice cream van is all good now",
+     "Glad that went your way for once"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, but I'm sure it's a great name!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1213,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1213,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I'm sure it's a great name!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_10",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "what did my choirmate finally get hired as after all those interviews",
+   "view": [
+    [
+     "small win today, the bathroom scale is all good now",
+     "Oh good, one less thing to worry about"
+    ],
+    [
+     "random thought but the smoke alarm always reminds me of being a kid",
+     "Time is strange like that"
+    ],
+    [
+     "ok the heatwave actually went fine for once",
+     "Nice, love a small win"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a great news! Well done to your friend.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1189,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1189,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a great news! Well done to your friend.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_11",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "i keep forgetting what my landlady named that new pup and it's getting awkward",
+   "view": [
+    [
+     "finally sorted the school run this morning",
+     "Yes! a good start to the day"
+    ],
+    [
+     "ugh my houseplants is acting up again",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "small win today, the train strike is all good now",
+     "That's lovely, enjoy it"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a fun little mystery to solve! Maybe you can ask your landlady or look for a clue in the neighborhood. It's a great way to keep things interesting!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1196,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1196,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a fun little mystery to solve! Maybe you can ask your landlady or look for a clue in the neighborhood. It's a great way to keep things interesting!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_12",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever say what my choirmate picked up at that garage",
+   "view": [
+    [
+     "random thought but my lunchbox always reminds me of being a kid",
+     "Ha, i get that, little things stick with you"
+    ],
+    [
+     "weirdly happy about my sunglasses today",
+     "Ha, that's great to hear"
+    ],
+    [
+     "finally sorted my umbrella this morning",
+     "That's lovely, enjoy it"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, you didn't.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1186,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1186,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_13",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "i forgot where my choirmate is heading next month and i'm supposed to help pack",
+   "view": [
+    [
+     "cant believe my notebook chose today of all days",
+     "Oof, my notebook again? what a pain"
+    ],
+    [
+     "my haircut is driving me up the wall honestly",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "finally sorted my umbrella this morning",
+     "See, things do work out sometimes"
+    ]
+   ],
+   "answer": "",
+   "reply": "Ah, that's a lot of moving parts. You might want to check with your roommate or ask around to see where they're headed. If you need help packing, let me know!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1215,
+   "tokens_written": 36,
+   "whole_chat_tokens": 1215,
+   "ran_out_of_calls": false,
+   "first_reply": "Ah, that's a lot of moving parts. You might want to check with your roommate or ask around to see where they're headed. If you need help packing, let me know!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_14",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "what's my stepson rolling around in now, the one they got second hand",
+   "view": [
+    [
+     "do you ever just stare at my notebook and zone out",
+     "It's odd what sets the memories off"
+    ],
+    [
+     "do you ever just stare at my houseplants and zone out",
+     "Time is strange like that"
+    ],
+    [
+     "not to complain but my backpack is the worst right now",
+     "Oh no, that sounds really annoying"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a cool little car, glad your grandad is enjoying it!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1181,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1181,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a cool little car, glad your grandad is enjoying it!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_15",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you where my landlady is moving",
+   "view": [
+    [
+     "kinda nostalgic about the roadworks today no idea why",
+     "I know exactly that feeling"
+    ],
+    [
+     "finally sorted my notebook this morning",
+     "Ha, celebrate the tiny victories"
+    ],
+    [
+     "kinda nostalgic about my backpack today no idea why",
+     "Ha, i do that all the time"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, but I bet it's a great move for her",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1170,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1170,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I bet it's a great move for her",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_16",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my hairdresser played at the open evening",
+   "view": [
+    [
+     "do you ever just stare at the roadworks and zone out",
+     "Aw, that's kind of sweet"
+    ],
+    [
+     "finally sorted my running shoes this morning",
+     "Nice, love a small win"
+    ],
+    [
+     "finally sorted the leaky tap this morning",
+     "That's the kind of news i like"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, but it sounds like a great story to share!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1178,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1178,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it sounds like a great story to share!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_17",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention the new gig my godmother landed",
+   "view": [
+    [
+     "ugh the heatwave is acting up again",
+     "Sounds like a proper headache, sorry"
+    ],
+    [
+     "kinda nostalgic about the hoover today no idea why",
+     "I know exactly that feeling"
+    ],
+    [
+     "small win today, the smoke alarm is all good now",
+     "That's the kind of news i like"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, but it sounds like a big win for you!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1215,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1215,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but it sounds like a big win for you!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_18",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "i forgot what my stepson was playing that night and they keep bringing it up",
+   "view": [
+    [
+     "weirdly happy about the hoover today",
+     "Glad that went your way for once"
+    ],
+    [
+     "the hoover is driving me up the wall honestly",
+     "Sounds like a proper headache, sorry"
+    ],
+    [
+     "small win today, my houseplants is all good now",
+     "That's the kind of news i like"
+    ]
+   ],
+   "answer": "",
+   "reply": "Sounds like a fun family moment, but also a bit of a challenge!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1193,
+   "tokens_written": 15,
+   "whole_chat_tokens": 1193,
+   "ran_out_of_calls": false,
+   "first_reply": "Sounds like a fun family moment, but also a bit of a challenge!",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_19",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "i forgot where my bandmate is heading next month and i'm supposed to help pack",
+   "view": [
+    [
+     "ok my houseplants actually went fine for once",
+     "Oh good, one less thing to worry about"
+    ],
+    [
+     "ugh the curtains is acting up again",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "my wallet is driving me up the wall honestly",
+     "Oh no, that sounds really annoying"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a lot of work. Do you have any idea where they're going?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1189,
+   "tokens_written": 17,
+   "whole_chat_tokens": 1189,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a lot of work. Do you have any idea where they're going?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_20",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "what did my choirmate end up calling the little furball",
+   "view": [
+    [
+     "the heatwave is driving me up the wall honestly",
+     "That's so frustrating, i'm sorry"
+    ],
+    [
+     "honestly the noisy pipes made my morning lol",
+     "Yes! a good start to the day"
+    ],
+    [
+     "was thinking about the shower on the walk home",
+     "Aw, that's kind of sweet"
+    ]
+   ],
+   "answer": "",
+   "reply": "I don't have access to that information. Can I help you with anything else?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1193,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1193,
+   "ran_out_of_calls": false,
+   "first_reply": "I don't have access to that information. Can I help you with anything else?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_21",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my flatmate has to stay away from at restaurants",
+   "view": [
+    [
+     "my wallet got me thinking about how fast the year went",
+     "I love those random moments"
+    ],
+    [
+     "ok the curtains actually went fine for once",
+     "Nice, love a small win"
+    ],
+    [
+     "kinda nostalgic about the curtains today no idea why",
+     "I know exactly that feeling"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, you didn't. But it's a common thing to have preferences when it comes to certain foods or environments.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1189,
+   "tokens_written": 22,
+   "whole_chat_tokens": 1189,
+   "ran_out_of_calls": false,
+   "first_reply": "No, you didn't. But it's a common thing to have preferences when it comes to certain foods or environments.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_22",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my stepdad called their puppy",
+   "view": [
+    [
+     "small win today, the jigsaw is all good now",
+     "See, things do work out sometimes"
+    ],
+    [
+     "kinda nostalgic about my backpack today no idea why",
+     "Sounds like a thoughtful sort of day"
+    ],
+    [
+     "ok my running shoes actually went fine for once",
+     "Yes! a good start to the day"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, but I think I know what it was.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1189,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1189,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I think I know what it was.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_23",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "i forgot where my physio is heading next month and i'm supposed to help pack",
+   "view": [
+    [
+     "finally sorted the train strike this morning",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "was thinking about the ice cream van on the walk home",
+     "Ha, i do that all the time"
+    ],
+    [
+     "ugh the shower is acting up again",
+     "That's rough, hope it sorts itself out soon"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a nice thought actually",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1204,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1204,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a nice thought actually",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_24",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you what my godmother called their puppy",
+   "view": [
+    [
+     "small win today, the train strike is all good now",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "so the bathroom scale has officially given up on me",
+     "Oh no, that sounds really annoying"
+    ],
+    [
+     "ok the heatwave actually went fine for once",
+     "Ha, that's great to hear"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, but I think I just found out. Bramble, huh?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1181,
+   "tokens_written": 15,
+   "whole_chat_tokens": 1181,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I think I just found out. Bramble, huh?",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_25",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "what did my grandad finally get hired as after all those interviews",
+   "view": [
+    [
+     "cant believe my haircut chose today of all days",
+     "That's so frustrating, i'm sorry"
+    ],
+    [
+     "finally sorted my alarm clock this morning",
+     "Yes! a good start to the day"
+    ],
+    [
+     "finally sorted the school run this morning",
+     "Ha, celebrate the tiny victories"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a great news! Congratulations to your grandad.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1180,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1180,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a great news! Congratulations to your grandad.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_26",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "where's Ottilie moving to again",
+   "view": [
+    [
+     "random thought but the shower always reminds me of being a kid",
+     "It's odd what sets the memories off"
+    ],
+    [
+     "random thought but my wallet always reminds me of being a kid",
+     "That's a nice thought actually"
+    ],
+    [
+     "small win today, the smoke alarm is all good now",
+     "See, things do work out sometimes"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a nice thought actually",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1194,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1194,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a nice thought actually",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_27",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever mention what my landlady has to stay away from at restaurants",
+   "view": [
+    [
+     "small win today, my inbox is all good now",
+     "Ha, that's great to hear"
+    ],
+    [
+     "do you ever just stare at the noisy pipes and zone out",
+     "It's odd what sets the memories off"
+    ],
+    [
+     "ugh the bike lane is acting up again",
+     "Ah man, want to vent about it?"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, but I can imagine it would be a long list.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1212,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1212,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I can imagine it would be a long list.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_28",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "so i forgot what my hairdresser bought and now i cant spot them in the pickup line lol",
+   "view": [
+    [
+     "finally sorted the smoke alarm this morning",
+     "Good stuff, sometimes the little things count"
+    ],
+    [
+     "honestly my wallet made my morning lol",
+     "Nice one, you earned that"
+    ],
+    [
+     "kinda nostalgic about the microwave today no idea why",
+     "That's a nice thought actually"
+    ]
+   ],
+   "answer": "",
+   "reply": "Ha, i do that all the time",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1184,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1184,
+   "ran_out_of_calls": false,
+   "first_reply": "Ha, i do that all the time",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_never_told_29",
+   "size": 58,
+   "kind": "never_told",
+   "arm": "whole_chat_all",
+   "message": "did i ever tell you where my hairdresser is moving",
+   "view": [
+    [
+     "ugh my sourdough starter is acting up again",
+     "Oh no, that sounds really annoying"
+    ],
+    [
+     "cant believe the smoke alarm chose today of all days",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "do you ever just stare at my socks and zone out",
+     "Aw, that's kind of sweet"
+    ]
+   ],
+   "answer": "",
+   "reply": "No, but I bet it's a good story",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1197,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1197,
+   "ran_out_of_calls": false,
+   "first_reply": "No, but I bet it's a good story",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_00",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Imogen sent me the funniest meme this morning",
+   "view": [
+    [
+     "weirdly happy about the hoover today",
+     "Glad that went your way for once"
+    ],
+    [
+     "was thinking about the smoke alarm on the walk home",
+     "Funny how ordinary stuff can do that"
+    ],
+    [
+     "random thought but the smoke alarm always reminds me of being a kid",
+     "Time is strange like that"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a nice thought actually",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1222,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1222,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a nice thought actually",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_01",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "going for a walk with Ezra later if the rain holds off",
+   "view": [
+    [
+     "ok the train strike actually went fine for once",
+     "That's the kind of news i like"
+    ],
+    [
+     "do you ever just stare at the crossword and zone out",
+     "The year really has flown by"
+    ],
+    [
+     "ok the curtains actually went fine for once",
+     "Good stuff, sometimes the little things count"
+    ]
+   ],
+   "answer": "",
+   "reply": "Sounds like a nice way to spend the day",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1204,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1204,
+   "ran_out_of_calls": false,
+   "first_reply": "Sounds like a nice way to spend the day",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_02",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my stepdad keeps saying we should do a picnic before it gets cold",
+   "view": [
+    [
+     "the lightbulb is driving me up the wall honestly",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "do you ever just stare at my houseplants and zone out",
+     "I know exactly that feeling"
+    ],
+    [
+     "ugh my sourdough starter is acting up again",
+     "Oof, my sourdough starter again? what a pain"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a lovely idea, but also a bit of a challenge with the weather. Maybe a cozy indoor picnic with a warm blanket and some snacks?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1240,
+   "tokens_written": 31,
+   "whole_chat_tokens": 1240,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a lovely idea, but also a bit of a challenge with the weather. Maybe a cozy indoor picnic with a warm blanket and some snacks?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_03",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Leila my stepson is finally on holiday this week, so jealous",
+   "view": [
+    [
+     "not to complain but the pothole is the worst right now",
+     "Honestly that would wind me up too"
+    ],
+    [
+     "small win today, the school run is all good now",
+     "Nice one, you earned that"
+    ],
+    [
+     "so the duvet has officially given up on me",
+     "Honestly that would wind me up too"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a nice break for you, enjoy it!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1212,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1212,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a nice break for you, enjoy it!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_04",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my stepson keeps saying we should do a picnic before it gets cold",
+   "view": [
+    [
+     "honestly my backpack made my morning lol",
+     "Love that for you"
+    ],
+    [
+     "the roadworks is driving me up the wall honestly",
+     "Ugh, the timing on these things is always terrible"
+    ],
+    [
+     "random thought but the leaky tap always reminds me of being a kid",
+     "Sounds like a thoughtful sort of day"
+    ]
+   ],
+   "answer": "",
+   "reply": "Sounds like a lovely idea",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1226,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1226,
+   "ran_out_of_calls": false,
+   "first_reply": "Sounds like a lovely idea",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_05",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my godmother said hi by the way",
+   "view": [
+    [
+     "kinda nostalgic about the lightbulb today no idea why",
+     "Funny how ordinary stuff can do that"
+    ],
+    [
+     "finally sorted my wallet this morning",
+     "Yes! a good start to the day"
+    ],
+    [
+     "random thought but my inbox always reminds me of being a kid",
+     "That's a nice thought actually"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a nice touch of nostalgia. It's always good to hear from loved ones.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1200,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1200,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a nice touch of nostalgia. It's always good to hear from loved ones.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_06",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Theo keeps texting me pictures of clouds for some reason",
+   "view": [
+    [
+     "so the crossword has officially given up on me",
+     "Ah man, want to vent about it?"
+    ],
+    [
+     "not to complain but my inbox is the worst right now",
+     "Honestly that would wind me up too"
+    ],
+    [
+     "small win today, my backpack is all good now",
+     "Love that for you"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a cute little thing to do",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1227,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1227,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a cute little thing to do",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_07",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my grandad keeps saying we should do a picnic before it gets cold",
+   "view": [
+    [
+     "weirdly happy about the train strike today",
+     "See, things do work out sometimes"
+    ],
+    [
+     "random thought but my houseplants always reminds me of being a kid",
+     "Ha, i get that, little things stick with you"
+    ],
+    [
+     "my sourdough starter is driving me up the wall honestly",
+     "That's so frustrating, i'm sorry"
+    ]
+   ],
+   "answer": "",
+   "reply": "Sounds like a lovely idea, wouldn't you agree?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1221,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1221,
+   "ran_out_of_calls": false,
+   "first_reply": "Sounds like a lovely idea, wouldn't you agree?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_08",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "bumped into Rafael at the shops, we chatted for ages by the bread",
+   "view": [
+    [
+     "not to complain but the hoover is the worst right now",
+     "Sounds like a proper headache, sorry"
+    ],
+    [
+     "do you ever just stare at my alarm clock and zone out",
+     "Time is strange like that"
+    ],
+    [
+     "ugh the microwave is acting up again",
+     "Hang in there, it'll calm down"
+    ]
+   ],
+   "answer": "",
+   "reply": "Sounds like a nice little chat",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1224,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1224,
+   "ran_out_of_calls": false,
+   "first_reply": "Sounds like a nice little chat",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_09",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my choirmate said hi by the way",
+   "view": [
+    [
+     "finally sorted the jigsaw this morning",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "do you ever just stare at the heatwave and zone out",
+     "The year really has flown by"
+    ],
+    [
+     "cant believe the train strike chose today of all days",
+     "Ugh, some days nothing cooperates"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's nice to hear from your co-op mate!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1201,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1201,
+   "ran_out_of_calls": false,
+   "first_reply": "That's nice to hear from your co-op mate!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_10",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Ottilie keeps texting me pictures of clouds for some reason",
+   "view": [
+    [
+     "honestly the duvet made my morning lol",
+     "Oh good, one less thing to worry about"
+    ],
+    [
+     "not to complain but my sunglasses is the worst right now",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "not to complain but the shower is the worst right now",
+     "Ah man, want to vent about it?"
+    ]
+   ],
+   "answer": "",
+   "reply": "That’s adorable. Cute little cloud pics from a puppy—definitely a good vibe.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1235,
+   "tokens_written": 20,
+   "whole_chat_tokens": 1235,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s adorable. Cute little cloud pics from a puppy—definitely a good vibe.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_11",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "going for a walk with Niamh later if the rain holds off",
+   "view": [
+    [
+     "finally sorted my lunchbox this morning",
+     "Yes! a good start to the day"
+    ],
+    [
+     "so my sourdough starter has officially given up on me",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "do you ever just stare at my socks and zone out",
+     "I love those random moments"
+    ]
+   ],
+   "answer": "",
+   "reply": "Sounds like a lovely plan!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1236,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1236,
+   "ran_out_of_calls": false,
+   "first_reply": "Sounds like a lovely plan!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_12",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Theo keeps texting me pictures of clouds for some reason",
+   "view": [
+    [
+     "was thinking about the bike lane on the walk home",
+     "Funny how ordinary stuff can do that"
+    ],
+    [
+     "the shower is driving me up the wall honestly",
+     "That's rough, hope it sorts itself out soon"
+    ],
+    [
+     "honestly my alarm clock made my morning lol",
+     "Glad that went your way for once"
+    ]
+   ],
+   "answer": "",
+   "reply": "That’s adorable. Cloud photos are such a fun way to start the day.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1218,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1218,
+   "ran_out_of_calls": false,
+   "first_reply": "That’s adorable. Cloud photos are such a fun way to start the day.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_13",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "bumped into Leila at the shops, we chatted for ages by the bread",
+   "view": [
+    [
+     "honestly the bike lane made my morning lol",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "honestly the ice cream van made my morning lol",
+     "Love that for you"
+    ],
+    [
+     "ok the window blinds actually went fine for once",
+     "Good stuff, sometimes the little things count"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a lovely little moment",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1257,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1257,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a lovely little moment",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_14",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Marisol keeps texting me pictures of clouds for some reason",
+   "view": [
+    [
+     "so my lunchbox has officially given up on me",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "was thinking about the noisy pipes on the walk home",
+     "Ha, i get that, little things stick with you"
+    ],
+    [
+     "ok the lightbulb actually went fine for once",
+     "Nice, love a small win"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a cute little thing to do. Maybe she's just having a good day and wants to share it with you.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1241,
+   "tokens_written": 25,
+   "whole_chat_tokens": 1241,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a cute little thing to do. Maybe she's just having a good day and wants to share it with you.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_15",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Saoirse is doing a big spring clean and roped me in",
+   "view": [
+    [
+     "honestly my umbrella made my morning lol",
+     "Nice one, you earned that"
+    ],
+    [
+     "ugh the noisy pipes is acting up again",
+     "That's so frustrating, i'm sorry"
+    ],
+    [
+     "kinda nostalgic about the bathroom scale today no idea why",
+     "Ha, deep thoughts on a weekday"
+    ]
+   ],
+   "answer": "",
+   "reply": "Sounds like a fun way to spend the day!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1239,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1239,
+   "ran_out_of_calls": false,
+   "first_reply": "Sounds like a fun way to spend the day!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_16",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Bastian sent me the funniest meme this morning",
+   "view": [
+    [
+     "do you ever just stare at the jigsaw and zone out",
+     "Sounds like a thoughtful sort of day"
+    ],
+    [
+     "my lunchbox is driving me up the wall honestly",
+     "Ugh, the timing on these things is always terrible"
+    ],
+    [
+     "ok my sourdough starter actually went fine for once",
+     "See, things do work out sometimes"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a great way to start the day!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1237,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1237,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a great way to start the day!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_17",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "had a long phone call with my flatmate last night, mostly about nothing",
+   "view": [
+    [
+     "ok the smoke alarm actually went fine for once",
+     "Nice one, you earned that"
+    ],
+    [
+     "honestly my inbox made my morning lol",
+     "That's the kind of news i like"
+    ],
+    [
+     "not to complain but my inbox is the worst right now",
+     "Classic, it always goes wrong when you need it"
+    ]
+   ],
+   "answer": "",
+   "reply": "Sounds like a good one, even if it was mostly about nothing.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1232,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1232,
+   "ran_out_of_calls": false,
+   "first_reply": "Sounds like a good one, even if it was mostly about nothing.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_18",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my godmother and i watched a terrible film last night, loved it",
+   "view": [
+    [
+     "finally sorted my socks this morning",
+     "That's lovely, enjoy it"
+    ],
+    [
+     "cant believe the bike lane chose today of all days",
+     "Honestly that would wind me up too"
+    ],
+    [
+     "the duvet got me thinking about how fast the year went",
+     "Ha, i do that all the time"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a fun one, sounds like a good time!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1227,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1227,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a fun one, sounds like a good time!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_19",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my landlady said hi by the way",
+   "view": [
+    [
+     "ugh the leaky tap is acting up again",
+     "Ugh, the timing on these things is always terrible"
+    ],
+    [
+     "do you ever just stare at my socks and zone out",
+     "That's a nice thought actually"
+    ],
+    [
+     "random thought but my sunglasses always reminds me of being a kid",
+     "Ha, deep thoughts on a weekday"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's a nice touch of human connection in the day.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1243,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1243,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a nice touch of human connection in the day.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_20",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Marisol sent me the funniest meme this morning",
+   "view": [
+    [
+     "not to complain but my sourdough starter is the worst right now",
+     "Classic, it always goes wrong when you need it"
+    ],
+    [
+     "ok my socks actually went fine for once",
+     "See, things do work out sometimes"
+    ],
+    [
+     "do you ever just stare at my lunchbox and zone out",
+     "Aw, that's kind of sweet"
+    ]
+   ],
+   "answer": "",
+   "reply": "That's great news! Meme culture is a fun way to start the day.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1253,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1253,
+   "ran_out_of_calls": false,
+   "first_reply": "That's great news! Meme culture is a fun way to start the day.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_21",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Jasper is doing a big spring clean and roped me in",
+   "view": [
+    [
+     "random thought but the duvet always reminds me of being a kid",
+     "That's a nice thought actually"
+    ],
+    [
+     "honestly my wallet made my morning lol",
+     "Yes! a good start to the day"
+    ],
+    [
+     "was thinking about the window blinds on the walk home",
+     "Sounds like a thoughtful sort of day"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a great way to spend the day!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1219,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1219,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a great way to spend the day!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_22",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my bandmate said hi by the way",
+   "view": [
+    [
+     "finally sorted the doorbell this morning",
+     "Oh good, one less thing to worry about"
+    ],
+    [
+     "small win today, my haircut is all good now",
+     "Good stuff, sometimes the little things count"
+    ],
+    [
+     "random thought but my haircut always reminds me of being a kid",
+     "Aw, that's kind of sweet"
+    ]
+   ],
+   "answer": "",
+   "reply": "Nice to hear from your bandmate! How was their day?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1249,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1249,
+   "ran_out_of_calls": false,
+   "first_reply": "Nice to hear from your bandmate! How was their day?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_23",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my choirmate wants to start a book club and i'm not sure i'll keep up",
+   "view": [
+    [
+     "weirdly happy about the mattress today",
+     "Oh good, one less thing to worry about"
+    ],
+    [
+     "finally sorted the hoover this morning",
+     "Good stuff, sometimes the little things count"
+    ],
+    [
+     "random thought but the school run always reminds me of being a kid",
+     "The year really has flown by"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a fun idea, but it's totally okay if you're not sure you can keep up. You can always join in when you're ready, and it's not a requirement to be part of the club.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1238,
+   "tokens_written": 41,
+   "whole_chat_tokens": 1238,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a fun idea, but it's totally okay if you're not sure you can keep up. You can always join in when you're ready, and it's not a requirement to be part of the club.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_24",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my godmother keeps saying we should do a picnic before it gets cold",
+   "view": [
+    [
+     "my houseplants is driving me up the wall honestly",
+     "Ugh, some days nothing cooperates"
+    ],
+    [
+     "random thought but the roadworks always reminds me of being a kid",
+     "It's odd what sets the memories off"
+    ],
+    [
+     "finally sorted the mattress this morning",
+     "Oh good, one less thing to worry about"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a lovely idea. Would you like to plan one?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1247,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1247,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a lovely idea. Would you like to plan one?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_25",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my landlady and i watched a terrible film last night, loved it",
+   "view": [
+    [
+     "the crossword is driving me up the wall honestly",
+     "Hang in there, it'll calm down"
+    ],
+    [
+     "the lightbulb got me thinking about how fast the year went",
+     "I love those random moments"
+    ],
+    [
+     "ugh the school run is acting up again",
+     "That's so frustrating, i'm sorry"
+    ]
+   ],
+   "answer": "",
+   "reply": "Ha, sounds like a fun night out",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1219,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1219,
+   "ran_out_of_calls": false,
+   "first_reply": "Ha, sounds like a fun night out",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_26",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my hairdresser and i watched a terrible film last night, loved it",
+   "view": [
+    [
+     "was thinking about the smoke alarm on the walk home",
+     "Time is strange like that"
+    ],
+    [
+     "weirdly happy about the heatwave today",
+     "Nice one, you earned that"
+    ],
+    [
+     "was thinking about the window blinds on the walk home",
+     "Ha, i do that all the time"
+    ]
+   ],
+   "answer": "",
+   "reply": "Ha, sounds like a fun night out!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1233,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1233,
+   "ran_out_of_calls": false,
+   "first_reply": "Ha, sounds like a fun night out!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_27",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "my flatmate and i watched a terrible film last night, loved it",
+   "view": [
+    [
+     "not to complain but my backpack is the worst right now",
+     "Sounds like a proper headache, sorry"
+    ],
+    [
+     "do you ever just stare at my sunglasses and zone out",
+     "Sounds like a thoughtful sort of day"
+    ],
+    [
+     "honestly the doorbell made my morning lol",
+     "Glad that went your way for once"
+    ]
+   ],
+   "answer": "",
+   "reply": "Ha, that’s a win for the team!",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1245,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1245,
+   "ran_out_of_calls": false,
+   "first_reply": "Ha, that’s a win for the team!",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_28",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Saoirse is doing a big spring clean and roped me in",
+   "view": [
+    [
+     "do you ever just stare at the lightbulb and zone out",
+     "The year really has flown by"
+    ],
+    [
+     "honestly the pothole made my morning lol",
+     "Oh good, one less thing to worry about"
+    ],
+    [
+     "honestly the crossword made my morning lol",
+     "See, things do work out sometimes"
+    ]
+   ],
+   "answer": "",
+   "reply": "Sounds like a good opportunity to catch up and get things done",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1214,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1214,
+   "ran_out_of_calls": false,
+   "first_reply": "Sounds like a good opportunity to catch up and get things done",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  },
+  {
+   "id": "58_statement_29",
+   "size": 58,
+   "kind": "statement",
+   "arm": "whole_chat_all",
+   "message": "Bastian is doing a big spring clean and roped me in",
+   "view": [
+    [
+     "small win today, the doorbell is all good now",
+     "Oh good, one less thing to worry about"
+    ],
+    [
+     "finally sorted the heatwave this morning",
+     "Ha, that's great to hear"
+    ],
+    [
+     "honestly the smoke alarm made my morning lol",
+     "Nice, love a small win"
+    ]
+   ],
+   "answer": "",
+   "reply": "That sounds like a lot of work, but also a chance to get things tidy and maybe even enjoy the process. How are you feeling about it?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1231,
+   "tokens_written": 30,
+   "whole_chat_tokens": 1231,
+   "ran_out_of_calls": false,
+   "first_reply": "That sounds like a lot of work, but also a chance to get things tidy and maybe even enjoy the process. How are you feeling about it?",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false
+  }
+ ],
+ "peak_vram_gib": 6.62,
+ "seconds": 115
+}
