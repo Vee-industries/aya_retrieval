@@ -6749,3 +6749,24 @@ below-normal priority.
   recall over plain code. The write-up then says so first, with what training does add: deciding when not to search
   (`in_view`, `never_told`, `statement`).
 - If it is below seed 82, the gap is reported with its sign test.
+
+**Result** (07:37 to 07:49, both on the first try). Of 40 a kind (recall of 120), same questions:
+
+| Kind | Set 1: code always searches | seed 82, tool | base, tool | base, whole chat | Set 2: code | seed 82 | base, tool | base, whole |
+|---|---|---|---|---|---|---|---|---|
+| recall (`older` + `confirm`, 120) | 42 | 39 | 26 | 71 | 47 | 53 | 27 | 65 |
+| `older` (80) | 23 | 28 | 11 | 58 | 24 | 34 | 12 | 52 |
+| `confirm` (40) | 19 | 11 | 15 | 13 | 23 | 19 | 15 | 13 |
+| `in_view` (40) | 13 | 35 | 36 | 35 | 16 | 37 | 34 | 32 |
+| `never_told` (40) | 31 | 37 | 34 | 31 | 24 | 36 | 32 | 28 |
+| `statement` (40) | 0 | 37 | 38 | 40 | 0 | 35 | 39 | 40 |
+
+Seed 82 against code that always searches, on recall: set 1, only code right 22, only seed 82 19, p = 0.76; set 2,
+19 and 25, p = 0.45.
+
+**Reading, as registered.** On chats people write, training shows no measured recall gain over plain code that
+searches every turn. Code is above seed 82 on set 1 (42 against 39) and below on set 2 (47 against 53), and neither gap
+is near significance. Set 1 meets the registered first outcome. What training adds over plain code is deciding when
+not to search: `in_view` 35 and 37 against 13 and 16, `never_told` 37 and 36 against 31 and 24, `statement` 37 and 35
+against 0. On the generated sealed pools, the adapters were far above code on recall as well (R-168). The write-up
+says so first, with the kind of chat each result is on.
