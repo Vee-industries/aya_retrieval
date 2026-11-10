@@ -13,7 +13,9 @@ interval, because rule 1's adapter-conversation pairs share conversations, and e
 seconds, seconds per conversation, card memory, tokens read and written per turn against the whole
 chat, searches per conversation; Kevin asked for the times as a metric). Coherence is read from
 ``results/coherence/R-162`` when a condition's judge-1 marks are in; until then it is reported as
-waiting. Writes results/analysis/R-162/<condition>.json.
+waiting. Judges 2 and 3 are scored the same way and reported, not gating; rule 1 is also recomputed
+on R-016's own three seeds (82, 83, 94), so the test as first registered is visible (R-164).
+Writes results/analysis/R-162/<condition>.json.
 """
 
 from __future__ import annotations
@@ -33,6 +35,7 @@ OUT = Path("results/analysis/R-162")
 SEED = 90311
 ADAPTERS = tuple(f"fix17cs37_{s}" for s in (82, 83, 94, 95, 96, 97, 98, 99))
 SHIPPED = "fix17cs37_82"
+R016_SEEDS = ("fix17cs37_82", "fix17cs37_83", "fix17cs37_94")  # R-016's three; R-162 ran eight
 SIZES = (58, 419)
 KINDS = ("older", "confirm", "in_view", "never_told", "statement")
 RECALL = ("older", "confirm")
@@ -123,17 +126,17 @@ def recall_rule(base: dict, adapters: dict[str, dict], retrieved_only: bool) -> 
     return out
 
 
-def coherence(condition: str) -> dict:
-    """Coherent lines per model on judge 1's marks; every adapter must be at or above base."""
+def coherence(condition: str, judge: str = "j1") -> dict:
+    """Coherent lines per model on one judge's marks; every adapter must be at or above base."""
     counts: Counter = Counter()
     for sheet in SHEETS[condition]:
-        marks_path = COHERENCE / "judge" / f"marks_{sheet}_j1.json"
+        marks_path = COHERENCE / "judge" / f"marks_{sheet}_{judge}.json"
         if not marks_path.exists():
-            return {"status": "waiting for judge 1's marks", "missing": str(marks_path)}
+            return {"status": f"waiting for {judge}'s marks", "missing": str(marks_path)}
         marks = json.loads(marks_path.read_text(encoding="utf-8"))
         key = json.loads((COHERENCE / f"sheet_{sheet}" / "key.json").read_text(encoding="utf-8"))
         if sorted(marks, key=int) != [str(line["line"]) for line in key]:
-            raise ValueError(f"judge 1's marks on {sheet} do not cover every line")
+            raise ValueError(f"{judge}'s marks on {sheet} do not cover every line")
         for line in key:
             counts[line["model"]] += marks[str(line["line"])]
     gate = {a: counts[a] >= counts["base"] for a in ADAPTERS}
@@ -166,6 +169,10 @@ def main() -> None:
                 "pass": all(false[a] <= false["base"] for a in ADAPTERS),
             },
             "rule_4_coherence": coherence(condition),
+            "coherence_judges_2_and_3": {j: coherence(condition, j) for j in ("j2", "j3")},
+            "r016_three_seeds_recall": recall_rule(
+                base, {a: adapters[a] for a in R016_SEEDS}, retrieved_only=False
+            ),
             "per_kind_correct": {
                 k: {
                     m: sum(bool(r["correct"]) for r in run.values() if r["kind"] == k)

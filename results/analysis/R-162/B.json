@@ -85,6 +85,79 @@
   },
   "pass": true
  },
+ "coherence_judges_2_and_3": {
+  "j2": {
+   "coherent": {
+    "fix17cs37_94": 106,
+    "base": 59,
+    "fix17cs37_98": 108,
+    "fix17cs37_97": 107,
+    "fix17cs37_96": 106,
+    "fix17cs37_99": 113,
+    "fix17cs37_83": 106,
+    "fix17cs37_95": 104,
+    "fix17cs37_82": 105
+   },
+   "each_adapter_at_or_above_base": {
+    "fix17cs37_82": true,
+    "fix17cs37_83": true,
+    "fix17cs37_94": true,
+    "fix17cs37_95": true,
+    "fix17cs37_96": true,
+    "fix17cs37_97": true,
+    "fix17cs37_98": true,
+    "fix17cs37_99": true
+   },
+   "pass": true
+  },
+  "j3": {
+   "coherent": {
+    "fix17cs37_94": 113,
+    "base": 61,
+    "fix17cs37_98": 107,
+    "fix17cs37_97": 107,
+    "fix17cs37_96": 106,
+    "fix17cs37_99": 114,
+    "fix17cs37_83": 108,
+    "fix17cs37_95": 108,
+    "fix17cs37_82": 108
+   },
+   "each_adapter_at_or_above_base": {
+    "fix17cs37_82": true,
+    "fix17cs37_83": true,
+    "fix17cs37_94": true,
+    "fix17cs37_95": true,
+    "fix17cs37_96": true,
+    "fix17cs37_97": true,
+    "fix17cs37_98": true,
+    "fix17cs37_99": true
+   },
+   "pass": true
+  }
+ },
+ "r016_three_seeds_recall": {
+  "sizes": {
+   "58": {
+    "base": 25.0,
+    "adapters_pooled": 90.6,
+    "points": 65.6,
+    "pass": true
+   },
+   "419": {
+    "base": 23.3,
+    "adapters_pooled": 85.6,
+    "points": 62.2,
+    "pass": true
+   }
+  },
+  "sign_test": {
+   "only_base": 10,
+   "only_adapters": 240,
+   "p": 2.5252663870669353e-58,
+   "pass": true
+  },
+  "pass": true
+ },
  "per_kind_correct": {
   "older": {
    "base": 23,
