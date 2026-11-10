@@ -6534,3 +6534,11 @@ only, as the arm runs), greedy, on both outside-writer sets, seed 0: `wc_blind_f
 **What each outcome means, fixed now.** At or above whole-chat base: training cost nothing when the chat fits, so the
 trained model is never worse than base (read the chat when it fits, search when it does not). Below whole-chat base:
 training damaged how the model uses visible context, and the write-up says so first.
+
+**Result, set 1** (`wc_blind_fix17cs37_82`, 04:13, 368 s, peak 7.13 GiB). Whole chat in view, `older`, of 80: 6.37 seed
+82 59, base 58; only base right 8, only 6.37 right 9, exact sign test p = 1. Training did not measurably damage how the
+model uses context it can see. **Set 2 not run:** it was stopped at 04:15. The old queue runner (stuck since 21:42 on
+`wc_probe_base`) resumed when this record's commit cleaned the tree, and started a second run on the card. Kevin's
+PC slowed, so both runs and the runner were stopped. Reading for the write-up, as registered: when the chat fits,
+give the trained model the whole chat; it scores as base does. When it does not fit, it searches, and beats base by
+a wide margin (R-163, R-146, R-157). Not yet tested: the trained model with the whole chat and the tool together.

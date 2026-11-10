@@ -1,0 +1,2707 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-10T09:07:20+00:00",
+  "command": [
+   "scripts/run_recall_eval.py",
+   "--seed",
+   "0",
+   "--items-dir",
+   "data/blind_dev/chats",
+   "--index",
+   "C:/Users/Gaming/scratch/eval_blind.sqlite",
+   "--label",
+   "wc_blind_fix17cs37_82",
+   "--arms",
+   "whole_chat",
+   "--max-vram-fraction",
+   "0.85",
+   "--adapter",
+   "C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/fix17cs37_82"
+  ],
+  "git_commit": "e1f899c48cf73fb0eab6046e51f65b3bca3f85ed",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+ "adapter": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\screens\\fix17cs37_82",
+ "seed": 0,
+ "pool": null,
+ "decoys": 1,
+ "sizes": null,
+ "kinds": [
+  "older",
+  "confirm",
+  "in_view",
+  "never_told",
+  "statement"
+ ],
+ "user_style": false,
+ "phone_style": false,
+ "corrections": false,
+ "corrections_heldout": false,
+ "asked_before": false,
+ "chat_check": null,
+ "rows": [
+  {
+   "id": "w1_01_q0",
+   "size": 44,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what breed is my sister in laws dog again",
+   "view": [
+    [
+     "maybe later. mom just texted, she has to go to her rheumatologist friday so she might come late",
+     "Hopefully the appointment goes quickly and she can still join for most of it."
+    ],
+    [
+     "yea her arthritis has been bad in her hands lately, which is funny bc she still does the clay stuff",
+     "Working with clay might actually help keep her hands moving, as long as it doesn't hurt."
+    ],
+    [
+     "true. ok im gonna go start cleaning",
+     "Good luck! Start with the couch since that's where the dogs will end up."
+    ]
+   ],
+   "answer": "greyhound",
+   "reply": "Luna is a greyhound.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1342,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1342,
+   "ran_out_of_calls": false,
+   "first_reply": "Luna is a greyhound.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_01_q1",
+   "size": 44,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "remind me where dev goes now",
+   "view": [
+    [
+     "maybe later. mom just texted, she has to go to her rheumatologist friday so she might come late",
+     "Hopefully the appointment goes quickly and she can still join for most of it."
+    ],
+    [
+     "yea her arthritis has been bad in her hands lately, which is funny bc she still does the clay stuff",
+     "Working with clay might actually help keep her hands moving, as long as it doesn't hurt."
+    ],
+    [
+     "true. ok im gonna go start cleaning",
+     "Good luck! Start with the couch since that's where the dogs will end up."
+    ]
+   ],
+   "answer": "westview",
+   "reply": "Dev goes to Westview Elementary.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1340,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1340,
+   "ran_out_of_calls": false,
+   "first_reply": "Dev goes to Westview Elementary.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_02_q0",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "wait where did my cousin end up moving",
+   "view": [
+    [
+     "the only thing is her diabetes means I have to watch what she eats at these potlucks, she sneaks desserts",
+     "Maybe bring a dessert you know is safe for her so she has something to enjoy."
+    ],
+    [
+     "good idea, I can do a sugar free flan",
+     "A flan would fit right in, and she might not even notice the difference."
+    ],
+    [
+     "haha she'll notice, she notices everything. Ok I'm gonna start a group chat for the potluck",
+     "Good luck with the planning, it sounds like it'll be a nice send-off."
+    ]
+   ],
+   "answer": "Calgary",
+   "reply": "He moved to Calgary.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1471,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1471,
+   "ran_out_of_calls": false,
+   "first_reply": "He moved to Calgary.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_02_q1",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what does my aunt do again, I forget",
+   "view": [
+    [
+     "the only thing is her diabetes means I have to watch what she eats at these potlucks, she sneaks desserts",
+     "Maybe bring a dessert you know is safe for her so she has something to enjoy."
+    ],
+    [
+     "good idea, I can do a sugar free flan",
+     "A flan would fit right in, and she might not even notice the difference."
+    ],
+    [
+     "haha she'll notice, she notices everything. Ok I'm gonna start a group chat for the potluck",
+     "Good luck with the planning, it sounds like it'll be a nice send-off."
+    ]
+   ],
+   "answer": "veterinarian",
+   "reply": "She's a veterinarian, which is a fascinating profession.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1472,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1472,
+   "ran_out_of_calls": false,
+   "first_reply": "She's a veterinarian, which is a fascinating profession.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_03_q0",
+   "size": 56,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats the thing my great uncle is into again",
+   "view": [
+    [
+     "oh and mr brennan from next door to kenji might come by hes a firefighter so at least someone knows first aid lol",
+     "Handy to have someone with that training around a crowd and a grill."
+    ],
+    [
+     "he usually brings his teenagers who eat everything in sight",
+     "Better add a few more portions to that 40, then."
+    ],
+    [
+     "lmao ya good point",
+     "Teenagers can easily eat double, so a little extra won't go to waste."
+    ]
+   ],
+   "answer": "calligraphy",
+   "reply": "It sounds like your great uncle is into woodworking.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1338,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1338,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your great uncle is into woodworking.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_03_q2",
+   "size": 56,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats mom sick with again",
+   "view": [
+    [
+     "oh and mr brennan from next door to kenji might come by hes a firefighter so at least someone knows first aid lol",
+     "Handy to have someone with that training around a crowd and a grill."
+    ],
+    [
+     "he usually brings his teenagers who eat everything in sight",
+     "Better add a few more portions to that 40, then."
+    ],
+    [
+     "lmao ya good point",
+     "Teenagers can easily eat double, so a little extra won't go to waste."
+    ]
+   ],
+   "answer": "shingles",
+   "reply": "You mentioned that your mom had shingles. Is there anything specific you'd like to know about it or the reunion?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1334,
+   "tokens_written": 23,
+   "whole_chat_tokens": 1334,
+   "ran_out_of_calls": false,
+   "first_reply": "You mentioned that your mom had shingles. Is there anything specific you'd like to know about it or the reunion?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_04_q0",
+   "size": 40,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What sport is my niece into again?",
+   "view": [
+    [
+     "Good point. Mum's asthma also flares up in crowded rooms, so I might open up the patio doors.",
+     "Fresh air will help her, and it'll keep the room cooler for everyone."
+    ],
+    [
+     "I'll set up a quiet corner for her and Grandpa too.",
+     "That's thoughtful. It gives them a place to rest when they need it."
+    ],
+    [
+     "Great. I think I have enough to start writing a list.",
+     "Sounds good. Starting with guests and food usually makes the rest easier."
+    ]
+   ],
+   "answer": "netball",
+   "reply": "Badminton, I think.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1254,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1254,
+   "ran_out_of_calls": false,
+   "first_reply": "Badminton, I think.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_04_q1",
+   "size": 40,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What does Obinna do for a living?",
+   "view": [
+    [
+     "Good point. Mum's asthma also flares up in crowded rooms, so I might open up the patio doors.",
+     "Fresh air will help her, and it'll keep the room cooler for everyone."
+    ],
+    [
+     "I'll set up a quiet corner for her and Grandpa too.",
+     "That's thoughtful. It gives them a place to rest when they need it."
+    ],
+    [
+     "Great. I think I have enough to start writing a list.",
+     "Sounds good. Starting with guests and food usually makes the rest easier."
+    ]
+   ],
+   "answer": "accountant",
+   "reply": "That's a great question. Since you mentioned that Obinna is flying in from Manchester, it's likely that he's working in a field related to accounting or finance.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1254,
+   "tokens_written": 31,
+   "whole_chat_tokens": 1254,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a great question. Since you mentioned that Obinna is flying in from Manchester, it's likely that he's working in a field related to accounting or finance.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_05_q0",
+   "size": 60,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats my brother in law driving these days",
+   "view": [
+    [
+     "ok update the doctor says jun broke his wrist, small fracture, so a cast for six weeks",
+     "Poor kid, but a small fracture heals well at his age."
+    ],
+    [
+     "he's already asking if everyone can sign it",
+     "That's a good sign he's in decent spirits."
+    ],
+    [
+     "ya hes fine lol hes more excited than upset",
+     "Kids bounce back quick. Hope you all get home soon."
+    ]
+   ],
+   "answer": "prius",
+   "reply": "Prius, I think.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1354,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1354,
+   "ran_out_of_calls": false,
+   "first_reply": "Prius, I think.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_05_q1",
+   "size": 60,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what's dad's new retirement thing again",
+   "view": [
+    [
+     "ok update the doctor says jun broke his wrist, small fracture, so a cast for six weeks",
+     "Poor kid, but a small fracture heals well at his age."
+    ],
+    [
+     "he's already asking if everyone can sign it",
+     "That's a good sign he's in decent spirits."
+    ],
+    [
+     "ya hes fine lol hes more excited than upset",
+     "Kids bounce back quick. Hope you all get home soon."
+    ]
+   ],
+   "answer": "birdwatching",
+   "reply": "[Retired plumber]",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1351,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1351,
+   "ran_out_of_calls": false,
+   "first_reply": "[Retired plumber]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_06_q0",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What did the doctors say is wrong with my daughter-in-law?",
+   "view": [
+    [
+     "Emre has his violin lesson at four, so I'll cook while he's there.",
+     "That works out nicely. You'll have a quiet hour in the kitchen."
+    ],
+    [
+     "He has been practicing very loudly all morning.",
+     "At least he's keen."
+    ],
+    [
+     "Very keen. My ears are less keen.",
+     "A quiet hour of cooking will be well earned, then."
+    ]
+   ],
+   "answer": "vertigo",
+   "reply": "She has anemia, which is a lack of iron in her body.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1271,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1271,
+   "ran_out_of_calls": false,
+   "first_reply": "She has anemia, which is a lack of iron in her body.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_06_q2",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What does Mrs Lindqvist do again?",
+   "view": [
+    [
+     "Emre has his violin lesson at four, so I'll cook while he's there.",
+     "That works out nicely. You'll have a quiet hour in the kitchen."
+    ],
+    [
+     "He has been practicing very loudly all morning.",
+     "At least he's keen."
+    ],
+    [
+     "Very keen. My ears are less keen.",
+     "A quiet hour of cooking will be well earned, then."
+    ]
+   ],
+   "answer": "dentist",
+   "reply": "She's a dentist, which is a fascinating profession.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1266,
+   "tokens_written": 11,
+   "whole_chat_tokens": 1266,
+   "ran_out_of_calls": false,
+   "first_reply": "She's a dentist, which is a fascinating profession.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_07_q0",
+   "size": 42,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what pet does my aunt have",
+   "view": [
+    [
+     "dad might come too, his gout is acting up again tho",
+     "Hopefully he can rest his foot and still enjoy dinner."
+    ],
+    [
+     "he'll complain the whole time lol",
+     "That's part of the tradition, maybe."
+    ],
+    [
+     "pretty much",
+     "At least the food will be good."
+    ]
+   ],
+   "answer": "cockatiel",
+   "reply": "It sounds like your aunt has a cockatiel.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 964,
+   "tokens_written": 11,
+   "whole_chat_tokens": 964,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your aunt has a cockatiel.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_07_q1",
+   "size": 42,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "wait what does mikael do for work",
+   "view": [
+    [
+     "dad might come too, his gout is acting up again tho",
+     "Hopefully he can rest his foot and still enjoy dinner."
+    ],
+    [
+     "he'll complain the whole time lol",
+     "That's part of the tradition, maybe."
+    ],
+    [
+     "pretty much",
+     "At least the food will be good."
+    ]
+   ],
+   "answer": "mechanic",
+   "reply": "Mikael is a mechanic.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 967,
+   "tokens_written": 7,
+   "whole_chat_tokens": 967,
+   "ran_out_of_calls": false,
+   "first_reply": "Mikael is a mechanic.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_08_q0",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what team is my mother in law into again",
+   "view": [
+    [
+     "he set up a whole karaoke machine in his garage and makes everyone sing at least once",
+     "That's a bold rule. Do you have a go-to song?"
+    ],
+    [
+     "dancing queen obviously",
+     "A classic choice, impossible to go wrong."
+    ],
+    [
+     "ravi refuses to sing every time lol",
+     "Maybe tonight's the night he finally gives in."
+    ]
+   ],
+   "answer": "oilers",
+   "reply": "You mentioned that your mother-in-law is a die-hard Canucks fan. Is there anything specific you'd like to know about her team or her views on hockey?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1366,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1366,
+   "ran_out_of_calls": false,
+   "first_reply": "You mentioned that your mother-in-law is a die-hard Canucks fan. Is there anything specific you'd like to know about her team or her views on hockey?",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_08_q2",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats the food kai cant have",
+   "view": [
+    [
+     "he set up a whole karaoke machine in his garage and makes everyone sing at least once",
+     "That's a bold rule. Do you have a go-to song?"
+    ],
+    [
+     "dancing queen obviously",
+     "A classic choice, impossible to go wrong."
+    ],
+    [
+     "ravi refuses to sing every time lol",
+     "Maybe tonight's the night he finally gives in."
+    ]
+   ],
+   "answer": "shellfish",
+   "reply": "Shellfish, which is a bit of a bummer for a 7-year-old.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1364,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1364,
+   "ran_out_of_calls": false,
+   "first_reply": "Shellfish, which is a bit of a bummer for a 7-year-old.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_09_q0",
+   "size": 46,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "Where did my cousin go after the wedding again?",
+   "view": [
+    [
+     "Ok good. Also Thomas is playing the bagpipes at our street party next weekend, he's been practising and the whole block can hear",
+     "That'll certainly get people's attention."
+    ],
+    [
+     "my dog howls every time he starts",
+     "Your dog might be joining in by the time of the party."
+    ],
+    [
+     "lol a duet",
+     "Could be the highlight of the street party."
+    ]
+   ],
+   "answer": "Lisbon",
+   "reply": "She flew to Lisbon for the honeymoon.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1222,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1222,
+   "ran_out_of_calls": false,
+   "first_reply": "She flew to Lisbon for the honeymoon.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_09_q1",
+   "size": 46,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats uncle bjorn's boat called now",
+   "view": [
+    [
+     "Ok good. Also Thomas is playing the bagpipes at our street party next weekend, he's been practising and the whole block can hear",
+     "That'll certainly get people's attention."
+    ],
+    [
+     "my dog howls every time he starts",
+     "Your dog might be joining in by the time of the party."
+    ],
+    [
+     "lol a duet",
+     "Could be the highlight of the street party."
+    ]
+   ],
+   "answer": "Freya",
+   "reply": "Freya.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1221,
+   "tokens_written": 3,
+   "whole_chat_tokens": 1221,
+   "ran_out_of_calls": false,
+   "first_reply": "Freya.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_10_q0",
+   "size": 54,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats my stepdad eating these days, the diet thing",
+   "view": [
+    [
+     "my cousin diego said he'd bring something but he's surfing in tofino till the day before so who knows",
+     "He might show up with a store-bought pie, which is still fine."
+    ],
+    [
+     "honestly thats all i want from him",
+     "Low expectations make for a relaxed host."
+    ],
+    [
+     "exactly. ok im gonna make a shopping list",
+     "Good plan, start with the turkey and work from there."
+    ]
+   ],
+   "answer": "keto",
+   "reply": "Keto, I think. He might be eating meat and cheese, but it's hard to say for sure without more information.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1279,
+   "tokens_written": 24,
+   "whole_chat_tokens": 1279,
+   "ran_out_of_calls": false,
+   "first_reply": "Keto, I think. He might be eating meat and cheese, but it's hard to say for sure without more information.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w1_10_q1",
+   "size": 54,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "where is chloe at university",
+   "view": [
+    [
+     "my cousin diego said he'd bring something but he's surfing in tofino till the day before so who knows",
+     "He might show up with a store-bought pie, which is still fine."
+    ],
+    [
+     "honestly thats all i want from him",
+     "Low expectations make for a relaxed host."
+    ],
+    [
+     "exactly. ok im gonna make a shopping list",
+     "Good plan, start with the turkey and work from there."
+    ]
+   ],
+   "answer": "mcgill",
+   "reply": "It sounds like Chloe is studying at McGill University in Montreal, Canada.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1273,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1273,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like Chloe is studying at McGill University in Montreal, Canada.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_01_q0",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "which city is aisha on my team heading to again",
+   "view": [
+    [
+     "rahul's chill tho. he used to be a paramedic before he got into tech which is wild",
+     "That's quite a career switch. He probably stays calm under pressure."
+    ],
+    [
+     "yeah nothing rattles him. ok writing up my talking points now",
+     "Good plan. Lead with the impact on deadlines, that tends to get attention."
+    ],
+    [
+     "thx. gonna grab a coffee first",
+     "Enjoy, and good luck at 3."
+    ]
+   ],
+   "answer": "Calgary",
+   "reply": "She's heading to Halifax.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1448,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1448,
+   "ran_out_of_calls": false,
+   "first_reply": "She's heading to Halifax.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_01_q1",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "remind me which uni kenji goes to",
+   "view": [
+    [
+     "rahul's chill tho. he used to be a paramedic before he got into tech which is wild",
+     "That's quite a career switch. He probably stays calm under pressure."
+    ],
+    [
+     "yeah nothing rattles him. ok writing up my talking points now",
+     "Good plan. Lead with the impact on deadlines, that tends to get attention."
+    ],
+    [
+     "thx. gonna grab a coffee first",
+     "Enjoy, and good luck at 3."
+    ]
+   ],
+   "answer": "McMaster",
+   "reply": "McMaster University.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1446,
+   "tokens_written": 4,
+   "whole_chat_tokens": 1446,
+   "ran_out_of_calls": false,
+   "first_reply": "McMaster University.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_02_q0",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats the brightwater mei allergic to again, i want to double check with the restaurant",
+   "view": [
+    [
+     "she ran workshops for a living at Deloitte for like ten years so she's ruthless about timing, ive seen her end a meeting mid sentence",
+     "That's a useful ally to have in the room. Clients usually appreciate a meeting that ends on time."
+    ],
+    [
+     "true. ok im gonna write up the agenda now and send it round before i forget",
+     "Sounds good. Sending it early gives people time to flag anything."
+    ],
+    [
+     "and then im leaving at 5 sharp no matter what",
+     "You've earned it. Good luck with the agenda."
+    ]
+   ],
+   "answer": "shellfish",
+   "reply": "Shellfish.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1786,
+   "tokens_written": 3,
+   "whole_chat_tokens": 1786,
+   "ran_out_of_calls": false,
+   "first_reply": "Shellfish.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_02_q1",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats oluwaseun into these days outside of work",
+   "view": [
+    [
+     "she ran workshops for a living at Deloitte for like ten years so she's ruthless about timing, ive seen her end a meeting mid sentence",
+     "That's a useful ally to have in the room. Clients usually appreciate a meeting that ends on time."
+    ],
+    [
+     "true. ok im gonna write up the agenda now and send it round before i forget",
+     "Sounds good. Sending it early gives people time to flag anything."
+    ],
+    [
+     "and then im leaving at 5 sharp no matter what",
+     "You've earned it. Good luck with the agenda."
+    ]
+   ],
+   "answer": "cello",
+   "reply": "It sounds like he's enjoying a new hobby.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1780,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1780,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like he's enjoying a new hobby.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_03_q0",
+   "size": 44,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What does the Haddad son use to get to work?",
+   "view": [
+    [
+     "Leases, mainly. She found a spot in an old bank building downtown, and the landlord's terms are aggressive.",
+     "Old buildings often come with unusual lease clauses. Worth checking who's responsible for repairs."
+    ],
+    [
+     "Siobhan has a contact at the city who might know the building's history. She studied urban planning at McGill before switching to law.",
+     "That background could be really useful here. Planning knowledge and legal training are a good combination."
+    ],
+    [
+     "Agreed. I'll ask her to make a call this afternoon.",
+     "Sounds like a good plan. Knowing the building's history could give you leverage with the landlord."
+    ]
+   ],
+   "answer": "Vespa",
+   "reply": "That's a great detail to include in your meeting notes. The Vespa is a fun ride, but it might not be the most efficient way to commute, especially if you're dealing with a lot of meetings.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1436,
+   "tokens_written": 41,
+   "whole_chat_tokens": 1436,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a great detail to include in your meeting notes. The Vespa is a fun ride, but it might not be the most efficient way to commute, especially if you're dealing with a lot of meetings.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_03_q1",
+   "size": 44,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What is my senior partner off sick with? I want to mention it in a card.",
+   "view": [
+    [
+     "Leases, mainly. She found a spot in an old bank building downtown, and the landlord's terms are aggressive.",
+     "Old buildings often come with unusual lease clauses. Worth checking who's responsible for repairs."
+    ],
+    [
+     "Siobhan has a contact at the city who might know the building's history. She studied urban planning at McGill before switching to law.",
+     "That background could be really useful here. Planning knowledge and legal training are a good combination."
+    ],
+    [
+     "Agreed. I'll ask her to make a call this afternoon.",
+     "Sounds like a good plan. Knowing the building's history could give you leverage with the landlord."
+    ]
+   ],
+   "answer": "shingles",
+   "reply": "You can mention that your senior partner is off sick with shingles.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1442,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1442,
+   "ran_out_of_calls": false,
+   "first_reply": "You can mention that your senior partner is off sick with shingles.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_04_q0",
+   "size": 56,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats client arjuns pet called again",
+   "view": [
+    [
+     "ngozi caught it actually shes our qa lead and she checks everything she used to be an accountant before tech",
+     "That attention to detail makes sense with that background. Good catch on her part."
+    ],
+    [
+     "yeah she saved my butt. redeploying",
+     "Here's hoping it goes through this time."
+    ],
+    [
+     "it worked finaly",
+     "Nice! Time to call it a day?"
+    ]
+   ],
+   "answer": "pickles",
+   "reply": "Pickles.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1472,
+   "tokens_written": 3,
+   "whole_chat_tokens": 1472,
+   "ran_out_of_calls": false,
+   "first_reply": "Pickles.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_04_q1",
+   "size": 56,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats takeshis weekend thing again",
+   "view": [
+    [
+     "ngozi caught it actually shes our qa lead and she checks everything she used to be an accountant before tech",
+     "That attention to detail makes sense with that background. Good catch on her part."
+    ],
+    [
+     "yeah she saved my butt. redeploying",
+     "Here's hoping it goes through this time."
+    ],
+    [
+     "it worked finaly",
+     "Nice! Time to call it a day?"
+    ]
+   ],
+   "answer": "bouldering",
+   "reply": "He goes bouldering at a gym downtown every Saturday.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1471,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1471,
+   "ran_out_of_calls": false,
+   "first_reply": "He goes bouldering at a gym downtown every Saturday.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_05_q0",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what's my sous chef's side hustle again?",
+   "view": [
+    [
+     "he also plays rugby on a club team on sundays, and the whole team is going to the party lol",
+     "Sounds like it's going to be a very big party. A whole club team at a birthday will keep things lively."
+    ],
+    [
+     "ha yeah. ok closing up",
+     "Good work today. Get some rest before tomorrow's prep."
+    ],
+    [
+     "will do, i'm wiped",
+     "You've earned a quiet night."
+    ]
+   ],
+   "answer": "tattoos",
+   "reply": "Amara's side hustle is tattooing at a shop on Queen St. She's booked solid every Saturday and Sunday.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1485,
+   "tokens_written": 23,
+   "whole_chat_tokens": 1485,
+   "ran_out_of_calls": false,
+   "first_reply": "Amara's side hustle is tattooing at a shop on Queen St. She's booked solid every Saturday and Sunday.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_05_q1",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what's the main course for the dimitriou wedding again, i need to put the order in",
+   "view": [
+    [
+     "he also plays rugby on a club team on sundays, and the whole team is going to the party lol",
+     "Sounds like it's going to be a very big party. A whole club team at a birthday will keep things lively."
+    ],
+    [
+     "ha yeah. ok closing up",
+     "Good work today. Get some rest before tomorrow's prep."
+    ],
+    [
+     "will do, i'm wiped",
+     "You've earned a quiet night."
+    ]
+   ],
+   "answer": "salmon",
+   "reply": "Salmon. That's the main course.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1496,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1496,
+   "ran_out_of_calls": false,
+   "first_reply": "Salmon. That's the main course.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_06_q0",
+   "size": 46,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "where did nadia from my pod go on her trip",
+   "view": [
+    [
+     "ifeoma just pulled out a huge pot of jollof rice for the whole pod lol, second lunch",
+     "What a lovely thing to do on a day like this. Homemade food beats vending machine snacks every time."
+    ],
+    [
+     "shes the best. her mom taught her",
+     "Family recipes are always the best ones."
+    ],
+    [
+     "ok 2 hrs left lets go",
+     "Home stretch. You've got this."
+    ]
+   ],
+   "answer": "iceland",
+   "reply": "She went to Iceland.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1243,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1243,
+   "ran_out_of_calls": false,
+   "first_reply": "She went to Iceland.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_06_q1",
+   "size": 46,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what team is bao on now",
+   "view": [
+    [
+     "ifeoma just pulled out a huge pot of jollof rice for the whole pod lol, second lunch",
+     "What a lovely thing to do on a day like this. Homemade food beats vending machine snacks every time."
+    ],
+    [
+     "shes the best. her mom taught her",
+     "Family recipes are always the best ones."
+    ],
+    [
+     "ok 2 hrs left lets go",
+     "Home stretch. You've got this."
+    ]
+   ],
+   "answer": "escalations",
+   "reply": "He was on the billing team, but now he's in escalations.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1238,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1238,
+   "ran_out_of_calls": false,
+   "first_reply": "He was on the billing team, but now he's in escalations.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_07_q0",
+   "size": 54,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What did Hannah at the bank hurt again? I want to ask how she's healing.",
+   "view": [
+    [
+     "Very far. She's flying in from Enugu, it's her first visit to Canada in like six years, so Adaeze is a bit nervous about everything being perfect.",
+     "Six years is a long gap, no wonder she wants it to go well. I hope they have a wonderful visit."
+    ],
+    [
+     "Me too. She's taking the rest of the week off.",
+     "Well deserved, and good timing now that the client crisis is handled."
+    ],
+    [
+     "Right. Okay, I'm going to start on the schedule.",
+     "Good luck. Let me know if you want help laying it out."
+    ]
+   ],
+   "answer": "ankle",
+   "reply": "Hannah rolled her ankle playing squash last weekend and it's a bad sprain.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1686,
+   "tokens_written": 15,
+   "whole_chat_tokens": 1686,
+   "ran_out_of_calls": false,
+   "first_reply": "Hannah rolled her ankle playing squash last weekend and it's a bad sprain.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_07_q1",
+   "size": 54,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "Which business school did Adaeze go to?",
+   "view": [
+    [
+     "Very far. She's flying in from Enugu, it's her first visit to Canada in like six years, so Adaeze is a bit nervous about everything being perfect.",
+     "Six years is a long gap, no wonder she wants it to go well. I hope they have a wonderful visit."
+    ],
+    [
+     "Me too. She's taking the rest of the week off.",
+     "Well deserved, and good timing now that the client crisis is handled."
+    ],
+    [
+     "Right. Okay, I'm going to start on the schedule.",
+     "Good luck. Let me know if you want help laying it out."
+    ]
+   ],
+   "answer": "INSEAD",
+   "reply": "Adaeze went to INSEAD.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1678,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1678,
+   "ran_out_of_calls": false,
+   "first_reply": "Adaeze went to INSEAD.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_08_q0",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what did annikas sister want for her kitchen again",
+   "view": [
+    [
+     "yeah wojciech will take him under his wing, mateo is doing his trade school through humber so hell be on site 3 days a week and in class the rest",
+     "That's a good balance of classroom and real work. Wojciech has a lot to teach him."
+    ],
+    [
+     "yeah hopefully some patience too lol",
+     "Patience is the hardest skill to teach, but a good mentor helps."
+    ],
+    [
+     "ok going to bed, early start again",
+     "Good night, I hope tomorrow is smoother."
+    ]
+   ],
+   "answer": "marble",
+   "reply": "Marble.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1587,
+   "tokens_written": 3,
+   "whole_chat_tokens": 1587,
+   "ran_out_of_calls": false,
+   "first_reply": "Marble.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_08_q1",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "where is kofi going to live once he retires",
+   "view": [
+    [
+     "yeah wojciech will take him under his wing, mateo is doing his trade school through humber so hell be on site 3 days a week and in class the rest",
+     "That's a good balance of classroom and real work. Wojciech has a lot to teach him."
+    ],
+    [
+     "yeah hopefully some patience too lol",
+     "Patience is the hardest skill to teach, but a good mentor helps."
+    ],
+    [
+     "ok going to bed, early start again",
+     "Good night, I hope tomorrow is smoother."
+    ]
+   ],
+   "answer": "kumasi",
+   "reply": "He'll be moving back to Kumasi, where his family lives.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1588,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1588,
+   "ran_out_of_calls": false,
+   "first_reply": "He'll be moving back to Kumasi, where his family lives.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_09_q0",
+   "size": 42,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what was sofia from the hospital having in the meeting",
+   "view": [
+    [
+     "he was really chatty on the intro call, turns out hes from winnipeg like me so we talked about jets hockey for 20 min",
+     "A shared hometown is a great rapport builder. That'll help when you get to pricing."
+    ],
+    [
+     "ya hopefully he goes easy on the discount",
+     "Having a good relationship won't hurt your chances there."
+    ],
+    [
+     "ok im out for the day",
+     "Well done today. Enjoy your evening."
+    ]
+   ],
+   "answer": "espresso",
+   "reply": "It sounds like the meeting was intense, with a lot of questions and a focus on security.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1128,
+   "tokens_written": 19,
+   "whole_chat_tokens": 1128,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like the meeting was intense, with a lot of questions and a focus on security.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_09_q1",
+   "size": 42,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats ezekiels instrument",
+   "view": [
+    [
+     "he was really chatty on the intro call, turns out hes from winnipeg like me so we talked about jets hockey for 20 min",
+     "A shared hometown is a great rapport builder. That'll help when you get to pricing."
+    ],
+    [
+     "ya hopefully he goes easy on the discount",
+     "Having a good relationship won't hurt your chances there."
+    ],
+    [
+     "ok im out for the day",
+     "Well done today. Enjoy your evening."
+    ]
+   ],
+   "answer": "drums",
+   "reply": "He plays drums.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1122,
+   "tokens_written": 4,
+   "whole_chat_tokens": 1122,
+   "ran_out_of_calls": false,
+   "first_reply": "He plays drums.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_10_q0",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what club is the IT twin a fan of again",
+   "view": [
+    [
+     "she showed me her sketchbook, she does japanese calligraphy as a hobby and the brush work is honestly beautiful",
+     "That's a lovely skill, and it probably carries over into her drawing. Steady hands are useful in drafting."
+    ],
+    [
+     "for sure. ok I need to start on the meeting notes from this morning",
+     "Good idea while it's fresh in your mind."
+    ],
+    [
+     "ugh fine. writing them now",
+     "You'll feel better once they're done."
+    ]
+   ],
+   "answer": "chelsea",
+   "reply": "Chuka's a Chelsea fan.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1530,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1530,
+   "ran_out_of_calls": false,
+   "first_reply": "Chuka's a Chelsea fan.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w2_10_q1",
+   "size": 58,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "where is lucinda originally from",
+   "view": [
+    [
+     "she showed me her sketchbook, she does japanese calligraphy as a hobby and the brush work is honestly beautiful",
+     "That's a lovely skill, and it probably carries over into her drawing. Steady hands are useful in drafting."
+    ],
+    [
+     "for sure. ok I need to start on the meeting notes from this morning",
+     "Good idea while it's fresh in your mind."
+    ],
+    [
+     "ugh fine. writing them now",
+     "You'll feel better once they're done."
+    ]
+   ],
+   "answer": "Porto",
+   "reply": "That's a great question. Since Lucinda is a retired surgeon, it's likely she's from a city with a strong medical community. Some possibilities include:\n\n1. A major city like New York, Chicago, or Los Angeles\n2. A smaller city with a growing medical industry, like Boston, Seattle,",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1526,
+   "tokens_written": 60,
+   "whole_chat_tokens": 1526,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a great question. Since Lucinda is a retired surgeon, it's likely she's from a city with a strong medical community. Some possibilities include:\n\n1. A major city like New York, Chicago, or Los Angeles\n2. A smaller city with a growing medical industry, like Boston, Seattle,",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_01_q0",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "wait which city is my cousin flying to",
+   "view": [
+    [
+     "my coworker dami said i should try the onsen in hakone too",
+     "Hakone is lovely and close to Tokyo, so it fits well as an overnight trip."
+    ],
+    [
+     "is it ok if i have tattoos? dami has a full sleeve and got turned away somewhere",
+     "Some onsen still refuse tattoos, but more places allow them now, and private baths are an easy workaround."
+    ],
+    [
+     "ok ill look for one that allows them. dami also said to get a suica card on my phone",
+     "Good tip, a mobile Suica makes trains and convenience stores really easy."
+    ]
+   ],
+   "answer": "Hanoi",
+   "reply": "She's flying to Hanoi.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1458,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1458,
+   "ran_out_of_calls": false,
+   "first_reply": "She's flying to Hanoi.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_01_q1",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what does my aunt do for a living again",
+   "view": [
+    [
+     "my coworker dami said i should try the onsen in hakone too",
+     "Hakone is lovely and close to Tokyo, so it fits well as an overnight trip."
+    ],
+    [
+     "is it ok if i have tattoos? dami has a full sleeve and got turned away somewhere",
+     "Some onsen still refuse tattoos, but more places allow them now, and private baths are an easy workaround."
+    ],
+    [
+     "ok ill look for one that allows them. dami also said to get a suica card on my phone",
+     "Good tip, a mobile Suica makes trains and convenience stores really easy."
+    ]
+   ],
+   "answer": "nurse",
+   "reply": "You said she works as a nurse.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1459,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1459,
+   "ran_out_of_calls": false,
+   "first_reply": "You said she works as a nurse.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_02_q0",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "Which city did my sister-in-law end up in?",
+   "view": [
+    [
+     "Dmitri also wants us to wear matching socks, which feels like a strange priority.",
+     "It's a small thing, but it can help a team feel organised."
+    ],
+    [
+     "He bought them himself, bright orange ones. He said they make us easier to spot when passing.",
+     "There's some sense in that. Bright kit can help with quick passes."
+    ],
+    [
+     "I'll admit they're growing on me. I'm going to try to get an early night before work tomorrow.",
+     "That sounds sensible. Rest well."
+    ]
+   ],
+   "answer": "Bristol",
+   "reply": "She ended up in Leeds.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1527,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1527,
+   "ran_out_of_calls": false,
+   "first_reply": "She ended up in Leeds.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_02_q1",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What does our keeper do for a living again?",
+   "view": [
+    [
+     "Dmitri also wants us to wear matching socks, which feels like a strange priority.",
+     "It's a small thing, but it can help a team feel organised."
+    ],
+    [
+     "He bought them himself, bright orange ones. He said they make us easier to spot when passing.",
+     "There's some sense in that. Bright kit can help with quick passes."
+    ],
+    [
+     "I'll admit they're growing on me. I'm going to try to get an early night before work tomorrow.",
+     "That sounds sensible. Rest well."
+    ]
+   ],
+   "answer": "carpenter",
+   "reply": "Kwame works as a carpenter.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1527,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1527,
+   "ran_out_of_calls": false,
+   "first_reply": "Kwame works as a carpenter.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_03_q0",
+   "size": 44,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what does my great uncle play again",
+   "view": [
+    [
+     "a hat in june wow ok and saoirse wants to see puffins is that a june thing",
+     "June is a great time for puffins. Places like Dyrhólaey and the Westfjords are popular for seeing them."
+    ],
+    [
+     "amazing shes been obsessed with puffins since she was a kid she has a little puffin tattoo on her ankle",
+     "Then seeing them in person will be a big moment for her."
+    ],
+    [
+     "shes going to cry i guarantee it ok i need to go make dinner",
+     "Enjoy your dinner, and good luck with the planning."
+    ]
+   ],
+   "answer": "violin",
+   "reply": "Violin, I think.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1484,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1484,
+   "ran_out_of_calls": false,
+   "first_reply": "Violin, I think.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_03_q1",
+   "size": 44,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "wheres my cousin going to school",
+   "view": [
+    [
+     "a hat in june wow ok and saoirse wants to see puffins is that a june thing",
+     "June is a great time for puffins. Places like Dyrhólaey and the Westfjords are popular for seeing them."
+    ],
+    [
+     "amazing shes been obsessed with puffins since she was a kid she has a little puffin tattoo on her ankle",
+     "Then seeing them in person will be a big moment for her."
+    ],
+    [
+     "shes going to cry i guarantee it ok i need to go make dinner",
+     "Enjoy your dinner, and good luck with the planning."
+    ]
+   ],
+   "answer": "Guelph",
+   "reply": "Guelph, Ontario.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1484,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1484,
+   "ran_out_of_calls": false,
+   "first_reply": "Guelph, Ontario.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_04_q0",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats my neighbor sams pet again",
+   "view": [
+    [
+     "our coach wants us running a zone now, like a 2-3",
+     "A 2-3 zone can help if the other team struggles from outside, but it leaves the corners open."
+    ],
+    [
+     "ya the other team has a guy who shoots lights out from the corner so idk",
+     "Then you'll need someone quick to close out on him."
+    ],
+    [
+     "imma suggest we switch to man to man then. coach teaches chemistry at my old high school so he usually listens to reason",
+     "Sounds like a good plan to bring to practice."
+    ]
+   ],
+   "answer": "ferret",
+   "reply": "Ferret.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1313,
+   "tokens_written": 3,
+   "whole_chat_tokens": 1313,
+   "ran_out_of_calls": false,
+   "first_reply": "Ferret.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_04_q1",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what does lucia do for work",
+   "view": [
+    [
+     "our coach wants us running a zone now, like a 2-3",
+     "A 2-3 zone can help if the other team struggles from outside, but it leaves the corners open."
+    ],
+    [
+     "ya the other team has a guy who shoots lights out from the corner so idk",
+     "Then you'll need someone quick to close out on him."
+    ],
+    [
+     "imma suggest we switch to man to man then. coach teaches chemistry at my old high school so he usually listens to reason",
+     "Sounds like a good plan to bring to practice."
+    ]
+   ],
+   "answer": "pilot",
+   "reply": "It sounds like Lucia is a pilot.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1313,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1313,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like Lucia is a pilot.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_05_q0",
+   "size": 54,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What health issue does my great-aunt have again?",
+   "view": [
+    [
+     "I'm partnering with Ingrid for that, she's new to the club and plays left-handed.",
+     "A lefty in mixed doubles can be a real advantage, the spin comes from an unfamiliar side."
+    ],
+    [
+     "She also moved here from Bergen, so she's used to playing indoors all winter.",
+     "That's handy, since your club season will move indoors soon too."
+    ],
+    [
+     "Exactly. Ok I'm going to go stretch, my shoulder is sore.",
+     "Good idea, go easy on it."
+    ]
+   ],
+   "answer": "arthritis",
+   "reply": "Bad arthritis in her hands.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1479,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1479,
+   "ran_out_of_calls": false,
+   "first_reply": "Bad arthritis in her hands.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_05_q1",
+   "size": 54,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "Where did Chidi's brother get a job?",
+   "view": [
+    [
+     "I'm partnering with Ingrid for that, she's new to the club and plays left-handed.",
+     "A lefty in mixed doubles can be a real advantage, the spin comes from an unfamiliar side."
+    ],
+    [
+     "She also moved here from Bergen, so she's used to playing indoors all winter.",
+     "That's handy, since your club season will move indoors soon too."
+    ],
+    [
+     "Exactly. Ok I'm going to go stretch, my shoulder is sore.",
+     "Good idea, go easy on it."
+    ]
+   ],
+   "answer": "brewery",
+   "reply": "He got a job at a brewery.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1478,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1478,
+   "ran_out_of_calls": false,
+   "first_reply": "He got a job at a brewery.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_06_q0",
+   "size": 46,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what language is my brother in law studying",
+   "view": [
+    [
+     "probably ok training question how long should my longest run be before the marathon",
+     "Most plans peak around 32 to 35 kilometres, about three weeks before race day."
+    ],
+    [
+     "ok ravi said 32 too",
+     "Then you're getting consistent advice."
+    ],
+    [
+     "i need new shoes tho mine are falling apart, mei swears by her asics so i might get those",
+     "Those are popular for marathon training. Get them soon so you have time to break them in before January."
+    ]
+   ],
+   "answer": "portuguese",
+   "reply": "Korean, I think.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1263,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1263,
+   "ran_out_of_calls": false,
+   "first_reply": "Korean, I think.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_06_q1",
+   "size": 46,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what sport is my grandpa into",
+   "view": [
+    [
+     "probably ok training question how long should my longest run be before the marathon",
+     "Most plans peak around 32 to 35 kilometres, about three weeks before race day."
+    ],
+    [
+     "ok ravi said 32 too",
+     "Then you're getting consistent advice."
+    ],
+    [
+     "i need new shoes tho mine are falling apart, mei swears by her asics so i might get those",
+     "Those are popular for marathon training. Get them soon so you have time to break them in before January."
+    ]
+   ],
+   "answer": "bowls",
+   "reply": "He plays lawn bowls, which is a great sport for staying active and social.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1262,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1262,
+   "ran_out_of_calls": false,
+   "first_reply": "He plays lawn bowls, which is a great sport for staying active and social.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_07_q0",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats my bosses hobby again",
+   "view": [
+    [
+     "thandi just texted me she found a little hotel in edinburgh near the royal mile",
+     "That's a good spot, very walkable to the castle."
+    ],
+    [
+     "she says it has a rooftop bar too, which is basically all she needed to hear",
+     "Sounds like she's sorted."
+    ],
+    [
+     "also she wants to do a day trip to the highlands to see the hairy coos, her words",
+     "Highland cows are a classic, and there are tours from Edinburgh that go to Loch Lomond or Glencoe."
+    ]
+   ],
+   "answer": "fencing",
+   "reply": "You mentioned that your boss, Nadia, took up fencing.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1552,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1552,
+   "ran_out_of_calls": false,
+   "first_reply": "You mentioned that your boss, Nadia, took up fencing.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_07_q1",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "where did my uncle live back when he worked behind a bar",
+   "view": [
+    [
+     "thandi just texted me she found a little hotel in edinburgh near the royal mile",
+     "That's a good spot, very walkable to the castle."
+    ],
+    [
+     "she says it has a rooftop bar too, which is basically all she needed to hear",
+     "Sounds like she's sorted."
+    ],
+    [
+     "also she wants to do a day trip to the highlands to see the hairy coos, her words",
+     "Highland cows are a classic, and there are tours from Edinburgh that go to Loch Lomond or Glencoe."
+    ]
+   ],
+   "answer": "galway",
+   "reply": "[Uncle's Name] lived in [City], [Country] when he worked behind a bar.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1558,
+   "tokens_written": 21,
+   "whole_chat_tokens": 1558,
+   "ran_out_of_calls": false,
+   "first_reply": "[Uncle's Name] lived in [City], [Country] when he worked behind a bar.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_08_q0",
+   "size": 42,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what cant my cousin eat again",
+   "view": [
+    [
+     "should i get a reef safe sunscreen",
+     "Yes, it's better for the reefs and some places ask for it."
+    ],
+    [
+     "ok and a rash guard?",
+     "Definitely, the sun is strong and it protects against board rash too."
+    ],
+    [
+     "aroha says i need booties too for the reef breaks in uluwatu",
+     "Good call, the reef there can be sharp at low tide."
+    ]
+   ],
+   "answer": "peanuts",
+   "reply": "Peanuts are a big no-go in Indonesian cuisine.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1089,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1089,
+   "ran_out_of_calls": false,
+   "first_reply": "Peanuts are a big no-go in Indonesian cuisine.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_08_q1",
+   "size": 42,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats jasper do for work",
+   "view": [
+    [
+     "should i get a reef safe sunscreen",
+     "Yes, it's better for the reefs and some places ask for it."
+    ],
+    [
+     "ok and a rash guard?",
+     "Definitely, the sun is strong and it protects against board rash too."
+    ],
+    [
+     "aroha says i need booties too for the reef breaks in uluwatu",
+     "Good call, the reef there can be sharp at low tide."
+    ]
+   ],
+   "answer": "welder",
+   "reply": "That's a great question. Since you mentioned that Jasper fixed your trucks, it's likely that he works as a welder.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1089,
+   "tokens_written": 24,
+   "whole_chat_tokens": 1089,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a great question. Since you mentioned that Jasper fixed your trucks, it's likely that he works as a welder.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_09_q0",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What sport is my stepmom into again?",
+   "view": [
+    [
+     "I'm also bringing a field guide. Haruto said the Stiles and Skutch one is the classic.",
+     "It's a classic, though it's heavy. Some people use a phone app as a lighter backup."
+    ],
+    [
+     "I've got the Merlin app already.",
+     "Merlin's sound ID is very handy in the forest."
+    ],
+    [
+     "Tomás wants to try night tours too, for frogs. He's obsessed with the red-eyed tree frog.",
+     "Night tours are excellent for frogs, and the red-eyed ones are very photogenic."
+    ]
+   ],
+   "answer": "curling",
+   "reply": "She's into curling.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1349,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1349,
+   "ran_out_of_calls": false,
+   "first_reply": "She's into curling.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_09_q1",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "Where is Anika relocating to?",
+   "view": [
+    [
+     "I'm also bringing a field guide. Haruto said the Stiles and Skutch one is the classic.",
+     "It's a classic, though it's heavy. Some people use a phone app as a lighter backup."
+    ],
+    [
+     "I've got the Merlin app already.",
+     "Merlin's sound ID is very handy in the forest."
+    ],
+    [
+     "Tomás wants to try night tours too, for frogs. He's obsessed with the red-eyed tree frog.",
+     "Night tours are excellent for frogs, and the red-eyed ones are very photogenic."
+    ]
+   ],
+   "answer": "Halifax",
+   "reply": "Halifax, Nova Scotia.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1347,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1347,
+   "ran_out_of_calls": false,
+   "first_reply": "Halifax, Nova Scotia.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_10_q0",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats my brother in laws new car",
+   "view": [
+    [
+     "back to cricket my bowling has been off, i keep overstepping",
+     "Mark out your run-up again and practise it with a cone at the start. Overstepping is usually a rhythm problem."
+    ],
+    [
+     "ya my run up feels inconsistent since i changed boots",
+     "New boots can change your stride slightly. Give it a few sessions to settle."
+    ],
+    [
+     "i went from my old adidas ones to these kookaburra spikes, maybe thats it",
+     "That could be it. Any new pair needs a few sessions before your stride feels normal again."
+    ]
+   ],
+   "answer": "Tesla",
+   "reply": "[Name] just bought a Tesla.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1422,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1422,
+   "ran_out_of_calls": false,
+   "first_reply": "[Name] just bought a Tesla.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w3_10_q1",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what does callum do outside of cricket",
+   "view": [
+    [
+     "back to cricket my bowling has been off, i keep overstepping",
+     "Mark out your run-up again and practise it with a cone at the start. Overstepping is usually a rhythm problem."
+    ],
+    [
+     "ya my run up feels inconsistent since i changed boots",
+     "New boots can change your stride slightly. Give it a few sessions to settle."
+    ],
+    [
+     "i went from my old adidas ones to these kookaburra spikes, maybe thats it",
+     "That could be it. Any new pair needs a few sessions before your stride feels normal again."
+    ]
+   ],
+   "answer": "physio",
+   "reply": "Callum works as a physio, which is a great role to have on a cricket team.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1422,
+   "tokens_written": 20,
+   "whole_chat_tokens": 1422,
+   "ran_out_of_calls": false,
+   "first_reply": "Callum works as a physio, which is a great role to have on a cricket team.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_01_q0",
+   "size": 44,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "wait what breed is my neighbours dog",
+   "view": [
+    [
+     "had a study group tonight, there was this girl amara whos also in nursing",
+     "Study groups are a good way to get through the heavy courses. Did it go well?"
+    ],
+    [
+     "yeah she used to be a dental hygienist before switching, so she knows a ton of anatomy already",
+     "That background must give her a head start. She sounds like a good study partner."
+    ],
+    [
+     "for sure. we're meeting again thursday at the library",
+     "Having a regular time will help a lot once exams start."
+    ]
+   ],
+   "answer": "basset",
+   "reply": "Basset hound, I think. They have those long ears and are known for being friendly.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1380,
+   "tokens_written": 20,
+   "whole_chat_tokens": 1380,
+   "ran_out_of_calls": false,
+   "first_reply": "Basset hound, I think. They have those long ears and are known for being friendly.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_01_q1",
+   "size": 44,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats tomasz studying again",
+   "view": [
+    [
+     "had a study group tonight, there was this girl amara whos also in nursing",
+     "Study groups are a good way to get through the heavy courses. Did it go well?"
+    ],
+    [
+     "yeah she used to be a dental hygienist before switching, so she knows a ton of anatomy already",
+     "That background must give her a head start. She sounds like a good study partner."
+    ],
+    [
+     "for sure. we're meeting again thursday at the library",
+     "Having a regular time will help a lot once exams start."
+    ]
+   ],
+   "answer": "welding",
+   "reply": "He studies welding, which is a great trade.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1379,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1379,
+   "ran_out_of_calls": false,
+   "first_reply": "He studies welding, which is a great trade.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_02_q0",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "where did my sister end up moving to again",
+   "view": [
+    [
+     "but hes been sneezing a lot so i booked him at the vet down the road",
+     "Worth getting checked, new environments can stir up mild colds in cats."
+    ],
+    [
+     "vet is dr haddad, people in the neighbourhood facebook group love her so fingers crossed",
+     "Good reviews from neighbours are usually a reliable sign. Hopefully it's just a minor thing."
+    ],
+    [
+     "appointment is thursday morning, i have to figure out how to get him in the carrier",
+     "Leaving the carrier out with a blanket in it a day early can make it less scary."
+    ]
+   ],
+   "answer": "winnipeg",
+   "reply": "She moved to Vancouver.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1695,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1695,
+   "ran_out_of_calls": false,
+   "first_reply": "She moved to Vancouver.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_02_q1",
+   "size": 52,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what does bashir do again",
+   "view": [
+    [
+     "but hes been sneezing a lot so i booked him at the vet down the road",
+     "Worth getting checked, new environments can stir up mild colds in cats."
+    ],
+    [
+     "vet is dr haddad, people in the neighbourhood facebook group love her so fingers crossed",
+     "Good reviews from neighbours are usually a reliable sign. Hopefully it's just a minor thing."
+    ],
+    [
+     "appointment is thursday morning, i have to figure out how to get him in the carrier",
+     "Leaving the carrier out with a blanket in it a day early can make it less scary."
+    ]
+   ],
+   "answer": "electrician",
+   "reply": "Bashir is an electrician.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1692,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1692,
+   "ran_out_of_calls": false,
+   "first_reply": "Bashir is an electrician.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_03_q0",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What's my landlord's pet again?",
+   "view": [
+    [
+     "My brother Kenji called this morning. He's in Toronto and he's finally got a job he loves.",
+     "That's great news. What's he doing?"
+    ],
+    [
+     "He's a sommelier now, at a restaurant on King Street. He's been studying wine for years.",
+     "All that studying paid off. He must be thrilled."
+    ],
+    [
+     "He is. He promised to visit in December.",
+     "That'll be something to look forward to during the cold months."
+    ]
+   ],
+   "answer": "tortoise",
+   "reply": "Lena's tortoise Boris is a great addition to the apartment.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1457,
+   "tokens_written": 13,
+   "whole_chat_tokens": 1457,
+   "ran_out_of_calls": false,
+   "first_reply": "Lena's tortoise Boris is a great addition to the apartment.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_03_q1",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What did the physio diagnose my knee with?",
+   "view": [
+    [
+     "My brother Kenji called this morning. He's in Toronto and he's finally got a job he loves.",
+     "That's great news. What's he doing?"
+    ],
+    [
+     "He's a sommelier now, at a restaurant on King Street. He's been studying wine for years.",
+     "All that studying paid off. He must be thrilled."
+    ],
+    [
+     "He is. He promised to visit in December.",
+     "That'll be something to look forward to during the cold months."
+    ]
+   ],
+   "answer": "tendinitis",
+   "reply": "It sounds like you're dealing with some discomfort in your knee. The physio, Mr. Gagnon, diagnosed it as tendinitis.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1460,
+   "tokens_written": 27,
+   "whole_chat_tokens": 1460,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you're dealing with some discomfort in your knee. The physio, Mr. Gagnon, diagnosed it as tendinitis.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_04_q0",
+   "size": 56,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what does my moms bf drive again",
+   "view": [
+    [
+     "i joined robotics club today tho!! we're building a thing that picks up cans",
+     "That's awesome, it's a great way to meet people who like building stuff."
+    ],
+    [
+     "the teacher who runs it is mr achebe hes super into it",
+     "An excited teacher makes clubs way more fun."
+    ],
+    [
+     "we have a competition in feb",
+     "That gives you a goal to work toward with the team."
+    ]
+   ],
+   "answer": "minivan",
+   "reply": "You mentioned that your mom's boyfriend drives a minivan. Is there anything specific you'd like to know about him or the car?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1332,
+   "tokens_written": 26,
+   "whole_chat_tokens": 1332,
+   "ran_out_of_calls": false,
+   "first_reply": "You mentioned that your mom's boyfriend drives a minivan. Is there anything specific you'd like to know about him or the car?",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_04_q1",
+   "size": 56,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats my orthodontists name",
+   "view": [
+    [
+     "i joined robotics club today tho!! we're building a thing that picks up cans",
+     "That's awesome, it's a great way to meet people who like building stuff."
+    ],
+    [
+     "the teacher who runs it is mr achebe hes super into it",
+     "An excited teacher makes clubs way more fun."
+    ],
+    [
+     "we have a competition in feb",
+     "That gives you a goal to work toward with the team."
+    ]
+   ],
+   "answer": "pham",
+   "reply": "You can ask your mom or the orthodontist's office for the name.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1333,
+   "tokens_written": 17,
+   "whole_chat_tokens": 1333,
+   "ran_out_of_calls": false,
+   "first_reply": "You can ask your mom or the orthodontist's office for the name.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_05_q0",
+   "size": 42,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what is my granddaughter doing at university",
+   "view": [
+    [
+     "he told me he spent forty years as a fisherman out of tofino before his back gave out",
+     "That's a hard life on the body. He must have some stories."
+    ],
+    [
+     "so many stories about storms and whales i could listen for hours",
+     "Sounds like you found a good friend there."
+    ],
+    [
+     "we are going for coffee after bowling next week",
+     "That's lovely. Something to look forward to."
+    ]
+   ],
+   "answer": "architecture",
+   "reply": "She's in her second year of architecture.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1235,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1235,
+   "ran_out_of_calls": false,
+   "first_reply": "She's in her second year of architecture.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_05_q1",
+   "size": 42,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "which heart medicine am i taking now",
+   "view": [
+    [
+     "he told me he spent forty years as a fisherman out of tofino before his back gave out",
+     "That's a hard life on the body. He must have some stories."
+    ],
+    [
+     "so many stories about storms and whales i could listen for hours",
+     "Sounds like you found a good friend there."
+    ],
+    [
+     "we are going for coffee after bowling next week",
+     "That's lovely. Something to look forward to."
+    ]
+   ],
+   "answer": "amlodipine",
+   "reply": "Amlodipine.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1233,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1233,
+   "ran_out_of_calls": false,
+   "first_reply": "Amlodipine.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_06_q0",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what does my cousin do for fun again",
+   "view": [
+    [
+     "waffles has been chewing the baseboards so we took her to an exotic vet",
+     "Rabbits do love to chew. Did the vet have any suggestions?"
+    ],
+    [
+     "the vet, dr oyelaran, said its probably her teeth growing and to give her more hay and chew sticks",
+     "That's good news that it's something simple to fix."
+    ],
+    [
+     "ya and she said waffles is a bit chubby lol so less treats",
+     "Poor Waffles, the treat cutback will be tough."
+    ]
+   ],
+   "answer": "salsa",
+   "reply": "Salsa dancing is a fun way to stay active and have a good time.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1446,
+   "tokens_written": 16,
+   "whole_chat_tokens": 1446,
+   "ran_out_of_calls": false,
+   "first_reply": "Salsa dancing is a fun way to stay active and have a good time.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_06_q1",
+   "size": 50,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats svetlana do for a living",
+   "view": [
+    [
+     "waffles has been chewing the baseboards so we took her to an exotic vet",
+     "Rabbits do love to chew. Did the vet have any suggestions?"
+    ],
+    [
+     "the vet, dr oyelaran, said its probably her teeth growing and to give her more hay and chew sticks",
+     "That's good news that it's something simple to fix."
+    ],
+    [
+     "ya and she said waffles is a bit chubby lol so less treats",
+     "Poor Waffles, the treat cutback will be tough."
+    ]
+   ],
+   "answer": "florist",
+   "reply": "It sounds like Svetlana has a lovely job.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1446,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1446,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like Svetlana has a lovely job.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_07_q0",
+   "size": 60,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "My host mom is musical right? What's her instrument?",
+   "view": [
+    [
+     "Spanish Maria said she moved here from Valencia only last month, so she is new too.",
+     "That's nice, you can explore the city together as fellow newcomers."
+    ],
+    [
+     "Yes we want to go to the museum this weekend. The nature one.",
+     "The Canadian Museum of Nature is great, especially for a future biologist."
+    ],
+    [
+     "She said there are dinosaurs, I am excited.",
+     "The fossil gallery is a highlight. Enjoy it!"
+    ]
+   ],
+   "answer": "cello",
+   "reply": "She plays the ukulele.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1582,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1582,
+   "ran_out_of_calls": false,
+   "first_reply": "She plays the ukulele.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_07_q1",
+   "size": 60,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "What was my eye problem called again?",
+   "view": [
+    [
+     "Spanish Maria said she moved here from Valencia only last month, so she is new too.",
+     "That's nice, you can explore the city together as fellow newcomers."
+    ],
+    [
+     "Yes we want to go to the museum this weekend. The nature one.",
+     "The Canadian Museum of Nature is great, especially for a future biologist."
+    ],
+    [
+     "She said there are dinosaurs, I am excited.",
+     "The fossil gallery is a highlight. Enjoy it!"
+    ]
+   ],
+   "answer": "astigmatism",
+   "reply": "Astigmatism.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1579,
+   "tokens_written": 3,
+   "whole_chat_tokens": 1579,
+   "ran_out_of_calls": false,
+   "first_reply": "Astigmatism.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_08_q0",
+   "size": 46,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what toy did my brother in law get himself",
+   "view": [
+    [
+     "ok so we went to the spca on saturday... just to look... we came home with a dog",
+     "Of course you did. That's how 'just to look' usually goes. What kind?"
+    ],
+    [
+     "a retired greyhound... shes six and so gentle... anika named her pickles",
+     "Retired racers make great family dogs, they're surprisingly lazy."
+    ],
+    [
+     "she sleeps like 20 hours a day... on our couch... which is now her couch",
+     "Sounds like she's settled right in."
+    ]
+   ],
+   "answer": "snowmobile",
+   "reply": "It sounds like your brother-in-law has a bit of a passion for sailboats.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1428,
+   "tokens_written": 18,
+   "whole_chat_tokens": 1428,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your brother-in-law has a bit of a passion for sailboats.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_08_q1",
+   "size": 46,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats my back problem called again",
+   "view": [
+    [
+     "ok so we went to the spca on saturday... just to look... we came home with a dog",
+     "Of course you did. That's how 'just to look' usually goes. What kind?"
+    ],
+    [
+     "a retired greyhound... shes six and so gentle... anika named her pickles",
+     "Retired racers make great family dogs, they're surprisingly lazy."
+    ],
+    [
+     "she sleeps like 20 hours a day... on our couch... which is now her couch",
+     "Sounds like she's settled right in."
+    ]
+   ],
+   "answer": "sciatica",
+   "reply": "Sciatica. That pain running down the leg is a classic.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1426,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1426,
+   "ran_out_of_calls": false,
+   "first_reply": "Sciatica. That pain running down the leg is a classic.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_09_q0",
+   "size": 54,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "wheres my RA originally from",
+   "view": [
+    [
+     "tevita said i should come watch his rugby game saturday",
+     "That could be fun, even if you don't know the rules."
+    ],
+    [
+     "i dont know the rules at ALL lol. hes a forward whatever that means",
+     "Forwards are the big ones in the scrums. You'll pick it up watching."
+    ],
+    [
+     "freyas coming too so ill have someone to ask",
+     "Perfect, a sporty roommate is a good game buddy."
+    ]
+   ],
+   "answer": "nairobi",
+   "reply": "Aisha is from Nairobi.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1390,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1390,
+   "ran_out_of_calls": false,
+   "first_reply": "Aisha is from Nairobi.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_09_q1",
+   "size": 54,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what was the throat thing i had called",
+   "view": [
+    [
+     "tevita said i should come watch his rugby game saturday",
+     "That could be fun, even if you don't know the rules."
+    ],
+    [
+     "i dont know the rules at ALL lol. hes a forward whatever that means",
+     "Forwards are the big ones in the scrums. You'll pick it up watching."
+    ],
+    [
+     "freyas coming too so ill have someone to ask",
+     "Perfect, a sporty roommate is a good game buddy."
+    ]
+   ],
+   "answer": "strep",
+   "reply": "You had a throat issue and it was tonsillitis.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1392,
+   "tokens_written": 12,
+   "whole_chat_tokens": 1392,
+   "ran_out_of_calls": false,
+   "first_reply": "You had a throat issue and it was tonsillitis.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_10_q0",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "whats going on with my great aunts health again",
+   "view": [
+    [
+     "yoga was good tonight. after class ravi was chatting and it turns out he used to be a dentist for 15 years before he quit to teach",
+     "That's a big career switch. He must really love it."
+    ],
+    [
+     "he said he burned out and yoga saved him. i get it",
+     "Sounds like you're finding some of that calm yourself."
+    ],
+    [
+     "maybe. my shoulders are less tight anyway",
+     "That's a good sign after just a couple of classes."
+    ]
+   ],
+   "answer": "glaucoma",
+   "reply": "It sounds like your great-aunt Njeri is facing some health challenges. Glaucoma can be a tough condition, and it's understandable that she's having trouble with her vision.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1448,
+   "tokens_written": 36,
+   "whole_chat_tokens": 1448,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your great-aunt Njeri is facing some health challenges. Glaucoma can be a tough condition, and it's understandable that she's having trouble with her vision.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  },
+  {
+   "id": "w4_10_q1",
+   "size": 48,
+   "kind": "older",
+   "arm": "whole_chat",
+   "message": "what school is kwame going to now",
+   "view": [
+    [
+     "yoga was good tonight. after class ravi was chatting and it turns out he used to be a dentist for 15 years before he quit to teach",
+     "That's a big career switch. He must really love it."
+    ],
+    [
+     "he said he burned out and yoga saved him. i get it",
+     "Sounds like you're finding some of that calm yourself."
+    ],
+    [
+     "maybe. my shoulders are less tight anyway",
+     "That's a good sign after just a couple of classes."
+    ]
+   ],
+   "answer": "dundurn",
+   "reply": "He'll be starting at dundurn.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 1445,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1445,
+   "ran_out_of_calls": false,
+   "first_reply": "He'll be starting at dundurn.",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false
+  }
+ ],
+ "items_dir": "data/blind_dev/chats",
+ "items_sha256": "9919a24ca1cab8a982ff73a010559a632370170644c137e754c6ac5bd8aa302c",
+ "dropped": [],
+ "peak_vram_gib": 7.13,
+ "seconds": 368
+}
