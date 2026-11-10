@@ -7035,3 +7035,42 @@ before any judged number is read.
   LLM" counts on the unanswerable lines. I quoted the judge prompt's rule without saying how it applies. He then wrote
   "agreed", taken as w on 21 and 28; I told him so and offered to change it.
 - **Kept.** Line 5 stays w.
+
+**Judged result** (12:16; `scripts/records/score_judged_r170.py`, `results/analysis/R-170/judged.json`). This is not
+the official score. Judge 1 decides. A failure counts as wrong. 234 of the 248 questions were completed by every
+full arm.
+
+| Judged right | 6.37, tool | base, tool | always-search | three exchanges | evidence only |
+|---|---|---|---|---|---|
+| 148 single-session-user and knowledge-update | 43 | 26 | 32 | 11 | 30 (of its 71 lines) |
+| random 100 of the rest | 10 | 8 | 8 | 2 | 17 |
+| all 248 | 53 | 34 | 40 | 13 | 47 |
+
+Judges 2 and 3 give the same counts within 2 on every cell.
+- 6.37 against base with the tool: 53 against 34 of 248 (+7.7 points, 2.0 to 13.3, p = 0.015). On the 148 core
+  questions, 43 against 26 (p = 0.012). On the 234 completed, 51 against 33 (p = 0.018).
+- 6.37 against code that always searches: 53 against 40 (+5.2 points, -0.8 to +11.3, p = 0.12). Core 43 against 32
+  (p = 0.14). No measured difference.
+- Judges agree on 1,028, 1,027 and 1,030 of 1,035 lines (kappa 0.97 to 0.98).
+- Kevin agrees with each judge on 46 of his 50 lines (kappa 0.78). He and judge 1 each say yes on 12. The four lines
+  where they differ:
+  - Two unanswerable lines, where base replies "I don't have any information, I'm a large language model". The
+    judges say yes; Kevin says no.
+  - One preference line. Kevin says yes; the judges say no.
+  - One temporal line. Kevin says yes; the judges say no.
+
+**Added after reading the registered result, and disclosed as such:** the same marks split by question kind.
+
+| Judged right | 6.37, tool | base, tool | always-search | three exchanges |
+|---|---|---|---|---|
+| 233 answerable | 40 | 32 | 40 | 8 |
+| 15 unanswerable (`_abs`) | 13 | 2 | 0 | 5 |
+
+On the answerable questions, 6.37 ties code that always searches (40 and 40; 23 only one way each; p = 1.0). It shows
+no measured difference from base with the tool (40 against 32, p = 0.29). All of 6.37's judged lead over base comes
+from the unanswerable questions.
+
+**Reading.** On LongMemEval-S, with the last three exchanges in view, training gives the same answers as plain code
+that searches every question. The trained model also declines the unanswerable questions, which code never does, but
+declines on half of the answerable ones (measure 3). Every arm is right on few questions: 53 of 248 at best. Base
+reading only the evidence sessions is right on 47 of its 71 lines.

@@ -68,6 +68,9 @@ counting a failure or no search as not found:
 | gold answer in the reply (of 411 read) | 51 | 51 | 63 | 34 |
 | declines on the 30 unanswerable | 21 | 2 | 0 | 10 |
 | declines on the 470 answerable | 233 | 22 | 1 | 140 |
+| judged right, 248 judged questions (Claude judge, not official) | 53 | 34 | 40 | 13 |
+| of those, the 233 answerable | 40 | 32 | 40 | 8 |
+| of those, the 15 unanswerable | 13 | 2 | 0 | 5 |
 | seconds a question | 3.81 | 3.47 | 3.09 | 2.09 |
 
 - 6.37 finds evidence more often than base with the tool (p below 0.000001) only because it searches
@@ -77,7 +80,13 @@ counting a failure or no search as not found:
 - 6.37 declines far more than base: on 21 of the 30 questions that should be declined, and on 233 of
   the 470 that should be answered.
 - Every arm that ran all 500 answers few (8 to 16%). Base reading only the evidence sessions gets 63 of 114 on
-  the short questions it can fit. Judged accuracy, R-170's measure 4, is not yet read.
+  the short questions it can fit.
+- **Judged accuracy** (LongMemEval's own judge prompts, three Claude Sonnet judges, labelled not the official score):
+  6.37 53 of 248 against base with the tool 34 (p = 0.015) and code that always searches 40 (p = 0.12, no
+  measured difference). All of 6.37's lead comes from the 15 unanswerable questions (13 against 2 and 0). On the
+  233 answerable ones it ties code (40 and 40) and shows no measured difference from base (40 against 32,
+  p = 0.29); that split was read after the registered result. The judges agree on 1,027 to 1,030 of 1,035
+  lines; Kevin agrees with each on 46 of his 50 blind lines (kappa 0.78).
 
 Each arm's questions that ran out of card memory at 8.5 GiB were rerun once at 9.0 GiB, as amended
 before any score: failures 21, 31, 58 and 8 fell to 10, 16, 28 and 3 (`results/analysis/R-170/scores.json`).
