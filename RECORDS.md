@@ -6770,3 +6770,91 @@ is near significance. Set 1 meets the registered first outcome. What training ad
 not to search: `in_view` 35 and 37 against 13 and 16, `never_told` 37 and 36 against 31 and 24, `statement` 37 and 35
 against 0. On the generated sealed pools, the adapters were far above code on recall as well (R-168). The write-up
 says so first, with the kind of chat each result is on.
+
+## R-170 · 2026-11-10 · SPRINT · LongMemEval-S as an outside check, panelled and registered before any scoring
+
+**Kevin's request.** "can we find a long chat online to run both of them through?", then "do they have anything
+bigger?" and "k let me know when i have to judge". This is not R-100: LoCoMo's plan lapsed at its own deadline, and
+this is a new check on a different set. It is an outside check, never a decision; the model stays frozen (R-160).
+
+**Data.** `longmemeval_s_cleaned.json` (Wu et al., ICLR 2025; huggingface.co/datasets/xiaowu0162/longmemeval-cleaned),
+downloaded on 10 November with Kevin's go: 277,383,467 bytes, sha256
+`d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442`, MIT licence. Kept out of git; committed are the
+scripts, this hash, question ids and aggregate numbers. 500 questions, each with its own history: 48 sessions and 126
+exchanges at the median, about 115k tokens. The chats mix ShareGPT logs (people talking to ChatGPT), UltraChat and
+sessions simulated by Llama 3 70B. The sessions holding the answers were simulated, and about 70% were edited by
+people. Types: multi-session 133, temporal-reasoning 133, knowledge-update 78, single-session-user 70,
+single-session-assistant 56, single-session-preference 30. 30 questions are abstention questions (id ends `_abs`).
+Turns that hold the answer are marked (`has_answer`) for 479 of the 500. In 3 questions an answer turn is among the
+last six turns. The official score uses a GPT-4o judge, not available here. **Wording rule for the write-up:** "a
+third kind of chat: user-to-assistant chats, partly real logs and partly model-simulated". It is never pooled with
+the outside-writer sets, and the system prompt's "chatting with a friend" is named as a mismatch.
+
+**Panel** (method and against, fresh Opus agents, transcripts audited: no writes, nothing sealed opened). Every fix
+below is theirs.
+
+**Adaptation** (each a listed deviation):
+- Turns are paired into (user, assistant) exchanges, in order. A turn that does not pair is joined to its neighbour;
+  counts are reported.
+- Each user text is prefixed with its session date, and the question with its question date.
+- The last three exchanges are in view and everything earlier is indexed with the same tool (top 5).
+- The chunk size is 400 characters, so one long exchange becomes several passages, and the date sits only in the
+  user's chunk. Chunks per exchange are counted and reported; temporal questions are expected to suffer.
+- Shown passages are cut to the tool's 350 characters.
+- Each question is caught on its own: an error, out-of-memory included, is logged for that arm and question, and the
+  run goes on.
+
+**Arms**, run in this order, one at a time, at below-normal priority, all 500 questions:
+1. 6.37 seed 82 with the tool.
+2. Base with the tool.
+3. Code that always searches first (base). Its query is the question text without the date prefix.
+4. Base, three exchanges, no tool.
+5. Base reading only the evidence sessions (every message in them in view, no tool), on questions whose evidence
+   sessions run under 6,000 tokens. This is the reading ceiling: it tells failed search apart from failed reading.
+
+No whole-chat arm: about 115k tokens, against the model's 8,192.
+
+**Before the scored run:**
+- A CPU pass tokenises every view and lists the 20 longest.
+- A dry run of arm 1 on those 20 (ids fixed by that pass) is read for format, seconds and peak memory only; no score
+  is computed.
+- Hard stop: 18:00 on 11 November. An arm not finished by then is "not completed", and no partial arm is reported.
+
+**Measures**, all mechanical unless marked:
+1. **Evidence found, turn level (primary).** A search counts if a passage it returns comes from an exchange holding a
+   `has_answer` turn. Read on the 479 marked questions, outside the 3 with evidence in view:
+   - at the first search's top 5, among questions where the arm searched;
+   - over all of the arm's searches (up to 15 passages), with passages returned per question;
+   - the share of questions searched, on its own.
+   Secondary: the same at session level (`answer_session_ids`). Also "evidence shown": the gold answer string appears
+   in the passage text the model was given. Two CPU references: a search on the question text itself, and 5 random
+   passages.
+2. **Answer in the reply.** The gold, normalised (case, punctuation, articles), matched on word boundaries; number
+   words map to digits. Alternatives in the gold ("(or ...)", "... also acceptable", "X or Y") are split by a rule
+   written in the scorer before any run. Not read: preference questions (the gold is a rubric), and temporal
+   questions whose gold is not a single value. That list is fixed from the golds alone before any run.
+   - The scorer is tested on gold-as-reply (must pass) and on known-wrong replies (must fail).
+   - Each arm's false-match rate: its replies scored against another question's gold.
+   - Reply length per arm. The 60-token cap is noted.
+3. **Abstention.** On the 30 `_abs` questions, the reply declines. The wording list is written now and taken from no
+   model output: "don't know", "do not know", "no information", "not mentioned", "didn't mention", "did not
+   mention", "can't recall", "cannot recall", "don't have", "do not have", "not sure", "no record", "haven't told",
+   "never told", "never mentioned". The refusal rate on the 470 answerable questions is reported beside it.
+4. **Judged accuracy (required, labelled "not the official score").** LongMemEval's own per-type judge prompts (from
+   its `evaluate_qa.py`), given to three fresh Claude Sonnet judges blind to arm, R-154's method. The lines: every arm's
+   reply on single-session-user and knowledge-update (148 questions), plus a fixed random 100 of the rest, with the
+   seed set in the script. Kevin marks a random 50 of those lines blind, before any judged number is read.
+5. Also reported: clean calls, tokens read per turn, seconds per question, failures per arm.
+
+**Reading.**
+- **Main reading: the types 6.37 was trained for**, single-session-user and knowledge-update (questions about what
+  the user said, including facts that changed). The rest are reported per type as "not trained for", each with its
+  own floor statement: questions about what the assistant said, preference, temporal arithmetic, and counting
+  across sessions.
+- H1: 6.37 above base with the tool on measure 1 (first search), by paired sign test, with a 95% interval
+  resampling questions.
+- H2: 6.37 against code that always searches, on measures 1 and 2.
+- H3: 6.37's abstention not more than 5 points below base's, read with its interval and beside both refusal rates.
+- Paired tests use the questions every arm completed. A second reading counts a failure as wrong for that arm only.
+- A floor result, with every arm near zero on answers, is uninformative, as stated here.
+- Forbidden: a ranking against published systems.
