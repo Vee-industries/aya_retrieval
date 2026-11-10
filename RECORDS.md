@@ -6990,3 +6990,25 @@ and it declines far more, including on half the questions it should answer. Plai
 finds the evidence more often than 6.37 and is faster (3.09 against 3.81 s a question), with no measured difference
 in answers. Measure 4 (judged accuracy, labelled not the official score) is next, with Kevin's 50 blind lines marked
 before any judged number is read.
+
+**Judge sheets, built before any judging** (`scripts/records/judge_sheets_r170.py`; prompts in
+`src/aya_retrieval/longmemeval_judge.py`).
+- **Prompts.** LongMemEval's five templates from `evaluate_qa.py` at commit `d6dc8b5`. They were checked
+  character for character against the raw file (sha256 `ecce9c4c…3d95251`), with its rule kept: a judge reply
+  counts as correct when "yes" appears in it, lower-cased. MIT notice added to NOTICE.
+- **Lines.** Every arm's reply on the 148 single-session-user and knowledge-update questions, plus 100 of the other
+  352 drawn by `random.Random(1704)`. A failure or a skip has no line; it is scored as wrong in the failures-wrong
+  reading. There are 1,035 lines, shuffled with arm names removed by `random.Random(1705)`, in six sheets: five of
+  200 and one of 35.
+- **Key.** `results/analysis/R-170/judge/key.json` maps each line to its question id, arm and type. It holds no text.
+  The sheets hold text and stay in scratch.
+- **Judges.** Three fresh Claude Sonnet judges (`claude-sonnet-5-5`, checked from their transcripts as R-154 says),
+  one per folder; one agent per sheet, as in R-162. Judge 1 decides; judges 2 and 3 are reported.
+- **Kevin's lines.** A random 50 of the lines, drawn by `random.Random(1706)` (`human_key.json`; the text, outside
+  git, is in `results/longmemeval/human/`). Kevin marks them blind, yes or no, before any judged number is read.
+  The judges' brief therefore asks for no yes or no counts.
+- **Disclosed differences from the official judge.**
+  - The judge is Claude, not GPT-4o.
+  - Its temperature cannot be set.
+  - Each judge reads a sheet of many prompts, not one prompt per call.
+  - The brief is new, because R-154's frozen brief is for coherence. It keeps that brief's structure and rules.

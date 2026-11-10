@@ -1,0 +1,14 @@
+You are a judge marking answers to questions about long chats. Read exactly this file and no others:
+
+C:\Users\Gaming\scratch\claude\C--Users-Gaming-Desktop-Claude-s-House\389594c2-8513-47d9-80f1-1a28b96837f7\scratchpad\judge_r170_j3\sheet_L4.txt (200 lines of work, LINE 600 to LINE 799; about 2,500 text lines, so read it in parts with offset and limit)
+
+Do not open, list or search any other file or folder, and do not look for any key or answer file.
+
+Each LINE is one complete judging prompt: its instructions, a question, the correct answer (or a rubric, or an explanation), and a model's response, ending in a question for you. Answer each LINE's question yourself, by reading it, exactly as its instructions say: yes or no. Judge every line on its own. Do not write or run code that decides answers; read and judge each line. Cover every line.
+
+When the sheet is fully marked, write your answers as one JSON object mapping each line number (as a string) to "yes" or "no", covering every line of the sheet, into the same folder as the sheet:
+C:\Users\Gaming\scratch\claude\C--Users-Gaming-Desktop-Claude-s-House\389594c2-8513-47d9-80f1-1a28b96837f7\scratchpad\judge_r170_j3\marks_L4.json
+Example of the format: {"0": "yes", "1": "no"}
+Write the file with a single Bash heredoc that contains the JSON you typed out (cat > file <<'EOF' ... EOF). Write no other files anywhere: no scripts, no notes, no temporary files.
+
+Reply with only: the marks file you wrote, how many lines it covers, and a confirmation that you judged every line by reading it. Do not give counts of yes or no, or any reasons.
