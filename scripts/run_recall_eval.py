@@ -43,7 +43,7 @@ from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME, system_prompt_with_tools
 LOG = logging.getLogger("recall_eval")
 
 SIZES = (58, 419)
-ARMS = ("whole_chat", "three_exchanges", "always_search", "tool_loop")
+ARMS = ("whole_chat", "three_exchanges", "always_search", "tool_loop", "whole_chat_tool")
 MAX_TOKENS = 60
 SYSTEM = "You are chatting with a friend."
 SYSTEM_WITH_TOOL = "You are chatting with a friend. You can search the earlier conversation."
@@ -68,6 +68,8 @@ def run_arm(arm: str, item, generate, tool, with_tool: str = SYSTEM_WITH_TOOL) -
         replies = iter([call])
         scripted = lambda messages: next(replies, None) or generate(messages)  # noqa: E731
         return run_turn(scripted, search, system, item.view(), item.message)
+    if arm == "whole_chat_tool":  # R-165: every message in view and the tool offered
+        return run_turn(generate, search, system, item.exchanges, item.message)
     return run_turn(generate, search, system, item.view(), item.message)
 
 

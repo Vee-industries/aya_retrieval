@@ -6542,3 +6542,16 @@ model uses context it can see. **Set 2 not run:** it was stopped at 04:15. The o
 PC slowed, so both runs and the runner were stopped. Reading for the write-up, as registered: when the chat fits,
 give the trained model the whole chat; it scores as base does. When it does not fit, it searches, and beats base by
 a wide margin (R-163, R-146, R-157). Not yet tested: the trained model with the whole chat and the tool together.
+
+**Added before the remaining runs** (Kevin, 04:30: "run them. don't brick my pc"). Two runs, one at a time on the
+card, at below-normal priority, nothing else alongside:
+1. Set 2 as registered above: `wc_blind2_fix17cs37_82` (`whole_chat`, `older`).
+2. **The trained model with the whole chat and the tool together**, the way the design would run. New arm
+   `whole_chat_tool` in `run_recall_eval.py`: the same tool loop as `tool_loop`, with every message in view instead
+   of the last three exchanges. It runs on all five kinds, so it shows whether the model searches when the answer is
+   already in view. `wct_blind_fix17cs37_82` and `wct_blind2_fix17cs37_82`, seed 0. Reported against whole-chat base
+   on `older` (same questions), and per kind against 6.37 `tool_loop` on the same conversations, with searches per
+   kind. The `right_decision` field keeps its `tool_loop` meaning (search when out of the last three exchanges), so
+   it is not read for this arm. The `view` field still holds the last three exchanges. **Meaning:** at or above
+   whole-chat base on `older`, and no worse than `tool_loop` on the other kinds, supports "never worse than base"
+   for the combined design; anything below is reported as it falls.
