@@ -7013,7 +7013,7 @@ before any judged number is read.
   - Each judge reads a sheet of many prompts, not one prompt per call.
   - The brief is new, because R-154's frozen brief is for coherence. It keeps that brief's structure and rules.
 
-**Judging done, before any mark was read** (11:45 to 12:20).
+**Judging done, before any mark was read** (marks files written 11:46 to 11:50).
 - **Judges.** 18 agents: three judges, one agent per sheet. Agent ids are in `results/analysis/R-170/judge/judges.txt`.
 - **R-154's check.** `freeze_r154.py judges` on all 18 transcripts: every reply came from `claude-sonnet-5-5`, under
   Claude Code 2.1.309 (`judges_check.json`).
@@ -7028,7 +7028,7 @@ before any judged number is read.
 - **Scorer written before reading.** `scripts/records/score_judged_r170.py` was written before any mark was read. It
   stops unless Kevin's 50 marks (`kevin_marks.json`) are in.
 
-**Kevin's 50 lines** (marked in chat, 12:40 to 13:30, before any judged number was read; `results/analysis/R-170/judge/kevin_marks.json`).
+**Kevin's 50 lines** (marked in chat, 11:53 to 12:15, before any judged number was read; `results/analysis/R-170/judge/kevin_marks.json`).
 - **Format.** He marked r or w, saved as yes or no. He restarted once from line 1 at his own word, and the first
   attempt's marks were discarded.
 - **Unsure lines.** Line 18 was marked "r?". Line 21 was first "w?", with his question whether "I don't know, I'm an
