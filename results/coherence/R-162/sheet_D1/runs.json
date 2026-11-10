@@ -1,0 +1,11 @@
+{
+ "base": "results\\recall_eval\\final_D_base_seed_90311.json",
+ "fix17cs37_82": "results\\recall_eval\\final_D_fix17cs37_82_seed_90311.json",
+ "fix17cs37_83": "results\\recall_eval\\final_D_fix17cs37_83_seed_90311.json",
+ "fix17cs37_94": "results\\recall_eval\\final_D_fix17cs37_94_seed_90311.json",
+ "fix17cs37_95": "results\\recall_eval\\final_D_fix17cs37_95_seed_90311.json",
+ "fix17cs37_96": "results\\recall_eval\\final_D_fix17cs37_96_seed_90311.json",
+ "fix17cs37_97": "results\\recall_eval\\final_D_fix17cs37_97_seed_90311.json",
+ "fix17cs37_98": "results\\recall_eval\\final_D_fix17cs37_98_seed_90311.json",
+ "fix17cs37_99": "results\\recall_eval\\final_D_fix17cs37_99_seed_90311.json"
+}

@@ -6,7 +6,8 @@ Why: R-162 registered, before any run, four rules that must hold in every condit
 over the eight 6.37 adapters at least 20 points above base at each size with a paired exact sign
 test below 0.01 (R-016); the same on retrieved answers alone (R-041); each adapter's false
 retrievals no more than base's (R-038); each adapter's coherent count at or above base's, judge 1
-deciding (R-016, R-039, R-154). Beside them it reports each kind, each adapter, seed 82 alone (the
+deciding (R-016, R-039, R-154). Beside them it reports each kind, each adapter, right search
+decisions, clean first calls, runs out of calls, recall answers found by search, seed 82 alone (the
 shipped model), recall split into ``older`` and ``confirm``, and a whole-conversation resampled
 interval, because rule 1's adapter-conversation pairs share conversations, and each run's cost (wall
 seconds, seconds per conversation, card memory, tokens read and written per turn against the whole
@@ -23,6 +24,7 @@ from collections import Counter
 from pathlib import Path
 
 from aya_retrieval.report_data import false_retrieval
+from aya_retrieval.scoring import clean_call
 from aya_retrieval.stats import bootstrap_gain_interval, exact_sign_test
 
 EVAL = Path("results/recall_eval")
@@ -65,6 +67,23 @@ def cost(condition: str, model: str) -> dict:
         "tokens_written_per_turn": mean("tokens_written"),
         "whole_chat_tokens": mean("whole_chat_tokens"),
         "searches_per_conversation": round(sum(len(r["queries"]) for r in rows) / len(rows), 2),
+    }
+
+
+def behaviour(run: dict[str, dict]) -> dict:
+    """Search decisions, clean first calls, runs out of calls, recall answers found by search."""
+    rows = list(run.values())
+    searching = [row for row in rows if row["queries"]]
+    recall = [row for row in rows if row["kind"] in RECALL]
+    return {
+        "right_decisions": sum(bool(row["right_decision"]) for row in rows),
+        "clean_calls": {
+            "clean": sum(clean_call(row["first_reply"]) for row in searching),
+            "of": len(searching),
+        },
+        "ran_out_of_calls": sum(bool(row["ran_out_of_calls"]) for row in rows),
+        "recall_found_fact": sum(bool(row["found_fact"]) for row in recall),
+        "recall_right_and_found": sum(right(row, retrieved_only=True) for row in recall),
     }
 
 
@@ -169,6 +188,7 @@ def main() -> None:
                     ),
                 ),
             },
+            "behaviour": {m: behaviour(run) for m, run in {"base": base, **adapters}.items()},
             "cost": {m: cost(condition, m) for m in ("base",) + ADAPTERS},
             "eight_seeds_conversation_resampled_interval": bootstrap_gain_interval(
                 [int(bool(base[i]["correct"])) for i in recall_ids],

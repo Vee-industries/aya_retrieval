@@ -6327,3 +6327,108 @@ judge's wall time. Every run has the card to itself, so its times are comparable
 3080, 10 GB). Scripts committed with this note: `score_r162.py` (the four rules and what is reported),
 `sheets_r162.py` (the sheets as registered), `briefs_r162.py` (each judge's brief from R-154's frozen text, changing
 only the folder, sheet names and line counts).
+
+## R-163 · 2026-11-09 · SPRINT · The sealed final run: every rule passes in every condition
+
+**Result.** The run registered in R-162 is done. 6.37 passes all four rules in all four conditions, so the project
+result is a pass. Base and all eight 6.37 adapters ran on the same 300 conversations in each condition, from 15:30 to
+21:15. Every run worked on its first try, and no results file was replaced. The freeze check passed before the first
+run. Scores come from `scripts/records/score_r162.py`, written to `results/analysis/R-162/<condition>.json`.
+
+**Rule 1, recall** (`older` and `confirm`, 120 conversations; pooled over the eight adapters, in percent):
+
+| Condition | Base, 58 msgs | Adapters, 58 | Base, 419 msgs | Adapters, 419 | Sign test (only base / only adapter) | p |
+|---|---|---|---|---|---|---|
+| A, `heldout`, 1 decoy | 28.3 | 88.8 | 25.0 | 85.2 | 25 / 604 | 3.4e-145 |
+| B, `heldout`, 4 decoys | 25.0 | 90.4 | 23.3 | 85.2 | 25 / 636 | 2.8e-154 |
+| C, `independent`, 1 decoy | 16.7 | 90.4 | 18.3 | 89.4 | 11 / 706 | 1.8e-192 |
+| D, `independent`, 4 decoys | 8.3 | 90.4 | 13.3 | 88.3 | 11 / 765 | 7.3e-210 |
+
+The gain is 60 to 82 points against the 20 required. The sign test counts adapter-conversation pairs that share
+conversations, so its p-value overstates independence. The whole-conversation resampled interval of the gain, over
+the eight seeds, is the figure to read: A +50.8 to +69.7 points, B +54.4 to +72.8, C +64.9 to +79.4, D +71.9 to +84.6.
+As a relative increase over base on the pooled rate, recall is up 226% (A), 264% (B), 414% (C) and 727% (D).
+
+**Rule 2, retrieved answers only** (R-041): the same numbers as rule 1 for the adapters, in every condition. Every
+right adapter answer came from a search that found the fact. Base's rate is unchanged too, because base's right recall
+answers all came from its own searches. Pass in all four.
+
+**Rule 3, false retrievals** (each adapter no more than base): A base 12, adapters 0 to 2; B base 23, adapters 0 to
+11; C base 24, adapters 3 to 9; D base 24, adapters 0 to 9. Pass in all four.
+
+**Rule 4, coherence** (coherent count; judge 1 decides, judges 2 and 3 reported):
+
+| Condition | Of | Judge 1: base / adapters | Judge 2 | Judge 3 |
+|---|---|---|---|---|
+| A | 300 | 173 / 264–288 | 167 / 267–283 | 166 / 258–281 |
+| B | 120 | 59 / 105–113 | 59 / 104–113 | 61 / 106–114 |
+| C | 120 | 75 / 108–116 | 65 / 109–114 | 72 / 107–116 |
+| D | 120 | 71 / 110–116 | 77 / 110–117 | 73 / 109–116 |
+
+Every adapter is above base under every judge, not only judge 1. Pass in all four.
+
+**Seed 82 alone (the shipped model; a description, not a rule).** Recall 106 of 120 against base's 32 (A), 107
+against 29 (B), 92 against 21 (C) and 91 against 13 (D); sign test p from 1e-19 to 1e-20 in each. False retrievals
+0, 0, 7 and 4. Coherent (judge 1) 282 of 300, then 105, 114 and 115 of 120. In A and B it is level with the other
+seeds. On the independent pool it is below them: its `confirm` score is at the bottom of the eight there (42 and 40 of
+60, against up to 60). Most of its misses there are answers where it found the fact and did not use it: it found the
+fact in 111 of 120 recall conversations in both C and D but answered 92 and 91 right. R-141 recorded the same pattern
+(the answer sits in a trailing clause and the reply restates the main clause).
+
+**Reported beside the rules.**
+- Search decisions right, of 300: base 180 (A, B) and 193 (C, D); adapters 283 to 300 (A, B) and 294 to 300 (C, D);
+  seed 82 298 and 296.
+- Clean first calls: every adapter call in every condition was clean (seed 82 180 of 180 in A and B, 184 of 184 in C
+  and D). Base: 52 of 136 (A, B) and 49 of 107 (C, D).
+- Runs out of calls: adapters none; base 1, 2, 3 and 3.
+- Each kind for each model is in `per_kind_correct`. In `in_view`, the questions whose answer is still on screen and
+  need no search, base gets 55 and 56 of 60 on `heldout`. The adapters range from 50 to 59 there (seed 82 59), so
+  some seeds lose a few of these. On `independent`, base gets 43 and 45, and the adapters 49 to 59.
+
+**Cost** (Kevin: "keep the times as a metric too"; this machine, an RTX 3080 with 10 GB, every run with the card to
+itself):
+
+| Condition | Base: s, s per conv | Seed 82: s, s per conv | Adapters: s per conv | Tokens read per turn, base / 82 | Whole chat | Searches per conv, base / adapters |
+|---|---|---|---|---|---|---|
+| A | 389, 1.30 | 535, 1.78 | 1.73–2.18 | 1,148 / 1,196 | 3,227 | 0.47 / 0.57–0.63 |
+| B | 385, 1.28 | 502, 1.67 | 1.67–1.92 | 1,154 / 1,207 | 3,239 | 0.48 / 0.57–0.63 |
+| C | 381, 1.27 | 524, 1.75 | 1.75–2.03 | 1,122 / 1,239 | 3,496 | 0.39 / 0.60–0.62 |
+| D | 434, 1.45 | 624, 2.08 | 2.08–2.34 | 1,145 / 1,266 | 3,610 | 0.39 / 0.60–0.62 |
+
+Seed 82 reads 35 to 37% of the whole chat's tokens per turn, 4 to 11% more than base. It writes fewer: 26 per
+turn against base's 36 to 38. Peak card memory was 7.02 GiB at most. Each conversation takes seed 82 0.4 to 0.6 s
+longer than base. The adapters search more often, 0.6 times a conversation against base's 0.4 to 0.5, and each
+search adds a turn. The judges took 53 to 129 s each, median 80
+(`results/coherence/R-162/judge_times.json`).
+
+**Judges.** 33 fresh Sonnet judges: three for each of A's five sheets and for each of the two sheets in B, C and D.
+`freeze_r154.py judges` on all 33 transcripts reads one model, `claude-sonnet-5-5`, on Claude Code 2.1.309, so no
+judging is void. Each judge's transcript was audited before its marks were filed (`audit_judge.py`, kept in scratch).
+The audit checks the model, that no path outside the judge's own folder was touched, that no code was run except the
+heredoc that writes the marks and counting commands, and that the marks cover every line. All 33 passed. Briefs,
+agent ids and marks are in `results/coherence/R-162/` (`briefs/`, `judges.txt`, `judge/`).
+
+**Disclosed.**
+1. *One more word changed in the brief.* R-154 allows the folder path, sheet names and line counts to change. The
+   brief's count of files to read ("these five files" in R-128's brief) also changed, to match the files given. It
+   is "two files" for every sealed judge: the rubric and one sheet. Nothing else in the brief changed
+   (`briefs_r162.py`).
+2. *The audit's rules were tightened during condition A.* The first version flagged the judges' counting commands
+   (grep counts of their own marks file) as code. It was changed to pass a command that runs no interpreter and
+   redirects nothing. One A3 judge 2 command, a `cd` into its own folder followed by the marks heredoc, did not match
+   the heredoc pattern. I read it and filed it by hand; it wrote only the marks file.
+3. *A duplicate line in the judge list.* `judges.txt` listed A5 judge 1 twice, a slip when I recorded it. It is the
+   same agent and the same marks file, not a second judging. The duplicate was removed before this record.
+4. *Fields added to the scorer after the run.* `score_r162.py` gained right search decisions, clean first calls, runs
+   out of calls and found-fact counts, all listed as reported in R-162 but missing from the script. This added
+   fields only: every earlier value in `A.json` is identical after the rescore. No rule changed.
+5. *What the sealed run does not show.* Both sealed pools use this project's conversation generator. `independent`
+   was written by a fresh agent and never read, but its chats follow the generator's structure. The figures for chats
+   by writers who never saw the generator are still the two independent sets': +50% and +96% for seed 82 (R-146,
+   R-157). The sealed result shows the gain holds on unseen people, facts and small talk at the registered size. It
+   does not replace those two figures.
+6. *Limits that stand.* It goes along with wrong tag-question claims (R-158), and the coherence judges are Claude
+   models only (README, Known limits).
+
+**Next.** The README status and limits are updated in this commit. The write-up and model card are rebuilt for 6.37 on
+these numbers.

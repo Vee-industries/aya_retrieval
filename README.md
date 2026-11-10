@@ -9,12 +9,16 @@ Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.
 2026), Track 3, Agentic Fine-tuning. Author: Kevin Vaillancourt, working with an AI assistant
 (Claude) as an executive-function accommodation.
 
-> **Status: model frozen.** The shipped adapter is 6.37 (`fix17cs37`, seed 82), frozen on 9 November
-> (RECORDS R-160) with the scorer and judge (`results/freeze/sealed_manifest.json`, R-154). The last
-> candidates, 7 and 7.1, each failed a registered line (R-155, R-157). All numbers are development
-> numbers until the sealed final run on the held-out pools, which has not run yet. The write-up and model card in
-> `docs/` are drafts that still show v5's development numbers, as their banners say; they are rebuilt
-> from `results/` at the freeze. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
+> **Status: sealed final run done, every registered rule passes.** The shipped adapter is 6.37
+> (`fix17cs37`, seed 82), frozen on 9 November (RECORDS R-160) with the scorer and judge
+> (`results/freeze/sealed_manifest.json`, R-154). On the sealed run (R-162, results R-163), base and
+> all eight 6.37 seeds ran on 300 unseen conversations in each of four conditions (`heldout` and
+> `independent` pools, one or four decoy facts a chat). The adapters' recall is 85 to 90% against
+> base's 8 to 28%. Every right answer came from a search that found the fact. Each adapter made no
+> more false retrievals than base, and was judged coherent more often than base by all three judges.
+> Seed 82 alone gets 91 to 107 of 120 recall questions against base's 13 to 32
+> (`results/analysis/R-162/`). The write-up and model card in `docs/` are drafts that still show v5's
+> development numbers, as their banners say, and are being rebuilt on these. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
 > and result, each marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this
 > repository is built to.
 
@@ -29,8 +33,8 @@ No two pools share any content; tests enforce it.
 | `train` | Claude | training |
 | `wide` | a fresh agent, from a brief | training experiments with 47 new fact types (R-069 to R-073) |
 | `probe` | Claude | development screens and confirmations |
-| `heldout` | Claude | the registered final test only; sealed |
-| `independent` | a fresh agent, from a brief | the registered final test only; sealed, never read |
+| `heldout` | Claude | the registered final test only; run once, 9 November (R-162, R-163) |
+| `independent` | a fresh agent, from a brief | the registered final test only; run once, 9 November (R-162, R-163); never read |
 | `hard_dev` | a second fresh agent, same brief | development: a readable twin of `independent` (R-066) |
 
 `src/aya_retrieval/stress.py` makes any pool harder at evaluation: the user's typing style, facts
@@ -59,6 +63,12 @@ The holes a reviewer will look for first, each measured and recorded where it wa
   p = 0.047; whole-chat bootstrap +2.5 to +19.2 points; R-146) and 53 of 120 against 27 on the second
   (+96%, p = 0.0001; +13.3 to +30.0 points; R-157). On the generated `hard_dev` set the same adapter
   goes from 20 to 73 of 96 (+265%). The +50% and +96% are the figures to read as generalization.
+  The sealed run's two pools both use this project's conversation generator, so its larger gains
+  (R-163) show the result holds on unseen people, facts and small talk. They do not show it holds on
+  chats with a different structure.
+- **The shipped seed is not the strongest on the independent pool.** On the sealed `independent`
+  pool, seed 82's `confirm` score is at the bottom of the eight seeds (42 and 40 of 60, against up
+  to 60). Most of its misses there are facts it found and did not use (R-163).
 - **It goes along with wrong claims in tag questions.** Asked "..., right?" about an out-of-view fact on the
   second independent set, 6.37 rarely searches (12 of 40) and corrects only 3 of the 20 false claims, so most of
   its `confirm` score is agreement with true ones. 7.1 shows the search can be trained (40 of 40, every right
@@ -90,6 +100,8 @@ weights instead. Nothing from that project's code or test sets is used here.
 | `results/` | Results files, each with its own provenance |
 | `results/curator/` | CuratorKIT's grounding gate over the training answers, with each judge's verdicts (R-096, R-098) |
 | `results/freeze/` | The freeze (R-154): the judge's brief, the judges' measured spread, a trial manifest, and the sealed manifest (`sealed_manifest.json`, R-160): SHA-256 hashes of the scorer, sealed pools, judge brief, human check and adapter |
+| `results/analysis/R-162/` | The sealed final run scored against the registered rules, one file per condition (`scripts/records/score_r162.py`; the runs themselves are `results/recall_eval/final_*`) |
+| `results/coherence/R-162/` | The sealed run's blind coherence sheets with their keys, each judge's brief, agent id, marks and wall time |
 | `results/panels/` | Each panel's brief and round messages, by record; R-134's with every expert's answer |
 | `results/human_check/` | The blind check of the scorer by Kevin and a second marker (R-139, R-144, R-145) |
 | `tests/` | The test suite |
