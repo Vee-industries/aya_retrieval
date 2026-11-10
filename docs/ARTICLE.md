@@ -2,22 +2,39 @@
 
 *Kevin Vaillancourt · Lexsi AI Safety and Alignment Hackathon, Track 3 (Agentic Fine-tuning) · November 2026*
 
-> **Final numbers for the shipped model, 6.37 (`fix17cs37` seed 82, frozen in R-160): the sealed final run (registered in R-162, results in R-163), the outside-writer sets (R-146, R-157) and the whole-chat control (R-164, R-165). Every number is computed from committed results files by `scripts/make_article.py`.**
+> **Final numbers for the shipped model, 6.37 (`fix17cs37` seed 82, frozen in R-160): the sealed final run (registered in R-162, results in R-163), the outside-writer sets (R-146, R-157), the whole-chat control (R-164, R-165), R-016's two references run late (R-168, R-169) and LongMemEval-S as an outside check (R-170). Every number is computed from committed results files by `scripts/make_article.py`.**
 
 ## Abstract
 
 When a chat fits in what the model can read, give it the whole chat. On two sets of chats written
 by outside writers who never saw this project's generator (about 1,400 tokens a chat),
 untrained Tiny Aya Global (3.35B) with every message in view answers 58 and
-52 of 80 questions about facts told earlier. Our trained model, 6.37, with
+52 of 80 questions about facts told earlier. The trained model, 6.37, with
 a search tool and only the last three exchanges in view, answers 28 and
 34 (R-164). Given the whole chat and the tool, 6.37 and the untrained model show
-no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions could not be seen, R-142) on every kind
-of message (R-165). So the gain below is for chats too long to show whole.
+no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions are below what this test resolves, R-142) on every kind
+of message (R-165). This holds on the outside-writer chats, not on the project's own generated
+chats: on the sealed pools' 58-message chats, of about the same length (1,105 to 1,332 tokens),
+the untrained model with every message in view answers 21 to 33 of 60 recall
+questions against 6.37's 46 to 55 with the tool (R-168).
 
-For those chats, 6.37 is a LoRA adapter trained to search the earlier conversation when the answer
-is out of view, to read what comes back, and to answer in the model's own voice. With only the last
-three exchanges in view, as a stand-in for a chat too long to show, the shipped seed answers
+On the outside-writer chats, plain code that searches on every turn, with no training, recalls as
+well as 6.37 when both see only the last three exchanges: 42 and 47 of
+120 recall questions against 6.37's 39 and 53, no
+measured difference (p = 0.76 and 0.45; R-169). What training adds on those chats is
+deciding when not to search. Where the answer is still in view, 6.37 answers 35
+and 37 of 40 and code 13 and 16. On facts
+never told, 6.37 answers 37 and 36 and code
+31 and 24. 6.37 leaves 37 and
+35 plain statements unsearched, where code searches every one. On the generated
+sealed pools the adapters are far above both references on recall, at 58 and 419 messages: seed 82
+gets 44 to 55 of 60 against code's 14 to 32 (sign test p at most
+3.2 × 10<sup>-4</sup>; R-168). Both references were registered in R-016, left out of the sealed run, and
+run late (R-167).
+
+6.37 is a LoRA adapter trained to search the earlier conversation when the answer is out of view,
+to read what comes back, and to answer in the model's own voice. With only the last three
+exchanges in view, as a stand-in for a chat too long to show, the shipped seed answers
 39 and 53 of 120 recall questions on the two
 outside-writer sets, against the untrained model's 26 and 27
 (gain +2.5 to +19.2 and +13.3 to +30.0 points, 95% intervals resampling chats; on the first set
@@ -36,6 +53,20 @@ a search that found the fact, no adapter with more false retrievals than the unt
 every adapter judged coherent more often (R-163). Both sealed pools come from the project's own
 generator. Not measured: the untrained model reading the whole chat at 419 messages.
 
+On LongMemEval-S, a third kind of chat (user-to-assistant chats, partly real logs and partly
+model-simulated; never pooled with the sets above), every arm answers few questions. 6.37 finds the
+evidence more often than the untrained model with the tool only because it searches more often.
+Code that always searches finds it more often than 6.37 (372 against
+333 of 476), with no measured difference in gold answers
+(63 against 51 of 411), and 6.37 declines
+233 of the 470 questions it should answer. Judged with
+LongMemEval's prompts by Claude judges (not the official score), 6.37 is right on 53 of
+248, base with the tool on 34 and code on 40. Split after
+reading: on the 233 answerable questions 6.37 ties code and shows no
+measured difference from base (40 against 32, p = 0.29); 11 of its
+19-question lead over base come from the 15 unanswerable ones
+(R-170).
+
 ## 1. Introduction
 
 A chat assistant keeps a long conversation, but a model attends to a limited window. Tiny Aya Global
@@ -44,21 +75,35 @@ attend to all of them; the other layers attend to the last 4,096 (the model's co
 Past that, a fact told early in the chat is either out of the prompt or in a part most layers do
 not see.
 
-**The first answer is to show the whole chat when it fits.** We measured it late, after the
-sealed run (R-164, R-165), and it changes how the rest of this paper should be read. On chats of
-about 1,400 tokens, the untrained model with every message in view beats our trained
-model working from the last three exchanges and a search, by a wide margin (section 6). Given the
-whole chat as well, the trained model and the untrained one show no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions could not be seen, R-142) on every kind. The design
-this supports is plain: show the model the whole chat when it fits, and let it search when it does
-not.
+**The first answer is to show the whole chat when it fits.** It was measured late, after the
+sealed run (R-164, R-165), and it changes how the rest of this paper should be read. On the
+outside-writer chats, of about 1,400 tokens, the untrained model with every message in
+view beats the trained model working from the last three exchanges and a search, by a wide margin
+(section 6). Given the whole chat as well, the trained model and the untrained one show no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions are below what this test resolves, R-142) on every kind. On
+those chats this supports one design: show the model the whole chat when it fits, and let it
+search when it does not. On the generated sealed chats of about the same length the whole chat
+does not win: there the untrained model reading it is far below the trained model with the tool
+(R-168, section 7). So which is better depends on the kind of chat, and every result below names
+the kind of chat it is on.
 
-**What the trained model adds** is the second half: a model that, shown only the last part of a
-chat, decides when an answer is out of view, writes a search, reads the result and answers without
-sounding different from before. We test it with the last three exchanges in view, as a stand-in for
-a chat too long to show. It beats the untrained model there on every test set: on the
-outside-writer sets by +10.8 and +21.7 points (+50% and
-+96% over base; R-146, R-157), and by 60 to 82 points on the generator's
-sealed pools (sections 7 and 8).
+**The second answer is plain code that searches on every turn.** It was registered as a reference
+before any adapter existed (R-016), left out of the sealed run, and run late (R-167, R-168, R-169).
+On the outside-writer chats it recalls as well as the trained model, with no measured difference
+(section 6). What training adds there is deciding when not to search: answering what is still in
+view, declining what was never told (a sign test below 0.05 on the second set only), and not
+searching plain chat. On the generated sealed pools
+the trained model is far above it on recall as well (section 7).
+
+**What the trained model adds over the untrained one with the same tool** is a model that, shown
+only the last part of a chat, decides when an answer is out of view, writes a search, reads the
+result and answers without sounding different from before. It is tested with the last three
+exchanges in view, as a stand-in for a chat too long to show. It beats the untrained model with
+the tool on every set built for this project: on the outside-writer sets by +10.8 and
++21.7 points (+50% and +96% over base; R-146, R-157), and by
+60 to 82 points on the generator's sealed pools (sections 7 and 8). On LongMemEval-S,
+an outside set of user-to-assistant chats, it is judged above the untrained model overall, with
+no measured difference on the questions that can be answered, and plain code finds the evidence
+more often (section 9).
 
 The Track 3 statement asks for a model that "decides when and what to retrieve, grounds its answers
 in the retrieved text and ignores distracting documents". Each phrase maps to a measure here:
@@ -71,15 +116,20 @@ in the retrieved text and ignores distracting documents". Each phrase maps to a 
 | **ignores distracting documents** | false retrieval: a decoy's fact in the reply, with one and four decoys a chat |
 
 **Contributions.**
-1. A measured answer to "why not show the whole chat": on short chats, do; given the whole chat,
-   the trained model and the untrained one show no measured difference (R-164, R-165; one seed,
-   two sets of 40 chats).
-2. A training recipe that teaches the search habit while keeping the model's own voice (section 4).
-3. A test that is hard to game: registered before training, amended only to make it harder, frozen
+1. A measured answer to "why not show the whole chat": on short outside-writer chats, do; given
+   the whole chat, the trained model and the untrained one show no measured difference (R-164,
+   R-165; one seed, two sets of 40 chats). On generated chats of the same length, the
+   untrained model reading the whole chat is far below the trained model with the tool (R-168).
+2. A measured answer to "why not plain code that always searches": on the outside-writer chats it
+   recalls as well, and training adds only deciding when not to search (R-169); on the generated
+   sealed pools the trained model is far above it (R-168).
+3. A training recipe that teaches the search habit while keeping the model's own voice (section 4).
+4. A test registered before training, amended only to make it harder, frozen
    with its scorer and judge, run once on every training seed (R-016, R-038, R-039, R-041, R-154,
-   R-162), and two sets of chats by writers who never saw the generator.
-4. A ledger of every candidate tried, with the line each failed (section 10), and three toolkit
-   findings (section 11).
+   R-162), two sets of chats by writers who never saw the generator, and an outside check on
+   LongMemEval-S (R-170).
+5. A ledger of every candidate tried, with the line each failed (section 11), and three toolkit
+   findings (section 12).
 
 ## 2. Related work
 
@@ -88,7 +138,7 @@ and interleaved with reasoning (ReAct, Yao et al., 2023). Adaptive retrieval ask
 at all: popular facts are answered from memory, rare ones looked up (Mallen et al., 2023), and
 Self-RAG trains a model to decide and to critique its own retrievals (Asai et al., 2024). RAFT
 fine-tunes on retrieved sets that include distractor documents, so the model learns to cite the
-right one (Zhang et al., 2024); our decoys play the same role inside a conversation. For long
+right one (Zhang et al., 2024); this project's decoys play the same role inside a conversation. For long
 chats, MemGPT manages memory with an agent loop around the model (Packer et al., 2023), and
 LongMemEval measures long-term chat memory (Wu et al., 2025); models also use the middle of long
 contexts poorly (Liu et al., 2024), which is one reason to keep the window short and search
@@ -101,7 +151,7 @@ which model wrote each reply. Adapters are LoRA (Hu et al., 2022).
 A conversation has run for some time. In the main tests the model sees the system prompt, the last
 three exchanges and the friend's newest message. Everything earlier sits behind one tool,
 `search_corpus`, a full-text search over the earlier conversation that returns the top 5
-passages, one passage per exchange; the model may call it up to 3 times a turn. The
+passages, one passage per exchange; the model can call it up to 3 times a turn. The
 newest message is one of five kinds, each scored by a fixed rule (`src/aya_retrieval/scoring.py`,
 R-015):
 
@@ -194,7 +244,7 @@ Training took 33 to 35 minutes a seed, peaking at 7.81 to 7.84 GiB of card memor
 **The Lexsi toolkits.** AgentTune trains every adapter (R-003, R-016). AuditKIT re-scored recorded
 replies as a second scorer during development: its files are `fix5c_probe73157`, `v3_probe73157`, `v5_probe73157` (R-030, R-031); no
 AuditKIT run on 6.37 exists. CuratorKIT's grounding gate audited v6's found-fact training answers
-and passed the replacements before they were used (R-096, R-098). Section 11 reports what each
+and passed the replacements before they were used (R-096, R-098). Section 12 reports what each
 showed.
 
 ## 5. Evaluation protocol
@@ -262,11 +312,15 @@ do not resample templates (R-164).
    earlier value unchanged, no rule changed.
 6. *The first outside-writer set became a development set* (R-151), when 7 was designed from its
    failures. 6.37's result on it was measured before that.
-7. *R-016's references were not run.* R-016 lists `whole_chat` and `always_search` as references
-   to report beside the rules; R-162 ran neither and did not say so, and the omission was first
-   disclosed in R-167. The pass rules did not depend on them. The whole-chat reference was run
-   afterwards, on the outside-writer sets only (R-164, R-165); `always_search` was never run on a
-   set the trained model was tested on (section 6).
+7. *R-016's references were left out of the sealed run and run late.* R-016 lists `whole_chat`
+   and `always_search` as references to report beside the rules; R-162 ran neither and did not say
+   so, and the omission was first disclosed in R-167, after the write-up's reviewer found it. The
+   pass rules did not depend on them, so R-163's pass stands. Both were then run, on base only:
+   the whole chat on the outside-writer sets (R-164, R-165) and on the sealed conversations at 58
+   messages (R-168; at 419 it does not fit under the memory cap), and `always_search` on the sealed
+   conversations at both sizes (R-168) and on the outside-writer sets (R-169). This read each
+   sealed pool a second time, by base only; nothing chosen from these runs can change the frozen
+   model (sections 6 and 7).
 8. *No exact interval on the coherence difference.* R-016 asks for the paired disagreement counts
    and an exact 95% interval on the coherence difference; R-163 reports counts per model only
    (R-167).
@@ -278,7 +332,10 @@ do not resample templates (R-164).
 10. *LoCoMo* was registered as an outside check (R-100), deferred (R-139 item 6) and never run
     (R-167).
 
-## 6. Results: whole chat or search
+## 6. Results on the outside-writer sets: whole chat, plain code or search
+
+Every result in this section is on the two outside-writer sets. The generated sealed pools give a
+different answer on the whole chat (section 7).
 
 On the outside-writer sets, `older` questions (R-164, R-165; one seed, 40 chats a set; in brackets,
 the paired counts against base with the whole chat):
@@ -292,7 +349,7 @@ the paired counts against base with the whole chat):
 
 Base with every message in view beats 6.37 working from the last three exchanges on both sets
 (set 1: 36 right only for base with the whole chat and 6 only for 6.37 with the tool, p = 2.8 × 10<sup>-6</sup>; set 2: 28 right only for base with the whole chat and 10 only for 6.37 with the tool, p = 0.0051; R-164). Given the whole chat, 6.37 and base
-show no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions could not be seen, R-142), with or without the tool (R-165): no measured damage to how the model uses the context it
+show no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions are below what this test resolves, R-142), with or without the tool (R-165): no measured damage to how the model uses the context it
 can see.
 
 Every kind, base with the whole chat and no tool (`whole_chat_all`) against 6.37 with the whole chat
@@ -324,9 +381,38 @@ having the whole chat in view, not with training (R-165).
 Tokens read per turn: set 1, base with the whole chat 1,399, 6.37 with the last three exchanges and the tool 1,707, 6.37 with the whole chat and the tool 1,948; set 2, base with the whole chat 1,401, 6.37 with the last three exchanges and the tool 1,690, 6.37 with the whole chat and the tool 1,945 (R-164; whole-chat-and-tool from the raw runs). On chats this
 short, reading the whole chat costs fewer tokens than searching, not more.
 
-**What is not measured.** Base with the whole chat on the generated pools, whose 419-message chats
-run about 6,236 tokens on `hard_dev` and 5,409 on `probe`. Those runs were
-registered (R-164) and have no results, because they ran out of card memory (R-166; the queue log is
+**Code that always searches** (R-169). R-016 registered it as a reference: code makes the first
+search on every turn, with the newest message as the query, and hands base the passages; base can
+then search again or answer. The last three exchanges are in view, and nothing is trained
+(`scripts/run_recall_eval.py`). It was left out of the sealed run (R-167) and run
+late on both outside-writer sets, seed 0, on the same questions as the other arms (registered
+before it ran: if it is at or above seed 82 on recall, training adds nothing to recall over plain
+code on these chats). Each kind, with seed 82's paired counts against code in brackets (sign tests
+on the kinds other than recall were computed for this write-up from the same runs):
+
+| Kind (questions) | Set 1: code always searches | seed 82, tool (only code right, only seed 82 right, sign test) | base, tool | base, whole chat | Set 2: code always searches | seed 82, tool (the same) | base, tool | base, whole chat |
+|---|---|---|---|---|---|---|---|---|
+| recall (`older` and `confirm`, 120) | 42 | 39 (22, 19, p = 0.76) | 26 | 71 | 47 | 53 (19, 25, p = 0.45) | 27 | 65 |
+| `older` (80) | 23 | 28 (9, 14, p = 0.4) | 11 | 58 | 24 | 34 (10, 20, p = 0.099) | 12 | 52 |
+| `confirm` (40) | 19 | 11 (13, 5, p = 0.096) | 15 | 13 | 23 | 19 (9, 5, p = 0.42) | 15 | 13 |
+| `in_view` (40) | 13 | 35 (1, 23, p = 3.0 × 10<sup>-6</sup>) | 36 | 35 | 16 | 37 (0, 21, p = 9.5 × 10<sup>-7</sup>) | 34 | 32 |
+| `never_told` (40) | 31 | 37 (2, 8, p = 0.11) | 34 | 31 | 24 | 36 (2, 14, p = 0.0042) | 32 | 28 |
+| `statement` (40) | 0 (wrong by construction) | 37 | 38 | 40 (right by construction) | 0 (wrong by construction) | 35 | 39 | 40 (right by construction) |
+
+On recall, code is above seed 82 on set 1 (22 right only for code and 19 only for seed 82, p = 0.76) and below on set 2 (19 right only for code and 25 only for seed 82, p = 0.45):
+no measured difference on either set. Set 1 meets the registered outcome: on these chats, training
+adds nothing measured to recall over plain code that searches every turn. What training adds is
+deciding when not to search. Code, which searches even when the answer is on screen, answers
+`in_view` far worse (13 and 16 against 35 and
+37). It does worse on `never_told` (31 and
+24 against 37 and 36; sign test p =
+0.11 on set 1 and 0.0042 on set 2). It fails every `statement` by construction, since that kind is scored on not
+searching. Base with the whole chat is above both on recall.
+
+**What is not measured.** Base with the whole chat on 419-message generated chats, which run about
+6,236 tokens on `hard_dev` and 5,409 on `probe`. At 58 messages it was
+run late on the sealed pools (R-168, section 7). The R-164 runs on `hard_dev` and `probe` were
+registered and have no results, because they ran out of card memory (R-166; the queue log is
 `results/control/R-164/wc_hd_base_oom.log`). The `hard_dev` run failed three tries with
 `torch.OutOfMemoryError`: it asked for 2.35 GiB more with 6.84 GiB already
 allocated and 8.50 GiB allowed, the cap these runs use (`--max-vram-fraction 0.85` of a
@@ -347,14 +433,13 @@ talk. R-017, after the small talk was varied: 0 of 12 `older` questions right at
 against 8 of 12 at 58, failing its own control. A low score at 419 messages agrees with the
 model's sliding window but does not show it is the cause (R-017, R-164).
 
-**Code that always searches is a competitor for long chats, and was not tested against.** R-014's
-`always_search` arm (code makes a search on every turn and hands base the result; no training)
-answered 28 of 40 at 419 messages, against the whole chat's
-2 of 40, and 34 of 40 at 58. It has a cost: in R-017 it answered
+**Code that always searches, before the late runs.** In development, on the training pool, R-014's
+`always_search` arm answered 28 of 40 at 419 messages, against the whole chat's
+2 of 40, and 34 of 40 at 58. In R-017 it answered
 5 of 24 facts in view (base with no tool 22 of 24) and
 0 of 24 plain-chat lines without a search (base with no tool
-24 of 24), because it searches on every turn. R-016 registered it as a
-reference; it was never run on any set the trained model was tested on (R-167, item 1).
+24 of 24), because it searches on every turn. The late runs above (R-169)
+and on the sealed pools (R-168, section 7) show the same cost on facts in view.
 
 ## 7. Results: the sealed run
 
@@ -447,7 +532,36 @@ after them):
 | C | 193 | 296 | 294 to 300 | 49 of 107 | 184 of 184 | 3 | 0 | 111 / 92 |
 | D | 193 | 296 | 294 to 300 | 49 of 107 | 184 of 184 | 3 | 0 | 111 / 91 |
 
-## 8. Results: the outside-writer sets
+**R-016's two references, run late** (R-167, R-168). Registered in R-016 and left out of the sealed
+run, they were run afterwards on base only, on the same sealed conversations (item seed 90311),
+registered before they ran: base with every message in view and no tool (`whole_chat_all`, every
+kind) at 58 messages only, because at 419 it does not fit under the memory cap (R-166), and code
+that always searches (`always_search`) at both sizes. Recall (`older` and `confirm`, of
+60 at each size), with base with the tool and the adapters from the sealed run on
+the same conversations:
+
+| Condition | Base, whole chat, 58 | Code always searches, 58 / 419 | Base, tool, 58 / 419 | Seed 82, 58 / 419 | Eight adapters, 58 / 419 | False retrievals: base, whole chat (58 only) | Code always searches (both sizes) |
+|---|---|---|---|---|---|---|---|
+| A | 33 | 32 / 32 | 17 / 15 | 54 / 52 | 51 to 55 / 49 to 52 | 7 | 42 |
+| B | 28 | 31 / 30 | 15 / 14 | 55 / 52 | 52 to 56 / 49 to 52 | 16 | 56 |
+| C | 21 | 20 / 17 | 10 / 11 | 46 / 46 | 46 to 60 / 46 to 60 | 9 | 53 |
+| D | 22 | 15 / 14 | 5 / 8 | 47 / 44 | 47 to 60 / 44 to 59 | 16 | 69 |
+
+Seed 82 is far above both references in every condition and size: exact sign tests at p at most
+3.2 × 10<sup>-4</sup> (only the reference right on 1 to 7 questions, only seed 82 on
+23 to 33). On these generated chats, then, training adds more than plain code that
+searches every turn, and the whole chat does not win: base reading the whole 58-message chat
+(1,105 to 1,332 tokens, about the outside-writer chats' length) answers 21 to 33 of
+60, against seed 82's 46 to 55. This is the opposite of the outside-writer
+result (section 6). R-014 recorded a likely cause on generated chats: base copies their repeated
+scripted small talk. The false retrievals in the table compare with 0 to 11 for
+each adapter over both sizes (rule 3 above). On facts in view, code that always searches answers
+2 to 11 of 30 against seed 82's 28 to 30; base with the whole chat answers 16 to 21, below
+base with three exchanges and the tool (21 to 27), so seeing more of these chats makes
+base worse at what is in front of it. `statement` is scored on the call count, so code fails every
+one and the whole chat passes every one by construction; neither is read.
+
+## 8. Results: the outside-writer sets, against base with the tool
 
 Recall (`older` and `confirm`, of 120) with the last three exchanges in view (R-146,
 R-157, R-164):
@@ -528,7 +642,136 @@ none did (R-144). The scorer checks only the answer on questions whose writer li
 on the questions that list one, seed 82 gets 31 against 19 of 88 (set 1) and 41 against 18 of 84
 (set 2) (R-143, R-152).
 
-## 9. Cost
+## 9. Results: LongMemEval-S, an outside check
+
+**A third kind of chat.** LongMemEval-S (Wu et al., 2025) holds user-to-assistant chats, partly
+real logs and partly model-simulated: 500 questions, each over its own history of
+244 (197 to 305) exchanges at the median, far more than the model's 8,192 tokens
+hold (R-170).
+Its chats are unlike both the generated pools and the outside-writer sets, so its numbers are
+never pooled with theirs. It is an outside check, never a decision: the model stayed frozen
+(R-160). The plan was panelled and registered before any run, and each adaptation below is a
+listed deviation from LongMemEval's own setup (R-170):
+
+- The system prompt is the one 6.37 was trained with, "You are chatting with a friend", and these
+  chats are a user talking to an assistant: a mismatch.
+- Turns are paired into exchanges in order; a turn that does not pair is joined to its neighbour
+  (1,932 turns, 1,900 of them across a session boundary). Each user text carries its session date, and the question its question date.
+- Every arm sees the last three exchanges (a view of 1,941 tokens at the median, at most
+  4,900). Everything earlier is indexed with the same tool, top 5. Passages are
+  cut into 400-character chunks, so one exchange becomes 7 chunks at the median
+  (116,939 of 120,932 older exchanges become more than one), and the top 5 can hold
+  several chunks of one exchange.
+- Replies are capped at 60 tokens, as in every other test here.
+- The official score uses a GPT-4o judge, which was not available. The mechanical measures below
+  and the judged accuracy after them are not the official score, and no ranking against published
+  systems is made.
+
+**Arms**, one at a time on the card: 6.37 seed 82 with the tool; base with the tool; code that
+always searches first (base; its query is the question without its date); base with three
+exchanges and no tool; and base reading only the sessions that hold the evidence (every message in
+them in view, no tool), on evidence prompts under 4,000 tokens, as a reading
+ceiling that tells failed search apart from failed reading.
+
+**Mechanical measures** (476 questions with marked evidence outside the
+3 whose evidence is in view; 411 questions whose gold answer can be
+matched; 30 unanswerable questions):
+
+| Measure | 6.37 seed 82, tool | base, tool | code always searches | base, three exchanges, no tool |
+|---|---|---|---|---|
+| Searched (of the questions with marked evidence it completed) | 421 of 466 | 309 of 460 | 450 of 450 | no tool |
+| Evidence found by the first search (of 476; a failure or no search counts as not found) | 333 | 238 | 372 | no tool |
+| Gold answer in the reply (of 411 read; a failure counts as wrong) | 51 | 51 | 63 | 34 |
+| False matches (reply scored against another question's gold) | 1 of 402 | 7 of 398 | 2 of 389 | 4 of 408 |
+| Declines, 30 unanswerable | 21 | 2 | 0 | 10 |
+| Declines, 470 answerable | 233 | 22 | 1 | 140 |
+| Clean first calls | 441 of 441 | 146 of 328 | 472 of 472 (scripted) | no tool |
+| Ran out of calls | 0 | 12 | 31 | no tool |
+| Words a reply / replies at the 60-token cap | 12.7 / 22 of 490 | 39.1 / 177 of 484 | 40.4 / 178 of 472 | 45.6 / 338 of 497 |
+| Tokens read / seconds a question | 4,055 / 3.81 | 3,794 / 3.47 | 3,161 / 3.09 | 1,730 / 2.09 |
+| Failures, before / after the rerun | 21 / 10 | 31 / 16 | 58 / 28 | 8 / 3 |
+
+Two references on the CPU: a search on the question text finds the evidence at its top 5
+for 395 of 476, and 5 random passages for 22 of 476. Base reading only
+the evidence (123 completed, 372 skipped; the gold in 63 of 114 replies) shows the short questions are answerable when the evidence is
+in view; on those same questions the gold is in the reply for 6.37 with the tool 28, base with the tool 19, code that always searches 23, base with three exchanges 6.
+
+**The registered hypotheses.**
+- **H1, 6.37 above base with the tool on evidence found by the first search: holds, but only
+  because 6.37 searches more often.** 333 against 238 of 476 (+20.0 points, 95% interval +14.9 to +25.2, p = 1.5 × 10<sup>-13</sup>); on the questions every arm completed,
+  321 against 234 of 447 (+19.5 points, 95% interval +14.3 to +24.6, p = 2.5 × 10<sup>-12</sup>). On the questions both searched, 226 and 226 of 294, p = 1.0: when both search, their
+  searches find the evidence equally often. 6.37 searched 90% against 67% of the time, and
+  its first calls were clean on 441 of 441, against base's 146 of 328.
+- **H2, 6.37 against code that always searches: code finds more evidence; no measured difference
+  in answers.** First search, 333 against 372 of 476 (-8.2 points, 95% interval -12.6 to -3.8, p = 4.0 × 10<sup>-4</sup>); over all searches, 333 against 375. Gold answer
+  in the reply, 51 against 63 of 411 (-2.9 points, 95% interval -7.1 to +1.2, p = 0.2).
+- **H3, 6.37's abstention not more than 5 points below base's: holds.** On the unanswerable
+  questions, 21 against 2 of 30 (+63.3 points, 95% interval +43.3 to +83.3, p = 2.1 × 10<sup>-5</sup>). Beside it, as registered, declines on the answerable questions:
+  233 against 22 of 470 (+44.9 points, 95% interval +39.8 to +49.8, p = 3.7 × 10<sup>-50</sup>). So 6.37 declines 233 of the 470 questions it
+  should answer, and its gold answers equal base's (51 and 51).
+- Every arm finds the gold answer in few replies (34 to 63 of 411 for the four arms that ran
+  every question). That is low, but not near zero.
+
+**Judged accuracy, not the official score.** LongMemEval's own per-type judge prompts (its
+`evaluate_qa.py`, MIT licence), given to three fresh Claude Sonnet judges blind to the arm, R-154's
+method; judge 1 decides and judges 2 and 3 are reported. The judged lines are every arm's reply on
+the 148 single-session-user and knowledge-update questions (the types 6.37 was trained
+for: what the user said, including facts that changed), plus a fixed random 100 of the rest. A
+failure has no line and counts as wrong. Kevin marked a random 50 lines blind before any judged
+number was read.
+
+| Judged right (questions) | 6.37 seed 82, tool | base, tool | code always searches | base, three exchanges, no tool | base, evidence only |
+|---|---|---|---|---|---|
+| single-session-user and knowledge-update (148) | 43 | 26 | 32 | 11 | 30 (of its 71 lines) |
+| a fixed random sample of the rest (100) | 10 | 8 | 8 | 2 | 17 (of its 71 lines) |
+| all judged questions (248) | 53 | 34 | 40 | 13 | 47 (of its 71 lines) |
+
+- 6.37 against base with the tool: 53 against 34 of 248 (+7.7 points, 95% interval +2.0 to +13.3, p = 0.014). On the 148 core questions
+  43 against 26, p = 0.012; on the questions every arm completed 51 against 33 of 234, p = 0.018.
+- 6.37 against code that always searches: 53 against 40 of 248 (+5.2 points, 95% interval -0.8 to +11.3, p = 0.12). Core 43 against 32, p = 0.14.
+  No measured difference.
+- Judges 2 and 3 give the same counts as judge 1 within 2 on every cell. The
+  judges agree with each other on 1,027 to 1,030 of 1,035 lines (kappa 0.97 to 0.98).
+- On Kevin's blind lines, he agrees with each judge on 46 of 50 (kappa 0.78); he says yes on 12 of them and judge 1 on 12.
+
+**Added after reading the registered result, and disclosed as such:** the same marks split into
+answerable and unanswerable questions.
+
+| Judged right | 6.37 seed 82, tool | base, tool | code always searches | base, three exchanges, no tool |
+|---|---|---|---|---|
+| 233 answerable | 40 | 32 | 40 | 8 |
+| 15 unanswerable | 13 | 2 | 0 | 5 |
+
+On the 233 answerable questions, 6.37 ties code that always searches
+(40 against 40; 23 right only for 6.37 and 23 only for code that always searches, p = 1.0) and shows no measured difference from base with the tool
+(40 against 32; 26 right only for 6.37 and 18 only for base with the tool, p = 0.29). Of 6.37's 19-question judged lead over base,
+11 come from the 15 unanswerable questions, where code never
+declines.
+
+**Where Kevin and the judges differ.** The three judges agree with each other on every one of
+Kevin's lines, and he differs from them on four: one `single-session-preference` line from base with the tool, which Kevin marked right and the judges wrong; one `temporal-reasoning` line from base with the tool, which Kevin marked right and the judges wrong; two unanswerable lines from base with three exchanges, which Kevin marked wrong and the judges right. On the unanswerable lines Kevin's
+position is that a reply which cannot answer because it is a language model without access to the
+user's data is a failure, not a correct abstention; LongMemEval's abstention prompt accepts a reply
+that says the information is incomplete, and the judges marked such replies right. The registered
+result stands, and a re-judging under Kevin's rule was built and dropped at his word before any
+judge saw it (R-170). How far his rule would move the counts was estimated in R-170 from the raw
+replies, which are not committed; that estimate is not repeated here.
+
+**Out of card memory.** Every failure in every arm was `torch.OutOfMemoryError`, under the same cap
+as the other runs (8.50 GiB). The longest views, with a search's passages added, do not
+fit (first-pass peaks 8.37 to 8.44 GiB). As amended before any score was read, each arm's failed
+questions ran once more at `--max-vram-fraction 0.90` and nothing else changed (peaks
+8.79 to 8.93 GiB); a question that failed again stays a failure, counted as wrong. Failures
+before and after the rerun: 6.37 with the tool 21 to 10; base with the tool 31 to 16; code that always searches 58 to 28; base with three exchanges 8 to 3; base reading only the evidence 30 to 5.
+
+**Reading.** On this third kind of chat, with the last three exchanges in view, training made the
+model search more often and with clean calls every time, and decline far more, including on
+233 of the 470 questions it should answer. Plain code that searches on every question finds the evidence
+more often than 6.37 and is faster (3.09 s a question against 3.81), with no measured difference in answers,
+mechanical or judged. 6.37 is judged above base with the tool, and most of that lead is the
+unanswerable questions.
+
+## 10. Cost
 
 The sealed run's times, on this machine (an RTX 3080, 10 GB, each run with the card to itself)
 (R-163):
@@ -547,7 +790,17 @@ model call. Peak card memory in the sealed run was 7.02 GiB. The 33 judges took
 minutes a seed. On the outside-writer sets the comparison runs the other way: a chat of about
 1,400 tokens costs less to read whole than to search (section 6).
 
-## 10. How 6.37 was chosen: the candidate ledger
+**Code that always searches is faster than 6.37 on every kind of chat it ran on.** Seconds are each
+run's wall-clock time over its questions (a sealed conversation holds one question), from separate
+runs on the same card:
+- sealed pools (R-162, R-168): code that always searches 1.01 to 1.23 s a conversation, seed 82 1.67 to 2.08, base with the tool 1.27 to 1.45;
+- outside-writer sets (R-169): code 1.45 to 1.48 s a question, seed 82 1.70 to 1.96, base with the tool 1.21 to 1.31, base with the whole chat and no tool 1.02 to 1.06;
+- LongMemEval-S (R-170): code 3.09 s a question against 3.81 for 6.37 (section 9).
+
+On the outside-writer sets base with the tool is faster than code, and base with the whole chat is
+the fastest of all.
+
+## 11. How 6.37 was chosen: the candidate ledger
 
 Every candidate after v5, in order, with the line it failed. The records number the candidates read
 at seeds 82 and 83 since v6 (R-093); by that count 6.37 is candidate 16 and 7.1 is
@@ -585,7 +838,7 @@ on top of it, 6.2 a different first stone):
 | # | Candidate (set) | What it changed | How it ended | Screen recall, seed 82 (of 96) | `hard_dev` recall, seed 82 (of 96) | Record |
 |---|---|---|---|---|---|---|
 | 1 | Fix A (`fix17w`) | v6, with its 27 slip-shaped answers rewritten | failed a judged sheet under judge 1 | 96 | 78 | R-094, R-095 |
-| — | Fix B (`fix17mb`) | v6, with base-written answers' loss only on the first token and end marker | trained and scored at 82 and 83 and counted (R-101); no record states its result | 95 | 75 | R-095, R-101 |
+| not counted | Fix B (`fix17mb`) | v6, with base-written answers' loss only on the first token and end marker | trained and scored at 82 and 83 and counted (R-101); no record states its result | 95 | 75 | R-095, R-101 |
 | 2 | Fix C1 (`fix17y`) | fix A without the 15 answers CuratorKIT's gate rejected | probe recall pooled below v6's | 96 | 74 | R-097, R-098 |
 | 3 | Fix C2 (`fix17z`) | fix A with those 15 answers scripted | `hard_dev` recall pooled below v6's; the track ends | 96 | 77 | R-098, R-101 |
 | 4 | 6.1 (`fix17cr`) | v6 plus 170 train-pool rows: corrections in training's wordings, cue controls, earlier questions in view | a stepping stone, not gated; it broke the screen recall and `hard_dev` recall lines | 93 | 82 | R-102 to R-104 |
@@ -614,21 +867,21 @@ sets: 16 before v6 (17m included), 21 since (fix B included) and
 these 3. Listed but not counted: base and v5 (reference rows), the controls
 `fix17crx` and `fix17cs2x`, and R-090's diagnostics.
 
-What the ledger shows. Probe recall sits at its ceiling, so a copy with no real defect often misses
+What the ledger shows. Probe recall sits at its ceiling, so a copy with no real defect can miss
 one question by chance, and each removal copy from 6.33 to 6.36 fell short of v6's probe recall
 (R-123 to R-127). `hard_dev` recall moves between training seeds alone (73 to 90 of 96 for
 6.37, R-141) by more than most changes moved it. Later panels judged that a
-further candidate could not be told from a draw (R-150, R-159). The gates did not move; 6.37 is the
+further candidate was indistinguishable from a draw (R-150, R-159). The gates did not move; 6.37 is the
 only copy after v6 that passed every registered line.
 
-## 11. Toolkit findings
+## 12. Toolkit findings
 
-**AuditKIT's paired bootstrap does not centre its resamples.** It reports a large gain as not
-significant: on this project's data it did so for 57% → 88% over 240 paired cases (R-031; the value it gave
-and a reproduction are in the defect note). It is shared by AuditKIT's model comparison, run comparison and experiment significance. We use the
+**AuditKIT's paired bootstrap does not centre its resamples.** It reports a large gain as failing its
+significance test: on this project's data it did so for 57% → 88% over 240 paired cases (R-031; the value it gave
+and a reproduction are in the defect note). It is shared by AuditKIT's model comparison, run comparison and experiment significance. This project uses the
 exact sign test and a centred bootstrap instead; the defect, a reproduction and a one-line fix are
 in [`docs/auditkit_bootstrap_defect.md`](auditkit_bootstrap_defect.md). As a second scorer on v3,
-AuditKIT's whole-word oracles agreed with ours on 959 of 960 cases (R-031,
+AuditKIT's whole-word oracles agreed with this project's scorer on 959 of 960 cases (R-031,
 `results/audit/v3_probe73157.json`). Runs on fix 5c and v5 exist in `results/audit/`; no record reads
 the v5 file. AuditKIT was not run on 6.37.
 
@@ -643,18 +896,18 @@ inside run-to-run variation (R-029, R-032). 6.37 is trained with it.
 
 ![Training memory](../figures/training_memory.png)
 
-**CuratorKIT's grounding gate finds faulty training answers our own checks missed.** The gate asks a
+**CuratorKIT's grounding gate finds faulty training answers the project's own checks missed.** The gate asks a
 judge whether each answer is supported by its source. Run over v6's found-fact training answers with
 three Claude judges plugged into CuratorKIT's own backend class (prompts recorded, answered, then
 replayed, so CuratorKIT's prompt, parsing and threshold decide every verdict), it rejected
 22 of 350: 8 that pin a relation on the wrong person and 14 that
-our pattern check could not see, such as claims the passage does not make (R-096). As an acceptance
+the project's pattern check did not catch, such as claims the passage does not make (R-096). As an acceptance
 test for replacement answers, it passed every replacement, rejected the old rejections hidden on the
 sheet as controls (22 of 22) and rejected no answer it had passed before (R-098). It is
 an audit of training targets, not a test of the model, and its judges are the same model family as
 the coherence judges.
 
-## 12. Threats to validity
+## 13. Threats to validity
 
 - **Both sealed pools come from the project's generator.** `independent` was written by a fresh
   agent and never read, but its chats follow the generator's structure: where facts sit, how
@@ -664,7 +917,7 @@ the coherence judges.
 - **The outside-writer sets are small and close.** 4 writers a set, all fresh agents of
   one model family, about 40 questions a kind; the intervals resample chats, not writers (R-142).
   The first set also became a development set (R-151).
-- **Development data was read many times.** Every candidate in section 10 was chosen on `probe`,
+- **Development data was read many times.** Every candidate in section 11 was chosen on `probe`,
   `hard_dev` and later the first outside-writer set; their numbers flatter whatever was chosen.
   Seed 82 was fixed before seeds 94 to 99 existed and is the lowest of the eight on `hard_dev` (R-141).
 - **Few templates.** The generated recall questions come from few fact templates, so item-level
@@ -674,10 +927,10 @@ the coherence judges.
   of 96 by seed (R-141); fix 17b's plain chat fell below base at some seeds and not others (R-091).
   Training is not bit-reproducible on this card (R-029); generation is: a repeated run of seed 82
   gave the same reply on 240 of 240 questions (R-156).
-- **The judges are Claude models only, and see only the turns in view.** Agreement among them is
-  weaker evidence than agreement across model families (R-096); they cannot tell a false "you never
-  told me" from a true one, so recall is always read beside coherence (R-020). No person checked
-  their marks.
+- **The coherence judges are Claude models only, and see only the turns in view.** Agreement among
+  them is weaker evidence than agreement across model families (R-096); they cannot tell a false
+  "you never told me" from a true one, so recall is always read beside coherence (R-020). No person
+  checked their marks.
 - **The scorer.** It fails a reply that names the answer and a wrong value together, which the two
   people passed (R-144, R-145). On the development runs counted (base and seed 82 on `probe` and
   `hard_dev`), this lowered only base's recall, on `hard_dev` by at most 9 of 96; it was
@@ -688,11 +941,31 @@ the coherence judges.
 - **Shared briefs.** `hard_dev` and the wide training pool were written to briefs like the sealed
   `independent` pool's, so condition C and D are less independent of development than when
   registered; one discarded writer saw fragments of sealed wording (R-066, R-069, R-070).
-- **The baselines tried.** Base with the tool, base with two fixed prompts (R-137, R-161) and base
-  with the whole chat on short chats (R-164, R-165). No search over prompts and no other retrieval
-  system was tried.
+- **The baselines tried.** Base with the tool; base with two fixed prompts (R-137, R-161); base with
+  the whole chat on the outside-writer sets (R-164, R-165) and on the sealed pools at 58 messages
+  (R-168); and code that always searches, on the sealed pools (R-168), the outside-writer sets
+  (R-169) and LongMemEval-S (R-170). The last two were registered in R-016 and run only after the
+  sealed run (R-167). No search over prompts and no other retrieval system was tried.
+- **Which reference wins depends on the kind of chat.** On the outside-writer chats the whole chat
+  beats the tool and plain code recalls as well as 6.37 (R-164, R-169); on the generated sealed
+  chats 6.37 is far above both (R-168). Neither kind of chat is a real person's.
+- **LongMemEval-S answers are low for every arm**: the gold is in 34 to 63 of 411 replies for
+  the four arms that ran every question, and judged right on at most 53 of
+  248. Its system prompt ("You are chatting with a friend") does not fit a user talking
+  to an assistant, and the view, chunking and date prefixes are this project's adaptation, not
+  LongMemEval's setup (section 9).
+- **Replies are capped at 60 tokens**, in every test. On LongMemEval-S many base replies
+  reach the cap (section 9's table), and a reply that reaches the cap stops there, so a gold answer placed later in it is lost; 6.37's
+  replies are much shorter.
+- **The LongMemEval judges are Claude, not GPT-4o.** The official score uses a GPT-4o judge; here
+  three Claude Sonnet judges read LongMemEval's prompts, their temperature cannot be set, and each
+  read a sheet of many prompts, not one prompt per call (R-170). Kevin checked 50 of their lines.
+- **The longest views fail on a 10 GB card.** On LongMemEval-S the longest views, with a search's
+  passages added, run out of card memory under the 8.50 GiB cap, and some still fail at
+  0.90 of the card; those questions count as wrong, and the tool arms fail more often than the arm
+  with no tool (section 9). At 419 messages the whole chat does not fit at all (R-166).
 
-## 13. Errors and corrections
+## 14. Errors and corrections
 
 Each error below was found during the work and is recorded where it happened.
 
@@ -709,7 +982,7 @@ Each error below was found during the work and is recorded where it happened.
 - **A checker that pushed a writer to the sealed data.** A count-only checker led a writer to print
   fragments of sealed wording; that pool was discarded unused and the checker now names only the
   writer's own lines (R-070).
-- **A toolkit defect** in AuditKIT's bootstrap (R-031, section 11).
+- **A toolkit defect** in AuditKIT's bootstrap (R-031, section 12).
 - **A training default not checked.** Every adapter through v5 put the loss on every token of a row
   (R-076).
 - **A build that wrote before it checked** (R-073), and **a build that doubled line endings**
@@ -730,29 +1003,55 @@ Each error below was found during the work and is recorded where it happened.
   was waiting for a clean tree, which a results file left uncommitted overnight had blocked. When a
   commit cleaned the tree, it resumed and started a second run on the card; both were stopped, and
   every later GPU run was started on its own (R-165, corrected in R-166).
+- **Registered references left out of the sealed run.** R-016 registered base with the whole chat
+  and code that always searches as references beside the rules. R-162 ran neither and did not say
+  so, and R-164 and the README then said R-016 had not included the whole chat. The write-up's
+  reviewer found the omission (R-167); both references were run late, on base only (R-168,
+  R-169), and one of them, plain code, recalls as well as 6.37 on the outside-writer chats. R-016's
+  coherence interval, its training recipe and LoCoMo were also not carried out as registered, and
+  R-167 lists them (section 5, deviations 8 to 10).
+- **A memory failure read as a runner bug.** In LongMemEval-S's first dry run, most of the 20
+  longest views ran out of card memory, and R-170 read the later failures as memory left over from
+  an earlier one, freed too early in the runner. The runner was changed, and a second dry run on the
+  same 20 failed on most of them again. So the reading was wrong: each failing question's own forward
+  pass did not fit under the cap. The record was corrected where it was written, the change was kept
+  as harmless, and the failures were reported per arm as registered (R-170).
 
-## 14. Limitations
+## 15. Limitations
 
-- **Short chats are better shown whole.** Given the whole chat, the trained model and base show
-  no measured difference (one seed, two sets of 40 chats; gaps under about 15 points on a kind of 40 questions could not be seen, R-142). On chats of about 1,400 tokens the whole
-  chat beats the three-exchange view with search (section 6). The adapter's case rests on chats too
-  long to show, and the whole-chat reading at that length is not measured.
+- **Short outside-writer chats are better shown whole.** Given the whole chat, the trained model
+  and base show no measured difference (one seed, two sets of 40 chats; gaps under about
+  15 points on a kind of 40 questions are below what this test resolves, R-142). On those
+  chats, of about 1,400 tokens, the whole chat beats the three-exchange view with search
+  (section 6). On generated chats of the same length it does not (R-168). The whole-chat reading at
+  419 messages is not measured.
+- **Plain code recalls as well on the outside-writer chats.** With the last three exchanges in view,
+  code that searches every turn shows no measured recall difference from 6.37 there (R-169); what
+  training adds is deciding when not to search. The adapter's recall gain over plain code is shown
+  on the generated sealed pools only (R-168). On LongMemEval-S code finds more evidence than 6.37
+  and shows no measured difference in answers (R-170).
+- **6.37 declines answerable questions on LongMemEval-S**: 233 of the 470
+  questions it should answer, against base's 22 (R-170).
 - **Tag questions.** 6.37 goes along with most false claims in "..., right?" questions (section 8).
 - **Found but not used.** Its commonest miss on generated chats finds the right line and answers
   from its first clause, leaving out a detail later in the line (R-144, R-149); on outside-writer
   chats the commonest is a search that misses, including facts told with a pronoun (R-146).
 - **One model, one size, English only.** Only Tiny Aya Global was trained; the friend's messages are
   all English.
-- **Generated or agent-written chats only.** No chat is from a real person. Corrections, phone-style
-  typing, an earlier question in view, four decoys and chats of 1,000 and 2,000 messages were tested
-  on generated chats (R-102 to R-133, R-138, R-148). LoCoMo, a public chat set, was registered as an
-  outside check and deferred; it was never run (R-100, R-139 item 6).
+- **Few real chats.** The generated pools and the outside-writer sets hold no chat from a real
+  person. LongMemEval-S mixes real logs of people talking to an assistant with model-simulated
+  sessions, and the sessions that hold its answers were simulated (R-170); it is a different kind of
+  chat from the friend's chats 6.37 was trained on. Corrections, phone-style typing, an earlier
+  question in view, four decoys and chats of 1,000 and 2,000 messages were tested on generated chats
+  only (R-102 to R-133, R-138, R-148). LoCoMo, a public chat set, was registered as an outside check
+  and deferred; it was never run (R-100, R-139 item 6).
 - **One tool, read only**, with a fixed three-exchange view. The model cannot save a note.
 - **No hostile text.** Instructions hidden in retrieved passages are out of scope.
 - **Greedy decoding only**, and **one machine**: times are an RTX 3080's.
-- **Judged by models, not people** (sections 5 and 12).
+- **Judged by models, not people** (sections 5 and 13). The coherence judges were never checked
+  against a person; the LongMemEval-S judges were checked on 50 lines by Kevin (section 9).
 
-## 15. Future work
+## 16. Future work
 
 - **Measure the whole chat at length.** Base and 6.37 with every message in view on 419-message
   chats, on a card that holds them, to find where searching starts to beat reading.
@@ -767,7 +1066,7 @@ Each error below was found during the work and is recorded where it happened.
 - **Real conversations**, with consent, and a human panel beside the model judges.
 - **Upstream fixes.** Offer the lean loss to TRL and the bootstrap fix to AuditKIT.
 
-## 16. Reproduce
+## 17. Reproduce
 
 Everything runs on one 10 GB card. Every results file carries its provenance (command, commit,
 package versions).
@@ -779,7 +1078,13 @@ package versions).
   transcripts audited by `scripts/records/audit_judge_r162.py`.
 - **Analyses:** `scripts/records/writeup_r164.py` (`results/analysis/R-164/`),
   `scripts/records/blind_r146.py` and `scripts/records/blind2_r157.py` (the outside-writer sets),
-  `scripts/records/rigor_r139.py` (development rigor).
+  `scripts/records/rigor_r139.py` (development rigor), `scripts/records/refs_r168.py` (R-016's
+  references on the sealed pools, `results/analysis/R-168/`).
+- **LongMemEval-S:** `scripts/run_longmemeval.py` (one arm a call; the data file, its sha256 in
+  R-170, is not in the repository), `scripts/records/profile_r170.py`, `scripts/records/score_r170.py`
+  and, for the judged accuracy, `scripts/records/judge_sheets_r170.py` and
+  `scripts/records/score_judged_r170.py`. Only the aggregates in `results/analysis/R-170/` are
+  committed; the raw runs quote the chats and stay out of git.
 - **This article and the model card:** `PYTHONPATH=src python scripts/make_article.py`, from their
   templates in `docs/`; figures by `scripts/make_figures.py`. No result number in either is typed by
   hand.

@@ -183,6 +183,7 @@ carry their own provenance (command, git commit, package versions).
 | R-168 | R-016's two references on the sealed pools, run late: ★ **seed 82 far above both** (46 to 55 of 60 against base with the whole chat 21 to 33, and code that always searches 14 to 32) |
 | R-169 | Code that always searches, on the outside-writer sets: ★ **recalls as well as seed 82** (42 and 47 against 39 and 53 of 120); training adds deciding when not to search (`in_view`, `never_told`, `statement`) |
 | R-170 | LongMemEval-S as an outside check: registration, build, dry runs, rerun of out-of-memory failures; ★ **code that always searches finds more evidence than 6.37 (372 against 333 of 476); 6.37 declines 233 of 470 answerable questions**; answers in the reply 51, 51, 63 (no measured difference) |
+| R-171 | The write-up and model card rebuilt with R-168 to R-170, in Kevin's voice spec; four corrections (outside-writer chats are agent-written, not "chats people write"; the speed figures' set; 11 of 19 judged lead from unanswerable, not all; p 0.014); deadline 15 Nov AoE, no demo day |
 
 ---
 
@@ -7088,3 +7089,44 @@ failure mode"; then "just keep it an note where we differ").
   with three exchanges (5 right would become 1). None are 6.37's 13, base with the tool's 2, or always-search's 0. So
   his rule changes no comparison with 6.37 except against base with three exchanges, which is lower either way.
 - **His other two differences.** On a preference line and a temporal line, he said right where the judges said wrong.
+
+## R-171 · 2026-11-10 · SPRINT · The write-up rebuilt with R-168 to R-170; four corrections; the deadline corrected
+
+**Request.** Kevin: "Yes, rebuild", then "don't forget i have a voice spec". The rebuild was done by a fresh Opus
+builder from a written brief, with his voice spec (`kv_voice_v2.md`) added mid-build. I audited its transcript: it
+ran on `claude-opus-5-5`; it never opened the LongMemEval data, `results/longmemeval/`, the sealed pool files or any
+token file; it ran no git write. I then read its diff.
+
+**What changed.**
+- `docs/article_template.md`, `docs/model_card_template.md`, `scripts/make_article.py`, and through them
+  `docs/ARTICLE.md` and `docs/MODEL_CARD.md`; also README.md. Every new number is filled from a committed file.
+- New article section 9, on LongMemEval-S. R-168's table goes into section 7 and R-169's into section 6.
+- The abstract and the model card's first section now follow R-169's registered order. First, give the whole chat
+  when it fits. Then, plain code recalls as well as 6.37 on the outside-writer chats. Then, what training adds there.
+  Then, the generated pools, and LongMemEval.
+- Voice spec: no em dashes, no first person plural (8 removed), no listed marketing words, stance adverbs or hedges.
+
+**Corrections to my earlier text**, all found by the builder against the committed files:
+1. **"Chats people write" was wrong.** It appears in R-168, R-169, R-170's judged reading, the README and my
+   messages to Kevin. The outside-writer chats were written by Claude Opus agents (R-139, R-151), not by people. The
+   correct term is "outside-writer chats", used from here on.
+2. **The README's speed figures came from the wrong set.** "1.0 to 1.2 s a conversation against 1.7 to 2.1 s
+   (R-169)" are the sealed pools' numbers (R-168's code runs against R-162's cost). On the outside-writer sets (R-169)
+   the figures are 1.45 to 1.48 s a question for code against 1.70 to 1.96 for seed 82. The code is faster on every
+   set, LongMemEval included.
+3. **"All of 6.37's judged lead over base comes from the unanswerable questions" (R-170) overstates.** The lead is
+   19 questions (53 against 34): 11 from the 15 unanswerable and 8 from the answerable (40 against 32, p = 0.29). It
+   is true against code that always searches: 40 and 40 on the answerable questions, 13 against 0 on the
+   unanswerable.
+4. **One p value was misrounded.** 6.37 against base with the tool, judged, all 248: p = 0.01445, so 0.014, not
+   0.015.
+
+**New in the write-up, disclosed there.** Per-kind sign tests of code against seed 82 on the outside-writer sets.
+`never_told` gives p = 0.11 on set 1 and p = 0.0042 on set 2, so "deciding when not to search" carries that scope.
+
+**Deadline, corrected from hackathon.lexsi.ai** (read 10 November).
+- No demo day is listed. Earlier records said "demo Nov 13" and "submission by Nov 14".
+- Submissions are due 15 November, 11:59 PM AoE, and the latest submission counts.
+- Required: an abstract under 500 words, public Hugging Face model and dataset collections, a write-up (a Hugging
+  Face article or a GitHub README), a public GitHub repository, and before-and-after metrics.
+- Shortlisted teams, announced 16 November, submit a video presentation or slides by 22 November.

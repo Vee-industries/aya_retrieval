@@ -18,8 +18,8 @@ Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.
 > more false retrievals than base, and was judged coherent more often than base by all three judges.
 > Seed 82 alone gets 91 to 107 of 120 recall questions against base's 13 to 32
 > (`results/analysis/R-162/`). The write-up and model card in `docs/` are built from these results
-> and R-164 to R-166 by `scripts/make_article.py`; they do not yet include R-168 to R-170, which
-> this README does. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run
+> and R-164 to R-170 by `scripts/make_article.py`. [`RECORDS.md`](RECORDS.md) is the dated log of
+> every decision, run
 > and result, each marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this
 > repository is built to.
 
@@ -31,20 +31,22 @@ sets (chats of about 1,400 tokens), base with every message in view answers 58 a
 questions, against 28 and 34 for 6.37 seed 82 with the tool and the last three exchanges (R-164).
 Given the whole chat and the tool, 6.37 shows no measured difference from base given the whole chat,
 on any kind, on both sets (R-165). That is one seed and two sets of 40 chats, so gaps under about
-15 points on a kind of 40 questions could not be seen (R-142). So the design this supports is to
+15 points on a kind of 40 questions are below what this test resolves (R-142). So the design this supports is to
 show the trained model the whole chat when it fits, and let it search when it does not: no measured
 loss against base when the chat fits, and much better than base once only part of the chat can be
-shown. The whole-chat result holds on chats people write, not on this project's generated chats:
+shown. The whole-chat result holds on the outside-writer chats, not on this project's generated
+chats:
 on the sealed pools, base with the whole chat got 21 to 33 of 60 recall questions against seed 82's
 46 to 55 (R-168).
 
 **Code that searches every turn, with no training,** was registered as a reference in R-016 and run
-late (R-167). On chats people write it recalls as well as 6.37 (42 and 47 of 120 against 39 and 53;
+late (R-167). On the outside-writer chats it recalls as well as 6.37 (42 and 47 of 120 against 39 and 53;
 p = 0.76 and 0.45, R-169). What training adds there is deciding when not to search: answers already
 on screen 35 and 37 of 40 against code's 13 and 16; facts never told 37 and 36 against 31 and 24;
 plain statements 37 and 35 against 0. On the generated sealed pools the adapters are also far above
-code on recall (seed 82 44 to 55 of 60 against 14 to 32, R-168). The code is faster: 1.0 to 1.2 s a
-conversation against 1.7 to 2.1 s (R-169).
+code on recall (seed 82 44 to 55 of 60 against 14 to 32, R-168). The code is faster than 6.37: 1.0
+to 1.2 s a conversation against 1.7 to 2.1 s on the sealed pools (R-168), and 1.45 to 1.48 s a
+question against 1.70 to 1.96 s on the outside-writer sets (R-169).
 
 What is not measured: base with the whole chat at 419 messages (about 6,200 tokens). Those runs
 ran out of card memory under the 8.5 GiB cap on a 10 GB card (R-166, log in
@@ -64,7 +66,7 @@ counting a failure or no search as not found:
 
 | | 6.37 seed 82, tool | base, tool | code always searches | base, three exchanges |
 |---|---|---|---|---|
-| evidence found by the first search (of 476) | 333 | 238 | 372 | — |
+| evidence found by the first search (of 476) | 333 | 238 | 372 | no tool |
 | gold answer in the reply (of 411 read) | 51 | 51 | 63 | 34 |
 | declines on the 30 unanswerable | 21 | 2 | 0 | 10 |
 | declines on the 470 answerable | 233 | 22 | 1 | 140 |
@@ -82,13 +84,13 @@ counting a failure or no search as not found:
 - Every arm that ran all 500 answers few (8 to 16%). Base reading only the evidence sessions gets 63 of 114 on
   the short questions it can fit.
 - **Judged accuracy** (LongMemEval's own judge prompts, three Claude Sonnet judges, labelled not the official score):
-  6.37 53 of 248 against base with the tool 34 (p = 0.015) and code that always searches 40 (p = 0.12, no
-  measured difference). All of 6.37's lead comes from the 15 unanswerable questions (13 against 2 and 0). On the
-  233 answerable ones it ties code (40 and 40) and shows no measured difference from base (40 against 32,
-  p = 0.29); that split was read after the registered result. The judges agree on 1,027 to 1,030 of 1,035
+  6.37 53 of 248 against base with the tool 34 (p = 0.014) and code that always searches 40 (p = 0.12, no
+  measured difference). Of its 19-question lead over base, 11 come from the 15 unanswerable questions (13
+  against 2; code 0). On the 233 answerable ones it ties code (40 and 40) and shows no measured difference
+  from base (40 against 32, p = 0.29); that split was read after the registered result. The judges agree on 1,027 to 1,030 of 1,035
   lines; Kevin agrees with each on 46 of his 50 blind lines (kappa 0.78).
-  Where he differs: he counts "I can't know, I'm a language model" as a failure on an unanswerable question; the
-  judge prompt counts it right. Only base with three exchanges gives such replies among the judged-right lines (4
+  Where he differs: on an unanswerable question he counts a reply that cannot answer because it is a language
+  model as a failure; the judge prompt counts it right. Only base with three exchanges gives such replies among the judged-right lines (4
   of its 5), so his rule would change no comparison with 6.37 (R-170).
 
 Each arm's questions that ran out of card memory at 8.5 GiB were rerun once at 9.0 GiB, as amended

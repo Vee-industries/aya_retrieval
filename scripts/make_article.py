@@ -10,8 +10,9 @@ unfilled stops the script, and so does any check below that finds two results fi
 or a result that no longer matches what the text says about it.
 
 The numbers are final for the shipped model, 6.37 (``fix17cs37`` seed 82, frozen in R-160): the
-sealed run (R-162, R-163), the outside-writer sets (R-146, R-157, R-164) and the whole-chat control
-(R-164, R-165).
+sealed run (R-162, R-163), the outside-writer sets (R-146, R-157, R-164), the whole-chat control
+(R-164, R-165), R-016's two references run late (R-168, R-169) and the LongMemEval-S outside
+check (R-170, from its committed aggregates only).
 """
 
 from __future__ import annotations
@@ -23,7 +24,7 @@ from collections import Counter
 
 from aya_retrieval.harness import MAX_CALLS
 from aya_retrieval.provenance import REPO_ROOT
-from aya_retrieval.recall_tool import TOP_K
+from aya_retrieval.recall_tool import CHUNK_SIZE, TOP_K
 from aya_retrieval.report_data import (
     COHERENCE_DIR,
     EVAL_DIR,
@@ -103,12 +104,12 @@ def counts_by_kind(rows: list[dict]) -> dict[str, tuple[int, int]]:
     return out
 
 
-def paired(first: list[dict], second: list[dict], kind: str) -> tuple[int, int, float]:
+def paired(first: list[dict], second: list[dict], *kinds: str) -> tuple[int, int, float]:
     """Only-first-right and only-second-right counts on the same questions, and the sign test."""
-    a = {r["id"]: bool(r["correct"]) for r in first if r["kind"] == kind}
-    b = {r["id"]: bool(r["correct"]) for r in second if r["kind"] == kind}
+    a = {r["id"]: bool(r["correct"]) for r in first if r["kind"] in kinds}
+    b = {r["id"]: bool(r["correct"]) for r in second if r["kind"] in kinds}
     if set(a) != set(b):
-        raise SystemExit(f"{kind}: the two runs do not hold the same questions")
+        raise SystemExit(f"{', '.join(kinds)}: the two runs do not hold the same questions")
     only_a = sum(a[i] and not b[i] for i in a)
     only_b = sum(b[i] and not a[i] for i in a)
     return only_a, only_b, exact_sign_test(only_a, only_b)
@@ -125,8 +126,9 @@ def status_numbers(out) -> None:
     out["status_line"] = (
         "Final numbers for the shipped model, 6.37 (`fix17cs37` seed 82, frozen in R-160): the "
         "sealed final run (registered in R-162, results in R-163), the outside-writer sets "
-        "(R-146, R-157) and the whole-chat control (R-164, R-165). Every number is computed from "
-        "committed results files by `scripts/make_article.py`."
+        "(R-146, R-157), the whole-chat control (R-164, R-165), R-016's two references run late "
+        "(R-168, R-169) and LongMemEval-S as an outside check (R-170). Every number is computed "
+        "from committed results files by `scripts/make_article.py`."
     )
 
 
@@ -145,6 +147,7 @@ def model_numbers(out) -> None:
     out["model_vocab"] = f"{config['vocab_size']:,}"
     out["model_full_layers"] = str(layers.count("full_attention"))
     out["top_k"] = str(TOP_K)
+    out["chunk_size"] = str(CHUNK_SIZE)
     out["max_calls"] = str(MAX_CALLS)
 
 
@@ -415,6 +418,574 @@ def reference_numbers(out) -> None:
     if any(strict[k][0] for k in strict if k != "hd_base"):
         raise SystemExit("the strict-scorer case now touches a run other than hd_base")
     out["strict_hd_base"] = "{} of {}".format(*strict["hd_base"])
+
+
+# --- R-016's two references, run late (R-167, R-168, R-169) ------------------------------------
+
+
+def seconds_per_question(label: str, seed: int) -> float:
+    """A run's wall-clock seconds over its questions (as R-162's cost reports per conversation)."""
+    run = load(EVAL_DIR / f"{label}_seed_{seed}.json")
+    return run["seconds"] / len(run["rows"])
+
+
+def sealed_reference_numbers(out) -> None:
+    """Base with the whole chat and code that always searches, on the sealed pools (R-168)."""
+    refs = load(ANALYSIS / "R-168" / "refs.json")
+    runs = sealed()
+    rows, tests, tokens = [], [], []
+    seen = {k: [] for k in ("wc", "as", "ship58", "ship", "as_in_view", "ship_in_view")}
+    seen |= {"wc_in_view": [], "tool_in_view": []}
+    for c in CONDITIONS:
+        whole, code = refs[c]["whole_chat"], refs[c]["always_search"]
+        # Base with the tool and seed 82 here are R-162's runs, re-read; they must agree.
+        kinds = runs[c]["per_kind_correct"]
+        for k in KINDS:
+            ship = sum(code["sizes"][str(s)]["kinds"][k]["seed_82"] for s in SIZES)
+            base = sum(code["sizes"][str(s)]["kinds"][k]["base_tool"] for s in SIZES)
+            if (ship, base) != (kinds[k][SHIP], kinds[k]["base"]):
+                raise SystemExit(f"R-168 {c} {k}: counts differ from R-162's")
+        if set(whole["sizes"]) != {"58"}:
+            raise SystemExit("R-168's whole chat now has a 419-message run; update the text")
+        wc = whole["sizes"]["58"]["recall"]
+        by_size = {s: code["sizes"][str(s)]["recall"] for s in SIZES}
+        if wc["base_tool"] != by_size[58]["base_tool"]:
+            raise SystemExit(f"R-168 {c}: the two references do not hold the same questions")
+        for r in (wc, *by_size.values()):
+            t = r["reference_vs_seed_82"]
+            if t["p"] >= 0.001 or r["reference"] >= r["seed_82"]:
+                raise SystemExit(f"R-168 {c}: seed 82 is not far above a reference")
+            tests.append(t)
+        if any(
+            code["sizes"][str(s)]["kinds"][k]["reference_searched"] < 30
+            for s in SIZES
+            for k in KINDS
+        ):
+            raise SystemExit(f"R-168 {c}: code that always searches skipped a search")
+        seen["wc"].append(wc["reference"])
+        seen["ship58"].append(wc["seed_82"])
+        seen["as"] += [r["reference"] for r in by_size.values()]
+        seen["ship"] += [r["seed_82"] for r in by_size.values()]
+        for s in SIZES:
+            view = code["sizes"][str(s)]["kinds"]["in_view"]
+            seen["as_in_view"].append(view["reference"])
+            seen["ship_in_view"].append(view["seed_82"])
+        view = whole["sizes"]["58"]["kinds"]["in_view"]
+        seen["wc_in_view"].append(view["reference"])
+        seen["tool_in_view"].append(view["base_tool"])
+        rows.append(
+            f"| {c} | {wc['reference']} | {by_size[58]['reference']} / {by_size[419]['reference']} "
+            f"| {by_size[58]['base_tool']} / {by_size[419]['base_tool']} "
+            f"| {by_size[58]['seed_82']} / {by_size[419]['seed_82']} "
+            f"| {' / '.join(span(by_size[s]['adapters'].values()) for s in SIZES)} "
+            f"| {whole['false_retrievals']} | {code['false_retrievals']} |"
+        )
+        chat = [
+            r["whole_chat_tokens"] for r in eval_rows(f"ref_{c}_base_wca", 90311, "whole_chat_all")
+        ]
+        tokens.append(statistics.mean(chat))
+    out["r168_recall_n"] = str(refs["A"]["whole_chat"]["sizes"]["58"]["recall"]["of"])
+    out["r168_table"] = table(
+        [
+            "Condition",
+            "Base, whole chat, 58",
+            "Code always searches, 58 / 419",
+            "Base, tool, 58 / 419",
+            "Seed 82, 58 / 419",
+            "Eight adapters, 58 / 419",
+            "False retrievals: base, whole chat (58 only)",
+            "Code always searches (both sizes)",
+        ],
+        rows,
+    )
+    out["r168_p_max"] = p_text(max(t["p"] for t in tests))
+    out["r168_only_ref"] = span(t["only_first"] for t in tests)
+    out["r168_only_ship"] = span(t["only_second"] for t in tests)
+    for name, values in seen.items():
+        out[f"r168_{name}"] = span(values)
+    out["r168_wc_tokens"] = f"{min(tokens):,.0f} to {max(tokens):,.0f}"
+    out["r168_kind_n"] = str(refs["A"]["always_search"]["sizes"]["58"]["kinds"]["in_view"]["of"])
+    false = [runs[c]["rule_3_false_retrieval"]["counts"][a] for c in CONDITIONS for a in ADAPTERS]
+    out["r168_false_adapters"] = span(false)
+
+
+def outside_reference_numbers(out) -> None:
+    """Code that always searches, on the two outside-writer sets (R-169)."""
+    rows: dict[str, list[str]] = {"recall": [], **{k: [] for k in KINDS}}
+    for n, prefix in SETS.items():
+        code = eval_rows(f"as_{prefix}_base", 0, "always_search")
+        ship = eval_rows(f"{prefix}_{SHIP}", 0)
+        base = eval_rows(f"{prefix}_base", 0)
+        whole = eval_rows(f"wca_{prefix}_base", 0, "whole_chat_all")
+        if not all(r["queries"] for r in code):
+            raise SystemExit(f"set {n}: code that always searches skipped a search")
+        kinds = load(SET_FILES[n])["per_kind_correct"]
+        counted = {name: counts_by_kind(r) for name, r in (("code", code), ("ship", ship))}
+        counted |= {"base": counts_by_kind(base), "whole": counts_by_kind(whole)}
+        for k in KINDS:
+            if (counted["ship"][k][0], counted["base"][k][0]) != (
+                kinds[k]["82"],
+                kinds[k][f"{prefix}_base"],
+            ):
+                raise SystemExit(f"set {n} {k}: the runs differ from the set's analysis file")
+        right = {name: recall(r)[0] for name, r in (("code", code), ("ship", ship), ("base", base))}
+        right["whole"] = recall(whole)[0]
+        only_code, only_ship, p = paired(code, ship, *RECALL_KINDS)
+        if p < 0.05:
+            raise SystemExit(
+                f"set {n}: code and seed 82 differ on recall; the text says they do not"
+            )
+        out[f"as_recall_{n}"] = str(right["code"])
+        out[f"as_vs_82_{n}"] = (
+            f"{only_code} right only for code and {only_ship} only for seed 82, p = {p_text(p)}"
+        )
+        out[f"as_p_{n}"] = p_text(p)
+        rows["recall"].append(
+            f"{right['code']} | {right['ship']} ({only_code}, {only_ship}, p = {p_text(p)}) "
+            f"| {right['base']} | {right['whole']}"
+        )
+        for k in KINDS:
+            o_c, o_s, p_k = paired(code, ship, k)
+            out[f"as_{k}_p_{n}"] = p_text(p_k)
+            note = {"statement": (" (wrong by construction)", " (right by construction)")}
+            code_note, whole_note = note.get(k, ("", ""))
+            test = "" if k == "statement" else f" ({o_c}, {o_s}, p = {p_text(p_k)})"
+            rows[k].append(
+                f"{counted['code'][k][0]}{code_note} | {counted['ship'][k][0]}{test} "
+                f"| {counted['base'][k][0]} | {counted['whole'][k][0]}{whole_note}"
+            )
+        for k in ("in_view", "never_told", "statement"):
+            if counted["ship"][k][0] <= counted["code"][k][0]:
+                raise SystemExit(f"set {n} {k}: seed 82 is not above code; update the text")
+            out[f"as_{k}_{n}"] = str(counted["code"][k][0])
+            out[f"ship_{k}_{n}"] = str(counted["ship"][k][0])
+        out["as_recall_n"] = str(recall(code)[1])
+        out["as_kind_n"] = str(counted["code"]["in_view"][1])
+    names = {"recall": f"recall (`older` and `confirm`, {out['as_recall_n']})"}
+    names |= {k: f"{KIND_NAMES[k]} ({counts_by_kind(code)[k][1]})" for k in KINDS}
+    out["as_ow_table"] = table(
+        [
+            "Kind (questions)",
+            "Set 1: code always searches",
+            "seed 82, tool (only code right, only seed 82 right, sign test)",
+            "base, tool",
+            "base, whole chat",
+            "Set 2: code always searches",
+            "seed 82, tool (the same)",
+            "base, tool",
+            "base, whole chat",
+        ],
+        [f"| {names[k]} | " + " | ".join(cells) + " |" for k, cells in rows.items()],
+    )
+
+
+def speed_numbers(out) -> None:
+    """Seconds a question for code that always searches against the tool arms (R-168 to R-170)."""
+    runs = sealed()
+    code = [seconds_per_question(f"ref_{c}_base_as", 90311) for c in CONDITIONS]
+    ship = [runs[c]["cost"][SHIP]["seconds_per_conversation"] for c in CONDITIONS]
+    base = [runs[c]["cost"]["base"]["seconds_per_conversation"] for c in CONDITIONS]
+    ow_code = [seconds_per_question(f"as_{p}_base", 0) for p in SETS.values()]
+    ow_ship = [seconds_per_question(f"{p}_{SHIP}", 0) for p in SETS.values()]
+    ow_base = [seconds_per_question(f"{p}_base", 0) for p in SETS.values()]
+    ow_whole = [seconds_per_question(f"wca_{p}_base", 0) for p in SETS.values()]
+    lme = load(ANALYSIS / "R-170" / "scores.json")["measures"]
+    if max(code) >= min(ship) or max(ow_code) >= min(ow_ship):
+        raise SystemExit("code that always searches is not faster than seed 82; update the text")
+    if lme["always_search"]["seconds_per_question"] >= lme["637_tool"]["seconds_per_question"]:
+        raise SystemExit("on LongMemEval-S code is not faster than 6.37; update the text")
+
+    def secs(values) -> str:
+        return f"{min(values):.2f} to {max(values):.2f}"
+
+    out["speed_sealed"] = (
+        f"code that always searches {secs(code)} s a conversation, seed 82 {secs(ship)}, base with "
+        f"the tool {secs(base)}"
+    )
+    out["speed_ow"] = (
+        f"code {secs(ow_code)} s a question, seed 82 {secs(ow_ship)}, base with the tool "
+        f"{secs(ow_base)}, base with the whole chat and no tool {secs(ow_whole)}"
+    )
+    out["speed_sealed_short"] = f"{secs(code)} s a conversation against {secs(ship)}"
+    out["speed_ow_short"] = f"{secs(ow_code)} s a question against {secs(ow_ship)}"
+    out["speed_lme_short"] = (
+        f"{lme['always_search']['seconds_per_question']:.2f} s a question against "
+        f"{lme['637_tool']['seconds_per_question']:.2f}"
+    )
+
+
+# --- LongMemEval-S, an outside check (R-170) ----------------------------------------------------
+
+LME = ANALYSIS / "R-170"
+LME_ARMS = {  # scores.json name: column name
+    "637_tool": "6.37 seed 82, tool",
+    "base_tool": "base, tool",
+    "always_search": "code always searches",
+    "three_exchanges": "base, three exchanges, no tool",
+}
+LME_SEARCH_ARMS = ("637_tool", "base_tool", "always_search")
+LME_ARM_WORDS = {
+    "637_tool": "6.37 with the tool",
+    "base_tool": "base with the tool",
+    "always_search": "code that always searches",
+    "three_exchanges": "base with three exchanges",
+    "evidence_only": "base reading only the evidence",
+}
+
+
+def diff_text(test: dict) -> str:
+    """'a against b of n (difference, 95% interval, p)' from score_r170's paired entry."""
+    diff, low, high = test["difference_and_95_interval"]
+    return (
+        f"{test['first']} against {test['second']} of {test['n']} ({100 * diff:+.1f} points, "
+        f"95% interval {100 * low:+.1f} to {100 * high:+.1f}, p = {p_text(test['p'])})"
+    )
+
+
+def judged_split(key: dict, judge: str = "j1") -> tuple[dict, dict, dict]:
+    """One judge's marks per arm and question, the questions by kind, and every line's verdict."""
+    verdicts: dict[int, bool] = {}
+    for sheet in sorted({line["sheet"] for line in key["lines"]}):
+        marks = load(LME / "judge" / "marks" / f"marks_{sheet}_{judge}.json")
+        verdicts |= {int(n): v == "yes" for n, v in marks.items()}
+    by_arm: dict[str, dict[str, bool]] = {}
+    for line in key["lines"]:
+        by_arm.setdefault(line["arm"], {})[line["id"]] = verdicts[line["line"]]
+    unanswerable = {line["id"] for line in key["lines"] if line["abstention"]}
+    kinds = {
+        "answerable": [q for q in key["questions"] if q not in unanswerable],
+        "unanswerable": [q for q in key["questions"] if q in unanswerable],
+    }
+    return by_arm, kinds, verdicts
+
+
+def longmemeval_numbers(out) -> None:
+    scores = load(LME / "scores.json")
+    judged = load(LME / "judged.json")
+    profile = load(LME / "profile.json")
+    m, hyp = scores["measures"], scores["hypotheses"]
+    if any(state != "completed" for state in scores["arms"].values()):
+        raise SystemExit("an R-170 arm is not completed; the text reports every arm")
+    if scores["answer_scorer_self_test"]["failed"]:
+        raise SystemExit("R-170's answer scorer failed its self-test")
+    evidence_n, read_n = scores["evidence_questions"], scores["answer_read"]["read"]
+    abstain_n = scores["abstention_questions"]
+    answerable_n = profile["questions"] - abstain_n
+    h1, h2, h3 = (
+        hyp["H1_first_search_637_vs_base_tool"],
+        hyp["H2_637_vs_always_search"],
+        hyp["H3_637_vs_base_tool"],
+    )
+    found = {a: m[a]["evidence"]["first_search_turn"]["hits"] for a in LME_SEARCH_ARMS}
+    first = h1["no_search_counts_as_not_found"]["failures_wrong"]
+    if (first["first"], first["second"], first["n"]) != (
+        found["637_tool"],
+        found["base_tool"],
+        evidence_n,
+    ):
+        raise SystemExit("R-170's H1 differs from its evidence counts")
+    if h2["first_search_turn"]["failures_wrong"]["second"] != found["always_search"]:
+        raise SystemExit("R-170's H2 differs from its evidence counts")
+    answer = h2["answer_in_reply"]["failures_wrong"]
+    if (answer["first"], answer["second"], answer["n"]) != (
+        m["637_tool"]["answer_in_reply"]["hits"],
+        m["always_search"]["answer_in_reply"]["hits"],
+        read_n,
+    ):
+        raise SystemExit("R-170's H2 answers differ from its answer counts")
+    abstain = h3["abstention"]["failures_wrong"]
+    refuse = h3["refusal_on_answerable"]["failures_wrong"]
+    if (abstain["n"], refuse["n"]) != (abstain_n, answerable_n):
+        raise SystemExit("R-170's H3 counts differ from the profile")
+    # The readings the text gives, checked against the numbers.
+    if first["difference_and_95_interval"][1] <= 0:
+        raise SystemExit("H1 no longer holds; the text says it does")
+    both = h1["questions_both_searched"]
+    if both["p"] < 0.05:
+        raise SystemExit("6.37 and base differ when both searched; the text says they do not")
+    if h2["first_search_turn"]["failures_wrong"]["difference_and_95_interval"][2] >= 0:
+        raise SystemExit("code is no longer ahead of 6.37 on evidence; the text says it is")
+    if not answer["difference_and_95_interval"][1] < 0 < answer["difference_and_95_interval"][2]:
+        raise SystemExit("6.37 and code now differ on answers; the text says they do not")
+    if abstain["difference_and_95_interval"][1] <= -0.05:
+        raise SystemExit("H3 no longer holds; the text says it does")
+
+    out["lme_questions"] = str(profile["questions"])
+    types = profile["types"]
+    out["lme_core_n"] = str(types["single-session-user"] + types["knowledge-update"])
+    out["lme_abstain_n"] = str(abstain_n)
+    out["lme_answerable_n"] = str(answerable_n)
+    out["lme_evidence_n"] = str(evidence_n)
+    out["lme_marked"] = str(profile["marked"])
+    out["lme_in_view"] = str(len(profile["evidence_in_view"]))
+    out["lme_read_n"] = str(read_n)
+    ex, view = profile["exchanges_per_question"], profile["view_tokens"]
+    out["lme_exchanges"] = f"{ex['median']:.0f} ({ex['min']} to {ex['max']})"
+    out["lme_view"] = f"{view['median']:,.0f}"
+    out["lme_view_p99"] = f"{view['p99']:,}"
+    out["lme_view_max"] = f"{view['max']:,}"
+    chunks = profile["chunks_per_older_exchange"]
+    out["lme_chunks"] = f"{chunks['median']:.0f}"
+    out["lme_multi_chunk"] = (
+        f"{profile['older_exchanges_over_one_chunk']:,} of {profile['older_exchanges']:,}"
+    )
+    out["lme_joined"] = (
+        f"{profile['turns_joined']:,} turns, {profile['turns_joined_across_sessions']:,} of them "
+        "across a session boundary"
+    )
+
+    cap = next(
+        int(found_cap.group(1))
+        for k in m["637_tool"]
+        if (found_cap := re.fullmatch(r"replies_at_(\d+)_token_cap", k))
+    )
+    out["lme_cap"] = str(cap)
+
+    def of(share: dict) -> str:
+        return f"{share['hits']} of {share['of']}"
+
+    rows = [  # (measure, cell for an arm, whether the three-exchange arm has no tool for it)
+        (
+            "Searched (of the questions with marked evidence it completed)",
+            lambda a: of(m[a]["evidence"]["searched"]),
+            True,
+        ),
+        (
+            f"Evidence found by the first search (of {evidence_n}; a failure or no search "
+            "counts as not found)",
+            lambda a: str(found[a]),
+            True,
+        ),
+        (
+            f"Gold answer in the reply (of {read_n} read; a failure counts as wrong)",
+            lambda a: str(m[a]["answer_in_reply"]["hits"]),
+            False,
+        ),
+        (
+            "False matches (reply scored against another question's gold)",
+            lambda a: f"{m[a]['false_match']['matches']} of {m[a]['false_match']['of']}",
+            False,
+        ),
+        (
+            f"Declines, {abstain_n} unanswerable",
+            lambda a: str(m[a]["abstention"]["hits"]),
+            False,
+        ),
+        (
+            f"Declines, {answerable_n} answerable",
+            lambda a: str(m[a]["refusal_on_answerable"]["hits"]),
+            False,
+        ),
+        (
+            "Clean first calls",
+            lambda a: (
+                of(m[a]["clean_first_calls"]) + (" (scripted)" if a == "always_search" else "")
+            ),
+            True,
+        ),
+        ("Ran out of calls", lambda a: str(m[a]["ran_out_of_calls"]), True),
+        (
+            f"Words a reply / replies at the {cap}-token cap",
+            lambda a: f"{m[a]['reply_words_mean']:.1f} / {of(m[a][f'replies_at_{cap}_token_cap'])}",
+            False,
+        ),
+        (
+            "Tokens read / seconds a question",
+            lambda a: (
+                f"{m[a]['tokens_read_per_question']:,.0f} / {m[a]['seconds_per_question']:.2f}"
+            ),
+            False,
+        ),
+        (
+            "Failures, before / after the rerun",
+            lambda a: f"{m[a]['failures_before_rerun']} / {m[a]['failures']}",
+            False,
+        ),
+    ]
+    lines = []
+    for name, cell, tool_only in rows:
+        cells = ["no tool" if tool_only and a == "three_exchanges" else cell(a) for a in LME_ARMS]
+        lines.append(f"| {name} | " + " | ".join(cells) + " |")
+    out["lme_table"] = table(["Measure", *LME_ARMS.values()], lines)
+
+    searched = {a: m[a]["evidence"]["searched"]["rate"] for a in ("637_tool", "base_tool")}
+    out["lme_h1"] = diff_text(first)
+    out["lme_h1_completed"] = diff_text(
+        h1["no_search_counts_as_not_found"]["completed_by_every_arm"]
+    )
+    out["lme_h1_both"] = (
+        f"{both['first']} and {both['second']} of {both['n']}, p = {p_text(both['p'])}"
+    )
+    out["lme_searched_share"] = (
+        f"{100 * searched['637_tool']:.0f}% against {100 * searched['base_tool']:.0f}%"
+    )
+    out["lme_h2_evidence"] = diff_text(h2["first_search_turn"]["failures_wrong"])
+    any_search = h2["any_search_turn"]["failures_wrong"]
+    out["lme_h2_any"] = f"{any_search['first']} against {any_search['second']}"
+    out["lme_h2_answer"] = diff_text(answer)
+    out["lme_h3"] = diff_text(abstain)
+    out["lme_h3_refuse"] = diff_text(refuse)
+    for a, short in (("637_tool", "ship"), ("base_tool", "base"), ("always_search", "code")):
+        out[f"lme_found_{short}"] = str(found[a])
+        out[f"lme_answer_{short}"] = str(m[a]["answer_in_reply"]["hits"])
+        out[f"lme_refuse_{short}"] = str(m[a]["refusal_on_answerable"]["hits"])
+        out[f"lme_abstain_{short}"] = str(m[a]["abstention"]["hits"])
+    out["lme_clean"] = of(m["637_tool"]["clean_first_calls"])
+    out["lme_clean_base"] = of(m["base_tool"]["clean_first_calls"])
+    answers = [m[a]["answer_in_reply"]["hits"] for a in LME_ARMS]
+    out["lme_answer_range"] = f"{min(answers)} to {max(answers)} of {read_n}"
+    ev = m["evidence_only"]
+    same = ev["same_questions_other_arms"]
+    out["lme_evidence_arm"] = (
+        f"{ev['completed']} completed, {ev['skipped']} skipped; the gold in "
+        f"{ev['answer_in_reply']['hits']} of {ev['answer_in_reply']['of']} replies"
+    )
+    out["lme_evidence_same"] = ", ".join(f"{LME_ARM_WORDS[a]} {same[a]['hits']}" for a in LME_ARMS)
+    runner = (REPO_ROOT / "scripts" / "run_longmemeval.py").read_text(encoding="utf-8")
+    limit = re.search(r"^EVIDENCE_LIMIT = (\d+)", runner, re.M)
+    out["lme_evidence_limit"] = f"{int(limit.group(1)):,}"
+    references = scores["references"]
+    out["lme_question_search"] = of(references["question_search"]["first_search_turn"])
+    out["lme_random"] = of(references["random_passages"]["first_search_turn"])
+    peaks = [m[a]["peak_vram_gib"] for a in m]
+    rerun = [m[a]["rerun_peak_vram_gib"] for a in m]
+    out["lme_peaks"] = f"{min(peaks):.2f} to {max(peaks):.2f}"
+    out["lme_rerun_peaks"] = f"{min(rerun):.2f} to {max(rerun):.2f}"
+    out["lme_dry_n"] = str(len(load(LME / "dry_run_ids.json")["ids"]))
+    out["lme_failures"] = "; ".join(
+        f"{LME_ARM_WORDS[a]} {m[a]['failures_before_rerun']} to {m[a]['failures']}" for a in m
+    )
+
+    # Judged accuracy (measure 4), not the official score: judge 1 decides.
+    j = judged["judges"]
+    groups = {
+        "core_148": "single-session-user and knowledge-update",
+        "rest_100": "a fixed random sample of the rest",
+        "all_248": "all judged questions",
+    }
+    arms = (*LME_ARMS, "evidence_only")
+    out["lme_judge_spread"] = str(
+        max(
+            abs(j[other][a][g]["hits"] - j["j1"][a][g]["hits"])
+            for other in ("j2", "j3")
+            for a in arms
+            for g in groups
+        )
+    )
+    judged_rows = []
+    evidence_lines = j["j1"]["evidence_only"]["lines"]
+    for g, name in groups.items():
+        cells = [str(j["j1"][a][g]["hits"]) for a in LME_ARMS]
+        cells.append(f"{j['j1']['evidence_only'][g]['hits']} (of its {evidence_lines} lines)")
+        judged_rows.append(
+            f"| {name} ({j['j1']['637_tool'][g]['of']}) | " + " | ".join(cells) + " |"
+        )
+    out["lme_judged_table"] = table(
+        ["Judged right (questions)", *LME_ARMS.values(), "base, evidence only"], judged_rows
+    )
+    pairs = judged["paired"]
+    vs_base, vs_code = (
+        pairs["637_tool_vs_base_tool_all_248"],
+        pairs["637_tool_vs_always_search_all_248"],
+    )
+    if vs_base["failures_wrong"]["difference_and_95_interval"][1] <= 0:
+        raise SystemExit("6.37's judged lead over base is gone; update the text")
+    if vs_code["failures_wrong"]["difference_and_95_interval"][1] > 0:
+        raise SystemExit("6.37 is now judged above code; update the text")
+    out["lme_judged_n"] = str(vs_base["failures_wrong"]["n"])
+    for a, short in (("637_tool", "ship"), ("base_tool", "base"), ("always_search", "code")):
+        out[f"lme_j_{short}"] = str(j["j1"][a]["all_248"]["hits"])
+    out["lme_judged_vs_base"] = diff_text(vs_base["failures_wrong"])
+    out["lme_judged_vs_code"] = diff_text(vs_code["failures_wrong"])
+    for other, short in (("base_tool", "base"), ("always_search", "code")):
+        core = pairs[f"637_tool_vs_{other}_core_148"]["failures_wrong"]
+        out[f"lme_judged_core_{short}"] = (
+            f"{core['first']} against {core['second']}, p = {p_text(core['p'])}"
+        )
+        done = pairs[f"637_tool_vs_{other}_all_248"]["completed_by_every_arm"]
+        out[f"lme_judged_done_{short}"] = (
+            f"{done['first']} against {done['second']} of {done['n']}, p = {p_text(done['p'])}"
+        )
+    agree = list(judged["judge_agreement"].values())
+    same = [a["same"] for a in agree]
+    kappas = [a["kappa"] for a in agree]
+    out["lme_judges_agree"] = (
+        f"{min(same):,} to {max(same):,} of {agree[0]['of']:,} lines (kappa {min(kappas):.2f} to "
+        f"{max(kappas):.2f})"
+    )
+    kevin = judged["kevin_agreement"]
+    if len({(k["same"], k["kappa"]) for k in kevin.values()}) != 1:
+        raise SystemExit("Kevin's agreement now differs between judges; update the text")
+    first_judge = kevin["j1"]
+    out["lme_kevin"] = (
+        f"{first_judge['same']} of {first_judge['of']} (kappa {first_judge['kappa']:.2f})"
+    )
+    out["lme_kevin_yes"] = (
+        f"he says yes on {judged['kevin_yes']['hits']} of them and judge 1 on "
+        f"{judged['deciding_judge_yes_on_kevins_lines']['hits']}"
+    )
+
+    # Added after reading the registered result: the same marks split by question kind.
+    key = load(LME / "judge" / "key.json")
+    by_arm, kinds, verdicts = judged_split(key)
+    split_rows = []
+    for kind, ids in kinds.items():
+        cells = [str(sum(by_arm[a].get(q, False) for q in ids)) for a in LME_ARMS]
+        split_rows.append(f"| {len(ids)} {kind} | " + " | ".join(cells) + " |")
+    for a in LME_ARMS:
+        total = sum(by_arm[a].get(q, False) for ids in kinds.values() for q in ids)
+        if total != j["j1"][a]["all_248"]["hits"]:
+            raise SystemExit(f"{a}: the split does not add up to judged.json's count")
+    out["lme_split_table"] = table(["Judged right", *LME_ARMS.values()], split_rows)
+    answerable = kinds["answerable"]
+    ship = by_arm["637_tool"]
+    for other, short in (("always_search", "code"), ("base_tool", "base")):
+        them = by_arm[other]
+        only_ship = sum(ship.get(q, False) and not them.get(q, False) for q in answerable)
+        only_them = sum(them.get(q, False) and not ship.get(q, False) for q in answerable)
+        p = exact_sign_test(only_ship, only_them)
+        if p < 0.05:
+            raise SystemExit(
+                f"on answerable questions 6.37 now differs from {other}; update the text"
+            )
+        right_ship = sum(ship.get(q, False) for q in answerable)
+        right_them = sum(them.get(q, False) for q in answerable)
+        out[f"lme_split_vs_{short}"] = (
+            f"{right_ship} against {right_them}; {only_ship} right only for 6.37 and {only_them} "
+            f"only for {LME_ARM_WORDS[other]}, p = {p_text(p)}"
+        )
+        out[f"lme_split_vs_{short}_short"] = f"{right_ship} against {right_them}, p = {p_text(p)}"
+        out[f"lme_lead_ans_{short}"] = str(right_ship - right_them)
+    unanswered = {a: sum(by_arm[a].get(q, False) for q in kinds["unanswerable"]) for a in LME_ARMS}
+    if unanswered["637_tool"] <= max(v for a, v in unanswered.items() if a != "637_tool"):
+        raise SystemExit("6.37 no longer leads on the unanswerable questions; update the text")
+    lead = int(out["lme_j_ship"]) - int(out["lme_j_base"])
+    out["lme_lead"] = str(lead)
+    out["lme_lead_unans"] = str(unanswered["637_tool"] - unanswered["base_tool"])
+    if int(out["lme_lead_unans"]) + int(out["lme_lead_ans_base"]) != lead:
+        raise SystemExit("the judged lead over base does not split into its two parts")
+    out["lme_unanswerable_n"] = str(len(kinds["unanswerable"]))
+    out["lme_judged_answerable_n"] = str(len(answerable))
+
+    # Where Kevin and judge 1 differ, from the key (no reply text).
+    human = load(LME / "judge" / "human_key.json")["lines"]
+    marks = load(LME / "judge" / "kevin_marks.json")
+    line_of = {line["line"]: line for line in key["lines"]}
+    others = [judged_split(key, judge)[2] for judge in ("j2", "j3")]
+    differ: Counter = Counter()
+    for n, mark in marks.items():
+        line = line_of[human[n]]
+        if any(other[line["line"]] != verdicts[line["line"]] for other in others):
+            raise SystemExit("the three judges differ on one of Kevin's lines; update the text")
+        if (mark == "yes") != verdicts[line["line"]]:
+            what = "unanswerable" if line["abstention"] else f"`{line['type']}`"
+            differ[(what, LME_ARM_WORDS[line["arm"]], mark == "yes")] += 1
+    out["lme_kevin_n_differ"] = WORDS[sum(differ.values())]
+    out["lme_kevin_differ"] = "; ".join(
+        f"{WORDS[count]} {what} line{'s' if count > 1 else ''} from {arm}, which Kevin marked "
+        f"{'right' if yes else 'wrong'} and the judges {'wrong' if yes else 'right'}"
+        for (what, arm, yes), count in sorted(differ.items())
+    )
 
 
 # --- The sealed run (R-162, R-163) --------------------------------------------------------------
@@ -1280,7 +1851,7 @@ def ledger_numbers(out) -> None:
     ]
     out["ledger_before"] = table(header, rows)
     rows = [
-        f"| {num or '—'} | {name} (`{label}`) | {change} | {end} | {screen(label)} "
+        f"| {num or 'not counted'} | {name} (`{label}`) | {change} | {end} | {screen(label)} "
         f"| {hard_dev(label)} | {rec} |"
         for num, name, label, change, end, rec in SINCE_V6
     ]
@@ -1356,6 +1927,10 @@ def numbers() -> dict[str, str]:
         cost_numbers,
         oom_numbers,
         reference_numbers,
+        sealed_reference_numbers,
+        outside_reference_numbers,
+        speed_numbers,
+        longmemeval_numbers,
         outside_writer_numbers,
         method_numbers,
         protocol_numbers,
