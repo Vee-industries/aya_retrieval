@@ -6590,3 +6590,22 @@ reported. `statement` is scored on not searching, so with no tool it is right by
 same goes for any other kind whose score turns on the call count. **Meaning:** if base with the whole chat is also
 low on `never_told` and `confirm`, the R-165 drop belongs to having the whole chat in view, not to training. If base
 is clearly higher, training hurts those kinds when the whole chat is in view, and the write-up says so.
+
+**Result, base with the whole chat on every kind** (`wca_blind_base` 254 s, `wca_blind2_base` 245 s, peak 6.90 GiB).
+Its `older` rows match `wc_*_base` reply for reply on both sets. Against 6.37 seed 82 with the whole chat and the tool,
+same conversations (base / trained; only base, only trained, exact sign test p):
+
+| Kind (of) | Set 1 | Set 2 |
+|---|---|---|
+| `older` (80) | 58 / 57; 12, 11, p 1.0 | 52 / 54; 12, 14, p 0.85 |
+| `confirm` (40) | 13 / 14; 6, 7, p 1.0 | 13 / 13; 6, 6, p 1.0 |
+| `in_view` (40) | 35 / 35; 1, 1, p 1.0 | 32 / 36; 2, 6, p 0.29 |
+| `never_told` (40) | 31 / 35; 3, 7, p 0.34 | 28 / 27; 8, 7, p 1.0 |
+| `statement` (40) | 40 / 39; 1, 0, p 1.0 | 40 / 37; 3, 0, p 0.25 |
+
+**Reading, as registered.** Base with the whole chat is just as low on `never_told` (28) and `confirm` (13) on set 2.
+So the drop in the earlier result comes from having the whole chat in view, not from training. Given the whole chat,
+the trained model with the tool scores as base does on every kind, on both sets; no gap is near significance. The
+largest is `statement` on set 2, 37 against 40: three needless searches, and base cannot search, so it scores 40 by
+construction. The combined design (read the chat when it fits, search when it does not) is supported as never worse
+than base, within what one seed and 40 chats a set can show.
