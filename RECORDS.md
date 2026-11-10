@@ -184,6 +184,7 @@ carry their own provenance (command, git commit, package versions).
 | R-169 | Code that always searches, on the outside-writer sets: ★ **recalls as well as seed 82** (42 and 47 against 39 and 53 of 120); training adds deciding when not to search (`in_view`, `never_told`, `statement`) |
 | R-170 | LongMemEval-S as an outside check: registration, build, dry runs, rerun of out-of-memory failures; ★ **code that always searches finds more evidence than 6.37 (372 against 333 of 476); 6.37 declines 233 of 470 answerable questions**; answers in the reply 51, 51, 63 (no measured difference) |
 | R-171 | The write-up and model card rebuilt with R-168 to R-170, in Kevin's voice spec; four corrections (outside-writer chats are agent-written, not "chats people write"; the speed figures' set; 11 of 19 judged lead from unanswerable, not all; p 0.014); deadline 15 Nov AoE, no demo day |
+| R-172 | Published: the adapter (weights match the sealed manifest), two datasets and two public collections on Hugging Face; the GitHub repository public; privacy sweep clean; the form is left for Kevin |
 
 ---
 
@@ -7130,3 +7131,36 @@ token file; it ran no git write. I then read its diff.
 - Required: an abstract under 500 words, public Hugging Face model and dataset collections, a write-up (a Hugging
   Face article or a GitHub README), a public GitHub repository, and before-and-after metrics.
 - Shortlisted teams, announced 16 November, submit a video presentation or slides by 22 November.
+
+## R-172 · 2026-11-10 · SPRINT · Published: the adapter, two datasets and two collections on Hugging Face
+
+**Go.** Kevin, 10 November: "i give you my go. do the hf uploads", after he made the GitHub repository public. The
+first try failed at the first step with 403 Forbidden, because the active token ("LLM") was read-only. Nothing was
+created. Kevin logged in with a write token himself; Claude never saw a token. A watcher then started the upload once
+the active token's role read "write".
+
+**What was published** (all public and not gated, checked afterwards with no login):
+
+| Repository | Contents |
+|---|---|
+| `KevinVaillancourt/aya-retrieval-6.37` (model) | `adapter_model.safetensors`, `adapter_config.json`, and `docs/MODEL_CARD.md` as README. |
+| `KevinVaillancourt/aya-retrieval-chats` (dataset) | `data/screens/`, `data/recall_train.jsonl` with its provenance, `data/blind_dev/`, `data/blind_dev2/`; card `docs/submission/hf_data_card.md`. |
+| `KevinVaillancourt/aya-retrieval-eval-logs` (dataset) | `results/` without `results/longmemeval/`; card `docs/submission/hf_eval_logs_card.md`. |
+| Collections | "aya_retrieval models" (the adapter and the base model) and "aya_retrieval datasets" (both datasets). |
+
+**Checks.**
+- **Weights.** The adapter weights' SHA-256 (`e661a81c…cafeefea`), read back from Hugging Face, equals the sealed
+  manifest's.
+- **Config.** The config matches the manifest with LF line endings. One field changed in the uploaded copy:
+  `base_model_name_or_path` was a local Windows cache path, so it was set to `CohereLabs/tiny-aya-global`, with
+  `revision` set to the pinned `af89d219…`.
+- **Staged files.** Before upload, the staged dataset folders were compared with `git ls-files`: they matched exactly,
+  with nothing untracked. Each repository's file count is the staged count plus Hugging Face's `.gitattributes`.
+- **Left out.** The adapter folder's tokenizer files and training arguments, and the LongMemEval run files, which quote
+  that dataset's chats.
+- **Privacy sweep** of the repository and its full history before it went public. Searched: the family names known
+  (Grayson, Orbus), health and benefit words, the email address, and key patterns. The only hits were "ADHD" in a
+  fictional outside-writer chat and in model replies to it. No key and no address.
+- **Pushes.** From here, a push to the now-public GitHub repository is publication and goes out on Kevin's word.
+
+**Left for Kevin:** the submission form (hackathon.lexsi.ai/submission), due 15 November, 11:59 PM AoE.
