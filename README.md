@@ -3,7 +3,8 @@
 **Teaching a small open model to remember a long chat it can no longer see.** Tiny Aya Global
 (3.35B) is trained with LoRA to search the earlier conversation when, and only when, the answer is
 out of view, to read what comes back, and to answer in its own voice, while staying as coherent as
-the untrained model. The write-up is [`docs/ARTICLE.md`](docs/ARTICLE.md).
+the untrained model. The write-up is [`docs/ARTICLE.md`](docs/ARTICLE.md); a short version is
+[on Hugging Face](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37/blob/main/ARTICLE.md) (`docs/submission/HF_ARTICLE.md`).
 
 Built for the [Lexsi AI Safety and Alignment Hackathon](https://hackathon.lexsi.ai) (1 to 15 November
 2026), Track 3, Agentic Fine-tuning. Author: Kevin Vaillancourt, working with an AI assistant
