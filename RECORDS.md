@@ -6432,3 +6432,91 @@ agent ids and marks are in `results/coherence/R-162/` (`briefs/`, `judges.txt`, 
 
 **Next.** The README status and limits are updated in this commit. The write-up and model card are rebuilt for 6.37 on
 these numbers.
+
+## R-164 · 2026-11-09 · SPRINT · The write-up plan, panelled; a whole-chat control, registered before it runs
+
+**The plan.** The write-up and model card are rebuilt for 6.37 from the sealed run (R-163). A three-lane panel
+reviewed the plan before any text was written (method, sources, against; fresh Opus agents, each transcript audited:
+no files written, nothing sealed opened). The plan as changed by the panel:
+
+1. **The headline is the outside-writer sets, then the sealed run.** The abstract opens with recall on the two sets
+   of chats by writers who never saw the generator: seed 82 39 of 120 against base's 26 (R-146) and 53 against 27
+   (R-157). It gives the eight seeds pooled beside seed 82, since seed 82 is the lowest of the eight on the first set
+   (39, against 43 to 57). It gives the chat-resampled intervals and says the first set's p (0.047) is above the
+   registered 0.01. The sealed run follows as "the registered test passes". It gives points and counts, not the
+   +414% and +727% (base is 8 to 18% there, so the ratios are unstable). It says both sealed pools are made by the
+   project's generator.
+2. **Names.** The sealed pool `independent` and the two sets of writer chats have names a reader will merge. In the
+   write-up the sets are "the outside-writer sets", and the pool is "`independent` (generator-built, sealed)".
+3. **`older` and `confirm` are split in every headline table.** On the outside-writer sets the gain is nearly all
+   `older`: 11 to 28 and 12 to 34.
+   On `confirm`, seed 82 scores 11 against base's 15 on set 1 and 19 against 15 on set 2. It corrects 1 and 3 of 20
+   false tag claims (R-146, R-158, R-159). Going along with a false claim is reported as a result, in the abstract,
+   not only as a limit.
+4. **p-values.** The sealed sign tests are reported only as "registered rule met, p below 0.01". The intervals that
+   resample whole conversations are the result, with the note that they do not resample templates. The sealed pools'
+   template count is not known without opening the pools, which this project's rules forbid, and the write-up says
+   so.
+5. **Every deviation in one place in the protocol section.** The change from three seeds to eight (R-162). R-163's
+   disclosures 1 to 4. Rule 1 recomputed on R-016's own three seeds (82, 83, 94), so the test as first registered
+   is visible. The first outside-writer set becoming a development set (R-151). The selection count, stated with the
+   numbering it uses.
+6. **Controls stated with their scope.** The prompted baseline is two fixed prompts, not a search over prompts
+   (R-137, R-161). The whole-chat control is below.
+7. **Sections rewritten from the records, not trimmed from v5:** threats, errors, limitations and the ablation history
+   (which becomes the candidate ledger). Named stale items to fix:
+   - "Facts never change": corrections were tested (R-102 to R-131).
+   - LoCoMo was "registered for the frozen model": it was deferred (R-139 item 6) and never run.
+   - "Every claim pools three seeds": the sealed run pools eight.
+   - The AuditKIT subsection: it covers v5 only, and no AuditKIT run on 6.37 exists.
+   Related work, future work, author contributions and references stay.
+8. **Also added:**
+   - Seed 82's wrong-fact answers on the outside-writer sets (R-146).
+   - The kinds where 6.37 is below base: `statement` on set 2, 35 against 39; `in_view` on `heldout` for some
+     seeds.
+   - The scoring rule for each kind.
+   - What "coherent" means, and that the judges were never checked against a human.
+   - Writer clustering: 4 writers a set, and the intervals resample chats, not writers.
+   - Training time beside run time.
+9. **Missing analyses are made first, as committed scripts with results files, before the text cites them:**
+   - judges 2 and 3 scored for R-162;
+   - R-161's prompt arms on set 2, and the 6.37-against-prompt sign tests on both sets;
+   - R-158's claim counts;
+   - hard_dev's 20 and 73 of 96;
+   - rule 1 on three seeds;
+   - the candidate ledger's failed lines recomputed from the raw files.
+
+   `audit_judge.py` moves from scratch into `scripts/records/`.
+
+**Corrected from the panel.** The against lane wrote that no record has base reading the whole chat. That is not
+true: R-014 and R-017 ran the `whole_chat` arm. In R-017, base with every message in view got 8 of 12 `older`
+questions right at 58 messages and 0 of 12 at 419. That failed the 50% control, so it was not reported as a ceiling.
+R-017 also noted a lead it never tested. The model's config sets `sliding_window` to 4096, with every fourth layer
+full attention, and 419-message prompts run past that. The lane's question still stands for the outside-writer sets.
+Their chats average about 1,400 tokens (at most 1,786), well inside the window, and base has never been run on them
+with the whole chat in view. A reviewer will ask why not just show the model the chat.
+
+**The control, registered before it runs (report only, not a gate).** Base, `whole_chat` arm (every message in
+view, no tool), greedy, on conversations already run with the tool:
+
+| Label | Conversations | Compared with (same conversations) |
+|---|---|---|
+| `wc_blind_base` | outside-writer set 1 (`data/blind_dev/chats`, seed 0) | `blind_base`, `blind_fix17cs37_82` |
+| `wc_blind2_base` | outside-writer set 2 (`data/blind_dev2/chats`, seed 0) | `blind2_base`, `blind2_fix17cs37_82` |
+| `wc_hd_base` | `hard_dev`, seed 73157, 24 a kind, 1 decoy | `hd_base`, `hd_fix17cs37_82` |
+| `wc_probe_base` | `probe`, seed 73157, 24 a kind | `probe2_base`, `probe_fix17cs37_82` |
+
+No sealed pool is used; each sealed pool was run once (R-162) and stays that way. Run by
+`scripts/records/queue/wc.sh`.
+
+**Reported.** Recall (`older` and `confirm`) and each kind, at each size, for base with the whole chat. Beside it:
+base with the tool, and seed 82 with the tool, on the same conversations. Also an exact sign test of seed 82 against
+whole-chat base, and the tokens each reads per turn.
+
+**What each outcome means, fixed now.**
+- If whole-chat base is at or above seed 82 on an outside-writer set, the write-up says so plainly. For chats this
+  short, showing the model the whole chat works as well or better. The adapter's case is then chats longer than the
+  model can attend to, and the cost of reading the whole chat every turn.
+- If whole-chat base is below seed 82, the gap is reported with its sign test and interval.
+- At 419 messages, a low whole-chat score with a high score at 58 agrees with R-017's sliding-window lead but does not
+  prove it. The write-up calls it agreement, not cause.
