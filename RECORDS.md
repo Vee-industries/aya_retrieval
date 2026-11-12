@@ -7829,3 +7829,8 @@ S3 opens once, after the pick, with the shippable arm at 82, 83 and 94 and the o
 **Disclosed.** The number of candidates is not fixed in advance. Every extra candidate chosen among on the same dev
 pools makes the winner's dev numbers more optimistic. The dev pick names what to test; S3 is the measure, for the
 picked arm only. The write-up states how many candidates were screened.
+
+**R-194 correction, same day.** Kevin: "no no last training has to be done saturday by midnight. i might even want to
+say s3 done by sunday 3am". The cutoff is on finishing, not starting: every candidate's training, seed 94 included,
+is done before Saturday 14 November 23:59 Eastern. A training run that would not finish by then is not started.
+Kevin's possible S3 target (done by Sunday 15 November 03:00 Eastern) is noted, not yet fixed.
