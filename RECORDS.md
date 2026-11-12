@@ -7734,3 +7734,18 @@ with a scripted row. The provenance file the build wrote before the stop is comm
 Under R-187: "If any line fails, there is no K2.1 and no further candidate; S3 then runs on the baselines, 6.37 and
 K1 (report arm) as R-185 set out." No candidate passed screening, so no model is shipped from the reopened work; the
 published 6.37 stays the submission.
+
+## R-189 · 2026-11-12 · REOPENED · K2.1's build fixed and run again, on Kevin's word
+
+**Decision.** Kevin, 12 November, after R-188: "i need you to fix 2.1". R-187 said a moved row that skips the pick
+ends K2.1; Kevin overrides that line. The stop in R-188 was a defect in my build script (the pick reached only
+`builder_item`, and R-102's rows are built through `with_r102_change`). It stopped the build before any set existed,
+so no check line and no model result was seen before this fix.
+
+**Fix** (`scripts/records/build_r187.py`): the same pick, by the same rule, for moved R-102 rows: each is rebuilt in
+same_person, same_type and shared_word through K1's own `build_item` and `with_r102_change`, counted with its own
+search, and given the first share that reaches K1's count (else the one that returns more). The guard stays: a moved
+row that skips the pick still stops the build. The R-102 rows picked this way are listed in the provenance file.
+
+**Fixed in advance.** One build. R-185's four check lines, unchanged. If a line fails or the guard stops the build,
+that is the end of K2.1. Everything else as R-187.
