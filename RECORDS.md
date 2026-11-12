@@ -7872,3 +7872,61 @@ about 15), T3 copies 45 (predicted about 68).
 candidates only, so K2.1's seed 94 cannot change it; that training and its four scorings are dropped from the queue,
 which frees about an hour and a half of card time under R-194's cutoff. K1's seed 94 runs as planned, after base's
 reruns.
+
+## R-196 · 2026-11-12 · REOPENED · K1.1, registered before it is built: K1 with each fact stated in drawn wordings
+
+**Decision.** Under R-194 (Kevin: train the winner "once or twice more", any number of candidates by the cutoff), a
+refinement of K1, the only open candidate (R-195). Panel `results/panels/R-196/` (brief, method lane, against lane).
+The brief's two directions both fail on the data: (A) found rows asked in other words beside a same-person passage
+already exist in K1 (60 at zero shared words; 294 of 562 answer rows share no content word with that passage); (B)
+the 124 spliced rows hold only 18 of the 216 zero-overlap found rows. The method lane proposes a third direction,
+taken here. The against lane argues for no new candidate; its reasons and how each is handled are below.
+
+**What the lanes measured** (their counts, from committed files):
+- 6.37 finds the fact and then declines on 0 hard_dev items at all 8 of its seeds; K1 does so on 20 (seed 82) and 23
+  (seed 83). On items 6.37 gets right at all 8 seeds, 13 and 10. 6.37's hard_dev recall over 8 seeds: 73 to 90, sd
+  5.4; K1's best seed (65) is below 6.37's worst.
+- Hometown is the largest single loss: 6.37 24 of 26 right, K1 7 of 26 (seeds 82, 83). On 15 of the 18 hometown items
+  K1 lost to a decline, its query copies training's birth query; training's birth fact is "born in {month}", the
+  passage says "grew up in Lyon". hard_dev shares no fact type with training.
+- Every fact line in 6.37's and K1's search outputs (1,447 and 1,784 lines) is in its type's one template wording; 0
+  use a `MORE_STATEMENTS` wording. K1's decline rows beside a passage naming the asked person can be told apart by
+  that fixed wording; a hard_dev line in new wording fails the same test. Not proven: in hard_dev, fact type and
+  wording are one variable.
+- K2.1 halved those decline rows (53 to 27) and lost as many items to found-and-declined (20 and 26).
+
+**K1.1** (`scripts/records/build_r196.py`): K1's build with one change. Every chat that gets F2 states its facts in
+the template's own wording or one of `train_phrasings.MORE_STATEMENTS`, drawn per line: the builder rows and fresh
+never_told rows are built with `more_statements` when a share is given (the rebuild check and `found_before` stay
+K1's), and F2's added lines draw their wording from a generator of their own (`seed + 8 + index`), so every slot,
+person and value is K1's. R-102's rows keep their own fact lines; only their F2 lines change. The paint wording "the
+whole house is" is left out of every draw (it shares four words with a hard_dev statement). Training as K1 (rank 32,
+seven projections, lr 3e-4, chat_decision, `--save-epochs 2`), seeds 82, 83 and 94.
+
+**Check before training** (`scripts/records/check_r196.py`, no model, one build; a FAIL on any line and K1.1 does not
+train):
+1. Of the fact lines in the builder rows F2 changed, 72% to 78% in a `MORE_STATEMENTS` wording (the draw gives 3 in 4,
+   2 in 3 for paint).
+2. Four-word runs shared by the statement wordings the set uses and hard_dev's forms: 0.
+3. never_told rows with passages: all; found against never_told mean passage gap at most 0.37 (R-185).
+4. With each drawn wording mapped back to its template, every turn but the search output and the last reply equals
+   K1's (fresh never_told rows reported apart); rows whose last reply differs at most the build's now-missed and
+   scripted-target rows.
+Reported only: found rows (K1 562), now-missed rows (K1 0), never_told rows naming the asked person (K1 53).
+
+**Against lane, and how each point is handled.**
+- "K1.1 would be the seventh candidate on these pools; a K1 against K1.1 pick is mostly noise" (its estimate: sd about
+  19 on a three-seed pooled sum). Disclosed here. The pick rule is R-192's, unchanged: of the eligible candidates, the
+  higher pooled dev recall over 82, 83 and 94. Kevin may change that rule before K1.1's results are read; I do not.
+- "Build only if base's rerun leaves no eligible arm." Not taken: Kevin's plan (R-193, R-194) is to refine the best
+  candidate, and card time is not the limit (about 5.4 card hours against 46 free).
+- The R-051 risk (fix 8, `--more-statements`, probe statement 40 of 48 on other data): not read as a measured fail of
+  this change (fix 8 lacked `--more-chat`, which 6.37 has); probe statement's line (at least 44 of 48) applies.
+- Dev leakage: line 2 above. No wording is taken from hard_dev; "came of age" appears in no training wording.
+
+**Disclosed.** K1.1 is designed from K1's and K2.1's hard_dev rows, after their results were read, and base's
+probe and hard_dev reruns had been committed (K1 above base on both). S3 stays sealed until the pick.
+
+**Predictions** (method lane, before the build): hard_dev recall pooled over 82 and 83, 135 (range 118 to 155; K1 122,
+6.37 163); hometown about 9 of 26; T3 copies about 68 (line at most 184); T2 false answers about 8 (line at most 26).
+Main risk: probe statement below 44.
