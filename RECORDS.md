@@ -7792,3 +7792,13 @@ coherence at or above base's minus 5% under judge 1. (b) and (c) unchanged: the 
 most half of 6.37's and at least 10 points lower, bound above 0; N-hit false answers at least 10 points lower than
 6.37's, bound above 0, and not above base's. Baselines first in every report: code that searches every turn and base
 with the whole chat, then base with the tool, then 6.37, then the candidates.
+
+## R-192 · 2026-11-12 · REOPENED · The pick between K1 and K2.1 uses three seeds
+
+**Decision.** Kevin, 12 November, before any K2.1 result exists: "we'll see which seems roughly better out of 2 or 3
+tries then move that one to s3". Read as seeds: one seed's dev score moves by about 20 points, so the pick uses
+three. K1 and K2.1 are both trained at seed 94 and scored at 94 on probe, hard_dev and both outside-writer sets
+(`q192.sh` in scratch, after the base reruns of R-191). R-191's screening lines stay at seeds 82 and 83. Of the
+candidates that pass every line, the one with the higher pooled dev recall over seeds 82, 83 and 94 (probe, hard_dev,
+both outside-writer sets) goes to S3 as the shippable arm (`scripts/records/decide_r191.py`, `PICK_SEEDS`); the other
+runs on S3 as a report arm at 82 and 83. The shippable arm's seed 94 adapter is the one trained here.

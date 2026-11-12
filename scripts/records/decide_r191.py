@@ -5,8 +5,8 @@ current code, labels ``*_base191``) instead of 6.37: each candidate's recall mus
 each seed, on probe, hard_dev, the outside-writer sets and the other-facts stress. Every other line
 is R-178's, unchanged: in_view, statement and never_told minimums, false retrieval against 6.37,
 and the failure-mode targets T3 and T2 against 6.37. A candidate that passes every line is
-eligible; of the eligible ones, the higher pooled dev recall (probe, hard_dev and outside-writer,
-both seeds) goes to S3 as the shippable arm.
+eligible; of the eligible ones, the higher pooled dev recall (probe, hard_dev and outside-writer)
+over seeds 82, 83 and 94 (R-192) goes to S3 as the shippable arm.
 
 Usage:
     python scripts/records/decide_r191.py
@@ -22,6 +22,7 @@ CANDIDATES = {"K1": "k1_r178", "K2.1": "k2_1_r187"}
 REF = "fix17cs37"
 BASE = "base191"
 SEEDS = (82, 83)
+PICK_SEEDS = (82, 83, 94)  # R-192: the pick uses a third seed; the lines stay at 82 and 83
 RECALL = ("older", "confirm")
 
 
@@ -116,6 +117,17 @@ def screen(name: str) -> tuple[list[tuple[str, str]], int | None]:
     return lines, total(*recall_parts)
 
 
+def pick_recall(name: str) -> int | None:
+    """Pooled dev recall over PICK_SEEDS: probe, hard_dev, and both outside-writer sets."""
+    return total(
+        *(
+            count(f"{stem}_{name}_{s}", seed, RECALL)
+            for s in PICK_SEEDS
+            for stem, seed in (("probe", 73157), ("hd", 73157), ("blind", 0), ("blind2", 0))
+        )
+    )
+
+
 def main() -> None:
     eligible = {}
     for label, name in CANDIDATES.items():
@@ -126,12 +138,15 @@ def main() -> None:
         waits = sum(s == "WAIT" for s, _ in lines)
         print(f"== {label}: {fails} FAIL, {waits} WAIT, pooled dev recall {pooled} (R-191)")
         if fails == 0 and waits == 0:
-            eligible[label] = pooled
-    if eligible:
+            eligible[label] = pick_recall(name)
+            print(f"== {label}: pick recall over seeds {PICK_SEEDS}: {eligible[label]} (R-192)")
+    if None in eligible.values():
+        print("== pick waits on seed 94 results")
+    elif eligible:
         pick = max(eligible, key=eligible.get)
-        print(f"== shippable arm for S3: {pick} (pooled dev recall {eligible[pick]})")
+        print(f"== shippable arm for S3: {pick} (pick recall {eligible[pick]})")
     else:
-        print("== no candidate eligible yet")
+        print("== no candidate eligible")
 
 
 if __name__ == "__main__":
