@@ -124,11 +124,11 @@ def table(header: list[str], rows: list[str]) -> str:
 
 def status_numbers(out) -> None:
     out["status_line"] = (
-        "Final numbers for the shipped model, 6.37 (`fix17cs37` seed 82, frozen in R-160): the "
-        "sealed final run (registered in R-162, results in R-163), the outside-writer sets "
-        "(R-146, R-157), the whole-chat control (R-164, R-165), R-016's two references run late "
-        "(R-168, R-169) and LongMemEval-S as an outside check (R-170). Every number is computed "
-        "from committed results files by `scripts/make_article.py`."
+        "Final numbers for the shipped model, 6.37 (`fix17cs37` seed 82, frozen before the sealed "
+        "run): the sealed run, the two outside-writer sets, the whole-chat control, the two "
+        "registered references run late, and LongMemEval-S as an outside check. Every number is "
+        "computed from committed results files by `scripts/make_article.py`; `RECORDS.md` holds "
+        "the dated record behind each."
     )
 
 
@@ -433,9 +433,11 @@ def sealed_reference_numbers(out) -> None:
     """Base with the whole chat and code that always searches, on the sealed pools (R-168)."""
     refs = load(ANALYSIS / "R-168" / "refs.json")
     runs = sealed()
-    rows, tests, tokens = [], [], []
+    tests, tokens = [], []
+    # One row a measure, one column a condition, so the table stays narrow and keeps every arm.
+    rows: dict[str, list[str]] = {}
     seen = {k: [] for k in ("wc", "as", "ship58", "ship", "as_in_view", "ship_in_view")}
-    seen |= {"wc_in_view": [], "tool_in_view": []}
+    seen |= {"wc_in_view": [], "tool_in_view": [], "tool": []}
     for c in CONDITIONS:
         whole, code = refs[c]["whole_chat"], refs[c]["always_search"]
         # Base with the tool and seed 82 here are R-162's runs, re-read; they must agree.
@@ -466,6 +468,7 @@ def sealed_reference_numbers(out) -> None:
         seen["ship58"].append(wc["seed_82"])
         seen["as"] += [r["reference"] for r in by_size.values()]
         seen["ship"] += [r["seed_82"] for r in by_size.values()]
+        seen["tool"] += [r["base_tool"] for r in by_size.values()]
         for s in SIZES:
             view = code["sizes"][str(s)]["kinds"]["in_view"]
             seen["as_in_view"].append(view["reference"])
@@ -473,30 +476,27 @@ def sealed_reference_numbers(out) -> None:
         view = whole["sizes"]["58"]["kinds"]["in_view"]
         seen["wc_in_view"].append(view["reference"])
         seen["tool_in_view"].append(view["base_tool"])
-        rows.append(
-            f"| {c} | {wc['reference']} | {by_size[58]['reference']} / {by_size[419]['reference']} "
-            f"| {by_size[58]['base_tool']} / {by_size[419]['base_tool']} "
-            f"| {by_size[58]['seed_82']} / {by_size[419]['seed_82']} "
-            f"| {' / '.join(span(by_size[s]['adapters'].values()) for s in SIZES)} "
-            f"| {whole['false_retrievals']} | {code['false_retrievals']} |"
-        )
+        cells = {"Base, whole chat, no tool, 58 messages": wc["reference"]}
+        for s in SIZES:
+            cells[f"Code always searches, {s} messages"] = by_size[s]["reference"]
+        for s in SIZES:
+            cells[f"Base, tool, {s} messages"] = by_size[s]["base_tool"]
+        for s in SIZES:
+            cells[f"Seed 82, tool, {s} messages"] = by_size[s]["seed_82"]
+        for s in SIZES:
+            cells[f"Eight adapters, tool, {s} messages"] = span(by_size[s]["adapters"].values())
+        cells["False retrievals: base, whole chat (58 messages only)"] = whole["false_retrievals"]
+        cells["False retrievals: code always searches (both sizes)"] = code["false_retrievals"]
+        for name, value in cells.items():
+            rows.setdefault(name, []).append(str(value))
         chat = [
             r["whole_chat_tokens"] for r in eval_rows(f"ref_{c}_base_wca", 90311, "whole_chat_all")
         ]
         tokens.append(statistics.mean(chat))
     out["r168_recall_n"] = str(refs["A"]["whole_chat"]["sizes"]["58"]["recall"]["of"])
     out["r168_table"] = table(
-        [
-            "Condition",
-            "Base, whole chat, 58",
-            "Code always searches, 58 / 419",
-            "Base, tool, 58 / 419",
-            "Seed 82, 58 / 419",
-            "Eight adapters, 58 / 419",
-            "False retrievals: base, whole chat (58 only)",
-            "Code always searches (both sizes)",
-        ],
-        rows,
+        [f"Recall (of {out['r168_recall_n']} a size), or false retrievals", *CONDITIONS],
+        [f"| {name} | " + " | ".join(cells) + " |" for name, cells in rows.items()],
     )
     out["r168_p_max"] = p_text(max(t["p"] for t in tests))
     out["r168_only_ref"] = span(t["only_first"] for t in tests)
@@ -511,8 +511,10 @@ def sealed_reference_numbers(out) -> None:
 
 def outside_reference_numbers(out) -> None:
     """Code that always searches, on the two outside-writer sets (R-169)."""
-    rows: dict[str, list[str]] = {"recall": [], **{k: [] for k in KINDS}}
+    rows_by_set: dict[int, dict[str, str]] = {}
     for n, prefix in SETS.items():
+        rows: dict[str, str] = {}
+        rows_by_set[n] = rows
         code = eval_rows(f"as_{prefix}_base", 0, "always_search")
         ship = eval_rows(f"{prefix}_{SHIP}", 0)
         base = eval_rows(f"{prefix}_base", 0)
@@ -540,7 +542,12 @@ def outside_reference_numbers(out) -> None:
             f"{only_code} right only for code and {only_ship} only for seed 82, p = {p_text(p)}"
         )
         out[f"as_p_{n}"] = p_text(p)
-        rows["recall"].append(
+        # Base with the tool and base with the whole chat, for the results-at-a-glance table.
+        out[f"wc_recall_{n}"] = str(right["whole"])
+        for k in ("in_view", "never_told", "statement"):
+            out[f"ow_base_{k}_{n}"] = str(counted["base"][k][0])
+            out[f"ow_wc_{k}_{n}"] = str(counted["whole"][k][0])
+        rows["recall"] = (
             f"{right['code']} | {right['ship']} ({only_code}, {only_ship}, p = {p_text(p)}) "
             f"| {right['base']} | {right['whole']}"
         )
@@ -550,7 +557,7 @@ def outside_reference_numbers(out) -> None:
             note = {"statement": (" (wrong by construction)", " (right by construction)")}
             code_note, whole_note = note.get(k, ("", ""))
             test = "" if k == "statement" else f" ({o_c}, {o_s}, p = {p_text(p_k)})"
-            rows[k].append(
+            rows[k] = (
                 f"{counted['code'][k][0]}{code_note} | {counted['ship'][k][0]}{test} "
                 f"| {counted['base'][k][0]} | {counted['whole'][k][0]}{whole_note}"
             )
@@ -563,20 +570,18 @@ def outside_reference_numbers(out) -> None:
         out["as_kind_n"] = str(counted["code"]["in_view"][1])
     names = {"recall": f"recall (`older` and `confirm`, {out['as_recall_n']})"}
     names |= {k: f"{KIND_NAMES[k]} ({counts_by_kind(code)[k][1]})" for k in KINDS}
-    out["as_ow_table"] = table(
-        [
-            "Kind (questions)",
-            "Set 1: code always searches",
-            "seed 82, tool (only code right, only seed 82 right, sign test)",
-            "base, tool",
-            "base, whole chat",
-            "Set 2: code always searches",
-            "seed 82, tool (the same)",
-            "base, tool",
-            "base, whole chat",
-        ],
-        [f"| {names[k]} | " + " | ".join(cells) + " |" for k, cells in rows.items()],
-    )
+    # One table a set, so each keeps code, seed 82 and base with the whole chat side by side.
+    for n, rows in rows_by_set.items():
+        out[f"as_ow_table_{n}"] = table(
+            [
+                f"Set {n}: kind (questions)",
+                "Code always searches",
+                "Seed 82, tool (only code right, only seed 82 right, sign test)",
+                "Base, tool",
+                "Base, whole chat",
+            ],
+            [f"| {names[k]} | {cells} |" for k, cells in rows.items()],
+        )
 
 
 def speed_numbers(out) -> None:
@@ -830,6 +835,7 @@ def longmemeval_numbers(out) -> None:
         out[f"lme_answer_{short}"] = str(m[a]["answer_in_reply"]["hits"])
         out[f"lme_refuse_{short}"] = str(m[a]["refusal_on_answerable"]["hits"])
         out[f"lme_abstain_{short}"] = str(m[a]["abstention"]["hits"])
+        out[f"lme_secs_{short}"] = f"{m[a]['seconds_per_question']:.2f}"
     out["lme_clean"] = of(m["637_tool"]["clean_first_calls"])
     out["lme_clean_base"] = of(m["base_tool"]["clean_first_calls"])
     answers = [m[a]["answer_in_reply"]["hits"] for a in LME_ARMS]
@@ -897,6 +903,8 @@ def longmemeval_numbers(out) -> None:
         out[f"lme_j_{short}"] = str(j["j1"][a]["all_248"]["hits"])
     out["lme_judged_vs_base"] = diff_text(vs_base["failures_wrong"])
     out["lme_judged_vs_code"] = diff_text(vs_code["failures_wrong"])
+    out["lme_judged_p_base"] = p_text(vs_base["failures_wrong"]["p"])
+    out["lme_judged_p_code"] = p_text(vs_code["failures_wrong"]["p"])
     for other, short in (("base_tool", "base"), ("always_search", "code")):
         core = pairs[f"637_tool_vs_{other}_core_148"]["failures_wrong"]
         out[f"lme_judged_core_{short}"] = (
@@ -913,15 +921,15 @@ def longmemeval_numbers(out) -> None:
         f"{min(same):,} to {max(same):,} of {agree[0]['of']:,} lines (kappa {min(kappas):.2f} to "
         f"{max(kappas):.2f})"
     )
-    kevin = judged["kevin_agreement"]
+    kevin = judged["kevin_agreement"]  # the author's blind marks (R-170)
     if len({(k["same"], k["kappa"]) for k in kevin.values()}) != 1:
-        raise SystemExit("Kevin's agreement now differs between judges; update the text")
+        raise SystemExit("the author's agreement now differs between judges; update the text")
     first_judge = kevin["j1"]
     out["lme_kevin"] = (
         f"{first_judge['same']} of {first_judge['of']} (kappa {first_judge['kappa']:.2f})"
     )
     out["lme_kevin_yes"] = (
-        f"he says yes on {judged['kevin_yes']['hits']} of them and judge 1 on "
+        f"I marked {judged['kevin_yes']['hits']} of them right, and judge 1 marked "
         f"{judged['deciding_judge_yes_on_kevins_lines']['hits']}"
     )
 
@@ -955,6 +963,9 @@ def longmemeval_numbers(out) -> None:
             f"only for {LME_ARM_WORDS[other]}, p = {p_text(p)}"
         )
         out[f"lme_split_vs_{short}_short"] = f"{right_ship} against {right_them}, p = {p_text(p)}"
+        out[f"lme_ans_{short}"] = str(right_them)
+        out[f"lme_ans_p_{short}"] = p_text(p)
+        out["lme_ans_ship"] = str(right_ship)
         out[f"lme_lead_ans_{short}"] = str(right_ship - right_them)
     unanswered = {a: sum(by_arm[a].get(q, False) for q in kinds["unanswerable"]) for a in LME_ARMS}
     if unanswered["637_tool"] <= max(v for a, v in unanswered.items() if a != "637_tool"):
@@ -962,12 +973,13 @@ def longmemeval_numbers(out) -> None:
     lead = int(out["lme_j_ship"]) - int(out["lme_j_base"])
     out["lme_lead"] = str(lead)
     out["lme_lead_unans"] = str(unanswered["637_tool"] - unanswered["base_tool"])
+    out["lme_unans_ship"] = str(unanswered["637_tool"])
     if int(out["lme_lead_unans"]) + int(out["lme_lead_ans_base"]) != lead:
         raise SystemExit("the judged lead over base does not split into its two parts")
     out["lme_unanswerable_n"] = str(len(kinds["unanswerable"]))
     out["lme_judged_answerable_n"] = str(len(answerable))
 
-    # Where Kevin and judge 1 differ, from the key (no reply text).
+    # Where the author's blind marks and judge 1 differ, from the key (no reply text).
     human = load(LME / "judge" / "human_key.json")["lines"]
     marks = load(LME / "judge" / "kevin_marks.json")
     line_of = {line["line"]: line for line in key["lines"]}
@@ -976,13 +988,15 @@ def longmemeval_numbers(out) -> None:
     for n, mark in marks.items():
         line = line_of[human[n]]
         if any(other[line["line"]] != verdicts[line["line"]] for other in others):
-            raise SystemExit("the three judges differ on one of Kevin's lines; update the text")
+            raise SystemExit(
+                "the three judges differ on one of the author's lines; update the text"
+            )
         if (mark == "yes") != verdicts[line["line"]]:
             what = "unanswerable" if line["abstention"] else f"`{line['type']}`"
             differ[(what, LME_ARM_WORDS[line["arm"]], mark == "yes")] += 1
     out["lme_kevin_n_differ"] = WORDS[sum(differ.values())]
     out["lme_kevin_differ"] = "; ".join(
-        f"{WORDS[count]} {what} line{'s' if count > 1 else ''} from {arm}, which Kevin marked "
+        f"{WORDS[count]} {what} line{'s' if count > 1 else ''} from {arm}, which I marked "
         f"{'right' if yes else 'wrong'} and the judges {'wrong' if yes else 'right'}"
         for (what, arm, yes), count in sorted(differ.items())
     )
@@ -1030,7 +1044,8 @@ def coherence_sample(condition: str) -> int:
 def sealed_numbers(out) -> None:
     runs = sealed()
     rule1, false_rows, coherence_rows, r016_rows = [], [], [], []
-    split_rows, kind_rows, behaviour_rows, sources = [], [], [], []
+    split_rows, kind_rows, sources = [], [], []
+    behaviour_rows: dict[str, list[str]] = {}  # one row a measure, one column a condition
     adapter_rates, base_rates, gains, ship_recall, base_recall = [], [], [], [], []
     for c, (pool, decoys) in CONDITIONS.items():
         d = runs[c]
@@ -1106,15 +1121,24 @@ def sealed_numbers(out) -> None:
         )
         if not all(b[a]["clean_calls"]["clean"] == b[a]["clean_calls"]["of"] for a in ADAPTERS):
             raise SystemExit(f"condition {c}: some adapter call was not clean")
-        behaviour_rows.append(
-            f"| {c} | {b['base']['right_decisions']} | {b[SHIP]['right_decisions']} "
-            f"| {span(b[a]['right_decisions'] for a in ADAPTERS)} "
-            f"| {b['base']['clean_calls']['clean']} of {b['base']['clean_calls']['of']} "
-            f"| {b[SHIP]['clean_calls']['clean']} of {b[SHIP]['clean_calls']['of']} "
-            f"| {b['base']['ran_out_of_calls']} "
-            f"| {sum(b[a]['ran_out_of_calls'] for a in ADAPTERS)} "
-            f"| {b[SHIP]['recall_found_fact']} / {b[SHIP]['recall_right_and_found']} |"
-        )
+        cells = {
+            "Right search decisions: base": b["base"]["right_decisions"],
+            "Right search decisions: seed 82": b[SHIP]["right_decisions"],
+            "Right search decisions: eight seeds": span(b[a]["right_decisions"] for a in ADAPTERS),
+            "Clean first calls: base": (
+                f"{b['base']['clean_calls']['clean']} of {b['base']['clean_calls']['of']}"
+            ),
+            "Clean first calls: seed 82": (
+                f"{b[SHIP]['clean_calls']['clean']} of {b[SHIP]['clean_calls']['of']}"
+            ),
+            "Ran out of calls: base": b["base"]["ran_out_of_calls"],
+            "Ran out of calls: all eight adapters": sum(b[a]["ran_out_of_calls"] for a in ADAPTERS),
+            "Seed 82 recall: fact found / right": (
+                f"{b[SHIP]['recall_found_fact']} / {b[SHIP]['recall_right_and_found']}"
+            ),
+        }
+        for measure, value in cells.items():
+            behaviour_rows.setdefault(measure, []).append(str(value))
         ship_recall.append(d["shipped_seed_82"]["recall"])
         base_recall.append(d["shipped_seed_82"]["base_recall"])
         if d["shipped_seed_82"]["sign_test_p"] >= 0.01:
@@ -1191,19 +1215,22 @@ def sealed_numbers(out) -> None:
         kind_rows,
     )
     out["sealed_behaviour_table"] = table(
-        [
-            "Condition",
-            "Right search decisions: base",
-            "seed 82",
-            "eight seeds",
-            "Clean first calls: base",
-            "seed 82",
-            "Ran out of calls: base",
-            "all eight adapters",
-            "Seed 82 recall: fact found / right",
-        ],
-        behaviour_rows,
+        ["Measure", *CONDITIONS],
+        [f"| {name} | " + " | ".join(cells) + " |" for name, cells in behaviour_rows.items()],
     )
+
+    # For the results-at-a-glance table: one value a pool where its two conditions agree.
+    def by_pool(cells: list[str]) -> str:
+        per_condition = dict(zip(CONDITIONS, cells, strict=True))
+        pools = []
+        for pool in ("heldout", "independent"):
+            values = [per_condition[c] for c, (p, _) in CONDITIONS.items() if p == pool]
+            pools.append(" / ".join(dict.fromkeys(values)))
+        return ", ".join(pools)
+
+    for who, name in (("base", "base"), ("seed 82", "ship")):
+        out[f"sealed_decisions_{name}"] = by_pool(behaviour_rows[f"Right search decisions: {who}"])
+        out[f"sealed_clean_{name}"] = by_pool(behaviour_rows[f"Clean first calls: {who}"])
     ranks = []
     for c in ("C", "D"):
         confirm = runs[c]["per_kind_correct"]["confirm"]
@@ -1236,7 +1263,8 @@ def sealed_numbers(out) -> None:
 
 def cost_numbers(out) -> None:
     runs = sealed()
-    rows, peaks, shares = [], [], []
+    rows: dict[str, list[str]] = {}  # one row a measure, one column a condition
+    peaks, shares = [], []
     for c in CONDITIONS:
         cost = runs[c]["cost"]
         b, s = cost["base"], cost[SHIP]
@@ -1244,29 +1272,32 @@ def cost_numbers(out) -> None:
         searches = [cost[a]["searches_per_conversation"] for a in ADAPTERS]
         share = 100 * s["tokens_read_per_turn"] / s["whole_chat_tokens"]
         shares.append(share)
-        rows.append(
-            f"| {c} | {b['seconds']}, {b['seconds_per_conversation']:.2f} "
-            f"| {s['seconds']}, {s['seconds_per_conversation']:.2f} "
-            f"| {min(per):.2f} to {max(per):.2f} "
-            f"| {b['tokens_read_per_turn']:,.0f} / {s['tokens_read_per_turn']:,.0f} "
-            f"| {s['whole_chat_tokens']:,.0f} | {share:.0f}% "
-            f"| {b['tokens_written_per_turn']:.0f} / {s['tokens_written_per_turn']:.0f} "
-            f"| {b['searches_per_conversation']:.2f} / {min(searches):.2f} to {max(searches):.2f} |"
-        )
+        cells = {
+            "Base: seconds, per conversation": (
+                f"{b['seconds']}, {b['seconds_per_conversation']:.2f}"
+            ),
+            "Seed 82: seconds, per conversation": (
+                f"{s['seconds']}, {s['seconds_per_conversation']:.2f}"
+            ),
+            "Eight adapters: seconds per conversation": f"{min(per):.2f} to {max(per):.2f}",
+            "Tokens read per turn, base / seed 82": (
+                f"{b['tokens_read_per_turn']:,.0f} / {s['tokens_read_per_turn']:,.0f}"
+            ),
+            "Whole chat, tokens": f"{s['whole_chat_tokens']:,.0f}",
+            "Seed 82 reads, share of the whole chat": f"{share:.0f}%",
+            "Tokens written per turn, base / seed 82": (
+                f"{b['tokens_written_per_turn']:.0f} / {s['tokens_written_per_turn']:.0f}"
+            ),
+            "Searches per conversation, base / eight adapters": (
+                f"{b['searches_per_conversation']:.2f} / {min(searches):.2f} to {max(searches):.2f}"
+            ),
+        }
+        for measure, value in cells.items():
+            rows.setdefault(measure, []).append(value)
         peaks += [cost[a]["peak_vram_gib"] for a in ("base", *ADAPTERS)]
     out["cost_table"] = table(
-        [
-            "Condition",
-            "Base: seconds, per conversation",
-            "Seed 82: seconds, per conversation",
-            "Eight adapters: seconds per conversation",
-            "Tokens read per turn, base / seed 82",
-            "Whole chat, tokens",
-            "Seed 82 reads, share of the whole chat",
-            "Tokens written per turn, base / seed 82",
-            "Searches per conversation, base / eight adapters",
-        ],
-        rows,
+        ["Measure", *CONDITIONS],
+        [f"| {name} | " + " | ".join(cells) + " |" for name, cells in rows.items()],
     )
     out["cost_share"] = f"{min(shares):.0f} to {max(shares):.0f}"
     out["cost_peak"] = f"{max(peaks):.2f}"
@@ -1286,9 +1317,10 @@ def cost_numbers(out) -> None:
 
 def outside_writer_numbers(out) -> None:
     numbers = load(ANALYSIS / "R-164" / "writeup_numbers.json")
-    recall_rows, kind_rows, claim_rows, prompt_rows, writer_rows, stage_rows = (
-        [] for _ in range(6)
-    )
+    kind_rows, claim_rows, writer_rows, stage_rows = ([] for _ in range(4))
+    # The recall and prompted tables: one row a measure, one column a set.
+    recall_rows: dict[str, list[str]] = {}
+    prompt_rows: dict[str, list[str]] = {}
     for n, prefix in SETS.items():
         blind = load(SET_FILES[n])
         models = numbers["outside_writer_sets"][f"set_{n}"]["models"]
@@ -1321,12 +1353,20 @@ def outside_writer_numbers(out) -> None:
             if seeds["82"] == order[0]
             else "inside the eight seeds' range"
         )
-        recall_rows.append(
-            f"| Set {n} | {prim['base']} | {prim['ship']} | {prim['only_base']}, "
-            f"{prim['only_ship']}, p = {p_text(prim['p_exact_sign'])} "
-            f"| {points(prim['chat_resampled_interval']['difference'])} "
-            f"| {', '.join(str(seeds[str(s)]) for s in SEEDS)} | {points(pooled_interval)} |"
-        )
+        cells = {
+            "Base, tool": prim["base"],
+            "6.37 seed 82, tool": prim["ship"],
+            "Only base right, only seed 82 right, sign test": (
+                f"{prim['only_base']}, {prim['only_ship']}, p = {p_text(prim['p_exact_sign'])}"
+            ),
+            "Seed 82 gain, 95% interval resampling chats (points)": points(
+                prim["chat_resampled_interval"]["difference"]
+            ),
+            "Each seed (82, 83, 94 to 99)": ", ".join(str(seeds[str(s)]) for s in SEEDS),
+            "Eight seeds pooled, gain interval (points)": points(pooled_interval),
+        }
+        for measure, value in cells.items():
+            recall_rows.setdefault(measure, []).append(str(value))
         kinds = blind["per_kind_correct"]
         kind_rows.append(
             f"| Set {n} | "
@@ -1359,16 +1399,20 @@ def outside_writer_numbers(out) -> None:
         out["claims_false_n"] = str(c82["false_claims"])
         out["claims_true_n"] = str(c82["true_claims"])
         pc = numbers["outside_writer_sets"][f"set_{n}"]["prompt_control"]
-        cells = []
-        for arm in ("base_prompta_vs_seed_82", "base_promptb_vs_seed_82"):
-            t = pc[arm]
-            cells.append(f"{t['only_first']}, {t['only_second']}, p = {p_text(t['p'])}")
-        prompt_rows.append(
-            f"| Set {n} | {models['base']['recall']} | {models['base_prompta']['recall']} "
-            f"| {models['base_promptb']['recall']} | {models['seed_82']['recall']} | "
-            + " | ".join(cells)
-            + " |"
-        )
+        tests = [
+            f"{t['only_first']}, {t['only_second']}, p = {p_text(t['p'])}"
+            for t in (pc["base_prompta_vs_seed_82"], pc["base_promptb_vs_seed_82"])
+        ]
+        cells = {
+            "Base": models["base"]["recall"],
+            "Base, prompt A (rules)": models["base_prompta"]["recall"],
+            "Base, prompt B (rules and four worked examples)": models["base_promptb"]["recall"],
+            "6.37 seed 82": models["seed_82"]["recall"],
+            "Prompt A against seed 82: only A right, only 6.37 right, sign test": tests[0],
+            "Prompt B against seed 82 (the same)": tests[1],
+        }
+        for measure, value in cells.items():
+            prompt_rows.setdefault(measure, []).append(str(value))
         writers = blind["recall_per_writer"]
         writer_rows.append(
             f"| Set {n} | "
@@ -1389,17 +1433,10 @@ def outside_writer_numbers(out) -> None:
         )
         wv = blind["recall_on_questions_with_wrong_values"]
         out[f"ow_wrongvals_{n}"] = f"{wv['ship']} against {wv['base']} of {wv['items']}"
+    set_columns = [f"Set {n}" for n in SETS]
     out["ow_recall_table"] = table(
-        [
-            "Set",
-            "Base",
-            "6.37 seed 82",
-            "Only base right, only seed 82 right, sign test",
-            "Seed 82 gain, 95% interval resampling chats (points)",
-            "Each seed (82, 83, 94 to 99)",
-            "Eight seeds pooled, gain interval (points)",
-        ],
-        recall_rows,
+        [f"Recall (of {out['ow_recall_n']})", *set_columns],
+        [f"| {name} | " + " | ".join(cells) + " |" for name, cells in recall_rows.items()],
     )
     out["ow_kind_table"] = table(
         ["Set", *(f"{KIND_NAMES[k]}: base / seed 82 / eight seeds" for k in KINDS)], kind_rows
@@ -1415,16 +1452,8 @@ def outside_writer_numbers(out) -> None:
         claim_rows,
     )
     out["ow_prompt_table"] = table(
-        [
-            "Set",
-            "Base",
-            "Base, prompt A (rules)",
-            "Base, prompt B (rules and four worked examples)",
-            "6.37 seed 82",
-            "Prompt A against seed 82: only A right, only 6.37 right, sign test",
-            "Prompt B against seed 82",
-        ],
-        prompt_rows,
+        [f"Recall (of {out['ow_recall_n']})", *set_columns],
+        [f"| {name} | " + " | ".join(cells) + " |" for name, cells in prompt_rows.items()],
     )
     out["ow_writer_table"] = table(
         ["Set", "Recall per writer: base / seed 82 / eight seeds"], writer_rows
@@ -1506,14 +1535,18 @@ def protocol_numbers(out) -> None:
     agree = load(RESULTS / "human_check" / "R-139" / "agreement.json")
     second = agree["second_marker"]
     out["human_check"] = (
-        f"Kevin agreed with the scorer on {agree['agree']} of {agree['n']} lines (Cohen's kappa "
-        f"{agree['kappa']}), and the scorer passed no reply he failed (R-144). A second marker "
-        f"agreed with the scorer on {second['agree_with_scorer']} of {agree['n']} (kappa "
-        f"{second['kappa_with_scorer']}) and with Kevin on {second['agree_with_kevin']} (kappa "
-        f"{second['kappa_with_kevin']}) (R-145)"
+        f"I (the author, not an independent marker) agreed with the scorer on {agree['agree']} "
+        f"of {agree['n']} lines (Cohen's kappa {agree['kappa']}), and the scorer passed no reply "
+        f"I failed (R-144). A second, independent marker agreed with the scorer on "
+        f"{second['agree_with_scorer']} of {agree['n']} (kappa {second['kappa_with_scorer']}) "
+        f"and with me on {second['agree_with_kevin']} (kappa {second['kappa_with_kevin']}) "
+        "(R-145)"
     )
+    out["human_check_n"] = str(agree["n"])
+    out["human_check_author"] = str(agree["agree"])
+    out["human_check_second"] = str(second["agree_with_scorer"])
     if agree["kevin_wrong_scorer_right"]:
-        raise SystemExit("the scorer passed a reply Kevin failed; the text says it never did")
+        raise SystemExit("the scorer passed a reply the author failed; the text says it never did")
     spread = load(RESULTS / "freeze" / "R-154" / "judge_spread_r128.json")
     split = sum(s["split_lines"] for s in spread.values())
     lines = sum(s["lines"] for s in spread.values())
@@ -1727,7 +1760,7 @@ SINCE_V6 = [
         11,
         "6.311",
         "fix17cs311",
-        "6.31 plus 72 scripted in-view rows, one epoch on top (Kevin's call)",
+        "6.31 plus 72 scripted in-view rows, one epoch on top (my call)",
         "`hard_dev` recall pooled",
         "R-118, R-120",
     ),
@@ -1869,6 +1902,10 @@ def ledger_numbers(out) -> None:
     out["ledger_total"] = str(len(BEFORE_V6) + len(SINCE_V6) + len(UNREAD))
     out["ledger_since_rows"] = str(len(SINCE_V6))
     out["ledger_unread_n"] = str(len(UNREAD))
+    labels = [r[1] for r in BEFORE_V6] + [r[2] for r in SINCE_V6] + [r[1] for r in UNREAD]
+    if any(screen(label) == "not run" for label in labels):
+        raise SystemExit("a counted candidate has no screen run; the text says every one has")
+    out["ledger_no_hd"] = WORDS[sum(hard_dev(label) == "not run" for label in labels)]
 
 
 # --- Toolkit findings ---------------------------------------------------------------------------

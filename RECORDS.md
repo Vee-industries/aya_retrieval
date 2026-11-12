@@ -7164,3 +7164,97 @@ the active token's role read "write".
 - **Pushes.** From here, a push to the now-public GitHub repository is publication and goes out on Kevin's word.
 
 **Left for Kevin:** the submission form (hackathon.lexsi.ai/submission), due 15 November, 11:59 PM AoE.
+
+## R-173 · 2026-11-12 · SPRINT · The write-ups reworked after a blind rubric read, through a panel
+
+**Request.** Kevin, 12 November: the deadline was reported pushed (the site still says 15 November, 11:59 PM AoE).
+A fresh Opus reader, shown only the abstract, both write-ups, the README, the model card and the two dataset cards,
+scored the submission against the judges' rubric: overall 62/100; short write-up clarity 6, usefulness 5; long
+write-up clarity 4, usefulness 6; code not seen. Kevin: "Yes, make them", then "make sure you're running everything
+through a panel. get these up to 90+".
+
+**Panel** (`results/panels/R-173/`; method and against lanes on claude-opus-5-5, sources lane on
+claude-sonnet-5-5; each read only the review folder or the repo paths its brief named):
+- Both lanes: clarity can reach 8 to 9 by wording; usefulness caps at about 6 to 7 and overall at about 72 to 80,
+  because on outside-writer chats base with the whole chat is best, code that searches every turn matches recall
+  and is faster, and on LongMemEval-S 6.37 declines 233 of 470 answerable questions. The against lane: a usefulness
+  score of 9 after these edits would signal overstatement. Told to Kevin before any edit.
+- The reader's report had one wrong claim (the datasets collection link works) and missed overstatements the
+  against lane and the sources lane found. Every number moved was checked against its file (`lane_sources.md`).
+
+**Overstatements corrected** in every file where they appeared: AuditKIT was written in the present tense as a check
+on the scorer, but it never ran on 6.37 (a development scorer, 959 of 960 on v3); CuratorKIT "checked the training
+answers", but its gate audited only v6's 350 found-fact answers (22 rejected); "85 to 90%" was read as the shipped
+seed's figure, which is 91 to 107 of 120; "what training adds is deciding when not to search" holds only against
+code (base already searches less); "for longer chats the adapter matches code" (the outside-writer chats are about
+1,400 tokens); "declines 13 of the 15 unanswerable" mixed a judged count with a decline count (21 of 30 decline);
+"p at most 3.2 x 10^-4" (largest p is 3.249 x 10^-4); the 9.81 to 7.12 GiB pair is an early development run
+(R-029), not 6.37, which trained at 7.81 to 7.84 GiB; the data card called `blind_dev` a test set; a figure
+subtitle said 6.37 "scores as base does" with the whole chat (no measured difference); the data card gave
+`recall_train.jsonl` 750 rows (it has 800).
+
+**What changed.** One shared lead and results-at-a-glance tables (`results/panels/R-173/shared_text.md`) in the
+abstract, both write-ups, the README and the model card, with the strongest baselines in the first table; a
+which-to-use rule; a glossary; the toolkit table with what ran on 6.37; the clean-call definition (format only,
+different denominators, unclean calls still ran); "Kevin" to "I", and on the human checks "I (the author, not an
+independent marker)" beside the independent second marker (R-145); record ids moved out of running text except on
+registration, deviation, post-hoc and limitation sentences; wide tables split or transposed; the long abstract cut
+from 784 to 498 words with all four limits kept; dataset cards with field lists, sample rows and loading lines tested
+from outside with no login. Writers: two Opus builders from written briefs; their reports are in the panel folder's
+round files. The abstract is 488 words with its title.
+
+**Not done:** a closed-model cost comparison ("No comparison with closed models was made" is stated).
+
+## R-174 · 2026-11-12 · SPRINT · A notebook, CI and a demo block, through a panel
+
+**Request.** Kevin asked what could lift the score past 74; offered four levers, he chose "Notebook, CI, demo".
+**Panel** (`results/panels/R-174/`, both lanes claude-opus-5-5). Rulings: build the demo block first, then CI, then
+the notebook, which is first to drop; the demo ships whole; first CI run on a branch, after telling Kevin a red run is
+public.
+
+**Built.**
+- `.github/workflows/ci.yml`: ruff and the tests on a CPU runner, AgentTune and AuditKIT checked out at the commits
+  every result used, pinned package versions from the project venv, no weights. `tests/test_inference.py` needs the
+  gated tokenizer and runs only with an `HF_TOKEN` secret, which Kevin adds himself. Not yet run on GitHub.
+- `notebooks/demo_6_37.ipynb`: Part A prints the recorded demo runs (no login); Part B reruns base and 6.37 on a GPU
+  runtime, checks the adapter weights against the sealed manifest and marks any reply that differs from the recorded
+  run. Tested here: Part A on CPU; Part B's cells on the RTX 3080 under the card lock with the local adapter, where all
+  30 replies and searches equal the recorded runs. Not tested: a Colab T4, Colab's packages, the login flow.
+  `tests/test_notebook.py` keeps the notebook's pins equal to CI's; shown failing on a planted mismatch.
+- The published `adapter_config.json` differs from the frozen one only in `base_model_name_or_path` and `revision`
+  (R-172); the notebook checks the weights' hash and prints those two fields.
+
+## R-175 · 2026-11-12 · SPRINT · The scripted demo for 6.37, run before it was registered
+
+**Run order, stated plainly.** I ran `scripts/run_chat.py --script demo/chat.txt` once for 6.37 seed 82 and once for
+base at 05:05 Eastern on 12 November (clean commit 7b71a20, greedy, card lock, HF offline), read the result, and only
+then wrote this record. The decision to publish it whole was made after the run. No rerun of 6.37, no change to the
+script. Files: `results/demo/fix17cs37_82.json`, `results/demo/base_r175.json` (copied byte for byte; SHA-256
+`624442a0...` and `078e22fe...`). Base's run equals its 2026-11-05 run (`base.json`) on 15 of 15 turns.
+
+**Result** (`docs/demo.md`, built by `scripts/make_demo_table.py`; grades read by hand against the facts as
+`demo/chat.txt` states them):
+
+| Question | 6.37 | Base |
+|---|---|---|
+| Pottery class day (told in message 1) | right | wrong: says it has no access |
+| Where Tobias is moving (message 5) | right | wrong: says it has no access |
+| The brother's job (never told) | wrong: gives the Tobias fact | right |
+| What was fixed under the sink (message 3) | wrong: gives the pottery fact | close guess: "a leaky faucet", with no search |
+
+6.37 searched none of the 11 plain lines; base searched 2. v5 and fix 15 declined on the two questions 6.37 gets wrong.
+
+**Cause, checked by replaying the searches on a rebuilt index with no model**
+(`scripts/records/replay_demo_search_r175.py`, the harness's own `build_search_tool`, `match_all=False`):
+- Sink: 6.37 searched "sister broke skiing injury", a query found in 3 rows of `data/screens/fix17cs37.jsonl`; it
+  matched only "sister" and returned the pottery passages. The plain queries "fixed sink" and "kitchen sink leak" rank
+  the sink message first. The training set has no row containing "fixed" or "sink" (counted); "moving to" appears in
+  33 rows and "pottery" in 3.
+- Brother: 6.37 searched "brother new job" (3 rows in the training set); it matched "new" in 6.37's own earlier reply
+  ("Moving to a new city") and 6.37 answered with that passage instead of saying it was never told.
+- So both failures are the model's: a fact type absent from training, and an unrelated passage used as an answer.
+  The demo script was written 2026-11-04 (723da40), before 6.37 was trained (2026-11-08, 81896dd), and was visible
+  during development (R-076).
+
+**In the write-ups:** the demo block (README, short write-up, `docs/demo.md`) with these disclosures, and a limit
+line in every write-up.
