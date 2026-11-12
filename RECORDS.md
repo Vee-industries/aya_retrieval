@@ -7445,3 +7445,34 @@ builder at this moment, so it is sealed in stage 2 (`scripts/records/seal_s3.py 
 opens S3; that is a change from R-178's single manifest, made before either manifest was written.
 
 **No training row for K1 exists at this commit.** No outside timestamp: the commit is local until Kevin says to push.
+
+## R-180 · 2026-11-12 · REOPENED · K1's training set built (F2 + F3), with two disclosures
+
+**Built by** a fresh claude-opus-5-5 builder from a written brief (`results/panels/R-178/` lanes; code in commit
+4a6c105): `--other-facts` (F2) and `--earlier-answers`/`--reask-rows` (F3) on the builder, `--wrong-before` and
+`--other-facts` dev stresses on `run_recall_eval.py` (probe and hard_dev only). Every default output is unchanged:
+eight SHA-256 fingerprints of builder and eval outputs equal the old code's, pinned in `tests/test_r178.py`, and they
+change when an option is planted. Full suite 1,750 passed.
+
+**K1's set** (`data/screens/k1_r178.jsonl`, `scripts/records/build_r178.py`, sha256 `aec9d438...`, built at a clean
+commit; reproduced twice): 6.37's 1,094 rows rebuilt from their seeds (800 builder rows, 170 R-102 rows, each
+accepted only if it renders to 6.37's own turns byte for byte; 124 spliced rows kept unchanged with no F2 or F3),
+then F2 and F3 applied. A row keeps 6.37's target when it still passes the scorer against the new forbidden values;
+none needed a scripted fallback. 6 never_told rows whose search returned nothing were replaced by scripted rows.
+F3: older 100 (+25 re-asks), confirm 69 (+25), in_view 45, never_told 48, statement 67; earlier replies right 252,
+wrong 125, declined 117. Passage counts: found rows 2.98, never_told 2.74 (6.37's set 2.27, 1.90).
+
+**Deviation, disclosed by the builder.** Its first F2 put asked-person facts in every older and confirm chat, which
+made found rows return 3.54 passages against 1.68 for never_told, so the passage count would give the answer away
+(R-020's rule). Built instead: every kind gets the three shares in turn, and never_told keeps its same-type decoys.
+
+**Disclosures.**
+1. A builder grep printed lines 541 to 553 of `src/aya_retrieval/pools.py` (six small-talk lines and two replies of
+   the HELDOUT pool, opened once in R-163 and now development) and lines 726 to 727 (the start of PROBE's small talk).
+   It opened no S3 file. `git log --stat` listed S3 file names.
+2. Two scratch dry runs of K1's set (06:20 and 06:23 Eastern) came before S3's sealing commit (5d9b656, 06:34). R-178
+   said S3 is sealed before any training row exists; that order was broken by those two dry runs. The S3 writers
+   never saw any K1 row and the builder never read S3, so neither set was shaped by the other.
+
+**Not judged:** whether 6.37's kept in_view and statement targets still read well with the new earlier questions in
+view. Some shared-word lines read oddly. The coherence line of R-178's ship rule covers the S3 sample only.
