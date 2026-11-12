@@ -7993,3 +7993,60 @@ facts, whose drawn wordings returned fewer passages.
 non-training rows to move passage counts, with gates on the drawn share of returned decoys against answer lines and
 found against never_told decoys, since the pick would push decoys toward the template and make "a same-type line in a
 drawn wording is the answer" a new cue; then a fresh against lane. Whether to do that or take K1 alone is Kevin's call.
+
+## R-199 · 2026-11-12 · REOPENED · K1.2, registered before it is built: K1's rows, every fact line in a drawn wording
+
+**Decision.** Kevin, after R-198: build a working K1.2, from a design he gave ("fix this at the retrieval-data
+construction layer"): answers and decoys face the same retrieval rule, passage counts do not depend on whether the
+question has an answer, and a check that the same decoy facts are returned (decoy identity). Under R-194 (training
+done by Saturday 14 November 16:00 Eastern). Disclosed: designed after K1.1's check result (R-197), two against lanes'
+counts on K1's and K1.1's sets, and K1's and K2.1's dev results.
+
+**Design history.** A first version (search run on a template twin of each K1.1 conversation) was read by an against
+lane (`results/panels/R-199/lane_against_1.md`): no code fault, but 222 found rows (R-102's 170 and 52 spliced rows)
+keep template lines in K1.1, and no never_told row is among them, so an all-template output would have told found
+from never_told (its estimate: answers 60%, found decoys 40%, never_told decoys 71% drawn). The design below removes
+the cause; a second against lane read it (`lane_against_2.md`).
+
+**K1.2** (`scripts/records/build_r199.py`): K1's set (`data/screens/k1_r178.jsonl`) with one change. Every fact line,
+in the chat, in the search outputs and in a reply that repeats it, found anywhere in a line, is restated in its template wording or one of K1.1's drawn wordings
+(`build_r196.WORDINGS`, the paint wording left out), drawn by a generator seeded from the line itself, so one fact has
+one wording wherever it appears. Which lines a search returns, their order and scores, whether it finds the fact,
+and every reply's content stay K1's: they were decided on the template wording, from which every query is written. So answers
+and decoys face one retrieval rule, wording cannot change what is returned, the passage counts are K1's (gap 0.23),
+and the draw is the same for every kind and every source of row. Lines that are not fact lines are left as they are.
+Every evaluation, and S3, keeps the plain keyword search: this changes only the training rows. Training settings as
+K1.
+
+**Check before training** (`scripts/records/check_r199.py`); a FAIL on any line means nothing trains:
+1. Same evidence as K1 (decoy identity, made a gate): every row, every turn, with facts mapped back to template
+   wording, equals K1's byte for byte.
+2. Found against never_told mean passage gap at most 0.37; never_told rows with passages 160 of 160.
+3. Four-word runs shared with hard_dev forms: 0.
+4. Returned lines of the asked type, classed by person: drawn share of answers against decoys in found rows at most
+   5 points apart; decoys in found against never_told rows at most 5 points apart.
+5. Rows whose returned same-type lines are all in template wording: share of found rows against never_told rows at
+   most 5 points apart, for each number of such lines with at least 30 rows on both sides.
+Reported: z statistics, the asked person's other lines, wrapped facts and their drawn share, replies sharing four
+words with a template but stating no whole fact (29 in K1; these keep K1's text), the drawn share of all facts.
+
+**Disclosures.**
+- Lines 1 and 2 hold by construction if the code is right; they are there to catch a code fault.
+- Training outputs show lines a real keyword search would not return for that query (a drawn-wording decoy), with
+  scores computed on the template text. In this one way the training outputs are richer than the search the model
+  uses at test time; queries, passage counts and found decisions are K1's.
+- 29 K1 replies paraphrase a fact line closely without repeating it whole; they keep K1's text, so a few rows teach a
+  reply worded nearer the template than the line in view.
+- The 5-point bounds are my numbers (the first lane asked for a bound on the difference, not only a test).
+- A seventh candidate on the same dev questions: the K1 against K1.2 pick is close to the noise of one seed (sd
+  about 19, R-196 against lane).
+
+**Fixed in advance.**
+- One build. If any line fails, there is no K1.2 and K1 goes on alone.
+- Seeds 82, 83 and 94 trained in one queue; 82 and 83 scored and screened by `decide_r191.py` with K1.2 added, every
+  line as R-191; seed 94's results count only if K1.2 is eligible; the pick is R-192's.
+- S3 once, after the pick, as R-198 set out. Training finished by Saturday 16:00.
+
+**Predictions** (mine, before the build): every line passes; each role about 75% drawn; gap 0.23. If it trains:
+hard_dev recall pooled over 82 and 83 about 130 (range 115 to 150; K1 122); T3 copies about 68; T2 false answers
+about 5.

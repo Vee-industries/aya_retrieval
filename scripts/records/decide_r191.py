@@ -18,7 +18,7 @@ import json
 
 from aya_retrieval.report_data import EVAL_DIR, false_retrieval
 
-CANDIDATES = {"K1": "k1_r178", "K2.1": "k2_1_r187"}
+CANDIDATES = {"K1": "k1_r178", "K2.1": "k2_1_r187", "K1.2": "k1_2_r199"}  # R-199 adds K1.2
 REF = "fix17cs37"
 BASE = "base191"
 SEEDS = (82, 83)
