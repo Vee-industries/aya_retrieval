@@ -1,0 +1,475 @@
+{
+ "per_arm": {
+  "base_no_search": {
+   "facts_right": 1,
+   "facts": 7,
+   "never_told_right": 1,
+   "never_told": 1
+  },
+  "6.37_no_search": {
+   "facts_right": 0,
+   "facts": 7,
+   "never_told_right": 0,
+   "never_told": 1
+  },
+  "K1_no_search": {
+   "facts_right": 0,
+   "facts": 7,
+   "never_told_right": 1,
+   "never_told": 1
+  },
+  "base": {
+   "facts_right": 1,
+   "facts": 7,
+   "never_told_right": 1,
+   "never_told": 1
+  },
+  "6.37": {
+   "facts_right": 0,
+   "facts": 7,
+   "never_told_right": 0,
+   "never_told": 1
+  },
+  "K1": {
+   "facts_right": 2,
+   "facts": 7,
+   "never_told_right": 1,
+   "never_told": 1
+  }
+ },
+ "disagreements": 4,
+ "items": [
+  {
+   "item": 1,
+   "arm": "base",
+   "source_message": 8,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 2,
+   "arm": "K1_no_search",
+   "source_message": 2,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 3,
+   "arm": "K1_no_search",
+   "source_message": null,
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 4,
+   "arm": "K1_no_search",
+   "source_message": 6,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 5,
+   "arm": "K1",
+   "source_message": 13,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 6,
+   "arm": "base",
+   "source_message": 6,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 7,
+   "arm": "base_no_search",
+   "source_message": 6,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 8,
+   "arm": "base",
+   "source_message": 4,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 9,
+   "arm": "6.37_no_search",
+   "source_message": 8,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 10,
+   "arm": "base",
+   "source_message": 9,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 11,
+   "arm": "base_no_search",
+   "source_message": 8,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 12,
+   "arm": "K1_no_search",
+   "source_message": 9,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 13,
+   "arm": "6.37_no_search",
+   "source_message": 7,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 14,
+   "arm": "6.37",
+   "source_message": 6,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 15,
+   "arm": "6.37",
+   "source_message": 9,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 16,
+   "arm": "base",
+   "source_message": null,
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 17,
+   "arm": "6.37",
+   "source_message": 7,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 18,
+   "arm": "6.37",
+   "source_message": 4,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 19,
+   "arm": "K1",
+   "source_message": 7,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 20,
+   "arm": "K1",
+   "source_message": 8,
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 21,
+   "arm": "K1",
+   "source_message": 9,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 22,
+   "arm": "base_no_search",
+   "source_message": 9,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 23,
+   "arm": "6.37",
+   "source_message": null,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 24,
+   "arm": "6.37_no_search",
+   "source_message": null,
+   "judge_1": "RIGHT",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": false
+  },
+  {
+   "item": 25,
+   "arm": "6.37_no_search",
+   "source_message": 9,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 26,
+   "arm": "6.37",
+   "source_message": 2,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 27,
+   "arm": "K1_no_search",
+   "source_message": 4,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 28,
+   "arm": "6.37_no_search",
+   "source_message": 6,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 29,
+   "arm": "base",
+   "source_message": 7,
+   "judge_1": "RIGHT_INVENTED",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": false
+  },
+  {
+   "item": 30,
+   "arm": "6.37_no_search",
+   "source_message": 2,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 31,
+   "arm": "6.37_no_search",
+   "source_message": 4,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 32,
+   "arm": "6.37",
+   "source_message": 13,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 33,
+   "arm": "K1",
+   "source_message": 4,
+   "judge_1": "ABSTAINED",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": false
+  },
+  {
+   "item": 34,
+   "arm": "K1_no_search",
+   "source_message": 13,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 35,
+   "arm": "K1_no_search",
+   "source_message": 7,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 36,
+   "arm": "K1",
+   "source_message": null,
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 37,
+   "arm": "base_no_search",
+   "source_message": 2,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 38,
+   "arm": "base_no_search",
+   "source_message": 13,
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 39,
+   "arm": "base",
+   "source_message": 13,
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 40,
+   "arm": "6.37",
+   "source_message": 8,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 41,
+   "arm": "K1",
+   "source_message": 6,
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 42,
+   "arm": "K1_no_search",
+   "source_message": 8,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 43,
+   "arm": "K1",
+   "source_message": 2,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 44,
+   "arm": "base",
+   "source_message": 2,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 45,
+   "arm": "base_no_search",
+   "source_message": null,
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 46,
+   "arm": "6.37_no_search",
+   "source_message": 13,
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 47,
+   "arm": "base_no_search",
+   "source_message": 7,
+   "judge_1": "RIGHT_INVENTED",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": false
+  },
+  {
+   "item": 48,
+   "arm": "base_no_search",
+   "source_message": 4,
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  }
+ ]
+}

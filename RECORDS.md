@@ -7572,3 +7572,43 @@ and that carries over to passages that hold the answer.
 value 368 to 68, false answers on never-told questions among other facts 53 to 3. The price is recall on harder
 chats, 41 questions of 192 on hard_dev, well past the registered allowance. Under R-178, S3 runs on 6.37 and the
 baselines as a report. The old demo runs on K1 as R-182 registered, whatever the screening result.
+
+## R-184 · 2026-11-12 · REOPENED · The same demo for K1 seed 82 (R-182): first demo 4 of 4, R-176's questions 3 of 8
+
+Run once as R-182 registered (`demo_k1.py` in scratch, card lock, HF offline, clean tree at 59d629f, adapter
+`adapters/screens/k1_r178_82`). Files: `results/demo/k1_r178_82.json` (SHA-256 `c7ccad69...`),
+`results/demo/branches_k1_r178_82.json` (`bb2ac4cc...`). Base's two arms in the branch run equal R-176's word for word.
+
+**First demo** (4 questions, graded by hand against `QUESTIONS` in `scripts/make_demo_table.py`, as R-175):
+
+| Question | 6.37 | K1 |
+|---|---|---|
+| Pottery class day (message 1) | right | right: "Your sister Marisol's pottery class is on Thursdays." |
+| Where Tobias is moving (message 5) | right | right: "Your neighbour Tobias is moving to Halifax." |
+| The brother's job (never told) | wrong: gives the Tobias fact | right: "I don't know that one yet." |
+| What was fixed under the sink (message 3) | wrong: gives the pottery fact | right: "Your sink leak was fixed." (query "i fixed sink") |
+
+**R-176's 8 questions** (`scripts/records/demo_judges_r182.py`, which runs R-176's own sheet and tally on all six
+arms together; two fresh claude-sonnet-5-5 judges, no tool call in either transcript but the hand-back; right only
+when both mark RIGHT or RIGHT_INVENTED; `results/demo/r182_judge/`):
+
+| Arm | Facts right, of 7 | Never-told right, of 1 |
+|---|---|---|
+| base, with search | 1 | 1 |
+| 6.37, with search | 0 | 0 |
+| K1, with search | 2 | 1 |
+| base, empty index | 1 | 1 |
+| 6.37, empty index | 0 | 0 |
+| K1, empty index | 0 | 1 |
+
+Base and 6.37 score as in R-176 (2 and 0). The judges disagree on 4 of 48 items, none of them K1's with search except
+item 33 (K1, "You may not have mentioned it to me", ABSTAINED and WRONG; counted wrong either way).
+
+**How K1 misses.** K1's search found the source message on 2 of the 7 fact questions and answered both right
+(Tobias eleven years, the grey weather); 6.37 found 1 of 7. On the 5 it did not find, K1 declined on 4 ("I don't
+have that from you. What is it?") and gave an unrelated passage on 1 (the pottery day for "what's marisol's teacher
+strict about"). 6.37 gave a wrong value or an unrelated passage on all 7. So on this demo K1 replaces wrong answers
+with declines; what it does not fix is the query: the searches that missed used words the message does not contain
+("books genre", "new recipe", "ring family weekend"). Query writing (F1) was not trained (R-178).
+
+K1 was designed after these failures were diagnosed (R-182), so this demo is a report, not a blind test.
