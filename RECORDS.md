@@ -7834,3 +7834,9 @@ picked arm only. The write-up states how many candidates were screened.
 say s3 done by sunday 3am". The cutoff is on finishing, not starting: every candidate's training, seed 94 included,
 is done before Saturday 14 November 23:59 Eastern. A training run that would not finish by then is not started.
 Kevin's possible S3 target (done by Sunday 15 November 03:00 Eastern) is noted, not yet fixed.
+
+**R-194 schedule, fixed.** Kevin: "Yes, fix it" (S3 done by Sunday 15 November 03:00 Eastern). Worked back from it,
+with S3 estimated at 5 to 8 hours (not yet timed): the last candidate's training, all three seeds, finishes by
+Saturday 14 November 16:00 Eastern; its screening and the pick by 18:00; S3 starts by 19:00. A candidate whose
+training would not finish by 16:00 Saturday is not started. Judges and write-up updates follow on Sunday; submission
+closes Monday 16 November 06:59 Eastern.
