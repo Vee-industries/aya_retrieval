@@ -22,6 +22,7 @@ OUT = Path("data/screens/k2_r185.jsonl")
 def load_k1_build():
     spec = importlib.util.spec_from_file_location("build_r178", HERE / "build_r178.py")
     module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module  # dataclasses look the module up by name
     spec.loader.exec_module(module)
     return module
 
