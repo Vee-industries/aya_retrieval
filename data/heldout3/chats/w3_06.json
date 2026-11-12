@@ -1,0 +1,53 @@
+{
+ "id": "w3_06",
+ "people": ["Diego (my roommate)", "Diego (my stepdad)", "Arjun (my brother)", "Fatima (my best friend)", "Mei (my lab partner)", "Tomasz (my calc TA)"],
+ "exchanges": [
+  ["omg my roomate diego plays trumpet", "That could be a lot in a small room. Does he practise there?"],
+  ["yes. at 8am", "That is an early start. Maybe you can agree on practice hours."],
+  ["gonna have to lol", "A friendly chat now could save a lot of grief later."],
+  ["true hes nice otherwise. funny thing my stepdad is also diego and he plays accordion at every family party", "Two Diegos with two loud instruments, quite a coincidence."],
+  ["my brother arjun is moving to Calgary for a job w his wife", "Big move. Is he excited?"],
+  ["kinda hes scared of the cold lol", "Fair, the winters out there are serious."],
+  ["fatima my bff is going to Marrakech over reading week and i am so jealous", "That sounds amazing, the markets there are famous."],
+  ["she said shell bring me something", "A souvenir from a friend is always nice."],
+  ["ok i got a job!!! at Fortinos", "Congratulations! That is great news."],
+  ["cashier lol but its money", "Money is money, and the job will teach you a lot."],
+  ["first shift saturday", "Good luck on your first shift."],
+  ["ty. my lab partner mei is so smart its scary", "A strong lab partner is a great asset."],
+  ["shes in nursing and she still helps me w chem", "That is generous of her."],
+  ["wait i got it wrong arjun is moving to Edmonton not calgary", "Thanks for the update, that is still a cold one."],
+  ["lol yes", "He will need a good coat either way."],
+  ["im craving shawarma so bad its my fav food ever and theres none near res", "That is rough. Maybe there is a delivery option."],
+  ["ill look. ok doing crochet to calm down lol", "That is a nice way to unwind."],
+  ["making a hat its lumpy", "Lumpy hats still keep heads warm."],
+  ["our calc ta tomasz is from Krakow and he says our winters are soft", "He is probably used to colder weather."],
+  ["lol hamilton isnt that warm", "It still has its cold snaps for sure."],
+  ["wait whats my stepdads instrument again", ""]
+ ],
+ "facts": [
+  {"exchange": 0, "person": "Diego (my roommate)", "category": "C22", "value": "trumpet", "corrects": null},
+  {"exchange": 3, "person": "Diego (my stepdad)", "category": "C22", "value": "accordion", "corrects": null},
+  {"exchange": 4, "person": "Arjun (my brother)", "category": "C01", "value": "Calgary", "corrects": null},
+  {"exchange": 6, "person": "Fatima (my best friend)", "category": "C15", "value": "Marrakech", "corrects": null},
+  {"exchange": 8, "person": "me", "category": "C02", "value": "Fortinos", "corrects": null},
+  {"exchange": 9, "person": "me", "category": "C03", "value": "cashier", "corrects": null},
+  {"exchange": 12, "person": "Mei (my lab partner)", "category": "C13", "value": "nursing", "corrects": null},
+  {"exchange": 13, "person": "Arjun (my brother)", "category": "C01", "value": "Edmonton", "corrects": 2},
+  {"exchange": 15, "person": "me", "category": "C18", "value": "shawarma", "corrects": null},
+  {"exchange": 16, "person": "me", "category": "C21", "value": "crochet", "corrects": null},
+  {"exchange": 18, "person": "Tomasz (my calc TA)", "category": "C05", "value": "Krakow", "corrects": null}
+ ],
+ "lookalikes": ["Diego (my roommate)", "Diego (my stepdad)"],
+ "earlier_question": {"exchange": 20, "category": "C22", "person": "Diego (my stepdad)", "fact_exchange": 3, "answer": "accordion", "wrong_value": "trumpet", "right_reply": "Your stepdad Diego plays the accordion.", "wrong_reply": "Your stepdad Diego plays the trumpet."},
+ "questions": [
+  {"kind": "older", "category": "C13", "person": "Mei (my lab partner)", "message": "whats mei's program", "answer": "nursing", "wrong": [], "fact_exchange": 12},
+  {"kind": "older", "category": "C15", "person": "Fatima (my best friend)", "message": "where is fatima off to", "answer": "Marrakech", "wrong": [], "fact_exchange": 6},
+  {"kind": "older", "category": "C18", "person": "me", "message": "what dish did i say i love most", "answer": "shawarma", "wrong": [], "fact_exchange": 15},
+  {"kind": "confirm", "category": "C01", "person": "Arjun (my brother)", "message": "arjuns new city is calgary right", "answer": "Edmonton", "wrong": [], "fact_exchange": 13, "claim": "false", "claimed_value": "Calgary"},
+  {"kind": "in_view", "category": "C05", "person": "Tomasz (my calc TA)", "message": "where did tomasz grow up", "answer": "Krakow", "wrong": [], "fact_exchange": 18},
+  {"kind": "statement", "category": null, "person": null, "message": "my eyes hurt from studying gonna nap", "answer": "", "wrong": [], "fact_exchange": null},
+  {"kind": "never_told", "category": "C13", "person": "Fatima (my best friend)", "message": "whats fatima studying", "answer": "", "wrong": ["nursing"], "fact_exchange": null, "overlap_exchange": null},
+  {"kind": "never_told", "category": "C15", "person": "Arjun (my brother)", "message": "is arjun going anywhere fun soon", "answer": "", "wrong": ["Marrakech", "Edmonton"], "fact_exchange": null, "overlap_exchange": 13},
+  {"kind": "re_ask", "category": "C22", "person": "Diego (my stepdad)", "message": "sorry what instrument does my stepdad play", "answer": "accordion", "wrong": ["trumpet"], "fact_exchange": 3}
+ ]
+}

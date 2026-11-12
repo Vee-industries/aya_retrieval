@@ -56,6 +56,20 @@ sealed conditions C and D and on `hard_dev`; there its gain over base has p =
 3 of 20 false claims in "..., right?" questions. The coherence judges are Claude Sonnet agents only, never checked against a
 person. Both sealed pools are generator-built.
 
+## Reopened, 12 November
+
+After the freeze (9 November) and the sealed result, the scripted demo was run for 6.37 for the first time on
+12 November (R-175). It answered 2 of 4 questions; on the other two it searched with queries copied from its
+training set and gave an unrelated stored fact. Eight more questions, written by an agent that saw only the demo
+script and registered before they ran, gave the untrained model 2 and 6.37 0: 6.37 repeated its own wrong answer,
+still in view, on 6 of 8 (R-176). I reopened the project (R-177). A new test, written by six writer agents that
+never see the training data, the demo or these records, is sealed before any new training row exists (R-178). One
+candidate, built to address two of the three weaknesses (unrelated passages given as answers, and repeating a wrong
+answer in view), replaces 6.37 only if it passes the rule registered before the sealed run; the third (queries
+learned from a few fact templates, and no facts about the speaker in training) is measured on the new test, not
+trained. Every result about the frozen 6.37 below stands unchanged. This section will carry the new test's result,
+whatever it shows.
+
 ## Results at a glance
 
 Outside-writer chats, two sets (set 1 / set 2), one run each, the last three exchanges in view

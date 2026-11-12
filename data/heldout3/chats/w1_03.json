@@ -1,0 +1,53 @@
+{
+ "id": "w1_03",
+ "people": ["Ravi (my flatmate)", "Ravi (my uncle)", "Chloe (my flatmate)", "Bea (my grandmother)", "Nkechi (my best friend)", "Haruto (my boyfriend)"],
+ "exchanges": [
+  ["Morning. Just finished my third night in a row and I'm wide awake.", "Three nights in a row is a lot. How are you feeling?"],
+  ["Tired but wired, as usual. Ravi made me a coffee when I got in, which was sweet of him.", "A coffee waiting for you is a nice welcome home."],
+  ["He's on early starts at Ocado now, so we cross paths in the kitchen at seven.", "Handy timing for a coffee hand-off."],
+  ["Chloe is still asleep. She went to a gig last night and came in at two.", "Sounds like a good night out for her."],
+  ["I'm meant to be reading Middlemarch for my book club, but I keep falling asleep on page ten.", "It is a long one to start after a night shift."],
+  ["My grandmother Bea would be ashamed of me. She grew up in Galway and read everything she could get her hands on.", "She sounds like a determined reader."],
+  ["She really was. She still does the crossword in pen.", "That takes confidence."],
+  ["My boyfriend Haruto keeps telling me to just watch the TV version instead.", "That is one way to get through it."],
+  ["My back has been awful since I lifted a patient badly last week, so I've booked physio for Friday.", "Good that you are getting it looked at."],
+  ["My uncle Ravi recommended the place. Yes, another Ravi. He works at Siemens and hurt his shoulder there years ago.", "Two Ravis in your life, then. Handy that he knew a good clinic."],
+  ["He's the one who sends everyone voice notes instead of texts.", "Every family has one."],
+  ["My mum's side is Filipino, so voice notes are basically a family tradition.", "That sounds like a lively family group chat."],
+  ["It is. My best friend Nkechi is flying to Tbilisi next month and wants me to come.", "That would be quite a trip."],
+  ["I can't get the time off, though. The rota is already out.", "Maybe another time, when the rota allows."],
+  ["I work at the Whittington and they need nights covered all through spring.", "Spring sounds busy for your ward."],
+  ["Correction on the physio, actually. I misread the letter, it's Monday.", "Better to know now than turn up on the wrong day."],
+  ["That suits me better anyway, I'm off that day.", "That works out nicely."],
+  ["I should try to sleep soon. The blackout blind is broken, though.", "A sleep mask could help until it is fixed."],
+  ["Chloe just woke up and is playing Radiohead in her room, loudly. She says they're her favourite band and she's not sorry.", "Hard to sleep through that, I imagine."],
+  ["I'll put earplugs in.", "Good plan."],
+  ["Where does my uncle work again? I want to ask him something about his pension.", ""]
+ ],
+ "facts": [
+  {"exchange": 2, "person": "Ravi (my flatmate)", "category": "C02", "value": "Ocado", "corrects": null},
+  {"exchange": 4, "person": "me", "category": "C25", "value": "Middlemarch", "corrects": null},
+  {"exchange": 5, "person": "Bea (my grandmother)", "category": "C05", "value": "Galway", "corrects": null},
+  {"exchange": 7, "person": "me", "category": "C08", "value": "Haruto", "corrects": null},
+  {"exchange": 8, "person": "me", "category": "C31", "value": "Friday", "corrects": null},
+  {"exchange": 9, "person": "Ravi (my uncle)", "category": "C02", "value": "Siemens", "corrects": null},
+  {"exchange": 11, "person": "me", "category": "C37", "value": "Filipino", "corrects": null},
+  {"exchange": 12, "person": "Nkechi (my best friend)", "category": "C15", "value": "Tbilisi", "corrects": null},
+  {"exchange": 14, "person": "me", "category": "C02", "value": "Whittington", "corrects": null},
+  {"exchange": 15, "person": "me", "category": "C31", "value": "Monday", "corrects": 4},
+  {"exchange": 18, "person": "Chloe (my flatmate)", "category": "C23", "value": "Radiohead", "corrects": null}
+ ],
+ "lookalikes": ["Ravi (my flatmate)", "Ravi (my uncle)"],
+ "earlier_question": {"exchange": 20, "category": "C02", "person": "Ravi (my uncle)", "fact_exchange": 9, "answer": "Siemens", "wrong_value": "Ocado", "right_reply": "Your uncle Ravi works at Siemens.", "wrong_reply": "Your uncle Ravi works at Ocado."},
+ "questions": [
+  {"kind": "older", "category": "C05", "person": "Bea (my grandmother)", "message": "Where is my grandmother Bea from originally?", "answer": "Galway", "wrong": [], "fact_exchange": 5},
+  {"kind": "older", "category": "C37", "person": "me", "message": "Where is my mother's family from, heritage-wise?", "answer": "Filipino", "wrong": [], "fact_exchange": 11},
+  {"kind": "older", "category": "C15", "person": "Nkechi (my best friend)", "message": "Where's Nkechi off to on her trip?", "answer": "Tbilisi", "wrong": [], "fact_exchange": 12},
+  {"kind": "confirm", "category": "C31", "person": "me", "message": "My physio is on Monday now, isn't it?", "answer": "Monday", "wrong": ["Friday"], "fact_exchange": 15, "claim": "true", "claimed_value": "Monday"},
+  {"kind": "in_view", "category": "C23", "person": "Chloe (my flatmate)", "message": "Which group is Chloe blasting?", "answer": "Radiohead", "wrong": [], "fact_exchange": 18},
+  {"kind": "statement", "category": null, "person": null, "message": "Okay, earplugs are in and I'm getting under the duvet.", "answer": "", "wrong": [], "fact_exchange": null},
+  {"kind": "never_told", "category": "C15", "person": "Chloe (my flatmate)", "message": "Is Chloe going on any trips this year?", "answer": "", "wrong": ["Tbilisi"], "fact_exchange": null, "overlap_exchange": null},
+  {"kind": "never_told", "category": "C02", "person": "Nkechi (my best friend)", "message": "Where does Nkechi work?", "answer": "", "wrong": ["Ocado", "Siemens", "Whittington", "Tbilisi"], "fact_exchange": null, "overlap_exchange": 12},
+  {"kind": "re_ask", "category": "C02", "person": "Ravi (my uncle)", "message": "Sorry, which company did you say my uncle is with?", "answer": "Siemens", "wrong": ["Ocado", "Whittington"], "fact_exchange": 9}
+ ]
+}
