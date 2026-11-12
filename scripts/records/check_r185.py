@@ -6,13 +6,14 @@ rows (older, confirm) and never_told rows. For K2 also the rows that differ from
 PASS or FAIL per registered line; nothing trains unless every line passes.
 
 Usage:
-    python scripts/records/check_r185.py
+    python scripts/records/check_r185.py [--set NAME]   (default k2_r185; R-187 uses k2_1_r187)
 """
 
 from __future__ import annotations
 
 import json
 import re
+import sys
 from collections import Counter
 from pathlib import Path
 
@@ -21,7 +22,8 @@ from aya_retrieval.pools import TRAIN
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DATA = REPO_ROOT / "data" / "screens"
-SETS = {"6.37": "fix17cs37", "K1": "k1_r178", "K2": "k2_r185"}
+CANDIDATE = sys.argv[sys.argv.index("--set") + 1] if "--set" in sys.argv else "k2_r185"
+SETS = {"6.37": "fix17cs37", "K1": "k1_r178", "K2": CANDIDATE}
 WORDS = tuple(w.casefold() for w in (*TRAIN.people, *TRAIN.relations))
 ASKED_PERSON = (24, 30)
 MAX_CHANGED = 35
@@ -105,7 +107,7 @@ def main() -> None:
     ]
     for text, ok in lines:
         print(f"{'PASS' if ok else 'FAIL':5} {text}")
-    print(f"== K2 check: {sum(not ok for _, ok in lines)} FAIL (R-185)")
+    print(f"== {CANDIDATE} check: {sum(not ok for _, ok in lines)} FAIL (R-185 lines)")
 
 
 if __name__ == "__main__":

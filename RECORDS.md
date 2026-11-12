@@ -7678,3 +7678,46 @@ replaced (never_told mean 2.74 in K1, 2.59 in K2); found rows are unchanged at 2
 build. If the check fails, there is no K2 and no rebuild." K2 does not train unless Kevin changes that rule; any
 change after this result is a rule change made after seeing a check, and is reported as one. Committed as built, so
 the failed set is on record.
+
+## R-187 · 2026-11-12 · REOPENED · K2.1, registered before it is built; Kevin overrides "no third candidate"
+
+**Decision.** Kevin, 12 November, after R-186: "keep the rule. k3 or k2.1". K2 does not train, as R-185 fixed.
+R-185 also fixed "No third candidate, whatever K2 does"; Kevin overrides that line. Named K2.1 because it is K2 with
+one change aimed at the line K2 failed. Disclosed: K2.1 is designed after K2's check result (a property of the
+training set, no model output), and after K1's dev results (R-185).
+
+**K2.1** (`scripts/records/build_r187.py`): K2's build with one change. Each never_told row K2 moved off same_person
+tries same_type, then shared_word, and takes the first whose search returns at least as many passages as the same row
+with same_person (K1's version); if neither does, the one that returns more. The choice uses the row's own search
+only. A never_told row whose search returns nothing is replaced, as in K1, by a scripted row in the picked share.
+If any moved row does not pass through the pick (an R-102 row would not), the build stops, deletes its output, and
+there is no K2.1. The picks go into the provenance file; the build's own share tally still names K2's share for
+moved rows. Training settings as K1 and K2.
+
+**Against lane** (`results/panels/R-187/lane_against.md`): ready with changes, all applied above. Disclosures it
+asked for:
+- K2.1 is designed using the failed line's own statistic. The rule picks each moved row's share by passage count, so
+  line 4 of the check is close to a pass by construction and is no longer an independent check. It does not bring
+  back the shortcut line 4 guards against: each moved row is matched to its own K1 count, not to a decline pattern.
+- Picks are measured on each row's F2 conversation. Moved rows that later get F3 earlier questions end up as a
+  different conversation, whose count may differ from the one measured.
+- Line 1 (asked-person rows, 24 to 30) is now the real risk: K2 had 27, and a shared_word passage that names the
+  asked person would add to it.
+
+**Check before training**: R-185's four lines, unchanged, run as `scripts/records/check_r185.py --set k2_1_r187`:
+asked-person rows 24 to 30; rows changed from K1 all never_told, at most 35; never_told rows with passages 160 of
+160; found against never_told mean passage gap at most 0.37.
+
+**Fixed in advance.**
+- One build. If any line fails, there is no K2.1 and no further candidate; S3 then runs on the baselines, 6.37 and K1
+  (report arm) as R-185 set out.
+- Both seeds (82, 83) trained and scored before any K2.1 result is read; `decide_r178.py k2_1_r187`, gates and
+  targets unchanged.
+- S3 opened once, after K2.1's decision is committed: baselines first, then 6.37 at 82, 83 and 94, K1 at 82 and 83
+  (report arm), K2.1 at 82, 83 and 94 if it passes screening. Ship rule R-178's, applied to K2.1 only.
+- Blind demo (R-182) on base, 6.37, K1 and K2.1 at seed 82.
+- Training starts before Saturday 14 November 23:59 Eastern.
+
+**Predictions** (mine, before the build): line 4 passes (near-automatic, above); line 1 is the line that may fail;
+hard_dev recall pooled 140 (range 128 to 155; gate 151); T2 false answers about 15 (gate 26); T3 copies about K1's 68.
+I still expect a recall gate more likely to fail than pass.
