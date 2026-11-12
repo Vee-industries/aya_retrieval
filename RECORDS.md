@@ -7612,3 +7612,47 @@ with declines; what it does not fix is the query: the searches that missed used 
 ("books genre", "new recipe", "ring family weekend"). Query writing (F1) was not trained (R-178).
 
 K1 was designed after these failures were diagnosed (R-182), so this demo is a report, not a blind test.
+
+## R-185 · 2026-11-12 · REOPENED · One more candidate, K2, registered before it is built
+
+**Decision.** Kevin, 12 November, after R-183 and R-184: "One more candidate". K2 is designed after K1's dev results
+were read; that is the main disclosure of this record.
+
+**Panel** (`results/panels/R-185/`: brief, method lane, against lane; claude-opus-5-5, read limits as R-178).
+- Evidence offered (`scripts/records/passages_r185.py`): K1's set has 69 found rows with a single passage against
+  6.37's 165, and K1's worst hard_dev bin is the single passage. Both lanes rejected it as the main cause: K1 is
+  worse in nearly every bin, and in 24 of its 61 found-but-wrong hard_dev rows it sent 6.37's own query, got the same
+  search output, and still answered wrong. The "5 or more" bin is exactly 5, the search limit.
+- Method lane's cause: 6.37's set separates the cases cleanly. A search row whose passages name the asked person or
+  relation always has an answer target (562 of 562); one whose passages do not always declines (138 of 138). K1's
+  same_person share adds 53 never_told rows whose passages name the asked person and whose target declines
+  (`scripts/records/check_r185.py`: 6.37 0, K1 53). By answer type on hard_dev, hometown items fall from 24 of 24 to
+  7 of 25. The same share is what cut T2's false answers: 52 of 6.37's 53 are same_person items.
+- Against lane: a pass on screening is weak evidence (K2 is the sixth candidate after 6.37, on reused dev pools, and
+  designed from hard_dev rows); the strongest alternative is no K2, with K1 as a report arm on S3. Kevin chose K2;
+  K1 is added to S3 as a report arm either way (below). Options A (passage count kept) and B (half dose) both rejected.
+
+**K2** (`scripts/records/build_r185.py`): K1's build with one change. The never_told rows K1 gives the same_person
+share are taken in row order, and the 2nd, 4th, 6th and so on get same_type instead, keeping a decline target. The
+build's own fallback replaces a never_told row whose search returns nothing. Everything else is K1's code unchanged.
+Same training settings as K1 (rank 32, seven projections, lr 3e-4, chat_decision, 2 epochs).
+
+**Check before training** (`scripts/records/check_r185.py`; nothing trains unless every line passes):
+1. never_told rows whose passages name a person or relation the question names: 24 to 30 (K1 53, 6.37 0).
+2. Rows that differ from K1: all never_told, at most 35 (26 move; F3 picks among never_told rows may shift a few).
+3. never_told rows with passages: 160 of 160.
+4. Gap between found and never_told mean passages: at most 0.37, 6.37's own gap (K1 0.24).
+
+**Fixed in advance** (against lane's conditions):
+- One build. If the check fails, there is no K2 and no rebuild.
+- Both seeds (82, 83) trained and scored before any K2 result is read; `decide_r178.py` run with `k2_r185`, gates and
+  targets unchanged (R-178 item 4). No third candidate, whatever K2 does.
+- S3 is opened once, after K2's decision is committed. Arms, baselines first: base with the tool, code that searches
+  every turn, base with the whole chat; 6.37 at 82, 83 and 94; K1 at 82 and 83 as a report arm, not shippable; K2 at
+  82, 83 and 94 if it passes screening. The ship rule is R-178's, applied to K2 only.
+- The blind demo (R-182) runs on base, 6.37, K1 and K2 at seed 82.
+- K2's training starts before Saturday 14 November 23:59 Eastern (R-182).
+
+**Predictions** (mine, written before the build): hard_dev recall pooled 140 (range 128 to 155; the gate is 151);
+hometown items right about 15 of 25; T2 false answers about 15 (gate at most 26); T3 copies about the same as K1's 68.
+I expect K2 more likely to fail a recall gate than to pass.
