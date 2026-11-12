@@ -7656,3 +7656,25 @@ Same training settings as K1 (rank 32, seven projections, lr 3e-4, chat_decision
 **Predictions** (mine, written before the build): hard_dev recall pooled 140 (range 128 to 155; the gate is 151);
 hometown items right about 15 of 25; T2 false answers about 15 (gate at most 26); T3 copies about the same as K1's 68.
 I expect K2 more likely to fail a recall gate than to pass.
+
+## R-186 · 2026-11-12 · REOPENED · K2's set fails one line of its check before training; under R-185, K2 does not train
+
+**Build.** `scripts/records/build_r185.py` was run at 10:53 Eastern and stopped on import before making any row (the
+loaded K1 build module was not registered, so its dataclass did not resolve). Fixed in f3e148f, a code fix only, and
+run at 10:54: `data/screens/k2_r185.jsonl`, 1,094 rows, SHA-256 `8f4144e1...`, provenance beside it. never_told shares
+same_type 80, same_person 27, shared_word 53; 10 never_told rows with an empty search were replaced (K1: 6).
+
+**Check** (`scripts/records/check_r185.py`, lines as registered in R-185):
+
+| Line | K2 | Rule | |
+|---|---|---|---|
+| never_told rows whose passages name the asked person | 27 | 24 to 30 | PASS |
+| rows changed from K1 | 31, all never_told | all never_told, at most 35 | PASS |
+| never_told rows with passages | 160 of 160 | 160 of 160 | PASS |
+| gap between found and never_told mean passages | 0.39 (2.98 against 2.59) | at most 0.37 | **FAIL** |
+
+The gap opened because the never_told rows moved to same_type return fewer passages than the same_person rows they
+replaced (never_told mean 2.74 in K1, 2.59 in K2); found rows are unchanged at 2.98. R-185 fixed in advance: "One
+build. If the check fails, there is no K2 and no rebuild." K2 does not train unless Kevin changes that rule; any
+change after this result is a rule change made after seeing a check, and is reported as one. Committed as built, so
+the failed set is on record.
