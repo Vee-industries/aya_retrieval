@@ -7577,7 +7577,7 @@ baselines as a report. The old demo runs on K1 as R-182 registered, whatever the
 
 Run once as R-182 registered (`demo_k1.py` in scratch, card lock, HF offline, clean tree at 59d629f, adapter
 `adapters/screens/k1_r178_82`). Files: `results/demo/k1_r178_82.json` (SHA-256 `c7ccad69...`),
-`results/demo/branches_k1_r178_82.json` (`bb2ac4cc...`). Base's two arms in the branch run equal R-176's word for word.
+`results/demo/branches_k1_r178_82.json` (`bb2ac4cc...`), both hashes of the files as written on disk (CRLF; git stores them LF). Base's two arms in the branch run equal R-176's word for word.
 
 **First demo** (4 questions, graded by hand against `QUESTIONS` in `scripts/make_demo_table.py`, as R-175):
 
