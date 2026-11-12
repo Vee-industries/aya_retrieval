@@ -89,6 +89,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--adapter", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--name", default="6.37", help="label for the adapter's arms (R-182)")
     args = parser.parse_args()
     logging.basicConfig(level=logging.WARNING)
     require_clean_tree()
@@ -111,13 +112,13 @@ def main() -> None:
     model = PeftModel.from_pretrained(model, str(args.adapter))
     model.eval()
     for searchable in (True, False):
-        name = "6.37" if searchable else "6.37_no_search"
+        name = args.name if searchable else f"{args.name}_no_search"
         arms[name] = run_arm(generate, name.replace(".", ""), searchable, messages, questions, work)
     work.rmdir()
 
     report = {
         "provenance": metadata,
-        "record": "R-176",
+        "record": "R-176" if args.name == "6.37" else "R-182",
         "adapter": str(args.adapter),
         "adapter_weights_sha256": hashlib.sha256(weights.read_bytes()).hexdigest(),
         "questions_sha256": hashlib.sha256(QUESTIONS.read_bytes()).hexdigest(),
