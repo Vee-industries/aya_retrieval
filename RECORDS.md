@@ -7930,3 +7930,35 @@ probe and hard_dev reruns had been committed (K1 above base on both). S3 stays s
 **Predictions** (method lane, before the build): hard_dev recall pooled over 82 and 83, 135 (range 118 to 155; K1 122,
 6.37 163); hometown about 9 of 26; T3 copies about 68 (line at most 184); T2 false answers about 8 (line at most 26).
 Main risk: probe statement below 44.
+
+## R-197 · 2026-11-12 · REOPENED · K1.1's set fails three of its check lines; K1.1 does not train
+
+**Result.** K1.1's set was built once (`scripts/records/build_r196.py`, `data/screens/k1_1_r196.jsonl`, 1,094 rows)
+and checked (`scripts/records/check_r196.py`). Three of R-196's six check lines fail, so under R-196 K1.1 does not
+train. Nothing was run on the card for it.
+
+| Line | K1.1 | Registered | Result |
+|---|---|---|---|
+| 1. fact lines in a `MORE_STATEMENTS` wording | 847 of 1,434 (59.1%) | 72% to 78% | FAIL |
+| 2. four-word runs shared with hard_dev forms | 0 | 0 | PASS |
+| 3a. never_told rows with passages | 160 of 160 | all | PASS |
+| 3b. found against never_told mean passage gap | 0.57 (2.77 against 2.20) | at most 0.37 | FAIL |
+| 4a. rows unlike K1 beyond wording and last reply | 3 (never_told_0042, 0112, 0120) | 0 | FAIL |
+| 4b. rows whose last reply differs | 0 | at most 0 | PASS |
+
+Reported: found rows 562 (K1 562), now-missed 0, never_told rows naming the asked person 53 (K1 53), fresh
+never_told rows that differ from K1's 16. Gap for scale: 6.37 0.37, K1 0.23, K2.1 0.28.
+
+**What each failure is** (my reading, after the result):
+- Line 1 counts fact lines in search outputs, which the search picks. The query is written from the template's
+  words, so a line in the template's wording matches more of the query and is returned more often; outputs hold
+  fewer drawn wordings than the chats do. In view, where nothing is picked, in_view rows show 112 of 128. The line, as
+  registered, measures the search's choice as well as the draw.
+- Line 3b is a real property of the set: a never_told row's other facts in drawn wordings share fewer words with the
+  query, so its search returns fewer passages (2.20 against K1's 2.74), and the number of passages starts to tell
+  found from never_told (R-020's shortcut, which R-185's line guards).
+- Line 4a: in three never_told rows F3 chose a different row to give earlier questions, because the drawn wordings
+  changed which facts F3 can ask about; the rows are otherwise K1's.
+
+**Next.** K1 stays the only candidate; its seed 94 trains after base's reruns, as planned. Whether to try another
+candidate, and from what cause, is Kevin's call (R-194 allows it until the Saturday 16:00 cutoff).
