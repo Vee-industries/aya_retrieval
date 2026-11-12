@@ -7356,3 +7356,62 @@ and sealed (hashed, kept out of every development run) before any new training r
 only sets already read. A new candidate replaces 6.37 only by a ship rule registered before the sealed run; if none
 passes by the deadline, 6.37 stays the shipped model and the write-ups report the attempt. Submission deadline
 15 November, 11:59 PM AoE; resubmission allowed.
+
+## R-178 · 2026-11-12 · REOPENED · Panel: the new sealed test (S3), one candidate, and the ship rule
+
+**Go.** Kevin, 12 November: "okay you have my go ahead to start the testing when it's ready".
+
+**Panel** (`results/panels/R-178/`; method and against lanes, both claude-opus-5-5, read limits as in `brief.md`).
+Checked by me before use:
+- R-153 ruled out queries built from the question's words (line 5851); R-050's fix 7 had never_told 21 with 27 false
+  retrievals. Confirmed.
+- 6.37's 722 training queries: 288 distinct; every one names a relation word or a training-pool person; none is about
+  the speaker (`count_queries.py`, rerun by me). The sink fact (R-175) and "what car i drive" (R-176) are facts
+  about the speaker.
+- The method lane said no training row has an earlier question and its answer in view. My count: 23 of 1,094 rows
+  (7 older, 7 confirm, 9 never_told) have a question-like user line in the three exchanges in view. Near zero, not
+  zero.
+
+**Rulings, answering both lanes.**
+1. **One candidate, K1 = F2 + F3** (method lane's K1): F3 puts earlier questions with replies in view in about 30%
+   of rows (half right, a quarter wrong, a quarter declined; earlier values forbidden in the target); F2 adds facts of
+   other types to each training chat and keeps never_told rows only when search returns passages, with values in
+   returned passages other than the answer forbidden. Against lane's objection carried: two changes at once cannot be
+   told apart; the result is reported as one combined change.
+2. **F1 (query writing) is not trained in this attempt.** R-153 ruled out question-word queries and R-071/R-073's
+   wider fact types raised false retrieval; both lanes rank it last. Its weakness is measured on S3 for every arm
+   (facts about the speaker, and categories absent from training), so it is reported, not hidden.
+3. **S3, the new sealed test** (method lane's design with the against lane's fixes):
+   - Fact categories are listed by a fresh agent that sees only the request "everyday facts a person mentions about
+     themselves or others", not by me; a committed script splits them into those inside and outside the training
+     lexicon. Writers see category ids only.
+   - Six fresh claude-opus-5-5 writer agents, not forks, R-142's writer spec adapted; they never see the repo,
+     training data, the demo, earlier sets, these records or the weaknesses' words. Ten chats each; at least a third
+     of facts about the user; each chat has an earlier out-of-view question in the last three exchanges with a wrong
+     and a right reply, both written before sealing and the same for every arm.
+   - Questions per chat: older (inside and outside categories), confirm, in_view, statement, never_told (plain and
+     sharing a word with another exchange), and a re-ask of the fact the wrong reply got wrong.
+   - Never-told rubric fixed before sealing: "I don't see it / I don't know / you didn't tell me" with no value is
+     right, for every arm.
+   - Sealed: chats under `data/heldout3/`, a manifest of every file's SHA-256 plus scorer, loader, judge brief and
+     shuffle seed, committed before any new training row; nobody reads the chats; they are opened once by a queued
+     script after the candidate's seeds and this rule are committed. An outside timestamp (a push of the sealing
+     commit) needs Kevin's yes; without it the local commit time is all there is, and that is said.
+   - Same writer family for test and outside-writer sets: a stated limit (Kevin may add hand-written chats; none
+     planned).
+4. **Screening gates** on sets already read, seeds 82 and 83, against 6.37 at the same seeds (method lane's lines):
+   probe recall pooled at least 6.37's minus 4; probe in_view at least 41 each seed; hard_dev recall pooled at least
+   6.37's 163 minus 12; false retrieval at most 6.37's plus 3 each seed; hard_dev never_told at least 44 of 48; probe
+   statement at least 44 of 48; outside-writer recall, 480 pooled, at least 6.37's minus 10. Targets on the new dev
+   stresses: copies of an earlier wrong value at most half of 6.37's; false answers on other-fact never_told at most
+   half of 6.37's with recall not more than 5 below. Fail any gate or target: no candidate enters S3.
+5. **Ship rule on S3** (seeds 82, 83 and 94 for both models; seed 82 named as the shipped seed before training):
+   (a) recall, in_view, statement and plain never_told each no more than 5 points below 6.37, pooled; coherence at or
+   above 6.37's minus 5% under judge 1 on a code-drawn sample; (b) the copy rate in the wrong-reply view at most half
+   of 6.37's and at least 10 points lower, chat-resampled 95% bound above 0; (c) false answers on never_told items whose
+   search returns passages at least 10 points lower, bound above 0, and not above base's. All of (a), (b) and (c).
+   Base with the tool, base with the whole chat and code that searches every turn run first and are reported first.
+   If the candidate fails, 6.37 seed 82 stays shipped and S3's numbers on 6.37 go in as its measured weakness.
+6. **Deadline.** No training starts after Saturday 14 November 12:00 UTC. Submission closes 16 November 11:59 UTC.
+   Kevin is advised to submit the form now with the published 6.37 version, so a submission is on file.
+7. **Write-ups** gain a dated "Reopened" section now, and the S3 result whatever it shows, with this order of events.
