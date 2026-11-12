@@ -7721,3 +7721,16 @@ asked-person rows 24 to 30; rows changed from K1 all never_told, at most 35; nev
 **Predictions** (mine, before the build): line 4 passes (near-automatic, above); line 1 is the line that may fail;
 hard_dev recall pooled 140 (range 128 to 155; gate 151); T2 false answers about 15 (gate 26); T3 copies about K1's 68.
 I still expect a recall gate more likely to fail than pass.
+
+## R-188 · 2026-11-12 · REOPENED · K2.1's build stops on its registered guard; under R-187 there is no K2.1
+
+`scripts/records/build_r187.py`, run once at 11:09 Eastern on 264315a, stopped with "moved rows not built through
+builder_item: ['asked_0014']" and deleted its set, as R-187 fixed in advance. `asked_0014` is one of R-102's appended
+rows, a never_told row; R-102 rows are built without `builder_item`, so the pick never reached it (the case the
+against lane named). In K2 the same row moved to same_type, its search returned nothing, and the build replaced it
+with a scripted row. The provenance file the build wrote before the stop is committed as evidence
+(`data/screens/k2_1_r187.provenance.json`); no K2.1 set exists, and nothing was trained.
+
+Under R-187: "If any line fails, there is no K2.1 and no further candidate; S3 then runs on the baselines, 6.37 and
+K1 (report arm) as R-185 set out." No candidate passed screening, so no model is shipped from the reopened work; the
+published 6.37 stays the submission.
