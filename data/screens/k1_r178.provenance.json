@@ -1,0 +1,104 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-12T11:48:11+00:00",
+  "command": [
+   "scripts/records/build_r178.py",
+   "--index",
+   "C:/Users/Gaming/scratch/build_r178.sqlite"
+  ],
+  "git_commit": "4a6c1057534553acd8010b26920646ec2e7473d9",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "base_set": "data/screens/fix17cs37.jsonl",
+ "base_sha256": "7b0183de5d3779802dd56a0a1f4b14d25907bb7df6f4f33c5104a92e96807792",
+ "out_sha256": "ac00af4296bba57bee8f0b88bdd9db92818baf7c7c048c5b429e61c9cf5ba439",
+ "rows": 1094,
+ "kinds": {
+  "older": 332,
+  "confirm": 230,
+  "in_view": 150,
+  "never_told": 160,
+  "statement": 222
+ },
+ "f3_quota": {
+  "older": 100,
+  "confirm": 69,
+  "in_view": 45,
+  "never_told": 48,
+  "statement": 67
+ },
+ "reask_rows": {
+  "older": 25,
+  "confirm": 25
+ },
+ "earlier_reply_kinds": {
+  "older_wrong": 68,
+  "older_right": 70,
+  "older_declined": 29,
+  "confirm_wrong": 54,
+  "confirm_declined": 23,
+  "confirm_right": 58,
+  "in_view_wrong": 18,
+  "in_view_right": 32,
+  "in_view_declined": 18,
+  "never_told_wrong": 15,
+  "never_told_right": 40,
+  "never_told_declined": 15,
+  "statement_wrong": 20,
+  "statement_right": 52,
+  "statement_declined": 32
+ },
+ "tally": {
+  "rebuilt_builder_rows": 800,
+  "rebuilt_r102_rows": 170,
+  "kept_as_they_were": 124,
+  "older_f2": 279,
+  "older_share_same_type": 94,
+  "older_share_same_person": 93,
+  "older_share_shared_word": 92,
+  "confirm_f2": 230,
+  "confirm_share_same_type": 77,
+  "confirm_share_same_person": 77,
+  "confirm_share_shared_word": 76,
+  "in_view_f2": 150,
+  "in_view_share_same_type": 50,
+  "in_view_share_same_person": 50,
+  "in_view_share_shared_word": 50,
+  "never_told_f2": 154,
+  "never_told_share_same_type": 54,
+  "never_told_share_same_person": 53,
+  "never_told_share_shared_word": 53,
+  "never_told_no_passages_replaced": 6,
+  "statement_f2": 150,
+  "statement_share_same_type": 50,
+  "statement_share_same_person": 50,
+  "statement_share_shared_word": 50,
+  "older_f2_not_applied": 1,
+  "older_reask": 25,
+  "older_f3": 100,
+  "confirm_reask": 25,
+  "confirm_f3": 69,
+  "in_view_reask": 0,
+  "in_view_f3": 45,
+  "never_told_reask": 0,
+  "never_told_f3": 48,
+  "statement_reask": 0,
+  "statement_f3": 67
+ }
+}
