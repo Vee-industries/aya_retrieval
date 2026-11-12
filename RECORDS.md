@@ -8105,3 +8105,8 @@ a line, replies that repeat them reworded alike, search results, scores and repl
 
 **Predictions** (mine, before the build): every line passes; lines 4 and 5 within 1 point. If it trains: hard_dev recall pooled over 82 and 83 about 130 (range 115 to 150; K1 122); T3 copies about 68;
 T2 false answers about 5.
+
+**K1.3's check** (`scripts/records/check_r199.py --set k1_3_r200`, built once, 1,094 rows, 766 changed): 0 FAIL of 9.
+Answers 75.1%, found decoys 74.9%, never_told decoys 74.9% drawn; all-template outputs found against never_told 24.9
+against 25.5% (1 line), 6.1 against 7.0% (2), 1.8 against 2.0% (3); other-type returned lines 75.0 against 74.7%;
+gap 0.23; no row unlike K1 beyond wording. K1.3 trains: queue `q200` (seeds 82, 83, then 94), as fixed above.
