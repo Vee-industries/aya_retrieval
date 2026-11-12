@@ -7476,3 +7476,15 @@ made found rows return 3.54 passages against 1.68 for never_told, so the passage
 
 **Not judged:** whether 6.37's kept in_view and statement targets still read well with the new earlier questions in
 view. Some shared-word lines read oddly. The coherence line of R-178's ship rule covers the S3 sample only.
+
+## R-181 · 2026-11-12 · REOPENED · Outside timestamp for the S3 seal
+
+Kevin: "Yes, push them". The eight local commits from 6650cad to b771609 were pushed to a new branch, `reopened`, not
+to `main` (R-174's ruling keeps CI's first run off public `main`; CI runs only on pushes to `main`, and `main` stays
+the published 6.37 version until Kevin says otherwise). Privacy count over the pushed diff: 0. GitHub's activity API
+records the branch's creation at b771609 at **2026-11-12 12:13:03 UTC**.
+
+What this proves: S3's chats, brief, loader, scorer, judge brief and stage-1 manifest (5d9b656), and K1's training set
+(b771609), were fixed and public before any K1 screening result and before the sealed run. What it does not prove:
+the order of 5d9b656 (S3 sealed) before b771609 (K1 set) rests on local commit times, and R-180 records two scratch
+dry runs of K1's set before 5d9b656. S3's chats are now public on that branch; no development step reads them.
