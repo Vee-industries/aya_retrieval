@@ -40,6 +40,7 @@ WORDINGS = {
     statement: tuple(w for w in more if w != LEFT_OUT)
     for statement, more in MORE_STATEMENTS.items()
 }
+DRAW_OFFSET = 0  # R-198 redraws by changing this; at 0 every draw is R-196's
 
 
 def load(name: str):
@@ -138,7 +139,8 @@ def k1_1_add_other_facts(item, seed, pool_name, share, asked):
             continue
         # R-196's change: the wording is drawn, from a generator of its own.
         statement = pool.facts[name].statement
-        wording = random.Random(seed + 8 + index).choice((statement, *WORDINGS.get(statement, ())))
+        draw = random.Random(seed + 8 + index + DRAW_OFFSET)
+        wording = draw.choice((statement, *WORDINGS.get(statement, ())))
         line = wording.format(relation=relation, person=person, value=value)
         lines.append((line, rng.choice(pool.acknowledgements)))
     if share == "shared_word":
