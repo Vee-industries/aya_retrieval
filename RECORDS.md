@@ -7327,3 +7327,32 @@ two claude-sonnet-5-5 agents, no tool calls in either transcript, agreed on 32 o
 sister Marisol's pottery class is on Thursdays." It then repeated that answer on 6 of 8 new questions, and 5 of its
 6 queries begin with "sister". The against lane flagged that branching after message 14 keeps the first demo's
 answers in view; the design was registered with it. Base's view held its own refusals instead.
+
+## R-177 · 2026-11-12 · REOPENED · The frozen model's weakness, caught by the demo; the project reopened
+
+**Decision.** Kevin, 12 November, after R-176: "i want to address the weakness. explain how we caught it that we
+opened the project back up sealed a new test and started working again". The model freeze of R-160 ends for new
+work. 6.37 and every result about it stay published as they are; nothing already measured is rerun or replaced.
+
+**How the weakness was caught.**
+1. A blind rubric read of the write-ups (R-173) asked for evidence a judge could see, so the scripted demo was run
+   for 6.37 for the first time (R-175). It answered 2 of 3 recall questions and failed the never-told question and
+   the sink question, both with queries copied from its training set.
+2. Replaying its searches with no model showed the search tool finds the sink fact from a plain query; the training
+   set has no row with "fixed" or "sink" (R-175).
+3. Eight more questions, written blind and registered before they ran (R-176): the untrained model 2, 6.37 0. 6.37
+   repeated its own wrong answer, still in view, on 6 of 8.
+
+**The weaknesses, as measured so far** (each to be tested on the new sealed test, not assumed):
+- Query writing learned from a few fact templates; on a fact type absent from training it falls back to a memorized
+  query.
+- An unrelated passage returned by search is given as the answer instead of "you never told me".
+- A wrong answer of its own in view is repeated on later questions.
+- Already known: on outside-writer chats plain code that searches every turn recalls as well, and the whole chat,
+  when it fits, recalls better (R-164, R-169).
+
+**Order of work, fixed here.** A panel designs the new test and the fix. The new test is written by blind writers
+and sealed (hashed, kept out of every development run) before any new training row is written. Development uses
+only sets already read. A new candidate replaces 6.37 only by a ship rule registered before the sealed run; if none
+passes by the deadline, 6.37 stays the shipped model and the write-ups report the attempt. Submission deadline
+15 November, 11:59 PM AoE; resubmission allowed.
