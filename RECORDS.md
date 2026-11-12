@@ -7296,3 +7296,34 @@ transcripts are scanned for tool calls before use. I do not grade.
 questions only; the first demo's 4 stay apart (R-175). Every reply, query and `found_source` shown, with the shared
 word counts. Counts only, no significance claim. Any cause given is labelled as written after the run. The whole
 result is published whatever it shows; no rerun, no change to a question.
+
+### R-176 result · 2026-11-12 05:48
+
+Run once as registered (`results/demo/branches_r176.json`: commit 8099c2c, clean tree, adapter weights
+`e661a81c...`, the frozen hash). Turns 1 to 14 of both searchable arms equal the first demo on 14 of 14. Judges:
+two claude-sonnet-5-5 agents, no tool calls in either transcript, agreed on 32 of 32
+(`results/demo/r176_judge/`, `scripts/records/demo_judges_r176.py`). Every answer is in `docs/demo.md`.
+
+| Arm | Facts right, of 7 | Never-told right, of 1 |
+|---|---|---|
+| Base, search off | 1 | 1 |
+| 6.37, search off | 0 | 0 |
+| Base, with search | 1 | 1 |
+| 6.37, with search | 0 | 0 |
+
+- **Base never searched** in either arm; its answers are the same with and without the tool. It was right on "mum"
+  (message 13, in view) and on the never-told question, and gave invented values for the other six facts.
+- **6.37 with search** searched on 6 of 8 questions and found the source message once (message 2, the teacher). It
+  answered 6 of 8 with "Your sister Marisol's pottery class is on Thursdays.", including the in-view "mum" question
+  and the never-told question.
+- **6.37 with search off** said "I don't see it, so I'd only be guessing." to all 8. On the never-told question both
+  judges marked this ABSTAINED; the registered brief's own wording ("says it was not told or does not know, and
+  states no value") would make it RIGHT. The count stays as the judges marked it (the rule registered was "right only
+  when both mark RIGHT"); the departure is stated here and in `docs/demo.md`.
+- **On these 8 questions the untrained model scores 2 and 6.37 scores 0.** This is the headline, as registered.
+
+**Explanation, written after the run (not tested).** The branch point keeps the last three exchanges in view
+(messages 12 to 14). There, 6.37 had answered the brother and sink questions with stored facts, ending with "Your
+sister Marisol's pottery class is on Thursdays." It then repeated that answer on 6 of 8 new questions, and 5 of its
+6 queries begin with "sister". The against lane flagged that branching after message 14 keeps the first demo's
+answers in view; the design was registered with it. Base's view held its own refusals instead.

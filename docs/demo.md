@@ -40,3 +40,52 @@ Plain chat lines searched: 6.37 0 of 11, base 2 of 11.
 | 12 | fix 15 | `brother new job` | I don't have that from you. What is it? | right: declines |
 | 14 | v5 | `brother new job` | I don't have that from you. What is it? | wrong: declines |
 | 14 | fix 15 | `brother new job` | I don't have that from you. What is it? | wrong: declines |
+
+## Eight more questions, registered before the run (R-176)
+
+Written by an agent that saw only `demo/chat.txt`; each asked on its own branch after
+messages 1 to 14; graded by two blind judges (right only when both say so).
+Search off = an empty index.
+Judges disagreed on 0 of 32 answers.
+
+| Arm | Facts right, of 7 | Never-told right, of 1 |
+|---|---|---|
+| base_no_search | 1 | 1 |
+| 6.37_no_search | 0 | 0 |
+| base | 1 | 1 |
+| 6.37 | 0 | 0 |
+
+| Message | Question (shared words) | Arm | Search | Found it | Reply | Judges |
+|---|---|---|---|---|---|---|
+| 2 (2) | what's marisol's teacher strict about | base_no_search | none | no | Marisol's teacher is strict about punctuality and homework. | WRONG, WRONG |
+| 2 (2) | what's marisol's teacher strict about | 6.37_no_search | `Marisol teaches high school` | no | I don't see it, so I'd only be guessing. | ABSTAINED, ABSTAINED |
+| 2 (2) | what's marisol's teacher strict about | base | none | no | Marisol's teacher is strict about punctuality and homework. | WRONG, WRONG |
+| 2 (2) | what's marisol's teacher strict about | 6.37 | `Marisol teaches pottery class` | yes | Your sister Marisol's pottery class is on Thursdays. | WRONG, WRONG |
+| 4 (0) | how many times did i have to go to the shop for the sink | base_no_search | none | no | You had to go to the shop twice to fix the sink. | WRONG, WRONG |
+| 4 (0) | how many times did i have to go to the shop for the sink | 6.37_no_search | none | no | I don't see it, so I'd only be guessing. | ABSTAINED, ABSTAINED |
+| 4 (0) | how many times did i have to go to the shop for the sink | base | none | no | You had to go to the shop twice to fix the sink. | WRONG, WRONG |
+| 4 (0) | how many times did i have to go to the shop for the sink | 6.37 | `sister shop opened` | no | Your sister Marisol's pottery class is on Thursdays. | WRONG, WRONG |
+| 6 (1) | how long has tobias lived on my street | base_no_search | none | no | Tobias has lived on your street for 3 years. | WRONG, WRONG |
+| 6 (1) | how long has tobias lived on my street | 6.37_no_search | `Tobias street address` | no | I don't see it, so I'd only be guessing. | ABSTAINED, ABSTAINED |
+| 6 (1) | how long has tobias lived on my street | base | none | no | Tobias has lived on your street for 3 years. | WRONG, WRONG |
+| 6 (1) | how long has tobias lived on my street | 6.37 | none | no | It sounds like you're dealing with a bit of a situation. If you need help understanding or resolving it, feel free to ask for more details. | WRONG, WRONG |
+| 7 (0) | what kind of books have i been into lately | base_no_search | none | no | You’ve been into mystery novels, particularly those by Agatha Christie and Arthur Conan Doyle. You also enjoy historical fiction, especially works set in the 19th century. Additionally, you’ve been reading self-help books focused on productivity and personal growth. | WRONG, WRONG |
+| 7 (0) | what kind of books have i been into lately | 6.37_no_search | `lately books genre` | no | I don't see it, so I'd only be guessing. | ABSTAINED, ABSTAINED |
+| 7 (0) | what kind of books have i been into lately | base | none | no | You’ve been into mystery novels, particularly those by Agatha Christie and Arthur Conan Doyle. You also enjoy historical fiction, especially works set in the 19th century. Additionally, you’ve been reading self-help books focused on productivity and personal growth. | WRONG, WRONG |
+| 7 (0) | what kind of books have i been into lately | 6.37 | `sister teaches pottery class` | no | Your sister Marisol's pottery class is on Thursdays. | WRONG, WRONG |
+| 8 (0) | what's it been like outside lately | base_no_search | none | no | It's been quite cool and dry outside lately, with some light rain showers sprinkling in. The weather has been pleasant, but not too hot or humid. | WRONG, WRONG |
+| 8 (0) | what's it been like outside lately | 6.37_no_search | `outdoor activities` | no | I don't see it, so I'd only be guessing. | ABSTAINED, ABSTAINED |
+| 8 (0) | what's it been like outside lately | base | none | no | It's been quite cool and dry outside lately, with some light rain showers sprinkling in. The weather has been pleasant, but not too hot or humid. | WRONG, WRONG |
+| 8 (0) | what's it been like outside lately | 6.37 | none | no | It has been quite cold and windy outside lately. | WRONG, WRONG |
+| 9 (2) | what was i thinking of cooking tonight | base_no_search | none | no | You were thinking of cooking pasta with marinara sauce. | WRONG, WRONG |
+| 9 (2) | what was i thinking of cooking tonight | 6.37_no_search | `night meal` | no | I don't see it, so I'd only be guessing. | ABSTAINED, ABSTAINED |
+| 9 (2) | what was i thinking of cooking tonight | base | none | no | You were thinking of cooking pasta with marinara sauce. | WRONG, WRONG |
+| 9 (2) | what was i thinking of cooking tonight | 6.37 | `sister teaches pottery class` | no | Your sister Marisol's pottery class is on Thursdays. | WRONG, WRONG |
+| 13 (1) | who was i meant to ring this weekend | base_no_search | none | no | Your mom. | RIGHT, RIGHT |
+| 13 (1) | who was i meant to ring this weekend | 6.37_no_search | ` mum phone switched` | no | I don't see it, so I'd only be guessing. | ABSTAINED, ABSTAINED |
+| 13 (1) | who was i meant to ring this weekend | base | none | no | Your mom. | RIGHT, RIGHT |
+| 13 (1) | who was i meant to ring this weekend | 6.37 | `sister ring` | no | Your sister Marisol's pottery class is on Thursdays. | WRONG, WRONG |
+| never told | did i ever tell you what car i drive | base_no_search | none | n/a | No, you haven't mentioned what car you drive. If you'd like to share, I can help you remember or provide information about it! | RIGHT, RIGHT |
+| never told | did i ever tell you what car i drive | 6.37_no_search | `I drive car auction` | n/a | I don't see it, so I'd only be guessing. | ABSTAINED, ABSTAINED |
+| never told | did i ever tell you what car i drive | base | none | n/a | No, you haven't mentioned what car you drive. If you'd like to share, I can help you remember or provide information about it! | RIGHT, RIGHT |
+| never told | did i ever tell you what car i drive | 6.37 | `sister car auction` | n/a | Your sister Marisol's pottery class is on Thursdays. | WRONG, WRONG |
