@@ -7802,3 +7802,17 @@ three. K1 and K2.1 are both trained at seed 94 and scored at 94 on probe, hard_d
 candidates that pass every line, the one with the higher pooled dev recall over seeds 82, 83 and 94 (probe, hard_dev,
 both outside-writer sets) goes to S3 as the shippable arm (`scripts/records/decide_r191.py`, `PICK_SEEDS`); the other
 runs on S3 as a report arm at 82 and 83. The shippable arm's seed 94 adapter is the one trained here.
+
+## R-193 · 2026-11-12 · REOPENED · Up to three candidates, then the best one goes to S3
+
+**Decision.** Kevin, 12 November, on R-192: "yeah that works. i like it. but just to clarify i meant two or three like
+k1 k2.1 and k2.2 or k3". R-192's three seeds stay. On top of it:
+- At most three candidates in all: K1, K2.1, and one more (K2.2 or K3), which may be designed after K2.1's dev
+  results are read. Each new candidate gets its own record before it is built, a check before training where one
+  applies, and R-191's lines at seeds 82 and 83 plus seed 94 for the pick.
+- The pick (R-192) runs across every eligible candidate once the last one's seed 94 results are committed; the
+  shippable arm goes to S3, the others run on S3 as report arms at 82 and 83. S3 opens once, after the pick.
+- Training of the last candidate starts before Saturday 14 November 23:59 Eastern (R-182).
+
+**Disclosed.** Three candidates chosen among on reused dev pools make the winner's dev numbers optimistic; the pick
+says which to test, not how good it is. S3, unread by any step, is the measure, and only for the arm picked.
