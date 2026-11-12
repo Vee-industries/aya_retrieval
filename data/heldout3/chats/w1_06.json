@@ -1,0 +1,53 @@
+{
+ "id": "w1_06",
+ "people": ["Diego (my flatmate)", "Diego (my mentor)", "Hana (my flatmate)", "Tariq (my coworker)", "Siobhan (my sister)", "Arjun (my fiance)"],
+ "exchanges": [
+  ["so tonight was weird, really quiet ward for once which never happens and honestly it made me more nervous than a busy one", "Quiet nights can feel eerie when you are used to chaos."],
+  ["tariq was on with me and we just sat at the station doing paperwork and eating biscuits", "Not a bad way to spend a calm shift."],
+  ["his little boy Idris drew him a card with a giant ambulance on it and he showed everyone like four times", "That is very sweet."],
+  ["anyway im home now and diego is blasting Metallica in the kitchen while making eggs, at 8am, its his favourite and he doesnt care who knows", "That is one way to wake the whole flat."],
+  ["hana just banged on the wall lol", "Sounds like she is not a fan of the morning concert."],
+  ["shes half Czech and says in prague nobody would play music this loud before noon, which i doubt", "Every city has its noisy neighbours."],
+  ["probably true lol. arjun is coming over later, we have to finalise wedding stuff", "How is the planning going?"],
+  ["its in August and we still dont have a cake person", "There is still some time to find one."],
+  ["the venue is sorted at least, its at Kelburn, the castle place near largs", "A castle sounds like a lovely setting."],
+  ["my mentor diego, other diego lol, says hell do a playlist if we let him but his taste is all Coldplay so", "That might be a gentle playlist."],
+  ["exactly. i want something people can actually dance to", "Mixing in some upbeat songs would help."],
+  ["my sister siobhan is due in June so shes worried shell be enormous in the photos", "She will look lovely regardless."],
+  ["she keeps texting me pictures of maternity dresses", "Hard to choose at that stage."],
+  ["oh wait i messed up, the venue is Dalhousie not kelburn, kelburn was the one we looked at first and didnt book, my brain is mush", "Easy to mix up after a night shift."],
+  ["dalhousie is nicer anyway it has the big lawn", "A lawn is great for photos."],
+  ["i bought a Dyson with my overtime money last week and i have no regrets", "A good vacuum is worth it in a shared flat."],
+  ["diego sheds hair like a dog i swear", "Shared flats do collect hair."],
+  ["ok i should sleep, i have a night again tomorrow", "Rest up while you can."],
+  ["blackout curtains closed, eye mask on, earplugs in", "Fully prepared."],
+  ["what music is flatmate diego obsessed with again, i want to get him a gig ticket for his birthday", ""],
+  ["hana is up now", "Hopefully the flat goes quiet once she heads out."],
+  ["shes watching Bridgerton on the laptop with the sound up, i can hear it through the wall", "Earplugs might win that one."]
+ ],
+ "facts": [
+  {"exchange": 2, "person": "Tariq (my coworker)", "category": "C11", "value": "Idris", "corrects": null},
+  {"exchange": 3, "person": "Diego (my flatmate)", "category": "C23", "value": "Metallica", "corrects": null},
+  {"exchange": 5, "person": "Hana (my flatmate)", "category": "C37", "value": "Czech", "corrects": null},
+  {"exchange": 7, "person": "me", "category": "C27", "value": "August", "corrects": null},
+  {"exchange": 8, "person": "me", "category": "C28", "value": "Kelburn", "corrects": null},
+  {"exchange": 9, "person": "Diego (my mentor)", "category": "C23", "value": "Coldplay", "corrects": null},
+  {"exchange": 11, "person": "Siobhan (my sister)", "category": "C29", "value": "June", "corrects": null},
+  {"exchange": 13, "person": "me", "category": "C28", "value": "Dalhousie", "corrects": 4},
+  {"exchange": 15, "person": "me", "category": "C40", "value": "Dyson", "corrects": null},
+  {"exchange": 21, "person": "Hana (my flatmate)", "category": "C24", "value": "Bridgerton", "corrects": null}
+ ],
+ "lookalikes": ["Diego (my flatmate)", "Diego (my mentor)"],
+ "earlier_question": {"exchange": 19, "category": "C23", "person": "Diego (my flatmate)", "fact_exchange": 3, "answer": "Metallica", "wrong_value": "Coldplay", "right_reply": "Flatmate Diego is a big Metallica fan.", "wrong_reply": "Flatmate Diego is a big Coldplay fan."},
+ "questions": [
+  {"kind": "older", "category": "C11", "person": "Tariq (my coworker)", "message": "whats tariqs son called again", "answer": "Idris", "wrong": [], "fact_exchange": 2},
+  {"kind": "older", "category": "C27", "person": "me", "message": "what month am i getting married", "answer": "August", "wrong": [], "fact_exchange": 7},
+  {"kind": "older", "category": "C37", "person": "Hana (my flatmate)", "message": "whats hanas heritage again", "answer": "Czech", "wrong": [], "fact_exchange": 5},
+  {"kind": "confirm", "category": "C28", "person": "me", "message": "the wedding is at Kelburn isnt it", "answer": "Dalhousie", "wrong": [], "fact_exchange": 13, "claim": "false", "claimed_value": "Kelburn"},
+  {"kind": "in_view", "category": "C24", "person": "Hana (my flatmate)", "message": "whats hana got on", "answer": "Bridgerton", "wrong": [], "fact_exchange": 21},
+  {"kind": "statement", "category": null, "person": null, "message": "ugh ok putting my headphones on with rain noises", "answer": "", "wrong": [], "fact_exchange": null},
+  {"kind": "never_told", "category": "C23", "person": "Arjun (my fiance)", "message": "whats arjuns favourite band", "answer": "", "wrong": ["Metallica", "Coldplay"], "fact_exchange": null, "overlap_exchange": null},
+  {"kind": "never_told", "category": "C11", "person": "Siobhan (my sister)", "message": "what did siobhan name her kid", "answer": "", "wrong": ["Idris", "June"], "fact_exchange": null, "overlap_exchange": 11},
+  {"kind": "re_ask", "category": "C23", "person": "Diego (my flatmate)", "message": "sorry which band is it that flatmate diego loves", "answer": "Metallica", "wrong": ["Coldplay"], "fact_exchange": 3}
+ ]
+}

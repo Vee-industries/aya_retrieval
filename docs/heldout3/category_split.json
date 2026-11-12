@@ -1,0 +1,482 @@
+{
+ "record": "R-178",
+ "rule": "inside: any keyword appears as a whole word or phrase in any training search query; otherwise outside. User-line keywords are recorded and do not decide the split.",
+ "training": "data/screens/fix17cs37.jsonl",
+ "training_sha256": "7b0183de5d3779802dd56a0a1f4b14d25907bb7df6f4f33c5104a92e96807792",
+ "categories": "docs/heldout3/categories.md",
+ "categories_sha256": "b747c463223833a9e464c00a212e31f67cf4929b5d6d5a5721a5ee231388fa9c",
+ "queries": 722,
+ "distinct_queries": 288,
+ "user_lines": 4376,
+ "inside": [
+  "C01",
+  "C02",
+  "C03",
+  "C04",
+  "C05",
+  "C06",
+  "C07",
+  "C08",
+  "C09",
+  "C10",
+  "C11",
+  "C12",
+  "C13",
+  "C14",
+  "C16",
+  "C17",
+  "C21",
+  "C22",
+  "C23",
+  "C24",
+  "C25",
+  "C26",
+  "C29",
+  "C30",
+  "C32",
+  "C34",
+  "C35",
+  "C39",
+  "C40"
+ ],
+ "outside": [
+  "C15",
+  "C18",
+  "C19",
+  "C20",
+  "C27",
+  "C28",
+  "C31",
+  "C33",
+  "C36",
+  "C37",
+  "C38"
+ ],
+ "per_category": {
+  "C01": {
+   "inside": true,
+   "query_keywords": [
+    "moving",
+    "city",
+    "house"
+   ],
+   "user_line_keywords": [
+    "moving",
+    "move",
+    "city",
+    "house"
+   ]
+  },
+  "C02": {
+   "inside": true,
+   "query_keywords": [
+    "work",
+    "job"
+   ],
+   "user_line_keywords": [
+    "work",
+    "job",
+    "office"
+   ]
+  },
+  "C03": {
+   "inside": true,
+   "query_keywords": [
+    "job",
+    "title",
+    "promoted"
+   ],
+   "user_line_keywords": [
+    "job",
+    "role",
+    "title",
+    "manager",
+    "promoted"
+   ]
+  },
+  "C04": {
+   "inside": true,
+   "query_keywords": [
+    "street",
+    "house"
+   ],
+   "user_line_keywords": [
+    "live",
+    "living",
+    "place",
+    "street",
+    "house"
+   ]
+  },
+  "C05": {
+   "inside": true,
+   "query_keywords": [
+    "born"
+   ],
+   "user_line_keywords": [
+    "from",
+    "born"
+   ]
+  },
+  "C06": {
+   "inside": true,
+   "query_keywords": [
+    "birthday",
+    "born"
+   ],
+   "user_line_keywords": [
+    "birthday",
+    "born",
+    "party"
+   ]
+  },
+  "C07": {
+   "inside": true,
+   "query_keywords": [
+    "birthday"
+   ],
+   "user_line_keywords": [
+    "turned",
+    "birthday"
+   ]
+  },
+  "C08": {
+   "inside": true,
+   "query_keywords": [
+    "name"
+   ],
+   "user_line_keywords": [
+    "name"
+   ]
+  },
+  "C09": {
+   "inside": true,
+   "query_keywords": [
+    "dog",
+    "kitten",
+    "name"
+   ],
+   "user_line_keywords": [
+    "dog",
+    "cat",
+    "kitten",
+    "named",
+    "called",
+    "name"
+   ]
+  },
+  "C10": {
+   "inside": true,
+   "query_keywords": [
+    "dog"
+   ],
+   "user_line_keywords": [
+    "dog",
+    "cat",
+    "kind"
+   ]
+  },
+  "C11": {
+   "inside": true,
+   "query_keywords": [
+    "baby",
+    "name"
+   ],
+   "user_line_keywords": [
+    "baby",
+    "named",
+    "name",
+    "called"
+   ]
+  },
+  "C12": {
+   "inside": true,
+   "query_keywords": [
+    "baby"
+   ],
+   "user_line_keywords": [
+    "baby"
+   ]
+  },
+  "C13": {
+   "inside": true,
+   "query_keywords": [
+    "school"
+   ],
+   "user_line_keywords": [
+    "school"
+   ]
+  },
+  "C14": {
+   "inside": true,
+   "query_keywords": [
+    "school"
+   ],
+   "user_line_keywords": [
+    "school"
+   ]
+  },
+  "C15": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": [
+    "trip",
+    "holiday",
+    "going to"
+   ]
+  },
+  "C16": {
+   "inside": true,
+   "query_keywords": [
+    "weekend",
+    "month"
+   ],
+   "user_line_keywords": [
+    "when",
+    "next week",
+    "weekend",
+    "month",
+    "back"
+   ]
+  },
+  "C17": {
+   "inside": true,
+   "query_keywords": [
+    "car"
+   ],
+   "user_line_keywords": [
+    "car",
+    "bought",
+    "driving"
+   ]
+  },
+  "C18": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": [
+    "best"
+   ]
+  },
+  "C19": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": []
+  },
+  "C20": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": [
+    "cheer"
+   ]
+  },
+  "C21": {
+   "inside": true,
+   "query_keywords": [
+    "hobby"
+   ],
+   "user_line_keywords": [
+    "hobby",
+    "play",
+    "practice",
+    "into",
+    "weekends"
+   ]
+  },
+  "C22": {
+   "inside": true,
+   "query_keywords": [
+    "band"
+   ],
+   "user_line_keywords": [
+    "play",
+    "plays",
+    "band"
+   ]
+  },
+  "C23": {
+   "inside": true,
+   "query_keywords": [
+    "band"
+   ],
+   "user_line_keywords": [
+    "band"
+   ]
+  },
+  "C24": {
+   "inside": true,
+   "query_keywords": [
+    "finished"
+   ],
+   "user_line_keywords": [
+    "show",
+    "finished"
+   ]
+  },
+  "C25": {
+   "inside": true,
+   "query_keywords": [
+    "finished"
+   ],
+   "user_line_keywords": [
+    "book",
+    "reading",
+    "read",
+    "novel",
+    "chapter",
+    "finished"
+   ]
+  },
+  "C26": {
+   "inside": true,
+   "query_keywords": [
+    "cafe"
+   ],
+   "user_line_keywords": [
+    "cafe",
+    "place",
+    "dinner",
+    "spot"
+   ]
+  },
+  "C27": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": [
+    "invited",
+    "day"
+   ]
+  },
+  "C28": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": [
+    "party",
+    "where"
+   ]
+  },
+  "C29": {
+   "inside": true,
+   "query_keywords": [
+    "baby",
+    "month",
+    "born"
+   ],
+   "user_line_keywords": [
+    "baby",
+    "month",
+    "born"
+   ]
+  },
+  "C30": {
+   "inside": true,
+   "query_keywords": [
+    "broke",
+    "injury"
+   ],
+   "user_line_keywords": [
+    "sick",
+    "hurt",
+    "broke",
+    "injury",
+    "hospital"
+   ]
+  },
+  "C31": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": [
+    "dentist",
+    "tomorrow"
+   ]
+  },
+  "C32": {
+   "inside": true,
+   "query_keywords": [
+    "brother",
+    "sister",
+    "name"
+   ],
+   "user_line_keywords": [
+    "brother",
+    "sister",
+    "named",
+    "name"
+   ]
+  },
+  "C33": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": []
+  },
+  "C34": {
+   "inside": true,
+   "query_keywords": [
+    "coworker",
+    "name",
+    "roommate"
+   ],
+   "user_line_keywords": [
+    "coworker",
+    "named",
+    "name",
+    "roommate"
+   ]
+  },
+  "C35": {
+   "inside": true,
+   "query_keywords": [
+    "phone"
+   ],
+   "user_line_keywords": [
+    "phone",
+    "iphone",
+    "laptop",
+    "new phone"
+   ]
+  },
+  "C36": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": []
+  },
+  "C37": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": [
+    "from"
+   ]
+  },
+  "C38": {
+   "inside": false,
+   "query_keywords": [],
+   "user_line_keywords": [
+    "gym",
+    "days",
+    "training"
+   ]
+  },
+  "C39": {
+   "inside": true,
+   "query_keywords": [
+    "bike"
+   ],
+   "user_line_keywords": [
+    "bus",
+    "bike",
+    "walk"
+   ]
+  },
+  "C40": {
+   "inside": true,
+   "query_keywords": [
+    "new"
+   ],
+   "user_line_keywords": [
+    "bought",
+    "got",
+    "new",
+    "spent"
+   ]
+  }
+ }
+}

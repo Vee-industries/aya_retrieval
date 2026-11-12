@@ -7415,3 +7415,33 @@ Checked by me before use:
 6. **Deadline.** No training starts after Saturday 14 November 12:00 UTC. Submission closes 16 November 11:59 UTC.
    Kevin is advised to submit the form now with the published 6.37 version, so a submission is on file.
 7. **Write-ups** gain a dated "Reopened" section now, and the S3 result whatever it shows, with this order of events.
+
+## R-179 · 2026-11-12 · REOPENED · S3 written by six blind writers and sealed (stage 1), before any training row
+
+**Categories.** 40 kinds of fact listed by a fresh claude-opus-5-5 agent with no tools, one attempt
+(`docs/heldout3/categories.md`, with its brief). Split by `scripts/records/split_categories_r178.py` against 6.37's 722
+training queries: 29 inside, 11 outside (`docs/heldout3/category_split.json`). "Inside" is wide: several categories
+match on one generic keyword (listed in the split file).
+
+**Writers.** Six fresh claude-opus-5-5 agents, not forks, each given only its brief (`docs/heldout3/BRIEF.md` with
+writer id, folder and one setting filled in; settings in `results/panels/R-178/writer_briefs/`: night-shift nurse, retired
+teacher, first-year student, bakery owner, parent working from home, new arrival for a logistics job). Brief lists
+A and B are the outside and inside categories by id, unlabelled. Transcript audit (tool calls and paths only): each
+writer read only its own brief and wrote only its own 10 files; writer 4 also edited its own `w4_09.json` twice. No
+other tool call.
+
+**Checks, counts only** (`scripts/records/check_s3.py`; nobody read a chat): 60 chats, 10 per writer, 0 dropped;
+4 questions dropped by brief rules (answer not a current fact of that person and category). Items: right view
+older 178 (inside 59, outside 119), confirm 58, in_view 60, statement 60, never_told 120 (plain 60, sharing a word
+60); wrong view older 178, never_told 120, re_ask 60. Set sha256 `348a2be9...`. Four-word runs shared with 6.37's
+training lines: 140 of 42,561 (`scripts/records/overlap_s3_training.py`).
+
+**Seal, stage 1** (`scripts/records/seal_s3_stage1.py`, `results/freeze/heldout3_stage1.json`): every chat file, the
+brief, categories, split, loader (`heldout3.py`), scorer (`scoring.py`), the judge brief
+(`results/panels/R-178/judge_brief_s3.md`, R-176's brief with the never-told rule fixed: "I don't see it / I don't
+know / you didn't tell me" with no value is right) and the sample and shuffle seeds. R-178 asked for these before
+any training row. The eval runner (`scripts/run_recall_eval.py`) was being given dev-stress options by the training
+builder at this moment, so it is sealed in stage 2 (`scripts/records/seal_s3.py write`), before the one run that
+opens S3; that is a change from R-178's single manifest, made before either manifest was written.
+
+**No training row for K1 exists at this commit.** No outside timestamp: the commit is local until Kevin says to push.
