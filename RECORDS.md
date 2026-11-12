@@ -7765,3 +7765,30 @@ k2_1_r187`, R-185's lines unchanged:
 | found against never_told mean passage gap | 0.28 (2.98 against 2.69) | at most 0.37 | PASS |
 
 Line 4 passes by construction of the rule (R-187). Training and screening at seeds 82 and 83 follow, as R-187 set out.
+
+## R-191 · 2026-11-12 · REOPENED · Base becomes the standard to beat; one candidate picked for S3 before it opens
+
+**Decision.** Kevin, 12 November, while K2.1 trained: "don't hold 6..37 as the standard to beat hold base as the
+standard to beat.." and, on the rule below, "yeah". Disclosed: this changes R-178's recall lines after K1's dev
+results were read. Under it K1, already measured, clears every recall line by a wide margin (hard_dev 57 and 65 of 96
+against base's earlier 20; that earlier base run used `--decoys 1` and older code, so it is not the reference). The
+case for it: 6.37 is the model whose weakness was found, so it is a poor bar for recall; the published comparison has
+always been against base.
+
+**Screening** (`scripts/records/decide_r191.py`, for K1 and K2.1):
+1. Recall: above base with the search tool at each seed, on probe, hard_dev, the outside-writer sets and the
+   other-facts stress. Base is rerun at the current code with the candidates' own commands, labels `*_base191`
+   (`q191.sh` in scratch), after K2.1's queue and before either candidate's decision is read.
+2. Unchanged from R-178: probe in_view at least 41 and statement at least 44 of 48, hard_dev never_told at least 44
+   of 48, false retrieval at most 6.37's plus 3, at each seed; T3 copies at most half of 6.37's; T2 false answers at
+   most half of 6.37's.
+3. The shippable arm for S3: of the candidates that pass every line, the one with the higher pooled dev recall
+   (probe, hard_dev and outside-writer, both seeds). Fixed before S3 opens; the other candidate runs on S3 as a report
+   arm. The shippable arm's seed 94 is trained before S3 opens.
+
+**Ship rule on S3** (R-178's, with base in place of 6.37 in part (a)): (a) recall above base with the tool, the
+chat-resampled 95% bound above 0; in_view, statement and plain never_told each no more than 5 points below base's;
+coherence at or above base's minus 5% under judge 1. (b) and (c) unchanged: the copy rate in the wrong-reply view at
+most half of 6.37's and at least 10 points lower, bound above 0; N-hit false answers at least 10 points lower than
+6.37's, bound above 0, and not above base's. Baselines first in every report: code that searches every turn and base
+with the whole chat, then base with the tool, then 6.37, then the candidates.
