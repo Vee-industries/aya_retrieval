@@ -7488,3 +7488,57 @@ What this proves: S3's chats, brief, loader, scorer, judge brief and stage-1 man
 (b771609), were fixed and public before any K1 screening result and before the sealed run. What it does not prove:
 the order of 5d9b656 (S3 sealed) before b771609 (K1 set) rests on local commit times, and R-180 records two scratch
 dry runs of K1's set before 5d9b656. S3's chats are now public on that branch; no development step reads them.
+
+## R-182 · 2026-11-12 · REOPENED · The same demo for K1, registered before any K1 result is read
+
+**Decision.** Kevin, 12 November, while the screening queue ran: "just make sure we measure for the failure mode in
+the regular tests, and we'll keep the demo tests the same as before so we're comparing apples to apples". Drafted in
+scratch while the queue ran and committed after it ended (10:31 Eastern), before `decide_r178.py` reads any K1 file
+and before any K1 result file is opened. The queue had committed K1's result files for both seeds (07:23 to 10:31
+Eastern), unread. `scripts/records/decide_r178.py` is committed with this record, unchanged since its checks on
+6.37 (13 PASS, 3 WAIT: the stress files it needed did not exist yet) and on 7.1 (FAIL: probe
+in_view 38 at seed 83).
+
+**The failure mode in the regular tests: already registered, no change** (R-178):
+- Dev stresses at seeds 82 and 83, for K1 and for 6.37 at the same seeds: `st_wb_*` (an earlier wrong reply in view;
+  `copied_wrong` counts copies of its value) and `st_of_*` (other fact types in the chat; `false_answer` counts
+  answers given to never-told questions). Gates T3 and T2.
+- S3: the wrong-reply view and never-told questions that share a word with another exchange. Ship rule (b) and (c).
+
+**The demo, unchanged.** K1 seed 82 (the shipped seed named in R-178) against 6.37 seed 82, as before.
+1. First demo: `scripts/run_chat.py --script demo/chat.txt`, the 4 questions graded by hand against the key in
+   `scripts/make_demo_table.py` (`QUESTIONS`), as R-175 graded 6.37 and base.
+2. R-176's 8 questions: `scripts/run_demo_branches.py`, messages 1 to 14 then one branch per question, searchable and
+   empty-index arms. Two fresh blind judges with `results/panels/R-176/judge_brief.md`, the same brief, including the
+   never-told rule that R-178 fixed for S3; kept so both runs are scored alike, and the departure stays disclosed.
+   Tally by `scripts/records/demo_judges_r176.py`. Base's arms rerun in the same script and must equal R-176's base
+   replies word for word (greedy); any difference is reported.
+3. Code: one change, a `--name` option on `run_demo_branches.py` (default "6.37") so the adapter arm is labelled K1.
+   Nothing else in either script changes. Outputs: `results/demo/k1_r178_82.json`,
+   `results/demo/branches_k1_r178_82.json`. One run each, after screening, whether K1 passes or fails, clean tree,
+   card lock, HF offline.
+
+**A new demo on blind questions** (Kevin, 12 November: "then we'll make another demo on a set of blind questions").
+Its protocol (`docs/demo2/BRIEF.md`) gets its own record before the run, checked first by an against lane:
+- A fresh writer agent, given only the brief, writes a new scripted chat and its questions. Barred from the training
+  data, both demos, S3, these records and the weaknesses' words, like S3's writers. Its transcript is audited for tool
+  calls. Nobody reads the chat or the questions before the run.
+- 12 questions with the counts of each kind fixed in the brief: older facts inside and outside training categories,
+  including facts about the speaker; facts still in view; never-told questions, some sharing a word with a message.
+- Arms: base, 6.37 seed 82 and K1 seed 82, each with search and with an empty index. One run, after the record is
+  committed, whether K1 passes screening or fails.
+- Two fresh blind judges with S3's judge brief (the fixed never-told rule), every arm judged alike. Every reply and
+  query is published word for word.
+- This demo is blind for K1 as well as for 6.37: the questions are written after K1's design, by a writer who has seen
+  neither K1's training set nor the failures.
+
+**Training cutoff moved** (Kevin, 12 November: "make it 1159 saturday night for the cutoff. it's not going to take
+more than hour or two to finish up"). R-178's "no training starts after Saturday 14 November 12:00 UTC" becomes no
+training starts after Saturday 14 November 23:59 Eastern (Sunday 15 November 04:59 UTC). Submission closes Sunday
+15 November 23:59 AoE (Monday 16 November 11:59 UTC, 06:59 Eastern). Changed before any K1 result is read; no
+measurement rule changes.
+
+**What it can show.** The first two demos: K1 was designed after the demo's two failures were diagnosed (R-175, R-177): the training set
+adds the fact types and the earlier-reply cases that caused them. So the demo is not a blind test of K1. It shows
+whether the specific failures shown in public are gone, side by side with 6.37's replies. It is a report only; the
+ship rule does not read it, and S3 decides.
