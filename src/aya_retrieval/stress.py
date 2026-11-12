@@ -17,8 +17,16 @@ import random
 import re
 from pathlib import Path
 
-from aya_retrieval.conversations import ASK_FORMS, CONFIRM, EXCHANGES_IN_VIEW, OLDER, RecallItem
+from aya_retrieval.conversations import (
+    ASK_FORMS,
+    CONFIRM,
+    EXCHANGES_IN_VIEW,
+    IN_VIEW,
+    OLDER,
+    RecallItem,
+)
 from aya_retrieval.pools import POOLS
+from aya_retrieval.train_phrasings import MORE_STATEMENTS
 
 # Contractions typed without the apostrophe, as many people text.
 _CONTRACTIONS = re.compile(r"\b(\w+)'(t|s|m|re|ll|ve|d)\b")
@@ -269,4 +277,155 @@ def asked_before(item: RecallItem, seed: int, pool_name: str) -> RecallItem:
     if slot == item.fact_index:
         slot -= 1
     exchanges[slot] = (question, rng.choice(pool.unknown_replies))
+    return dataclasses.replace(item, exchanges=tuple(exchanges))
+
+
+@dataclasses.dataclass(frozen=True)
+class ToldFact:
+    """A fact stated in an out-of-view exchange: its type, whom it is about, its value, its slot."""
+
+    fact_type: str
+    relation: str
+    person: str
+    value: str
+    slot: int
+
+
+def _statement_pattern(wording: str, pool, values: tuple[str, ...]) -> re.Pattern:
+    """Return a pattern that finds ``wording`` filled with any relation, person and value."""
+    groups = {
+        "relation": pool.relations,
+        "person": pool.people,
+        "value": values,
+    }
+    parts = re.split(r"\{(relation|person|value)\}", wording)
+    pattern = ""
+    for index, part in enumerate(parts):
+        if index % 2:
+            choices = sorted(groups[part], key=len, reverse=True)
+            pattern += f"(?P<{part}>{'|'.join(map(re.escape, choices))})"
+        else:
+            pattern += re.escape(part)
+    return re.compile(pattern)
+
+
+def told_facts(item: RecallItem, pool_name: str) -> list[ToldFact]:
+    """Return every fact stated out of view, in the pool's own wordings or training's extra ones.
+
+    A line that holds a correction is found too, with the value it states.
+    """
+    pool = POOLS[pool_name]
+    patterns = [
+        (name, _statement_pattern(wording, pool, template.values))
+        for name, template in sorted(pool.facts.items())
+        for wording in (template.statement, *MORE_STATEMENTS.get(template.statement, ()))
+    ]
+    facts = []
+    for slot, (user, _) in enumerate(item.older()):
+        for name, pattern in patterns:
+            found = pattern.search(user)
+            if found:
+                who = found["relation"], found["person"]
+                facts.append(ToldFact(name, *who, found["value"], slot))
+                break
+    return facts
+
+
+REPLY_KINDS = ("right", "right", "wrong", "declined")
+
+
+def earlier_answers(
+    item: RecallItem, seed: int, pool_name: str, reask: bool = False
+) -> tuple[RecallItem, tuple[str, ...], tuple[str, ...]] | None:
+    """Return ``item`` with 1 or 2 earlier questions, each with a reply, in view (F3, R-178).
+
+    Each question asks about a fact told out of view, in one of its template's ask forms. Its
+    reply gives the fact's value (half the draws), another value of the same type that the chat
+    holds (a quarter), or declines (a quarter). Every value a reply gives joins the forbidden
+    values, so a target that copies it fails the scorer. With ``reask`` the one question is the
+    item's own fact, answered with a wrong value, and the final message asks it again: ``older``
+    and ``confirm`` only. The fact's own exchange is never replaced.
+
+    Returns:
+        The changed item, the reply kinds used in slot order, and the values the replies give;
+        None when the chat holds no fact a question can use.
+    """
+    if reask and item.kind not in (OLDER, CONFIRM):
+        return None
+    rng = random.Random(seed + 9)
+    pool = POOLS[pool_name]
+    facts = told_facts(item, pool_name)
+
+    def siblings(fact: ToldFact) -> list[str]:
+        """Return the chat's other values of ``fact``'s type, never the item's answer."""
+        return sorted(
+            {
+                f.value
+                for f in facts
+                if f.fact_type == fact.fact_type and f.value not in (fact.value, item.answer)
+            }
+        )
+
+    if reask:
+        own = [f for f in facts if f.slot == item.fact_index]
+        if not own or not siblings(own[0]):
+            return None
+        plan = [(own[0], "wrong", rng.choice(siblings(own[0])))]
+    else:
+        others = [f for f in facts if f.slot != item.fact_index and f.value != item.answer]
+        plan = []
+        for _ in range(rng.choice((1, 2))):
+            unused = [f for f in others if f not in {p[0] for p in plan}]
+            kind = rng.choice(REPLY_KINDS)
+            usable = [f for f in unused if siblings(f)] if kind == "wrong" else unused
+            if not usable:
+                continue
+            fact = rng.choice(usable)
+            value = None
+            if kind != "declined":
+                value = fact.value if kind == "right" else rng.choice(siblings(fact))
+            plan.append((fact, kind, value))
+        if not plan:
+            return None
+
+    exchanges = list(item.exchanges)
+    view = range(len(exchanges) - EXCHANGES_IN_VIEW, len(exchanges))
+    slots = sorted(rng.sample([i for i in view if i != item.fact_index], len(plan)))
+    forbidden = list(item.forbidden)
+    for slot, (fact, _, value) in zip(slots, plan, strict=True):
+        template = pool.facts[fact.fact_type]
+        form = getattr(template, rng.choice(ASK_FORMS))
+        question = form.format(relation=fact.relation, person=fact.person)
+        if value is None:
+            reply = rng.choice(pool.unknown_replies)
+        else:
+            reply = template.answer.format(relation=fact.relation, person=fact.person, value=value)
+            if value not in forbidden:
+                forbidden.append(value)
+        exchanges[slot] = (question, reply)
+    changed = dataclasses.replace(item, exchanges=tuple(exchanges), forbidden=tuple(forbidden))
+    given = tuple(dict.fromkeys(value for _, _, value in plan if value))
+    return changed, tuple(kind for _, kind, _ in plan), given
+
+
+WRONG_BEFORE_KINDS = (OLDER, CONFIRM, IN_VIEW)
+
+
+def wrong_before(item: RecallItem, seed: int, pool_name: str) -> RecallItem:
+    """Return ``item`` with its own question asked earlier, in view, and answered wrong (R-178).
+
+    A development stress for the copy of an earlier wrong answer. The earlier question is the
+    item's own final message; its scripted reply is the item's reply with the decoy, a value of
+    the same type, in place of the answer. The decoy is already forbidden, so a copy fails the
+    scorer. It sits in the newest exchange in view, or the one before if the item's fact is there.
+    Only ``WRONG_BEFORE_KINDS`` are changed; other kinds are returned unchanged.
+    ``seed`` and ``pool_name`` are unused, so every model sees the same reply.
+    """
+    if item.kind not in WRONG_BEFORE_KINDS or item.answer not in item.reply:
+        return item
+    exchanges = list(item.exchanges)
+    slot = len(exchanges) - 1
+    if slot == item.fact_index:
+        slot -= 1
+    exchanges[slot] = (item.message, item.reply.replace(item.answer, item.decoy))
     return dataclasses.replace(item, exchanges=tuple(exchanges))

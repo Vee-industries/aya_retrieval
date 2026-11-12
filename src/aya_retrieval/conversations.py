@@ -6,7 +6,9 @@ the conversation has left the view, so a model that sees only the last exchanges
 
 from __future__ import annotations
 
+import dataclasses
 import random
+import re
 from dataclasses import dataclass
 
 from aya_retrieval.pools import POOLS, FactTemplate, Pool
@@ -22,6 +24,10 @@ NEVER_TOLD = "never_told"
 STATEMENT = "statement"
 ITEM_KINDS = (OLDER, CONFIRM, IN_VIEW, NEVER_TOLD, STATEMENT)
 NEEDS_SEARCH = (OLDER, CONFIRM, NEVER_TOLD)
+# Where the passages a search returns come from in a chat with facts of other types (F2, R-178):
+# same-type facts about other people, other-type facts about the asked person, or a small-talk
+# line that shares an ordinary word with the search.
+OTHER_FACT_SHARES = ("same_type", "same_person", "shared_word")
 
 
 @dataclass(frozen=True)
@@ -74,6 +80,7 @@ def build_item(
     force_indirect: bool = False,
     chat_line: tuple[str, str] | None = None,
     fact_type: str | None = None,
+    other_facts: str | None = None,
 ) -> RecallItem:
     """Return a conversation of about ``messages`` messages ending in a message of ``kind``.
 
@@ -98,6 +105,9 @@ def build_item(
         chat_line: A ``statement`` item's line and reply, in place of the drawn one; the draw is
             still made, so the rest of the conversation is unchanged.
         fact_type: A key of the pool's facts, in place of the drawn one; the draw is still made.
+        other_facts: One of ``OTHER_FACT_SHARES``: add facts of other types out of view, as
+            ``add_other_facts`` does, from a separate generator, so the rest of the conversation
+            is the same with or without it. None, the default, adds none.
     """
     pool = POOLS[pool_name]
     rng = random.Random(seed)
@@ -177,7 +187,7 @@ def build_item(
         message = form.format(relation=relation, person=person)
         query = _query(template, message, relation, person)
 
-    return RecallItem(
+    item = RecallItem(
         item_id=item_id,
         kind=kind,
         exchanges=tuple(exchanges),
@@ -189,6 +199,91 @@ def build_item(
         query=query,
         reply=reply,
     )
+    if other_facts:
+        asked = (other_relation, other_person) if kind == NEVER_TOLD else (relation, person)
+        item = add_other_facts(item, seed, pool_name, other_facts, asked)
+    return item
+
+
+def _words(text: str) -> set[str]:
+    """Return the words of ``text``, lower case; a possessive's name counts as the name."""
+    return set(re.findall(r"[a-z]+", text.casefold()))
+
+
+def add_other_facts(
+    item: RecallItem, seed: int, pool_name: str, share: str, asked: tuple[str, str]
+) -> RecallItem:
+    """Return ``item`` with 2 to 4 facts of other types in free out-of-view slots (F2, R-178).
+
+    The first added type is stated twice, about two people, so the chat holds another value of
+    that type. A free slot is an out-of-view exchange whose friend line names no value of the
+    pool, so no fact, decoy or correction is overwritten. New people are ones the chat never
+    names. Nothing scored changes: answer, forbidden values, query and reply stay as they were.
+
+    Args:
+        item: The conversation.
+        seed: Draws the facts, from its own generator.
+        pool_name: A key of ``POOLS``.
+        share: One of ``OTHER_FACT_SHARES``. ``same_person``: the first fact, and about half of
+            the rest, are about ``asked``. ``same_type`` and ``shared_word``: none is about
+            ``asked``; ``shared_word`` also adds a small-talk line about the last word of the
+            item's query that is not a name, ends in no "ed" and has three letters or more.
+        asked: The relation and person the final message is about.
+    """
+    if share not in OTHER_FACT_SHARES:
+        raise ValueError(f"unknown share {share!r}")
+    rng = random.Random(seed + 7)
+    pool = POOLS[pool_name]
+    own = next(name for name, t in sorted(pool.facts.items()) if item.decoy in t.values)
+    values = [v for t in pool.facts.values() for v in t.values]
+    exchanges = list(item.exchanges)
+    older = len(exchanges) - EXCHANGES_IN_VIEW
+    free = [
+        i
+        for i in range(older)
+        if i != item.fact_index and not any(v in exchanges[i][0] for v in values)
+    ]
+    said = _words(" ".join([item.message, *(u + " " + r for u, r in exchanges)]))
+    people = [p for p in pool.people if p.casefold() not in said and p != asked[1]]
+    unsaid = [r for r in pool.relations if r.casefold() not in said and r != asked[0]]
+    reused = [r for r in pool.relations if r != asked[0]]
+
+    count = rng.randint(2, 4)
+    types = rng.sample([name for name in sorted(pool.facts) if name != own], count - 1)
+    pair = rng.sample(pool.facts[types[0]].values, 2)
+    plan = [(types[0], pair[0]), (types[0], pair[1])]
+    plan += [(name, rng.choice(pool.facts[name].values)) for name in types[1:]]
+    lines = []
+    for index, (name, value) in enumerate(plan):
+        # The second fact of the stated-twice type is always about someone else.
+        about_asked = share == "same_person" and index != 1 and (index == 0 or rng.random() < 0.5)
+        if about_asked:
+            relation, person = asked
+        elif people:
+            # A relation the chat never names while one is left, then any but the asked one.
+            relation = unsaid.pop(rng.randrange(len(unsaid))) if unsaid else rng.choice(reused)
+            person = people.pop(rng.randrange(len(people)))
+        else:
+            continue
+        line = pool.facts[name].statement.format(relation=relation, person=person, value=value)
+        lines.append((line, rng.choice(pool.acknowledgements)))
+    if share == "shared_word":
+        names = {w.casefold() for w in (*pool.people, *pool.relations)}
+        ordinary = [
+            w
+            for w in item.query.casefold().split()
+            if w not in names and not w.endswith("ed") and len(w) >= 3
+        ]
+        if ordinary:
+            mood = rng.choice(pool.moods)
+            subject = f"the {ordinary[-1]}"
+            reply = rng.choice(mood.replies).format(subject=subject)
+            lines.append(
+                (rng.choice(mood.user_lines).format(subject=subject), reply[0].upper() + reply[1:])
+            )
+    for slot, line in zip(rng.sample(free, min(len(free), len(lines))), lines, strict=False):
+        exchanges[slot] = line
+    return dataclasses.replace(item, exchanges=tuple(exchanges))
 
 
 def rebuild_eval_item(row: dict, probe_seed: int, pool: str, decoys: int = 1) -> RecallItem:
