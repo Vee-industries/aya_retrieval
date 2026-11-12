@@ -18,7 +18,7 @@ replies that share four words with a template but state no whole fact, and the d
 facts.
 
 Usage:
-    python scripts/records/check_r199.py
+    python scripts/records/check_r199.py [--set NAME]   (R-200 checks k1_3_r200)
 """
 
 from __future__ import annotations
@@ -36,7 +36,9 @@ from aya_retrieval.pool_hard_dev import HARD_DEV
 from aya_retrieval.pools import TRAIN
 
 HERE = Path(__file__).resolve().parent
-NAME = "k1_2_r199"
+NAME = (
+    sys.argv[sys.argv.index("--set") + 1] if "--set" in sys.argv else "k1_2_r199"
+)  # R-200: k1_3_r200
 MAX_GAP = 0.37
 MAX_POINTS = 0.05
 QUERIES = {t.statement: t.query.replace("{who}", "").strip() for t in TRAIN.facts.values()}
@@ -116,7 +118,10 @@ def roles(rows: list[dict]):
         kinds = []
         for line in re.findall(r"^User: (.*)$", output, re.M):
             got = match(line)
-            if not got or not query.endswith(QUERIES[got[1]]):
+            if not got:
+                continue
+            if not query.endswith(QUERIES[got[1]]):  # R-200: reported per side
+                counts.setdefault(f"{side}_other_type", Counter())[got[0]] += 1
                 continue
             kind, _template, found = got
             fields = found.groupdict()

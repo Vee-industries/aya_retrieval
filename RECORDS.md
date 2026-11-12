@@ -8050,3 +8050,58 @@ words with a template but stating no whole fact (29 in K1; these keep K1's text)
 **Predictions** (mine, before the build): every line passes; each role about 75% drawn; gap 0.23. If it trains:
 hard_dev recall pooled over 82 and 83 about 130 (range 115 to 150; K1 122); T3 copies about 68; T2 false answers
 about 5.
+
+## R-200 · 2026-11-12 · REOPENED · K1.2's set fails two check lines by an uneven draw; K1.3 registered before it is built
+
+**K1.2's result.** Built once (`scripts/records/build_r199.py`, `data/screens/k1_2_r199.jsonl`, 1,094 rows, 769
+changed) and checked (`scripts/records/check_r199.py`): 7 of 9 lines pass, 2 fail, so under R-199 K1.2 does not train.
+
+| Line | K1.2 | Registered | Result |
+|---|---|---|---|
+| 1. rows unlike K1 beyond wording | 0 | 0 | PASS |
+| 2. passage gap; never_told with passages | 0.23; 160 of 160 | at most 0.37; all | PASS |
+| 3. four-word runs shared with hard_dev forms | 0 | 0 | PASS |
+| 4a. drawn share, answers against found decoys | 75.8% against 67.2% (z 3.10) | at most 5 points apart | FAIL |
+| 4b. drawn share, found decoys against never_told decoys | 67.2% against 82.6% (z -4.66) | at most 5 points apart | FAIL |
+| 5. all-template outputs, found against never_told, by count 1, 2, 3 | 23.2/21.6, 6.1/2.3, 2.4/2.0% | at most 5 points apart | PASS |
+
+Reported: asked person's other lines 74.5% drawn; all facts 1,429 of 1,934 drawn (73.9%); wrapped facts 100 of 140.
+
+**What the failure is** (my reading, after the result). The draw is independent of role by construction, and the
+roles' lines are distinct facts (found decoys 484 distinct of 494, never_told 280 of 287), so this is not repeats.
+The classification agrees with the build's own draw on every line (0 disagreements), and the split is spread over
+every fact type. Recomputing the same draw for the same lines under four other salts (no set built) gives found
+against never_told decoys 73.3/75.0, 71.9/72.1, 77.7/77.1 and 69.8/73.6%: the registered salt's draw was an unlikely
+one. Under R-199 that is a FAIL all the same; trying another salt for K1.2 would be choosing a draw by its check.
+
+**Decision.** Kevin, after R-198: build a working K1.2 ("why do you keep giving up?"). Under R-194 (any number of
+candidates, training done by Saturday 16:00), a new candidate whose design removes the chance in line 4.
+
+**K1.3** (`scripts/records/build_r200.py`): K1.2 with the template wording given by quota instead of by chance.
+(1) Each fact in a row gets a role: in a search row's output, a line of the asked type is an answer, the asked person's
+other value, a found decoy or a never_told decoy (as `check_r199` classes them); a line of another type is
+found_other_type or never_told_other_type; every other fact is "other". (2) Search rows are grouped by side and by n,
+the number of asked-type lines returned; in each group exactly 0.25^n of the rows, by a hashed order, have every such
+line in the template wording (check line 5); every other row keeps one of them drawn. (3) Within each role a quarter
+of the occurrences (row, fact) keep the template wording, counting step 2's, filled in a hashed order (check line 4).
+(4) The rest take a drawn wording (template excluded) from a hash of row and fact with a salt of its own. A fact has
+one wording within a row; across rows the same fact is drawn again. Everything else is K1.2's: facts found anywhere in
+a line, replies that repeat them reworded alike, search results, scores and replies' content K1's.
+
+**Check before training**: R-199's lines unchanged, run as `scripts/records/check_r199.py --set k1_3_r200`.
+
+**Disclosures.**
+- K1.3 is designed after K1.2's check result (a property of the set, no model output).
+- Lines 4 and 5 now hold by construction, up to rounding; with lines 1 and 2 they stay as checks against a code fault.
+  What K1.3 still tests is the model, at screening.
+- The roles are read from the search outputs, so the build uses the check's own classification.
+- Against lane (`results/panels/R-200/lane_against.md`, on the first quota version): no bug; line 5 would fail by
+  chance about 59% of the time (1-line rows: 185 found, 51 never_told), other-type returned lines were left to chance,
+  docstring not exact. All three fixed as above (steps 2, 1 and the docstring); the check now also reports other-type
+  returned lines per side. The fixed version was not read again by a lane.
+
+**Fixed in advance.** One build; any FAIL means no K1.3 and K1 goes on alone. Seeds 82, 83 and 94 in one queue
+(`decide_r191.py` with K1.3 added; seed 94 counts only if K1.3 is eligible; R-192's pick). S3 once, after the pick.
+
+**Predictions** (mine, before the build): every line passes; lines 4 and 5 within 1 point. If it trains: hard_dev recall pooled over 82 and 83 about 130 (range 115 to 150; K1 122); T3 copies about 68;
+T2 false answers about 5.
