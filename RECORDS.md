@@ -7962,3 +7962,34 @@ never_told rows that differ from K1's 16. Gap for scale: 6.37 0.37, K1 0.23, K2.
 
 **Next.** K1 stays the only candidate; its seed 94 trains after base's reruns, as planned. Whether to try another
 candidate, and from what cause, is Kevin's call (R-194 allows it until the Saturday 16:00 cutoff).
+
+## R-198 · 2026-11-12 · REOPENED · K1 passes screening against base; K1.2 dropped before registration
+
+**K1's screening.** `decide_r191.py` at 16:30, with base's R-191 reruns and K1's seed 94 in: K1 passes all 20 lines
+(recall above base at both seeds on probe 93 and 95 against 30, hard_dev 57 and 65 against 20, outside-writer 81 and
+90 against 53, T2 other-facts 143 and 153 against 53; every absolute line as R-195). Pick recall over seeds 82, 83
+and 94: 720. K1 is the only eligible candidate (K2.1 fails, R-195), so it is the shippable arm unless another
+candidate passes.
+
+**K1.2.** Kevin, after R-197: "Try K1.2". My design (`results/panels/R-198/draft.md`, `scripts/records/build_r198.py`,
+`scripts/records/check_r198.py`, never run): K1.1 with each searching row's F2 wordings redrawn, up to 8 times, until
+its search returns K1's passage count. The against lane (`results/panels/R-198/lane_against.md`, read-only scripts
+beside it over K1's and K1.1's existing sets; no build, no search) found it cannot work, and I checked its main count
+by rerunning `results/panels/R-198/scripts/r198_mech.py data/screens`:
+
+| Search-output fact lines, rows with the same id | found K1 | found K1.1 | never_told K1 | never_told K1.1 |
+|---|---|---|---|---|
+| asked type (answer line and decoys, from `build_item`) | 1,026 | 908 | 262 | 166 |
+| other types (F2's added lines) | 252 | 251 | 79 | 84 |
+
+The lost passages are all decoy lines of the asked type, whose wording `build_item` draws (`more_statements`,
+`phraser`, conversations.py:129-152). F2's added lines come back because they name the asked person, in any wording;
+the redraw changes only those, so line 3b would most likely fail again. The lane also found that the re-registered
+lines 1 and 4 would pass K1.1's own set unchanged, and five smaller faults (`lane_against.md` findings 2 to 10).
+K1.2 is not registered and not built. Correction to R-197's reading of line 3b: it was the decoys, not the other
+facts, whose drawn wordings returned fewer passages.
+
+**What a working K1.2 would need** (the lane's list): redraw decoy lines in a copy of `build_item`, shown first on
+non-training rows to move passage counts, with gates on the drawn share of returned decoys against answer lines and
+found against never_told decoys, since the pick would push decoys toward the template and make "a same-type line in a
+drawn wording is the answer" a new cue; then a fresh against lane. Whether to do that or take K1 alone is Kevin's call.
