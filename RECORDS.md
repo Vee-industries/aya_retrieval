@@ -7840,3 +7840,35 @@ with S3 estimated at 5 to 8 hours (not yet timed): the last candidate's training
 Saturday 14 November 16:00 Eastern; its screening and the pick by 18:00; S3 starts by 19:00. A candidate whose
 training would not finish by 16:00 Saturday is not started. Judges and write-up updates follow on Sunday; submission
 closes Monday 16 November 06:59 Eastern.
+
+## R-195 · 2026-11-12 · REOPENED · K2.1 fails one screening line; K1 is the only candidate still open
+
+**Result.** K2.1's two seeds (82, 83) were trained and scored, and every result was committed before any was read
+(`scripts/records/decide_r191.py`). It fails one line that R-191 kept from R-178: probe in_view at seed 83 is 40, the
+line is at least 41. It passes every other line that does not need base. Its four recall lines against base wait on
+base's rerun (R-191), which no longer changes the outcome. Under R-191 a candidate that fails any line is not eligible.
+K2.1 does not go to S3 as the shippable arm; it runs on S3 as a report arm at 82 and 83 (R-194).
+
+| | K1 seed 82 | K1 seed 83 | K2.1 seed 82 | K2.1 seed 83 | 6.37 seed 82 | 6.37 seed 83 |
+|---|---|---|---|---|---|---|
+| probe in_view (line: at least 41) | 46 | 44 | 46 | **40** | 44 | 44 |
+| probe recall (older + confirm) | 93 | 95 | 96 | 91 | 96 | 96 |
+| hard_dev recall (older + confirm) | 57 | 65 | 68 | 51 | 73 | 90 |
+| outside-writer recall (blind + blind2) | 81 | 90 | 102 | 77 | 92 | 96 |
+| T2 other-facts recall | 143 | 153 | 161 | 138 | | |
+
+| Both seeds pooled | K1 | K2.1 | 6.37 |
+|---|---|---|---|
+| dev recall, probe + hard_dev + outside-writer | 481 | 485 | 543 |
+| T3 copies of an earlier wrong value (line: at most half of 6.37's 368) | 68 | 45 | 368 |
+| T2 never_told false answers (line: at most half of 6.37's 53) | 3 | 20 | 53 |
+
+K2.1 is stronger than K1 at seed 82 and weaker at seed 83; the gap between its two seeds (hard_dev 68 against 51,
+outside-writer 102 against 77) is larger than K1's. Both candidates are well below 6.37 on hard_dev recall. Against
+my R-187 predictions: hard_dev recall pooled 119 (predicted 140, range 128 to 155), T2 false answers 20 (predicted
+about 15), T3 copies 45 (predicted about 68).
+
+**Change to the queue (small call, recorded).** R-192 gave seed 94 to K2.1 for the pick. The pick is among eligible
+candidates only, so K2.1's seed 94 cannot change it; that training and its four scorings are dropped from the queue,
+which frees about an hour and a half of card time under R-194's cutoff. K1's seed 94 runs as planned, after base's
+reruns.
