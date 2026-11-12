@@ -26,6 +26,7 @@ from aya_retrieval.conversations import (
     NEEDS_SEARCH,
     NEVER_TOLD,
     OLDER,
+    OTHER_FACT_SHARES,
     STATEMENT,
     RecallItem,
     build_item,
@@ -35,6 +36,7 @@ from aya_retrieval.demonstrations import (
     message_words_query,
     missing_words_query,
     search_call,
+    values_named,
     whole_sentences,
 )
 from aya_retrieval.harness import turns_from
@@ -44,6 +46,7 @@ from aya_retrieval.pools import TRAIN
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.recall_tool import build_recall_tool, search_finds_fact
 from aya_retrieval.scoring import item_correct
+from aya_retrieval.stress import earlier_answers
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME, system_prompt_with_tools
 from aya_retrieval.train_phrasings import MORE_CHAT_FACTS, MORE_CHAT_PLAIN
 
@@ -298,10 +301,33 @@ def main() -> None:
         default=0.4,
         help="with --answer-adapter, the share of a reply's words from the message that rejects it",
     )
+    parser.add_argument(
+        "--other-facts",
+        action="store_true",
+        help="chats also hold 2 to 4 facts of other types, in three equal shares per kind; "
+        "never_told rows only where the search returns passages; passage values but the answer "
+        "forbidden (F2, R-178)",
+    )
+    parser.add_argument(
+        "--earlier-answers",
+        type=float,
+        default=0.0,
+        help="share of rows with 1 or 2 earlier questions and replies in view; values they give "
+        "are forbidden in the target (F3, R-178)",
+    )
+    parser.add_argument(
+        "--reask-rows",
+        type=int,
+        default=0,
+        help="older and confirm rows whose own question was answered wrong in view; the target "
+        "searches and gives the right value (F3, R-178)",
+    )
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
     if args.hard_in_view and not args.read_hint:
         parser.error("--hard-in-view needs --read-hint")
+    if (args.other_facts or args.earlier_answers or args.reask_rows) and args.wide_share:
+        parser.error("--other-facts, --earlier-answers and --reask-rows use the train pool only")
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 
     require_clean_tree(args.allow_dirty)
@@ -330,6 +356,11 @@ def main() -> None:
         "answer_adapter": args.answer_adapter and args.answer_adapter.as_posix(),
         "echo_limit": args.echo_limit if args.answer_adapter else None,
     }
+    # Recorded only when used, so a default build's provenance is as before.
+    for option in ("other_facts", "earlier_answers", "reask_rows"):
+        if getattr(args, option):
+            report[option] = getattr(args, option)
+    reask_rows = {OLDER: args.reask_rows - args.reask_rows // 2, CONFIRM: args.reask_rows // 2}
     rejected = set(json.loads(args.reject_replies.read_text())) if args.reject_replies else set()
     rows_per_kind = {
         **ROWS_PER_KIND,
@@ -354,6 +385,11 @@ def main() -> None:
         while made < rows_per_kind[kind]:
             seed, attempt = args.seed + kind_seed_offset(kind) + attempt, attempt + 1
             decoys = rng.choice(DECOY_CHOICES[kind])
+            share = None
+            if args.other_facts:
+                # Every kind in the same three shares, and decoys as drawn, so the number of
+                # passages a search returns still does not tell found from not found (R-020).
+                share = OTHER_FACT_SHARES[made % 3]
             item = build_item(
                 f"{kind}_{made:04d}",
                 seed,
@@ -368,18 +404,42 @@ def main() -> None:
                 or (kind == OLDER and bool(args.indirect_types)),
                 CHAT_SETS[args.chat_set][made] if args.chat_set and kind == STATEMENT else None,
                 args.indirect_types[made] if args.indirect_types and kind == OLDER else None,
+                other_facts=share,
             )
             if args.message_queries and item.query:
                 item = dataclasses.replace(item, query=message_words_query(item))
+            earlier = ()
+            reask = made < reask_rows.get(kind, 0)
+            if reask or (
+                args.earlier_answers and random.Random(seed + 8).random() < args.earlier_answers
+            ):
+                changed = earlier_answers(item, seed, "train", reask)
+                if changed is None and reask:
+                    tally[f"{kind}_reask_unbuildable"] += 1
+                    continue
+                if changed is None:
+                    tally[f"{kind}_earlier_unbuildable"] += 1
+                else:
+                    item, earlier = changed[0], changed[2]
+                    tally.update(f"{kind}_earlier_{reply_kind}" for reply_kind in changed[1])
             if kind in NEEDS_SEARCH:
                 tool = build_recall_tool(item, args.index, match_all=False)
                 output = tool.execute(item.query).output
-                if args.never_told_hits and kind == NEVER_TOLD and "chunk_id=" not in output:
+                needs_hits = args.never_told_hits or args.other_facts
+                if needs_hits and kind == NEVER_TOLD and "chunk_id=" not in output:
                     # An empty result makes declining easy; the case to teach is same-type facts
                     # about other people coming back (R-050).
                     tally[f"{kind}_empty_skipped"] += 1
                     continue
+                if args.other_facts:
+                    passed = values_named(output, "train", item.answer)
+                    item = dataclasses.replace(
+                        item, forbidden=tuple(dict.fromkeys((*item.forbidden, *passed)))
+                    )
                 found = search_finds_fact(tool, item, item.query)
+                if reask and not found:
+                    tally[f"{kind}_reask_missed"] += 1
+                    continue
                 tally[f"{kind}_found" if found else f"{kind}_missed"] += 1
                 passages[kind][output.count("chunk_id=")] += 1
                 reply = item.reply
@@ -401,6 +461,10 @@ def main() -> None:
                     args.brief_in_view and kind == IN_VIEW
                 )
                 reply, output, found = base_reply(model, tokenizer, item, brief), "", False
+                if reply and any(value.casefold() in reply.casefold() for value in earlier):
+                    # The scorer ignores values in a statement reply; an earlier one is still wrong.
+                    tally[f"{kind}_copied_earlier"] += 1
+                    reply = None
                 if reply and kind == IN_VIEW and easy_full(tally, args.hard_in_view):
                     tally[f"{kind}_easy_skipped"] += 1
                     continue
@@ -428,6 +492,10 @@ def main() -> None:
                 continue
             rows.append({"id": item.item_id, "kind": kind, "turns": turns})
             made += 1
+            if share:
+                tally[f"{kind}_share_{share}"] += 1
+            if reask:
+                tally[f"{kind}_reask"] += 1
         LOG.info("%s done after %d attempts", kind, attempt)
 
     args.index.unlink(missing_ok=True)

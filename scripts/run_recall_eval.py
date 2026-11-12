@@ -22,7 +22,15 @@ from pathlib import Path
 import torch
 from peft import PeftModel
 
-from aya_retrieval.conversations import ITEM_KINDS, OLDER, STATEMENT, build_item
+from aya_retrieval.conversations import (
+    ITEM_KINDS,
+    NEVER_TOLD,
+    OLDER,
+    OTHER_FACT_SHARES,
+    STATEMENT,
+    build_item,
+)
+from aya_retrieval.demonstrations import values_named
 from aya_retrieval.dev_set import load_dev_set
 from aya_retrieval.harness import TurnResult, run_turn, turns_from
 from aya_retrieval.inference import GREEDY, generate_from_messages, prompt_tokens
@@ -32,17 +40,21 @@ from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 from aya_retrieval.recall_tool import build_recall_tool, search_finds_fact
 from aya_retrieval.scoring import check_scorer, item_correct, right_decision
 from aya_retrieval.stress import (
+    WRONG_BEFORE_KINDS,
     asked_before,
     corrected,
     corrected_heldout,
     phone_style,
     user_style,
+    wrong_before,
 )
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME, system_prompt_with_tools
 
 LOG = logging.getLogger("recall_eval")
 
 SIZES = (58, 419)
+# The dev stresses of R-178 read only development pools.
+STRESS_POOLS = ("probe", "hard_dev")
 ARMS = (
     "whole_chat",
     "three_exchanges",
@@ -139,6 +151,18 @@ def main() -> None:
         type=Path,
         help="score chats written blind to the generator instead of building items (R-139)",
     )
+    parser.add_argument(
+        "--wrong-before",
+        action="store_true",
+        help="the item's own question, answered wrong with the decoy, in view; rows record "
+        "whether the reply copies it (R-178; probe and hard_dev only)",
+    )
+    parser.add_argument(
+        "--other-facts",
+        action="store_true",
+        help="chats also hold facts of other types; never_told rows record false answers "
+        "(R-178; probe and hard_dev only)",
+    )
     parser.add_argument("--final", action="store_true", help="needed to read held-out items")
     parser.add_argument("--allow-dirty", action="store_true", help="development runs only")
     args = parser.parse_args()
@@ -146,8 +170,11 @@ def main() -> None:
     if args.pool in SEALED and not args.final:
         parser.error("sealed conversations need --final")
     changes = ("user_style", "phone_style", "corrections", "corrections_heldout", "asked_before")
+    changes += ("wrong_before", "other_facts")
     if args.items_dir and (args.chat_check or any(getattr(args, c) for c in changes)):
         parser.error("--items-dir scores the written chats as they are, with no changes")
+    if (args.wrong_before or args.other_facts) and args.pool not in STRESS_POOLS:
+        parser.error("--wrong-before and --other-facts run on the probe and hard_dev pools only")
 
     require_clean_tree(args.allow_dirty)
     check_scorer()
@@ -169,6 +196,10 @@ def main() -> None:
         "chat_check": args.chat_check and args.chat_check.as_posix(),
         "rows": [],
     }
+    # Recorded only when used, so a default run's results are as before.
+    for option in ("wrong_before", "other_facts"):
+        if getattr(args, option):
+            report[option] = True
     if args.items_dir:
         written, dropped, digest = load_dev_set(args.items_dir)
         report |= {"items_dir": args.items_dir.as_posix(), "items_sha256": digest}
@@ -211,6 +242,8 @@ def main() -> None:
                 for number in range(args.items_per_kind):
                     seed = args.seed + size * 1000 + kind_number * 100 + number
                     check = number + size_number * args.items_per_kind
+                    # As training builds them (R-178): three shares, in turn, for every kind.
+                    share = OTHER_FACT_SHARES[number % 3] if args.other_facts else None
                     item = build_item(
                         f"{size}_{kind}_{number:02d}",
                         seed,
@@ -221,6 +254,7 @@ def main() -> None:
                         chat_line=(check_lines[check % len(check_lines)], "")
                         if check_lines and kind == STATEMENT
                         else None,
+                        other_facts=share,
                     )
                     if args.corrections:
                         item = corrected(item, seed, args.pool)
@@ -228,6 +262,8 @@ def main() -> None:
                         item = corrected_heldout(item, seed, args.pool)
                     if args.asked_before:
                         item = asked_before(item, seed, args.pool)
+                    if args.wrong_before:
+                        item = wrong_before(item, seed, args.pool)
                     if args.user_style:
                         item = user_style(item, seed)
                     if args.phone_style:
@@ -279,6 +315,17 @@ def main() -> None:
                     ),
                 }
             )
+            row = report["rows"][-1]
+            if args.wrong_before and kind in WRONG_BEFORE_KINDS:
+                # The decoy is the earlier wrong reply's value; it is already forbidden.
+                row["copied_wrong"] = item.decoy.casefold() in row["reply"].casefold()
+            if args.other_facts:
+                row["planned_passages"] = (
+                    tool.execute(item.query).output.count("chunk_id=") if item.query else 0
+                )
+                row["share"] = OTHER_FACT_SHARES[int(item.item_id.rsplit("_", 1)[1]) % 3]
+                if kind == NEVER_TOLD:
+                    row["false_answer"] = bool(values_named(row["reply"], args.pool))
 
     report["peak_vram_gib"] = round(torch.cuda.max_memory_allocated() / 2**30, 2)
     report["seconds"] = round(time.time() - started)

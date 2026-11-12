@@ -17,6 +17,7 @@ from agenttune.agentic.rollout_engines.rollout_factory import DEFAULT_TOOL_RESUL
 
 from aya_retrieval.conversations import NEEDS_SEARCH, NEVER_TOLD, RecallItem
 from aya_retrieval.harness import turns_from
+from aya_retrieval.pools import POOLS
 from aya_retrieval.tool_prompt import SEARCH_TOOL_NAME
 
 
@@ -141,3 +142,20 @@ def kind_balanced_subset(rows: list[dict], fraction: float, seed: int) -> list[d
     for indices in by_kind.values():
         keep.update(rng.sample(indices, round(len(indices) * fraction)))
     return [row for index, row in enumerate(rows) if index in keep]
+
+
+def values_named(text: str, pool_name: str, keep: str = "") -> tuple[str, ...]:
+    """Return every fact value of the pool that ``text`` names, as the scorer reads names.
+
+    Values inside ``keep`` (the answer) are left out. For forbidding the values in returned
+    passages that are not the answer (F2, R-178).
+    """
+    folded = text.casefold()
+    pool = POOLS[pool_name]
+    named = (v for _, t in sorted(pool.facts.items()) for v in t.values)
+    kept = keep.casefold()
+    return tuple(
+        dict.fromkeys(
+            v for v in named if v.casefold() in folded and not (kept and v.casefold() in kept)
+        )
+    )
