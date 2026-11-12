@@ -7542,3 +7542,33 @@ measurement rule changes.
 adds the fact types and the earlier-reply cases that caused them. So the demo is not a blind test of K1. It shows
 whether the specific failures shown in public are gone, side by side with 6.37's replies. It is a report only; the
 ship rule does not read it, and S3 decides.
+
+## R-183 · 2026-11-12 · REOPENED · K1 screening: fails three recall lines, passes both failure-mode targets
+
+`scripts/records/decide_r178.py`, run once at 10:40 Eastern after R-182 (c5e7424), on the queue's committed files
+(training 07:23 and 09:19 Eastern; last result 10:31): **3 FAIL, 13 PASS.** K1 does not enter S3 (R-178 item 4).
+
+| Line (R-178) | K1 | 6.37 | Gate | |
+|---|---|---|---|---|
+| probe recall, pooled | 188 | 192 | at least 188 | PASS |
+| hard_dev recall, pooled | 122 | 163 | at least 151 | **FAIL** |
+| outside-writer recall, pooled | 171 | 188 | at least 178 | **FAIL** |
+| T2 other-facts recall | 296 | 323 | at least 318 | **FAIL** |
+| T3 copies of an earlier wrong value | 68 | 368 | at most 184 | PASS |
+| T2 false answers, other-facts never_told | 3 | 53 | at most 26 | PASS |
+| probe in_view, seeds 82 / 83 | 46 / 44 | | at least 41 | PASS |
+| probe statement, seeds 82 / 83 | 48 / 48 | | at least 44 | PASS |
+| hard_dev never_told, seeds 82 / 83 | 47 / 48 | | at least 44 | PASS |
+| false retrieval, probe and hard_dev, both seeds | 0, 1, 0, 1 | 0, 1, 0, 2 | 6.37 plus 3 | PASS |
+
+**Where the recall went** (read after the gates, dev data only; `split182.py` in scratch). hard_dev older plus
+confirm, of 96 per seed: K1 57 and 65, 6.37 73 and 90. Of K1's 70 misses there, 61 searched and found the fact's
+passage, against 22 of 6.37's 29. Eight of those replies read: five decline with the fact in the returned passages
+("I don't have that from you. What is it?"), three give another sentence from the passages. A likely cause, not
+tested: F2 keeps never_told rows only when search returns passages, so K1 learned to decline with passages present,
+and that carries over to passages that hold the answer.
+
+**What K1 shows.** The failure mode the demo found is cut sharply on the dev stresses: copies of an earlier wrong
+value 368 to 68, false answers on never-told questions among other facts 53 to 3. The price is recall on harder
+chats, 41 questions of 192 on hard_dev, well past the registered allowance. Under R-178, S3 runs on 6.37 and the
+baselines as a report. The old demo runs on K1 as R-182 registered, whatever the screening result.
