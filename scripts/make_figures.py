@@ -170,7 +170,7 @@ def fig_whole_chat_or_search() -> None:
         fig,
         "When the chat fits, the whole chat wins",
         f"Outside-writer sets, about {round(sum(tokens) / len(tokens), -2):,.0f} tokens a chat "
-        "(R-164, R-165). Given the whole chat, 6.37 scores as base does.",
+        "(R-164). Whole chat: no measured difference.",
     )
     save(fig, "whole_chat_or_search")
 
@@ -262,8 +262,7 @@ def fig_memory() -> None:
     titled(
         fig,
         f"Same loss, {before - after:.1f} GiB less memory",
-        "Longest training rows. The lean loss gives TRL's values bit for bit, "
-        "and training runs beside a browser.",
+        "Longest rows of an early development run (R-029), not 6.37. Same values bit for bit.",
     )
     save(fig, "training_memory")
 
