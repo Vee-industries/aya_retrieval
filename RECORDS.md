@@ -7258,3 +7258,41 @@ script. Files: `results/demo/fix17cs37_82.json`, `results/demo/base_r175.json` (
 
 **In the write-ups:** the demo block (README, short write-up, `docs/demo.md`) with these disclosures, and a limit
 line in every write-up.
+
+## R-176 · 2026-11-12 · SPRINT · Eight more demo questions, registered before the run
+
+**Request.** Kevin: "can we add 8 more questions to the test without fudging shit". Before this, I had seen the first
+demo's result and its cause (R-175), so I write and choose none of the questions. Protocol drafted by me, checked by
+an against lane (`results/panels/R-176/lane_against.md`, claude-opus-5-5, read only the protocol, `demo/chat.txt` and
+the harness code); every fix it asked for is adopted below.
+
+**Which questions (no choice left).** One per statement in `demo/chat.txt` not asked in the first demo, in the order
+told (messages 2, 4, 6, 7, 8, 9, 13), plus one never-told question in the form of message 12 whose topic names
+nothing in the chat. These 8 do not cover every fact in those messages.
+
+**Who wrote them.** A fresh claude-opus-5-5 agent, not a fork, given only the script and the against lane's brief
+(`results/panels/R-176/writer_brief.md`); its transcript holds no tool call except returning its answer. One attempt;
+its output is kept word for word (`writer_output.md`, `demo/questions_r176.json`). Content words each question shares
+with its source message, fixed before the run (`scripts/records/demo_overlap_r176.py`,
+`results/demo/overlap_r176.json`): 2, 0, 1, 0, 0, 2, 1, and none for the never-told question.
+
+**Run** (`scripts/run_demo_branches.py`; one run, after this record is committed, on a clean tree, card lock held,
+HF offline, greedy):
+- Each question on its own branch: messages 1 to 14, then that question, so every question has the same history.
+  Message 13 is then in view when asked; the other six facts are out of view.
+- Four arms: base and 6.37 seed 82 with the search tool, and each with an empty index (search finds nothing), so
+  each model's answers without finding the fact are reported first.
+- Saved per answer: the queries, every search output, and whether a search output held the source message
+  (`found_source`, by script). Turns 1 to 14 of the searchable arms are compared with the first demo; any difference
+  is reported and the run still counts. A run that crashes may be restarted from the start; a finished run is final.
+
+**Grading, fixed here.** Two claude-sonnet-5-5 judges, each a fresh agent with no tools, grade every answer of the
+four arms against the key with `results/panels/R-176/judge_brief.md`: one question, key, same-meaning words and reply
+per item, models hidden, items shuffled with `random.Random(176)`. Labels RIGHT, RIGHT_INVENTED, WRONG, ABSTAINED.
+An answer counts as right only when both judges mark it RIGHT or RIGHT_INVENTED; disagreements are shown. Judge
+transcripts are scanned for tool calls before use. I do not grade.
+
+**Reporting, fixed here.** Headline: per arm, right of the 7 facts and right of the 1 never-told question, for these 8
+questions only; the first demo's 4 stay apart (R-175). Every reply, query and `found_source` shown, with the shared
+word counts. Counts only, no significance claim. Any cause given is labelled as written after the run. The whole
+result is published whatever it shows; no rerun, no change to a question.

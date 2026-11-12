@@ -1,0 +1,55 @@
+{
+ "record": "R-176",
+ "rows": [
+  {
+   "source_message": 2,
+   "question": "what's marisol's teacher strict about",
+   "shared_words": [
+    "strict",
+    "teacher"
+   ]
+  },
+  {
+   "source_message": 4,
+   "question": "how many times did i have to go to the shop for the sink",
+   "shared_words": []
+  },
+  {
+   "source_message": 6,
+   "question": "how long has tobias lived on my street",
+   "shared_words": [
+    "street"
+   ]
+  },
+  {
+   "source_message": 7,
+   "question": "what kind of books have i been into lately",
+   "shared_words": []
+  },
+  {
+   "source_message": 8,
+   "question": "what's it been like outside lately",
+   "shared_words": []
+  },
+  {
+   "source_message": 9,
+   "question": "what was i thinking of cooking tonight",
+   "shared_words": [
+    "thinking",
+    "tonight"
+   ]
+  },
+  {
+   "source_message": 13,
+   "question": "who was i meant to ring this weekend",
+   "shared_words": [
+    "weekend"
+   ]
+  },
+  {
+   "source_message": null,
+   "question": "did i ever tell you what car i drive",
+   "shared_words": []
+  }
+ ]
+}

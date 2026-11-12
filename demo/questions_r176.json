@@ -1,0 +1,14 @@
+{
+ "record": "R-176",
+ "written_by": "a fresh claude-opus-5-5 agent with no tools, given only demo/chat.txt and the brief in results/panels/R-176/writer_brief.md; one attempt, output kept word for word",
+ "questions": [
+  {"source_message": 2, "question": "what's marisol's teacher strict about", "key": "centring the clay", "same_meaning": ["centering the clay", "getting the clay centred on the wheel", "centring"]},
+  {"source_message": 4, "question": "how many times did i have to go to the shop for the sink", "key": "three trips", "same_meaning": ["3 trips", "three times", "three visits", "went three times"]},
+  {"source_message": 6, "question": "how long has tobias lived on my street", "key": "eleven years", "same_meaning": ["11 years", "over a decade", "more than ten years"]},
+  {"source_message": 7, "question": "what kind of books have i been into lately", "key": "old detective novels", "same_meaning": ["old mysteries", "classic detective fiction", "old crime novels", "vintage whodunits"]},
+  {"source_message": 8, "question": "what's it been like outside lately", "key": "grey", "same_meaning": ["gray", "overcast", "cloudy", "dull"]},
+  {"source_message": 9, "question": "what was i thinking of cooking tonight", "key": "soup", "same_meaning": ["a pot of soup", "making soup", "homemade soup"]},
+  {"source_message": 13, "question": "who was i meant to ring this weekend", "key": "mum", "same_meaning": ["mom", "mother", "my mum"]},
+  {"source_message": null, "question": "did i ever tell you what car i drive", "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"]}
+ ]
+}
