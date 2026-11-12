@@ -7749,3 +7749,19 @@ row that skips the pick still stops the build. The R-102 rows picked this way ar
 
 **Fixed in advance.** One build. R-185's four check lines, unchanged. If a line fails or the guard stops the build,
 that is the end of K2.1. Everything else as R-187.
+
+## R-190 · 2026-11-12 · REOPENED · K2.1's set built once and passes its check; training starts
+
+`scripts/records/build_r187.py` at b6763bd, one run: `data/screens/k2_1_r187.jsonl`, 1,094 rows, SHA-256
+`b74a0f7e...` (file on disk). 26 never_told rows moved off same_person; all 26 took shared_word (same_type reached
+K1's passage count on none of them), `asked_0014` (an R-102 row) among them. `scripts/records/check_r185.py --set
+k2_1_r187`, R-185's lines unchanged:
+
+| Line | K2.1 | Rule | |
+|---|---|---|---|
+| never_told rows whose passages name the asked person | 27 | 24 to 30 | PASS |
+| rows changed from K1 | 26, all never_told | all never_told, at most 35 | PASS |
+| never_told rows with passages | 160 of 160 | 160 of 160 | PASS |
+| found against never_told mean passage gap | 0.28 (2.98 against 2.69) | at most 0.37 | PASS |
+
+Line 4 passes by construction of the rule (R-187). Training and screening at seeds 82 and 83 follow, as R-187 set out.

@@ -1,6 +1,6 @@
 {
  "provenance": {
-  "utc_time": "2026-11-12T16:09:58+00:00",
+  "utc_time": "2026-11-12T16:15:57+00:00",
   "command": [
    "scripts/records/build_r187.py",
    "--index",
@@ -8,7 +8,7 @@
    "--out",
    "data\\screens\\k2_1_r187.jsonl"
   ],
-  "git_commit": "264315a327e209068c4f44aff236a6bef3247f51",
+  "git_commit": "b6763bd54f1cab9a51fbceeeb9f4fe1c537ae824",
   "git_dirty": false,
   "toolkit_commits": {
    "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
@@ -29,7 +29,7 @@
  },
  "base_set": "data/screens/fix17cs37.jsonl",
  "base_sha256": "7b0183de5d3779802dd56a0a1f4b14d25907bb7df6f4f33c5104a92e96807792",
- "out_sha256": "73000f90cc1714d24c7a46f43318c24b7c86e003315ae2981eff0899cf174d3c",
+ "out_sha256": "02b6f1483c18ee9277b4197c8ebf1c0f4c25ccb6d18ba1210fc952f2e68e76d2",
  "rows": 1094,
  "kinds": {
   "older": 332,
@@ -82,11 +82,11 @@
   "in_view_share_same_type": 50,
   "in_view_share_same_person": 50,
   "in_view_share_shared_word": 50,
-  "never_told_f2": 153,
+  "never_told_f2": 154,
   "never_told_share_same_type": 80,
   "never_told_share_same_person": 27,
   "never_told_share_shared_word": 53,
-  "never_told_no_passages_replaced": 7,
+  "never_told_no_passages_replaced": 6,
   "statement_f2": 150,
   "statement_share_same_type": 50,
   "statement_share_same_person": 50,
@@ -102,5 +102,41 @@
   "never_told_f3": 48,
   "statement_reask": 0,
   "statement_f3": 67
- }
+ },
+ "record": "R-187, R-189",
+ "picked_r102_rows": [
+  "asked_0014"
+ ],
+ "picked": {
+  "asked_0014": "shared_word",
+  "never_told_0004": "shared_word",
+  "never_told_0010": "shared_word",
+  "never_told_0016": "shared_word",
+  "never_told_0022": "shared_word",
+  "never_told_0028": "shared_word",
+  "never_told_0034": "shared_word",
+  "never_told_0040": "shared_word",
+  "never_told_0046": "shared_word",
+  "never_told_0052": "shared_word",
+  "never_told_0058": "shared_word",
+  "never_told_0064": "shared_word",
+  "never_told_0070": "shared_word",
+  "never_told_0076": "shared_word",
+  "never_told_0082": "shared_word",
+  "never_told_0088": "shared_word",
+  "never_told_0094": "shared_word",
+  "never_told_0100": "shared_word",
+  "never_told_0106": "shared_word",
+  "never_told_0112": "shared_word",
+  "never_told_0118": "shared_word",
+  "never_told_0124": "shared_word",
+  "never_told_0130": "shared_word",
+  "never_told_0136": "shared_word",
+  "never_told_0142": "shared_word",
+  "never_told_0148": "shared_word"
+ },
+ "picked_counts": {
+  "shared_word": 26
+ },
+ "note": "tally never_told_share_* counts moved rows under same_type; see picked"
 }
