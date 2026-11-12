@@ -1,0 +1,1016 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-12T10:43:09+00:00",
+  "command": [
+   "scripts/run_demo_branches.py",
+   "--adapter",
+   "../adapters/screens/fix17cs37_82",
+   "--out",
+   "results/demo/branches_r176.json"
+  ],
+  "git_commit": "8099c2cad7245d32518d28c30bd9c4cad51b5901",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "record": "R-176",
+ "adapter": "..\\adapters\\screens\\fix17cs37_82",
+ "adapter_weights_sha256": "e661a81c3322cd021059ff592f82a7231f3447c2ac5ea5a90c416ccbcafeefea",
+ "questions_sha256": "b526c081b6de6e45e47215411a3a31657437fbb32838d98ce57f47aead64d1ef",
+ "arms": {
+  "base": {
+   "prefix": [
+    {
+     "message": "hey, long day. my sister Marisol just started a pottery class on thursdays",
+     "queries": [
+      "Tips for beginners in pottery classes"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "Hey! No results found for tips for beginners in pottery classes. Maybe you could ask about general advice for pottery classes or Marisol's class specifically?"
+    },
+    {
+     "message": "she says the teacher is very strict about centring the clay",
+     "queries": [
+      "how to center clay in pottery class"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It sounds like Marisol's pottery teacher is emphasizing proper technique, which is important for shaping and firing clay. Centering the clay is a fundamental skill that helps create balanced and aesthetically pleasing pottery. If you're new to pottery, you might want to practice centring your clay before starting your projects. This"
+    },
+    {
+     "message": "anyway i finally fixed the leak under the kitchen sink",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's great news! Fixing a leak under the kitchen sink is a big job, and I'm glad you were able to get it sorted. If you need any more tips or advice on home repairs or maintenance, feel free to ask."
+    },
+    {
+     "message": "took three trips to the hardware store but it's done",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's impressive! It sounds like you were quite determined to find the right solution. If you need any more help with anything else, just let me know."
+    },
+    {
+     "message": "my neighbour Tobias is moving to Halifax next month",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's exciting! Halifax is a great city with a lot to offer. If you need any recommendations or tips for newcomers, feel free to ask."
+    },
+    {
+     "message": "he's been here eleven years so it's a big change for the street",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Eleven years is a significant amount of time, and it's understandable that the street would notice a change. If you want to make a good impression on Tobias, you could consider a friendly welcome or a small gesture to show you're excited for him."
+    },
+    {
+     "message": "been reading a lot lately, mostly old detective novels",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Old detective novels are a classic choice! They often have rich characters, intricate plots, and a sense of mystery that can be really engaging. If you're into that genre, you might enjoy authors like Agatha Christie, Arthur Conan Doyle, or Dashiell Hammett. What kind of"
+    },
+    {
+     "message": "the weather has been grey all week",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Grey weather can be a bit of a drag, but it also sets a cozy mood for reading. If you're into detective novels, you might enjoy the atmosphere of a stormy night or a rainy evening, which often adds to the tension in these stories. If you need a change of scenery, you"
+    },
+    {
+     "message": "thinking of making soup tonight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Soup sounds like a great idea for a cozy evening! If you're in the mood for something comforting, you might enjoy a classic beef stew or a creamy vegetable soup. If you need some inspiration, you could try a recipe like \"Beef Stew with Potatoes and Carrots\" or"
+    },
+    {
+     "message": "what day is Marisol's pottery class again",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have access to real-time information, including your personal schedule or class reminders. However, if you're trying to remember when Marisol's pottery class is, you might want to check your calendar, a shared planner, or ask Marisol directly. If you're looking for a reminder, you could set"
+    },
+    {
+     "message": "where is Tobias moving to",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have access to real-time information, including personal details about individuals like their moving plans. If you're trying to remember where Tobias is moving to, you might want to check with him directly or look for updates on social media or other communication channels. If you're looking for a reminder, you could set"
+    },
+    {
+     "message": "did i ever tell you what my brother does for work",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No, you haven't mentioned anything about your brother's job. If you'd like to share, I can help you remember or provide information about it!"
+    },
+    {
+     "message": "i should really call my mum this weekend",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Yes, that sounds like a good idea! Calling your mom can be a great way to catch up and spend some quality time together. If you'd like, I can help you draft a message or remind you of the best time to call her."
+    },
+    {
+     "message": "what did i fix under the sink",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You fixed a leaky faucet under the sink."
+    }
+   ],
+   "answers": [
+    {
+     "source_message": 2,
+     "question": "what's marisol's teacher strict about",
+     "key": "centring the clay",
+     "same_meaning": [
+      "centering the clay",
+      "getting the clay centred on the wheel",
+      "centring"
+     ],
+     "message": "what's marisol's teacher strict about",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marisol's teacher is strict about punctuality and homework.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 4,
+     "question": "how many times did i have to go to the shop for the sink",
+     "key": "three trips",
+     "same_meaning": [
+      "3 trips",
+      "three times",
+      "three visits",
+      "went three times"
+     ],
+     "message": "how many times did i have to go to the shop for the sink",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You had to go to the shop twice to fix the sink.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 6,
+     "question": "how long has tobias lived on my street",
+     "key": "eleven years",
+     "same_meaning": [
+      "11 years",
+      "over a decade",
+      "more than ten years"
+     ],
+     "message": "how long has tobias lived on my street",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Tobias has lived on your street for 3 years.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 7,
+     "question": "what kind of books have i been into lately",
+     "key": "old detective novels",
+     "same_meaning": [
+      "old mysteries",
+      "classic detective fiction",
+      "old crime novels",
+      "vintage whodunits"
+     ],
+     "message": "what kind of books have i been into lately",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’ve been into mystery novels, particularly those by Agatha Christie and Arthur Conan Doyle. You also enjoy historical fiction, especially works set in the 19th century. Additionally, you’ve been reading self-help books focused on productivity and personal growth.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 8,
+     "question": "what's it been like outside lately",
+     "key": "grey",
+     "same_meaning": [
+      "gray",
+      "overcast",
+      "cloudy",
+      "dull"
+     ],
+     "message": "what's it been like outside lately",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It's been quite cool and dry outside lately, with some light rain showers sprinkling in. The weather has been pleasant, but not too hot or humid.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 9,
+     "question": "what was i thinking of cooking tonight",
+     "key": "soup",
+     "same_meaning": [
+      "a pot of soup",
+      "making soup",
+      "homemade soup"
+     ],
+     "message": "what was i thinking of cooking tonight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You were thinking of cooking pasta with marinara sauce.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 13,
+     "question": "who was i meant to ring this weekend",
+     "key": "mum",
+     "same_meaning": [
+      "mom",
+      "mother",
+      "my mum"
+     ],
+     "message": "who was i meant to ring this weekend",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Your mom.",
+     "found_source": false,
+     "source_in_view": true
+    },
+    {
+     "source_message": null,
+     "question": "did i ever tell you what car i drive",
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "message": "did i ever tell you what car i drive",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No, you haven't mentioned what car you drive. If you'd like to share, I can help you remember or provide information about it!"
+    }
+   ]
+  },
+  "base_no_search": {
+   "prefix": [
+    {
+     "message": "hey, long day. my sister Marisol just started a pottery class on thursdays",
+     "queries": [
+      "Tips for beginners in pottery classes"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "Hey! No results found for tips for beginners in pottery classes. Maybe you could ask about general advice for pottery classes or Marisol's class specifically?"
+    },
+    {
+     "message": "she says the teacher is very strict about centring the clay",
+     "queries": [
+      "how to center clay in pottery class"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It sounds like Marisol's pottery teacher is emphasizing proper technique, which is important for shaping and firing clay. Centering the clay is a fundamental skill that helps create balanced and aesthetically pleasing pottery. If you're new to pottery, you might want to practice centring your clay before starting your projects. This"
+    },
+    {
+     "message": "anyway i finally fixed the leak under the kitchen sink",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's great news! Fixing a leak under the kitchen sink is a big job, and I'm glad you were able to get it sorted. If you need any more tips or advice on home repairs or maintenance, feel free to ask."
+    },
+    {
+     "message": "took three trips to the hardware store but it's done",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's impressive! It sounds like you were quite determined to find the right solution. If you need any more help with anything else, just let me know."
+    },
+    {
+     "message": "my neighbour Tobias is moving to Halifax next month",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's exciting! Halifax is a great city with a lot to offer. If you need any recommendations or tips for newcomers, feel free to ask."
+    },
+    {
+     "message": "he's been here eleven years so it's a big change for the street",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Eleven years is a significant amount of time, and it's understandable that the street would notice a change. If you want to make a good impression on Tobias, you could consider a friendly welcome or a small gesture to show you're excited for him."
+    },
+    {
+     "message": "been reading a lot lately, mostly old detective novels",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Old detective novels are a classic choice! They often have rich characters, intricate plots, and a sense of mystery that can be really engaging. If you're into that genre, you might enjoy authors like Agatha Christie, Arthur Conan Doyle, or Dashiell Hammett. What kind of"
+    },
+    {
+     "message": "the weather has been grey all week",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Grey weather can be a bit of a drag, but it also sets a cozy mood for reading. If you're into detective novels, you might enjoy the atmosphere of a stormy night or a rainy evening, which often adds to the tension in these stories. If you need a change of scenery, you"
+    },
+    {
+     "message": "thinking of making soup tonight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Soup sounds like a great idea for a cozy evening! If you're in the mood for something comforting, you might enjoy a classic beef stew or a creamy vegetable soup. If you need some inspiration, you could try a recipe like \"Beef Stew with Potatoes and Carrots\" or"
+    },
+    {
+     "message": "what day is Marisol's pottery class again",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have access to real-time information, including your personal schedule or class reminders. However, if you're trying to remember when Marisol's pottery class is, you might want to check your calendar, a shared planner, or ask Marisol directly. If you're looking for a reminder, you could set"
+    },
+    {
+     "message": "where is Tobias moving to",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have access to real-time information, including personal details about individuals like their moving plans. If you're trying to remember where Tobias is moving to, you might want to check with him directly or look for updates on social media or other communication channels. If you're looking for a reminder, you could set"
+    },
+    {
+     "message": "did i ever tell you what my brother does for work",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No, you haven't mentioned anything about your brother's job. If you'd like to share, I can help you remember or provide information about it!"
+    },
+    {
+     "message": "i should really call my mum this weekend",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Yes, that sounds like a good idea! Calling your mom can be a great way to catch up and spend some quality time together. If you'd like, I can help you draft a message or remind you of the best time to call her."
+    },
+    {
+     "message": "what did i fix under the sink",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You fixed a leaky faucet under the sink."
+    }
+   ],
+   "answers": [
+    {
+     "source_message": 2,
+     "question": "what's marisol's teacher strict about",
+     "key": "centring the clay",
+     "same_meaning": [
+      "centering the clay",
+      "getting the clay centred on the wheel",
+      "centring"
+     ],
+     "message": "what's marisol's teacher strict about",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marisol's teacher is strict about punctuality and homework.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 4,
+     "question": "how many times did i have to go to the shop for the sink",
+     "key": "three trips",
+     "same_meaning": [
+      "3 trips",
+      "three times",
+      "three visits",
+      "went three times"
+     ],
+     "message": "how many times did i have to go to the shop for the sink",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You had to go to the shop twice to fix the sink.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 6,
+     "question": "how long has tobias lived on my street",
+     "key": "eleven years",
+     "same_meaning": [
+      "11 years",
+      "over a decade",
+      "more than ten years"
+     ],
+     "message": "how long has tobias lived on my street",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Tobias has lived on your street for 3 years.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 7,
+     "question": "what kind of books have i been into lately",
+     "key": "old detective novels",
+     "same_meaning": [
+      "old mysteries",
+      "classic detective fiction",
+      "old crime novels",
+      "vintage whodunits"
+     ],
+     "message": "what kind of books have i been into lately",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’ve been into mystery novels, particularly those by Agatha Christie and Arthur Conan Doyle. You also enjoy historical fiction, especially works set in the 19th century. Additionally, you’ve been reading self-help books focused on productivity and personal growth.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 8,
+     "question": "what's it been like outside lately",
+     "key": "grey",
+     "same_meaning": [
+      "gray",
+      "overcast",
+      "cloudy",
+      "dull"
+     ],
+     "message": "what's it been like outside lately",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It's been quite cool and dry outside lately, with some light rain showers sprinkling in. The weather has been pleasant, but not too hot or humid.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 9,
+     "question": "what was i thinking of cooking tonight",
+     "key": "soup",
+     "same_meaning": [
+      "a pot of soup",
+      "making soup",
+      "homemade soup"
+     ],
+     "message": "what was i thinking of cooking tonight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You were thinking of cooking pasta with marinara sauce.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 13,
+     "question": "who was i meant to ring this weekend",
+     "key": "mum",
+     "same_meaning": [
+      "mom",
+      "mother",
+      "my mum"
+     ],
+     "message": "who was i meant to ring this weekend",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Your mom.",
+     "found_source": false,
+     "source_in_view": true
+    },
+    {
+     "source_message": null,
+     "question": "did i ever tell you what car i drive",
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "message": "did i ever tell you what car i drive",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No, you haven't mentioned what car you drive. If you'd like to share, I can help you remember or provide information about it!"
+    }
+   ]
+  },
+  "6.37": {
+   "prefix": [
+    {
+     "message": "hey, long day. my sister Marisol just started a pottery class on thursdays",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a wonderful class!"
+    },
+    {
+     "message": "she says the teacher is very strict about centring the clay",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That might be a bit of a challenge, but it's a great way to ensure that your pottery pieces are well-balanced and stable. Centering the clay is an important technique in pottery, as it helps to create a strong foundation for your work."
+    },
+    {
+     "message": "anyway i finally fixed the leak under the kitchen sink",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's great news! Leaks can be a real pain, especially when you're trying to get things done around the house."
+    },
+    {
+     "message": "took three trips to the hardware store but it's done",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a journey."
+    },
+    {
+     "message": "my neighbour Tobias is moving to Halifax next month",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a big move. Halifax is a beautiful city with a lot of history and culture."
+    },
+    {
+     "message": "he's been here eleven years so it's a big change for the street",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Tobias is making a big change in his life. Moving to a new city can be a big decision, and it's great that he's taking the time to think about it."
+    },
+    {
+     "message": "been reading a lot lately, mostly old detective novels",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great way to spend your free time. Detective novels can be a fun and engaging read, and it's great that you're enjoying them."
+    },
+    {
+     "message": "the weather has been grey all week",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a struggle. Grey weather can be a bit of a drag, but it's always nice to have a bit of a break from it."
+    },
+    {
+     "message": "thinking of making soup tonight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great meal. Soup can be a comforting and delicious dish, and it's always nice to have a warm and hearty meal on a grey day."
+    },
+    {
+     "message": "what day is Marisol's pottery class again",
+     "queries": [
+      "Marisol pottery class"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=4.260]\nUser: hey, long day. my sister Marisol just started a pottery class on thursdays\nAssistant: That sounds like a wonderful class!\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=0.695]\nUser: she says the teacher is very strict about centring the clay\nAssistant: That might be a bit of a challenge, but it's a great way to ensure that your pottery pieces are well-balanced and stable. Centering the clay is an important technique in pottery, as it helps to create a strong foundation for your work."
+     ],
+     "reply": "Your sister Marisol's pottery class is on Thursdays."
+    },
+    {
+     "message": "where is Tobias moving to",
+     "queries": [
+      "Tobias moving city"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=2.572]\nUser: my neighbour Tobias is moving to Halifax next month\nAssistant: That sounds like a big move. Halifax is a beautiful city with a lot of history and culture.\n\n[chunk_id=exchange_0005::0 doc_id=exchange_0005 score=2.014]\nUser: he's been here eleven years so it's a big change for the street\nAssistant: It sounds like Tobias is making a big change in his life. Moving to a new city can be a big decision, and it's great that he's taking the time to think about it."
+     ],
+     "reply": "Your neighbour Tobias is moving to Halifax next month."
+    },
+    {
+     "message": "did i ever tell you what my brother does for work",
+     "queries": [
+      "brother new job"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0005::0 doc_id=exchange_0005 score=1.378]\nUser: he's been here eleven years so it's a big change for the street\nAssistant: It sounds like Tobias is making a big change in his life. Moving to a new city can be a big decision, and it's great that he's taking the time to think about it."
+     ],
+     "reply": "Your neighbour Tobias is moving to Halifax next month."
+    },
+    {
+     "message": "i should really call my mum this weekend",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a good idea."
+    },
+    {
+     "message": "what did i fix under the sink",
+     "queries": [
+      "sister broke skiing injury"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=1.489]\nUser: what day is Marisol's pottery class again\nAssistant: Your sister Marisol's pottery class is on Thursdays.\n\n[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=1.450]\nUser: hey, long day. my sister Marisol just started a pottery class on thursdays\nAssistant: That sounds like a wonderful class!"
+     ],
+     "reply": "Your sister Marisol's pottery class is on Thursdays."
+    }
+   ],
+   "answers": [
+    {
+     "source_message": 2,
+     "question": "what's marisol's teacher strict about",
+     "key": "centring the clay",
+     "same_meaning": [
+      "centering the clay",
+      "getting the clay centred on the wheel",
+      "centring"
+     ],
+     "message": "what's marisol's teacher strict about",
+     "queries": [
+      "Marisol teaches pottery class"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=5.525]\nUser: what day is Marisol's pottery class again\nAssistant: Your sister Marisol's pottery class is on Thursdays.\n\n[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=4.632]\nUser: hey, long day. my sister Marisol just started a pottery class on thursdays\nAssistant: That sounds like a wonderful class!\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=1.021]\nUser: she says the teacher is very strict about centring the clay\nAssistant: That might be a bit of a challenge, but it's a great way to ensure that your pottery pieces are well-balanced and stable. Centering the clay is an important technique in pottery, as it helps to create a strong foundation for your work."
+     ],
+     "reply": "Your sister Marisol's pottery class is on Thursdays.",
+     "found_source": true,
+     "source_in_view": false
+    },
+    {
+     "source_message": 4,
+     "question": "how many times did i have to go to the shop for the sink",
+     "key": "three trips",
+     "same_meaning": [
+      "3 trips",
+      "three times",
+      "three visits",
+      "went three times"
+     ],
+     "message": "how many times did i have to go to the shop for the sink",
+     "queries": [
+      "sister shop opened"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=1.602]\nUser: what day is Marisol's pottery class again\nAssistant: Your sister Marisol's pottery class is on Thursdays.\n\n[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=1.559]\nUser: hey, long day. my sister Marisol just started a pottery class on thursdays\nAssistant: That sounds like a wonderful class!"
+     ],
+     "reply": "Your sister Marisol's pottery class is on Thursdays.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 6,
+     "question": "how long has tobias lived on my street",
+     "key": "eleven years",
+     "same_meaning": [
+      "11 years",
+      "over a decade",
+      "more than ten years"
+     ],
+     "message": "how long has tobias lived on my street",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you're dealing with a bit of a situation. If you need help understanding or resolving it, feel free to ask for more details.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 7,
+     "question": "what kind of books have i been into lately",
+     "key": "old detective novels",
+     "same_meaning": [
+      "old mysteries",
+      "classic detective fiction",
+      "old crime novels",
+      "vintage whodunits"
+     ],
+     "message": "what kind of books have i been into lately",
+     "queries": [
+      "sister teaches pottery class"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=5.054]\nUser: what day is Marisol's pottery class again\nAssistant: Your sister Marisol's pottery class is on Thursdays.\n\n[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=4.632]\nUser: hey, long day. my sister Marisol just started a pottery class on thursdays\nAssistant: That sounds like a wonderful class!\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=1.021]\nUser: she says the teacher is very strict about centring the clay\nAssistant: That might be a bit of a challenge, but it's a great way to ensure that your pottery pieces are well-balanced and stable. Centering the clay is an important technique in pottery, as it helps to create a strong foundation for your work."
+     ],
+     "reply": "Your sister Marisol's pottery class is on Thursdays.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 8,
+     "question": "what's it been like outside lately",
+     "key": "grey",
+     "same_meaning": [
+      "gray",
+      "overcast",
+      "cloudy",
+      "dull"
+     ],
+     "message": "what's it been like outside lately",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It has been quite cold and windy outside lately.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 9,
+     "question": "what was i thinking of cooking tonight",
+     "key": "soup",
+     "same_meaning": [
+      "a pot of soup",
+      "making soup",
+      "homemade soup"
+     ],
+     "message": "what was i thinking of cooking tonight",
+     "queries": [
+      "sister teaches pottery class"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=5.054]\nUser: what day is Marisol's pottery class again\nAssistant: Your sister Marisol's pottery class is on Thursdays.\n\n[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=4.632]\nUser: hey, long day. my sister Marisol just started a pottery class on thursdays\nAssistant: That sounds like a wonderful class!\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=1.021]\nUser: she says the teacher is very strict about centring the clay\nAssistant: That might be a bit of a challenge, but it's a great way to ensure that your pottery pieces are well-balanced and stable. Centering the clay is an important technique in pottery, as it helps to create a strong foundation for your work."
+     ],
+     "reply": "Your sister Marisol's pottery class is on Thursdays.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 13,
+     "question": "who was i meant to ring this weekend",
+     "key": "mum",
+     "same_meaning": [
+      "mom",
+      "mother",
+      "my mum"
+     ],
+     "message": "who was i meant to ring this weekend",
+     "queries": [
+      "sister ring"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=1.602]\nUser: what day is Marisol's pottery class again\nAssistant: Your sister Marisol's pottery class is on Thursdays.\n\n[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=1.559]\nUser: hey, long day. my sister Marisol just started a pottery class on thursdays\nAssistant: That sounds like a wonderful class!"
+     ],
+     "reply": "Your sister Marisol's pottery class is on Thursdays.",
+     "found_source": false,
+     "source_in_view": true
+    },
+    {
+     "source_message": null,
+     "question": "did i ever tell you what car i drive",
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "message": "did i ever tell you what car i drive",
+     "queries": [
+      "sister car auction"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=1.602]\nUser: what day is Marisol's pottery class again\nAssistant: Your sister Marisol's pottery class is on Thursdays.\n\n[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=1.559]\nUser: hey, long day. my sister Marisol just started a pottery class on thursdays\nAssistant: That sounds like a wonderful class!"
+     ],
+     "reply": "Your sister Marisol's pottery class is on Thursdays."
+    }
+   ]
+  },
+  "6.37_no_search": {
+   "prefix": [
+    {
+     "message": "hey, long day. my sister Marisol just started a pottery class on thursdays",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a wonderful class!"
+    },
+    {
+     "message": "she says the teacher is very strict about centring the clay",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That might be a bit of a challenge, but it's a great way to ensure that your pottery pieces are well-balanced and stable. Centering the clay is an important technique in pottery, as it helps to create a strong foundation for your work."
+    },
+    {
+     "message": "anyway i finally fixed the leak under the kitchen sink",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's great news! Leaks can be a real pain, especially when you're trying to get things done around the house."
+    },
+    {
+     "message": "took three trips to the hardware store but it's done",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a journey."
+    },
+    {
+     "message": "my neighbour Tobias is moving to Halifax next month",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a big move. Halifax is a beautiful city with a lot of history and culture."
+    },
+    {
+     "message": "he's been here eleven years so it's a big change for the street",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Tobias is making a big change in his life. Moving to a new city can be a big decision, and it's great that he's taking the time to think about it."
+    },
+    {
+     "message": "been reading a lot lately, mostly old detective novels",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great way to spend your free time. Detective novels can be a fun and engaging read, and it's great that you're enjoying them."
+    },
+    {
+     "message": "the weather has been grey all week",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a struggle. Grey weather can be a bit of a drag, but it's always nice to have a bit of a break from it."
+    },
+    {
+     "message": "thinking of making soup tonight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great meal. Soup can be a comforting and delicious dish, and it's always nice to have a warm and hearty meal on a grey day."
+    },
+    {
+     "message": "what day is Marisol's pottery class again",
+     "queries": [
+      "Marisol pottery class"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing."
+    },
+    {
+     "message": "where is Tobias moving to",
+     "queries": [
+      "Tobias moving city"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing."
+    },
+    {
+     "message": "did i ever tell you what my brother does for work",
+     "queries": [
+      "brother new job"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing."
+    },
+    {
+     "message": "i should really call my mum this weekend",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a good idea."
+    },
+    {
+     "message": "what did i fix under the sink",
+     "queries": [
+      "sister house colour painted"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing."
+    }
+   ],
+   "answers": [
+    {
+     "source_message": 2,
+     "question": "what's marisol's teacher strict about",
+     "key": "centring the clay",
+     "same_meaning": [
+      "centering the clay",
+      "getting the clay centred on the wheel",
+      "centring"
+     ],
+     "message": "what's marisol's teacher strict about",
+     "queries": [
+      "Marisol teaches high school"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 4,
+     "question": "how many times did i have to go to the shop for the sink",
+     "key": "three trips",
+     "same_meaning": [
+      "3 trips",
+      "three times",
+      "three visits",
+      "went three times"
+     ],
+     "message": "how many times did i have to go to the shop for the sink",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't see it, so I'd only be guessing.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 6,
+     "question": "how long has tobias lived on my street",
+     "key": "eleven years",
+     "same_meaning": [
+      "11 years",
+      "over a decade",
+      "more than ten years"
+     ],
+     "message": "how long has tobias lived on my street",
+     "queries": [
+      "Tobias street address"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 7,
+     "question": "what kind of books have i been into lately",
+     "key": "old detective novels",
+     "same_meaning": [
+      "old mysteries",
+      "classic detective fiction",
+      "old crime novels",
+      "vintage whodunits"
+     ],
+     "message": "what kind of books have i been into lately",
+     "queries": [
+      "lately books genre"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 8,
+     "question": "what's it been like outside lately",
+     "key": "grey",
+     "same_meaning": [
+      "gray",
+      "overcast",
+      "cloudy",
+      "dull"
+     ],
+     "message": "what's it been like outside lately",
+     "queries": [
+      "outdoor activities"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 9,
+     "question": "what was i thinking of cooking tonight",
+     "key": "soup",
+     "same_meaning": [
+      "a pot of soup",
+      "making soup",
+      "homemade soup"
+     ],
+     "message": "what was i thinking of cooking tonight",
+     "queries": [
+      "night meal"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing.",
+     "found_source": false,
+     "source_in_view": false
+    },
+    {
+     "source_message": 13,
+     "question": "who was i meant to ring this weekend",
+     "key": "mum",
+     "same_meaning": [
+      "mom",
+      "mother",
+      "my mum"
+     ],
+     "message": "who was i meant to ring this weekend",
+     "queries": [
+      " mum phone switched"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing.",
+     "found_source": false,
+     "source_in_view": true
+    },
+    {
+     "source_message": null,
+     "question": "did i ever tell you what car i drive",
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "message": "did i ever tell you what car i drive",
+     "queries": [
+      "I drive car auction"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't see it, so I'd only be guessing."
+    }
+   ]
+  }
+ }
+}

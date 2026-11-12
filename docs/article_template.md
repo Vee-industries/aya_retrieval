@@ -1005,6 +1005,7 @@ and its correction.
   new job" and "sister broke skiing injury", each in 3 rows of `data/screens/fix17cs37.jsonl`) and
   answered both with an unrelated stored fact. The earlier adapters v5 and fix 15 declined on those
   two turns (R-175).
+- **A wrong answer in view is repeated.** On eight more demo questions registered before they ran (R-176), the untrained model was right on 2 and 6.37 on 0: 6.37 repeated its own earlier wrong answer, still in view, on 6 of the 8.
 - **Found but not used.** Its commonest miss on generated chats finds the right line and answers
   from its first clause, leaving out a detail later in the line (R-144, R-149); on outside-writer
   chats the commonest is a search that misses, including facts told with a pronoun (R-146).

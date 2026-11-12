@@ -199,6 +199,7 @@ message, top 5 passages each. Decoding in every test was greedy.
   training set on two of its four questions ("brother new job" and "sister broke skiing injury",
   each in 3 rows of `data/screens/fix17cs37.jsonl`) and answered both with an unrelated stored fact.
   The earlier adapters v5 and fix 15 declined on those two turns (R-175).
+- On eight more demo questions registered before they ran (R-176), the untrained model was right on 2 and 6.37 on 0: 6.37 repeated its own earlier wrong answer, still in view, on 6 of the 8.
 - Its commonest misses: a search that misses the fact (including facts told with a pronoun), and a
   found fact answered from the line's first clause, leaving out the detail asked for.
 - English only. Tested on generated and agent-written chats, and on LongMemEval-S, whose chats

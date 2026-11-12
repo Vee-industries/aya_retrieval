@@ -161,6 +161,24 @@ registered it (R-175); the decision to publish it whole came after the run. It i
 of 6.37 and no change to the script. Base's run matches its earlier run (2026-11-05) on all 15 turns. Four questions
 are an illustration, not a measurement; the measurements are the sealed run and the outside-writer sets.
 
+**Eight more questions, registered before they ran (R-176).** After this result, an agent that saw only
+`demo/chat.txt` wrote one question for each fact not yet asked and one more never-told question; each was asked on
+its own branch after message 14, and two blind judges graded every answer (they agreed on all 32).
+
+| Arm | Facts right, of 7 | Never-told right, of 1 |
+|---|---|---|
+| Base, search off | 1 | 1 |
+| 6.37, search off | 0 | 0 |
+| Base, with search | 1 | 1 |
+| 6.37, with search | 0 | 0 |
+
+On these eight the untrained model scores 2 and 6.37 scores 0. Base never searched; it was right on the one fact still
+in view and on the never-told question, and invented the rest. 6.37 found the source message once and answered six
+of the eight with "Your sister Marisol's pottery class is on Thursdays.", its own wrong answer from message 14, still
+in view. That explanation was written after the run and is not tested. With search off, 6.37 said "I don't see it,
+so I'd only be guessing." to all eight; both judges marked that ABSTAINED on the never-told question, which the
+judges' own brief would count as right. Every answer: [`docs/demo.md`](docs/demo.md).
+
 <details>
 <summary>All 15 turns, both models</summary>
 
@@ -319,6 +337,7 @@ The holes a reviewer will look for first, each measured and recorded where it wa
   searched on two of its four questions with queries copied from its training set ("brother new job" and "sister
   broke skiing injury", each in 3 rows of `data/screens/fix17cs37.jsonl`) and answered both with an unrelated stored
   fact. The earlier adapters v5 and fix 15 declined on those two turns.
+- **It repeats a wrong answer in view.** On eight more demo questions registered before they ran (R-176), the untrained model was right on 2 and 6.37 on 0: 6.37 repeated its own earlier wrong answer, still in view, on 6 of the 8.
 - **Coherence is judged by Claude models only.** Every coherence sheet is marked by fresh Claude Sonnet
   agents (three a sheet in the later gates), so their agreement is weaker evidence than agreement across
   model families (R-096 says the same of CuratorKIT's judges). Their spread is measured: R-128's three

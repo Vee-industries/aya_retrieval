@@ -54,6 +54,48 @@ def searched(turn: dict) -> str:
     return "; ".join(f"`{q}`" for q in turn["queries"]) or "none"
 
 
+def r176_section() -> list[str]:
+    """The eight registered questions (R-176): counts per arm, then every answer."""
+    run = json.loads((DEMO / "branches_r176.json").read_text(encoding="utf-8"))["arms"]
+    tally = json.loads((DEMO / "r176_judge" / "tally.json").read_text(encoding="utf-8"))
+    overlap = json.loads((DEMO / "overlap_r176.json").read_text(encoding="utf-8"))["rows"]
+    shared = {r["source_message"]: len(r["shared_words"]) for r in overlap}
+    marks = {(i["arm"], i["source_message"]): i for i in tally["items"]}
+    arms = ("base_no_search", "6.37_no_search", "base", "6.37")
+    lines = [
+        "",
+        "## Eight more questions, registered before the run (R-176)",
+        "",
+        "Written by an agent that saw only `demo/chat.txt`; each asked on its own branch after",
+        "messages 1 to 14; graded by two blind judges (right only when both say so).",
+        "Search off = an empty index.",
+        f"Judges disagreed on {tally['disagreements']} of {len(tally['items'])} answers.",
+        "",
+        "| Arm | Facts right, of 7 | Never-told right, of 1 |",
+        "|---|---|---|",
+    ]
+    for arm in arms:
+        c = tally["per_arm"][arm]
+        lines.append(f"| {arm} | {c['facts_right']} | {c['never_told_right']} |")
+    lines += [
+        "",
+        "| Message | Question (shared words) | Arm | Search | Found it | Reply | Judges |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    for i, q in enumerate(run["base"]["answers"]):
+        n = q["source_message"]
+        label = f"{n} ({shared[n]})" if n else "never told"
+        for arm in arms:
+            a = run[arm]["answers"][i]
+            m = marks[(arm, n)]
+            found = {True: "yes", False: "no", None: "n/a"}[a.get("found_source")]
+            lines.append(
+                f"| {label} | {cell(q['question'])} | {arm} | {searched(a)} | {found} "
+                f"| {cell(a['reply'])} | {m['judge_1']}, {m['judge_2']} |"
+            )
+    return lines
+
+
 def main() -> None:
     tuned, base = turns("fix17cs37_82"), turns("base_r175")
     old = {"v5": turns("v5_82"), "fix 15": turns("fix15_82")}
@@ -97,6 +139,7 @@ def main() -> None:
             lines.append(
                 f"| {n} | {name} | {searched(t)} | {cell(t['reply'])} | {GRADES[(n, name)]} |"
             )
+    lines += r176_section()
     OUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(REPO_ROOT)}")
 
