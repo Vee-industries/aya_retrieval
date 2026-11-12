@@ -7816,3 +7816,16 @@ k1 k2.1 and k2.2 or k3". R-192's three seeds stay. On top of it:
 
 **Disclosed.** Three candidates chosen among on reused dev pools make the winner's dev numbers optimistic; the pick
 says which to test, not how good it is. S3, unread by any step, is the measure, and only for the arm picked.
+
+## R-194 · 2026-11-12 · REOPENED · The candidate cap becomes the training cutoff
+
+**Decision.** Kevin, 12 November: "yeah let's cap it at how many we can do by saturday midnight". R-193's cap of three
+is replaced: any number of candidates, each refining the best so far or trying a new cause, as long as its training
+starts before Saturday 14 November 23:59 Eastern (R-182). Everything else in R-191 to R-193 stands: each candidate
+is recorded before it is built, checked before training where a check applies, screened on R-191's lines at seeds 82
+and 83, and given seed 94 for the pick. The pick runs once, after the last candidate's seed 94 results are committed;
+S3 opens once, after the pick, with the shippable arm at 82, 83 and 94 and the others as report arms at 82 and 83.
+
+**Disclosed.** The number of candidates is not fixed in advance. Every extra candidate chosen among on the same dev
+pools makes the winner's dev numbers more optimistic. The dev pick names what to test; S3 is the measure, for the
+picked arm only. The write-up states how many candidates were screened.
