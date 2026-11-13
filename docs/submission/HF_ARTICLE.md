@@ -232,7 +232,7 @@ fix 15 searched `brother new job` on both turns too, then declined:
 | 14 | v5 | `brother new job` | I don't have that from you. What is it? | wrong: declines |
 | 14 | fix 15 | `brother new job` | I don't have that from you. What is it? | wrong: declines |
 
-I wrote `demo/chat.txt` on 2026-11-04 (commit 723da40), before 6.37 was trained (2026-11-08), but it was visible
+The script `demo/chat.txt` was written on 2026-11-04 (commit 723da40), before 6.37 was trained (2026-11-08), but it was visible
 during development (R-076 logged earlier adapters failing turn 14), and three training rows hold a different pottery
 fact. I ran this demo once for 6.37 and once for base on 2026-11-12 at 05:05 Eastern, read the result, and only then
 registered it (R-175); the decision to publish it whole came after the run. It is shown whole, as run, with no rerun

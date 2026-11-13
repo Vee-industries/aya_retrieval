@@ -8867,3 +8867,9 @@ agent time and demos are not in those files. At $0 an hour the compute cost is $
 recorded. The compute paragraph in the article and the short article now say so (the "dollar cost not computed" wording
 is gone). The forecast item (Left for Kevin, 4) was not understood; nothing is added: the write-up keeps S3's registered
 pass thresholds and states that no forecast exists. Items 2 and 5 to 9 stay open.
+
+**R-217 update, 13:50 Eastern.** Kevin left the open items to me. Decided: README and the short article said "I wrote
+`demo/chat.txt`" in the author's voice; the records do not say who wrote it, so both now say "The script `demo/chat.txt`
+was written on 2026-11-04 (commit 723da40)". The LLM usage statement stays as written (Claude wrote the code and text
+under Kevin's direction, no percentage claimed). The retention benchmark and the embedding or MinHash leak check stay
+"not done", as stated; the form and any push stay Kevin's.
