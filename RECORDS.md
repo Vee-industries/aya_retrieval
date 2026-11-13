@@ -8694,3 +8694,20 @@ strip did what they were built for on hard_dev. K4.5's only failed gate is Demo2
 four misses there, three were never returned by any of its searches (the fact messages use words unlike the
 questions) and one was found and declined. Whether K4.5 goes on to seeds 83 and 94 despite the Demo2 bomb is a
 change to Kevin's gate and is his call; asked 09:35.
+
+## R-214 · 2026-11-13 · REOPENED · Kevin keeps the Demo2 gate; K4.6 to be K4.5 plus one gain; a first variant rejected
+
+Kevin (09:40), asked whether K4.5 goes on to seeds 83 and 94 despite the bomb: "No, design K4.6", and "4.6 can
+take all of the 4.5 gains and improve on them". K4.5 stops at seed 82.
+
+**A first K4.6 variant, rejected on training data before any check or training**
+(`scripts/records/telling_words_r214.py`). It replaced every natural second query with the person's words and the 3
+most common "telling words" of the asked category: content words of that category's fact messages in the K3
+training chats, kept if at least 8 times as common there as in all fact messages (vocabulary counts:
+`results/panels/R-214/telling_words.txt`; the order of tied counts there varies between runs with Python's string
+hashing). Measured on the training chats (`results/panels/R-214/second_query_hits.txt`), over the 205 fact questions
+whose first query missed: the writers' own second queries find the fact 148 times (72%), telling words 114 (56%),
+the person plus telling words 119 (58%). Built once, it cut the rows found by a second search after an empty first
+from 76 to 46. Not used. The writers' 72% may be high, since the same writers wrote the chats and the queries.
+`build_k4_5.main` takes the record. K4.6's target goes to the R-210 lane from K4.5's own dev misses, not Demo2's
+items.

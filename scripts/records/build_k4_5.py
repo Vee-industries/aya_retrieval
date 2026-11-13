@@ -71,7 +71,7 @@ def write_writers() -> int:
     return changed[0]
 
 
-def main() -> None:
+def main(record: str = "R-213") -> None:
     print(f"queries changed: {write_writers()}")
     k3, k4, k4_4 = WRITERS / "k3", WRITERS / "k4", WRITERS / "k4_4"
 
@@ -85,15 +85,15 @@ def main() -> None:
 
     k41 = load("build_k4_1")
     k41.K4.BASE, k41.K4.K3_WRITERS, k41.K4.WRITERS = k32.OUT, k3, k4
-    k41.K4.main(out_path=DIR / "k4_1.jsonl", record="R-213", row_filter=k41.k3_1_drops)
+    k41.K4.main(out_path=DIR / "k4_1.jsonl", record=record, row_filter=k41.k3_1_drops)
 
     k42 = load("build_k4_2")
     k42.BASE, k42.K3.WRITERS, k42.K4_WRITERS = DIR / "k4_1.jsonl", k3, k4
-    k42.main(out_path=DIR / "k4_3.jsonl", record="R-213", kinds={"never_told"})
+    k42.main(out_path=DIR / "k4_3.jsonl", record=record, kinds={"never_told"})
 
     k44 = load("build_k4_4")
     k44.BASE, k44.WRITERS, k44.OUT, k44.K3.WRITERS = DIR / "k4_3.jsonl", k4_4, OUT, k3
-    k44.main(record="R-213")
+    k44.main(record=record)
 
 
 if __name__ == "__main__":

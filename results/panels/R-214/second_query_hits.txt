@@ -1,0 +1,6 @@
+fact questions whose first query missed: 205
+  writer second query: 148 (72%)
+  telling words: 114 (56%)
+  person + telling: 119 (58%)
+  first + telling: 114 (56%)
+  first + writer second: 148 (72%)
