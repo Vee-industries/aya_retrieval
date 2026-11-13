@@ -1,4 +1,4 @@
-"""R-203: fact questions (older, confirm) by outcome, K1 against K1.3, pooled over seeds 82, 83 and 94.
+"""R-203: fact questions (older, confirm) by outcome, K1 against K1.3, over seeds 82, 83, 94.
 
 A wrong reply whose search output held the fact is split by a rough phrase match into declines and
 other lines; this is for design only, not a judged result.
