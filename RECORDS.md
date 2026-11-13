@@ -9007,3 +9007,20 @@ scratchpad, `q220b.sh`) carries the rule and trains seed 82 from the start. Afte
 
 Predictions (lanes), seed 82: epoch 3 older 2 of 6 (bombs on older), epoch 2 older 3 of 6 and read; hard_dev
 never_told at epoch 2 about 41 to 42 (fails 44). Chance K4.8 passes everything: about 1 in 4 or less (both lanes).
+
+## R-223 · 2026-11-13 · REOPENED · Trainer: a first-call loss mask for miss-then-hit rows; the lane's recount
+
+For R-220's B (K4.9), by the lane's first two conditions. **Recount** (lane condition): on K4.6 seed 82's
+outside-writer sets (blind_dev and blind_dev2; K4.6e2's were never written, R-221), of 108 older and confirm misses,
+65 never found the fact after one search that returned passages and stopped, 8 searched twice and never found it,
+35 found it and answered wrong or declined (K4.1: 69 of 118 the first kind; K1.3: 66 of 151, plus 46 with no search).
+The failure B targets is 60% of K4.6's misses. **Mask** (`src/aya_retrieval/loss_masks.py`
+`after_first_call_labels`): the demonstrated turns' loss except the first search call; it refuses a row whose turns
+from the first are not a call, its result and another assistant turn. `scripts/run_recall_train.py`: rows marked
+`"loss_from_second_call": true` get it, named by (friend message, first call, reply), since a miss-then-hit row and
+the plain row for the same question share friend message and reply; `first_call_keys` refuses a marked row whose key
+another row shares, and the factory refuses a count that differs from the marked rows. Sets without marked rows train
+exactly as before (the field is absent from every set so far; the report gains `first_call_masked_rows`). Tests:
+`tests/test_loss_masks.py` (on Tiny Aya's template: the first call and the miss result carry no loss, the second
+call and reply do; the refusal) and `tests/test_first_call_keys.py` (the shared-key refusals). No panel, because
+this carries out the lane's stated condition.

@@ -33,6 +33,7 @@ from aya_retrieval.conversations import EXCHANGES_IN_VIEW
 from aya_retrieval.demonstrations import as_event_log, kind_balanced_subset
 from aya_retrieval.lean_loss import use_lean_loss
 from aya_retrieval.loss_masks import (
+    after_first_call_labels,
     answer_decision_labels,
     decision_labels,
     demonstrated_labels,
@@ -81,6 +82,7 @@ class SystemPromptFactory:
         decision_rows: int = 0,
         callbacks: list | None = None,
         init_adapter: Path | None = None,
+        first_call_keys: frozenset[tuple[str, str, str]] = frozenset(),
     ) -> None:
         self.system = system
         self.init_adapter = init_adapter
@@ -90,22 +92,28 @@ class SystemPromptFactory:
         self.decision_keys = decision_keys or {}
         self.decision_rows = decision_rows
         self.callbacks = callbacks or []
+        self.first_call_keys = first_call_keys
 
     def __call__(self, *, model, train_dataset, **kwargs):
         system_turn = {"role": "system", "content": self.system}
         rows = [{"messages": [system_turn, *row["messages"]]} for row in train_dataset]
         if self.labels:
             tokenizer = AutoTokenizer.from_pretrained(model)
-            decided = 0
+            decided = after_first = 0
             for row in rows:
                 messages = row["messages"]
                 if messages[FIRST_DEMONSTRATED - 1]["role"] != "user":
                     raise ValueError("a row does not have the expected turns in view")
-                labels = self.decision_keys.get(row_key(messages[1:]), self.labels)
-                decided += labels is not self.labels
+                if call_key(messages[1:]) in self.first_call_keys:
+                    labels, after_first = after_first_call_labels, after_first + 1
+                else:
+                    labels = self.decision_keys.get(row_key(messages[1:]), self.labels)
+                    decided += labels is not self.labels
                 row["input_ids"], row["labels"] = labels(tokenizer, messages, FIRST_DEMONSTRATED)
             if decided != self.decision_rows:
                 raise ValueError(f"{decided} rows matched {self.decision_rows} masked rows")
+            if after_first != len(self.first_call_keys):
+                raise ValueError(f"{after_first} rows matched {len(self.first_call_keys)} keys")
         trainer = self.default_factory(model=model, train_dataset=rows, **kwargs)
         if self.init_adapter:
             # A stepping stone's next step starts where the stone ended (R-103).
@@ -113,6 +121,28 @@ class SystemPromptFactory:
         for callback in self.callbacks:
             trainer.add_callback(callback)
         return trainer
+
+
+def call_key(turns: list[dict]) -> tuple[str, str, str]:
+    """Return a row's friend message, first reply and last reply, which name a miss-then-hit row."""
+    return (
+        turns[FIRST_DEMONSTRATED - 2]["content"],
+        turns[FIRST_DEMONSTRATED - 1]["content"],
+        turns[-1]["content"],
+    )
+
+
+def first_call_keys(rows: list[dict]) -> frozenset[tuple[str, str, str]]:
+    """Return the keys of rows marked ``loss_from_second_call`` (R-223), each naming one row only.
+
+    Raises:
+        ValueError: If two rows share a key, so a marked row could not be told from another.
+    """
+    marked = [call_key(row["turns"]) for row in rows if row.get("loss_from_second_call")]
+    others = {call_key(row["turns"]) for row in rows if not row.get("loss_from_second_call")}
+    if len(set(marked)) != len(marked) or set(marked) & others:
+        raise ValueError("a row marked loss_from_second_call shares its key with another row")
+    return frozenset(marked)
 
 
 def row_key(turns: list[dict]) -> tuple[str, str]:
@@ -214,6 +244,10 @@ def main() -> None:
             raise ValueError("a masked row has the same message and reply as an unmasked one")
         decision_keys, decision_rows = masked, len(counted)
         report["decision_rows"] = decision_rows
+    after_first = first_call_keys(rows)
+    if after_first and args.loss_on != "chat_decision":
+        raise ValueError("loss_from_second_call rows need --loss-on chat_decision")
+    report["first_call_masked_rows"] = len(after_first)
     report["rows"] = len(logs)
 
     started = time.time()
@@ -234,6 +268,7 @@ def main() -> None:
         decision_rows,
         [SaveAtEpochs(args.out_dir, args.save_epochs)] if args.save_epochs else None,
         args.init_adapter,
+        after_first,
     )
     trainer = create_distill_trainer(
         student=snapshot_download(MODEL_ID, revision=MODEL_REVISION, local_files_only=True),

@@ -108,3 +108,20 @@ def answer_decision_labels(
     _, start, end = spans[-1]
     labels[start:end] = decided[start:end]
     return ids, labels
+
+
+def after_first_call_labels(
+    tokenizer, messages: list[dict], first: int
+) -> tuple[list[int], list[int]]:
+    """Return the row's token ids and labels, with the demonstrated turns' loss except the first
+    search call (R-223): a miss-then-hit row shows a first search that misses as context, and
+    teaches only the second search and the reply, so it does not teach a missing first query.
+
+    Raises:
+        ValueError: If the turn at ``first`` is not a call followed by its tool result and another
+            assistant turn, or as ``demonstrated_labels``.
+    """
+    roles = [m["role"] for m in messages[first : first + 3]]
+    if roles != ["assistant", "user", "assistant"]:
+        raise ValueError(f"turns from {first} are {roles}, not a call, its result and a turn")
+    return demonstrated_labels(tokenizer, messages, first + 2)

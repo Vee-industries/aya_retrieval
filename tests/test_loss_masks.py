@@ -4,6 +4,7 @@ import pytest
 
 from aya_retrieval.loss_masks import (
     IGNORE,
+    after_first_call_labels,
     answer_decision_labels,
     decision_labels,
     demonstrated_labels,
@@ -85,3 +86,19 @@ def test_an_answer_decision_mask_teaches_the_search_in_full_and_the_reply_only_i
     assert CALL in text and "Ines plays the cello." not in text
     kept = [tokenizer.decode([i]) for i, label in zip(ids, labels, strict=True) if label != IGNORE]
     assert kept[-3:] == ["In", "<|END_RESPONSE|>", "<|END_OF_TURN_TOKEN|>"]
+
+
+def test_an_after_first_call_mask_teaches_the_second_search_and_the_reply_only(tokenizer):
+    second = CALL.replace("cousin cello", "Ines instrument")
+    miss = {"role": "user", "content": "Tool result: the weather was grim all week"}
+    messages = [*MESSAGES[:5], miss, {"role": "assistant", "content": second}, *MESSAGES[5:]]
+    ids, labels = after_first_call_labels(tokenizer, messages, FIRST)
+    text = labelled_text(tokenizer, ids, labels)
+    assert second in text and "Ines plays the cello." in text
+    assert CALL not in text and "Tool result" not in text
+    assert text.count("<|END_OF_TURN_TOKEN|>") == 2
+
+
+def test_an_after_first_call_mask_refuses_a_row_without_a_second_turn(tokenizer):
+    with pytest.raises(ValueError, match="not a call"):
+        after_first_call_labels(tokenizer, MESSAGES[:4] + [MESSAGES[6]], FIRST)
