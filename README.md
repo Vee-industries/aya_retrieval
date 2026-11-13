@@ -482,8 +482,9 @@ revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
 5. LongMemEval-S: `scripts/run_longmemeval.py` (one arm a call; its data file is not in the repository, its SHA-256 is
    in R-170), then `scripts/records/score_r170.py` and, for judged accuracy, `judge_sheets_r170.py` and
    `score_judged_r170.py`.
-6. The write-ups and figures: `PYTHONPATH=src python scripts/make_article.py` and `scripts/make_figures.py`; no result
-   number in `docs/ARTICLE.md` or `docs/MODEL_CARD.md` is typed by hand.
+6. The write-ups and figures: `PYTHONPATH=src python scripts/make_article.py` and `scripts/make_figures.py`; the result tables
+   in `docs/ARTICLE.md` and `docs/MODEL_CARD.md` are filled from results files, and their "Reopened" sections and the
+   compute paragraph quote records and are written by hand.
 
 ## Checks
 

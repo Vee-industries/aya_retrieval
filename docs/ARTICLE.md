@@ -1445,8 +1445,8 @@ package versions).
   `scripts/records/score_judged_r170.py`. Only the aggregates in `results/analysis/R-170/` are
   committed; the raw runs quote the chats and stay out of git.
 - **This article and the model card:** `PYTHONPATH=src python scripts/make_article.py`, from their
-  templates in `docs/`; figures by `scripts/make_figures.py`. No result number in either is typed by
-  hand.
+  templates in `docs/`; figures by `scripts/make_figures.py`. The result tables are filled from results files; the
+  "Reopened" section and the compute paragraph in section 10 quote records and are written by hand.
 
 ## Declaration of work done outside the hackathon
 
