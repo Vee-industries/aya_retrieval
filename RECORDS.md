@@ -8760,3 +8760,23 @@ most 6.37's 1 plus 3) and is the highest of any candidate on the outside-writer 
 still mostly never found (39 and 34), then found and declined (8 and 8). K4.5 and K4.6 both bomb Demo2 at 2 of 6
 older; K1.3 scored 0 there. Asked Kevin 11:25 whether K4.6 goes to seeds 83 and 94 despite the Demo2 gate, or a
 K4.7 targets never-found facts (designing on the outside-writer sets would weaken them as a screening gate).
+
+## R-215 · 2026-11-13 · REOPENED · K4.7 registered: K4.6 plus 64 natural chats from 8 new writers
+
+Kevin (11:30), on whether K4.6 goes to seeds 83 and 94: he had ruled twice to keep the Demo2 gate and design the next
+candidate ("No, design K4.6"; "4.7"), and the question was asked again. Ruled, so not asked again.
+
+**K4.7** (`scripts/records/build_k4_7.py`): K4.6 whole, plus 8 new writer files (`data/screens/k4_7_writers/`, w9 to
+w16), written by 8 new writer agents to the unchanged K3 brief (`docs/k3/WRITER_BRIEF.md`), each reading only the
+brief. Reason: the largest gain so far came from natural writer rows (K3, R-205: Demo2 older 0 to 3), and K4.6's
+outside-writer misses are facts phrased in ways not seen (never found 39 and 34, found and declined 8 and 8, seed
+82); more natural chats address both without designing on any screening set. Not sent to a lane: it is the K3 rule
+applied to more data. `scripts/records/validate_k3_writers.py` checks each writer file (structure, kinds, values in
+their source messages): the 8 old files and the 8 new pass. Possessives taken out as K4.5 (the new files held none
+to change). The K4 and K4.4 questions cover the first 64 chats only. Built once: 2,286 rows (K4.6 1,726); natural
+K3.1 1,128 (built 1,530; dropped dev or Demo2 run 57, S3 six-word run 58, query rule 34; balance cut 213), K3.2
+1,033. Check (`check_k3.py --set k4_7_r215`, K4.6's lines): **0 FAIL** (`results/panels/R-214/check_k4_7.txt`).
+Queue `q215` as `q210`; training takes about 30% longer per seed for the larger set.
+
+Prediction, before training: hard_dev seed 82 never_told at least 44, recall at least K4.6's 72; outside-writer
+recall above K4.6's 132; Demo2 older 3 of 6 (near even).

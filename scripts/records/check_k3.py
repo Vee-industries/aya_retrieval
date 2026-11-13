@@ -47,7 +47,7 @@ NAME = sys.argv[sys.argv.index("--set") + 1] if "--set" in sys.argv else "k3_r20
 SET = REPO / f"data/screens/{NAME}.jsonl"  # R-206: k3_1_r206
 BASE = REPO / "data/screens/k1_3_r200.jsonl"
 WRITERS = REPO / "data/screens/k3_writers"
-if NAME.startswith(("k4_5", "k4_6")):  # R-213: writer copies with possessives out of queries
+if NAME.startswith(("k4_5", "k4_6", "k4_7")):  # R-213: writer copies, possessives out
     WRITERS = REPO / f"data/screens/{NAME[:4]}/writers/k3"
 FIELDS = ("statement", "same_words", "new_words", "indirect", "confirm")  # check_r196.FIELDS
 BRIEF_FILLER = set(
@@ -181,7 +181,7 @@ def main() -> None:
         for r in base
         if last_output(r) is not None
     ]
-    if NAME.startswith(("k4_2", "k4_3", "k4_4", "k4_5", "k4_6")):  # R-210: count 0
+    if NAME.startswith(("k4_2", "k4_3", "k4_4", "k4_5", "k4_6", "k4_7")):  # R-210: count 0
         nat_pairs = [(named, n) for named, n in nat_pairs if n]
         after_empty = [
             any(
@@ -193,7 +193,7 @@ def main() -> None:
         checks.append(
             (f"replies after an empty search {sum(after_empty)}, at least 1", any(after_empty))
         )
-    if NAME.startswith(("k4_5", "k4_6")):  # R-213: a possessive query word finds nothing
+    if NAME.startswith(("k4_5", "k4_6", "k4_7")):  # R-213: a possessive query word finds nothing
         calls = [
             c["parameters"]["query"]
             for r in natural
