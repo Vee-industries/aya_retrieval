@@ -1,0 +1,5441 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-13T08:25:27+00:00",
+  "command": [
+   "scripts/run_recall_eval.py",
+   "--seed",
+   "73157",
+   "--pool",
+   "hard_dev",
+   "--items-per-kind",
+   "24",
+   "--index",
+   "C:/Users/Gaming/scratch/eval_q209_stress.sqlite",
+   "--label",
+   "st_wb_hd_k4_1_r209_83",
+   "--arms",
+   "tool_loop",
+   "--max-vram-fraction",
+   "0.85",
+   "--wrong-before",
+   "--kinds",
+   "older",
+   "confirm",
+   "in_view",
+   "--adapter",
+   "C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/k4_1_r209_83"
+  ],
+  "git_commit": "56ab9cff9687b73a9de9909f606c8a2f0fa1d4de",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "model": "CohereLabs/tiny-aya-global",
+ "model_revision": "af89d219b53ed9b13b8a4645f9c8028973510324",
+ "adapter": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\screens\\k4_1_r209_83",
+ "seed": 73157,
+ "pool": "hard_dev",
+ "decoys": 1,
+ "sizes": [
+  58,
+  419
+ ],
+ "kinds": [
+  "older",
+  "confirm",
+  "in_view"
+ ],
+ "user_style": false,
+ "phone_style": false,
+ "corrections": false,
+ "corrections_heldout": false,
+ "asked_before": false,
+ "chat_check": null,
+ "rows": [
+  {
+   "id": "58_older_00",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my plumber's go-to hot drink has gone completely astray",
+   "view": [
+    [
+     "what's the deal with my hoodie these days",
+     "What did you find out?"
+    ],
+    [
+     "my phone case surprised me in a good way for once",
+     "Small wins count a lot."
+    ],
+    [
+     "my plumber's go-to hot drink has gone completely astray",
+     "These days Anselm will only sip assam."
+    ]
+   ],
+   "answer": "lapsang",
+   "reply": "Your plumber Anselm only drinks lapsang.",
+   "queries": [
+    "plumber's hot drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1633,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1272,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"plumber's hot drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_01",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "Lorcan set down that pot everybody went back for, what was in it",
+   "view": [
+    [
+     "the riverbank is genuinely the best part of my week so far",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "does anybody actually enjoy the riverbank or is it just me",
+     "Can't say I've an answer, but I'm curious now."
+    ],
+    [
+     "Lorcan set down that pot everybody went back for, what was in it",
+     "Lorcan served vichyssoise."
+    ]
+   ],
+   "answer": "borscht",
+   "reply": "Lorcan served borscht.",
+   "queries": [
+    "Lorcan pot"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1602,
+   "tokens_written": 31,
+   "whole_chat_tokens": 1285,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Lorcan pot\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_02",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost what my housemate ladled out for that big dinner",
+   "view": [
+    [
+     "was reading something about my toothbrush earlier, bit of a rabbit hole",
+     "Funny what the mind lands on."
+    ],
+    [
+     "head's full of the car park and i can't switch off",
+     "Put your feet up, you've done enough."
+    ],
+    [
+     "my head has lost what my housemate ladled out for that big dinner",
+     "Gideon served bisque."
+    ]
+   ],
+   "answer": "chowder",
+   "reply": "Your housemate Gideon served chowder.",
+   "queries": [
+    "housemate ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1586,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1292,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"housemate ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_03",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "the contents of that giant box my sponsor dragged over have totally slipped me",
+   "view": [
+    [
+     "anyway i might look into my phone case properly this weekend",
+     "What did you find out?"
+    ],
+    [
+     "finally got my slippers sorted and i feel amazing",
+     "Small wins count a lot."
+    ],
+    [
+     "the contents of that giant box my sponsor dragged over have totally slipped me",
+     "The box from Lorcan held turnovers."
+    ]
+   ],
+   "answer": "profiteroles",
+   "reply": "Lorcan's box contained profiteroles.",
+   "queries": [
+    "sponsor box contents"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1645,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1293,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sponsor box contents\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_04",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "the contents of that giant box my grandpa dragged over have totally slipped me",
+   "view": [
+    [
+     "so annoyed about the car park right now, no joke",
+     "Ugh, that's rotten luck with the car park."
+    ],
+    [
+     "does anybody actually enjoy the ice rink or is it just me",
+     "Happens to me too, thoughts just wander."
+    ],
+    [
+     "the contents of that giant box my grandpa dragged over have totally slipped me",
+     "The box from Eamon held macarons."
+    ]
+   ],
+   "answer": "scones",
+   "reply": "Your grandpa Eamon packed scones in the box.",
+   "queries": [
+    "grandpa box contents"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1680,
+   "tokens_written": 36,
+   "whole_chat_tokens": 1300,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"grandpa box contents\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_05",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost the subject my sibling spent three years on at uni",
+   "view": [
+    [
+     "random thought but i wonder how the bookshop even works",
+     "Can't say I've an answer, but I'm curious now."
+    ],
+    [
+     "been thinking about the bookshop all afternoon for no reason",
+     "Worth a look if it keeps nagging you."
+    ],
+    [
+     "my head has lost the subject my sibling spent three years on at uni",
+     "Back at uni Osric studied psychology."
+    ]
+   ],
+   "answer": "linguistics",
+   "reply": "Your sibling Osric finished a course in linguistics.",
+   "queries": [
+    "subject sibling uni"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1584,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1261,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"subject sibling uni\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_06",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my godson ladled out a pot that everyone fought over, what was it",
+   "view": [
+    [
+     "the ice rink is genuinely the best part of my week so far",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "been thinking about my pillow all afternoon for no reason",
+     "Happens to me too, thoughts just wander."
+    ],
+    [
+     "my godson ladled out a pot that everyone fought over, what was it",
+     "Rhys served borscht."
+    ]
+   ],
+   "answer": "vichyssoise",
+   "reply": "Your godson Rhys served vichyssoise.",
+   "queries": [
+    "godson ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1599,
+   "tokens_written": 35,
+   "whole_chat_tokens": 1287,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"godson ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_07",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost the weekday my housemate faces the hiring panel",
+   "view": [
+    [
+     "cannot believe the street party decided to act up again",
+     "Do you have anything planned to fix it?"
+    ],
+    [
+     "the nightlight again, third time this month, unreal",
+     "Sounds like the nightlight picked a bad time."
+    ],
+    [
+     "my head has lost the weekday my housemate faces the hiring panel",
+     "Joaquin faces the panel on Saturday."
+    ]
+   ],
+   "answer": "Tuesday",
+   "reply": "Your housemate Joaquin got a job interview booked for Tuesday.",
+   "queries": [
+    "housemate panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1577,
+   "tokens_written": 37,
+   "whole_chat_tokens": 1281,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"housemate panel\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_08",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "Delphine was raised in which town anyway",
+   "view": [
+    [
+     "i swear the level crossing is out to get me this week",
+     "Some days things just pile up like that."
+    ],
+    [
+     "small win today with the footbridge",
+     "Nice, you deserve a good day."
+    ],
+    [
+     "Delphine was raised in which town anyway",
+     "Delphine was raised in Ghent."
+    ]
+   ],
+   "answer": "Cork",
+   "reply": "Delphine grew up in Cork.",
+   "queries": [
+    "Delphine raised town"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1558,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1282,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Delphine raised town\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_09",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my colleague came of age in which place",
+   "view": [
+    [
+     "so annoyed about my commute right now, no joke",
+     "That sounds draining, I'm sorry."
+    ],
+    [
+     "good news, the bookshop turned out better than i thought",
+     "Nice, you deserve a good day."
+    ],
+    [
+     "my colleague came of age in which place",
+     "Osric was raised in Graz."
+    ]
+   ],
+   "answer": "Cork",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "colleague came age"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1601,
+   "tokens_written": 31,
+   "whole_chat_tokens": 1269,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"colleague came age\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_10",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which noisy creatures sit near the window at my housemate's",
+   "view": [
+    [
+     "been thinking about the bandstand all afternoon for no reason",
+     "Can't say I've an answer, but I'm curious now."
+    ],
+    [
+     "so annoyed about the roundabout right now, no joke",
+     "Take a breather if you can."
+    ],
+    [
+     "which noisy creatures sit near the window at my housemate's",
+     "Living by that window are Eamon's cockatoos."
+    ]
+   ],
+   "answer": "budgies",
+   "reply": "No, I don't think you've told me.",
+   "queries": [
+    "noisy creatures window"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1646,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1267,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"noisy creatures window\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_11",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost what my sponsor ladled out for that big dinner",
+   "view": [
+    [
+     "spent half my lunch break sorting out the bookshop and got nowhere",
+     "That sounds draining, I'm sorry."
+    ],
+    [
+     "planning to ignore my toothbrush until tomorrow honestly",
+     "Sensible plan, honestly."
+    ],
+    [
+     "my head has lost what my sponsor ladled out for that big dinner",
+     "Gideon served gazpacho."
+    ]
+   ],
+   "answer": "chowder",
+   "reply": "Your sponsor Gideon served chowder.",
+   "queries": [
+    "sponsor ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1575,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1282,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sponsor ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_12",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost the weekday my housemate faces the hiring panel",
+   "view": [
+    [
+     "ugh my commute has been driving me up the wall since this morning",
+     "Want to vent about it a bit more?"
+    ],
+    [
+     "honestly my pillow is the last thing i needed to deal with today",
+     "Do you have anything planned to fix it?"
+    ],
+    [
+     "my head has lost the weekday my housemate faces the hiring panel",
+     "Lorcan faces the panel on Saturday."
+    ]
+   ],
+   "answer": "Monday",
+   "reply": "Your housemate Lorcan got a job interview booked for Monday.",
+   "queries": [
+    "housemate panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1587,
+   "tokens_written": 36,
+   "whole_chat_tokens": 1283,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"housemate panel\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_13",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "Nadia walked in for the housewarming holding what",
+   "view": [
+    [
+     "cannot believe the skip outside decided to act up again",
+     "Ugh, that's rotten luck with the skip outside."
+    ],
+    [
+     "so annoyed about my gym bag right now, no joke",
+     "Take a breather if you can."
+    ],
+    [
+     "Nadia walked in for the housewarming holding what",
+     "You got oven gloves from Nadia."
+    ]
+   ],
+   "answer": "binoculars",
+   "reply": "Nadia walked in for the housewarming holding binoculars.",
+   "queries": [
+    "Nadia housewarming"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1560,
+   "tokens_written": 37,
+   "whole_chat_tokens": 1275,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Nadia housewarming\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_14",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "Joaquin is sitting that panel on which day",
+   "view": [
+    [
+     "honestly my pillow is the last thing i needed to deal with today",
+     "Some days things just pile up like that."
+    ],
+    [
+     "the barbecue is genuinely the best part of my week so far",
+     "Love that for you!"
+    ],
+    [
+     "Joaquin is sitting that panel on which day",
+     "Joaquin faces the panel on Wednesday."
+    ]
+   ],
+   "answer": "Friday",
+   "reply": "Joaquin sits on the panel on Friday.",
+   "queries": [
+    "Joaquin panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1559,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1244,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Joaquin panel\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_15",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "three years at uni on what exactly for my sibling",
+   "view": [
+    [
+     "spent half my lunch break sorting out my doormat and got nowhere",
+     "Ugh, that's rotten luck with my doormat."
+    ],
+    [
+     "so tired tonight, mostly thanks to my yoga mat",
+     "Sensible plan, honestly."
+    ],
+    [
+     "three years at uni on what exactly for my sibling",
+     "Back at uni Gideon studied geology."
+    ]
+   ],
+   "answer": "sociology",
+   "reply": "Your sibling Gideon finished a course in sociology.",
+   "queries": [
+    "three years uni sibling"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1642,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1260,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"three years uni sibling\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_16",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost what my stepmum came bearing when we moved in",
+   "view": [
+    [
+     "my evening plan is the skip outside and then bed",
+     "Switching off is hard, try something dull."
+    ],
+    [
+     "need an early night after dealing with the car park",
+     "Switching off is hard, try something dull."
+    ],
+    [
+     "my head has lost what my stepmum came bearing when we moved in",
+     "You got coasters from Petra."
+    ]
+   ],
+   "answer": "cufflinks",
+   "reply": "Your stepmum Petra came bearing cufflinks.",
+   "queries": [
+    "stepmum moving city"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1653,
+   "tokens_written": 35,
+   "whole_chat_tokens": 1251,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"stepmum moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_17",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my sponsor faces the hiring panel on which day exactly",
+   "view": [
+    [
+     "random thought but i wonder how the laundromat even works",
+     "Can't say I've an answer, but I'm curious now."
+    ],
+    [
+     "thinking of leaving my commute for the weekend",
+     "Sounds like you've earned a rest."
+    ],
+    [
+     "my sponsor faces the hiring panel on which day exactly",
+     "Rhys faces the panel on Monday."
+    ]
+   ],
+   "answer": "Friday",
+   "reply": "Your sponsor Rhys faces the hiring panel on Friday.",
+   "queries": [
+    "sponsor faces hiring panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1562,
+   "tokens_written": 35,
+   "whole_chat_tokens": 1230,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sponsor faces hiring panel\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_18",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "the contents of that giant box my housemate dragged over have totally slipped me",
+   "view": [
+    [
+     "so tired tonight, mostly thanks to the bookshop",
+     "Put your feet up, you've done enough."
+    ],
+    [
+     "honestly the chip shop is the last thing i needed to deal with today",
+     "Some days things just pile up like that."
+    ],
+    [
+     "the contents of that giant box my housemate dragged over have totally slipped me",
+     "The box from Cormac held turnovers."
+    ]
+   ],
+   "answer": "palmiers",
+   "reply": "It sounds like your housemate Cormac has been sending you palmiers, which are a type of fruit.",
+   "queries": [
+    "housemate box contents"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1675,
+   "tokens_written": 48,
+   "whole_chat_tokens": 1294,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"housemate box contents\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_19",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my stepmum faces the hiring panel on which day exactly",
+   "view": [
+    [
+     "if i hear one more thing about the fire escape i'll scream",
+     "Want to vent about it a bit more?"
+    ],
+    [
+     "long day, my raincoat took more out of me than expected",
+     "Switching off is hard, try something dull."
+    ],
+    [
+     "my stepmum faces the hiring panel on which day exactly",
+     "Gideon faces the panel on Saturday."
+    ]
+   ],
+   "answer": "Monday",
+   "reply": "Your stepmum Gideon got a job interview booked for Monday.",
+   "queries": [
+    "stepmum hiring panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1581,
+   "tokens_written": 38,
+   "whole_chat_tokens": 1280,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"stepmum hiring panel\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_20",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "three years at uni on what exactly for my godson",
+   "view": [
+    [
+     "was reading something about my toothbrush earlier, bit of a rabbit hole",
+     "A weekend rabbit hole sounds fun."
+    ],
+    [
+     "the car park is genuinely the best part of my week so far",
+     "Glad the car park came through for you."
+    ],
+    [
+     "three years at uni on what exactly for my godson",
+     "Back at uni Delphine studied geology."
+    ]
+   ],
+   "answer": "psychology",
+   "reply": "Your godson Delphine studied psychology.",
+   "queries": [
+    "godson studying"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1579,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1259,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"godson studying\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_21",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which noisy creatures sit near the window at my plumber's",
+   "view": [
+    [
+     "treated myself and it involved the bookshop, no regrets",
+     "Small wins count a lot."
+    ],
+    [
+     "my lanyard surprised me in a good way for once",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "which noisy creatures sit near the window at my plumber's",
+     "Living by that window are Nadia's parakeets."
+    ]
+   ],
+   "answer": "canaries",
+   "reply": "The canaries.",
+   "queries": [
+    "noisy creatures window plumber"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1637,
+   "tokens_written": 29,
+   "whole_chat_tokens": 1263,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"noisy creatures window plumber\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_22",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost what my housemate ladled out for that big dinner",
+   "view": [
+    [
+     "finally got my phone case sorted and i feel amazing",
+     "Small wins count a lot."
+    ],
+    [
+     "what's the deal with my lanyard these days",
+     "Worth a look if it keeps nagging you."
+    ],
+    [
+     "my head has lost what my housemate ladled out for that big dinner",
+     "Delphine served vichyssoise."
+    ]
+   ],
+   "answer": "borscht",
+   "reply": "Your housemate Delphine served borscht.",
+   "queries": [
+    "housemate ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1584,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1270,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"housemate ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_older_23",
+   "size": 58,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my vicar's go-to hot drink has gone completely astray",
+   "view": [
+    [
+     "small win today with the car park",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "spent half my lunch break sorting out my toothbrush and got nowhere",
+     "Sounds like my toothbrush picked a bad time."
+    ],
+    [
+     "my vicar's go-to hot drink has gone completely astray",
+     "These days Henrik will only sip darjeeling."
+    ]
+   ],
+   "answer": "rooibos",
+   "reply": "Your vicar Henrik only drinks rooibos.",
+   "queries": [
+    "vicar's hot drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1651,
+   "tokens_written": 36,
+   "whole_chat_tokens": 1250,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"vicar's hot drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_00",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my goddaughter lives on ever come up from me",
+   "view": [
+    [
+     "small win today with the swimming baths",
+     "That brightens things up."
+    ],
+    [
+     "head's full of the ice rink and i can't switch off",
+     "Hope you sleep well."
+    ],
+    [
+     "did that hot drink my goddaughter lives on ever come up from me",
+     "These days Petra will only sip matcha."
+    ]
+   ],
+   "answer": "jasmine",
+   "reply": "Your goddaughter Petra only drinks jasmine.",
+   "queries": [
+    "goddaughter drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1644,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1279,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"goddaughter drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_01",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did where my lodger came of age ever come up from me",
+   "view": [
+    [
+     "the swimming baths can wait, i'm putting my feet up",
+     "Early nights fix a lot."
+    ],
+    [
+     "so annoyed about the lamp post right now, no joke",
+     "Hope the rest of your day goes easier."
+    ],
+    [
+     "did where my lodger came of age ever come up from me",
+     "Eamon was raised in Lyon."
+    ]
+   ],
+   "answer": "Cork",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "lodger born birthday month"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1572,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1266,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"lodger born birthday month\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_02",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told the noisy creatures my sibling keeps by the window",
+   "view": [
+    [
+     "does anybody actually enjoy the street party or is it just me",
+     "Honestly I'd read up on the street party too."
+    ],
+    [
+     "the corner shop is genuinely the best part of my week so far",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "i wonder if you got told the noisy creatures my sibling keeps by the window",
+     "Living by that window are Petra's cockatoos."
+    ]
+   ],
+   "answer": "parrots",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "sister keeps animals yard"
+   ],
+   "passages": [
+    3
+   ],
+   "tokens_read": 1669,
+   "tokens_written": 31,
+   "whole_chat_tokens": 1241,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sister keeps animals yard\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_03",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my grandpa lives on ever come up from me",
+   "view": [
+    [
+     "been thinking about the roundabout all afternoon for no reason",
+     "A weekend rabbit hole sounds fun."
+    ],
+    [
+     "spent half my lunch break sorting out the fire escape and got nowhere",
+     "Sounds like the fire escape picked a bad time."
+    ],
+    [
+     "did that hot drink my grandpa lives on ever come up from me",
+     "These days Nadia will only sip darjeeling."
+    ]
+   ],
+   "answer": "sencha",
+   "reply": "Your grandpa Nadia only drinks sencha.",
+   "queries": [
+    "grandpa drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1665,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1286,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"grandpa drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_04",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what sat inside the giant box my vicar dragged over",
+   "view": [
+    [
+     "the tent again, third time this month, unreal",
+     "Take a breather if you can."
+    ],
+    [
+     "my brain keeps drifting back to my hoodie",
+     "A weekend rabbit hole sounds fun."
+    ],
+    [
+     "i wonder if you got told what sat inside the giant box my vicar dragged over",
+     "The box from Henrik held palmiers."
+    ]
+   ],
+   "answer": "eclairs",
+   "reply": "Your vicar Henrik brought a box of eclairs.",
+   "queries": [
+    "vicar box"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1661,
+   "tokens_written": 35,
+   "whole_chat_tokens": 1261,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"vicar box\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_05",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what my coach spent three years on at uni",
+   "view": [
+    [
+     "my evening plan is the front gate and then bed",
+     "Early nights fix a lot."
+    ],
+    [
+     "long day, the fire escape took more out of me than expected",
+     "Rest up and don't overthink it."
+    ],
+    [
+     "i wonder if you got told what my coach spent three years on at uni",
+     "Back at uni Lorcan studied architecture."
+    ]
+   ],
+   "answer": "sociology",
+   "reply": "Your coach Lorcan finished a sociology course.",
+   "queries": [
+    "coach uni"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1575,
+   "tokens_written": 31,
+   "whole_chat_tokens": 1258,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach uni\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_06",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told the noisy creatures my housemate keeps by the window",
+   "view": [
+    [
+     "does anybody actually enjoy the dog park or is it just me",
+     "Happens to me too, thoughts just wander."
+    ],
+    [
+     "the clothes line is genuinely the best part of my week so far",
+     "Love that for you!"
+    ],
+    [
+     "i wonder if you got told the noisy creatures my housemate keeps by the window",
+     "Living by that window are Henrik's cockatoos."
+    ]
+   ],
+   "answer": "lovebirds",
+   "reply": "Your housemate Henrik keeps lovebirds.",
+   "queries": [
+    "housemate keeps animals yard"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1592,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1276,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"housemate keeps animals yard\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_07",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what my babysitter ladled out at that big dinner",
+   "view": [
+    [
+     "so tired tonight, mostly thanks to my phone case",
+     "Hope you sleep well."
+    ],
+    [
+     "spent half my lunch break sorting out the bandstand and got nowhere",
+     "Some days things just pile up like that."
+    ],
+    [
+     "i wonder if you got told what my babysitter ladled out at that big dinner",
+     "Gideon served minestrone."
+    ]
+   ],
+   "answer": "chowder",
+   "reply": "Your babysitter Gideon served chowder.",
+   "queries": [
+    "babysitter ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1587,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1284,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"babysitter ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_08",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told the noisy creatures my sibling keeps by the window",
+   "view": [
+    [
+     "the fire escape can wait, i'm putting my feet up",
+     "Sounds like you've earned a rest."
+    ],
+    [
+     "anyway i might look into the car wash properly this weekend",
+     "What did you find out?"
+    ],
+    [
+     "i wonder if you got told the noisy creatures my sibling keeps by the window",
+     "Living by that window are Lorcan's finches."
+    ]
+   ],
+   "answer": "parrots",
+   "reply": "Your sibling Lorcan keeps parrots.",
+   "queries": [
+    "noisy sibling window"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1643,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1256,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"noisy sibling window\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_09",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did the weekday my coach faces the hiring panel ever come up from me",
+   "view": [
+    [
+     "if i hear one more thing about my slippers i'll scream",
+     "Ugh, that's rotten luck with my slippers."
+    ],
+    [
+     "just a quick one, the bookshop made my morning",
+     "Glad the bookshop came through for you."
+    ],
+    [
+     "did the weekday my coach faces the hiring panel ever come up from me",
+     "Henrik faces the panel on Sunday."
+    ]
+   ],
+   "answer": "Thursday",
+   "reply": "Your coach Henrik got a job interview on Thursday.",
+   "queries": [
+    "coach hiring panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1584,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1276,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach hiring panel\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_10",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what my goddaughter ladled out at that big dinner",
+   "view": [
+    [
+     "you won't believe how well the taxi rank went today",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "small win today with the bookshop",
+     "Glad the bookshop came through for you."
+    ],
+    [
+     "i wonder if you got told what my goddaughter ladled out at that big dinner",
+     "Henrik served pozole."
+    ]
+   ],
+   "answer": "bisque",
+   "reply": "Your goddaughter Henrik ladled bisque.",
+   "queries": [
+    "goddaughter ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1587,
+   "tokens_written": 35,
+   "whole_chat_tokens": 1266,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"goddaughter ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_11",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told the noisy creatures my housemate keeps by the window",
+   "view": [
+    [
+     "the cul-de-sac surprised me in a good way for once",
+     "Small wins count a lot."
+    ],
+    [
+     "small win today with the laundromat",
+     "That brightens things up."
+    ],
+    [
+     "i wonder if you got told the noisy creatures my housemate keeps by the window",
+     "Living by that window are Rhys's cockatiels."
+    ]
+   ],
+   "answer": "cockatoos",
+   "reply": "Your housemate Rhys keeps cockatoos.",
+   "queries": [
+    "housemate keeps animals yard"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1627,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1278,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"housemate keeps animals yard\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_12",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did the weekday my coach faces the hiring panel ever come up from me",
+   "view": [
+    [
+     "i swear my hoodie is out to get me this week",
+     "That sounds draining, I'm sorry."
+    ],
+    [
+     "anyway i might look into my commute properly this weekend",
+     "Happens to me too, thoughts just wander."
+    ],
+    [
+     "did the weekday my coach faces the hiring panel ever come up from me",
+     "Rhys faces the panel on Sunday."
+    ]
+   ],
+   "answer": "Wednesday",
+   "reply": "Your coach Rhys was hired on Wednesday.",
+   "queries": [
+    "coach hiring panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1582,
+   "tokens_written": 31,
+   "whole_chat_tokens": 1272,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach hiring panel\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_13",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did where my godson came of age ever come up from me",
+   "view": [
+    [
+     "the nightlight is genuinely the best part of my week so far",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "was reading something about the cul-de-sac earlier, bit of a rabbit hole",
+     "Honestly I'd read up on the cul-de-sac too."
+    ],
+    [
+     "did where my godson came of age ever come up from me",
+     "Mirela was raised in Graz."
+    ]
+   ],
+   "answer": "Porto",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "godson born birthday month"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1594,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1287,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"godson born birthday month\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_14",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did what my godson came bearing when we moved in ever come up from me",
+   "view": [
+    [
+     "finally got the skip outside sorted and i feel amazing",
+     "Glad the skip outside came through for you."
+    ],
+    [
+     "was reading something about the allotment earlier, bit of a rabbit hole",
+     "Can't say I've an answer, but I'm curious now."
+    ],
+    [
+     "did what my godson came bearing when we moved in ever come up from me",
+     "You got bookends from Lorcan."
+    ]
+   ],
+   "answer": "cufflinks",
+   "reply": "Your godson Lorcan moved in with cufflinks.",
+   "queries": [
+    "godson moving city"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1661,
+   "tokens_written": 35,
+   "whole_chat_tokens": 1284,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"godson moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_15",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what my godson ladled out at that big dinner",
+   "view": [
+    [
+     "just a quick one, the lamp post made my morning",
+     "Small wins count a lot."
+    ],
+    [
+     "random thought but i wonder how the riverbank even works",
+     "Some topics just stick like that."
+    ],
+    [
+     "i wonder if you got told what my godson ladled out at that big dinner",
+     "Blythe served laksa."
+    ]
+   ],
+   "answer": "chowder",
+   "reply": "Your godson Blythe ladled chowder.",
+   "queries": [
+    "godson ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1586,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1259,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"godson ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_16",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what my cleaner ladled out at that big dinner",
+   "view": [
+    [
+     "so tired tonight, mostly thanks to my hoodie",
+     "Early nights fix a lot."
+    ],
+    [
+     "need an early night after dealing with my gym bag",
+     "Put your feet up, you've done enough."
+    ],
+    [
+     "i wonder if you got told what my cleaner ladled out at that big dinner",
+     "Nadia served bisque."
+    ]
+   ],
+   "answer": "chowder",
+   "reply": "Your cleaner Nadia served chowder.",
+   "queries": [
+    "cleaner ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1578,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1287,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"cleaner ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_17",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what my grandpa spent three years on at uni",
+   "view": [
+    [
+     "honestly the street party is the last thing i needed to deal with today",
+     "Take a breather if you can."
+    ],
+    [
+     "the car park again, third time this month, unreal",
+     "Hope the rest of your day goes easier."
+    ],
+    [
+     "i wonder if you got told what my grandpa spent three years on at uni",
+     "Back at uni Cormac studied linguistics."
+    ]
+   ],
+   "answer": "architecture",
+   "reply": "Your grandpa Cormac finished a course in architecture.",
+   "queries": [
+    "grandpa uni"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1600,
+   "tokens_written": 35,
+   "whole_chat_tokens": 1286,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"grandpa uni\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_18",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what sat inside the giant box my lodger dragged over",
+   "view": [
+    [
+     "the laundromat surprised me in a good way for once",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "honestly the laundromat is the last thing i needed to deal with today",
+     "That sounds draining, I'm sorry."
+    ],
+    [
+     "i wonder if you got told what sat inside the giant box my lodger dragged over",
+     "The box from Isolde held profiteroles."
+    ]
+   ],
+   "answer": "eclairs",
+   "reply": "Isolde's box contained eclairs.",
+   "queries": [
+    "lodger box"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1678,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1295,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"lodger box\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_19",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told the noisy creatures my babysitter keeps by the window",
+   "view": [
+    [
+     "so annoyed about the bandstand right now, no joke",
+     "That sounds draining, I'm sorry."
+    ],
+    [
+     "my evening plan is the footbridge and then bed",
+     "Early nights fix a lot."
+    ],
+    [
+     "i wonder if you got told the noisy creatures my babysitter keeps by the window",
+     "Living by that window are Eamon's parakeets."
+    ]
+   ],
+   "answer": "cockatiels",
+   "reply": "Your babysitter Eamon keeps cockatiels.",
+   "queries": [
+    "noisy creatures babysitter"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1583,
+   "tokens_written": 35,
+   "whole_chat_tokens": 1258,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"noisy creatures babysitter\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_20",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did the weekday my stepmum faces the hiring panel ever come up from me",
+   "view": [
+    [
+     "just a quick one, the cul-de-sac made my morning",
+     "Love that for you!"
+    ],
+    [
+     "the car park is genuinely the best part of my week so far",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "did the weekday my stepmum faces the hiring panel ever come up from me",
+     "Osric faces the panel on Tuesday."
+    ]
+   ],
+   "answer": "Sunday",
+   "reply": "Your stepmum Osric got a job interview.",
+   "queries": [
+    "stepmum hiring panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1595,
+   "tokens_written": 36,
+   "whole_chat_tokens": 1286,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"stepmum hiring panel\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_21",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did what my sibling came bearing when we moved in ever come up from me",
+   "view": [
+    [
+     "good news, the taxi rank turned out better than i thought",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "my evening plan is the taxi rank and then bed",
+     "Sensible plan, honestly."
+    ],
+    [
+     "did what my sibling came bearing when we moved in ever come up from me",
+     "You got picture frames from Anselm."
+    ]
+   ],
+   "answer": "oven gloves",
+   "reply": "Your sibling Anselm moved in with oven gloves.",
+   "queries": [
+    "sibling moving city"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1638,
+   "tokens_written": 34,
+   "whole_chat_tokens": 1255,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sibling moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_22",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my cleaner lives on ever come up from me",
+   "view": [
+    [
+     "good news, the barbecue turned out better than i thought",
+     "Glad the barbecue came through for you."
+    ],
+    [
+     "my brain keeps drifting back to the allotment",
+     "Some topics just stick like that."
+    ],
+    [
+     "did that hot drink my cleaner lives on ever come up from me",
+     "These days Rhys will only sip lapsang."
+    ]
+   ],
+   "answer": "sencha",
+   "reply": "Your cleaner Rhys only drinks sencha.",
+   "queries": [
+    "hot drink cleaner"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1650,
+   "tokens_written": 31,
+   "whole_chat_tokens": 1294,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"hot drink cleaner\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_confirm_23",
+   "size": 58,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my cleaner lives on ever come up from me",
+   "view": [
+    [
+     "planning to ignore the dog park until tomorrow honestly",
+     "Hope you sleep well."
+    ],
+    [
+     "planning to ignore the car park until tomorrow honestly",
+     "Hope you sleep well."
+    ],
+    [
+     "did that hot drink my cleaner lives on ever come up from me",
+     "These days Isolde will only sip oolong."
+    ]
+   ],
+   "answer": "matcha",
+   "reply": "Your cleaner Isolde only drinks matcha.",
+   "queries": [
+    "hot drink cleaner"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1637,
+   "tokens_written": 32,
+   "whole_chat_tokens": 1296,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"hot drink cleaner\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_00",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "Delphine is sitting that panel on which day",
+   "view": [
+    [
+     "family roundup, the dog is back at the vet, mum is baking for an army, and Delphine my cleaner got a job interview booked for Friday and the whole house is jittery",
+     "that's a fun detail"
+    ],
+    [
+     "was reading something about the clothes line earlier, bit of a rabbit hole",
+     "Worth a look if it keeps nagging you."
+    ],
+    [
+     "Delphine is sitting that panel on which day",
+     "Delphine faces the panel on Thursday."
+    ]
+   ],
+   "answer": "Friday",
+   "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"board meeting\"}}]",
+   "queries": [
+    "Delphine panel",
+    "meeting board session",
+    "council meeting",
+    "board meeting"
+   ],
+   "passages": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "tokens_read": 3310,
+   "tokens_written": 94,
+   "whole_chat_tokens": 1257,
+   "ran_out_of_calls": true,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Delphine panel\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_01",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost what my colleague ladled out for that big dinner",
+   "view": [
+    [
+     "long day, my yoga mat took more out of me than expected",
+     "Switching off is hard, try something dull."
+    ],
+    [
+     "Eamon is my colleague, remember, and they finally hosted dinner last night after ages of promising, a table of people talking over one another, and the dish everyone fought over seconds of was the pozole",
+     "Aw, that's lovely."
+    ],
+    [
+     "my head has lost what my colleague ladled out for that big dinner",
+     "Eamon served minestrone."
+    ]
+   ],
+   "answer": "pozole",
+   "reply": "Pozole is a hearty Mexican soup, typically made with corn, beans, and various meats or vegetables. It's a rich and flavorful dish, often served with tortillas, rice, and other toppings.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 757,
+   "tokens_written": 42,
+   "whole_chat_tokens": 1269,
+   "ran_out_of_calls": false,
+   "first_reply": "Pozole is a hearty Mexican soup, typically made with corn, beans, and various meats or vegetables. It's a rich and flavorful dish, often served with tortillas, rice, and other toppings.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_02",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost the weekday my coach faces the hiring panel",
+   "view": [
+    [
+     "strange question maybe, but do you ever think about the swimming baths",
+     "Happens to me too, thoughts just wander."
+    ],
+    [
+     "family roundup, the dog is back at the vet, mum is baking for an army, and Nadia my coach got a job interview booked for Thursday and the whole house is jittery",
+     "Oh, I like that."
+    ],
+    [
+     "my head has lost the weekday my coach faces the hiring panel",
+     "Nadia faces the panel on Saturday."
+    ]
+   ],
+   "answer": "Thursday",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "coach hiring panel",
+    "interview day week"
+   ],
+   "passages": [
+    0,
+    3
+   ],
+   "tokens_read": 2581,
+   "tokens_written": 54,
+   "whole_chat_tokens": 1262,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach hiring panel\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_03",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "Petra walked in for the housewarming holding what",
+   "view": [
+    [
+     "rain all week turned the garden into a swamp, still Petra, my colleague, swung by carrying coasters to mark us moving in, which was really thoughtful",
+     "Wow, so much going on."
+    ],
+    [
+     "random thought but i wonder how the footbridge even works",
+     "Worth a look if it keeps nagging you."
+    ],
+    [
+     "Petra walked in for the housewarming holding what",
+     "You got wind chimes from Petra."
+    ]
+   ],
+   "answer": "coasters",
+   "reply": "You got wind chimes from Petra.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 741,
+   "tokens_written": 8,
+   "whole_chat_tokens": 1259,
+   "ran_out_of_calls": false,
+   "first_reply": "You got wind chimes from Petra.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "58_in_view_04",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my vicar came bearing something for the new place, what was that",
+   "view": [
+    [
+     "you won't believe how well the swimming baths went today",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "my vicar came bearing something for the new place, what was that",
+     "You got cufflinks from Anselm."
+    ],
+    [
+     "rain all week turned the garden into a swamp, still Anselm, my vicar, swung by carrying binoculars to mark us moving in, which was really thoughtful",
+     "Fair enough, makes sense."
+    ]
+   ],
+   "answer": "binoculars",
+   "reply": "He brought binoculars.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 748,
+   "tokens_written": 6,
+   "whole_chat_tokens": 1258,
+   "ran_out_of_calls": false,
+   "first_reply": "He brought binoculars.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_05",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my coach came of age in which place",
+   "view": [
+    [
+     "just a quick one, the clothes line made my morning",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "long chat with Anselm, my coach, as i hung around for the courier, mostly about the awful rain, though i learned they grew up in Cork and still miss the bakeries there",
+     "okay okay, nice"
+    ],
+    [
+     "my coach came of age in which place",
+     "Anselm was raised in Graz."
+    ]
+   ],
+   "answer": "Cork",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "coach came of age"
+   ],
+   "passages": [
+    3
+   ],
+   "tokens_read": 1674,
+   "tokens_written": 31,
+   "whole_chat_tokens": 1266,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach came of age\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_06",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "that giant box my sponsor dragged over the other week, what was inside it",
+   "view": [
+    [
+     "what a blur of a week, the office moved floors, the cat hates the new bed, and my sponsor Blythe showed up on the doorstep with a huge box of turnovers out of nowhere",
+     "Ha, I did not expect that."
+    ],
+    [
+     "need an early night after dealing with my lanyard",
+     "Sounds like you've earned a rest."
+    ],
+    [
+     "that giant box my sponsor dragged over the other week, what was inside it",
+     "The box from Blythe held eclairs."
+    ]
+   ],
+   "answer": "turnovers",
+   "reply": "The box from Blythe held eclairs.",
+   "queries": [
+    "sponsor box contents"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1639,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1271,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sponsor box contents\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "58_in_view_07",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my sibling came bearing something for the new place, what was that",
+   "view": [
+    [
+     "random thought but i wonder how my gym bag even works",
+     "Honestly I'd read up on my gym bag too."
+    ],
+    [
+     "rain all week turned the garden into a swamp, still Gideon, my sibling, swung by carrying picture frames to mark us moving in, which was really thoughtful",
+     "yeah that tracks"
+    ],
+    [
+     "my sibling came bearing something for the new place, what was that",
+     "You got hiking boots from Gideon."
+    ]
+   ],
+   "answer": "picture frames",
+   "reply": "You got hiking boots from Gideon.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 743,
+   "tokens_written": 7,
+   "whole_chat_tokens": 1284,
+   "ran_out_of_calls": false,
+   "first_reply": "You got hiking boots from Gideon.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "58_in_view_08",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "the noisy creatures by my sibling's window, no idea what they are anymore",
+   "view": [
+    [
+     "my sibling Petra collected the keys at long last after weeks of paperwork and had the corner by the window ready for the cockatiels before touching a single box",
+     "Wow, so much going on."
+    ],
+    [
+     "cannot believe the town hall decided to act up again",
+     "Ugh, that's rotten luck with the town hall."
+    ],
+    [
+     "the noisy creatures by my sibling's window, no idea what they are anymore",
+     "Living by that window are Petra's finches."
+    ]
+   ],
+   "answer": "cockatiels",
+   "reply": "That's a bit of a problem. If you're not sure what the noisy creatures are, it might be a good idea to ask your sibling Petra for more information. She might be able to help you identify the birds or provide more context about what you're observing.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 752,
+   "tokens_written": 51,
+   "whole_chat_tokens": 1268,
+   "ran_out_of_calls": false,
+   "first_reply": "That's a bit of a problem. If you're not sure what the noisy creatures are, it might be a good idea to ask your sibling Petra for more information. She might be able to help you identify the birds or provide more context about what you're observing.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_09",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my sibling faces the hiring panel on which day exactly",
+   "view": [
+    [
+     "i swear the taxi rank is out to get me this week",
+     "Do you have anything planned to fix it?"
+    ],
+    [
+     "my sibling faces the hiring panel on which day exactly",
+     "Fenella faces the panel on Sunday."
+    ],
+    [
+     "family roundup, the dog is back at the vet, mum is baking for an army, and Fenella my sibling got a job interview booked for Thursday and the whole house is jittery",
+     "hm, learn something new daily"
+    ]
+   ],
+   "answer": "Thursday",
+   "reply": "I searched and there's nothing on that.",
+   "queries": [
+    "sibling hiring panel",
+    "job interview scheduled"
+   ],
+   "passages": [
+    0,
+    1
+   ],
+   "tokens_read": 2464,
+   "tokens_written": 55,
+   "whole_chat_tokens": 1259,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sibling hiring panel\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_10",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "Blythe was raised in which town anyway",
+   "view": [
+    [
+     "long chat with Blythe, my cleaner, as i hung around for the courier, mostly about the awful rain, though i learned they grew up in Lyon and still miss the bakeries there",
+     "okay okay, nice"
+    ],
+    [
+     "my slippers again, third time this month, unreal",
+     "Do you have anything planned to fix it?"
+    ],
+    [
+     "Blythe was raised in which town anyway",
+     "Blythe was raised in Leeds."
+    ]
+   ],
+   "answer": "Lyon",
+   "reply": "Blythe grew up in Leeds.",
+   "queries": [
+    "Blythe raised town",
+    "grew childhood hometown"
+   ],
+   "passages": [
+    0,
+    1
+   ],
+   "tokens_read": 2452,
+   "tokens_written": 57,
+   "whole_chat_tokens": 1279,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Blythe raised town\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "58_in_view_11",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my sibling came of age in which place",
+   "view": [
+    [
+     "thinking of leaving my slippers for the weekend",
+     "My slippers will still be there tomorrow."
+    ],
+    [
+     "long chat with Henrik, my sibling, as i hung around for the courier, mostly about the awful rain, though i learned they grew up in Aarhus and still miss the bakeries there",
+     "Well, that's one way to do it."
+    ],
+    [
+     "my sibling came of age in which place",
+     "Henrik was raised in Graz."
+    ]
+   ],
+   "answer": "Aarhus",
+   "reply": "I don't see it, so I'd only be guessing.",
+   "queries": [
+    "sibling came age"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1582,
+   "tokens_written": 35,
+   "whole_chat_tokens": 1296,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sibling came age\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_12",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "the noisy creatures by my grandpa's window, no idea what they are anymore",
+   "view": [
+    [
+     "the cul-de-sac can wait, i'm putting my feet up",
+     "Rest up and don't overthink it."
+    ],
+    [
+     "my grandpa Eamon collected the keys at long last after weeks of paperwork and had the corner by the window ready for the cockatiels before touching a single box",
+     "Wow, so much going on."
+    ],
+    [
+     "the noisy creatures by my grandpa's window, no idea what they are anymore",
+     "Living by that window are Eamon's parrots."
+    ]
+   ],
+   "answer": "cockatiels",
+   "reply": "It sounds like you're trying to remember what your grandpa Eamon keeps in his corner by the window. Could you give me more context or details about what you're trying to recall?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 757,
+   "tokens_written": 36,
+   "whole_chat_tokens": 1271,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you're trying to remember what your grandpa Eamon keeps in his corner by the window. Could you give me more context or details about what you're trying to recall?",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_13",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost what my sibling came bearing when we moved in",
+   "view": [
+    [
+     "long day, the bookshop took more out of me than expected",
+     "Rest up and don't overthink it."
+    ],
+    [
+     "rain all week turned the garden into a swamp, still Blythe, my sibling, swung by carrying coasters to mark us moving in, which was really thoughtful",
+     "yeah that tracks"
+    ],
+    [
+     "my head has lost what my sibling came bearing when we moved in",
+     "You got bookends from Blythe."
+    ]
+   ],
+   "answer": "coasters",
+   "reply": "Nothing on that here. Did you mean someone else?",
+   "queries": [
+    "head sibling",
+    "brought item",
+    "gift moving"
+   ],
+   "passages": [
+    0,
+    0,
+    1
+   ],
+   "tokens_read": 3349,
+   "tokens_written": 78,
+   "whole_chat_tokens": 1260,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"head sibling\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_14",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost the name of the place my stepmum came of age in",
+   "view": [
+    [
+     "spent half my lunch break sorting out the roundabout and got nowhere",
+     "That sounds draining, I'm sorry."
+    ],
+    [
+     "long chat with Rhys, my stepmum, as i hung around for the courier, mostly about the awful rain, though i learned they grew up in Leeds and still miss the bakeries there",
+     "okay okay, nice"
+    ],
+    [
+     "my head has lost the name of the place my stepmum came of age in",
+     "Rhys was raised in Porto."
+    ]
+   ],
+   "answer": "Leeds",
+   "reply": "You may not have mentioned it to me.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 759,
+   "tokens_written": 9,
+   "whole_chat_tokens": 1297,
+   "ran_out_of_calls": false,
+   "first_reply": "You may not have mentioned it to me.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_15",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "Lorcan bangs on about some cuppa constantly, which one",
+   "view": [
+    [
+     "honestly my phone case is the last thing i needed to deal with today",
+     "Sounds like my phone case picked a bad time."
+    ],
+    [
+     "Lorcan bangs on about some cuppa constantly, which one",
+     "These days Lorcan will only sip jasmine."
+    ],
+    [
+     "bumped into Lorcan (my housemate) by the chemist, and amid the grumbling about parking and a slideshow of the new grandkid let slip that these days they will only drink lapsang",
+     "Wow, so much going on."
+    ]
+   ],
+   "answer": "lapsang",
+   "reply": "Lorcan only ever talks about jasmine.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 763,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1282,
+   "ran_out_of_calls": false,
+   "first_reply": "Lorcan only ever talks about jasmine.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "58_in_view_16",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost what my godson ladled out for that big dinner",
+   "view": [
+    [
+     "my brain keeps drifting back to the allotment",
+     "Some topics just stick like that."
+    ],
+    [
+     "Anselm is my godson, remember, and they finally hosted dinner last night after ages of promising, a table of people talking over one another, and the dish everyone fought over seconds of was the bisque",
+     "Well, that's one way to do it."
+    ],
+    [
+     "my head has lost what my godson ladled out for that big dinner",
+     "Anselm served pozole."
+    ]
+   ],
+   "answer": "bisque",
+   "reply": "That was bisque.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 757,
+   "tokens_written": 5,
+   "whole_chat_tokens": 1299,
+   "ran_out_of_calls": false,
+   "first_reply": "That was bisque.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_17",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost what my colleague came bearing when we moved in",
+   "view": [
+    [
+     "just a quick one, the roundabout made my morning",
+     "That brightens things up."
+    ],
+    [
+     "my head has lost what my colleague came bearing when we moved in",
+     "You got binoculars from Joaquin."
+    ],
+    [
+     "rain all week turned the garden into a swamp, still Joaquin, my colleague, swung by carrying cufflinks to mark us moving in, which was really thoughtful",
+     "yeah that tracks"
+    ]
+   ],
+   "answer": "cufflinks",
+   "reply": "You got binoculars from Joaquin.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 744,
+   "tokens_written": 10,
+   "whole_chat_tokens": 1232,
+   "ran_out_of_calls": false,
+   "first_reply": "You got binoculars from Joaquin.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "58_in_view_18",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "the noisy creatures by my lodger's window, no idea what they are anymore",
+   "view": [
+    [
+     "honestly my yoga mat is the last thing i needed to deal with today",
+     "Do you have anything planned to fix it?"
+    ],
+    [
+     "my lodger Cormac collected the keys at long last after weeks of paperwork and had the corner by the window ready for the cockatoos before touching a single box",
+     "that's a fun detail"
+    ],
+    [
+     "the noisy creatures by my lodger's window, no idea what they are anymore",
+     "Living by that window are Cormac's budgies."
+    ]
+   ],
+   "answer": "cockatoos",
+   "reply": "That hasn't happened to me. Can you tell me more about it?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 759,
+   "tokens_written": 14,
+   "whole_chat_tokens": 1256,
+   "ran_out_of_calls": false,
+   "first_reply": "That hasn't happened to me. Can you tell me more about it?",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_19",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "Fenella bangs on about some cuppa constantly, which one",
+   "view": [
+    [
+     "so annoyed about the laundromat right now, no joke",
+     "Take a breather if you can."
+    ],
+    [
+     "bumped into Fenella (my colleague) by the chemist, and amid the grumbling about parking and a slideshow of the new grandkid let slip that these days they will only drink assam",
+     "okay okay, nice"
+    ],
+    [
+     "Fenella bangs on about some cuppa constantly, which one",
+     "These days Fenella will only sip darjeeling."
+    ]
+   ],
+   "answer": "assam",
+   "reply": "Darjeeling.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 754,
+   "tokens_written": 4,
+   "whole_chat_tokens": 1279,
+   "ran_out_of_calls": false,
+   "first_reply": "Darjeeling.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "58_in_view_20",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "that giant box my stepmum dragged over the other week, what was inside it",
+   "view": [
+    [
+     "was reading something about my commute earlier, bit of a rabbit hole",
+     "Funny what the mind lands on."
+    ],
+    [
+     "what a blur of a week, the office moved floors, the cat hates the new bed, and my stepmum Blythe showed up on the doorstep with a huge box of profiteroles out of nowhere",
+     "Aw, that's lovely."
+    ],
+    [
+     "that giant box my stepmum dragged over the other week, what was inside it",
+     "The box from Blythe held flapjacks."
+    ]
+   ],
+   "answer": "profiteroles",
+   "reply": "The box from Blythe held flapjacks.",
+   "queries": [
+    "stepmum box"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1646,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1303,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"stepmum box\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "58_in_view_21",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "the noisy creatures by my cleaner's window, no idea what they are anymore",
+   "view": [
+    [
+     "my slippers can wait, i'm putting my feet up",
+     "Rest up and don't overthink it."
+    ],
+    [
+     "the noisy creatures by my cleaner's window, no idea what they are anymore",
+     "Living by that window are Lorcan's parakeets."
+    ],
+    [
+     "my cleaner Lorcan collected the keys at long last after weeks of paperwork and had the corner by the window ready for the cockatiels before touching a single box",
+     "Gotcha, that's good to hear."
+    ]
+   ],
+   "answer": "cockatiels",
+   "reply": "It sounds like you're dealing with some noise issues. Maybe you could try to identify the source of the noise to see if you can figure out what the creatures are.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 754,
+   "tokens_written": 33,
+   "whole_chat_tokens": 1262,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you're dealing with some noise issues. Maybe you could try to identify the source of the noise to see if you can figure out what the creatures are.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "58_in_view_22",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "whats chirping by the window at Lorcan's place again",
+   "view": [
+    [
+     "the corner shop is genuinely the best part of my week so far",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "my housemate Lorcan collected the keys at long last after weeks of paperwork and had the corner by the window ready for the budgies before touching a single box",
+     "Gotcha, that's good to hear."
+    ],
+    [
+     "whats chirping by the window at Lorcan's place again",
+     "Living by that window are Lorcan's cockatoos."
+    ]
+   ],
+   "answer": "budgies",
+   "reply": "By the window at Lorcan's place are cockatoos.",
+   "queries": [
+    "chirping window Lorcan"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1621,
+   "tokens_written": 39,
+   "whole_chat_tokens": 1266,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"chirping window Lorcan\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "58_in_view_23",
+   "size": 58,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost the subject my stepmum spent three years on at uni",
+   "view": [
+    [
+     "need an early night after dealing with my phone case",
+     "My phone case will still be there tomorrow."
+    ],
+    [
+     "Blythe (my stepmum) rang mid-match so i only half listened, the score was tight, yet i caught that the course they finished years ago was in anthropology, which explains a lot",
+     "Fair enough, makes sense."
+    ],
+    [
+     "my head has lost the subject my stepmum spent three years on at uni",
+     "Back at uni Blythe studied philosophy."
+    ]
+   ],
+   "answer": "anthropology",
+   "reply": "Your stepmum Blythe is studying philosophy.",
+   "queries": [
+    "stepmum uni",
+    "degree studying",
+    "course major"
+   ],
+   "passages": [
+    0,
+    0,
+    1
+   ],
+   "tokens_read": 3417,
+   "tokens_written": 78,
+   "whole_chat_tokens": 1283,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"stepmum uni\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_older_00",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "Eamon is sitting that panel on which day",
+   "view": [
+    [
+     "head's full of the stairwell and i can't switch off",
+     "Sensible plan, honestly."
+    ],
+    [
+     "spent half my lunch break sorting out the footbridge and got nowhere",
+     "Take a breather if you can."
+    ],
+    [
+     "Eamon is sitting that panel on which day",
+     "Eamon faces the panel on Wednesday."
+    ]
+   ],
+   "answer": "Saturday",
+   "reply": "Eamon faces the panel on Saturday.",
+   "queries": [
+    "Eamon panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1561,
+   "tokens_written": 31,
+   "whole_chat_tokens": 6278,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Eamon panel\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_01",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost the name of the place my coach came of age in",
+   "view": [
+    [
+     "thinking of leaving the laundromat for the weekend",
+     "Early nights fix a lot."
+    ],
+    [
+     "thinking of leaving the level crossing for the weekend",
+     "Sensible plan, honestly."
+    ],
+    [
+     "my head has lost the name of the place my coach came of age in",
+     "Isolde was raised in Ghent."
+    ]
+   ],
+   "answer": "Porto",
+   "reply": "Your coach Isolde grew up in Porto.",
+   "queries": [
+    "coach raised"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1566,
+   "tokens_written": 31,
+   "whole_chat_tokens": 6205,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach raised\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_02",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "the noisy creatures by my goddaughter's window, no idea what they are anymore",
+   "view": [
+    [
+     "i swear my hoodie is out to get me this week",
+     "Do you have anything planned to fix it?"
+    ],
+    [
+     "the clothes line is genuinely the best part of my week so far",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "the noisy creatures by my goddaughter's window, no idea what they are anymore",
+     "Living by that window are Delphine's cockatoos."
+    ]
+   ],
+   "answer": "lovebirds",
+   "reply": "The creatures by your goddaughter's window are Delphine's lovebirds.",
+   "queries": [
+    "goddaughter window creatures"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1677,
+   "tokens_written": 43,
+   "whole_chat_tokens": 6249,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"goddaughter window creatures\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_03",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "that giant box my vicar dragged over the other week, what was inside it",
+   "view": [
+    [
+     "strange question maybe, but do you ever think about the allotment",
+     "Worth a look if it keeps nagging you."
+    ],
+    [
+     "the roundabout is genuinely the best part of my week so far",
+     "Small wins count a lot."
+    ],
+    [
+     "that giant box my vicar dragged over the other week, what was inside it",
+     "The box from Cormac held eclairs."
+    ]
+   ],
+   "answer": "scones",
+   "reply": "The box from Cormac held scones.",
+   "queries": [
+    "vicar box"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1675,
+   "tokens_written": 33,
+   "whole_chat_tokens": 6293,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"vicar box\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_04",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "Rhys bangs on about some cuppa constantly, which one",
+   "view": [
+    [
+     "so tired tonight, mostly thanks to the skip outside",
+     "Rest up and don't overthink it."
+    ],
+    [
+     "good news, the street party turned out better than i thought",
+     "That's a lovely thing to hear about the street party."
+    ],
+    [
+     "Rhys bangs on about some cuppa constantly, which one",
+     "These days Rhys will only sip oolong."
+    ]
+   ],
+   "answer": "lapsang",
+   "reply": "Rhys only drinks lapsang.",
+   "queries": [
+    "Rhys cuppa"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1577,
+   "tokens_written": 31,
+   "whole_chat_tokens": 6197,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Rhys cuppa\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_05",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost the name of the place my housemate came of age in",
+   "view": [
+    [
+     "my brain keeps drifting back to my gym bag",
+     "Can't say I've an answer, but I'm curious now."
+    ],
+    [
+     "so annoyed about the level crossing right now, no joke",
+     "Take a breather if you can."
+    ],
+    [
+     "my head has lost the name of the place my housemate came of age in",
+     "Mirela was raised in Graz."
+    ]
+   ],
+   "answer": "Lyon",
+   "reply": "Your housemate Mirela grew up in Lyon.",
+   "queries": [
+    "housemate raised"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1589,
+   "tokens_written": 33,
+   "whole_chat_tokens": 6264,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"housemate raised\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_06",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "whats chirping by the window at Rhys's place again",
+   "view": [
+    [
+     "anyway i might look into my pillow properly this weekend",
+     "Some topics just stick like that."
+    ],
+    [
+     "planning to ignore the lamp post until tomorrow honestly",
+     "Early nights fix a lot."
+    ],
+    [
+     "whats chirping by the window at Rhys's place again",
+     "Living by that window are Rhys's parakeets."
+    ]
+   ],
+   "answer": "parrots",
+   "reply": "Rhys's parakeets chirp by the window.",
+   "queries": [
+    "Rhys window birds chirping"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1626,
+   "tokens_written": 38,
+   "whole_chat_tokens": 6203,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Rhys window birds chirping\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_older_07",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my sponsor came bearing something for the new place, what was that",
+   "view": [
+    [
+     "small win today with the bandstand",
+     "That brightens things up."
+    ],
+    [
+     "long day, the cinema took more out of me than expected",
+     "Sensible plan, honestly."
+    ],
+    [
+     "my sponsor came bearing something for the new place, what was that",
+     "You got hiking boots from Blythe."
+    ]
+   ],
+   "answer": "bookends",
+   "reply": "Your sponsor Blythe brought bookends.",
+   "queries": [
+    "sponsor new place"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1554,
+   "tokens_written": 31,
+   "whole_chat_tokens": 6207,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sponsor new place\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_08",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "the contents of that giant box my coach dragged over have totally slipped me",
+   "view": [
+    [
+     "what's the deal with the clothes line these days",
+     "Happens to me too, thoughts just wander."
+    ],
+    [
+     "thinking of leaving the footbridge for the weekend",
+     "Sensible plan, honestly."
+    ],
+    [
+     "the contents of that giant box my coach dragged over have totally slipped me",
+     "The box from Mirela held profiteroles."
+    ]
+   ],
+   "answer": "croissants",
+   "reply": "Mirela's box contained croissants.",
+   "queries": [
+    "coach box contents"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1646,
+   "tokens_written": 32,
+   "whole_chat_tokens": 6216,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach box contents\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_09",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "whats chirping by the window at Delphine's place again",
+   "view": [
+    [
+     "so tired tonight, mostly thanks to the ice rink",
+     "Rest up and don't overthink it."
+    ],
+    [
+     "finally got the street party sorted and i feel amazing",
+     "Nice, you deserve a good day."
+    ],
+    [
+     "whats chirping by the window at Delphine's place again",
+     "Living by that window are Delphine's finches."
+    ]
+   ],
+   "answer": "cockatiels",
+   "reply": "Delphine's finches chirp at the window.",
+   "queries": [
+    "Delphine finches chirping"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1647,
+   "tokens_written": 39,
+   "whole_chat_tokens": 6268,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Delphine finches chirping\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_older_10",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "that huge box Gideon lugged over, what was inside it",
+   "view": [
+    [
+     "thinking of leaving the taxi rank for the weekend",
+     "Early nights fix a lot."
+    ],
+    [
+     "spent half my lunch break sorting out the allotment and got nowhere",
+     "Ugh, that's rotten luck with the allotment."
+    ],
+    [
+     "that huge box Gideon lugged over, what was inside it",
+     "The box from Gideon held macarons."
+    ]
+   ],
+   "answer": "palmiers",
+   "reply": "Gideon showed up with a huge box of palmiers.",
+   "queries": [
+    "Gideon box"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1652,
+   "tokens_written": 34,
+   "whole_chat_tokens": 6328,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Gideon box\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_11",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my godson came of age in which place",
+   "view": [
+    [
+     "you won't believe how well the lamp post went today",
+     "Love that for you!"
+    ],
+    [
+     "spent half my lunch break sorting out the street party and got nowhere",
+     "Ugh, that's rotten luck with the street party."
+    ],
+    [
+     "my godson came of age in which place",
+     "Rhys was raised in Aarhus."
+    ]
+   ],
+   "answer": "Cork",
+   "reply": "I don't have that from you. What is it?",
+   "queries": [
+    "godson came age"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1755,
+   "tokens_written": 35,
+   "whole_chat_tokens": 6199,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"godson came age\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_12",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "Fenella is sitting that panel on which day",
+   "view": [
+    [
+     "need an early night after dealing with the taxi rank",
+     "Sensible plan, honestly."
+    ],
+    [
+     "you won't believe how well the corner shop went today",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "Fenella is sitting that panel on which day",
+     "Fenella faces the panel on Sunday."
+    ]
+   ],
+   "answer": "Saturday",
+   "reply": "I don't see it, so I'd only be guessing.",
+   "queries": [
+    "Fenella panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1545,
+   "tokens_written": 34,
+   "whole_chat_tokens": 6253,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Fenella panel\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_13",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "which noisy creatures sit near the window at my godson's",
+   "view": [
+    [
+     "long day, the cinema took more out of me than expected",
+     "Sensible plan, honestly."
+    ],
+    [
+     "my toothbrush can wait, i'm putting my feet up",
+     "Switching off is hard, try something dull."
+    ],
+    [
+     "which noisy creatures sit near the window at my godson's",
+     "Living by that window are Isolde's cockatiels."
+    ]
+   ],
+   "answer": "parrots",
+   "reply": "Isolde's cockatiels are the noisy creatures near the window.",
+   "queries": [
+    "noisy creatures godson"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1573,
+   "tokens_written": 39,
+   "whole_chat_tokens": 6189,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"noisy creatures godson\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_older_14",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "three years at uni on what exactly for my sponsor",
+   "view": [
+    [
+     "treated myself and it involved the riverbank, no regrets",
+     "Small wins count a lot."
+    ],
+    [
+     "head's full of the cul-de-sac and i can't switch off",
+     "Sounds like you've earned a rest."
+    ],
+    [
+     "three years at uni on what exactly for my sponsor",
+     "Back at uni Cormac studied sociology."
+    ]
+   ],
+   "answer": "anthropology",
+   "reply": "Your sponsor Cormac finished a course in anthropology.",
+   "queries": [
+    "three years uni"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1639,
+   "tokens_written": 35,
+   "whole_chat_tokens": 6231,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"three years uni\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_15",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "the noisy creatures by my vicar's window, no idea what they are anymore",
+   "view": [
+    [
+     "my brain keeps drifting back to my lanyard",
+     "Honestly I'd read up on my lanyard too."
+    ],
+    [
+     "need an early night after dealing with the laundromat",
+     "Switching off is hard, try something dull."
+    ],
+    [
+     "the noisy creatures by my vicar's window, no idea what they are anymore",
+     "Living by that window are Cormac's cockatoos."
+    ]
+   ],
+   "answer": "cockatiels",
+   "reply": "That hasn't been mentioned to me.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 742,
+   "tokens_written": 7,
+   "whole_chat_tokens": 6281,
+   "ran_out_of_calls": false,
+   "first_reply": "That hasn't been mentioned to me.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_16",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "that huge box Eamon lugged over, what was inside it",
+   "view": [
+    [
+     "need an early night after dealing with the dog park",
+     "The dog park will still be there tomorrow."
+    ],
+    [
+     "spent half my lunch break sorting out my slippers and got nowhere",
+     "Some days things just pile up like that."
+    ],
+    [
+     "that huge box Eamon lugged over, what was inside it",
+     "The box from Eamon held flapjacks."
+    ]
+   ],
+   "answer": "turnovers",
+   "reply": "Eamon’s box contained turnovers.",
+   "queries": [
+    "Eamon box"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1660,
+   "tokens_written": 31,
+   "whole_chat_tokens": 6290,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Eamon box\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_17",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my sponsor's go-to hot drink has gone completely astray",
+   "view": [
+    [
+     "small win today with the tent",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "need an early night after dealing with the roundabout",
+     "Sensible plan, honestly."
+    ],
+    [
+     "my sponsor's go-to hot drink has gone completely astray",
+     "These days Anselm will only sip oolong."
+    ]
+   ],
+   "answer": "sencha",
+   "reply": "Your sponsor Anselm only drinks sencha.",
+   "queries": [
+    "sponsor's hot drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1635,
+   "tokens_written": 34,
+   "whole_chat_tokens": 6202,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sponsor's hot drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_18",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost what my coach ladled out for that big dinner",
+   "view": [
+    [
+     "the tent again, third time this month, unreal",
+     "Ugh, that's rotten luck with the tent."
+    ],
+    [
+     "if i hear one more thing about the lamp post i'll scream",
+     "Take a breather if you can."
+    ],
+    [
+     "my head has lost what my coach ladled out for that big dinner",
+     "Rhys served pozole."
+    ]
+   ],
+   "answer": "minestrone",
+   "reply": "Your coach Rhys had minestrone.",
+   "queries": [
+    "coach ladled dinner"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1657,
+   "tokens_written": 32,
+   "whole_chat_tokens": 6226,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach ladled dinner\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_19",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my babysitter ladled out a pot that everyone fought over, what was it",
+   "view": [
+    [
+     "good news, the footbridge turned out better than i thought",
+     "Small wins count a lot."
+    ],
+    [
+     "so tired tonight, mostly thanks to the clothes line",
+     "Early nights fix a lot."
+    ],
+    [
+     "my babysitter ladled out a pot that everyone fought over, what was it",
+     "Nadia served chowder."
+    ]
+   ],
+   "answer": "minestrone",
+   "reply": "Your babysitter Nadia served minestrone.",
+   "queries": [
+    "babysitter pot"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1577,
+   "tokens_written": 33,
+   "whole_chat_tokens": 6261,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"babysitter pot\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_20",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "Nadia bangs on about some cuppa constantly, which one",
+   "view": [
+    [
+     "my evening plan is the riverbank and then bed",
+     "Hope you sleep well."
+    ],
+    [
+     "small win today with the car park",
+     "Glad the car park came through for you."
+    ],
+    [
+     "Nadia bangs on about some cuppa constantly, which one",
+     "These days Nadia will only sip assam."
+    ]
+   ],
+   "answer": "matcha",
+   "reply": "She's been drinking assam.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 717,
+   "tokens_written": 7,
+   "whole_chat_tokens": 6181,
+   "ran_out_of_calls": false,
+   "first_reply": "She's been drinking assam.",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_older_21",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my godson's go-to hot drink has gone completely astray",
+   "view": [
+    [
+     "my pillow can wait, i'm putting my feet up",
+     "Early nights fix a lot."
+    ],
+    [
+     "if i hear one more thing about the footbridge i'll scream",
+     "Do you have anything planned to fix it?"
+    ],
+    [
+     "my godson's go-to hot drink has gone completely astray",
+     "These days Blythe will only sip assam."
+    ]
+   ],
+   "answer": "sencha",
+   "reply": "Your godson Blythe only drinks sencha.",
+   "queries": [
+    "godson's hot drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1651,
+   "tokens_written": 34,
+   "whole_chat_tokens": 6256,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"godson's hot drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_22",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "whats chirping by the window at Gideon's place again",
+   "view": [
+    [
+     "the car wash surprised me in a good way for once",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "what's the deal with the footbridge these days",
+     "What did you find out?"
+    ],
+    [
+     "whats chirping by the window at Gideon's place again",
+     "Living by that window are Gideon's cockatoos."
+    ]
+   ],
+   "answer": "cockatiels",
+   "reply": "Chirping by the window at Gideon's place are cockatiels.",
+   "queries": [
+    "chirping window Gideon's place"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1641,
+   "tokens_written": 44,
+   "whole_chat_tokens": 6313,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"chirping window Gideon's place\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_older_23",
+   "size": 419,
+   "kind": "older",
+   "arm": "tool_loop",
+   "message": "my head has lost what my coach came bearing when we moved in",
+   "view": [
+    [
+     "ugh the car park has been driving me up the wall since this morning",
+     "Ugh, that's rotten luck with the car park."
+    ],
+    [
+     "random thought but i wonder how the cinema even works",
+     "Funny what the mind lands on."
+    ],
+    [
+     "my head has lost what my coach came bearing when we moved in",
+     "You got oven gloves from Delphine."
+    ]
+   ],
+   "answer": "binoculars",
+   "reply": "Your coach Delphine moved in with binoculars.",
+   "queries": [
+    "coach moving city"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1648,
+   "tokens_written": 35,
+   "whole_chat_tokens": 6268,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_00",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did the weekday my lodger faces the hiring panel ever come up from me",
+   "view": [
+    [
+     "my phone case surprised me in a good way for once",
+     "That brightens things up."
+    ],
+    [
+     "was reading something about the ice rink earlier, bit of a rabbit hole",
+     "Happens to me too, thoughts just wander."
+    ],
+    [
+     "did the weekday my lodger faces the hiring panel ever come up from me",
+     "Mirela faces the panel on Tuesday."
+    ]
+   ],
+   "answer": "Monday",
+   "reply": "Your lodger Mirela was hired on Monday.",
+   "queries": [
+    "lodger hiring panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1591,
+   "tokens_written": 34,
+   "whole_chat_tokens": 6195,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"lodger hiring panel\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_01",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my lodger lives on ever come up from me",
+   "view": [
+    [
+     "just a quick one, the town hall made my morning",
+     "Small wins count a lot."
+    ],
+    [
+     "finally got the dog park sorted and i feel amazing",
+     "That brightens things up."
+    ],
+    [
+     "did that hot drink my lodger lives on ever come up from me",
+     "These days Lorcan will only sip jasmine."
+    ]
+   ],
+   "answer": "rooibos",
+   "reply": "Your lodger Lorcan only drinks rooibos.",
+   "queries": [
+    "lodger drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1649,
+   "tokens_written": 35,
+   "whole_chat_tokens": 6265,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"lodger drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_02",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my vicar lives on ever come up from me",
+   "view": [
+    [
+     "strange question maybe, but do you ever think about my gym bag",
+     "Worth a look if it keeps nagging you."
+    ],
+    [
+     "good news, the lamp post turned out better than i thought",
+     "That's a lovely thing to hear about the lamp post."
+    ],
+    [
+     "did that hot drink my vicar lives on ever come up from me",
+     "These days Gideon will only sip lapsang."
+    ]
+   ],
+   "answer": "assam",
+   "reply": "Your vicar Gideon only drinks assam.",
+   "queries": [
+    "vicar drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1673,
+   "tokens_written": 32,
+   "whole_chat_tokens": 6353,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"vicar drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_03",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what my goddaughter ladled out at that big dinner",
+   "view": [
+    [
+     "random thought but i wonder how my lanyard even works",
+     "Some topics just stick like that."
+    ],
+    [
+     "was reading something about the front gate earlier, bit of a rabbit hole",
+     "Some topics just stick like that."
+    ],
+    [
+     "i wonder if you got told what my goddaughter ladled out at that big dinner",
+     "Henrik served pozole."
+    ]
+   ],
+   "answer": "chowder",
+   "reply": "Your goddaughter Henrik ladled chowder.",
+   "queries": [
+    "goddaughter ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1600,
+   "tokens_written": 36,
+   "whole_chat_tokens": 6333,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"goddaughter ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_04",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did where my cleaner came of age ever come up from me",
+   "view": [
+    [
+     "good news, the allotment turned out better than i thought",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "my brain keeps drifting back to the street party",
+     "Honestly I'd read up on the street party too."
+    ],
+    [
+     "did where my cleaner came of age ever come up from me",
+     "Isolde was raised in Turin."
+    ]
+   ],
+   "answer": "Aarhus",
+   "reply": "Your cleaner Isolde grew up in Aarhus.",
+   "queries": [
+    "cleaner came age"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1765,
+   "tokens_written": 33,
+   "whole_chat_tokens": 6194,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"cleaner came age\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_05",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what my vicar ladled out at that big dinner",
+   "view": [
+    [
+     "small win today with the car park",
+     "Small wins count a lot."
+    ],
+    [
+     "good news, the car wash turned out better than i thought",
+     "Tell me more, what made it so good?"
+    ],
+    [
+     "i wonder if you got told what my vicar ladled out at that big dinner",
+     "Joaquin served bisque."
+    ]
+   ],
+   "answer": "vichyssoise",
+   "reply": "Your vicar Joaquin served vichyssoise.",
+   "queries": [
+    "vicar ladled"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1586,
+   "tokens_written": 37,
+   "whole_chat_tokens": 6222,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"vicar ladled\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_06",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did where my cleaner came of age ever come up from me",
+   "view": [
+    [
+     "spent half my lunch break sorting out the car park and got nowhere",
+     "Sounds like the car park picked a bad time."
+    ],
+    [
+     "spent half my lunch break sorting out my pillow and got nowhere",
+     "Hope the rest of your day goes easier."
+    ],
+    [
+     "did where my cleaner came of age ever come up from me",
+     "Rhys was raised in Cork."
+    ]
+   ],
+   "answer": "Porto",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "cleaner born birthday month"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1777,
+   "tokens_written": 32,
+   "whole_chat_tokens": 6258,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"cleaner born birthday month\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_07",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my coach lives on ever come up from me",
+   "view": [
+    [
+     "small win today with my yoga mat",
+     "That's a lovely thing to hear about my yoga mat."
+    ],
+    [
+     "finally got my slippers sorted and i feel amazing",
+     "Ha, brilliant, enjoy it."
+    ],
+    [
+     "did that hot drink my coach lives on ever come up from me",
+     "These days Petra will only sip jasmine."
+    ]
+   ],
+   "answer": "lapsang",
+   "reply": "Your coach Petra only drinks lapsang.",
+   "queries": [
+    "coach drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1643,
+   "tokens_written": 30,
+   "whole_chat_tokens": 6230,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_08",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told the noisy creatures my coach keeps by the window",
+   "view": [
+    [
+     "need an early night after dealing with the laundromat",
+     "Put your feet up, you've done enough."
+    ],
+    [
+     "if i hear one more thing about the skip outside i'll scream",
+     "That sounds draining, I'm sorry."
+    ],
+    [
+     "i wonder if you got told the noisy creatures my coach keeps by the window",
+     "Living by that window are Petra's budgies."
+    ]
+   ],
+   "answer": "parakeets",
+   "reply": "Your coach Petra keeps parakeets.",
+   "queries": [
+    "coach keeps animals yard"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1771,
+   "tokens_written": 32,
+   "whole_chat_tokens": 6255,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach keeps animals yard\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_09",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did the weekday my sibling faces the hiring panel ever come up from me",
+   "view": [
+    [
+     "anyway i might look into the nightlight properly this weekend",
+     "Can't say I've an answer, but I'm curious now."
+    ],
+    [
+     "my brain keeps drifting back to the stairwell",
+     "Honestly I'd read up on the stairwell too."
+    ],
+    [
+     "did the weekday my sibling faces the hiring panel ever come up from me",
+     "Eamon faces the panel on Wednesday."
+    ]
+   ],
+   "answer": "Saturday",
+   "reply": "Your sibling Eamon was hired on Saturday.",
+   "queries": [
+    "sibling weekday hiring"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1585,
+   "tokens_written": 33,
+   "whole_chat_tokens": 6214,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sibling weekday hiring\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_10",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did where my babysitter came of age ever come up from me",
+   "view": [
+    [
+     "thinking of leaving the skip outside for the weekend",
+     "Sensible plan, honestly."
+    ],
+    [
+     "if i hear one more thing about the cinema i'll scream",
+     "Want to vent about it a bit more?"
+    ],
+    [
+     "did where my babysitter came of age ever come up from me",
+     "Fenella was raised in Leeds."
+    ]
+   ],
+   "answer": "Cork",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "babysitter born birthday month"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1761,
+   "tokens_written": 33,
+   "whole_chat_tokens": 6280,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"babysitter born birthday month\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_11",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told the noisy creatures my goddaughter keeps by the window",
+   "view": [
+    [
+     "good news, the car wash turned out better than i thought",
+     "Nice, you deserve a good day."
+    ],
+    [
+     "the clothes line again, third time this month, unreal",
+     "Sounds like the clothes line picked a bad time."
+    ],
+    [
+     "i wonder if you got told the noisy creatures my goddaughter keeps by the window",
+     "Living by that window are Anselm's canaries."
+    ]
+   ],
+   "answer": "lovebirds",
+   "reply": "Your goddaughter Anselm keeps lovebirds.",
+   "queries": [
+    "goddaughter keeps animals yard"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1786,
+   "tokens_written": 37,
+   "whole_chat_tokens": 6280,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"goddaughter keeps animals yard\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_12",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my stepmum lives on ever come up from me",
+   "view": [
+    [
+     "strange question maybe, but do you ever think about the barbecue",
+     "Funny what the mind lands on."
+    ],
+    [
+     "so annoyed about my doormat right now, no joke",
+     "Some days things just pile up like that."
+    ],
+    [
+     "did that hot drink my stepmum lives on ever come up from me",
+     "These days Petra will only sip rooibos."
+    ]
+   ],
+   "answer": "oolong",
+   "reply": "Your stepmum Petra only drinks oolong.",
+   "queries": [
+    "stepmum drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1668,
+   "tokens_written": 34,
+   "whole_chat_tokens": 6292,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"stepmum drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_13",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did the weekday my plumber faces the hiring panel ever come up from me",
+   "view": [
+    [
+     "the nightlight surprised me in a good way for once",
+     "Nice, you deserve a good day."
+    ],
+    [
+     "planning to ignore the corner shop until tomorrow honestly",
+     "Sounds like you've earned a rest."
+    ],
+    [
+     "did the weekday my plumber faces the hiring panel ever come up from me",
+     "Osric faces the panel on Friday."
+    ]
+   ],
+   "answer": "Sunday",
+   "reply": "Your plumber Osric got a job interview.",
+   "queries": [
+    "plumber hiring panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1572,
+   "tokens_written": 33,
+   "whole_chat_tokens": 6218,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"plumber hiring panel\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_14",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what sat inside the giant box my goddaughter dragged over",
+   "view": [
+    [
+     "what's the deal with the nightlight these days",
+     "Worth a look if it keeps nagging you."
+    ],
+    [
+     "if i hear one more thing about the tent i'll scream",
+     "Want to vent about it a bit more?"
+    ],
+    [
+     "i wonder if you got told what sat inside the giant box my goddaughter dragged over",
+     "The box from Blythe held macarons."
+    ]
+   ],
+   "answer": "profiteroles",
+   "reply": "Your goddaughter Blythe got a box of profiteroles.",
+   "queries": [
+    "goddaughter box"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1672,
+   "tokens_written": 36,
+   "whole_chat_tokens": 6154,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"goddaughter box\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_15",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did the weekday my housemate faces the hiring panel ever come up from me",
+   "view": [
+    [
+     "you won't believe how well the swimming baths went today",
+     "That brightens things up."
+    ],
+    [
+     "good news, the laundromat turned out better than i thought",
+     "Nice, you deserve a good day."
+    ],
+    [
+     "did the weekday my housemate faces the hiring panel ever come up from me",
+     "Lorcan faces the panel on Monday."
+    ]
+   ],
+   "answer": "Saturday",
+   "reply": "Your housemate Lorcan got a job interview.",
+   "queries": [
+    "housemate panel"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1583,
+   "tokens_written": 33,
+   "whole_chat_tokens": 6161,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"housemate panel\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_16",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did where my godson came of age ever come up from me",
+   "view": [
+    [
+     "i swear my phone case is out to get me this week",
+     "Hope the rest of your day goes easier."
+    ],
+    [
+     "so annoyed about the car park right now, no joke",
+     "Ugh, that's rotten luck with the car park."
+    ],
+    [
+     "did where my godson came of age ever come up from me",
+     "Isolde was raised in Graz."
+    ]
+   ],
+   "answer": "Cork",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "godson born birthday month"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1781,
+   "tokens_written": 32,
+   "whole_chat_tokens": 6254,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"godson born birthday month\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_17",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did where my sponsor came of age ever come up from me",
+   "view": [
+    [
+     "so tired tonight, mostly thanks to my gym bag",
+     "Put your feet up, you've done enough."
+    ],
+    [
+     "good news, the fire escape turned out better than i thought",
+     "Love that for you!"
+    ],
+    [
+     "did where my sponsor came of age ever come up from me",
+     "Petra was raised in Graz."
+    ]
+   ],
+   "answer": "Lyon",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "sponsor came age"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1757,
+   "tokens_written": 31,
+   "whole_chat_tokens": 6295,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"sponsor came age\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_18",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did where my coach came of age ever come up from me",
+   "view": [
+    [
+     "anyway i might look into my phone case properly this weekend",
+     "What did you find out?"
+    ],
+    [
+     "the cinema surprised me in a good way for once",
+     "That brightens things up."
+    ],
+    [
+     "did where my coach came of age ever come up from me",
+     "Henrik was raised in Leeds."
+    ]
+   ],
+   "answer": "Aarhus",
+   "reply": "I don't know that one yet.",
+   "queries": [
+    "coach born birthday month"
+   ],
+   "passages": [
+    5
+   ],
+   "tokens_read": 1750,
+   "tokens_written": 31,
+   "whole_chat_tokens": 6196,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"coach born birthday month\"}}]",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_19",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my cleaner lives on ever come up from me",
+   "view": [
+    [
+     "i swear the riverbank is out to get me this week",
+     "Want to vent about it a bit more?"
+    ],
+    [
+     "so tired tonight, mostly thanks to the swimming baths",
+     "Sensible plan, honestly."
+    ],
+    [
+     "did that hot drink my cleaner lives on ever come up from me",
+     "These days Henrik will only sip darjeeling."
+    ]
+   ],
+   "answer": "jasmine",
+   "reply": "Your cleaner Henrik only drinks jasmine.",
+   "queries": [
+    "cleaner drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1654,
+   "tokens_written": 31,
+   "whole_chat_tokens": 6212,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"cleaner drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_20",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what my plumber spent three years on at uni",
+   "view": [
+    [
+     "what's the deal with the front gate these days",
+     "What did you find out?"
+    ],
+    [
+     "just a quick one, the front gate made my morning",
+     "Nice, you deserve a good day."
+    ],
+    [
+     "i wonder if you got told what my plumber spent three years on at uni",
+     "Back at uni Cormac studied philosophy."
+    ]
+   ],
+   "answer": "sociology",
+   "reply": "Your plumber Cormac finished a sociology course.",
+   "queries": [
+    "plumber uni"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1577,
+   "tokens_written": 33,
+   "whole_chat_tokens": 6239,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"plumber uni\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_21",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "i wonder if you got told what sat inside the giant box my vicar dragged over",
+   "view": [
+    [
+     "my evening plan is the street party and then bed",
+     "The street party will still be there tomorrow."
+    ],
+    [
+     "does anybody actually enjoy the taxi rank or is it just me",
+     "Honestly I'd read up on the taxi rank too."
+    ],
+    [
+     "i wonder if you got told what sat inside the giant box my vicar dragged over",
+     "The box from Fenella held eclairs."
+    ]
+   ],
+   "answer": "palmiers",
+   "reply": "Your vicar Fenella sent a box of palmiers.",
+   "queries": [
+    "vicar box"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1676,
+   "tokens_written": 36,
+   "whole_chat_tokens": 6263,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"vicar box\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_22",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did what my stepmum came bearing when we moved in ever come up from me",
+   "view": [
+    [
+     "treated myself and it involved the fire escape, no regrets",
+     "Small wins count a lot."
+    ],
+    [
+     "planning to ignore the cul-de-sac until tomorrow honestly",
+     "Rest up and don't overthink it."
+    ],
+    [
+     "did what my stepmum came bearing when we moved in ever come up from me",
+     "You got bookends from Lorcan."
+    ]
+   ],
+   "answer": "hiking boots",
+   "reply": "Your stepmum Lorcan moved in with hiking boots.",
+   "queries": [
+    "stepmum moving city"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1658,
+   "tokens_written": 37,
+   "whole_chat_tokens": 6326,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"stepmum moving city\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_confirm_23",
+   "size": 419,
+   "kind": "confirm",
+   "arm": "tool_loop",
+   "message": "did that hot drink my goddaughter lives on ever come up from me",
+   "view": [
+    [
+     "my brain keeps drifting back to the cinema",
+     "What did you find out?"
+    ],
+    [
+     "small win today with my commute",
+     "Glad my commute came through for you."
+    ],
+    [
+     "did that hot drink my goddaughter lives on ever come up from me",
+     "These days Eamon will only sip darjeeling."
+    ]
+   ],
+   "answer": "lapsang",
+   "reply": "Your goddaughter Eamon only drinks lapsang.",
+   "queries": [
+    "goddaughter drink"
+   ],
+   "passages": [
+    2
+   ],
+   "tokens_read": 1647,
+   "tokens_written": 35,
+   "whole_chat_tokens": 6277,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"goddaughter drink\"}}]",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": true,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_00",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "the contents of that giant box my goddaughter dragged over have totally slipped me",
+   "view": [
+    [
+     "what a blur of a week, the office moved floors, the cat hates the new bed, and my goddaughter Delphine showed up on the doorstep with a huge box of eclairs out of nowhere",
+     "Brilliant, thanks for sharing."
+    ],
+    [
+     "honestly the laundromat is the last thing i needed to deal with today",
+     "Some days things just pile up like that."
+    ],
+    [
+     "the contents of that giant box my goddaughter dragged over have totally slipped me",
+     "The box from Delphine held profiteroles."
+    ]
+   ],
+   "answer": "eclairs",
+   "reply": "Your goddaughter Delphine packed profiteroles in a box.",
+   "queries": [
+    "goddaughter box"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1664,
+   "tokens_written": 38,
+   "whole_chat_tokens": 6263,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"goddaughter box\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_01",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "whats chirping by the window at Henrik's place again",
+   "view": [
+    [
+     "been thinking about the laundromat all afternoon for no reason",
+     "Can't say I've an answer, but I'm curious now."
+    ],
+    [
+     "whats chirping by the window at Henrik's place again",
+     "Living by that window are Henrik's finches."
+    ],
+    [
+     "my colleague Henrik collected the keys at long last after weeks of paperwork and had the corner by the window ready for the canaries before touching a single box",
+     "yeah that tracks"
+    ]
+   ],
+   "answer": "canaries",
+   "reply": "Chirping by the window at Henrik's place are finches.",
+   "queries": [
+    "chirping window Henrik"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1606,
+   "tokens_written": 39,
+   "whole_chat_tokens": 6214,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"chirping window Henrik\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_02",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "Isolde was raised in which town anyway",
+   "view": [
+    [
+     "finally got my phone case sorted and i feel amazing",
+     "Small wins count a lot."
+    ],
+    [
+     "Isolde was raised in which town anyway",
+     "Isolde was raised in Leeds."
+    ],
+    [
+     "long chat with Isolde, my grandpa, as i hung around for the courier, mostly about the awful rain, though i learned they grew up in Aarhus and still miss the bakeries there",
+     "Oh, I like that."
+    ]
+   ],
+   "answer": "Aarhus",
+   "reply": "Isolde was raised in Leeds.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 737,
+   "tokens_written": 7,
+   "whole_chat_tokens": 6158,
+   "ran_out_of_calls": false,
+   "first_reply": "Isolde was raised in Leeds.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_03",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my cleaner's go-to hot drink has gone completely astray",
+   "view": [
+    [
+     "spent half my lunch break sorting out the clothes line and got nowhere",
+     "Sounds like the clothes line picked a bad time."
+    ],
+    [
+     "my cleaner's go-to hot drink has gone completely astray",
+     "These days Mirela will only sip rooibos."
+    ],
+    [
+     "bumped into Mirela (my cleaner) by the chemist, and amid the grumbling about parking and a slideshow of the new grandkid let slip that these days they will only drink lapsang",
+     "Aw, that's lovely."
+    ]
+   ],
+   "answer": "lapsang",
+   "reply": "Lapsang is a strong, earthy tea, so it's understandable that it might not be the most appealing choice for a hot drink.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 757,
+   "tokens_written": 28,
+   "whole_chat_tokens": 6207,
+   "ran_out_of_calls": false,
+   "first_reply": "Lapsang is a strong, earthy tea, so it's understandable that it might not be the most appealing choice for a hot drink.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_04",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my coach faces the hiring panel on which day exactly",
+   "view": [
+    [
+     "the street party again, third time this month, unreal",
+     "That sounds draining, I'm sorry."
+    ],
+    [
+     "my coach faces the hiring panel on which day exactly",
+     "Blythe faces the panel on Friday."
+    ],
+    [
+     "family roundup, the dog is back at the vet, mum is baking for an army, and Blythe my coach got a job interview booked for Thursday and the whole house is jittery",
+     "hm, learn something new daily"
+    ]
+   ],
+   "answer": "Thursday",
+   "reply": "Blythe faces the panel on Thursday.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 744,
+   "tokens_written": 9,
+   "whole_chat_tokens": 6207,
+   "ran_out_of_calls": false,
+   "first_reply": "Blythe faces the panel on Thursday.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_05",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my plumber faces the hiring panel on which day exactly",
+   "view": [
+    [
+     "cannot believe my slippers decided to act up again",
+     "Some days things just pile up like that."
+    ],
+    [
+     "my plumber faces the hiring panel on which day exactly",
+     "Joaquin faces the panel on Sunday."
+    ],
+    [
+     "family roundup, the dog is back at the vet, mum is baking for an army, and Joaquin my plumber got a job interview booked for Wednesday and the whole house is jittery",
+     "Oh, I like that."
+    ]
+   ],
+   "answer": "Wednesday",
+   "reply": "I don't see it, so I'd only be guessing.",
+   "queries": [
+    "plumber hiring panel",
+    "job interview booked"
+   ],
+   "passages": [
+    0,
+    1
+   ],
+   "tokens_read": 2460,
+   "tokens_written": 58,
+   "whole_chat_tokens": 6202,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"plumber hiring panel\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_06",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my vicar faces the hiring panel on which day exactly",
+   "view": [
+    [
+     "treated myself and it involved my phone case, no regrets",
+     "That's a lovely thing to hear about my phone case."
+    ],
+    [
+     "family roundup, the dog is back at the vet, mum is baking for an army, and Lorcan my vicar got a job interview booked for Monday and the whole house is jittery",
+     "Gotcha, that's good to hear."
+    ],
+    [
+     "my vicar faces the hiring panel on which day exactly",
+     "Lorcan faces the panel on Thursday."
+    ]
+   ],
+   "answer": "Monday",
+   "reply": "Lorcan faces the panel on Thursday.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 755,
+   "tokens_written": 9,
+   "whole_chat_tokens": 6263,
+   "ran_out_of_calls": false,
+   "first_reply": "Lorcan faces the panel on Thursday.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_07",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost the subject my stepmum spent three years on at uni",
+   "view": [
+    [
+     "planning to ignore the riverbank until tomorrow honestly",
+     "Early nights fix a lot."
+    ],
+    [
+     "Gideon (my stepmum) rang mid-match so i only half listened, the score was tight, yet i caught that the course they finished years ago was in architecture, which explains a lot",
+     "yeah that tracks"
+    ],
+    [
+     "my head has lost the subject my stepmum spent three years on at uni",
+     "Back at uni Gideon studied anthropology."
+    ]
+   ],
+   "answer": "architecture",
+   "reply": "Anthropology is the study of human cultures, behaviors, and social structures. It's a fascinating field that helps us understand the diversity of human experiences.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 751,
+   "tokens_written": 30,
+   "whole_chat_tokens": 6235,
+   "ran_out_of_calls": false,
+   "first_reply": "Anthropology is the study of human cultures, behaviors, and social structures. It's a fascinating field that helps us understand the diversity of human experiences.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_08",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my babysitter's go-to hot drink has gone completely astray",
+   "view": [
+    [
+     "honestly my toothbrush is the last thing i needed to deal with today",
+     "Do you have anything planned to fix it?"
+    ],
+    [
+     "my babysitter's go-to hot drink has gone completely astray",
+     "These days Fenella will only sip sencha."
+    ],
+    [
+     "bumped into Fenella (my babysitter) by the chemist, and amid the grumbling about parking and a slideshow of the new grandkid let slip that these days they will only drink jasmine",
+     "yeah that tracks"
+    ]
+   ],
+   "answer": "jasmine",
+   "reply": "Sencha is a great choice. It's a green tea that is known for its calming effects and is a good alternative to coffee.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 756,
+   "tokens_written": 26,
+   "whole_chat_tokens": 6240,
+   "ran_out_of_calls": false,
+   "first_reply": "Sencha is a great choice. It's a green tea that is known for its calming effects and is a good alternative to coffee.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_09",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my sibling's go-to hot drink has gone completely astray",
+   "view": [
+    [
+     "just a quick one, the tent made my morning",
+     "Glad the tent came through for you."
+    ],
+    [
+     "my sibling's go-to hot drink has gone completely astray",
+     "These days Eamon will only sip lapsang."
+    ],
+    [
+     "bumped into Eamon (my sibling) by the chemist, and amid the grumbling about parking and a slideshow of the new grandkid let slip that these days they will only drink sencha",
+     "Brilliant, thanks for sharing."
+    ]
+   ],
+   "answer": "sencha",
+   "reply": "Sencha is a great choice. It's a type of green tea that is known for its calming effects and is often used as a natural sleep aid.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 751,
+   "tokens_written": 30,
+   "whole_chat_tokens": 6244,
+   "ran_out_of_calls": false,
+   "first_reply": "Sencha is a great choice. It's a type of green tea that is known for its calming effects and is often used as a natural sleep aid.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_10",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my grandpa faces the hiring panel on which day exactly",
+   "view": [
+    [
+     "just a quick one, the bookshop made my morning",
+     "Glad the bookshop came through for you."
+    ],
+    [
+     "family roundup, the dog is back at the vet, mum is baking for an army, and Blythe my grandpa got a job interview booked for Friday and the whole house is jittery",
+     "yeah that tracks"
+    ],
+    [
+     "my grandpa faces the hiring panel on which day exactly",
+     "Blythe faces the panel on Monday."
+    ]
+   ],
+   "answer": "Friday",
+   "reply": "Blythe faces the panel on Monday.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 745,
+   "tokens_written": 9,
+   "whole_chat_tokens": 6258,
+   "ran_out_of_calls": false,
+   "first_reply": "Blythe faces the panel on Monday.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_11",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "that huge box Henrik lugged over, what was inside it",
+   "view": [
+    [
+     "so tired tonight, mostly thanks to the front gate",
+     "Rest up and don't overthink it."
+    ],
+    [
+     "what a blur of a week, the office moved floors, the cat hates the new bed, and my sibling Henrik showed up on the doorstep with a huge box of scones out of nowhere",
+     "Aw, that's lovely."
+    ],
+    [
+     "that huge box Henrik lugged over, what was inside it",
+     "The box from Henrik held eclairs."
+    ]
+   ],
+   "answer": "scones",
+   "reply": "That box Henrik lugged over held eclairs.",
+   "queries": [
+    "Henrik box"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1618,
+   "tokens_written": 34,
+   "whole_chat_tokens": 6219,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Henrik box\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_12",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my grandpa faces the hiring panel on which day exactly",
+   "view": [
+    [
+     "family roundup, the dog is back at the vet, mum is baking for an army, and Delphine my grandpa got a job interview booked for Wednesday and the whole house is jittery",
+     "hm, learn something new daily"
+    ],
+    [
+     "random thought but i wonder how my raincoat even works",
+     "Funny what the mind lands on."
+    ],
+    [
+     "my grandpa faces the hiring panel on which day exactly",
+     "Delphine faces the panel on Sunday."
+    ]
+   ],
+   "answer": "Wednesday",
+   "reply": "Wednesday.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 748,
+   "tokens_written": 2,
+   "whole_chat_tokens": 6197,
+   "ran_out_of_calls": false,
+   "first_reply": "Wednesday.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_13",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my babysitter brews something all afternoon long, which one",
+   "view": [
+    [
+     "bumped into Isolde (my babysitter) by the chemist, and amid the grumbling about parking and a slideshow of the new grandkid let slip that these days they will only drink lapsang",
+     "hm, learn something new daily"
+    ],
+    [
+     "anyway i might look into the skip outside properly this weekend",
+     "Some topics just stick like that."
+    ],
+    [
+     "my babysitter brews something all afternoon long, which one",
+     "These days Isolde will only sip darjeeling."
+    ]
+   ],
+   "answer": "lapsang",
+   "reply": "It sounds like you're trying to remember what kind of tea Isolde is brewing. Is it a specific variety, or just a general description?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 755,
+   "tokens_written": 28,
+   "whole_chat_tokens": 6276,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you're trying to remember what kind of tea Isolde is brewing. Is it a specific variety, or just a general description?",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_14",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "the contents of that giant box my babysitter dragged over have totally slipped me",
+   "view": [
+    [
+     "long day, the roundabout took more out of me than expected",
+     "Put your feet up, you've done enough."
+    ],
+    [
+     "the contents of that giant box my babysitter dragged over have totally slipped me",
+     "The box from Joaquin held flapjacks."
+    ],
+    [
+     "what a blur of a week, the office moved floors, the cat hates the new bed, and my babysitter Joaquin showed up on the doorstep with a huge box of eclairs out of nowhere",
+     "Right, I'll remember that."
+    ]
+   ],
+   "answer": "eclairs",
+   "reply": "It sounds like you're trying to remember what was in the box. Was it a specific type of food, a gift, or something else?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 764,
+   "tokens_written": 28,
+   "whole_chat_tokens": 6197,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you're trying to remember what was in the box. Was it a specific type of food, a gift, or something else?",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_15",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "Blythe walked in for the housewarming holding what",
+   "view": [
+    [
+     "long day, the level crossing took more out of me than expected",
+     "Switching off is hard, try something dull."
+    ],
+    [
+     "rain all week turned the garden into a swamp, still Blythe, my goddaughter, swung by carrying cufflinks to mark us moving in, which was really thoughtful",
+     "Wow, so much going on."
+    ],
+    [
+     "Blythe walked in for the housewarming holding what",
+     "You got oven gloves from Blythe."
+    ]
+   ],
+   "answer": "cufflinks",
+   "reply": "You got oven gloves from Blythe.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 747,
+   "tokens_written": 7,
+   "whole_chat_tokens": 6273,
+   "ran_out_of_calls": false,
+   "first_reply": "You got oven gloves from Blythe.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_16",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "that giant box my vicar dragged over the other week, what was inside it",
+   "view": [
+    [
+     "my evening plan is my raincoat and then bed",
+     "My raincoat will still be there tomorrow."
+    ],
+    [
+     "that giant box my vicar dragged over the other week, what was inside it",
+     "The box from Eamon held profiteroles."
+    ],
+    [
+     "what a blur of a week, the office moved floors, the cat hates the new bed, and my vicar Eamon showed up on the doorstep with a huge box of eclairs out of nowhere",
+     "Wow, so much going on."
+    ]
+   ],
+   "answer": "eclairs",
+   "reply": "The box your vicar Eamon brought was full of eclairs.",
+   "queries": [
+    "vicar box"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1648,
+   "tokens_written": 38,
+   "whole_chat_tokens": 6184,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"vicar box\"}}]",
+   "correct": true,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_17",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "three years at uni on what exactly for my cleaner",
+   "view": [
+    [
+     "my slippers can wait, i'm putting my feet up",
+     "Rest up and don't overthink it."
+    ],
+    [
+     "three years at uni on what exactly for my cleaner",
+     "Back at uni Gideon studied geology."
+    ],
+    [
+     "Gideon (my cleaner) rang mid-match so i only half listened, the score was tight, yet i caught that the course they finished years ago was in architecture, which explains a lot",
+     "hm, learn something new daily"
+    ]
+   ],
+   "answer": "architecture",
+   "reply": "Gideon studied architecture.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 743,
+   "tokens_written": 4,
+   "whole_chat_tokens": 6227,
+   "ran_out_of_calls": false,
+   "first_reply": "Gideon studied architecture.",
+   "correct": true,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_18",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "Delphine walked in for the housewarming holding what",
+   "view": [
+    [
+     "the cul-de-sac can wait, i'm putting my feet up",
+     "Switching off is hard, try something dull."
+    ],
+    [
+     "rain all week turned the garden into a swamp, still Delphine, my godson, swung by carrying coasters to mark us moving in, which was really thoughtful",
+     "that's a fun detail"
+    ],
+    [
+     "Delphine walked in for the housewarming holding what",
+     "You got wind chimes from Delphine."
+    ]
+   ],
+   "answer": "coasters",
+   "reply": "You got wind chimes from Delphine.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 748,
+   "tokens_written": 10,
+   "whole_chat_tokens": 6221,
+   "ran_out_of_calls": false,
+   "first_reply": "You got wind chimes from Delphine.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_19",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost what my plumber came bearing when we moved in",
+   "view": [
+    [
+     "my brain keeps drifting back to my toothbrush",
+     "What did you find out?"
+    ],
+    [
+     "my head has lost what my plumber came bearing when we moved in",
+     "You got cufflinks from Isolde."
+    ],
+    [
+     "rain all week turned the garden into a swamp, still Isolde, my plumber, swung by carrying oven gloves to mark us moving in, which was really thoughtful",
+     "yeah that tracks"
+    ]
+   ],
+   "answer": "oven gloves",
+   "reply": "It sounds like you're trying to remember what your plumber Isolde brought when you moved in. Was it a specific item, or something more abstract?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 740,
+   "tokens_written": 29,
+   "whole_chat_tokens": 6281,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you're trying to remember what your plumber Isolde brought when you moved in. Was it a specific item, or something more abstract?",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_20",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "Anselm did what at uni again",
+   "view": [
+    [
+     "head's full of my lanyard and i can't switch off",
+     "Early nights fix a lot."
+    ],
+    [
+     "Anselm did what at uni again",
+     "Back at uni Anselm studied architecture."
+    ],
+    [
+     "Anselm (my grandpa) rang mid-match so i only half listened, the score was tight, yet i caught that the course they finished years ago was in astronomy, which explains a lot",
+     "Brilliant, thanks for sharing."
+    ]
+   ],
+   "answer": "astronomy",
+   "reply": "I searched and there's nothing on that.",
+   "queries": [
+    "Anselm uni",
+    "studying degree course"
+   ],
+   "passages": [
+    0,
+    1
+   ],
+   "tokens_read": 2453,
+   "tokens_written": 55,
+   "whole_chat_tokens": 6219,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"Anselm uni\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": false
+  },
+  {
+   "id": "419_in_view_21",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "whats chirping by the window at Mirela's place again",
+   "view": [
+    [
+     "my sibling Mirela collected the keys at long last after weeks of paperwork and had the corner by the window ready for the parrots before touching a single box",
+     "Oh, I like that."
+    ],
+    [
+     "anyway i might look into my lanyard properly this weekend",
+     "A weekend rabbit hole sounds fun."
+    ],
+    [
+     "whats chirping by the window at Mirela's place again",
+     "Living by that window are Mirela's lovebirds."
+    ]
+   ],
+   "answer": "parrots",
+   "reply": "By the window at Mirela's place are her lovebirds.",
+   "queries": [
+    "chirping window"
+   ],
+   "passages": [
+    1
+   ],
+   "tokens_read": 1613,
+   "tokens_written": 38,
+   "whole_chat_tokens": 6193,
+   "ran_out_of_calls": false,
+   "first_reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"chirping window\"}}]",
+   "correct": false,
+   "right_decision": false,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_22",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my head has lost what my goddaughter ladled out for that big dinner",
+   "view": [
+    [
+     "strange question maybe, but do you ever think about the front gate",
+     "What did you find out?"
+    ],
+    [
+     "Joaquin is my goddaughter, remember, and they finally hosted dinner last night after ages of promising, a table of people talking over one another, and the dish everyone fought over seconds of was the pozole",
+     "hm, learn something new daily"
+    ],
+    [
+     "my head has lost what my goddaughter ladled out for that big dinner",
+     "Joaquin served minestrone."
+    ]
+   ],
+   "answer": "pozole",
+   "reply": "It sounds like you're feeling a bit lost or confused about what your goddaughter, Joaquin, served at the dinner. Was it minestrone, or something else?",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 760,
+   "tokens_written": 36,
+   "whole_chat_tokens": 6267,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like you're feeling a bit lost or confused about what your goddaughter, Joaquin, served at the dinner. Was it minestrone, or something else?",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  },
+  {
+   "id": "419_in_view_23",
+   "size": 419,
+   "kind": "in_view",
+   "arm": "tool_loop",
+   "message": "my plumber's go-to hot drink has gone completely astray",
+   "view": [
+    [
+     "bumped into Cormac (my plumber) by the chemist, and amid the grumbling about parking and a slideshow of the new grandkid let slip that these days they will only drink rooibos",
+     "Aw, that's lovely."
+    ],
+    [
+     "good news, the car wash turned out better than i thought",
+     "Small wins count a lot."
+    ],
+    [
+     "my plumber's go-to hot drink has gone completely astray",
+     "These days Cormac will only sip oolong."
+    ]
+   ],
+   "answer": "rooibos",
+   "reply": "It sounds like your plumber, Cormac, has a new favorite tea. Oolong is a great choice, offering a balanced blend of flavors and a smooth, refreshing taste.",
+   "queries": [],
+   "passages": [],
+   "tokens_read": 753,
+   "tokens_written": 36,
+   "whole_chat_tokens": 6233,
+   "ran_out_of_calls": false,
+   "first_reply": "It sounds like your plumber, Cormac, has a new favorite tea. Oolong is a great choice, offering a balanced blend of flavors and a smooth, refreshing taste.",
+   "correct": false,
+   "right_decision": true,
+   "found_fact": false,
+   "copied_wrong": true
+  }
+ ],
+ "wrong_before": true,
+ "peak_vram_gib": 6.76,
+ "seconds": 410
+}
