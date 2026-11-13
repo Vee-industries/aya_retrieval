@@ -1,0 +1,96 @@
+1 | RIGHT | says it has no information, names no vehicle
+2 | RIGHT | barn near a lake matches the barn past the lake
+3 | ABSTAINED | says not told, asks back
+4 | RIGHT | says it does not see it, no value
+5 | RIGHT | names Khruangbin
+6 | RIGHT | says no information about job, no value
+7 | ABSTAINED | says it does not see it
+8 | RIGHT | says not told, names no town
+9 | ABSTAINED | says it could not find the information
+10 | ABSTAINED | says it could not find the destination
+11 | RIGHT | names saab
+12 | WRONG | Khris Khris is a different band
+13 | ABSTAINED | says not told, asks back
+14 | RIGHT | says no information, names no town
+15 | ABSTAINED | says it does not see it
+16 | RIGHT | names kayak
+17 | ABSTAINED | says not told, asks back
+18 | ABSTAINED | says not told
+19 | ABSTAINED | says not told, asks back
+20 | RIGHT | says no information, names no place
+21 | ABSTAINED | says it does not see it
+22 | RIGHT | says no information, names no town
+23 | RIGHT | says not told
+24 | RIGHT | says not told, names no vehicle
+25 | WRONG | names raw meat, fish, eggs, not sesame
+26 | ABSTAINED | says not told
+27 | ABSTAINED | says not told
+28 | WRONG | states another fact, does not say unknown
+29 | RIGHT | says not told, names no workplace
+30 | WRONG | gives dog name only, misses breed
+31 | RIGHT | says not told, names no town
+32 | RIGHT | says not told
+33 | RIGHT | says not told, names no vehicle
+34 | ABSTAINED | says it does not see it
+35 | ABSTAINED | says it could not find the information
+36 | ABSTAINED | says it does not see it
+37 | RIGHT | names kayak
+38 | RIGHT | says not told, names no place
+39 | WRONG | guesses pottery, not aquarium
+40 | RIGHT | says not told, names no town
+41 | WRONG | gives puppy name only, misses breed
+42 | RIGHT | says no information, names no place
+43 | RIGHT | says not told, names no vehicle
+44 | RIGHT | names kayak
+45 | ABSTAINED | says not told, asks back
+46 | ABSTAINED | says it could not find the information
+47 | RIGHT | names kayak
+48 | ABSTAINED | says it could not find the information
+49 | RIGHT | says not told, names no workplace
+50 | RIGHT | names kayak
+51 | WRONG | names Halifax instead of saying unknown
+52 | ABSTAINED | says not told, asks back
+53 | RIGHT | says not told, names no place
+54 | RIGHT | names Khruangbin
+55 | WRONG | states another fact, does not say unknown
+56 | RIGHT | names whippet puppy
+57 | RIGHT | says not told, names no place
+58 | ABSTAINED | says no results found
+59 | ABSTAINED | says not told, asks back
+60 | WRONG | names raw meat, fish, eggs, not sesame
+61 | ABSTAINED | says not told, asks back
+62 | RIGHT | Khrueangbin is a misspelling of Khruangbin
+63 | WRONG | names Halifax instead of saying unknown
+64 | WRONG | gives Oaxaca trip of another person
+65 | ABSTAINED | says not told
+66 | RIGHT | says no information about job, no value
+67 | ABSTAINED | says not told, asks back
+68 | WRONG | Khris Khris is a different band
+69 | WRONG | explains a term, no saab
+70 | ABSTAINED | says it does not see it
+71 | WRONG | explains a term, no saab
+72 | ABSTAINED | says not told, asks back
+73 | WRONG | states another fact, no destination
+74 | WRONG | gives Oaxaca, not brackenfield
+75 | RIGHT | says not told, names no vehicle
+76 | RIGHT | names kayak
+77 | WRONG | states another fact, does not say unknown
+78 | ABSTAINED | says not told, asks back
+79 | ABSTAINED | says it could not find the venue
+80 | ABSTAINED | says not told
+81 | RIGHT | Khrueangbin is a misspelling of Khruangbin
+82 | RIGHT | says not told, names no workplace
+83 | ABSTAINED | says not told, asks back
+84 | RIGHT | says not told, names no town
+85 | WRONG | names geology as an answer, not unknown
+86 | RIGHT | names kayak
+87 | ABSTAINED | says it does not see it
+88 | ABSTAINED | says not told
+89 | ABSTAINED | says not told
+90 | RIGHT | says not told, names no town
+91 | ABSTAINED | says it does not see it
+92 | WRONG | guesses pottery, not aquarium
+93 | WRONG | gives move to Halifax, not venue
+94 | ABSTAINED | says not told, asks back
+95 | RIGHT | names kayak
+96 | RIGHT | says it has no information, names no vehicle

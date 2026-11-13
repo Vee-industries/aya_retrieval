@@ -1,0 +1,96 @@
+1 | RIGHT | says it has no information about the vehicle
+2 | WRONG | gives outfit advice, never names the venue
+3 | ABSTAINED | says it was not told
+4 | RIGHT | says it does not see it, names no value
+5 | RIGHT | names Khruangbin
+6 | RIGHT | says it has no information, names no value
+7 | ABSTAINED | says it does not see it
+8 | RIGHT | says it was not told, names no value
+9 | ABSTAINED | says it found no information
+10 | ABSTAINED | says it found no information
+11 | RIGHT | names the saab
+12 | WRONG | names a different band
+13 | ABSTAINED | says it was not told
+14 | RIGHT | says it found no information, names no town
+15 | ABSTAINED | says it does not see it
+16 | RIGHT | names the kayak
+17 | ABSTAINED | says it was not told
+18 | ABSTAINED | says it was not told
+19 | ABSTAINED | says it was not told
+20 | RIGHT | says it found no information, names no place
+21 | ABSTAINED | says it does not see it
+22 | RIGHT | says it found no information, names no town
+23 | RIGHT | says it was not told
+24 | RIGHT | says it was not told, names no value
+25 | WRONG | names different ingredients
+26 | ABSTAINED | says it was not told
+27 | ABSTAINED | says it was not told
+28 | WRONG | states an unrelated fact instead of saying unknown
+29 | RIGHT | says it was not told, names no value
+30 | WRONG | gives the dog's name, not the breed
+31 | RIGHT | says it was not told, names no value
+32 | RIGHT | says it was not told
+33 | RIGHT | says it was not told, names no value
+34 | ABSTAINED | says it does not see it
+35 | ABSTAINED | says it found no information
+36 | ABSTAINED | says it does not see it
+37 | RIGHT | names the kayak
+38 | RIGHT | says it was not told, names no value
+39 | WRONG | gives an unrelated answer about pottery
+40 | RIGHT | says it was not told, names no value
+41 | WRONG | gives the puppy's name, not the breed
+42 | RIGHT | says it found no information, names no place
+43 | RIGHT | says it was not told, names no value
+44 | RIGHT | names the kayak
+45 | ABSTAINED | says it was not told
+46 | ABSTAINED | says it found no information
+47 | RIGHT | names the kayak
+48 | ABSTAINED | says it found no information
+49 | RIGHT | says it was not told, names no value
+50 | RIGHT | names the kayak
+51 | WRONG | states another fact instead of saying unknown
+52 | ABSTAINED | says it was not told
+53 | RIGHT | says it was not told, names no value
+54 | RIGHT | names Khruangbin
+55 | WRONG | states an unrelated fact instead of saying unknown
+56 | RIGHT | names a whippet puppy
+57 | RIGHT | says it was not told, names no value
+58 | ABSTAINED | says no results found
+59 | ABSTAINED | says it was not told
+60 | WRONG | names different ingredients
+61 | ABSTAINED | says it was not told
+62 | RIGHT | spelling variant of Khruangbin
+63 | WRONG | states another fact instead of saying unknown
+64 | WRONG | talks about other people's trips, not the sister's
+65 | ABSTAINED | says it was not told
+66 | RIGHT | says it has no information, names no value
+67 | ABSTAINED | says it was not told
+68 | WRONG | names a different band
+69 | WRONG | explains a computing term, no car named
+70 | ABSTAINED | says it does not see it
+71 | WRONG | explains a computing term, no car named
+72 | ABSTAINED | says it was not told
+73 | WRONG | states an unrelated fact about Tessa
+74 | WRONG | names Noor's trip, not the venue
+75 | RIGHT | says it was not told, names no value
+76 | RIGHT | names the kayak
+77 | WRONG | states another fact instead of saying unknown
+78 | ABSTAINED | says it was not told
+79 | ABSTAINED | says it found no information
+80 | ABSTAINED | says it was not told
+81 | RIGHT | spelling variant of Khruangbin
+82 | RIGHT | says it was not told, names no value
+83 | ABSTAINED | says it was not told
+84 | RIGHT | says it was not told, names no value
+85 | WRONG | names a value for what Tessa studies
+86 | RIGHT | names the kayak
+87 | ABSTAINED | says it does not see it
+88 | ABSTAINED | says it was not told
+89 | ABSTAINED | says it was not told
+90 | RIGHT | says it was not told, names no value
+91 | ABSTAINED | says it does not see it
+92 | WRONG | gives an unrelated answer about pottery
+93 | WRONG | states the move, not the venue
+94 | ABSTAINED | says it was not told
+95 | RIGHT | names the kayak
+96 | RIGHT | says it has no information about the vehicle

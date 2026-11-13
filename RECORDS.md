@@ -8212,3 +8212,44 @@ one seed's spread.
 Reading (mine): K1.3 declines less often with the fact in front of it on hard_dev (63 to 41), the failure it was
 built for, but some of those became other lines. On the outside writers' chats the largest loss for both is a search
 that does not find the fact (about a third of questions), then no search; no candidate has trained query writing.
+
+## R-204 · 2026-11-12 · REOPENED · Demo2: K1 and K1.3 recall 0 of 6 older facts; declining everything ties them on facts told earlier
+
+**Run.** `scripts/run_demo2.py` once at 21:50 under the card lock (`results/demo2/branches.json`, 344bb56; adapter
+SHA-256 6.37 `e661a81c...`, K1 `0493d497...`, K1.3 `80cc213d...`). Two fresh blind judges, each with one Read (the
+sheet) and one Write (its marks), no other tool; 96 items, 1 disagreement (`results/demo2/judge/`). Counted right
+only when both judges mark it right.
+
+Baselines first. One chat, 12 questions on one history: counts only, the items are not independent, no model is
+ranked by this (R-201).
+
+| Arm | Older, told in 1 to 21 (6) | In view (2) | Never told, plain (2) | Never told, shared word (2) |
+|---|---|---|---|---|
+| declines everything | 0 | 0 | 2 | 2 |
+| base, empty index | 0 | 1 | 2 | 2 |
+| base, search | 0 | 1 | 2 | 2 |
+| 6.37, empty index | 0 | 1 | 2 | 2 |
+| 6.37, search | 2 | 1 | 0 | 0 |
+| K1, empty index | 0 | 2 | 2 | 2 |
+| K1, search | 0 | 2 | 2 | 2 |
+| K1.3, empty index | 0 | 2 | 2 | 2 |
+| K1.3, search | 0 | 2 | 2 | 0 |
+
+Model-free flags, fact questions (8): the search output held the source message for base 1, 6.37 5, K1 6, K1.3 5;
+the key was in the reply for base 1, 6.37 3, K1 2, K1.3 1. No reply to messages 22 to 24 held an older key (every
+arm 0 of 6). Shared content words with the source (R-201): 0 on five of the six older questions.
+
+**What it shows.** On facts told earlier, K1 and K1.3 do no better than declining everything: 0 of 6 each. Their
+search held the source message on 5 and 4 of the 6 older questions, and the reply declined ("I don't have that from
+you", "I checked and you haven't told me that") or gave another stored line (the look-alike's dog name for its
+breed). Queries still carry template words that are in no message ("Dev car auction", "priya car auction", "sister
+moving city" for a trip). K1.3 answered both shared-word never-told questions with an unrelated stored fact
+("Your sister Tessa teaches geology."), the R-175 failure; K1 declined all four. 6.37 recalled 2 of 6 older facts and
+none of the 4 never-told. Base searched on 2 of 12.
+
+This agrees with R-203's dev counts (found the fact and declined; queries with words from no message) and is the
+plainest view of it: these models read a fact only when it is worded close to the training templates.
+
+**Predictions** (mine, R-201): base with search 4 of 8 facts and 2 of 4 never told: 1 and 4. 6.37 5 of 8 and 1 of 4:
+3 and 0. K1 5 of 8 and 3 of 4: 2 and 4. K1.3 within one item of K1 on each kind: no on never told shared word (0
+against 2). Empty-index arms at most 2 of 6 older: 0 each. I overpredicted every arm's facts.

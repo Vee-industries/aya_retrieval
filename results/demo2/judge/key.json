@@ -1,0 +1,578 @@
+[
+ {
+  "item": 1,
+  "arm": "base_no_search",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 2,
+  "arm": "base",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 3,
+  "arm": "K1.3",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 4,
+  "arm": "6.37_no_search",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 5,
+  "arm": "K1",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 6,
+  "arm": "base",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 7,
+  "arm": "6.37_no_search",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 8,
+  "arm": "K1_no_search",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 9,
+  "arm": "base_no_search",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 10,
+  "arm": "base_no_search",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 11,
+  "arm": "6.37",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 12,
+  "arm": "6.37_no_search",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 13,
+  "arm": "K1_no_search",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 14,
+  "arm": "base",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 15,
+  "arm": "6.37_no_search",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 16,
+  "arm": "K1_no_search",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 17,
+  "arm": "K1",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 18,
+  "arm": "K1.3",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 19,
+  "arm": "K1_no_search",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 20,
+  "arm": "base",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 21,
+  "arm": "K1",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 22,
+  "arm": "base_no_search",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 23,
+  "arm": "K1.3_no_search",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 24,
+  "arm": "K1",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 25,
+  "arm": "base_no_search",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 26,
+  "arm": "K1.3",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 27,
+  "arm": "K1.3_no_search",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 28,
+  "arm": "6.37",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 29,
+  "arm": "K1",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 30,
+  "arm": "K1.3",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 31,
+  "arm": "6.37_no_search",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 32,
+  "arm": "K1.3_no_search",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 33,
+  "arm": "K1.3",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 34,
+  "arm": "K1_no_search",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 35,
+  "arm": "base",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 36,
+  "arm": "6.37",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 37,
+  "arm": "K1",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 38,
+  "arm": "K1_no_search",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 39,
+  "arm": "base_no_search",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 40,
+  "arm": "K1.3",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 41,
+  "arm": "K1",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 42,
+  "arm": "base_no_search",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 43,
+  "arm": "K1.3_no_search",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 44,
+  "arm": "base_no_search",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 45,
+  "arm": "6.37_no_search",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 46,
+  "arm": "base",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 47,
+  "arm": "6.37",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 48,
+  "arm": "base_no_search",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 49,
+  "arm": "6.37_no_search",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 50,
+  "arm": "6.37_no_search",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 51,
+  "arm": "6.37",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 52,
+  "arm": "K1",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 53,
+  "arm": "K1",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 54,
+  "arm": "K1_no_search",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 55,
+  "arm": "6.37",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 56,
+  "arm": "6.37",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 57,
+  "arm": "6.37_no_search",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 58,
+  "arm": "K1.3_no_search",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 59,
+  "arm": "K1",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 60,
+  "arm": "base",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 61,
+  "arm": "K1_no_search",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 62,
+  "arm": "K1.3_no_search",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 63,
+  "arm": "K1.3",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 64,
+  "arm": "base",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 65,
+  "arm": "K1.3",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 66,
+  "arm": "base_no_search",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 67,
+  "arm": "K1.3_no_search",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 68,
+  "arm": "6.37",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 69,
+  "arm": "base_no_search",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 70,
+  "arm": "6.37_no_search",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 71,
+  "arm": "base",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 72,
+  "arm": "6.37",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 73,
+  "arm": "6.37",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 74,
+  "arm": "6.37",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 75,
+  "arm": "K1_no_search",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 76,
+  "arm": "base",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 77,
+  "arm": "K1.3",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 78,
+  "arm": "K1.3",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 79,
+  "arm": "base_no_search",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 80,
+  "arm": "K1.3_no_search",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 81,
+  "arm": "K1.3",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 82,
+  "arm": "K1_no_search",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 83,
+  "arm": "K1_no_search",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 84,
+  "arm": "K1",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 85,
+  "arm": "6.37",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 86,
+  "arm": "K1.3",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 87,
+  "arm": "K1_no_search",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 88,
+  "arm": "K1.3_no_search",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 89,
+  "arm": "K1.3_no_search",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 90,
+  "arm": "K1.3_no_search",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 91,
+  "arm": "6.37_no_search",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 92,
+  "arm": "base",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 93,
+  "arm": "K1",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 94,
+  "arm": "6.37_no_search",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 95,
+  "arm": "K1.3_no_search",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 96,
+  "arm": "base",
+  "number": 9,
+  "kind": "never_told_plain"
+ }
+]
