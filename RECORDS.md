@@ -8594,3 +8594,14 @@ searches asked about the user and train the model to give up on a fact that is i
 K4.2, `check_k3.py` extended to `k4_3*`): **0 FAIL** (`results/panels/R-210/check_k4_3.txt`). Main risk (lane): the
 rule is the same, only smaller (after two empty searches, 35 of 35 rows decline), so a "where do i work" miss can
 recur; two of Demo2's six older items turn on search luck, so K4.3's chance of passing Demo2 is near even.
+
+**The diagnostic fails** (06:50, `results/recall_eval/hd_k4_2_r210_82_seed_73157.json`): K4.2 seed 82 on hard_dev,
+never_told **41** of 48 (rule: at least 44), false retrieval **7** (at most 4); against K4.1 seed 82: 34 and 8.
+Out-of-calls never_told rows 0 (K4.1 6); hard_dev recall 77 (K4.1 65). Decline after two empty searches did what it
+was built for and was not enough. **K4.3 does not train.** All 7 misses are one trap: the search returns a passage
+with a different person's fact of the asked category and the model names it ("my cleaner ... at uni", reply "Your
+housemate Eamon studied linguistics"; 5 of 7 with one passage). K1.3, whose template rows hold wrong-person
+never_told rows, gets 46, 48 and 48 of 48; no natural K3 or K4 row is of that kind (K4's near_miss is the same
+person, another category). R-211's "otherwise no further candidate" was written for the empty-search rule; Kevin's
+standing order ("if 3.1 fails move onto the next etc.") outranks it, and this is a different cause, so one more
+candidate (K4.4, wrong-person rows) goes to the R-210 lane before it is built.
