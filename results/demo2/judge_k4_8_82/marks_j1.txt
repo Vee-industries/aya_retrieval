@@ -1,0 +1,72 @@
+1 | ABSTAINED | says it does not see it
+2 | RIGHT | says it does not have it, names no value
+3 | RIGHT | says no information, names no value
+4 | RIGHT | says no information found, names no value
+5 | RIGHT | brackenfield
+6 | RIGHT | kayak
+7 | ABSTAINED | says it does not see it
+8 | WRONG | talks about dress, no venue key
+9 | ABSTAINED | says it does not see it
+10 | WRONG | gives meat, fish, eggs, not sesame
+11 | ABSTAINED | says it does not know
+12 | RIGHT | khruangbin
+13 | ABSTAINED | says it does not see it
+14 | ABSTAINED | no information found
+15 | RIGHT | says it does not have it, names no value
+16 | RIGHT | no information, names no value
+17 | RIGHT | no information found, names no value
+18 | ABSTAINED | says it does not have it
+19 | RIGHT | no information, names no value
+20 | WRONG | names a value, brackenfield
+21 | ABSTAINED | says it does not have it
+22 | ABSTAINED | says it does not have it
+23 | ABSTAINED | says nothing found
+24 | RIGHT | whippet
+25 | ABSTAINED | says it does not know
+26 | ABSTAINED | says it does not have it
+27 | RIGHT | khruangbin
+28 | RIGHT | kayak
+29 | RIGHT | no information, names no value
+30 | RIGHT | says it does not have it, names no value
+31 | ABSTAINED | says it does not have it
+32 | RIGHT | says it does not have it, names no value
+33 | RIGHT | kayak
+34 | ABSTAINED | no information found
+35 | RIGHT | says it does not have it, names no value
+36 | RIGHT | says it does not have it, names no value
+37 | RIGHT | whippet
+38 | WRONG | gives meat, fish, eggs, not sesame
+39 | RIGHT | says it does not know, names no value
+40 | WRONG | explains dev drive term, no saab
+41 | ABSTAINED | says it does not know
+42 | RIGHT | khruangbin
+43 | RIGHT | no information, names no value
+44 | ABSTAINED | no information found
+45 | ABSTAINED | says it does not have it
+46 | ABSTAINED | no information found
+47 | ABSTAINED | no information found
+48 | RIGHT | kayak
+49 | RIGHT | says it does not know, names no value
+50 | WRONG | pottery guess, no aquarium
+51 | RIGHT | says it does not know, names no value
+52 | WRONG | explains dev drive term, no saab
+53 | ABSTAINED | no information found
+54 | ABSTAINED | says it does not have it
+55 | WRONG | talks about Oaxaca, not tbilisi
+56 | WRONG | names geology in tbilisi, a value
+57 | RIGHT | kayak
+58 | RIGHT | says it does not have it, names no value
+59 | ABSTAINED | says it does not have it
+60 | ABSTAINED | says it does not have it
+61 | RIGHT | says it does not have it, names no value
+62 | RIGHT | kayak
+63 | RIGHT | khruangbin
+64 | RIGHT | says it does not have it, names no value
+65 | WRONG | names a value, geology in tbilisi
+66 | ABSTAINED | says nothing found
+67 | RIGHT | says it does not have it, names no value
+68 | ABSTAINED | says it does not have it
+69 | WRONG | pottery guess, no aquarium
+70 | RIGHT | brackenfield
+71 | ABSTAINED | says it does not have it
+72 | RIGHT | says no information, names no value

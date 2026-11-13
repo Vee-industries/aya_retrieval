@@ -1,0 +1,769 @@
+{
+ "per_arm": {
+  "K4.8e3_no_search": {
+   "older": "0 of 6",
+   "in_view": "2 of 2",
+   "never_told_plain": "2 of 2",
+   "never_told_shared_word": "2 of 2"
+  },
+  "base_no_search": {
+   "older": "0 of 6",
+   "in_view": "1 of 2",
+   "never_told_plain": "2 of 2",
+   "never_told_shared_word": "2 of 2"
+  },
+  "base": {
+   "older": "0 of 6",
+   "in_view": "1 of 2",
+   "never_told_plain": "2 of 2",
+   "never_told_shared_word": "2 of 2"
+  },
+  "K4.8e3": {
+   "older": "2 of 6",
+   "in_view": "2 of 2",
+   "never_told_plain": "2 of 2",
+   "never_told_shared_word": "1 of 2"
+  },
+  "K4.8e2": {
+   "older": "2 of 6",
+   "in_view": "2 of 2",
+   "never_told_plain": "2 of 2",
+   "never_told_shared_word": "0 of 2"
+  },
+  "K4.8e2_no_search": {
+   "older": "0 of 6",
+   "in_view": "2 of 2",
+   "never_told_plain": "2 of 2",
+   "never_told_shared_word": "2 of 2"
+  },
+  "declines everything": {
+   "older": "0 of 6",
+   "in_view": "0 of 2",
+   "never_told_plain": "2 of 2",
+   "never_told_shared_word": "2 of 2"
+  }
+ },
+ "disagreements": 0,
+ "items": [
+  {
+   "item": 1,
+   "arm": "K4.8e3_no_search",
+   "number": 5,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 2,
+   "arm": "K4.8e3_no_search",
+   "number": 12,
+   "kind": "never_told_shared_word",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 3,
+   "arm": "base_no_search",
+   "number": 9,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 4,
+   "arm": "base",
+   "number": 11,
+   "kind": "never_told_shared_word",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 5,
+   "arm": "K4.8e3",
+   "number": 6,
+   "kind": "older",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 6,
+   "arm": "base",
+   "number": 8,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 7,
+   "arm": "K4.8e3",
+   "number": 5,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 8,
+   "arm": "base",
+   "number": 6,
+   "kind": "older",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 9,
+   "arm": "K4.8e3_no_search",
+   "number": 2,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 10,
+   "arm": "base_no_search",
+   "number": 5,
+   "kind": "older",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 11,
+   "arm": "K4.8e3",
+   "number": 2,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 12,
+   "arm": "K4.8e2",
+   "number": 7,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 13,
+   "arm": "K4.8e3_no_search",
+   "number": 3,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 14,
+   "arm": "base",
+   "number": 3,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 15,
+   "arm": "K4.8e3_no_search",
+   "number": 10,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 16,
+   "arm": "base_no_search",
+   "number": 12,
+   "kind": "never_told_shared_word",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 17,
+   "arm": "base_no_search",
+   "number": 11,
+   "kind": "never_told_shared_word",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 18,
+   "arm": "K4.8e2_no_search",
+   "number": 4,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 19,
+   "arm": "base_no_search",
+   "number": 10,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 20,
+   "arm": "K4.8e2",
+   "number": 12,
+   "kind": "never_told_shared_word",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 21,
+   "arm": "K4.8e2",
+   "number": 5,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 22,
+   "arm": "K4.8e2",
+   "number": 4,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 23,
+   "arm": "K4.8e2",
+   "number": 1,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 24,
+   "arm": "K4.8e2",
+   "number": 3,
+   "kind": "older",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 25,
+   "arm": "K4.8e2",
+   "number": 2,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 26,
+   "arm": "K4.8e3",
+   "number": 4,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 27,
+   "arm": "K4.8e3_no_search",
+   "number": 7,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 28,
+   "arm": "K4.8e3_no_search",
+   "number": 8,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 29,
+   "arm": "base",
+   "number": 10,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 30,
+   "arm": "K4.8e3",
+   "number": 10,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 31,
+   "arm": "K4.8e3",
+   "number": 1,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 32,
+   "arm": "K4.8e3_no_search",
+   "number": 11,
+   "kind": "never_told_shared_word",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 33,
+   "arm": "K4.8e3",
+   "number": 8,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 34,
+   "arm": "base_no_search",
+   "number": 7,
+   "kind": "in_view",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 35,
+   "arm": "K4.8e2_no_search",
+   "number": 10,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 36,
+   "arm": "K4.8e3",
+   "number": 9,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 37,
+   "arm": "K4.8e3",
+   "number": 3,
+   "kind": "older",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 38,
+   "arm": "base",
+   "number": 5,
+   "kind": "older",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 39,
+   "arm": "K4.8e2",
+   "number": 9,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 40,
+   "arm": "base",
+   "number": 2,
+   "kind": "older",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 41,
+   "arm": "K4.8e2_no_search",
+   "number": 2,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 42,
+   "arm": "K4.8e2_no_search",
+   "number": 7,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 43,
+   "arm": "base",
+   "number": 12,
+   "kind": "never_told_shared_word",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 44,
+   "arm": "base_no_search",
+   "number": 6,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 45,
+   "arm": "K4.8e2_no_search",
+   "number": 6,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 46,
+   "arm": "base_no_search",
+   "number": 4,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 47,
+   "arm": "base",
+   "number": 7,
+   "kind": "in_view",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 48,
+   "arm": "base_no_search",
+   "number": 8,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 49,
+   "arm": "K4.8e2_no_search",
+   "number": 9,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 50,
+   "arm": "base_no_search",
+   "number": 1,
+   "kind": "older",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 51,
+   "arm": "K4.8e3_no_search",
+   "number": 9,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 52,
+   "arm": "base_no_search",
+   "number": 2,
+   "kind": "older",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 53,
+   "arm": "base_no_search",
+   "number": 3,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 54,
+   "arm": "K4.8e2_no_search",
+   "number": 5,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 55,
+   "arm": "base",
+   "number": 4,
+   "kind": "older",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 56,
+   "arm": "K4.8e2",
+   "number": 11,
+   "kind": "never_told_shared_word",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 57,
+   "arm": "K4.8e2_no_search",
+   "number": 8,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 58,
+   "arm": "K4.8e2_no_search",
+   "number": 12,
+   "kind": "never_told_shared_word",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 59,
+   "arm": "K4.8e2_no_search",
+   "number": 3,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 60,
+   "arm": "K4.8e3_no_search",
+   "number": 4,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 61,
+   "arm": "K4.8e3",
+   "number": 12,
+   "kind": "never_told_shared_word",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 62,
+   "arm": "K4.8e2",
+   "number": 8,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 63,
+   "arm": "K4.8e3",
+   "number": 7,
+   "kind": "in_view",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 64,
+   "arm": "K4.8e2",
+   "number": 10,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 65,
+   "arm": "K4.8e3",
+   "number": 11,
+   "kind": "never_told_shared_word",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 66,
+   "arm": "K4.8e2_no_search",
+   "number": 1,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 67,
+   "arm": "K4.8e2_no_search",
+   "number": 11,
+   "kind": "never_told_shared_word",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 68,
+   "arm": "K4.8e3_no_search",
+   "number": 1,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 69,
+   "arm": "base",
+   "number": 1,
+   "kind": "older",
+   "judge_1": "WRONG",
+   "judge_2": "WRONG",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 70,
+   "arm": "K4.8e2",
+   "number": 6,
+   "kind": "older",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  },
+  {
+   "item": 71,
+   "arm": "K4.8e3_no_search",
+   "number": 6,
+   "kind": "older",
+   "judge_1": "ABSTAINED",
+   "judge_2": "ABSTAINED",
+   "counted_right": false,
+   "agree": true
+  },
+  {
+   "item": 72,
+   "arm": "base",
+   "number": 9,
+   "kind": "never_told_plain",
+   "judge_1": "RIGHT",
+   "judge_2": "RIGHT",
+   "counted_right": true,
+   "agree": true
+  }
+ ]
+}

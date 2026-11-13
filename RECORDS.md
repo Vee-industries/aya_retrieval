@@ -9050,3 +9050,20 @@ line on 16 rows and was not used.
 from 42 to 69, against 70 never-told rows that search again and decline. K4.9 differs from K4.8 by those 27 rows
 only, so it trains only if K4.8 stops; it takes R-222's checkpoint rule and early stop. Prediction: within one item
 of K4.8 on Demo2 and within 2 on hard_dev never_told.
+
+## R-225 · 2026-11-13 · REOPENED · K4.8 bombs Demo2 on both checkpoints; K4.9 takes the card
+
+**Demo2 on K4.8 seed 82** (`results/demo2/branches_k4_8_r220_82.json`, queue `q220b`, written 16:14; two fresh blind
+Sonnet judges, 72 items, 0 disagreements; `results/demo2/judge_k4_8_82/`), with search, older / in view / never told
+plain / shared word: **epoch 3: 2 of 6 / - / 2 of 2 / 1 of 2; epoch 2: 2 of 6 / - / 2 of 2 / 0 of 2**; base 0 / - /
+2 / 2. **Both checkpoints bomb** (older under 3 on both; epoch 2 never-told 2 of 4). By R-222's rule K4.8 bombs; the
+read file said `bomb` at 16:16 and `q220b` ended itself. Right at both: the dog's breed, the venue (as K4.5 to K4.7).
+"where do i work" declined at both (K4.6e2 had it). Shared-word never-told: "where is tessa studying" named a value
+at both ("geology in tbilisi"); "where will ollie work after moving" declined at epoch 3, named "brackenfield" (the
+wedding venue) at epoch 2. Predictions: the method lane (epoch 3 older 2, never-told 3; epoch 2 older 3) and the
+against lane (epoch 3 older 2, never-told 4; epoch 2 older 3, never-told 3) were right on epoch 3's older and wrong on
+epoch 2's; mine (never-told 4 of 4) was wrong. The added near-miss and wrong-person rows for the 64 new chats did not
+restore K4.6's shared-word declines at epoch 2.
+
+K4.9's queue `q224`, waiting on the card lock, started at 16:17 (train seed 82; same rule, R-224). K1.3 stays the
+pick.
