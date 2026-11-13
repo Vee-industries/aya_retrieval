@@ -8873,3 +8873,8 @@ pass thresholds and states that no forecast exists. Items 2 and 5 to 9 stay open
 was written on 2026-11-04 (commit 723da40)". The LLM usage statement stays as written (Claude wrote the code and text
 under Kevin's direction, no percentage claimed). The retention benchmark and the embedding or MinHash leak check stay
 "not done", as stated; the form and any push stay Kevin's.
+
+**R-217 update, 13:55 Eastern.** Kevin: the submission form is filed. My "left for Kevin" item 7 and my later
+"filing the form stays with you" were wrong to list it as open; it is closed. What remains of that item: the form
+points at the GitHub repository and the Hugging Face pages, so the changes in R-217 reach judges on GitHub only after
+a push, and on Hugging Face only after the short article and model card are uploaded. Both are Kevin's call.
