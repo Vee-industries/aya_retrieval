@@ -8162,3 +8162,11 @@ and two Writes (`demo2/chat.txt`, `demo2/questions.json`), no other tool. `scrip
 of 13 rules, first try. Content words each fact question shares with its source message, questions 1 to 8: 0, 0, 0,
 0, 0, 1, 1, 0 (words in `results/demo2/overlap.json`). Nobody has read the chat or the questions. The run is queued
 behind K1.3's queue (`qd2`, card lock).
+
+## R-202 · 2026-11-12 · REOPENED · S3 stays closed until Saturday; candidates stay open to the R-194 cutoff
+
+**Decision.** Asked whether S3 should open right after K1.3's pick tonight or stay closed for more candidates, Kevin
+answered: "Hold until Saturday". So `decide_r191.py` still runs when K1.3's queue finishes and its result is recorded,
+but the pick it names is not final while a later candidate can still train: any candidate whose three seeds finish
+training by Saturday 14 November 16:00 Eastern is screened and joins the pick by 18:00, and S3 starts by 19:00
+(R-194). The S3 queue is written and not started.
