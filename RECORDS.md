@@ -8736,9 +8736,9 @@ Prediction (lane), before training: hard_dev seed 82 never_told 45 of 48 (43 to 
 question returns another person's same-type fact and the model names it (15 rows teach the decline there). The
 added rows are fewer than the lane expected (41 against about 100), so the gain may be small.
 
-**Demo2 on K4.6 seed 82** (`results/demo2/branches_k4_6_r214_82.json`, run 10:44; two fresh blind judges, 48 items,
+**Demo2 on K4.6 seed 82** (`results/demo2/branches_k4_6_r214_82.json`, run 10:41; two fresh blind judges, 48 items,
 0 disagreements; `results/demo2/judge_k4_6_82/`): K4.6 with search older **2** of 6, in view 2 of 2, never told
-plain 2 of 2, shared word 2 of 2. **K4.6 bombs**; queue stopped at 10:55 during seed 82's probe screen (no partial
+plain 2 of 2, shared word 2 of 2. **K4.6 bombs**; queue stopped at 10:50 during seed 82's probe screen (no partial
 result kept). Its searches found 4 of the 6 older facts (K4.5: 3); it named 2 (the dog's breed, the venue) and
 declined 2 it found ("dev drive", and the sister, now found by "sister moving city"). The two never found are "where
 do i work" and the ingredient.
