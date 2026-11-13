@@ -8473,3 +8473,9 @@ same files, with `build_k3_1`'s drops (query rule, a four-word run with a dev or
 S3) applied to the new rows before the one-to-one cut. K4's own output is unchanged by the refactor (same SHA-256).
 Check: `check_k3.py --set k4_1_r209`, R-208's lines. Lines 1, 4a and 5 hold by construction; a FAIL means the next
 candidate. Queue, Demo2 rules and predictions as R-208 (Demo2 never-told for K4.1 is a regression check, not blind).
+
+**K4.1's build and check** (00:00). Built once: `data/screens/k4_1_r209.jsonl`, 1,710 rows: K3.2's 1,620 and 90 new
+(45 near_miss, 45 contrast; 118 built; dropped as K4 plus S3 six-word run 12, dev or Demo2 question run 5, query rule
+1; one-to-one cut 26; 2 over 1,024 tokens). Check: **0 FAIL** of 11 (gap 0.01 natural, 0.28 whole set; six-word runs
+with S3 0, four-word runs 282 against K1.3's 148 reported; facts about the user 39.5% of 344). K4.1 trains: queue
+`q209` (seed 82, Demo2 at once, screening, seeds 83 and 94; a Demo2 bomb stops it).
