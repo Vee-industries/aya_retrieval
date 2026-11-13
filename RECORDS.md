@@ -9090,3 +9090,32 @@ K4.8, and the lane predicts it fails. Kevin's rule is that a bomb means the next
 candidate worth the card, so this is put to Kevin (16:24) rather than queued.
 
 Shippable pick: K1.3 unless K4.9 passes Demo2 and screening.
+
+## R-227 · 2026-11-13 · REOPENED · K1.3s registered: K1.3 plus one gentle epoch of K4.8's set, not trained from base
+
+Kevin (16:30), after R-226: "do we need to train fresh?", "i meant back from like 0.0". Every K candidate so far
+trained a fresh adapter on the base model; the trainer can start from a saved adapter (`--init-adapter`, R-103), as
+6.37's stages did (R-105, R-110: 1 epoch at a peak of 1e-4, linear decay to 0, on the stage before). Two lanes on
+**K1.3 plus one gentle epoch of the natural rows** (`results/panels/R-227/stone_brief.md`), method (Sonnet) and
+against (Opus): **both adopt with changes** (`stone_method.md`, `stone_against.md`). Strongest for: it starts from the
+end of the trade-off that passes screening (K1.3: never-told 4 of 4, hard_dev 46 / 2), a different setup from the
+eight fresh mixes that all stopped at older 2 of 6. Strongest against: it may land on the same trade-off between
+answering more and declining more (K4.6 at epoch 2), and one epoch at 1e-4 gives less of the natural rows than any
+K4.x run. Odds, both lanes: about 20 to 25%, above a fresh candidate's, below even.
+
+**Adopted:** K4.8's whole set (template rows included, so the stage keeps rehearsing what K1.3 learned), 1 epoch,
+peak 1e-4 (the recorded stage's settings), every other setting as K1.3 (r 32, the 7 modules, `--loss-on
+chat_decision`, batch 2); each seed starts from the same seed's K1.3 adapter; the trainer fails a run that loads no
+K1.3 tensors or leaves the adapter unchanged. One checkpoint (end of the epoch) is read. **One try**: no learning-rate
+or row variants. Seed 82's Demo2 and hard_dev come before any other seed (R-222's early stop); a failure ends it, and
+then no candidate is left. **Check before training, both lanes**: do the four Demo2 older items that every
+candidate misses ever come back in a search, or is the fault the fixed tool? From the seed 82 Demo2 logs
+(`found_source`): K4.1's searches found all four, K3.2's three, K4.6's two, every K4.x at least one; so the facts are
+retrievable with the tool, and the misses are the model's queries and declines. The check reads Demo2's logs for a
+go or no-go only; no item text enters any build. **Disclosed**: a two-stage model; chosen after the K4.x line failed
+Demo2; Demo2's seed 82 chat has now been used to judge 12 candidate readings (K3.2, K4.1, K4.2, K4.4 to K4.8, K4.5e2,
+K4.6e2, K4.8e2, and this), so it is no longer a held-out test; with 6 older items and a line at 3, one item decides.
+
+Queue `q227` (`results/panels/R-227/q227.sh`, run from this session's scratchpad), behind K4.9's `q224` on the card
+lock; about 35 to 40 minutes per seed. Labels `*_k1_3s_r227_N`. Predictions, seed 82: against lane Demo2 older 1 of
+6 (0 to 2), never-told 4 of 4, hard_dev never_told 46, recall about 60; method lane older 2 of 6, never-told 4 of 4.
