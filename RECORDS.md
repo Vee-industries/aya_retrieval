@@ -8974,7 +8974,7 @@ on both. Queue `q219` stopped at 14:47 during seed 82's first outside-writer run
 lock, started at once (train seed 82 from 14:47). **Disclosed for K4.8**: the epoch-2 read registered for it (R-220)
 was chosen to match K4.6e2, and K4.6e2 now shows an epoch-2 checkpoint scoring worse on hard_dev never_told than
 epoch 3 (39 against 46). No K4.8 result exists yet, so the read can still be changed without choosing after
-a K4.8 result; it stays as registered unless Kevin rules otherwise before K4.8's Demo2 (asked 14:52). Epoch 3 is
+a K4.8 result; it stays as registered unless Kevin rules otherwise before K4.8's Demo2 (asked 14:48). Epoch 3 is
 saved for every seed.
 
 The lane's recount of "search once, then stop" on K4.6e2's outside-writer logs (R-220) cannot run: those logs were
