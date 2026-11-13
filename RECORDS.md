@@ -9292,3 +9292,8 @@ older / in view / never told plain / shared word: **T4 4 of 6 / 2 of 2 / 2 of 2 
 0 of 2 / 0 of 2; T4 with an empty index 0 / 2 / 2 / 2. **T4 passes Demo3.** By R-229 T4 is the try screened: hard_dev
 on seed 82 first with R-222's early stop, then the rest of seed 82, then seeds 83 (trained the same way from K1.3's
 seed 83 adapter) and 94. Later round-1 tries (T5, T6) and round 2 wait; they run only if T4 fails a screening line.
+
+**T4 fails screening** (`results/recall_eval/hd_k13t4_r229_82_seed_73157.json`, 18:50): seed 82 hard_dev never_told
+**38** of 48 (floor 44), false retrieval **12** (ceiling 4), recall 59 (K1.3 52), in_view 43. R-222's early stop ended
+the try. The same trade as K4.6e2 (39 and 10, R-221): the try that answers more Demo older items also names other
+people's same-type facts on hard_dev. By R-229 the ladder resumes: T5 (1e-4, 3 epochs, K4.8 whole) took the card.
