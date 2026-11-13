@@ -1,0 +1,129 @@
+{"questions": [
+  {"file": "w1.json", "chat": 0, "kind": "other_person", "question": "which breed of cat does ines have", "person": "ines", "stored_person": "dara", "category": "C10", "query": "breed cat ines", "second_query": "pet kitty"},
+  {"file": "w1.json", "chat": 0, "kind": "other_person", "question": "my brother's girlfriend, whats she called", "person": "my brother", "stored_person": "ines", "category": "C08", "query": "brother's girlfriend", "second_query": "partner dating"},
+  {"file": "w1.json", "chat": 0, "kind": "contrast", "question": "remind me which breed of cat dara has", "person": "dara", "stored_person": "dara", "category": "C10", "source_message": 6, "value": "sphynx", "query": "breed cat dara", "second_query": "pet kitty", "reply": "Dara's cat is a sphynx."},
+
+  {"file": "w1.json", "chat": 1, "kind": "other_person", "question": "how does yusra get to campus", "person": "yusra", "stored_person": "me", "category": "C39", "query": "yusra campus", "second_query": "commute travel"},
+  {"file": "w1.json", "chat": 1, "kind": "other_person", "question": "is my aunt nursing any injury at the moment", "person": "my aunt", "stored_person": "yusra", "category": "C30", "query": "aunt injury", "second_query": "hurt pain"},
+  {"file": "w1.json", "chat": 1, "kind": "contrast", "question": "and how do i get to campus", "person": "me", "stored_person": "me", "category": "C39", "source_message": 5, "value": "ferry", "query": "campus", "second_query": "commute travel", "reply": "You take the ferry."},
+
+  {"file": "w1.json", "chat": 2, "kind": "other_person", "question": "marit, any idea what car she drives", "person": "marit", "stored_person": "fenn", "category": "C17", "query": "marit car drives", "second_query": "motor vehicle"},
+  {"file": "w1.json", "chat": 2, "kind": "other_person", "question": "my husband's line of work, what is it", "person": "my husband", "stored_person": "me", "category": "C03", "query": "husband's work", "second_query": "job title"},
+  {"file": "w1.json", "chat": 2, "kind": "contrast", "question": "which car does fenn drive these days", "person": "fenn", "stored_person": "fenn", "category": "C17", "source_message": 10, "value": "defender", "query": "car fenn drive", "second_query": "motor vehicle", "reply": "Fenn has a defender."},
+
+  {"file": "w1.json", "chat": 3, "kind": "other_person", "question": "senna reading anything good lately, which book", "person": "senna", "stored_person": "my manager", "category": "C25", "query": "senna reading book", "second_query": "novel"},
+  {"file": "w1.json", "chat": 3, "kind": "other_person", "question": "what music is my sister into", "person": "my sister", "stored_person": "senna", "category": "C23", "query": "music sister", "second_query": "band gig"},
+  {"file": "w1.json", "chat": 3, "kind": "contrast", "question": "which book is my manager reading", "person": "my manager", "stored_person": "my manager", "category": "C25", "source_message": 11, "value": "tidebreak", "query": "book manager reading", "second_query": "novel", "reply": "Your manager is into tidebreak."},
+
+  {"file": "w1.json", "chat": 4, "kind": "other_person", "question": "which series has my partner had on lately", "person": "my partner", "stored_person": "me", "category": "C24", "query": "series partner", "second_query": "show watching"},
+  {"file": "w1.json", "chat": 4, "kind": "other_person", "question": "thandie's pet, whats it called", "person": "thandie", "stored_person": "kasimir", "category": "C09", "query": "thandie's pet called", "second_query": "named"},
+  {"file": "w1.json", "chat": 4, "kind": "contrast", "question": "and the series i've had on lately, which one", "person": "me", "stored_person": "me", "category": "C24", "source_message": 9, "value": "gullhaven", "query": "series", "second_query": "show watching", "reply": "You've been watching gullhaven."},
+
+  {"file": "w1.json", "chat": 5, "kind": "other_person", "question": "how does odette commute", "person": "odette", "stored_person": "my sister", "category": "C39", "query": "odette commute", "second_query": "travel ride"},
+  {"file": "w1.json", "chat": 5, "kind": "other_person", "question": "my brother's phone, which brand is it", "person": "my brother", "stored_person": "my sister", "category": "C35", "query": "brother's phone brand", "second_query": "mobile"},
+  {"file": "w1.json", "chat": 5, "kind": "contrast", "question": "and my sister, how does she commute", "person": "my sister", "stored_person": "my sister", "category": "C39", "source_message": 7, "value": "scooter", "query": "sister commute", "second_query": "travel ride", "reply": "Your sister rides her scooter."},
+
+  {"file": "w1.json", "chat": 6, "kind": "other_person", "question": "my wife's hometown, whats it called", "person": "my wife", "stored_person": "rafe", "category": "C05", "query": "wife's hometown", "second_query": "raised childhood"},
+  {"file": "w1.json", "chat": 6, "kind": "other_person", "question": "rafe's employer, any idea who it is", "person": "rafe", "stored_person": "me", "category": "C02", "query": "rafe's employer", "second_query": "job work"},
+  {"file": "w1.json", "chat": 6, "kind": "contrast", "question": "and rafe's hometown, whats that", "person": "rafe", "stored_person": "rafe", "category": "C05", "source_message": 13, "value": "cairnholm", "query": "rafe's hometown", "second_query": "raised childhood", "reply": "Rafe grew up in cairnholm."},
+
+  {"file": "w1.json", "chat": 7, "kind": "other_person", "question": "marlo from yoga's cat, what breed is it", "person": "marlo from yoga", "stored_person": "neighbour marlo", "category": "C10", "query": "marlo yoga cat breed", "second_query": "kind pet"},
+  {"file": "w1.json", "chat": 7, "kind": "other_person", "question": "is my brother relocating anywhere", "person": "my brother", "stored_person": "my grandad", "category": "C01", "query": "brother relocating", "second_query": "moving move"},
+  {"file": "w1.json", "chat": 7, "kind": "contrast", "question": "and neighbour marlo's dog, what breed is that", "person": "neighbour marlo", "stored_person": "neighbour marlo", "category": "C10", "source_message": 9, "value": "bloodhound", "query": "neighbour marlo's dog breed", "second_query": "kind pet", "reply": "Neighbour marlo has a bloodhound."},
+
+  {"file": "w2.json", "chat": 0, "kind": "other_person", "question": "where does tobin like to eat most", "person": "tobin", "stored_person": "priya", "category": "C26", "query": "tobin eat", "second_query": "restaurant cafe food"},
+  {"file": "w2.json", "chat": 0, "kind": "other_person", "question": "has mara got any health problems", "person": "mara", "stored_person": "dad", "category": "C30", "query": "mara health problems", "second_query": "pain sick"},
+  {"file": "w2.json", "chat": 0, "kind": "contrast", "question": "and priya, where does she like to eat most", "person": "priya", "stored_person": "priya", "category": "C26", "source_message": 12, "value": "quillon", "query": "priya eat", "second_query": "restaurant cafe food", "reply": "Priya swears by quillon."},
+
+  {"file": "w2.json", "chat": 1, "kind": "other_person", "question": "ines from choir, which school is she at", "person": "ines (choir)", "stored_person": "ines (roommate)", "category": "C14", "query": "ines choir school", "second_query": "university masters"},
+  {"file": "w2.json", "chat": 1, "kind": "other_person", "question": "does aurelie play an instrument", "person": "aurelie", "stored_person": "me", "category": "C22", "query": "aurelie play instrument", "second_query": "music practice"},
+  {"file": "w2.json", "chat": 1, "kind": "contrast", "question": "which school is my roommate ines going to", "person": "ines (roommate)", "stored_person": "ines (roommate)", "category": "C14", "source_message": 9, "value": "merriton", "query": "school roommate ines", "second_query": "university masters", "reply": "Your roommate ines got into merriton."},
+
+  {"file": "w2.json", "chat": 2, "kind": "other_person", "question": "which town is my brother based in", "person": "my brother", "stored_person": "fran", "category": "C04", "query": "town brother based", "second_query": "lives house"},
+  {"file": "w2.json", "chat": 2, "kind": "other_person", "question": "has fran got a pet, whats it called", "person": "fran", "stored_person": "my brother", "category": "C09", "query": "fran pet called", "second_query": "dog named"},
+  {"file": "w2.json", "chat": 2, "kind": "contrast", "question": "and which town is fran based in", "person": "fran", "stored_person": "fran", "category": "C04", "source_message": 14, "value": "birchmoor", "query": "town fran based", "second_query": "lives house", "reply": "Fran lives in birchmoor."},
+
+  {"file": "w2.json", "chat": 3, "kind": "other_person", "question": "what breed of dog does my old roommate kit have", "person": "kit (roommate)", "stored_person": "kit (soccer)", "category": "C10", "query": "breed dog roommate kit", "second_query": "pup kind"},
+  {"file": "w2.json", "chat": 3, "kind": "other_person", "question": "how does my dad commute", "person": "my dad", "stored_person": "me", "category": "C39", "query": "dad commute", "second_query": "travel ride"},
+  {"file": "w2.json", "chat": 3, "kind": "contrast", "question": "kit from soccer, what breed of dog does she have", "person": "kit (soccer)", "stored_person": "kit (soccer)", "category": "C10", "source_message": 6, "value": "vizsla", "query": "kit soccer dog breed", "second_query": "pup kind", "reply": "Kit from soccer has a vizsla."},
+
+  {"file": "w2.json", "chat": 4, "kind": "other_person", "question": "what's brigid studying", "person": "brigid", "stored_person": "me", "category": "C13", "query": "brigid studying", "second_query": "major degree"},
+  {"file": "w2.json", "chat": 4, "kind": "other_person", "question": "my brother's job, whats he do for a living", "person": "my brother", "stored_person": "my mom", "category": "C03", "query": "brother's job", "second_query": "work career"},
+  {"file": "w2.json", "chat": 4, "kind": "contrast", "question": "and what am i studying", "person": "me", "stored_person": "me", "category": "C13", "source_message": 2, "value": "entomology", "query": "studying", "second_query": "major degree", "reply": "You study entomology."},
+
+  {"file": "w2.json", "chat": 5, "kind": "other_person", "question": "which show is my wife into", "person": "my wife", "stored_person": "my mom", "category": "C24", "query": "show wife", "second_query": "series episodes"},
+  {"file": "w2.json", "chat": 5, "kind": "other_person", "question": "jonah's line of work, whats that", "person": "jonah", "stored_person": "me", "category": "C03", "query": "jonah's work", "second_query": "job career"},
+  {"file": "w2.json", "chat": 5, "kind": "contrast", "question": "and which show is my mom into", "person": "my mom", "stored_person": "my mom", "category": "C24", "source_message": 6, "value": "larkmoor", "query": "show mom", "second_query": "series episodes", "reply": "Your mom is hooked on larkmoor."},
+
+  {"file": "w2.json", "chat": 6, "kind": "other_person", "question": "which band does my niece like", "person": "my niece", "stored_person": "my wife", "category": "C23", "query": "band niece", "second_query": "music singer"},
+  {"file": "w2.json", "chat": 6, "kind": "other_person", "question": "desmond drives what kind of car", "person": "desmond", "stored_person": "me", "category": "C17", "query": "desmond drives car", "second_query": "vehicle truck"},
+  {"file": "w2.json", "chat": 6, "kind": "contrast", "question": "and the band my wife likes, which one", "person": "my wife", "stored_person": "my wife", "category": "C23", "source_message": 8, "value": "corvina", "query": "band wife likes", "second_query": "music singer", "reply": "Your wife is always playing corvina."},
+
+  {"file": "w2.json", "chat": 7, "kind": "other_person", "question": "jen from yoga, does she have a kid, name?", "person": "jen (yoga)", "stored_person": "jen (cousin)", "category": "C11", "query": "jen yoga kid name", "second_query": "daughter son child"},
+  {"file": "w2.json", "chat": 7, "kind": "other_person", "question": "what hobby has ignatius got", "person": "ignatius", "stored_person": "me", "category": "C21", "query": "hobby ignatius", "second_query": "sport craft"},
+  {"file": "w2.json", "chat": 7, "kind": "contrast", "question": "my cousin jen's kid, whats her name", "person": "jen (cousin)", "stored_person": "jen (cousin)", "category": "C11", "source_message": 15, "value": "clementine", "query": "cousin jen's kid name", "second_query": "daughter son child", "reply": "Her daughter is clementine."},
+
+  {"file": "w3.json", "chat": 0, "kind": "other_person", "question": "what subject is Tobias studying", "person": "Tobias", "stored_person": "Rory", "category": "C13", "query": "subject Tobias studying", "second_query": "degree course major"},
+  {"file": "w3.json", "chat": 0, "kind": "other_person", "question": "my sister's go to restaurant, which is it", "person": "my sister", "stored_person": "Dara", "category": "C26", "query": "sister's restaurant", "second_query": "dinner eat"},
+  {"file": "w3.json", "chat": 0, "kind": "contrast", "question": "and Rory, what subject is he studying", "person": "Rory", "stored_person": "Rory", "category": "C13", "source_message": 9, "value": "geology", "query": "Rory subject studying", "second_query": "degree course major", "reply": "Rory is doing geology."},
+
+  {"file": "w3.json", "chat": 1, "kind": "other_person", "question": "where's Isolde's hometown", "person": "Isolde", "stored_person": "mum", "category": "C05", "query": "Isolde's hometown", "second_query": "raised childhood"},
+  {"file": "w3.json", "chat": 1, "kind": "other_person", "question": "is Thaddeus moving anywhere", "person": "Thaddeus", "stored_person": "Priya", "category": "C01", "query": "Thaddeus moving", "second_query": "relocating move"},
+  {"file": "w3.json", "chat": 1, "kind": "contrast", "question": "and mum's hometown, whats it", "person": "mum", "stored_person": "mum", "category": "C05", "source_message": 8, "value": "Ardmore", "query": "mum's hometown", "second_query": "raised childhood", "reply": "Your mum grew up in Ardmore."},
+
+  {"file": "w3.json", "chat": 2, "kind": "other_person", "question": "my husband's employer, any idea which company", "person": "my husband", "stored_person": "Marco next door", "category": "C02", "query": "husband's employer company", "second_query": "job work hired"},
+  {"file": "w3.json", "chat": 2, "kind": "other_person", "question": "what car is Nkechi driving", "person": "Nkechi", "stored_person": "my dad", "category": "C17", "query": "car Nkechi driving", "second_query": "vehicle motor"},
+  {"file": "w3.json", "chat": 2, "kind": "contrast", "question": "Marco next door's employer, which company is it", "person": "Marco next door", "stored_person": "Marco next door", "category": "C02", "source_message": 4, "value": "Brightwater", "query": "Marco next door's employer", "second_query": "job work hired", "reply": "Marco next door works at Brightwater."},
+
+  {"file": "w3.json", "chat": 3, "kind": "other_person", "question": "which show is my roommate watching", "person": "my roommate", "stored_person": "Bea", "category": "C24", "query": "show roommate watching", "second_query": "series binge"},
+  {"file": "w3.json", "chat": 3, "kind": "other_person", "question": "Lennart have a pet, what kind", "person": "Lennart", "stored_person": "my boss", "category": "C10", "query": "Lennart pet kind", "second_query": "animal breed"},
+  {"file": "w3.json", "chat": 3, "kind": "contrast", "question": "and which show is Bea watching", "person": "Bea", "stored_person": "Bea", "category": "C24", "source_message": 6, "value": "Severance", "query": "show Bea watching", "second_query": "series binge", "reply": "Bea is obsessed with Severance."},
+
+  {"file": "w3.json", "chat": 4, "kind": "other_person", "question": "what car does Theo drive", "person": "Theo", "stored_person": "me", "category": "C17", "query": "car Theo drive", "second_query": "vehicle motor"},
+  {"file": "w3.json", "chat": 4, "kind": "other_person", "question": "where does Bramwell work", "person": "Bramwell", "stored_person": "Theo", "category": "C02", "query": "Bramwell work", "second_query": "job employer"},
+  {"file": "w3.json", "chat": 4, "kind": "contrast", "question": "and which car do i drive", "person": "me", "stored_person": "me", "category": "C17", "source_message": 7, "value": "Outback", "query": "car drive", "second_query": "vehicle motor", "reply": "You drive an Outback."},
+
+  {"file": "w3.json", "chat": 5, "kind": "other_person", "question": "what music is Saoirse into", "person": "Saoirse", "stored_person": "Kwame", "category": "C23", "query": "music Saoirse", "second_query": "band gig"},
+  {"file": "w3.json", "chat": 5, "kind": "other_person", "question": "Kwame's course, what is he studying", "person": "Kwame", "stored_person": "my flatmate", "category": "C13", "query": "Kwame's course studying", "second_query": "degree training"},
+  {"file": "w3.json", "chat": 5, "kind": "contrast", "question": "and what music is Kwame into", "person": "Kwame", "stored_person": "Kwame", "category": "C23", "source_message": 7, "value": "Wilco", "query": "music Kwame", "second_query": "band gig", "reply": "Kwame's favourite band is Wilco."},
+
+  {"file": "w3.json", "chat": 6, "kind": "other_person", "question": "Liesel's hometown, where is it", "person": "Liesel", "stored_person": "me", "category": "C05", "query": "Liesel's hometown", "second_query": "raised childhood"},
+  {"file": "w3.json", "chat": 6, "kind": "other_person", "question": "any health problems with Dmitri lately", "person": "Dmitri", "stored_person": "dad", "category": "C30", "query": "health problems Dmitri", "second_query": "sick pain"},
+  {"file": "w3.json", "chat": 6, "kind": "contrast", "question": "and my own hometown?", "person": "me", "stored_person": "me", "category": "C05", "source_message": 4, "value": "Penmarrow", "query": "hometown", "second_query": "raised childhood", "reply": "You grew up in Penmarrow."},
+
+  {"file": "w3.json", "chat": 7, "kind": "other_person", "question": "where's hubby employed", "person": "my husband", "stored_person": "my sister", "category": "C02", "query": "hubby employed", "second_query": "job work"},
+  {"file": "w3.json", "chat": 7, "kind": "other_person", "question": "Anouk's hometown, any idea", "person": "Anouk", "stored_person": "my grandad", "category": "C05", "query": "Anouk's hometown", "second_query": "raised childhood"},
+  {"file": "w3.json", "chat": 7, "kind": "contrast", "question": "and where's my sister employed", "person": "my sister", "stored_person": "my sister", "category": "C02", "source_message": 14, "value": "Tidewell", "query": "sister employed", "second_query": "job work", "reply": "Your sister works at Tidewell."},
+
+  {"file": "w4.json", "chat": 0, "kind": "other_person", "question": "who does dara work for", "person": "dara", "stored_person": "me", "category": "C02", "query": "dara work", "second_query": "job employer"},
+  {"file": "w4.json", "chat": 0, "kind": "other_person", "question": "does my aunt play any instrument", "person": "aunt", "stored_person": "brother", "category": "C22", "query": "aunt play instrument", "second_query": "music"},
+  {"file": "w4.json", "chat": 0, "kind": "contrast", "question": "and who do i work for now", "person": "me", "stored_person": "me", "category": "C02", "source_message": 2, "value": "kelderhaus", "query": "work", "second_query": "job employer", "reply": "You work at kelderhaus."},
+
+  {"file": "w4.json", "chat": 1, "kind": "other_person", "question": "where is rafferty from originally", "person": "rafferty", "stored_person": "me", "category": "C05", "query": "rafferty originally", "second_query": "hometown childhood"},
+  {"file": "w4.json", "chat": 1, "kind": "other_person", "question": "does my sister have any kids", "person": "sister", "stored_person": "sister in law", "category": "C11", "query": "sister kids", "second_query": "daughter son child"},
+  {"file": "w4.json", "chat": 1, "kind": "contrast", "question": "and me, where am i from originally", "person": "me", "stored_person": "me", "category": "C05", "source_message": 9, "value": "tullagh", "query": "originally", "second_query": "hometown childhood", "reply": "You grew up in tullagh."},
+
+  {"file": "w4.json", "chat": 2, "kind": "other_person", "question": "what car does petra drive", "person": "petra", "stored_person": "cass from work", "category": "C17", "query": "car petra drive", "second_query": "vehicle truck"},
+  {"file": "w4.json", "chat": 2, "kind": "other_person", "question": "where is my mum from originally", "person": "mum", "stored_person": "husband", "category": "C05", "query": "mum originally", "second_query": "hometown childhood"},
+  {"file": "w4.json", "chat": 2, "kind": "contrast", "question": "and which car does cass from work drive", "person": "cass from work", "stored_person": "cass from work", "category": "C17", "source_message": 10, "value": "tundra", "query": "car cass work drive", "second_query": "vehicle truck", "reply": "Cass from work has a tundra."},
+
+  {"file": "w4.json", "chat": 3, "kind": "other_person", "question": "where does linnea work", "person": "linnea", "stored_person": "me", "category": "C02", "query": "linnea work", "second_query": "job employer shifts"},
+  {"file": "w4.json", "chat": 3, "kind": "other_person", "question": "dashiell's commute, how does he travel", "person": "dashiell", "stored_person": "me", "category": "C39", "query": "dashiell's commute", "second_query": "bus bike ride"},
+  {"file": "w4.json", "chat": 3, "kind": "contrast", "question": "and where do i work", "person": "me", "stored_person": "me", "category": "C02", "source_message": 3, "value": "hollowmere", "query": "work", "second_query": "job employer shifts", "reply": "You're working at hollowmere."},
+
+  {"file": "w4.json", "chat": 4, "kind": "other_person", "question": "what kind of animal does ottilie keep", "person": "ottilie", "stored_person": "ilse", "category": "C10", "query": "animal ottilie keep", "second_query": "pet critter"},
+  {"file": "w4.json", "chat": 4, "kind": "other_person", "question": "where does ilse work", "person": "ilse", "stored_person": "wife", "category": "C02", "query": "ilse work", "second_query": "job employer"},
+  {"file": "w4.json", "chat": 4, "kind": "contrast", "question": "and ilse, what kind of animal does she keep", "person": "ilse", "stored_person": "ilse", "category": "C10", "source_message": 11, "value": "axolotl", "query": "animal ilse keep", "second_query": "pet critter", "reply": "Ilse has an axolotl."},
+
+  {"file": "w4.json", "chat": 5, "kind": "other_person", "question": "how does theo from the lab get to work", "person": "theo from the lab", "stored_person": "roommate theo", "category": "C39", "query": "theo lab work", "second_query": "commute bus ride"},
+  {"file": "w4.json", "chat": 5, "kind": "other_person", "question": "is rosalind reading anything at the moment", "person": "rosalind", "stored_person": "dad", "category": "C25", "query": "rosalind reading", "second_query": "book novel"},
+  {"file": "w4.json", "chat": 5, "kind": "contrast", "question": "and my roommate theo, how does he get to work", "person": "roommate theo", "stored_person": "roommate theo", "category": "C39", "source_message": 8, "value": "tram", "query": "roommate theo work", "second_query": "commute bus ride", "reply": "Your roommate theo takes the tram."},
+
+  {"file": "w4.json", "chat": 6, "kind": "other_person", "question": "what car has my brother got", "person": "brother", "stored_person": "me", "category": "C17", "query": "car brother", "second_query": "drive vehicle"},
+  {"file": "w4.json", "chat": 6, "kind": "other_person", "question": "kasimir have any hobbies", "person": "kasimir", "stored_person": "partner", "category": "C21", "query": "kasimir hobbies", "second_query": "sport weekends"},
+  {"file": "w4.json", "chat": 6, "kind": "contrast", "question": "and me, what car do i have", "person": "me", "stored_person": "me", "category": "C17", "source_message": 14, "value": "saab", "query": "car", "second_query": "drive vehicle", "reply": "You have an old saab."},
+
+  {"file": "w4.json", "chat": 7, "kind": "other_person", "question": "which town does aunt bea live in", "person": "aunt bea", "stored_person": "me", "category": "C04", "query": "town aunt bea live", "second_query": "home based"},
+  {"file": "w4.json", "chat": 7, "kind": "other_person", "question": "does cosmo play an instrument", "person": "cosmo", "stored_person": "me", "category": "C22", "query": "cosmo play instrument", "second_query": "music"},
+  {"file": "w4.json", "chat": 7, "kind": "contrast", "question": "and which town do i live in", "person": "me", "stored_person": "me", "category": "C04", "source_message": 2, "value": "penhallow", "query": "town live", "second_query": "home based", "reply": "You live in penhallow."}
+]}

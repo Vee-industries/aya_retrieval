@@ -1,0 +1,17 @@
+report: S3 four-word runs shared, this set 283, K1.3 148
+PASS  first queries breaking the rule 0 []
+PASS  second queries holding the value 0 []
+PASS  replies not matching their side 0 []
+PASS  replies after an empty search 31, at least 1
+PASS  passage gap, natural rows: 0.06 (value 1.87, decline 1.93)
+PASS  passage gap, whole set: 0.26 (value 2.56, decline 2.29)
+PASS  natural questions sharing a four-word run with dev or Demo2 0
+PASS  natural answer values also dev or Demo2 answers 10.8% (279 values)
+PASS  natural rows sharing a six-word run with S3 0
+PASS  facts about the user 37.4% of 366 natural fact rows, at least a third
+PASS  check_false rows 79 at least check_true rows 56
+PASS  longest row 1024 tokens, at most 1024
+report: natural rows by kind {('statement', None): 62, ('older', 'older'): 231, ('confirm', 'check_true'): 56, ('confirm', 'check_false'): 79, ('never_told', 'never_told'): 209, ('in_view', 'in_view'): 59}
+report: (names value, searches) {(True, 1): 239, (False, 1): 164, (True, 2): 106, (False, 2): 66}
+report: top score, value rows 3.06, declining rows 2.28
+== k3 check: 0 FAIL (R-205 lines)

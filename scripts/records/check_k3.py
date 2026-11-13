@@ -179,7 +179,7 @@ def main() -> None:
         for r in base
         if last_output(r) is not None
     ]
-    if NAME.startswith(("k4_2", "k4_3")):  # R-210: count 0 has nothing to answer from
+    if NAME.startswith(("k4_2", "k4_3", "k4_4")):  # R-210: count 0 has nothing to answer from
         nat_pairs = [(named, n) for named, n in nat_pairs if n]
         after_empty = [
             any(

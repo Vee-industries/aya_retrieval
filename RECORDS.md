@@ -8605,3 +8605,27 @@ never_told rows, gets 46, 48 and 48 of 48; no natural K3 or K4 row is of that ki
 person, another category). R-211's "otherwise no further candidate" was written for the empty-search rule; Kevin's
 standing order ("if 3.1 fails move onto the next etc.") outranks it, and this is a different cause, so one more
 candidate (K4.4, wrong-person rows) goes to the R-210 lane before it is built.
+
+## R-212 · 2026-11-13 · REOPENED · K4.4 registered: K4.3 plus wrong-person and contrast rows
+
+**The R-210 lane on K4.4: adopt with changes.** The diagnosis is R-073's trap: hard_dev's never_told items are built
+with a same-type fact about another person (R-066, R-073; R-073's example is today's sponsor item), and R-074's fix
+15 closed it with 100 template rows (never_told 32 to 46). Changes adopted: the writer brief quotes no name or value
+(it now holds none); asked categories stay in the chats' own (training) categories; a count of found-and-declined
+older and check rows is reported at screening, since wrong-person declines can spread to declining real facts.
+**Disclosed:** (1) the row type is aimed at hard_dev's misses after reading them, so hard_dev is a weaker gate for
+K4.4 and its distance from the sealed pool's design is smaller (R-066's cost, larger now); (2) K4.4 stacks two
+untrained changes on K4.2 (K4.3's removal of 22 fact-row declines, chosen after Demo2, and these rows), so a result
+cannot be split between them. The lane's simpler fallback, template wrong-person rows by R-074's method, is not used
+because K1.3's rows already hold fix 15's and the natural rows are what outweigh them.
+
+**K4.4** (`scripts/records/build_k4_4.py`, brief `docs/k4_4/WRITER_BRIEF.md`, writers `data/screens/k4_4_writers/`
+a and b, 96 questions each: two other_person and one contrast per chat). Built once: 1,790 rows, K4.3's 1,745 and 45
+new (other_person 23, contrast 22; built 79; dropped: other_person whose searches never returned the other person's
+fact 95, contrast not found 13, S3 six-word run 6, dev or Demo2 question run 3, query rule 2; one-to-one cut 22; 1
+over 1,024 tokens). Disclosed: 23 wrong-person rows against fix 15's 100; most writer questions name only P, so the
+keyword search seldom returns Q's message, and the keep rule needs it. Check (`check_k3.py --set k4_4_r212`, K4.2's
+lines): **0 FAIL** (`results/panels/R-210/check_k4_4.txt`). Queue `q212` as `q210`.
+
+Prediction, before training: hard_dev never_told at least 44 of 48 on seeds 82 and 83 (K4.2 seed 82: 41); hard_dev
+false retrieval at most 4; Demo2 older at least 3 of 6. Both of the last two are near even.
