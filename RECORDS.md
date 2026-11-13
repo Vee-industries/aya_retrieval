@@ -8385,3 +8385,12 @@ of natural rows; nothing else changes. Check: `check_k3.py --set k3_2_r207`, R-2
 lines 1 and 4 read only the questions whose rows are in the set (disclosed: made after K3.1's result). Line 6 now holds
 by construction; lines 2, 3, 4b and 7 can still fail (cutting value rows moves the gap). Queue, Demo2 bomb rule and
 predictions as R-206. A FAIL means the next candidate at once.
+
+**K3.2's build and check** (22:55). Built once: `data/screens/k3_2_r207.jsonl`, 1,620 rows (K1.3's 1,094 and 526
+natural; 24 check_true rows cut). Check: **0 FAIL** of 11. Gap 0.02 natural (value 1.83, decline 1.85), 0.25 whole
+set; queries 0 off the rule; questions 0 sharing a four-word run with dev or Demo2; answer values 10.5% of 266 also
+dev or Demo2 answers; six-word runs with S3 0 (four-word runs 280 against K1.3's 148, reported); facts about the user
+43.1% of 299; check_false 15.0%; longest row 1,024. Natural rows: statement 62, older 164, check_true 56, check_false
+79, never_told 106, in_view 59; value rows with one search 186, two 92; declining rows one search 102, two 25; top
+scores, value rows 3.08 against declining 2.52 (a cue K1.3 already had, 5.19 against 3.43 per the R-205 lane).
+K3.2 trains: queue `q207` (seed 82, Demo2 on seed 82 under R-205's bomb rule, screening, then seeds 83 and 94).
