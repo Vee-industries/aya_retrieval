@@ -1,6 +1,6 @@
 # Handoff
 
-Created 2026-11-13 12:55 ET (R-216). Read this, then `docs/PROJECT_MAP.md`, then `RECORDS.md` from R-205.
+Created 2026-11-13 12:46 ET (R-216). Read this, then `docs/PROJECT_MAP.md`, then `RECORDS.md` from R-205.
 
 ## State
 
