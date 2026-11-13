@@ -8684,3 +8684,13 @@ shared-word never-told items declined, including "where will ollie work after mo
 R-213 set, hard_dev on K4.5's seed 82 adapter runs as a diagnostic (not eligible): the queue already runs the
 probe screen and then hard_dev for seed 82, so it is stopped when hard_dev is written, before any further eval or
 training.
+
+**K4.5's hard_dev diagnostic passes** (`results/recall_eval/hd_k4_5_r213_82_seed_73157.json`; queue stopped at
+09:33 after it; the probe screen `screen_k4_5_r213_82` ran before it, as queued; neither is eligible for the pick).
+Seed 82 on hard_dev, never_told / false retrieval / recall / out of calls: **K4.5 47 / 2 / 72 / 0**; K1.3 46 / 2 /
+52 / 0; K4.1 34 / 8 / 65 / 6; K4.2 41 / 7 / 77 / 0. The one never_told miss names the same person's other fact
+("Lorcan did what at uni again", reply "Lorcan studied psychology"). So the wrong-person rows and the possessive
+strip did what they were built for on hard_dev. K4.5's only failed gate is Demo2 older (2 of 6, K1.3 0); of its
+four misses there, three were never returned by any of its searches (the fact messages use words unlike the
+questions) and one was found and declined. Whether K4.5 goes on to seeds 83 and 94 despite the Demo2 bomb is a
+change to Kevin's gate and is his call; asked 09:35.
