@@ -8981,3 +8981,29 @@ The lane's recount of "search once, then stop" on K4.6e2's outside-writer logs (
 never written. It moves to K4.8's seed 82 outside-writer logs.
 
 Shippable pick: K1.3, unchanged.
+
+## R-222 · 2026-11-13 · REOPENED · Panel on K4.8's checkpoint: Demo2 on both, epoch 3 first, hard_dev early stop
+
+Kevin (14:52), asked which K4.8 checkpoint counts after R-221: "that's not up to me. panel it". So the panel's
+recommendation is the call. Two lanes on one brief (`results/panels/R-222/epoch_brief.md`: the Demo2 and hard_dev
+numbers of K4.5, K4.6 and K4.7 at each checkpoint, the three options), method (Sonnet) and against (Opus). **Both:
+option (c)** (`epoch_method.md`, `epoch_against.md`). Strongest evidence, both lanes: K4.6 seed 82, epoch 2 against
+epoch 3, hard_dev never_told 39 against 46 and false retrieval 10 against 4, bought with one Demo2 older item. Against
+(b) epoch 3 only: epoch 3 scored Demo2 older 2 of 6 on K4.5, K4.6 and K4.7 (checked: R-213, R-214, R-218). Against (a)
+epoch 2 only: one epoch-2 reading failed each gate (K4.5e2 never-told 2 of 4, R-219; K4.6e2 hard_dev, R-221).
+
+**The rule, fixed before any K4.8 result:** Demo2 on seed 82 at epoch 3 and at epoch 2, same judging. The read is
+epoch 3 if it passes Demo2, else epoch 2 if it passes, else K4.8 bombs and the next candidate starts. The read is
+used for every seed; seeds 83 and 94 never choose it. Both checkpoints' Demo2 numbers are recorded. **Early stop**
+(against lane): seed 82's hard_dev runs first and the queue stops on a failed hard_dev line (never_told at least 44,
+false retrieval at most 6.37's plus 3; `results/panels/R-222/hd_gate.py`, shown failing on K4.6e2's seed 82, 39 and
+10, and passing on K4.6's, 46 and 4); the same after seed 83's hard_dev. **Disclosed:** Demo2 gets two tries from one
+training run; the lanes put the gain in false passes at roughly a third to a half, smaller in practice since the
+checkpoints share two of three epochs. This replaces R-220's "epoch 2 only".
+
+Queue `q220` (epoch 2 only) was stopped 3 minutes into seed 82's training (14:51); queue `q220b` (this session's
+scratchpad, `q220b.sh`) carries the rule and trains seed 82 from the start. After judging, the read goes in
+`k48_read.txt` beside it (3, 2 or bomb).
+
+Predictions (lanes), seed 82: epoch 3 older 2 of 6 (bombs on older), epoch 2 older 3 of 6 and read; hard_dev
+never_told at epoch 2 about 41 to 42 (fails 44). Chance K4.8 passes everything: about 1 in 4 or less (both lanes).
