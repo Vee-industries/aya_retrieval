@@ -9181,3 +9181,12 @@ search output (the count R-220 reports correctly). No lane's verdict rested on t
 Writes (`demo3/chat.txt`, `demo3/questions.json`), no other tool. `demo2_check.py` pointed at `demo3/`: **0 FAIL**,
 first try. Content words each fact question shares with its source, questions 1 to 8: 0, 0, 1, 0, 1, 2, 0, 1 (words in
 `results/demo3/overlap.json`). Nobody has read the chat or the questions.
+
+## R-230 · 2026-11-13 · REOPENED · T1 (K1.3s) bombs Demo2; T2 takes the card
+
+**Demo2 on T1 seed 82** (`results/demo2/branches_k1_3s_r227_82.json`, 17:09; the stage loaded all 504 K1.3 tensors
+and changed the adapter; two fresh blind Sonnet judges, 48 items, 0 disagreements; `results/demo2/judge_k1_3s_82/`),
+with search, older / in view / never told plain / shared word: **2 of 6 / 2 of 2 / 2 of 2 / 2 of 2** (K1.3 0 / - / 2 /
+2). **Bombs** on older. Right: the dog's breed, the venue; "what does dev drive" found and declined; the other three
+never found. Predictions: method lane older 2, never-told 4 (right); against lane older 1, never-told 4. Demo2
+readings now: 14 (R-227's 13 and this). By R-229, T2 (3e-4, 1 epoch, K4.8 whole) runs next.
