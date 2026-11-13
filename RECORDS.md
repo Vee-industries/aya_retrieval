@@ -8495,6 +8495,7 @@ works, the dog's breed, the ingredient to avoid (C19) and the wedding venue (C28
 categories. Wrong: "what does dev drive" (found, declined) and "where is my sister headed" (found, declined). Both
 shared-word never-told questions declined (one query misspelt the name, "essa studying"). Disclosed (R-208): the
 never-told result is a regression check only, since K4's brief named Demo2's misses; the older result is not
-affected by that. Base with search scored 1 of 6 older here against 0 in R-204, from fresh judges on the same kind
-of replies (see the replies-identical count below). Prediction (R-208): older 3 of 6, never-told 3 of 4; both one
+affected by that. Base with search scored 1 of 6 older here against 0 in R-204, from fresh judges on the same set
+of replies: base's 12 replies are byte for byte R-204's, so the difference is the judges between rounds, which
+puts about one item of judge noise on every count here. Prediction (R-208): older 3 of 6, never-told 3 of 4; both one
 better.
