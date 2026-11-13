@@ -1,0 +1,48 @@
+1 | RIGHT | says no information found, names no value
+2 | RIGHT | says it has no information, names no value
+3 | RIGHT | says it has no information, names no value
+4 | RIGHT | kayak
+5 | WRONG | names raw meat, fish, eggs instead of sesame
+6 | ABSTAINED | says it does not know
+7 | RIGHT | says it does not know, names no value
+8 | WRONG | defines dev drive, no saab
+9 | ABSTAINED | says it does not know
+10 | RIGHT | says it does not have it, names no value
+11 | RIGHT | says no information found, names no value
+12 | RIGHT | khruangbin
+13 | WRONG | pottery project, not aquarium
+14 | ABSTAINED | says no information found
+15 | ABSTAINED | says it does not have it
+16 | WRONG | defines dev drive, no saab
+17 | ABSTAINED | says no information found
+18 | RIGHT | saab
+19 | ABSTAINED | says no information found
+20 | WRONG | dress advice, no venue named
+21 | RIGHT | says it does not have it, names no value
+22 | RIGHT | says it does not know, names no value
+23 | RIGHT | brackenfield
+24 | RIGHT | kayak
+25 | RIGHT | says no information found, names no value
+26 | RIGHT | kayak
+27 | ABSTAINED | says it does not know
+28 | RIGHT | says no information found, names no value
+29 | ABSTAINED | says no information found
+30 | RIGHT | kayak
+31 | ABSTAINED | says it does not know
+32 | WRONG | names Oaxaca trip of sister-in-law, not tbilisi
+33 | WRONG | names a value, geology, for never-told fact
+34 | RIGHT | says no information, names no value
+35 | ABSTAINED | says it does not know
+36 | RIGHT | says it does not have it, names no value
+37 | ABSTAINED | says it does not see it
+38 | ABSTAINED | says it does not see it
+39 | ABSTAINED | says no information found
+40 | ABSTAINED | says it does not know
+41 | RIGHT | khruangbin
+42 | RIGHT | says it does not have it, names no value
+43 | ABSTAINED | says no information found
+44 | WRONG | pottery project, not aquarium
+45 | RIGHT | whippet
+46 | RIGHT | says no information, names no value
+47 | RIGHT | says it does not have it, names no value
+48 | WRONG | names raw meat, fish, eggs instead of sesame

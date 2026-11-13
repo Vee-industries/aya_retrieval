@@ -9275,3 +9275,13 @@ declines cut by the balance) is not run: it has no rule from the record. If roun
 the result as the lane wrote it: K1.3 stays the pick, passes screening and fails the Demo2 gate at 0 of 6; no try
 that passes screening passes Demo2; the measured cause; and the decision is his (submit K1.3 with the failure
 disclosed, or rule on the fixed tool, prompt or eval).
+
+## R-236 · 2026-11-13 · REOPENED · T4 passes Demo2; Demo3 runs
+
+**Demo2 on T4 seed 82** (`k13t4_r229`: 3e-4, 1 epoch, natural rows only, from K1.3; 18:29; 504 tensors loaded,
+adapter changed; two fresh blind Sonnet judges, 48 items, 0 disagreements; `results/demo2/judge_k13t4_82_demo2/`):
+older / in view / never told plain / shared word **3 of 6 / 2 of 2 / 2 of 2 / 1 of 2. Passes** (older at least 3,
+never-told 3 of 4). New right: "what does dev drive" ("Dev's saab"), found and declined on every earlier try. Still
+missed: "where do i work", the sister, the ingredient (never found); "where is tessa studying" named geology.
+Demo2 readings: 17. Disclosed: the pass is one item over the line on a chat now read 17 times. By R-229 the queue
+runs Demo3 (held out, unread) on T4 seed 82 next; Demo3 is read for the first time.
