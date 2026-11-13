@@ -5,18 +5,17 @@ Created 2026-11-13 12:46 ET (R-216). Read this, then `docs/PROJECT_MAP.md`, then
 ## State
 
 - **Shippable pick:** K1.3 (`decide_r191.py`, pick recall 742), provisional until Saturday 14 Nov 18:00 ET.
-- **Running (R-219, R-220):** queue `q219`, K4.6e2 (K4.6's seeds read at epoch 2), started 14:16: seed 82 screening,
-  then train and score 83, then 94. Queue `q220`, K4.8, waits behind it on the card lock: train seed 82, Demo2 on its
-  epoch-2 checkpoint, then screening on epoch-2 checkpoints. Both in the scratchpad of session 77d169a0
+- **Out:** K4.7 bombed Demo2 (R-218). K4.6e2 failed screening at seed 82 (R-221).
+- **Running:** queue `q220b`, K4.8 (R-220, R-222), from 14:52; queue `q224`, K4.9 (R-224), waits behind it on the card
+  lock and starts when q220b ends. Both in the scratchpad of session 77d169a0
   (`C:\Users\Gaming\scratch\claude\C--Users-Gaming-Desktop-Claude-s-House\77d169a0-08a5-413f-bd51-6c88c27447de\scratchpad\`).
-  K4.7 bombed Demo2 (R-218); its queue `q215` is stopped.
-- **On K4.8's Demo2:** judge it (`demo2_judges.py` with `RUN`/`OUT` set to `results/demo2/branches_k4_8_r220_82.json`
-  and `results/demo2/judge_k4_8_82`, `sheet()`, two fresh Sonnet judges each writing `marks_j1.txt` / `marks_j2.txt`,
-  then `tally()`). A bomb: stop the queue (taskkill the lock python and the eval's outer timeout.exe) and start the
-  next candidate at once. Not a bomb: let it run; then `decide_r191.py`.
-- **Drawn, not built:** K4.9 = K4.8 plus "miss then hit" rows (R-220's B), only with a new loss mask that keeps the
-  first search call out of the loss and `balance()` keyed on (searches, passages); draft brief
-  `docs/k4_8/WRITER_BRIEF.md` (untracked).
+- **Checkpoint rule (R-222, panel):** each queue trains seed 82, runs Demo2 on epoch 3 and epoch 2, prints
+  `DEMO2 READY` and waits for a read file beside it (`k48_read.txt`, `k49_read.txt`). Judge the run
+  (`demo2_judges.py` with `RUN`/`OUT` set to `results/demo2/branches_k4_N_rNNN_82.json` and
+  `results/demo2/judge_k4_N_82`, `sheet()`, two fresh Sonnet judges writing `marks_j1.txt` / `marks_j2.txt`, then
+  `tally()`). Write `3` if epoch 3 passes, else `2` if epoch 2 passes, else `bomb`. The queue then reads that
+  checkpoint for every seed, runs hard_dev first on seeds 82 and 83 (`hd_gate.py` beside it) and ends itself on a
+  failed line; otherwise it screens 82, 83 and 94. Then `decide_r191.py`.
 
 ## Rules in force
 

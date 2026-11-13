@@ -19,12 +19,12 @@ questions from unrelated passages, copying wrong answers).
 | `scripts/run_recall_train.py` | Trains one adapter from a training set (`--data`), one seed |
 | `scripts/run_recall_eval.py` | Scores an adapter on a pool (`hard_dev`, `probe`), an items folder (`blind_dev`, `blind_dev2`) or a stress kind; writes `results/recall_eval/LABEL_seed_N.json` |
 | `scripts/run_demo2.py` | Demo2: one fresh writer's chat (`demo2/`), 24 messages and 12 questions, base then each adapter |
-| `scripts/records/build_*.py` | Training-set builds, one per candidate (K1, K1.3, K3 to K4.8); each writes `data/screens/NAME.jsonl` and its `.provenance.json` |
+| `scripts/records/build_*.py` | Training-set builds, one per candidate (K1, K1.3, K3 to K4.9); each writes `data/screens/NAME.jsonl` and its `.provenance.json` |
 | `scripts/records/check_k3.py --set NAME` | The set checker (R-205 lines and later ones) before any training |
 | `scripts/records/decide_r191.py` | Screening of every candidate against base and 6.37, and the registered pick (R-191, R-192) |
 | `scripts/records/demo2_judges.py` | Blind judge sheet and tally for a Demo2 run |
 | `scripts/records/validate_k3_writers.py` | Structure check of K3-brief writer files |
-| `docs/k3/`, `docs/k4/`, `docs/k4_4/` | Writer briefs for the natural training chats and questions |
+| `docs/k3/`, `docs/k4/`, `docs/k4_4/`, `docs/k4_9/` | Writer briefs for the natural training chats and questions |
 | `data/screens/` | Training sets and writer files; `k4_5/`, `k4_6/`, `k4_7/` hold each chain's stripped writer copies and intermediates |
 | `results/recall_eval/` | Every eval result; `results/demo2/` Demo2 runs and judge folders; `results/panels/R-NNN/` panel and count outputs |
 | Sealed | `data/heldout*`, `data/*independent*`, S3 chats, `results/longmemeval/`: not opened before the sealed run; never uploaded |
@@ -46,4 +46,5 @@ K3 natural writer rows, then K3.1 (drops), K3.2 (check_false share), K4.1 (near-
 K4.3 (declines after empty searches), K4.4 (wrong-person rows), K4.5 (possessives out of every query, chain rebuilt
 by `build_k4_5.py`), K4.6 (never-told rows search twice when both return text), K4.7 (64 more natural chats), K4.8 (near-miss and
 wrong-person questions for those 64 chats). K4.6e2 is K4.6 read at its epoch-2 checkpoint (R-219); K4.8 is read at
-epoch 2 only (R-220).
+R-222's checkpoint rule (Demo2 on epoch 3 and epoch 2, epoch 3 read if it passes). K4.9 (R-224) is K4.8 plus 27
+miss-then-hit rows marked `loss_from_second_call`: the trainer keeps their first search call out of the loss (R-223).
