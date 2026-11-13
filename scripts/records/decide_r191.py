@@ -28,7 +28,8 @@ CANDIDATES = {
     "K4.4": "k4_4_r212",  # R-212 (bombed Demo2)
     "K4.5": "k4_5_r213",  # R-213 (bombed Demo2)
     "K4.6": "k4_6_r214",  # R-214 (bombed Demo2)
-    "K4.7": "k4_7_r215",  # R-215
+    "K4.7": "k4_7_r215",  # R-215 (bombed Demo2)
+    "K4.6e2": "k4_6e2_r214",  # R-219: K4.6 seeds read at epoch 2
 }
 REF = "fix17cs37"
 BASE = "base191"

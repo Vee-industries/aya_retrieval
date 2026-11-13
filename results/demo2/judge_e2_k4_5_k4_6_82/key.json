@@ -1,0 +1,434 @@
+[
+ {
+  "item": 1,
+  "arm": "K4.5e2_no_search",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 2,
+  "arm": "K4.5e2_no_search",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 3,
+  "arm": "base_no_search",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 4,
+  "arm": "base",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 5,
+  "arm": "K4.5e2",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 6,
+  "arm": "base",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 7,
+  "arm": "K4.5e2",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 8,
+  "arm": "base",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 9,
+  "arm": "K4.5e2_no_search",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 10,
+  "arm": "base_no_search",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 11,
+  "arm": "K4.5e2",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 12,
+  "arm": "K4.6e2",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 13,
+  "arm": "K4.5e2_no_search",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 14,
+  "arm": "base",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 15,
+  "arm": "K4.5e2_no_search",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 16,
+  "arm": "base_no_search",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 17,
+  "arm": "base_no_search",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 18,
+  "arm": "K4.6e2_no_search",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 19,
+  "arm": "base_no_search",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 20,
+  "arm": "K4.6e2",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 21,
+  "arm": "K4.6e2",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 22,
+  "arm": "K4.6e2",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 23,
+  "arm": "K4.6e2",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 24,
+  "arm": "K4.6e2",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 25,
+  "arm": "K4.6e2",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 26,
+  "arm": "K4.5e2",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 27,
+  "arm": "K4.5e2_no_search",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 28,
+  "arm": "K4.5e2_no_search",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 29,
+  "arm": "base",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 30,
+  "arm": "K4.5e2",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 31,
+  "arm": "K4.5e2",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 32,
+  "arm": "K4.5e2_no_search",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 33,
+  "arm": "K4.5e2",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 34,
+  "arm": "base_no_search",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 35,
+  "arm": "K4.6e2_no_search",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 36,
+  "arm": "K4.5e2",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 37,
+  "arm": "K4.5e2",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 38,
+  "arm": "base",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 39,
+  "arm": "K4.6e2",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 40,
+  "arm": "base",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 41,
+  "arm": "K4.6e2_no_search",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 42,
+  "arm": "K4.6e2_no_search",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 43,
+  "arm": "base",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 44,
+  "arm": "base_no_search",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 45,
+  "arm": "K4.6e2_no_search",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 46,
+  "arm": "base_no_search",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 47,
+  "arm": "base",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 48,
+  "arm": "base_no_search",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 49,
+  "arm": "K4.6e2_no_search",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 50,
+  "arm": "base_no_search",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 51,
+  "arm": "K4.5e2_no_search",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 52,
+  "arm": "base_no_search",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 53,
+  "arm": "base_no_search",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 54,
+  "arm": "K4.6e2_no_search",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 55,
+  "arm": "base",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 56,
+  "arm": "K4.6e2",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 57,
+  "arm": "K4.6e2_no_search",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 58,
+  "arm": "K4.6e2_no_search",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 59,
+  "arm": "K4.6e2_no_search",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 60,
+  "arm": "K4.5e2_no_search",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 61,
+  "arm": "K4.5e2",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 62,
+  "arm": "K4.6e2",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 63,
+  "arm": "K4.5e2",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 64,
+  "arm": "K4.6e2",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 65,
+  "arm": "K4.5e2",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 66,
+  "arm": "K4.6e2_no_search",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 67,
+  "arm": "K4.6e2_no_search",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 68,
+  "arm": "K4.5e2_no_search",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 69,
+  "arm": "base",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 70,
+  "arm": "K4.6e2",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 71,
+  "arm": "K4.5e2_no_search",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 72,
+  "arm": "base",
+  "number": 9,
+  "kind": "never_told_plain"
+ }
+]

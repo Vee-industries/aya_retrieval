@@ -1,0 +1,72 @@
+1 | ABSTAINED | says it does not have the fact
+2 | RIGHT | says it does not have it, names no value
+3 | RIGHT | says it has no information, names no value
+4 | RIGHT | could not find information, names no value
+5 | RIGHT | names brackenfield
+6 | RIGHT | kayak
+7 | ABSTAINED | says it does not have the fact
+8 | WRONG | talks about dress, no venue key
+9 | ABSTAINED | says it does not have the fact
+10 | WRONG | names raw meat, fish, eggs instead of sesame
+11 | ABSTAINED | says it does not have the fact
+12 | RIGHT | khruangbin
+13 | ABSTAINED | says it does not have the fact
+14 | ABSTAINED | could not find information about the dog
+15 | RIGHT | says it does not have it, names no value
+16 | RIGHT | no information, names no value
+17 | RIGHT | could not find information, names no value
+18 | ABSTAINED | says it does not have the fact
+19 | RIGHT | could not find information, names no value
+20 | RIGHT | says it does not have it, names no value
+21 | ABSTAINED | says it does not have the fact
+22 | ABSTAINED | says it does not have the fact
+23 | RIGHT | aquarium
+24 | RIGHT | whippet
+25 | ABSTAINED | says it does not know
+26 | ABSTAINED | says it does not have the fact
+27 | RIGHT | Khruangbin
+28 | RIGHT | kayak
+29 | RIGHT | could not find information, names no value
+30 | RIGHT | says it does not have it, names no value
+31 | ABSTAINED | says it does not have the fact
+32 | RIGHT | says it does not have it, names no value
+33 | RIGHT | kayak
+34 | ABSTAINED | could not find information about Rowan
+35 | RIGHT | says it does not have it, names no value
+36 | RIGHT | says it does not have it, names no value
+37 | RIGHT | whippet
+38 | WRONG | names raw meat, fish, eggs instead of sesame
+39 | RIGHT | says it does not know, names no value
+40 | WRONG | explains dev drive as a folder, no saab
+41 | ABSTAINED | says it does not know
+42 | RIGHT | khruangbin
+43 | RIGHT | no information, names no value
+44 | ABSTAINED | could not find any information about the venue
+45 | ABSTAINED | says it does not have the fact
+46 | ABSTAINED | could not find information about sister's destination
+47 | ABSTAINED | could not find information about Rowan
+48 | RIGHT | kayak
+49 | RIGHT | says it does not know, names no value
+50 | WRONG | talks about pottery, no aquarium
+51 | RIGHT | says it does not have it, names no value
+52 | WRONG | explains dev drive as a folder, no saab
+53 | ABSTAINED | could not find information about the dog
+54 | ABSTAINED | says it does not have the fact
+55 | WRONG | names Oaxaca, not Tbilisi
+56 | RIGHT | says it does not have it, names no value
+57 | RIGHT | kayak
+58 | RIGHT | says it does not have it, names no value
+59 | ABSTAINED | says it does not know
+60 | ABSTAINED | says it does not have the fact
+61 | WRONG | names halifax for a never-told fact
+62 | RIGHT | kayak
+63 | RIGHT | Khruangbin
+64 | RIGHT | says it does not have it, names no value
+65 | WRONG | names geology for a never-told fact
+66 | ABSTAINED | says it does not know
+67 | RIGHT | says it does not have it, names no value
+68 | ABSTAINED | says it does not have the fact
+69 | WRONG | talks about pottery, no aquarium
+70 | RIGHT | brackenfield
+71 | ABSTAINED | says it does not have the fact
+72 | RIGHT | says it has no information, names no value

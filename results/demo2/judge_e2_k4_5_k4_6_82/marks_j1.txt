@@ -1,0 +1,72 @@
+1 | ABSTAINED | says it does not have the ingredient
+2 | RIGHT | never told; says it does not have it, names no value
+3 | RIGHT | never told; says no information, names no vehicle
+4 | RIGHT | never told; says no information found, names no place
+5 | RIGHT | gives brackenfield
+6 | RIGHT | gives kayak
+7 | ABSTAINED | says it does not have the ingredient
+8 | WRONG | talks about dress for a barn, no venue given
+9 | ABSTAINED | says it does not have it
+10 | WRONG | names raw meat, fish, eggs instead of sesame
+11 | ABSTAINED | says it does not have it
+12 | RIGHT | khruangbin
+13 | ABSTAINED | says it does not have it
+14 | ABSTAINED | says no information found about the dog
+15 | RIGHT | never told; says it does not have it
+16 | RIGHT | never told; says no information, names no workplace
+17 | RIGHT | never told; says no information found
+18 | ABSTAINED | says it does not have it
+19 | RIGHT | never told; says no information found, names no town
+20 | RIGHT | never told; says it does not have it
+21 | ABSTAINED | says it does not have the ingredient
+22 | ABSTAINED | says it does not have it
+23 | RIGHT | aquarium
+24 | RIGHT | whippet
+25 | ABSTAINED | says it does not know
+26 | ABSTAINED | says it does not have it
+27 | RIGHT | Khruangbin
+28 | RIGHT | kayak
+29 | RIGHT | never told; says no information found, names no town
+30 | RIGHT | never told; says it does not have it
+31 | ABSTAINED | says it does not have it
+32 | RIGHT | never told; says it does not have it
+33 | RIGHT | kayak
+34 | ABSTAINED | says no information found about Rowan's band
+35 | RIGHT | never told; says it does not have it
+36 | RIGHT | never told; says it does not have it
+37 | RIGHT | whippet
+38 | WRONG | names raw meat, fish, eggs instead of sesame
+39 | RIGHT | never told; says it does not know
+40 | WRONG | explains dev drive as a folder, no saab
+41 | ABSTAINED | says it does not know
+42 | RIGHT | khruangbin
+43 | RIGHT | never told; says no information, names no workplace
+44 | ABSTAINED | says no information found about the venue
+45 | ABSTAINED | says it does not have it
+46 | ABSTAINED | says no information found about the destination
+47 | ABSTAINED | says no information found about Rowan's band
+48 | RIGHT | kayak
+49 | RIGHT | never told; says it does not know
+50 | WRONG | talks about pottery, no aquarium
+51 | RIGHT | never told; says it does not have it
+52 | WRONG | explains dev drive as a folder, no saab
+53 | ABSTAINED | says no information found about the dog
+54 | ABSTAINED | says it does not have the ingredient
+55 | WRONG | names Oaxaca, not Tbilisi
+56 | RIGHT | never told; says it does not have it
+57 | RIGHT | kayak
+58 | RIGHT | never told; says it does not have it
+59 | ABSTAINED | says it does not know
+60 | ABSTAINED | says it does not have it
+61 | WRONG | names halifax for a never-told fact
+62 | RIGHT | kayak
+63 | RIGHT | Khruangbin
+64 | RIGHT | never told; says it does not have it
+65 | WRONG | names geology for a never-told fact
+66 | ABSTAINED | says it does not know
+67 | RIGHT | never told; says it does not have it
+68 | ABSTAINED | says it does not have it
+69 | WRONG | talks about pottery, no aquarium
+70 | RIGHT | brackenfield
+71 | ABSTAINED | says it does not have it
+72 | RIGHT | never told; says no information, names no vehicle

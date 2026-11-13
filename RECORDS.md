@@ -8905,3 +8905,25 @@ becomes a candidate (seeds 83 and 94 trained as before, the pick read at epoch 2
 passes, nothing follows from it.
 
 **Numbering note (14:10).** This entry was first written as a second R-217 by the K4.7 session while the audit session wrote its own R-217; renumbered R-218. Commits 70088ad and 4e121c7 say R-217 and 12a4d4a says R-216 for this entry.
+
+## R-219 · 2026-11-13 · REOPENED · K4.6's epoch-2 checkpoint passes Demo2; it becomes candidate K4.6e2
+
+**Session.** The K4.7 session (3f7d989b) was closed after R-218; Kevin (14:15) gave this session the candidate work
+("the other session is just for the write up").
+
+**Demo2 on the epoch-2 checkpoints** (`results/demo2/branches_e2_k4_5_k4_6_82.json`, queue `q216e` done 14:08; two
+fresh blind Sonnet judges, 72 items, 0 disagreements; `results/demo2/judge_e2_k4_5_k4_6_82/`): with search, older /
+in view / never told plain / shared word: **K4.6e2 3 of 6 / 2 of 2 / 2 of 2 / 2 of 2**, K4.5e2 2 / 2 / 2 / 0; base
+0 / 1 / 2 / 2. **K4.6e2 passes Demo2** (older at least 3, never-told 4 of 4). Right: "where do i work" (the
+aquarium; no candidate had it before), the dog's breed, the venue. Misses: "dev drive", the sister, the ingredient,
+all declined. Both shared-word never-told items declined. K4.5e2 names a value on both shared-word items.
+
+**K4.6e2 is a candidate, as R-218 set before the result.** Disclosed: choosing a checkpoint after seeing epoch 3's
+Demo2 is a forking path. K4.6 at epoch 3 bombed Demo2 (older 2 of 6), so the gate passes on one of two checkpoints of
+one training run; Demo2 has 6 older items, and 3 against 2 is one item. Seeds 83 and 94 train exactly as K4.6 did
+(3 epochs, `--save-epochs 2`) and every score is read from `epoch-2/`. Labels `*_k4_6e2_r214_N`; `decide_r191.py`
+gets `"K4.6e2": "k4_6e2_r214"`. Queue `q219` (this session's scratchpad), modeled on `q214`: seed 82's screening
+evals on its epoch-2 adapter, then train and score 83, then 94. K4.8 is drawn on the CPU meanwhile.
+
+Prediction, before any screening result: hard_dev seed 82 never_told at least 44 of 48 (epoch 3: 46), false retrieval
+at most 4; recall below epoch 3's 72 (one fewer pass); outside-writer recall below 132.
