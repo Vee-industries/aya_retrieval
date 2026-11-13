@@ -38,6 +38,17 @@ learned from a few fact templates, and no facts about the speaker in training) i
 trained. Every result about the frozen 6.37 below stands unchanged. This section will carry the new test's result,
 whatever it shows.
 
+Since then (R-179 to R-201, 12 November). The first candidate, K1, answered all 4 of the scripted demo's questions
+and 3 of the 8 registered ones (R-184). Against 6.37's gates it failed three recall lines and passed both
+failure-mode targets (R-183); against the untrained model with the tool, the standard adopted in R-191, it passed all
+20 screening lines at both screening seeds (R-198). Of five later candidates, K2 and K1.1 failed their training-set
+checks and never trained (R-186, R-197), K2.1 trained and failed one screening line (R-195), and K1.2 failed its
+check on an uneven random draw (R-200). K1.3 is K1 with each fact restated in other wordings in fixed shares, so that
+wording no longer tells an answer from a decoy; it passed its check and is training (R-200). The candidate with the
+higher pooled recall on the development sets over three seeds goes to the sealed test, once, after the last
+candidate's training (R-192, R-194). A second demo, on a chat and questions written by a fresh agent and read by
+nobody before the run, is registered (R-201).
+
 ## Terms
 
 - **Base**: the untrained Tiny Aya Global.
