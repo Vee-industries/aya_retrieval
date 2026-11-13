@@ -9087,6 +9087,6 @@ search output makes rows long. Three-search rows kept: 40, of which 14 name a va
 decline (never_told 12, older 8, confirm 6). So K5 loses 128 natural rows to gain 14 rows that find the fact on a
 third search. Not checked (`check_k3.py` has no `k5` lines) and **not queued**: by its own numbers it is weaker than
 K4.8, and the lane predicts it fails. Kevin's rule is that a bomb means the next candidate at once; the lane finds no
-candidate worth the card, so this is put to Kevin (16:40) rather than queued.
+candidate worth the card, so this is put to Kevin (16:24) rather than queued.
 
 Shippable pick: K1.3 unless K4.9 passes Demo2 and screening.
