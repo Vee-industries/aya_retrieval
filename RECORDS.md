@@ -8394,3 +8394,7 @@ dev or Demo2 answers; six-word runs with S3 0 (four-word runs 280 against K1.3's
 79, never_told 106, in_view 59; value rows with one search 186, two 92; declining rows one search 102, two 25; top
 scores, value rows 3.08 against declining 2.52 (a cue K1.3 already had, 5.19 against 3.43 per the R-205 lane).
 K3.2 trains: queue `q207` (seed 82, Demo2 on seed 82 under R-205's bomb rule, screening, then seeds 83 and 94).
+
+**Kevin, 22:40, before Demo2 on K3.2 runs:** "don't keep training it if it bombs". So if K3.2 seed 82 bombs under
+R-205's rule, queue `q207` is stopped as soon as the judges' tally is in: seeds 83 and 94 are not trained, K3.2 has one
+seed and is not eligible for the pick (R-191 needs both screening seeds), and the next candidate is designed at once.
