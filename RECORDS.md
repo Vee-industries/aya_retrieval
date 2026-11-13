@@ -8550,3 +8550,23 @@ rows (hard_dev and probe, three seeds) under 10 against K4.1's 63; pooled dev re
 K1.3's 501. The named-value misses after a non-empty second search (18 on hard_dev) are not targeted beyond the 6
 new declines in that cell; if they alone fail line hard_dev never_told, that is the next candidate's target. Queue
 `q210` as `q209` (seed 82, Demo2 at once with the R-205 bomb rule, screening, seeds 83 and 94).
+
+**Demo2 on K4.2 seed 82** (`results/demo2/branches_k4_2_r210_82.json`, run 06:32; two fresh blind judges, 48
+items, 0 disagreements; `results/demo2/judge_k4_2_82/`):
+
+| Arm | Older (6) | In view (2) | Never told, plain (2) | Never told, shared word (2) |
+|---|---|---|---|---|
+| declines everything | 0 | 0 | 2 | 2 |
+| base, search | 0 | 1 | 2 | 2 |
+| K4.2, empty index | 0 | 2 | 2 | 2 |
+| K4.2, search | 2 | 2 | 2 | 1 |
+
+**K4.2 bombs** (older 2 of 6, under R-205's 3). Its queue was stopped at 06:45 during seed 82's first screening
+eval (no partial result kept); seeds 83 and 94 do not train (Kevin: "don't keep training it if it bombs"). Right:
+the dog's breed, the wedding venue. Two of the four misses ended on two empty searches and declined, the behaviour
+K4.2 added: "where do i work" ("work", "job employer") and the ingredient to avoid ("ingredient stay away", "food
+recipe"; K4.1's second query "recipe baking" found it). The other two K4.1 also missed. Found while checking for a
+harness fault: Demo2's index holds the model's own replies, so the same query can find a fact for one adapter and
+not another. K4.1's "work" found message 1 only because its reply there said "a work environment"; K4.2 replied
+"That was a fun moment!". Not a fault (the chat as each model held it), but it puts more than judge noise on every
+older count, K4.1's 4 of 6 included. Next candidate to the R-210 lane.
