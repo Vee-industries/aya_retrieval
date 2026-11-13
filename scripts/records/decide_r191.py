@@ -30,6 +30,7 @@ CANDIDATES = {
     "K4.6": "k4_6_r214",  # R-214 (bombed Demo2)
     "K4.7": "k4_7_r215",  # R-215 (bombed Demo2)
     "K4.6e2": "k4_6e2_r214",  # R-219: K4.6 seeds read at epoch 2
+    "K4.8": "k4_8_r220",  # R-220: seeds read at epoch 2 only
 }
 REF = "fix17cs37"
 BASE = "base191"

@@ -8927,3 +8927,35 @@ evals on its epoch-2 adapter, then train and score 83, then 94. K4.8 is drawn on
 
 Prediction, before any screening result: hard_dev seed 82 never_told at least 44 of 48 (epoch 3: 46), false retrieval
 at most 4; recall below epoch 3's 72 (one fewer pass); outside-writer recall below 132.
+
+## R-220 · 2026-11-13 · REOPENED · K4.8 registered: K4.7 plus never-told questions for its 64 new chats
+
+**The design and its lane.** Two additions were drawn for K4.8 (`results/panels/R-220/lane_brief.md`): (A) the K4
+near-miss and K4.4 wrong-person briefs, unchanged, run over K4.7's 64 new chats (R-218's diagnosis); (B) new
+"miss then hit" rows: a writer-chosen first query that returns other passages, then the question's own query that
+returns the fact, then the value. Counted on K4.7's 2,286 rows before the lane: after a search output with passages,
+natural fact rows search again 42 times and reply 654; natural never_told rows search again 94 and reply 264;
+template rows search again 0 and reply 722; most search-again rows end in a decline (rough phrase match: never_told
+decline 70). **The against lane (Opus): adopt with changes** (`results/panels/R-220/lane_against.md`). K4.8 = K4.7 +
+A only. B as drawn shares its context up to the first call with the question's existing row, so the same prompt gets
+two first calls and one is chosen to miss: it trains weaker first queries. B may come back only with its first call
+out of the loss (the trainer masks by row kind, not by turn; a new mask is needed) and with `balance()` keyed on
+(searches, passages), so its count comes from the existing twice-search declines; and the "search once, then stop"
+count (K4.1, 61 of 66) is to be recounted on K4.6e2's outside-writer logs first. A and B split, A first. All
+adopted. **One checkpoint, named before training: epoch 2 only** (seeds 82, 83, 94 alike), like K4.6e2; epoch 3 is
+not read. Disclosed (lane, item 5): A's motivation came from reading Demo2's items (R-218), and K4.6e2's checkpoint
+was chosen after Demo2; Demo2 is a single writer's 10 items that every K4.x step has reacted to.
+
+**K4.8** (`scripts/records/build_k4_8.py`): K4.7's chain with 4 new writer files beside the old ones
+(`data/screens/k4_8_writers/k4/` c and d, `.../k4_4/` c and d; c covers w9 to w12, d w13 to w16), written by 4 new
+Sonnet writers to the unchanged briefs, each reading only its brief and its 4 chat files. Structure checked: 96
+questions each, 3 per chat over all 64 chats, every contrast value in its source message. **Plumbing check**: with
+both new folders empty the build rebuilds K4.7 byte for byte (SHA-256 e3ffc947..., both). Built once: 2,487 rows
+(K4.7 2,286); K4.1 step 215 new (near_miss 108, contrast 107; K4.7 98), K4.3 step 53 never_told (42 end on two empty
+searches), K4.4 step 92 new (other_person 47, contrast 45; K4.7 29; other_person whose searches never returned the
+other person's fact 196). Check (`check_k3.py --set k4_8_r220`, K4.7's lines): **0 FAIL**
+(`results/panels/R-220/check_k4_8.txt`). Queue `q220` (this session's scratchpad), as `q219`, behind it on the card
+lock: train seed 82, Demo2 on its epoch-2 checkpoint at once, then screening on epoch-2 checkpoints.
+
+Prediction (lane, A alone, seed 82): Demo2 older 2 of 6, never-told 3 of 4; hard_dev never_told 46 of 48. Mine:
+never-told 4 of 4, older 2 or 3 of 6 (near even), hard_dev never_told at least 45.
