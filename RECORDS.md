@@ -8878,3 +8878,11 @@ under Kevin's direction, no percentage claimed). The retention benchmark and the
 "filing the form stays with you" were wrong to list it as open; it is closed. What remains of that item: the form
 points at the GitHub repository and the Hugging Face pages, so the changes in R-217 reach judges on GitHub only after
 a push, and on Hugging Face only after the short article and model card are uploaded. Both are Kevin's call.
+
+**R-217 update, 14:05 Eastern: Hugging Face model repo updated.** On Kevin's "you can literally change those yourself",
+`docs/MODEL_CARD.md` was uploaded as `README.md` and `docs/submission/HF_ARTICLE.md` as `ARTICLE.md` to
+`KevinVaillancourt/aya-retrieval-6.37` (committed versions, read back, SHA-256 equal). The repo's earlier files dated
+from 10 November. Not uploaded: the adapter weights (unchanged), the two datasets, and nothing pushed to GitHub (a push
+would also publish the sealed S3 chats and the candidate sessions' commits). Kevin asked afterwards whether this should
+have waited for the results: the files describe the shipped 6.37, say the new test is pending, and are uploaded again if
+a candidate replaces 6.37. Each upload is a Hugging Face commit and can be reverted.
