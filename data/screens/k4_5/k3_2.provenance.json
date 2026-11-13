@@ -1,0 +1,3194 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-13T13:11:03+00:00",
+  "command": [
+   "scripts/records/build_k4_5.py"
+  ],
+  "git_commit": "050be5c4bc581a373c04260647e275ebadf6c058",
+  "git_dirty": true,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "record": "R-207",
+ "base_set": "data/screens/k4_5/k3_1.jsonl",
+ "base_sha256": "06b0afb1c626898c9ba3cca0c58a029769cf91b9d0ea38de30d1762bd339bb18",
+ "out_sha256": "ef96be46a44f63fb12dffab1c18070217d2d3ca94f0944c39e47014ac14c1b44",
+ "rows": 1620,
+ "check_true_cut": [
+  "k3_w1_02_05",
+  "k3_w1_03_05",
+  "k3_w1_04_05",
+  "k3_w1_05_04",
+  "k3_w2_04_05",
+  "k3_w2_05_05",
+  "k3_w2_06_04",
+  "k3_w3_02_05",
+  "k3_w4_03_04",
+  "k3_w4_04_04",
+  "k3_w4_05_04",
+  "k3_w4_06_04",
+  "k3_w4_07_04",
+  "k3_w5_03_04",
+  "k3_w5_06_05",
+  "k3_w5_07_05",
+  "k3_w6_00_04",
+  "k3_w6_04_05",
+  "k3_w6_07_04",
+  "k3_w7_01_04",
+  "k3_w7_02_04",
+  "k3_w7_04_04",
+  "k3_w7_07_04",
+  "k3_w8_03_04",
+  "k3_w8_05_04"
+ ],
+ "natural_rows": 526,
+ "meta": {
+  "k3_w1_00_s22": null,
+  "k3_w1_00_02": {
+   "kind": "older",
+   "person": "dara",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_00_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w1_00_05": {
+   "kind": "check_true",
+   "person": "ines",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_00_07": {
+   "kind": "check_false",
+   "person": "dara",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_00_09": {
+   "kind": "never_told",
+   "person": "ines",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_00_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w1_01_s24": null,
+  "k3_w1_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_01_02": {
+   "kind": "older",
+   "person": "yusra",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_01_05": {
+   "kind": "check_true",
+   "person": "yusra",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_01_06": {
+   "kind": "check_false",
+   "person": "neighbour noor",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_01_08": {
+   "kind": "never_told",
+   "person": "my brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_01_09": {
+   "kind": "never_told",
+   "person": "yusra",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_01_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w1_02_s23": null,
+  "k3_w1_02_02": {
+   "kind": "older",
+   "person": "marit",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_02_03": {
+   "kind": "older",
+   "person": "fenn",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_02_06": {
+   "kind": "check_false",
+   "person": "my mum",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_02_07": {
+   "kind": "check_false",
+   "person": "fenn",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_02_08": {
+   "kind": "never_told",
+   "person": "marit",
+   "names_value": false,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w1_02_09": {
+   "kind": "never_told",
+   "person": "fenn",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_02_10": {
+   "kind": "in_view",
+   "person": "the eldest"
+  },
+  "k3_w1_03_s23": null,
+  "k3_w1_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_03_03": {
+   "kind": "older",
+   "person": "senna",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_03_06": {
+   "kind": "check_false",
+   "person": "my cousin bram",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w1_03_08": {
+   "kind": "never_told",
+   "person": "senna",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_03_09": {
+   "kind": "never_told",
+   "person": "my sister",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_03_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w1_04_s24": null,
+  "k3_w1_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_04_02": {
+   "kind": "older",
+   "person": "kasimir",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_04_03": {
+   "kind": "older",
+   "person": "thandie",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_04_06": {
+   "kind": "check_false",
+   "person": "my dad",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_04_08": {
+   "kind": "never_told",
+   "person": "kasimir",
+   "names_value": false,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w1_04_09": {
+   "kind": "never_told",
+   "person": "my stepdad",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_04_10": {
+   "kind": "in_view",
+   "person": "thandie"
+  },
+  "k3_w1_05_s22": null,
+  "k3_w1_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w1_05_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_05_02": {
+   "kind": "older",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w1_05_03": {
+   "kind": "older",
+   "person": "odette",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w1_05_05": {
+   "kind": "check_true",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w1_05_06": {
+   "kind": "check_false",
+   "person": "boss calder",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_05_09": {
+   "kind": "never_told",
+   "person": "odette",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w1_05_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w1_06_s23": null,
+  "k3_w1_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w1_06_02": {
+   "kind": "older",
+   "person": "rafe",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_06_04": {
+   "kind": "check_true",
+   "person": "my daughter",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w1_06_05": {
+   "kind": "check_true",
+   "person": "rafe",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_06_06": {
+   "kind": "check_false",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_06_08": {
+   "kind": "never_told",
+   "person": "my brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w1_06_10": {
+   "kind": "in_view",
+   "person": "rafe"
+  },
+  "k3_w2_00_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w2_00_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_00_04": {
+   "kind": "check_true",
+   "person": "mara",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w2_00_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_00_08": {
+   "kind": "never_told",
+   "person": "mara",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_00_09": {
+   "kind": "never_told",
+   "person": "priya",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_00_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w2_01_s22": null,
+  "k3_w2_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w2_01_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_01_08": {
+   "kind": "never_told",
+   "person": "my girlfriend",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_01_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w2_02_s22": null,
+  "k3_w2_02_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_02_03": {
+   "kind": "older",
+   "person": "my son",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w2_02_04": {
+   "kind": "check_true",
+   "person": "fran",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_02_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_02_06": {
+   "kind": "check_false",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_02_07": {
+   "kind": "check_false",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_02_08": {
+   "kind": "never_told",
+   "person": "my husband",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_02_09": {
+   "kind": "never_told",
+   "person": "my brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w2_02_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w2_03_s23": null,
+  "k3_w2_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w2_03_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w2_03_02": {
+   "kind": "older",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_03_03": {
+   "kind": "older",
+   "person": "my mom",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_03_04": {
+   "kind": "check_true",
+   "person": "my dad",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_03_06": {
+   "kind": "check_false",
+   "person": "kit (soccer)",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_03_08": {
+   "kind": "never_told",
+   "person": "my sister",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_03_09": {
+   "kind": "never_told",
+   "person": "my dad",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_03_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w2_04_s23": null,
+  "k3_w2_04_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w2_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_04_02": {
+   "kind": "older",
+   "person": "brigid",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_04_07": {
+   "kind": "check_false",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_04_08": {
+   "kind": "never_told",
+   "person": "wendeline",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_04_09": {
+   "kind": "never_told",
+   "person": "brigid",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w2_04_10": {
+   "kind": "in_view",
+   "person": "brigid"
+  },
+  "k3_w2_05_s22": null,
+  "k3_w2_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w2_05_02": {
+   "kind": "older",
+   "person": "my mom",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_05_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w2_05_07": {
+   "kind": "check_false",
+   "person": "my wife",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_05_08": {
+   "kind": "never_told",
+   "person": "imelda",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_05_09": {
+   "kind": "never_told",
+   "person": "my mom",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_05_10": {
+   "kind": "in_view",
+   "person": "my mother in law"
+  },
+  "k3_w2_06_s22": null,
+  "k3_w2_06_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w2_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w2_06_02": {
+   "kind": "older",
+   "person": "my wife",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_06_03": {
+   "kind": "older",
+   "person": "desmond",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_06_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_06_06": {
+   "kind": "check_false",
+   "person": "otto (neighbour)",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w2_06_08": {
+   "kind": "never_told",
+   "person": "desmond",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_06_09": {
+   "kind": "never_told",
+   "person": "uncle otto",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w2_06_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w2_07_s22": null,
+  "k3_w2_07_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w2_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_07_03": {
+   "kind": "older",
+   "person": "jen (cousin)",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_07_06": {
+   "kind": "check_false",
+   "person": "jen (yoga)",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w2_07_08": {
+   "kind": "never_told",
+   "person": "thorvald",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w2_07_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w3_00_s23": null,
+  "k3_w3_00_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w3_00_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_00_02": {
+   "kind": "older",
+   "person": "Tobias",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_00_03": {
+   "kind": "older",
+   "person": "Rory",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_00_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_00_06": {
+   "kind": "check_false",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_00_08": {
+   "kind": "never_told",
+   "person": "Dara",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_00_09": {
+   "kind": "never_told",
+   "person": "Tobias",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_00_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w3_01_s24": null,
+  "k3_w3_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w3_01_02": {
+   "kind": "older",
+   "person": "mum",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_01_03": {
+   "kind": "older",
+   "person": "Jo from work",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w3_01_04": {
+   "kind": "check_true",
+   "person": "Priya",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_01_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_01_06": {
+   "kind": "check_false",
+   "person": "cousin Jo",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_01_07": {
+   "kind": "check_false",
+   "person": "Priya",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_01_08": {
+   "kind": "never_told",
+   "person": "Priya",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_01_09": {
+   "kind": "never_told",
+   "person": "my brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_01_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w3_02_s22": null,
+  "k3_w3_02_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_02_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_02_03": {
+   "kind": "older",
+   "person": "my husband",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_02_04": {
+   "kind": "check_true",
+   "person": "my dad",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_02_06": {
+   "kind": "check_false",
+   "person": "Marco next door",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_02_08": {
+   "kind": "never_told",
+   "person": "Nkechi",
+   "names_value": false,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w3_02_09": {
+   "kind": "never_told",
+   "person": "my husband",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_02_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w3_03_s22": null,
+  "k3_w3_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_03_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_03_05": {
+   "kind": "check_true",
+   "person": "Bea",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_03_06": {
+   "kind": "check_false",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_03_08": {
+   "kind": "never_told",
+   "person": "grandma",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_03_09": {
+   "kind": "never_told",
+   "person": "my roommate",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_03_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w3_04_s23": null,
+  "k3_w3_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_04_03": {
+   "kind": "older",
+   "person": "Ines from work",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w3_04_06": {
+   "kind": "check_false",
+   "person": "my neighbour Ines",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_04_07": {
+   "kind": "check_false",
+   "person": "Theo",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w3_04_09": {
+   "kind": "never_told",
+   "person": "Bramwell",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_04_10": {
+   "kind": "in_view",
+   "person": "my aunt"
+  },
+  "k3_w3_05_s22": null,
+  "k3_w3_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w3_05_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_05_02": {
+   "kind": "older",
+   "person": "my flatmate",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_05_03": {
+   "kind": "older",
+   "person": "Kwame",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_05_06": {
+   "kind": "check_false",
+   "person": "mum",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_05_09": {
+   "kind": "never_told",
+   "person": "Saoirse",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w3_05_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w3_06_s22": null,
+  "k3_w3_06_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_06_02": {
+   "kind": "older",
+   "person": "Dmitri",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_06_03": {
+   "kind": "older",
+   "person": "dad",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w3_06_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_06_05": {
+   "kind": "check_true",
+   "person": "dad",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w3_06_06": {
+   "kind": "check_false",
+   "person": "niece Rosa",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_06_08": {
+   "kind": "never_told",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_06_09": {
+   "kind": "never_told",
+   "person": "Liesel",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_06_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w3_07_s23": null,
+  "k3_w3_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_07_02": {
+   "kind": "older",
+   "person": "Anouk",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_07_03": {
+   "kind": "older",
+   "person": "my grandad",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w3_07_07": {
+   "kind": "check_false",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w3_07_08": {
+   "kind": "never_told",
+   "person": "me",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_07_09": {
+   "kind": "never_told",
+   "person": "my sister",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w3_07_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w4_00_s23": null,
+  "k3_w4_00_02": {
+   "kind": "older",
+   "person": "dara",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w4_00_03": {
+   "kind": "older",
+   "person": "aunt",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_00_06": {
+   "kind": "check_false",
+   "person": "cousin jules",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_00_07": {
+   "kind": "check_false",
+   "person": "brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_00_08": {
+   "kind": "never_told",
+   "person": "dara",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w4_00_09": {
+   "kind": "never_told",
+   "person": "brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_00_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w4_01_s22": null,
+  "k3_w4_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_01_04": {
+   "kind": "check_true",
+   "person": "sister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w4_01_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_01_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_01_08": {
+   "kind": "never_told",
+   "person": "sister",
+   "names_value": false,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w4_01_09": {
+   "kind": "never_told",
+   "person": "boyfriend",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_01_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w4_02_s22": null,
+  "k3_w4_02_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w4_02_02": {
+   "kind": "older",
+   "person": "husband",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_02_03": {
+   "kind": "older",
+   "person": "mum",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_02_04": {
+   "kind": "check_true",
+   "person": "cass from work",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w4_02_05": {
+   "kind": "check_true",
+   "person": "husband",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_02_06": {
+   "kind": "check_false",
+   "person": "cass next door",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_02_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_02_08": {
+   "kind": "never_told",
+   "person": "petra",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_02_09": {
+   "kind": "never_told",
+   "person": "husband",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_02_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w4_03_s23": null,
+  "k3_w4_03_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_03_02": {
+   "kind": "older",
+   "person": "linnea",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_03_03": {
+   "kind": "older",
+   "person": "linnea",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_03_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_03_06": {
+   "kind": "check_false",
+   "person": "younger nephew",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_03_08": {
+   "kind": "never_told",
+   "person": "brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_03_09": {
+   "kind": "never_told",
+   "person": "oriel",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_03_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w4_04_s22": null,
+  "k3_w4_04_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w4_04_02": {
+   "kind": "older",
+   "person": "wife",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w4_04_03": {
+   "kind": "older",
+   "person": "ilse",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w4_04_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_04_06": {
+   "kind": "check_false",
+   "person": "roommate nico",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_04_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w4_04_08": {
+   "kind": "never_told",
+   "person": "wife",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w4_04_09": {
+   "kind": "never_told",
+   "person": "ilse",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w4_04_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w4_05_s23": null,
+  "k3_w4_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_05_02": {
+   "kind": "older",
+   "person": "dad",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w4_05_03": {
+   "kind": "older",
+   "person": "rosalind",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_05_05": {
+   "kind": "check_true",
+   "person": "roommate theo",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_05_06": {
+   "kind": "check_false",
+   "person": "theo from the lab",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_05_07": {
+   "kind": "check_false",
+   "person": "rosalind",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_05_08": {
+   "kind": "never_told",
+   "person": "theo from the lab",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_05_09": {
+   "kind": "never_told",
+   "person": "rosalind",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_05_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w4_06_s22": null,
+  "k3_w4_06_s23": null,
+  "k3_w4_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_06_02": {
+   "kind": "older",
+   "person": "kasimir",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_06_05": {
+   "kind": "check_true",
+   "person": "partner",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w4_06_08": {
+   "kind": "never_told",
+   "person": "brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_06_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w4_07_s22": null,
+  "k3_w4_07_s24": null,
+  "k3_w4_07_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_07_02": {
+   "kind": "older",
+   "person": "husband",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w4_07_05": {
+   "kind": "check_true",
+   "person": "daughter",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w4_07_08": {
+   "kind": "never_told",
+   "person": "me",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w4_07_09": {
+   "kind": "never_told",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_07_10": {
+   "kind": "in_view",
+   "person": "husband"
+  },
+  "k3_w5_00_s23": null,
+  "k3_w5_00_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w5_00_03": {
+   "kind": "older",
+   "person": "neighbour maya",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_00_05": {
+   "kind": "check_true",
+   "person": "brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w5_00_06": {
+   "kind": "check_false",
+   "person": "maya from work",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_00_09": {
+   "kind": "never_told",
+   "person": "joss",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w5_00_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w5_02_s22": null,
+  "k3_w5_02_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_02_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 4
+  },
+  "k3_w5_02_03": {
+   "kind": "older",
+   "person": "girlfriend",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_02_04": {
+   "kind": "check_true",
+   "person": "uncle",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w5_02_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w5_02_06": {
+   "kind": "check_false",
+   "person": "cousin priya",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_02_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_02_08": {
+   "kind": "never_told",
+   "person": "odette",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w5_02_09": {
+   "kind": "never_told",
+   "person": "girlfriend",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_02_10": {
+   "kind": "in_view",
+   "person": "uncle"
+  },
+  "k3_w5_03_s22": null,
+  "k3_w5_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_03_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_03_02": {
+   "kind": "older",
+   "person": "zelda",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_03_03": {
+   "kind": "older",
+   "person": "benji",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_03_06": {
+   "kind": "check_false",
+   "person": "brother",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_03_08": {
+   "kind": "never_told",
+   "person": "brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w5_03_09": {
+   "kind": "never_told",
+   "person": "benji",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_03_10": {
+   "kind": "in_view",
+   "person": "zelda"
+  },
+  "k3_w5_04_s22": null,
+  "k3_w5_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w5_04_02": {
+   "kind": "older",
+   "person": "daughter",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_04_03": {
+   "kind": "older",
+   "person": "gus",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_04_04": {
+   "kind": "check_true",
+   "person": "lorna",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_04_06": {
+   "kind": "check_false",
+   "person": "stepdaughter",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_04_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_04_08": {
+   "kind": "never_told",
+   "person": "husband",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_04_09": {
+   "kind": "never_told",
+   "person": "gus",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_04_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w5_05_s23": null,
+  "k3_w5_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w5_05_02": {
+   "kind": "older",
+   "person": "sister",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w5_05_03": {
+   "kind": "older",
+   "person": "harriet",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_05_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w5_05_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_05_08": {
+   "kind": "never_told",
+   "person": "harriet",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_05_09": {
+   "kind": "never_told",
+   "person": "nico from work",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w5_05_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w5_06_s22": null,
+  "k3_w5_06_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w5_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_06_02": {
+   "kind": "older",
+   "person": "mum",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w5_06_03": {
+   "kind": "older",
+   "person": "dad",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_06_08": {
+   "kind": "never_told",
+   "person": "best friend",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w5_06_09": {
+   "kind": "never_told",
+   "person": "dad",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_06_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w5_07_s23": null,
+  "k3_w5_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w5_07_02": {
+   "kind": "older",
+   "person": "grandma",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w5_07_03": {
+   "kind": "older",
+   "person": "imogen",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w5_07_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_07_06": {
+   "kind": "check_false",
+   "person": "gym sam",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_07_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_07_08": {
+   "kind": "never_told",
+   "person": "imogen",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w5_07_09": {
+   "kind": "never_told",
+   "person": "sam at work",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w5_07_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w6_00_s23": null,
+  "k3_w6_00_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_00_02": {
+   "kind": "older",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w6_00_03": {
+   "kind": "older",
+   "person": "ferris",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_00_05": {
+   "kind": "check_true",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w6_00_07": {
+   "kind": "check_false",
+   "person": "odile",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_00_08": {
+   "kind": "never_told",
+   "person": "anselm",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_00_09": {
+   "kind": "never_told",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_00_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w6_01_s22": null,
+  "k3_w6_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_01_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_01_06": {
+   "kind": "check_false",
+   "person": "jonah (roommate)",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w6_01_08": {
+   "kind": "never_told",
+   "person": "me",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_01_09": {
+   "kind": "never_told",
+   "person": "dr hale",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_01_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w6_02_s22": null,
+  "k3_w6_02_02": {
+   "kind": "older",
+   "person": "imogen",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_02_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_02_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_02_07": {
+   "kind": "check_false",
+   "person": "greta",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_02_08": {
+   "kind": "never_told",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w6_02_09": {
+   "kind": "never_told",
+   "person": "greta",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_02_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w6_03_s22": null,
+  "k3_w6_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_03_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_03_08": {
+   "kind": "never_told",
+   "person": "my granddaughter",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_03_09": {
+   "kind": "never_told",
+   "person": "everett",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_03_10": {
+   "kind": "in_view",
+   "person": "rafe"
+  },
+  "k3_w6_04_s22": null,
+  "k3_w6_04_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w6_04_02": {
+   "kind": "older",
+   "person": "my girlfriend",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_04_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_04_06": {
+   "kind": "check_false",
+   "person": "little tomas",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w6_04_08": {
+   "kind": "never_told",
+   "person": "marisol",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_04_09": {
+   "kind": "never_told",
+   "person": "saoirse",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_04_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w6_05_s23": null,
+  "k3_w6_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w6_05_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_05_02": {
+   "kind": "older",
+   "person": "lachlan",
+   "names_value": false,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w6_05_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_05_08": {
+   "kind": "never_told",
+   "person": "mags",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_05_09": {
+   "kind": "never_told",
+   "person": "ines (cousin)",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w6_05_10": {
+   "kind": "in_view",
+   "person": "lachlan"
+  },
+  "k3_w6_06_s23": null,
+  "k3_w6_06_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 4
+  },
+  "k3_w6_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 4
+  },
+  "k3_w6_06_02": {
+   "kind": "older",
+   "person": "my stepsister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_06_03": {
+   "kind": "older",
+   "person": "clem",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w6_06_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_06_06": {
+   "kind": "check_false",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w6_06_08": {
+   "kind": "never_told",
+   "person": "clem",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w6_06_09": {
+   "kind": "never_told",
+   "person": "mom",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_06_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w6_07_s23": null,
+  "k3_w6_07_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_07_02": {
+   "kind": "older",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_07_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_07_05": {
+   "kind": "check_true",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w6_07_06": {
+   "kind": "check_false",
+   "person": "beatriz (grill)",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w6_07_07": {
+   "kind": "check_false",
+   "person": "renfrew",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_07_08": {
+   "kind": "never_told",
+   "person": "solveig",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w6_07_09": {
+   "kind": "never_told",
+   "person": "beatriz (host)",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w6_07_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w7_01_s24": null,
+  "k3_w7_01_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w7_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_01_02": {
+   "kind": "older",
+   "person": "my dad",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_01_03": {
+   "kind": "older",
+   "person": "marnie next door",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w7_01_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w7_01_06": {
+   "kind": "check_false",
+   "person": "marnie from work",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w7_01_08": {
+   "kind": "never_told",
+   "person": "marnie next door",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w7_01_09": {
+   "kind": "never_told",
+   "person": "my daughter",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_01_10": {
+   "kind": "in_view",
+   "person": "marnie next door"
+  },
+  "k3_w7_02_s23": null,
+  "k3_w7_02_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_02_02": {
+   "kind": "older",
+   "person": "ravi",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w7_02_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w7_02_06": {
+   "kind": "check_false",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w7_02_07": {
+   "kind": "check_false",
+   "person": "my sister",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_02_08": {
+   "kind": "never_told",
+   "person": "my brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_02_09": {
+   "kind": "never_told",
+   "person": "ravi",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w7_02_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w7_03_s22": null,
+  "k3_w7_04_s23": null,
+  "k3_w7_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_04_02": {
+   "kind": "older",
+   "person": "nell",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w7_04_03": {
+   "kind": "older",
+   "person": "my grandma",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w7_04_05": {
+   "kind": "check_true",
+   "person": "nell",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_04_06": {
+   "kind": "check_false",
+   "person": "my grandpa",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_04_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_04_09": {
+   "kind": "never_told",
+   "person": "my mom",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_04_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w7_05_s22": null,
+  "k3_w7_05_s23": null,
+  "k3_w7_05_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w7_05_02": {
+   "kind": "older",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_05_03": {
+   "kind": "older",
+   "person": "my wife",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_05_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w7_05_06": {
+   "kind": "check_false",
+   "person": "aunt petra",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w7_05_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_05_08": {
+   "kind": "never_told",
+   "person": "my brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w7_05_09": {
+   "kind": "never_told",
+   "person": "my wife",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w7_05_10": {
+   "kind": "in_view",
+   "person": "aunt petra"
+  },
+  "k3_w7_06_s24": null,
+  "k3_w7_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w7_06_02": {
+   "kind": "older",
+   "person": "my stepsister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_06_03": {
+   "kind": "older",
+   "person": "dmitri",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w7_06_06": {
+   "kind": "check_false",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w7_06_08": {
+   "kind": "never_told",
+   "person": "my sister",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_06_09": {
+   "kind": "never_told",
+   "person": "my roommate",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_06_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w7_07_s22": null,
+  "k3_w7_07_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_07_02": {
+   "kind": "older",
+   "person": "my mom",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w7_07_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_07_05": {
+   "kind": "check_true",
+   "person": "my nephew ezra",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w7_07_06": {
+   "kind": "check_false",
+   "person": "ezra next door",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w7_07_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w7_07_09": {
+   "kind": "never_told",
+   "person": "my mom",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w7_07_10": {
+   "kind": "in_view",
+   "person": "my mom"
+  },
+  "k3_w8_00_s23": null,
+  "k3_w8_00_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_00_02": {
+   "kind": "older",
+   "person": "jonah",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w8_00_05": {
+   "kind": "check_true",
+   "person": "nell",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_00_08": {
+   "kind": "never_told",
+   "person": "jonah",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w8_00_09": {
+   "kind": "never_told",
+   "person": "nell",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_00_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w8_02_s24": null,
+  "k3_w8_02_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_02_02": {
+   "kind": "older",
+   "person": "gus",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_02_03": {
+   "kind": "older",
+   "person": "rosalind",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_02_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_02_05": {
+   "kind": "check_true",
+   "person": "my wife",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_02_06": {
+   "kind": "check_false",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_02_07": {
+   "kind": "check_false",
+   "person": "my son",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_02_08": {
+   "kind": "never_told",
+   "person": "rosalind",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_02_09": {
+   "kind": "never_told",
+   "person": "gus",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_02_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w8_03_s22": null,
+  "k3_w8_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_03_02": {
+   "kind": "older",
+   "person": "lio",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_03_03": {
+   "kind": "older",
+   "person": "my nan",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w8_03_05": {
+   "kind": "check_true",
+   "person": "my gf",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_03_06": {
+   "kind": "check_false",
+   "person": "jules our drummer",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_03_09": {
+   "kind": "never_told",
+   "person": "jules from pottery class",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_03_10": {
+   "kind": "in_view",
+   "person": "my landlady"
+  },
+  "k3_w8_04_s23": null,
+  "k3_w8_04_02": {
+   "kind": "older",
+   "person": "kaz",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_04_03": {
+   "kind": "older",
+   "person": "my aunt",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_04_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_04_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_04_06": {
+   "kind": "check_false",
+   "person": "my cousin tomas",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_04_08": {
+   "kind": "never_told",
+   "person": "tomas from soccer",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_04_09": {
+   "kind": "never_told",
+   "person": "my coworker",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_04_10": {
+   "kind": "in_view",
+   "person": "kaz"
+  },
+  "k3_w8_05_s22": null,
+  "k3_w8_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w8_05_02": {
+   "kind": "older",
+   "person": "dara",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_05_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_05_06": {
+   "kind": "check_false",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_05_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w8_05_08": {
+   "kind": "never_told",
+   "person": "dara",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_05_09": {
+   "kind": "never_told",
+   "person": "my stepsister",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_05_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w8_06_s23": null,
+  "k3_w8_06_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w8_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w8_06_02": {
+   "kind": "older",
+   "person": "my grandpa",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_06_03": {
+   "kind": "older",
+   "person": "my grandpa",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_06_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_06_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_06_06": {
+   "kind": "check_false",
+   "person": "noor from choir",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_w8_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_06_08": {
+   "kind": "never_told",
+   "person": "noor my neighbour",
+   "names_value": false,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_w8_06_09": {
+   "kind": "never_told",
+   "person": "my best friend",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_06_10": {
+   "kind": "in_view",
+   "person": "me"
+  },
+  "k3_w8_07_s23": null,
+  "k3_w8_07_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_07_03": {
+   "kind": "older",
+   "person": "fen",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_07_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_07_05": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_07_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_07_08": {
+   "kind": "never_told",
+   "person": "fen",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_w8_07_09": {
+   "kind": "never_told",
+   "person": "my sister",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w8_07_10": {
+   "kind": "in_view",
+   "person": "my bf"
+  }
+ }
+}

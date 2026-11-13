@@ -8649,3 +8649,28 @@ natural rows hold 37 (K4.1) and 59 (K4.4) possessive queries; on dev, K4.1 made 
 
 Across the candidates with the decline after two empty searches: Demo2 older K4.1 4, K4.2 2, K4.4 1, while K4.2's
 hard_dev recall on seed 82 was 77 against K4.1's 65. Next candidate to the lane.
+
+## R-213 · 2026-11-13 · REOPENED · K4.5 registered: K4.4's build rerun with possessives out of every query
+
+**The R-210 lane on the next candidate: (F)**, ranked above (E) K4.1 plus wrong-person rows without the empty-search
+decline (K4.1's loops alone put it near 40 to 42 of 48 on hard_dev never_told) and above stopping. No option is more
+likely than not to pass both gates. Baseline first: K1.3 is shippable (pick recall 742) and scored 0 of 6 older on
+Demo2; any K4.x must clear both gates to replace it.
+
+**K4.5** (`scripts/records/build_k4_5.py`): copies of the K3, K4 and K4.4 writer folders under
+`data/screens/k4_5/writers/` with "'s" and a trailing apostrophe taken out of every `query` and `second_query`
+(101 queries changed, nothing else), then every build step rerun on them, all searches included: K3.1, K3.2, K4.1,
+K4.3 and K4.4 (intermediates in `data/screens/k4_5/`). `build_k4_4.main` takes the record. **Plumbing check**: the
+same chain with the strip turned off rebuilds K4.4 byte for byte (SHA-256 95b74af8..., both). Built once: 1,772 rows;
+K4.1 step 98 new (near_miss 49, contrast 49), K4.3 step 25 never_told (21 end on two empty searches), K4.4 step 29
+new (other_person 15, contrast 14; other_person whose searches never returned the other person's fact 107).
+Disclosed: the wrong-person rows fell from 23 to 15, not rose; the possessive fault was found on Demo2's dog item,
+and the change is a tool property (K1.3's 722 template queries hold no apostrophe), not a Demo2 item. Check
+(`check_k3.py --set k4_5_r213`, K4.4's lines plus natural queries holding an apostrophe, 0 of 701; `check_k3.py`
+reads the stripped K3 writer copies for `k4_5*`): **0 FAIL** (`results/panels/R-210/check_k4_5.txt`). Queue `q213`
+as `q210`.
+
+Prediction (lane), before training: Demo2 older 3 of 6 (about 45% to reach 3), never-told 3 of 4; hard_dev seed 82
+never_told 43 of 48 (41 to 46), false retrieval 5, recall about 75; both gates on seeds 82 and 83 about 25%. If K4.5
+bombs Demo2, hard_dev on its seed 82 adapter runs as a diagnostic (not eligible) before any further design; if the
+wrong-person rows cannot pass hard_dev there, no further candidate and K1.3 stays the pick.

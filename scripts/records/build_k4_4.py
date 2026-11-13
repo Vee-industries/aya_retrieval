@@ -54,7 +54,7 @@ def facts_of(chat: dict, person: str) -> list[dict]:
     ]
 
 
-def main() -> None:
+def main(record: str = "R-212") -> None:
     provenance = run_metadata()
     base_text = BASE.read_text(encoding="utf-8")
     rows = [json.loads(line) for line in base_text.splitlines()]
@@ -133,7 +133,7 @@ def main() -> None:
     kinds = Counter(meta[r["id"]]["k4_kind"] for r in added)
     report = {
         "provenance": provenance,
-        "record": "R-212",
+        "record": record,
         "base_set": BASE.as_posix(),
         "base_sha256": hashlib.sha256(base_text.encode("utf-8")).hexdigest(),
         "writer_files_sha256": writer_hashes,
