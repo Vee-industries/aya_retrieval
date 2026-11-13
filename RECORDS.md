@@ -9024,3 +9024,29 @@ exactly as before (the field is absent from every set so far; the report gains `
 `tests/test_loss_masks.py` (on Tiny Aya's template: the first call and the miss result carry no loss, the second
 call and reply do; the refusal) and `tests/test_first_call_keys.py` (the shared-key refusals). No panel, because
 this carries out the lane's stated condition.
+
+## R-224 · 2026-11-13 · REOPENED · K4.9 registered: K4.8 plus 27 miss-then-hit rows, first call out of the loss
+
+R-220's B under the lane's three conditions: the recount (R-223, 60% of K4.6's outside-writer misses), the
+first-call mask (R-223), and the count set by K4.8's own (searches, passages) cells. **Writers**: 4 new Sonnet
+writers, brief `docs/k4_9/WRITER_BRIEF.md` (drafted in R-218's session as `docs/k4_8/`, unchanged but for the input
+and output lines), each reading its brief and 4 chat files (K4.8's stripped K3 copies), wrote 284 miss queries
+(66, 125, 59, 34) for the 768 older and check_true questions; the brief lets a writer skip a question with no
+words that miss. **Build** (`scripts/records/build_k4_9.py`): a row is kept when the miss query follows the
+first-query rule, is not the question's query and holds no value word; the question's query holds no value word
+either (R-205's second-search line; it removed 44 check_true rows, whose question names the value); the real search
+on the miss query returns passages without the source and the question's query then returns the source; K3.1's dev
+and S3 drops apply. Dropped: miss-query rule 132, query does not find the source 73, hit query holds the value 44,
+S3 six-word run 1, dev or Demo2 run 1; built 33. **Count, the lane's rule**: with r = 436 / 711 (K4.8's natural
+declines to value rows), each (searches, passages) cell takes new value rows up to round(declines / r): room (2, 1) 20,
+(2, 2) 17, all others 0 for two-search rows; kept 28, 1 over 1,024 tokens: **27 rows** (cells (2, 1) 11, (2, 2) 16
+of 18 built). The lane expected about 94; K4.8's two-search cells already hold most of the value rows their declines
+allow. Rows are marked `loss_from_second_call` and carry `k3_m...` ids and their question records, so `check_k3.py`
+checks them with the natural rows. Set: 2,514 rows (K4.8 2,487). Check (`check_k3.py --set k4_9_r224`, K4.8's lines):
+**0 FAIL** (`results/panels/R-224/check_k4_9.txt`); a first build without the value rule failed the second-search
+line on 16 rows and was not used.
+
+**Disclosed**: 27 rows is a small dose; after a search with text, natural fact rows that search again and answer go
+from 42 to 69, against 70 never-told rows that search again and decline. K4.9 differs from K4.8 by those 27 rows
+only, so it trains only if K4.8 stops; it takes R-222's checkpoint rule and early stop. Prediction: within one item
+of K4.8 on Demo2 and within 2 on hard_dev never_told.

@@ -4,7 +4,7 @@ Usage: python scripts/records/build_k4_9.py
 
 R-220's lane: after a search that returns text, K4.7's natural rows mostly decline, and most dev
 misses never find the fact after one search with passages (R-223's recount). Writers gave each
-older and check_true question of the 128 K3 chats a ``miss_query`` (``docs/k4_8/WRITER_BRIEF.md``,
+older and check_true question of the 128 K3 chats a ``miss_query`` (``docs/k4_9/WRITER_BRIEF.md``,
 ``data/screens/k4_9_writers/``). A row is built when the real search on the miss_query returns
 passages without the source message and the question's own query then returns it: the miss, the
 hit, the writer's reply. It is marked ``loss_from_second_call`` so the trainer keeps the first call
@@ -80,6 +80,9 @@ def miss_rows(chat: dict, writer: str, c: int, misses: dict[int, str], work: Pat
         if not miss_ok(miss, question):
             dropped["miss_query rule"] += 1
             continue
+        if question["value"].casefold() in K31.CHECK.words(question["query"]):
+            dropped["hit query holds the value"] += 1  # R-205's second-search line
+            continue
         source = f"User: {messages[question['source_message'] - 1]['user']}\n"
         first, second = search(miss), search(question["query"])
         if not K3.passages(first) or source in first + "\n":
@@ -91,14 +94,18 @@ def miss_rows(chat: dict, writer: str, c: int, misses: dict[int, str], work: Pat
         turns = [*view, {"role": "user", "content": question["question"]}]
         turns += K3.search_turns(miss, first) + K3.search_turns(question["query"], second)
         turns.append({"role": "assistant", "content": question["reply"]})
+        meta = {"kind": question["kind"], "person": question.get("person"), "names_value": True}
+        meta |= {"searches": 2, "passages": K3.passages(second), "miss_then_hit": True}
         rows.append(
             {
-                "id": f"k49m_{writer}_{c:02d}_{q:02d}",
+                # a k3_ id, so check_k3.py checks it with the natural rows
+                "id": f"k3_m{writer}_{c:02d}_{q:02d}",
                 "kind": K3.KINDS[question["kind"]],
                 "turns": turns,
                 "loss_from_second_call": True,
-                "question": question["question"],
-                "cell": (2, K3.passages(second)),
+                "meta": meta,
+                # as check_k3.py reads a row's question: its first query is the miss_query
+                "record": {**question, "query": miss, "second_query": question["query"]},
             }
         )
     return rows
@@ -119,7 +126,8 @@ def main() -> None:
     provenance = run_metadata()
     base_text = BASE.read_text(encoding="utf-8")
     rows = [json.loads(line) for line in base_text.splitlines()]
-    base_meta = json.loads(BASE.with_suffix(".provenance.json").read_text(encoding="utf-8"))["meta"]
+    base_report = json.loads(BASE.with_suffix(".provenance.json").read_text(encoding="utf-8"))
+    base_meta = base_report["meta"]
     dev_runs = set().union(*(K31.CHECK.runs(q) for q in K31.CHECK.dev_questions()))
     s3 = set()
     for path in sorted(K31.OVERLAP.CHATS.glob("*.json")):
@@ -137,7 +145,7 @@ def main() -> None:
             chat = json.loads((CHATS / file).read_text(encoding="utf-8"))["chats"][c]
             for row in miss_rows(chat, Path(file).stem, c, by_question, Path(tmp), dropped):
                 text = [t["content"] for t in row["turns"] if not t["content"].startswith("Tool")]
-                if K31.CHECK.runs(row["question"]) & dev_runs:
+                if K31.CHECK.runs(row["record"]["question"]) & dev_runs:
                     dropped["dev or Demo2 question run"] += 1
                 elif any(K31.runs(t, 6) & s3 for t in text):
                     dropped["S3 six-word run"] += 1
@@ -147,14 +155,15 @@ def main() -> None:
     room, ratio = cell_room(base_meta)
     by_cell = defaultdict(list)
     for row in built:
-        by_cell[row["cell"]].append(row)
+        by_cell[row["meta"]["searches"], row["meta"]["passages"]].append(row)
     kept = []
     for cell, cell_rows in sorted(by_cell.items()):
         order = sorted(cell_rows, key=lambda r: K3.digest("k49", r["id"]))
         kept += order[: room.get(cell, 0)]
-    meta = {r["id"]: {"cell": list(r.pop("cell")), "question": r.pop("question")} for r in kept}
+    meta = {r["id"]: r.pop("meta") for r in kept}
+    records = {r["id"]: r.pop("record") for r in kept}
     added = K3.within_tokens(kept)
-    meta = {r["id"]: meta[r["id"]] for r in added}
+    added_ids = {r["id"] for r in added}
 
     out = rows + added
     text = "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in out)
@@ -177,7 +186,11 @@ def main() -> None:
         "cut_over_tokens": len(kept) - len(added),
         "miss_rows": len(added),
         "miss_rows_by_kind": dict(Counter(r["kind"] for r in added)),
-        "meta": {**base_meta, **meta},
+        "k4_questions": {
+            **base_report["k4_questions"],
+            **{i: q for i, q in records.items() if i in added_ids},
+        },
+        "meta": {**base_meta, **{i: m for i, m in meta.items() if i in added_ids}},
     }
     OUT.with_suffix(".provenance.json").write_bytes(json.dumps(report, indent=1).encode("utf-8"))
     print(
