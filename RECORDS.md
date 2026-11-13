@@ -8886,3 +8886,20 @@ from 10 November. Not uploaded: the adapter weights (unchanged), the two dataset
 would also publish the sealed S3 chats and the candidate sessions' commits). Kevin asked afterwards whether this should
 have waited for the results: the files describe the shipped 6.37, say the new test is pending, and are uploaded again if
 a candidate replaces 6.37. Each upload is a Hugging Face commit and can be reverted.
+
+## R-217 · 2026-11-13 · REOPENED · K4.7 bombs Demo2; epoch-2 checkpoints of K4.5 and K4.6 tried on Demo2
+
+**Demo2 on K4.7 seed 82** (`results/demo2/branches_k4_7_r215_82.json`, run 13:56; two fresh blind Sonnet judges, 48
+items, 0 disagreements; `results/demo2/judge_k4_7_82/`): K4.7 with search older **2** of 6, in view 1 of 2, never told
+plain 2 of 2, **shared word 0 of 2** (base 0, 1, 2, 2). **K4.7 bombs** on both counts (older under 3; never-told 2 of 4,
+under 3). Queue `q215` stopped at 14:05 during seed 82's probe screen (no partial result kept). Right: the dog's breed,
+the venue, as K4.5 and K4.6. Both shared-word never-told items now name a value ("where is tessa studying": "She's
+studying geology"; "where will ollie work after moving": "Ollie will work at brackenfield"), which K4.5 and K4.6
+declined: the 64 new chats added natural value rows but no wrong-person or near-miss questions (those cover the first
+64 chats only), so the balance K4.4 and K4.5 set was diluted. Prediction (R-215): older 3 of 6; one under.
+
+**Epoch-2 checkpoints, a diagnostic on the card while the next design is drawn** (queue `q216e`): Demo2 on the
+`epoch-2/` checkpoints of K4.5's and K4.6's seed 82 adapters (saved by `--save-epochs 2`, never scored). Disclosed
+before the result: choosing a checkpoint after seeing epoch 3's Demo2 is a forking path. If one passes Demo2, it
+becomes a candidate (seeds 83 and 94 trained as before, the pick read at epoch 2), with this disclosure; if none
+passes, nothing follows from it.
