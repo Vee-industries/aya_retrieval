@@ -8789,3 +8789,73 @@ work folder), and no session had said so since the SOP was written on 11-11. Cre
 `docs/PROJECT_MAP.md` (parts, how a candidate runs, the K4.x chain) and `HANDOFF.md` (state, rules in force, seed 82
 numbers). The main context of this session was past the SOP's 300k hand-off point; it hands off here, with K4.7's
 queue `q215` running.
+
+## R-217 · 2026-11-13 · REOPENED · Write-up audited against the judges' checklist; gaps filled from the records
+
+**Request.** Kevin's session asked for the write-up to be checked against the "Write-up content" list on
+hackathon.lexsi.ai/submit (read 13:08 Eastern with the built-in browser; `*` required, `^` optional, `"` by track; this
+project is Track 3, so `"` items tagged [T3] count as required). Files checked: `docs/ARTICLE.md`,
+`docs/submission/HF_ARTICLE.md`, `README.md`, `docs/MODEL_CARD.md`. Facts used come from this file and the results
+files it cites; the one outside fact is the problem statement's number, read from the hackathon's tracks page.
+No panel, because this is a mechanical audit and fill; the claims added were each checked against the record named.
+
+**Audit before the edits** (S = Submission summary, now in all three of ARTICLE, HF article and README):
+- Missing: tracks and problem-statement number; languages as an item; leak-check statement; declaration of outside
+  work; teammates; LLM usage statement; changelog; "For judges: one minute"; threat model [T3]; tool and task
+  environment [T3]; acknowledgements.
+- Weak: one-line claim and headline before-to-after (prose in the abstract only); base model and method in one line;
+  why this problem; how the repos connect (a table, no chain in the article); base model config (revision only in the
+  model card); source-of-data table; metric list without directions; hyperparameter defaults; with more credits
+  (generic future work); compute and cost; README run instructions and layout (no evaluation commands; layout rows
+  missing for `RECORDS.md`, `HANDOFF.md`, `docs/PROJECT_MAP.md`, `data/screens/`, `results/demo2/`).
+- Already covered: abstract (498 words in the article, 488 in `ABSTRACT.md`), problem statement and approach, kits
+  used, results tables, limitations, negative results (sections 11, 14), seeds, ablations (the ledger), confidence
+  intervals, samples (`docs/demo.md`, `docs/samples/`), artifacts and links, author contributions, related work.
+- Stale: the "Reopened" section stopped at R-201 and said K1.3 was training and "one candidate"; R-194 asks that the
+  write-up state the candidate count.
+
+**Changes** (commits f27cecc, 040f41c, 376b7f6, 09933af; nothing pushed). `docs/article_template.md` and
+`docs/model_card_template.md` hold the text, `scripts/make_article.py` regenerated `ARTICLE.md` and `MODEL_CARD.md`
+(output equal to the committed files before my edit apart from line endings); `HF_ARTICLE.md` and `README.md` were
+edited directly.
+- Reopened section rewritten through R-215: 17 candidate sets registered (K1, K2, K2.1, K1.1, K1.2, K1.3, K3, K3.1,
+  K3.2, K4 to K4.7), 9 finished training, K4.7 training, 4 reached every screening line (K1, K2.1, K1.3, K4.1); each
+  outcome with its record. Changelog (10 November; 12 November; 12 to 13 November) in ARTICLE, HF article, README.
+- Added to the article: summary (claim, Track 3 statement 4, headline, base model and method, one-minute box); why this
+  problem; tool environment and trajectories; threat model; data table, languages, licences, splits, leak checks
+  done (pool-content tests, four-word-run checks, source, freeze) and not done (no embedding or MinHash check; 6.2's
+  rows share two small-talk lines and three fact wordings with probe or hard_dev, R-110); models and licences with
+  the full base revision and bfloat16; settings and package versions from `results/recall_train/fix17cs37_82.json`;
+  how the toolkits connect; metric directions; compute and time per 1,000 replies (seconds a question times 1,000, no
+  dollar figure); with more credits (plan, and S3's registered pass thresholds as the only "expected" values);
+  declaration of outside work; LLM usage statement; team; acknowledgements.
+- HF article gets the same items in short form; README gets the summary, a "Reproduce the results" section (the
+  `hard_dev` command copied from that run's provenance, the sealed run, analyses, LongMemEval-S, make_article),
+  layout rows, a hardware line, the declaration and the changelog.
+- Corrected: "No result number in either is typed by hand" (ARTICLE section 17, README) is now stated as the result
+  tables being filled from results files and the Reopened section and compute paragraph being written by hand.
+- Checked: every added line scanned for we, our, em dashes and hedge or marketing words (0 hits); each file's chain
+  was ruff on `src scripts tests`, format check, `pytest` (1,767 passed each time), privacy count on the staged diff 0.
+  The model-card status line and the article status line still say every number is computed by `make_article.py`; they
+  are generated by the script, outside this task's file list.
+
+**Verified facts behind the new text.** Commit count 1,362 and every commit carries a Claude co-author line (`git log
+--grep`); first commit 2026-11-01 11:17 EST; training peak 7.83 GiB and 2,054 s for seed 82; Track 3's fourth problem
+statement is "Fine-tuning for retrieval-augmented generation" (tracks page, ordered list); R-144 marks are Kevin's own,
+R-145's a second person's, R-171 states the outside-writer chats are agent-written; R-002 says one person, one
+submission.
+
+**Left for Kevin** (cannot be filled from the records):
+1. Teammates tagged: the write-up says none; confirm, and whether the form needs handles.
+2. LLM usage portion: no percentage is recorded; the text claims none. Whether Kevin wrote any code or text, and who
+   wrote `demo/chat.txt` (the README says "I wrote" it; the records do not say, and its commit carries the Claude line).
+3. Compute: total GPU hours over all candidates, the cost to Kevin (power, any rented compute) and the cost of the
+   Claude agents are not recorded; a dollar cost per 1,000 replies needs a provider's hourly price.
+4. A forecast of recall with more data or compute: none exists; the write-up gives only S3's registered thresholds.
+5. A general-capability retention benchmark (the list's [T3] item): none was run.
+6. An embedding or MinHash leak check was not run; it could run on the CPU if wanted.
+7. Whether the form was filed (R-172 left it to Kevin) and, if a K candidate replaces 6.37 after S3, rewriting the
+   headline, model card and Hugging Face uploads. Pushes and uploads are his call.
+8. Video or slides (shortlist only, due 22 November) and a hosted demo: none; the Colab notebook exists.
+9. The two generated status lines, `ABSTRACT.md` (488 words, silent on the reopen) and whole-repo `ruff check .`
+   (327 errors, all in `results/panels/` scripts from the candidate sessions, so CI's lint step would fail on a push).
