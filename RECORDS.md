@@ -8780,3 +8780,12 @@ Queue `q215` as `q210`; training takes about 30% longer per seed for the larger 
 
 Prediction, before training: hard_dev seed 82 never_told at least 44, recall at least K4.6's 72; outside-writer
 recall above K4.6's 132; Demo2 older 3 of 6 (near even).
+
+## R-216 · 2026-11-13 · REOPENED · HANDOFF and project map created; session handed off
+
+Kevin, on the SOP's handoff rule: "did you just not read the sop at all?" The SOP has every session read
+`docs/PROJECT_MAP.md` and keep it current with RECORDS; this project had neither it nor a HANDOFF (searched the whole
+work folder), and no session had said so since the SOP was written on 11-11. Created at Kevin's word:
+`docs/PROJECT_MAP.md` (parts, how a candidate runs, the K4.x chain) and `HANDOFF.md` (state, rules in force, seed 82
+numbers). The main context of this session was past the SOP's 300k hand-off point; it hands off here, with K4.7's
+queue `q215` running.
