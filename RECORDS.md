@@ -8735,3 +8735,18 @@ Prediction (lane), before training: hard_dev seed 82 never_told 45 of 48 (43 to 
 75; Demo2 older 2 or 3 of 6 (about 40% to reach 3); both gates about 25%. Main risk: a second search on a never-told
 question returns another person's same-type fact and the model names it (15 rows teach the decline there). The
 added rows are fewer than the lane expected (41 against about 100), so the gain may be small.
+
+**Demo2 on K4.6 seed 82** (`results/demo2/branches_k4_6_r214_82.json`, run 10:44; two fresh blind judges, 48 items,
+0 disagreements; `results/demo2/judge_k4_6_82/`): K4.6 with search older **2** of 6, in view 2 of 2, never told
+plain 2 of 2, shared word 2 of 2. **K4.6 bombs**; queue stopped at 10:55 during seed 82's probe screen (no partial
+result kept). Its searches found 4 of the 6 older facts (K4.5: 3); it named 2 (the dog's breed, the venue) and
+declined 2 it found ("dev drive", and the sister, now found by "sister moving city"). The two never found are "where
+do i work" and the ingredient.
+
+**The lane on a K4.7 aimed at found-and-declined** (asked before this result): no change justified. Of K4.5's 21
+found-and-missed hard_dev rows on seed 82, 13 are the hiring-panel type (excluded); the other 8 spread 1 to 3 over
+four types, all covered by natural or template rows except a detail inside a moving-in event, which is hard_dev's
+housewarming-gift type (R-073) and outside the training categories. The data that could point to a K4.7 is the
+outside-writer sets, which K4.6 targets. **Diagnostic** (queue `q214d`, not eligible for the pick): K4.6 seed 82 on
+hard_dev, blind_dev and blind_dev2, to compare with K4.1's (the only earlier candidate scored there) before any
+K4.7 design.

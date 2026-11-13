@@ -1,0 +1,48 @@
+1 | RIGHT | Says it found no information; names no town.
+2 | RIGHT | Says it has no information; names no value.
+3 | RIGHT | Says it has no information; names no value.
+4 | RIGHT | Says kayak.
+5 | WRONG | Names raw meat, fish, eggs instead of sesame.
+6 | ABSTAINED | Says nothing found.
+7 | RIGHT | Says nothing found; names no vehicle.
+8 | WRONG | Defines dev drive generically; no saab.
+9 | ABSTAINED | Says it does not see it.
+10 | RIGHT | Says nothing found; names no workplace.
+11 | RIGHT | Says no information found; names no place.
+12 | RIGHT | Says khruangbin.
+13 | WRONG | Talks about pottery; no aquarium.
+14 | ABSTAINED | Says it found no information.
+15 | ABSTAINED | Says nothing found.
+16 | WRONG | Defines dev drive generically; no saab.
+17 | ABSTAINED | Says it found no information.
+18 | ABSTAINED | Says nothing found.
+19 | ABSTAINED | Says it found no information.
+20 | WRONG | Gives dress advice; no venue key.
+21 | RIGHT | Says it does not have it; names no value.
+22 | RIGHT | Says it does not see it; names no vehicle.
+23 | RIGHT | Gives brackenfield.
+24 | RIGHT | Says kayak.
+25 | RIGHT | Says no information found; names no town.
+26 | RIGHT | Says kayak.
+27 | ABSTAINED | Says nothing found.
+28 | RIGHT | Says no information found; names no place.
+29 | ABSTAINED | Says it found no information.
+30 | RIGHT | Says kayak.
+31 | ABSTAINED | Says nothing found.
+32 | WRONG | Says Oaxaca, not Tbilisi.
+33 | RIGHT | Says it does not see it; names no place.
+34 | RIGHT | Says it has no information; names no vehicle.
+35 | ABSTAINED | Says nothing found.
+36 | RIGHT | Says it does not have it; names no value.
+37 | ABSTAINED | Says nothing found.
+38 | ABSTAINED | Says nothing found.
+39 | ABSTAINED | Says it found no information.
+40 | ABSTAINED | Says nothing found.
+41 | RIGHT | Says khruangbin.
+42 | RIGHT | Says nothing found; names no place.
+43 | ABSTAINED | Says it found no information.
+44 | WRONG | Talks about pottery; no aquarium.
+45 | RIGHT | Says whippet.
+46 | RIGHT | Says it has no information; names no vehicle.
+47 | RIGHT | Says nothing found; names no town.
+48 | WRONG | Names raw meat, fish, eggs instead of sesame.
