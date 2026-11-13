@@ -1,0 +1,2673 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-13T19:02:14+00:00",
+  "command": [
+   "scripts/run_demo2.py",
+   "--adapter",
+   "K4.5e2=C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/k4_5_r213_82/epoch-2",
+   "--adapter",
+   "K4.6e2=C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/k4_6_r214_82/epoch-2",
+   "--out",
+   "results/demo2/branches_e2_k4_5_k4_6_82.json"
+  ],
+  "git_commit": "fa64cabb5fc773035f26f79b055cc7122335b536",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "record": "R-201",
+ "adapters": {
+  "K4.5e2": {
+   "path": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\screens\\k4_5_r213_82\\epoch-2",
+   "sha256": "2cf8bbd478c06a3a722a8012dd3e1403a1170ac52b8b8192f9a809678f3b15eb"
+  },
+  "K4.6e2": {
+   "path": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\screens\\k4_6_r214_82\\epoch-2",
+   "sha256": "ec059cfee3a8077a346bcb1e9a674108402e8f55b82e37ed7862a620ba1816c5"
+  }
+ },
+ "chat_sha256": "abccb1ccb4cb5692d3752de48f80d3dd67c42a8136d0c79da6f66ce7b33f335f",
+ "questions_sha256": "c654a5986080b1553e3120768f227651b9d3c4f5ee7c0c580a45f6b4de53f245",
+ "arms": {
+  "base": {
+   "prefix": [
+    {
+     "message": "ok so long shift at the aquarium today, one of the otters stole a volunteers glove and i laughed way too hard",
+     "queries": [
+      "otter stealing glove aquarium"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "No results were found for the search query \"otter stealing glove aquarium.\" However, it seems like you were having a funny moment at the aquarium! Otters are known for their playful and mischievous behavior, so it’s not surprising that one might steal a volunteer’s glove. It’s always a delight"
+    },
+    {
+     "message": "my sister tessa called, shes studying geology now and wont shut up about rocks",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Tessa studying geology.\" However, it seems like you were having a conversation with your sister about her studies. It’s great to hear that she’s enjoying her time studying geology, as it’s a fascinating field that combines science and nature. If"
+    },
+    {
+     "message": "my partner rowan made curry for dinner but i had to pick around the sesame seeds on top, my throat gets itchy with that stuff",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"sesame seeds cause throat itching.\" However, it seems like you had a bit of a sesame seed mishap with your partner Rowan’s curry. Sesame seeds can sometimes cause allergic reactions or irritation in some people, especially if they’re not used"
+    },
+    {
+     "message": "taking the ferry in every morning is honestly the best part of my day lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"ferry morning best part day.\" However, it seems like you have a lovely routine with your daily ferry commute. Taking the ferry in the morning can be a peaceful and enjoyable way to start the day, especially if you’re heading to a beautiful"
+    },
+    {
+     "message": "dev's saab broke down again on the bridge so i gave him a lift, that thing is held togther with tape",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Saab bridge breakdown tape.\" However, it sounds like you had a bit of a hands-on moment with your friend Dev’s car. It’s impressive that you were able to give him a lift despite the broken-down nature of the vehicle. Tape is often"
+    },
+    {
+     "message": "watching severance with rowan, were two episodes behind everyone and dodging spoilers",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Severance episodes behind.\" However, it sounds like you and Rowan are both enjoying the show! It’s great that you’re both catching up on the latest episodes while avoiding spoilers. Let me know if you need any help with the plot or characters—I"
+    },
+    {
+     "message": "marguerite next door just got a whippet puppy, named it turnip, its the cutest thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Marguerite whippet puppy.\" However, it sounds like you’re excited about Marguerite’s new puppy, Turnip! Whippets are such adorable and energetic dogs—Turnip sounds like a perfect name for a little one. If you’d like"
+    },
+    {
+     "message": "im half maltese and still cant make pastizzi like my nan, tried again tonight and it was a disaster",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"pastizzi disaster.\" However, it sounds like you’re still learning to make pastizzi, and it’s a bit of a challenge! Maltese heritage is a great foundation for baking, and practice makes perfect. Maybe you could try again tomorrow with a few"
+    },
+    {
+     "message": "my sister in law noor is going to oaxaca with her cousins next month, my brother callum is stuck home with esme",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Noor Oaxaca.\" However, it sounds like your sister-in-law Noor is planning a trip to Oaxaca with her cousins next month, and your brother Callum is staying home with Esme. If you’d like, I can help you plan something"
+    },
+    {
+     "message": "started welsh lessons on duolingo, the pronunciation is destroying me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Welsh pronunciation Duolingo.\" However, it sounds like you’re finding Welsh pronunciation on Duolingo challenging. If you’d like, I can help you with tips on how to improve your Welsh pronunciation or provide resources to practice."
+    },
+    {
+     "message": "dev grew up in winnipeg so he thinks this cold is nothing, show off",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Dev show off.\" However, it sounds like Dev is bragging about his resilience to the cold, which is a common trait in Winnipeg. If you’d like, I can help you craft a response or provide more information about Winnipeg’s"
+    },
+    {
+     "message": "sprained my wrist at pottery last night, clay everywhere",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Wrist sprain pottery.\" However, it sounds like you’ve sprained your wrist while working with clay at pottery class. If you’d like, I can help you with first aid advice, recovery tips, or even suggest ways to stay safe in the"
+    },
+    {
+     "message": "ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Brackenfield barn wedding outfit.\" However, it sounds like you’re looking for outfit ideas for a wedding at a barn near a lake. If you’d like, I can help you with suggestions for a wedding outfit that’s both elegant and comfortable for a"
+    },
+    {
+     "message": "priya finally got into dalhousie for nursing, so proud of her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Congratulations Priya! 🎉 Dalhousie is a prestigious nursing program, and I’m so proud of you for making it happen. If you’d like, I can help you with tips for adjusting to nursing school, finding a support system, or anything else you need to make the most of this"
+    },
+    {
+     "message": "tessa just booked flights to tbilisi, shes been saving for ages",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Congratulations Tessa! 🎉 Tbilisi sounds like a fantastic destination—its rich history, stunning architecture, and vibrant culture make it a dream trip. If you’d like, I can help you with travel tips, packing advice, or anything else you need to make the most of your trip"
+    },
+    {
+     "message": "dev's been doing fencing on weekends and keeps begging me to try it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Dev’s been fencing on weekends and is begging you to try it? That’s awesome! Fencing is a great way to stay active, improve hand-eye coordination, and have fun. If you’re interested, I can help you find a local fencing club, get started with basic techniques, or"
+    },
+    {
+     "message": "rowan would eat mango at every meal if i let them, its their favourite thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Rowan’s mango obsession is adorable! If you let them, they’ll probably end up with a mango-shaped belly. Here are some ideas to keep mango fun and safe:  \n- **Mango smoothies** (with yogurt or milk)  \n- **Mango salsa** (for tacos"
+    },
+    {
+     "message": "my phone screen cracked again, this pixel is cursed",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh no, another cracked screen! That’s frustrating. Maybe it’s time to get a new phone or a screen protector. If you need help finding a repair service or tips on protecting your phone, let me know!"
+    },
+    {
+     "message": "ollie and his fiance are moving to halifax after everything settles down",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s exciting news! Halifax is a beautiful city with a rich history and vibrant culture. If you need help with moving tips, local recommendations, or anything else, feel free to ask!"
+    },
+    {
+     "message": "callum is still yelling at the tv about the raptors, esme copies him now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Callum’s still ranting about the Raptors? That’s a classic. Esme copying him is just the cherry on top. Maybe try to distract him with a fun fact about Halifax or a local joke to ease the tension."
+    },
+    {
+     "message": "esme lost her first tooth and callum cried more than she did honestly",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a funny observation! It’s always funny to see how emotions can be amplified, even in small moments. Maybe Esme’s reaction is just as valid as Callum’s, and it’s a great reminder that everyone processes things differently."
+    },
+    {
+     "message": "rowan has been blasting khruangbin all week, i kinda get it now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Kruangbin’s music is such a vibe—relaxing yet upbeat, perfect for a move to Halifax. Rowan’s been on the same wavelength, and it’s great to see someone else who appreciates the laid-back energy. Maybe you could even share some of his favorite tracks with"
+    },
+    {
+     "message": "finally caved and bought a kayak, its taking up the whole hallway",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "A kayak in the hallway? That’s a bold move! It’s probably a great way to stay active, but maybe consider a smaller one or a storage solution to keep it out of the way. Either way, kudos to you for taking the plunge!"
+    },
+    {
+     "message": "anyway pottery is thursday so fingers crossed my hand cooperates",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Fingers crossed for a smooth pottery session! If your hand cooperates, you’ll be creating some amazing pieces. Let me know how it goes—I’m sure it’ll be a blast!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where do i work again lol",
+     "source_message": 1,
+     "key": "aquarium",
+     "same_meaning": [
+      "the aquarium",
+      "an aquarium"
+     ],
+     "category": "C02",
+     "person": "me",
+     "message": "where do i work again lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’re probably working on a pottery project or just enjoying the hobby. If you need any tips or ideas, feel free to ask!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what does dev drive",
+     "source_message": 5,
+     "key": "saab",
+     "same_meaning": [
+      "a saab",
+      "Saab"
+     ],
+     "category": "C17",
+     "person": "dev",
+     "message": "what does dev drive",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Dev drive is a term often used in the context of development environments, particularly in programming. It refers to a directory or folder that contains files specific to the development process, such as source code, configuration files, and other resources needed for coding. In a development environment, the dev drive is typically used",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what kind of dog is marguerite's new one",
+     "source_message": 7,
+     "key": "whippet",
+     "same_meaning": [
+      "a whippet",
+      "whippet puppy"
+     ],
+     "category": "C10",
+     "person": "marguerite",
+     "message": "what kind of dog is marguerite's new one",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about a dog named Marguerite in the conversation. If you have more context or details, feel free to share, and I’ll do my best to help!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "where is my sister headed",
+     "source_message": 15,
+     "key": "tbilisi",
+     "same_meaning": [
+      "Tbilisi",
+      "tbilisi, georgia",
+      "georgia"
+     ],
+     "category": "C15",
+     "person": "tessa",
+     "other_value": "oaxaca",
+     "message": "where is my sister headed",
+     "queries": [
+      "where is my sister headed"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0008::0 doc_id=exchange_0008 score=3.787]\nUser: my sister in law noor is going to oaxaca with her cousins next month, my brother callum is stuck home with esme\nAssistant: No results were found for the search query \"Noor Oaxaca.\" However, it sounds like your sister-in-law Noor is planning a trip to Oaxaca with her cousins next month, and your brother Callum is staying home with Esme. If you\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=3.591]\nUser: my sister tessa called, shes studying geology now and wont shut up about rocks\nAssistant: No results were found for the search query \"Tessa studying geology.\" However, it seems like you were having a conversation with your sister about her studies. It’s great to hear that she’s enjoying her time studying geology, as it’s a fascinating field t\n\n[chunk_id=exchange_0002::0 doc_id=exchange_0002 score=1.277]\nUser: my partner rowan made curry for dinner but i had to pick around the sesame seeds on top, my throat gets itchy with that stuff\n\n[chunk_id=exchange_0017::0 doc_id=exchange_0017 score=0.842]\nUser: my phone screen cracked again, this pixel is cursed\nAssistant: Oh no, another cracked screen! That’s frustrating. Maybe it’s time to get a new phone or a screen protector. If you need help finding a repair service or tips on protecting your phone, let me know!\n\n[chunk_id=exchange_0011::0 doc_id=exchange_0011 score=0.775]\nUser: sprained my wrist at pottery last night, clay everywhere\nAssistant: No results were found for the search query \"Wrist sprain pottery.\" However, it sounds like you’ve sprained your wrist while working with clay at pottery class. If you’d like, I can help you with first aid advice, recovery tips, or even suggest ways to stay safe in the"
+     ],
+     "reply": "It sounds like your sister-in-law Noor is planning a trip to Oaxaca with her cousins next month, and your brother Callum is staying home with Esme. If you need any more information or have other questions, feel free to ask!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "remind me which ingredient i should stay away from",
+     "source_message": 3,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame seeds",
+      "Sesame"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "remind me which ingredient i should stay away from",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You should stay away from **raw or undercooked meat, fish, or eggs** in pottery. They can attract pests like ants or rodents, and their smell can be unpleasant. Opt for cooked or dried ingredients instead!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "whats the venue for ollie's big day",
+     "source_message": 13,
+     "key": "brackenfield",
+     "same_meaning": [
+      "Brackenfield",
+      "a barn at brackenfield",
+      "the barn past the lake"
+     ],
+     "category": "C28",
+     "person": "ollie",
+     "message": "whats the venue for ollie's big day",
+     "queries": [
+      "Ollie's big day venue"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0003::0 doc_id=exchange_0003 score=4.103]\nUser: taking the ferry in every morning is honestly the best part of my day lol\nAssistant: No results were found for the search query \"ferry morning best part day.\" However, it seems like you have a lovely routine with your daily ferry commute. Taking the ferry in the morning can be a peaceful and enjoyable way to start the day, especially if you’r\n\n[chunk_id=exchange_0012::0 doc_id=exchange_0012 score=2.497]\nUser: ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit\nAssistant: No results were found for the search query \"Brackenfield barn wedding outfit.\" However, it sounds like you’re looking for outfit ideas for a wedding at a barn near a lake. If you’d like, I can help you with suggestions for a wedding outfit that’s both"
+     ],
+     "reply": "For a wedding at a barn near a lake, you might consider a flowy, lightweight dress with a delicate fabric like chiffon or silk. Add a pair of sandals or strappy heels for comfort, and don’t forget a light scarf or headband to tie in with the rustic setting",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which band is rowan into",
+     "source_message": 22,
+     "key": "khruangbin",
+     "same_meaning": [
+      "Khruangbin"
+     ],
+     "category": "C23",
+     "person": "rowan",
+     "message": "which band is rowan into",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about a person named Rowan who is into a specific band. Could you provide more context or details?",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what did i purchase recently",
+     "source_message": 23,
+     "key": "kayak",
+     "same_meaning": [
+      "a kayak"
+     ],
+     "category": "C40",
+     "person": "me",
+     "message": "what did i purchase recently",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You purchased a kayak.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "do you remember which vehicle priya owns",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "do you remember which vehicle priya owns",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have any information about Priya's vehicle. I can only provide information based on the data I was trained on, which includes the tools I have access to. If you have any other questions or need assistance with something else, feel free to ask!"
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which town was rowan raised in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C05",
+     "person": "rowan",
+     "message": "which town was rowan raised in",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about a town Rowan was raised in. The context of the conversation seems to be about music and hobbies, not personal details. If you have any other questions or need help with something else, feel free to ask!"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "where is tessa studying",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C14",
+     "person": "tessa",
+     "overlap_message": 2,
+     "message": "where is tessa studying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about Tessa studying in a specific location. If you have more details or context, I’d be happy to help!"
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where will ollie work after moving",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C02",
+     "person": "ollie",
+     "overlap_message": 19,
+     "message": "where will ollie work after moving",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have any information about Ollie's job after moving. If you'd like to share details, I can help brainstorm or provide suggestions!"
+    }
+   ]
+  },
+  "base_no_search": {
+   "prefix": [
+    {
+     "message": "ok so long shift at the aquarium today, one of the otters stole a volunteers glove and i laughed way too hard",
+     "queries": [
+      "otter stealing glove aquarium"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "No results were found for the search query \"otter stealing glove aquarium.\" However, it seems like you were having a funny moment at the aquarium! Otters are known for their playful and mischievous behavior, so it’s not surprising that one might steal a volunteer’s glove. It’s always a delight"
+    },
+    {
+     "message": "my sister tessa called, shes studying geology now and wont shut up about rocks",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Tessa studying geology.\" However, it seems like you were having a conversation with your sister about her studies. It’s great to hear that she’s enjoying her time studying geology, as it’s a fascinating field that combines science and nature. If"
+    },
+    {
+     "message": "my partner rowan made curry for dinner but i had to pick around the sesame seeds on top, my throat gets itchy with that stuff",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"sesame seeds cause throat itching.\" However, it seems like you had a bit of a sesame seed mishap with your partner Rowan’s curry. Sesame seeds can sometimes cause allergic reactions or irritation in some people, especially if they’re not used"
+    },
+    {
+     "message": "taking the ferry in every morning is honestly the best part of my day lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"ferry morning best part day.\" However, it seems like you have a lovely routine with your daily ferry commute. Taking the ferry in the morning can be a peaceful and enjoyable way to start the day, especially if you’re heading to a beautiful"
+    },
+    {
+     "message": "dev's saab broke down again on the bridge so i gave him a lift, that thing is held togther with tape",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Saab bridge breakdown tape.\" However, it sounds like you had a bit of a hands-on moment with your friend Dev’s car. It’s impressive that you were able to give him a lift despite the broken-down nature of the vehicle. Tape is often"
+    },
+    {
+     "message": "watching severance with rowan, were two episodes behind everyone and dodging spoilers",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Severance episodes behind.\" However, it sounds like you and Rowan are both enjoying the show! It’s great that you’re both catching up on the latest episodes while avoiding spoilers. Let me know if you need any help with the plot or characters—I"
+    },
+    {
+     "message": "marguerite next door just got a whippet puppy, named it turnip, its the cutest thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Marguerite whippet puppy.\" However, it sounds like you’re excited about Marguerite’s new puppy, Turnip! Whippets are such adorable and energetic dogs—Turnip sounds like a perfect name for a little one. If you’d like"
+    },
+    {
+     "message": "im half maltese and still cant make pastizzi like my nan, tried again tonight and it was a disaster",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"pastizzi disaster.\" However, it sounds like you’re still learning to make pastizzi, and it’s a bit of a challenge! Maltese heritage is a great foundation for baking, and practice makes perfect. Maybe you could try again tomorrow with a few"
+    },
+    {
+     "message": "my sister in law noor is going to oaxaca with her cousins next month, my brother callum is stuck home with esme",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Noor Oaxaca.\" However, it sounds like your sister-in-law Noor is planning a trip to Oaxaca with her cousins next month, and your brother Callum is staying home with Esme. If you’d like, I can help you plan something"
+    },
+    {
+     "message": "started welsh lessons on duolingo, the pronunciation is destroying me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Welsh pronunciation Duolingo.\" However, it sounds like you’re finding Welsh pronunciation on Duolingo challenging. If you’d like, I can help you with tips on how to improve your Welsh pronunciation or provide resources to practice."
+    },
+    {
+     "message": "dev grew up in winnipeg so he thinks this cold is nothing, show off",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Dev show off.\" However, it sounds like Dev is bragging about his resilience to the cold, which is a common trait in Winnipeg. If you’d like, I can help you craft a response or provide more information about Winnipeg’s"
+    },
+    {
+     "message": "sprained my wrist at pottery last night, clay everywhere",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Wrist sprain pottery.\" However, it sounds like you’ve sprained your wrist while working with clay at pottery class. If you’d like, I can help you with first aid advice, recovery tips, or even suggest ways to stay safe in the"
+    },
+    {
+     "message": "ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No results were found for the search query \"Brackenfield barn wedding outfit.\" However, it sounds like you’re looking for outfit ideas for a wedding at a barn near a lake. If you’d like, I can help you with suggestions for a wedding outfit that’s both elegant and comfortable for a"
+    },
+    {
+     "message": "priya finally got into dalhousie for nursing, so proud of her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Congratulations Priya! 🎉 Dalhousie is a prestigious nursing program, and I’m so proud of you for making it happen. If you’d like, I can help you with tips for adjusting to nursing school, finding a support system, or anything else you need to make the most of this"
+    },
+    {
+     "message": "tessa just booked flights to tbilisi, shes been saving for ages",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Congratulations Tessa! 🎉 Tbilisi sounds like a fantastic destination—its rich history, stunning architecture, and vibrant culture make it a dream trip. If you’d like, I can help you with travel tips, packing advice, or anything else you need to make the most of your trip"
+    },
+    {
+     "message": "dev's been doing fencing on weekends and keeps begging me to try it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Dev’s been fencing on weekends and is begging you to try it? That’s awesome! Fencing is a great way to stay active, improve hand-eye coordination, and have fun. If you’re interested, I can help you find a local fencing club, get started with basic techniques, or"
+    },
+    {
+     "message": "rowan would eat mango at every meal if i let them, its their favourite thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Rowan’s mango obsession is adorable! If you let them, they’ll probably end up with a mango-shaped belly. Here are some ideas to keep mango fun and safe:  \n- **Mango smoothies** (with yogurt or milk)  \n- **Mango salsa** (for tacos"
+    },
+    {
+     "message": "my phone screen cracked again, this pixel is cursed",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh no, another cracked screen! That’s frustrating. Maybe it’s time to get a new phone or a screen protector. If you need help finding a repair service or tips on protecting your phone, let me know!"
+    },
+    {
+     "message": "ollie and his fiance are moving to halifax after everything settles down",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s exciting news! Halifax is a beautiful city with a rich history and vibrant culture. If you need help with moving tips, local recommendations, or anything else, feel free to ask!"
+    },
+    {
+     "message": "callum is still yelling at the tv about the raptors, esme copies him now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Callum’s still ranting about the Raptors? That’s a classic. Esme copying him is just the cherry on top. Maybe try to distract him with a fun fact about Halifax or a local joke to ease the tension."
+    },
+    {
+     "message": "esme lost her first tooth and callum cried more than she did honestly",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a funny observation! It’s always funny to see how emotions can be amplified, even in small moments. Maybe Esme’s reaction is just as valid as Callum’s, and it’s a great reminder that everyone processes things differently."
+    },
+    {
+     "message": "rowan has been blasting khruangbin all week, i kinda get it now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Kruangbin’s music is such a vibe—relaxing yet upbeat, perfect for a move to Halifax. Rowan’s been on the same wavelength, and it’s great to see someone else who appreciates the laid-back energy. Maybe you could even share some of his favorite tracks with"
+    },
+    {
+     "message": "finally caved and bought a kayak, its taking up the whole hallway",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "A kayak in the hallway? That’s a bold move! It’s probably a great way to stay active, but maybe consider a smaller one or a storage solution to keep it out of the way. Either way, kudos to you for taking the plunge!"
+    },
+    {
+     "message": "anyway pottery is thursday so fingers crossed my hand cooperates",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Fingers crossed for a smooth pottery session! If your hand cooperates, you’ll be creating some amazing pieces. Let me know how it goes—I’m sure it’ll be a blast!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where do i work again lol",
+     "source_message": 1,
+     "key": "aquarium",
+     "same_meaning": [
+      "the aquarium",
+      "an aquarium"
+     ],
+     "category": "C02",
+     "person": "me",
+     "message": "where do i work again lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’re probably working on a pottery project or just enjoying the hobby. If you need any tips or ideas, feel free to ask!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what does dev drive",
+     "source_message": 5,
+     "key": "saab",
+     "same_meaning": [
+      "a saab",
+      "Saab"
+     ],
+     "category": "C17",
+     "person": "dev",
+     "message": "what does dev drive",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Dev drive is a term often used in the context of development environments, particularly in programming. It refers to a directory or folder that contains files specific to the development process, such as source code, configuration files, and other resources needed for coding. In a development environment, the dev drive is typically used",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what kind of dog is marguerite's new one",
+     "source_message": 7,
+     "key": "whippet",
+     "same_meaning": [
+      "a whippet",
+      "whippet puppy"
+     ],
+     "category": "C10",
+     "person": "marguerite",
+     "message": "what kind of dog is marguerite's new one",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about a dog named Marguerite in the conversation. If you have more context or details, feel free to share, and I’ll do my best to help!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "where is my sister headed",
+     "source_message": 15,
+     "key": "tbilisi",
+     "same_meaning": [
+      "Tbilisi",
+      "tbilisi, georgia",
+      "georgia"
+     ],
+     "category": "C15",
+     "person": "tessa",
+     "other_value": "oaxaca",
+     "message": "where is my sister headed",
+     "queries": [
+      "where is my sister headed"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I couldn't find any information about your sister's destination. If you have more details or context, feel free to share, and I’ll do my best to help!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "remind me which ingredient i should stay away from",
+     "source_message": 3,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame seeds",
+      "Sesame"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "remind me which ingredient i should stay away from",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You should stay away from **raw or undercooked meat, fish, or eggs** in pottery. They can attract pests like ants or rodents, and their smell can be unpleasant. Opt for cooked or dried ingredients instead!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "whats the venue for ollie's big day",
+     "source_message": 13,
+     "key": "brackenfield",
+     "same_meaning": [
+      "Brackenfield",
+      "a barn at brackenfield",
+      "the barn past the lake"
+     ],
+     "category": "C28",
+     "person": "ollie",
+     "message": "whats the venue for ollie's big day",
+     "queries": [
+      "Ollie's big day venue"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I couldn't find any information about a venue for \"Ollie's big day.\" If you're looking for details about a specific event or celebration, could you provide more context or clarify the name?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which band is rowan into",
+     "source_message": 22,
+     "key": "khruangbin",
+     "same_meaning": [
+      "Khruangbin"
+     ],
+     "category": "C23",
+     "person": "rowan",
+     "message": "which band is rowan into",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about a person named Rowan who is into a specific band. Could you provide more context or details?",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what did i purchase recently",
+     "source_message": 23,
+     "key": "kayak",
+     "same_meaning": [
+      "a kayak"
+     ],
+     "category": "C40",
+     "person": "me",
+     "message": "what did i purchase recently",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You purchased a kayak.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "do you remember which vehicle priya owns",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "do you remember which vehicle priya owns",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have any information about Priya's vehicle. I can only provide information based on the data I was trained on, which includes the tools I have access to. If you have any other questions or need assistance with something else, feel free to ask!"
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which town was rowan raised in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C05",
+     "person": "rowan",
+     "message": "which town was rowan raised in",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about a town Rowan was raised in. The context of the conversation seems to be about music and hobbies, not personal details. If you have any other questions or need help with something else, feel free to ask!"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "where is tessa studying",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C14",
+     "person": "tessa",
+     "overlap_message": 2,
+     "message": "where is tessa studying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about Tessa studying in a specific location. If you have more details or context, I’d be happy to help!"
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where will ollie work after moving",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C02",
+     "person": "ollie",
+     "overlap_message": 19,
+     "message": "where will ollie work after moving",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have any information about Ollie's job after moving. If you'd like to share details, I can help brainstorm or provide suggestions!"
+    }
+   ]
+  },
+  "K4.5e2": {
+   "prefix": [
+    {
+     "message": "ok so long shift at the aquarium today, one of the otters stole a volunteers glove and i laughed way too hard",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That was a great story."
+    },
+    {
+     "message": "my sister tessa called, shes studying geology now and wont shut up about rocks",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like your sister is doing well in her studies."
+    },
+    {
+     "message": "my partner rowan made curry for dinner but i had to pick around the sesame seeds on top, my throat gets itchy with that stuff",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a delicious meal, but a bit of a problem with the sesame seeds."
+    },
+    {
+     "message": "taking the ferry in every morning is honestly the best part of my day lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a great way to start the day."
+    },
+    {
+     "message": "dev's saab broke down again on the bridge so i gave him a lift, that thing is held togther with tape",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a bit of a tricky situation."
+    },
+    {
+     "message": "watching severance with rowan, were two episodes behind everyone and dodging spoilers",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like you're trying to avoid spoilers."
+    },
+    {
+     "message": "marguerite next door just got a whippet puppy, named it turnip, its the cutest thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds adorable."
+    },
+    {
+     "message": "im half maltese and still cant make pastizzi like my nan, tried again tonight and it was a disaster",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Pastizzi can be a bit of a challenge, especially if you're new to the recipe. It's a bit of a delicate balance of ingredients and techniques. If you'd like, I can try to help you troubleshoot and improve your pastizzi."
+    },
+    {
+     "message": "my sister in law noor is going to oaxaca with her cousins next month, my brother callum is stuck home with esme",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun trip to oaxaca."
+    },
+    {
+     "message": "started welsh lessons on duolingo, the pronunciation is destroying me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Welsh pronunciation can be a bit of a challenge, but it's also a great way to learn a new language. If you'd like, I can try to help you with some tips and tricks to improve your pronunciation."
+    },
+    {
+     "message": "dev grew up in winnipeg so he thinks this cold is nothing, show off",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great way to put it."
+    },
+    {
+     "message": "sprained my wrist at pottery last night, clay everywhere",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, poor you!"
+    },
+    {
+     "message": "ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "A wedding at brackenfield sounds like a beautiful setting. For an outfit, you might consider a flowing, elegant dress in a neutral color like white, cream, or beige. You could also add some subtle details like a veil, a clutch, or a pair of delicate jewelry pieces to make"
+    },
+    {
+     "message": "priya finally got into dalhousie for nursing, so proud of her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great news!"
+    },
+    {
+     "message": "tessa just booked flights to tbilisi, shes been saving for ages",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "A trip to tbilisi sounds like a wonderful adventure."
+    },
+    {
+     "message": "dev's been doing fencing on weekends and keeps begging me to try it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you're being asked to try fencing."
+    },
+    {
+     "message": "rowan would eat mango at every meal if i let them, its their favourite thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a fun way to enjoy a healthy snack."
+    },
+    {
+     "message": "my phone screen cracked again, this pixel is cursed",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ugh, another broken screen."
+    },
+    {
+     "message": "ollie and his fiance are moving to halifax after everything settles down",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a new adventure."
+    },
+    {
+     "message": "callum is still yelling at the tv about the raptors, esme copies him now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a fun way to spend the evening."
+    },
+    {
+     "message": "esme lost her first tooth and callum cried more than she did honestly",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a sad moment."
+    },
+    {
+     "message": "rowan has been blasting khruangbin all week, i kinda get it now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you're trying to understand a bit of a music trend. Khruangbin is a band that often plays a mix of punk, rock, and electronic music. If you're not familiar with them, you might want to check out some of their songs to get a better sense of what they're"
+    },
+    {
+     "message": "finally caved and bought a kayak, its taking up the whole hallway",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a fun way to spend the day."
+    },
+    {
+     "message": "anyway pottery is thursday so fingers crossed my hand cooperates",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good luck with your hand cooperating."
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where do i work again lol",
+     "source_message": 1,
+     "key": "aquarium",
+     "same_meaning": [
+      "the aquarium",
+      "an aquarium"
+     ],
+     "category": "C02",
+     "person": "me",
+     "message": "where do i work again lol",
+     "queries": [
+      "work",
+      "job employer"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what does dev drive",
+     "source_message": 5,
+     "key": "saab",
+     "same_meaning": [
+      "a saab",
+      "Saab"
+     ],
+     "category": "C17",
+     "person": "dev",
+     "message": "what does dev drive",
+     "queries": [
+      "dev drive"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0010::0 doc_id=exchange_0010 score=1.799]\nUser: dev grew up in winnipeg so he thinks this cold is nothing, show off\nAssistant: That's a great way to put it.\n\n[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=1.751]\nUser: dev's been doing fencing on weekends and keeps begging me to try it\nAssistant: It sounds like you're being asked to try fencing.\n\n[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=1.619]\nUser: dev's saab broke down again on the bridge so i gave him a lift, that thing is held togther with tape\nAssistant: Sounds like a bit of a tricky situation."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what kind of dog is marguerite's new one",
+     "source_message": 7,
+     "key": "whippet",
+     "same_meaning": [
+      "a whippet",
+      "whippet puppy"
+     ],
+     "category": "C10",
+     "person": "marguerite",
+     "message": "what kind of dog is marguerite's new one",
+     "queries": [
+      "marguerite dog"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0006::0 doc_id=exchange_0006 score=2.992]\nUser: marguerite next door just got a whippet puppy, named it turnip, its the cutest thing\nAssistant: That sounds adorable."
+     ],
+     "reply": "Marguerite's new dog is a whippet.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "where is my sister headed",
+     "source_message": 15,
+     "key": "tbilisi",
+     "same_meaning": [
+      "Tbilisi",
+      "tbilisi, georgia",
+      "georgia"
+     ],
+     "category": "C15",
+     "person": "tessa",
+     "other_value": "oaxaca",
+     "message": "where is my sister headed",
+     "queries": [
+      "sister moving city"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=2.992]\nUser: ollie and his fiance are moving to halifax after everything settles down\nAssistant: That sounds like a new adventure.\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=2.923]\nUser: my sister tessa called, shes studying geology now and wont shut up about rocks\nAssistant: Sounds like your sister is doing well in her studies.\n\n[chunk_id=exchange_0008::0 doc_id=exchange_0008 score=1.998]\nUser: my sister in law noor is going to oaxaca with her cousins next month, my brother callum is stuck home with esme\nAssistant: That sounds like a fun trip to oaxaca."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "remind me which ingredient i should stay away from",
+     "source_message": 3,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame seeds",
+      "Sesame"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "remind me which ingredient i should stay away from",
+     "queries": [
+      "ingredient stay away",
+      "eating food"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "whats the venue for ollie's big day",
+     "source_message": 13,
+     "key": "brackenfield",
+     "same_meaning": [
+      "Brackenfield",
+      "a barn at brackenfield",
+      "the barn past the lake"
+     ],
+     "category": "C28",
+     "person": "ollie",
+     "message": "whats the venue for ollie's big day",
+     "queries": [
+      "ollie venue"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=2.351]\nUser: ollie and his fiance are moving to halifax after everything settles down\nAssistant: That sounds like a new adventure.\n\n[chunk_id=exchange_0012::0 doc_id=exchange_0012 score=1.390]\nUser: ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit\nAssistant: A wedding at brackenfield sounds like a beautiful setting. For an outfit, you might consider a flowing, elegant dress in a neutral color like white, cream, or beige. You could also add some subtle details like a veil, a clutch, or a pair of delicate j"
+     ],
+     "reply": "Ollie's wedding is at brackenfield.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which band is rowan into",
+     "source_message": 22,
+     "key": "khruangbin",
+     "same_meaning": [
+      "Khruangbin"
+     ],
+     "category": "C23",
+     "person": "rowan",
+     "message": "which band is rowan into",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Rowan is into Khruangbin.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what did i purchase recently",
+     "source_message": 23,
+     "key": "kayak",
+     "same_meaning": [
+      "a kayak"
+     ],
+     "category": "C40",
+     "person": "me",
+     "message": "what did i purchase recently",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You bought a kayak.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "do you remember which vehicle priya owns",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "do you remember which vehicle priya owns",
+     "queries": [
+      "priya vehicle"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0013::0 doc_id=exchange_0013 score=3.083]\nUser: priya finally got into dalhousie for nursing, so proud of her\nAssistant: That's a great news!"
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which town was rowan raised in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C05",
+     "person": "rowan",
+     "message": "which town was rowan raised in",
+     "queries": [
+      "rowan raised town"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0005::0 doc_id=exchange_0005 score=1.851]\nUser: watching severance with rowan, were two episodes behind everyone and dodging spoilers\nAssistant: Sounds like you're trying to avoid spoilers.\n\n[chunk_id=exchange_0016::0 doc_id=exchange_0016 score=1.727]\nUser: rowan would eat mango at every meal if i let them, its their favourite thing\nAssistant: Sounds like a fun way to enjoy a healthy snack.\n\n[chunk_id=exchange_0002::0 doc_id=exchange_0002 score=1.439]\nUser: my partner rowan made curry for dinner but i had to pick around the sesame seeds on top, my throat gets itchy with that stuff\nAssistant: Sounds like a delicious meal, but a bit of a problem with the sesame seeds."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "where is tessa studying",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C14",
+     "person": "tessa",
+     "overlap_message": 2,
+     "message": "where is tessa studying",
+     "queries": [
+      "tessa studying"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=4.910]\nUser: my sister tessa called, shes studying geology now and wont shut up about rocks\nAssistant: Sounds like your sister is doing well in her studies.\n\n[chunk_id=exchange_0014::0 doc_id=exchange_0014 score=2.283]\nUser: tessa just booked flights to tbilisi, shes been saving for ages\nAssistant: A trip to tbilisi sounds like a wonderful adventure."
+     ],
+     "reply": "Your sister tessa is studying geology."
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where will ollie work after moving",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C02",
+     "person": "ollie",
+     "overlap_message": 19,
+     "message": "where will ollie work after moving",
+     "queries": [
+      "ollie work moving"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=5.343]\nUser: ollie and his fiance are moving to halifax after everything settles down\nAssistant: That sounds like a new adventure.\n\n[chunk_id=exchange_0012::0 doc_id=exchange_0012 score=1.390]\nUser: ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit\nAssistant: A wedding at brackenfield sounds like a beautiful setting. For an outfit, you might consider a flowing, elegant dress in a neutral color like white, cream, or beige. You could also add some subtle details like a veil, a clutch, or a pair of delicate j"
+     ],
+     "reply": "Ollie and his fiance are moving to halifax."
+    }
+   ]
+  },
+  "K4.5e2_no_search": {
+   "prefix": [
+    {
+     "message": "ok so long shift at the aquarium today, one of the otters stole a volunteers glove and i laughed way too hard",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That was a great story."
+    },
+    {
+     "message": "my sister tessa called, shes studying geology now and wont shut up about rocks",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like your sister is doing well in her studies."
+    },
+    {
+     "message": "my partner rowan made curry for dinner but i had to pick around the sesame seeds on top, my throat gets itchy with that stuff",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a delicious meal, but a bit of a problem with the sesame seeds."
+    },
+    {
+     "message": "taking the ferry in every morning is honestly the best part of my day lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a great way to start the day."
+    },
+    {
+     "message": "dev's saab broke down again on the bridge so i gave him a lift, that thing is held togther with tape",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a bit of a tricky situation."
+    },
+    {
+     "message": "watching severance with rowan, were two episodes behind everyone and dodging spoilers",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like you're trying to avoid spoilers."
+    },
+    {
+     "message": "marguerite next door just got a whippet puppy, named it turnip, its the cutest thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds adorable."
+    },
+    {
+     "message": "im half maltese and still cant make pastizzi like my nan, tried again tonight and it was a disaster",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Pastizzi can be a bit of a challenge, especially if you're new to the recipe. It's a bit of a delicate balance of ingredients and techniques. If you'd like, I can try to help you troubleshoot and improve your pastizzi."
+    },
+    {
+     "message": "my sister in law noor is going to oaxaca with her cousins next month, my brother callum is stuck home with esme",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun trip to oaxaca."
+    },
+    {
+     "message": "started welsh lessons on duolingo, the pronunciation is destroying me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Welsh pronunciation can be a bit of a challenge, but it's also a great way to learn a new language. If you'd like, I can try to help you with some tips and tricks to improve your pronunciation."
+    },
+    {
+     "message": "dev grew up in winnipeg so he thinks this cold is nothing, show off",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great way to put it."
+    },
+    {
+     "message": "sprained my wrist at pottery last night, clay everywhere",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, poor you!"
+    },
+    {
+     "message": "ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "A wedding at brackenfield sounds like a beautiful setting. For an outfit, you might consider a flowing, elegant dress in a neutral color like white, cream, or beige. You could also add some subtle details like a veil, a clutch, or a pair of delicate jewelry pieces to make"
+    },
+    {
+     "message": "priya finally got into dalhousie for nursing, so proud of her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great news!"
+    },
+    {
+     "message": "tessa just booked flights to tbilisi, shes been saving for ages",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "A trip to tbilisi sounds like a wonderful adventure."
+    },
+    {
+     "message": "dev's been doing fencing on weekends and keeps begging me to try it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you're being asked to try fencing."
+    },
+    {
+     "message": "rowan would eat mango at every meal if i let them, its their favourite thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a fun way to enjoy a healthy snack."
+    },
+    {
+     "message": "my phone screen cracked again, this pixel is cursed",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ugh, another broken screen."
+    },
+    {
+     "message": "ollie and his fiance are moving to halifax after everything settles down",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a new adventure."
+    },
+    {
+     "message": "callum is still yelling at the tv about the raptors, esme copies him now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a fun way to spend the evening."
+    },
+    {
+     "message": "esme lost her first tooth and callum cried more than she did honestly",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a sad moment."
+    },
+    {
+     "message": "rowan has been blasting khruangbin all week, i kinda get it now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you're trying to understand a bit of a music trend. Khruangbin is a band that often plays a mix of punk, rock, and electronic music. If you're not familiar with them, you might want to check out some of their songs to get a better sense of what they're"
+    },
+    {
+     "message": "finally caved and bought a kayak, its taking up the whole hallway",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a fun way to spend the day."
+    },
+    {
+     "message": "anyway pottery is thursday so fingers crossed my hand cooperates",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good luck with your hand cooperating."
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where do i work again lol",
+     "source_message": 1,
+     "key": "aquarium",
+     "same_meaning": [
+      "the aquarium",
+      "an aquarium"
+     ],
+     "category": "C02",
+     "person": "me",
+     "message": "where do i work again lol",
+     "queries": [
+      "work",
+      "job employer"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what does dev drive",
+     "source_message": 5,
+     "key": "saab",
+     "same_meaning": [
+      "a saab",
+      "Saab"
+     ],
+     "category": "C17",
+     "person": "dev",
+     "message": "what does dev drive",
+     "queries": [
+      "dev drive",
+      "hard drive"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what kind of dog is marguerite's new one",
+     "source_message": 7,
+     "key": "whippet",
+     "same_meaning": [
+      "a whippet",
+      "whippet puppy"
+     ],
+     "category": "C10",
+     "person": "marguerite",
+     "message": "what kind of dog is marguerite's new one",
+     "queries": [
+      "marguerite dog",
+      "marguerite walks walk"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "where is my sister headed",
+     "source_message": 15,
+     "key": "tbilisi",
+     "same_meaning": [
+      "Tbilisi",
+      "tbilisi, georgia",
+      "georgia"
+     ],
+     "category": "C15",
+     "person": "tessa",
+     "other_value": "oaxaca",
+     "message": "where is my sister headed",
+     "queries": [
+      "sister moving city",
+      "relocating move new"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "remind me which ingredient i should stay away from",
+     "source_message": 3,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame seeds",
+      "Sesame"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "remind me which ingredient i should stay away from",
+     "queries": [
+      "ingredient stay away",
+      "eating food"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "whats the venue for ollie's big day",
+     "source_message": 13,
+     "key": "brackenfield",
+     "same_meaning": [
+      "Brackenfield",
+      "a barn at brackenfield",
+      "the barn past the lake"
+     ],
+     "category": "C28",
+     "person": "ollie",
+     "message": "whats the venue for ollie's big day",
+     "queries": [
+      "ollie venue",
+      "hospital born birthday"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which band is rowan into",
+     "source_message": 22,
+     "key": "khruangbin",
+     "same_meaning": [
+      "Khruangbin"
+     ],
+     "category": "C23",
+     "person": "rowan",
+     "message": "which band is rowan into",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Rowan is into Khruangbin.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what did i purchase recently",
+     "source_message": 23,
+     "key": "kayak",
+     "same_meaning": [
+      "a kayak"
+     ],
+     "category": "C40",
+     "person": "me",
+     "message": "what did i purchase recently",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You bought a kayak.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "do you remember which vehicle priya owns",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "do you remember which vehicle priya owns",
+     "queries": [
+      "priya vehicle",
+      "car car owner"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which town was rowan raised in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C05",
+     "person": "rowan",
+     "message": "which town was rowan raised in",
+     "queries": [
+      "rowan raised town",
+      "grew childhood hometown"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "where is tessa studying",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C14",
+     "person": "tessa",
+     "overlap_message": 2,
+     "message": "where is tessa studying",
+     "queries": [
+      "tessa studying",
+      "tessa classes school"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where will ollie work after moving",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C02",
+     "person": "ollie",
+     "overlap_message": 19,
+     "message": "where will ollie work after moving",
+     "queries": [
+      "ollie work moving",
+      "new job employer"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    }
+   ]
+  },
+  "K4.6e2": {
+   "prefix": [
+    {
+     "message": "ok so long shift at the aquarium today, one of the otters stole a volunteers glove and i laughed way too hard",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun story!"
+    },
+    {
+     "message": "my sister tessa called, shes studying geology now and wont shut up about rocks",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like your sister is into geology."
+    },
+    {
+     "message": "my partner rowan made curry for dinner but i had to pick around the sesame seeds on top, my throat gets itchy with that stuff",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a problem."
+    },
+    {
+     "message": "taking the ferry in every morning is honestly the best part of my day lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great way to start the day."
+    },
+    {
+     "message": "dev's saab broke down again on the bridge so i gave him a lift, that thing is held togther with tape",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a rough ride."
+    },
+    {
+     "message": "watching severance with rowan, were two episodes behind everyone and dodging spoilers",
+     "queries": [
+      "severance episodes",
+      "show watching"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "message": "marguerite next door just got a whippet puppy, named it turnip, its the cutest thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a beautiful story."
+    },
+    {
+     "message": "im half maltese and still cant make pastizzi like my nan, tried again tonight and it was a disaster",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a shame."
+    },
+    {
+     "message": "my sister in law noor is going to oaxaca with her cousins next month, my brother callum is stuck home with esme",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great story."
+    },
+    {
+     "message": "started welsh lessons on duolingo, the pronunciation is destroying me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Welsh pronunciation can be a bit of a challenge, but with practice, you'll get the hang of it."
+    },
+    {
+     "message": "dev grew up in winnipeg so he thinks this cold is nothing, show off",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bold statement."
+    },
+    {
+     "message": "sprained my wrist at pottery last night, clay everywhere",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, that's a bit of a bummer."
+    },
+    {
+     "message": "ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a beautiful setting for a wedding."
+    },
+    {
+     "message": "priya finally got into dalhousie for nursing, so proud of her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great story."
+    },
+    {
+     "message": "tessa just booked flights to tbilisi, shes been saving for ages",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a big trip."
+    },
+    {
+     "message": "dev's been doing fencing on weekends and keeps begging me to try it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like you're getting into fencing."
+    },
+    {
+     "message": "rowan would eat mango at every meal if i let them, its their favourite thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun fact."
+    },
+    {
+     "message": "my phone screen cracked again, this pixel is cursed",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ugh, another cracked screen."
+    },
+    {
+     "message": "ollie and his fiance are moving to halifax after everything settles down",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a big move."
+    },
+    {
+     "message": "callum is still yelling at the tv about the raptors, esme copies him now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun way to spend the evening."
+    },
+    {
+     "message": "esme lost her first tooth and callum cried more than she did honestly",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a sad day."
+    },
+    {
+     "message": "rowan has been blasting khruangbin all week, i kinda get it now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Khruangbin is a Mexican band."
+    },
+    {
+     "message": "finally caved and bought a kayak, its taking up the whole hallway",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun way to spend the evening."
+    },
+    {
+     "message": "anyway pottery is thursday so fingers crossed my hand cooperates",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great way to spend the evening."
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where do i work again lol",
+     "source_message": 1,
+     "key": "aquarium",
+     "same_meaning": [
+      "the aquarium",
+      "an aquarium"
+     ],
+     "category": "C02",
+     "person": "me",
+     "message": "where do i work again lol",
+     "queries": [
+      "work",
+      "job shift"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=2.418]\nUser: ok so long shift at the aquarium today, one of the otters stole a volunteers glove and i laughed way too hard\nAssistant: That's a fun story!"
+     ],
+     "reply": "You work at the aquarium.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what does dev drive",
+     "source_message": 5,
+     "key": "saab",
+     "same_meaning": [
+      "a saab",
+      "Saab"
+     ],
+     "category": "C17",
+     "person": "dev",
+     "message": "what does dev drive",
+     "queries": [
+      "dev drive"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0010::0 doc_id=exchange_0010 score=1.744]\nUser: dev grew up in winnipeg so he thinks this cold is nothing, show off\nAssistant: That's a bold statement.\n\n[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=1.688]\nUser: dev's been doing fencing on weekends and keeps begging me to try it\nAssistant: Sounds like you're getting into fencing.\n\n[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=1.475]\nUser: dev's saab broke down again on the bridge so i gave him a lift, that thing is held togther with tape\nAssistant: That's a bit of a rough ride."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what kind of dog is marguerite's new one",
+     "source_message": 7,
+     "key": "whippet",
+     "same_meaning": [
+      "a whippet",
+      "whippet puppy"
+     ],
+     "category": "C10",
+     "person": "marguerite",
+     "message": "what kind of dog is marguerite's new one",
+     "queries": [
+      "dog marguerite"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0006::0 doc_id=exchange_0006 score=2.694]\nUser: marguerite next door just got a whippet puppy, named it turnip, its the cutest thing\nAssistant: That's a beautiful story."
+     ],
+     "reply": "Marguerite's dog is a whippet.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "where is my sister headed",
+     "source_message": 15,
+     "key": "tbilisi",
+     "same_meaning": [
+      "Tbilisi",
+      "tbilisi, georgia",
+      "georgia"
+     ],
+     "category": "C15",
+     "person": "tessa",
+     "other_value": "oaxaca",
+     "message": "where is my sister headed",
+     "queries": [
+      "sister moving city"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=2.851]\nUser: my sister tessa called, shes studying geology now and wont shut up about rocks\nAssistant: Sounds like your sister is into geology.\n\n[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=2.833]\nUser: ollie and his fiance are moving to halifax after everything settles down\nAssistant: That's a big move.\n\n[chunk_id=exchange_0008::0 doc_id=exchange_0008 score=1.900]\nUser: my sister in law noor is going to oaxaca with her cousins next month, my brother callum is stuck home with esme\nAssistant: That's a great story."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "remind me which ingredient i should stay away from",
+     "source_message": 3,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame seeds",
+      "Sesame"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "remind me which ingredient i should stay away from",
+     "queries": [
+      "ingredient",
+      "food avoid"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "whats the venue for ollie's big day",
+     "source_message": 13,
+     "key": "brackenfield",
+     "same_meaning": [
+      "Brackenfield",
+      "a barn at brackenfield",
+      "the barn past the lake"
+     ],
+     "category": "C28",
+     "person": "ollie",
+     "message": "whats the venue for ollie's big day",
+     "queries": [
+      "ollie venue"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=2.225]\nUser: ollie and his fiance are moving to halifax after everything settles down\nAssistant: That's a big move.\n\n[chunk_id=exchange_0012::0 doc_id=exchange_0012 score=1.987]\nUser: ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit\nAssistant: That's a beautiful setting for a wedding."
+     ],
+     "reply": "The venue for ollie's big day is brackenfield.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which band is rowan into",
+     "source_message": 22,
+     "key": "khruangbin",
+     "same_meaning": [
+      "Khruangbin"
+     ],
+     "category": "C23",
+     "person": "rowan",
+     "message": "which band is rowan into",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Rowan is into khruangbin.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what did i purchase recently",
+     "source_message": 23,
+     "key": "kayak",
+     "same_meaning": [
+      "a kayak"
+     ],
+     "category": "C40",
+     "person": "me",
+     "message": "what did i purchase recently",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You bought a kayak.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "do you remember which vehicle priya owns",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "do you remember which vehicle priya owns",
+     "queries": [
+      "vehicle priya owns"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0013::0 doc_id=exchange_0013 score=2.882]\nUser: priya finally got into dalhousie for nursing, so proud of her\nAssistant: That's a great story."
+     ],
+     "reply": "I don't know that one yet."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which town was rowan raised in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C05",
+     "person": "rowan",
+     "message": "which town was rowan raised in",
+     "queries": [
+      "town rowan raised"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0016::0 doc_id=exchange_0016 score=1.715]\nUser: rowan would eat mango at every meal if i let them, its their favourite thing\nAssistant: That's a fun fact.\n\n[chunk_id=exchange_0005::0 doc_id=exchange_0005 score=1.661]\nUser: watching severance with rowan, were two episodes behind everyone and dodging spoilers\nAssistant: I don't have that from you. What is it?\n\n[chunk_id=exchange_0002::0 doc_id=exchange_0002 score=1.435]\nUser: my partner rowan made curry for dinner but i had to pick around the sesame seeds on top, my throat gets itchy with that stuff\nAssistant: That's a bit of a problem."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "where is tessa studying",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C14",
+     "person": "tessa",
+     "overlap_message": 2,
+     "message": "where is tessa studying",
+     "queries": [
+      "tessa studying"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=4.733]\nUser: my sister tessa called, shes studying geology now and wont shut up about rocks\nAssistant: Sounds like your sister is into geology.\n\n[chunk_id=exchange_0014::0 doc_id=exchange_0014 score=2.264]\nUser: tessa just booked flights to tbilisi, shes been saving for ages\nAssistant: That's a big trip."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where will ollie work after moving",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C02",
+     "person": "ollie",
+     "overlap_message": 19,
+     "message": "where will ollie work after moving",
+     "queries": [
+      "ollie work"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=2.225]\nUser: ollie and his fiance are moving to halifax after everything settles down\nAssistant: That's a big move.\n\n[chunk_id=exchange_0012::0 doc_id=exchange_0012 score=1.987]\nUser: ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit\nAssistant: That's a beautiful setting for a wedding."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    }
+   ]
+  },
+  "K4.6e2_no_search": {
+   "prefix": [
+    {
+     "message": "ok so long shift at the aquarium today, one of the otters stole a volunteers glove and i laughed way too hard",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun story!"
+    },
+    {
+     "message": "my sister tessa called, shes studying geology now and wont shut up about rocks",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like your sister is into geology."
+    },
+    {
+     "message": "my partner rowan made curry for dinner but i had to pick around the sesame seeds on top, my throat gets itchy with that stuff",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a problem."
+    },
+    {
+     "message": "taking the ferry in every morning is honestly the best part of my day lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great way to start the day."
+    },
+    {
+     "message": "dev's saab broke down again on the bridge so i gave him a lift, that thing is held togther with tape",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a rough ride."
+    },
+    {
+     "message": "watching severance with rowan, were two episodes behind everyone and dodging spoilers",
+     "queries": [
+      "severance episodes",
+      "show watching"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "message": "marguerite next door just got a whippet puppy, named it turnip, its the cutest thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a beautiful story."
+    },
+    {
+     "message": "im half maltese and still cant make pastizzi like my nan, tried again tonight and it was a disaster",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a shame."
+    },
+    {
+     "message": "my sister in law noor is going to oaxaca with her cousins next month, my brother callum is stuck home with esme",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great story."
+    },
+    {
+     "message": "started welsh lessons on duolingo, the pronunciation is destroying me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Welsh pronunciation can be a bit of a challenge, but with practice, you'll get the hang of it."
+    },
+    {
+     "message": "dev grew up in winnipeg so he thinks this cold is nothing, show off",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bold statement."
+    },
+    {
+     "message": "sprained my wrist at pottery last night, clay everywhere",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, that's a bit of a bummer."
+    },
+    {
+     "message": "ollie's wedding is at brackenfield, some barn out past the lake, i need an outfit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a beautiful setting for a wedding."
+    },
+    {
+     "message": "priya finally got into dalhousie for nursing, so proud of her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great story."
+    },
+    {
+     "message": "tessa just booked flights to tbilisi, shes been saving for ages",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a big trip."
+    },
+    {
+     "message": "dev's been doing fencing on weekends and keeps begging me to try it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like you're getting into fencing."
+    },
+    {
+     "message": "rowan would eat mango at every meal if i let them, its their favourite thing",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun fact."
+    },
+    {
+     "message": "my phone screen cracked again, this pixel is cursed",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ugh, another cracked screen."
+    },
+    {
+     "message": "ollie and his fiance are moving to halifax after everything settles down",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a big move."
+    },
+    {
+     "message": "callum is still yelling at the tv about the raptors, esme copies him now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun way to spend the evening."
+    },
+    {
+     "message": "esme lost her first tooth and callum cried more than she did honestly",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a sad day."
+    },
+    {
+     "message": "rowan has been blasting khruangbin all week, i kinda get it now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Khruangbin is a Mexican band."
+    },
+    {
+     "message": "finally caved and bought a kayak, its taking up the whole hallway",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun way to spend the evening."
+    },
+    {
+     "message": "anyway pottery is thursday so fingers crossed my hand cooperates",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great way to spend the evening."
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where do i work again lol",
+     "source_message": 1,
+     "key": "aquarium",
+     "same_meaning": [
+      "the aquarium",
+      "an aquarium"
+     ],
+     "category": "C02",
+     "person": "me",
+     "message": "where do i work again lol",
+     "queries": [
+      "work",
+      "job shift"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what does dev drive",
+     "source_message": 5,
+     "key": "saab",
+     "same_meaning": [
+      "a saab",
+      "Saab"
+     ],
+     "category": "C17",
+     "person": "dev",
+     "message": "what does dev drive",
+     "queries": [
+      "dev drive",
+      "hard drive"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what kind of dog is marguerite's new one",
+     "source_message": 7,
+     "key": "whippet",
+     "same_meaning": [
+      "a whippet",
+      "whippet puppy"
+     ],
+     "category": "C10",
+     "person": "marguerite",
+     "message": "what kind of dog is marguerite's new one",
+     "queries": [
+      "dog marguerite",
+      "pet cat"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "where is my sister headed",
+     "source_message": 15,
+     "key": "tbilisi",
+     "same_meaning": [
+      "Tbilisi",
+      "tbilisi, georgia",
+      "georgia"
+     ],
+     "category": "C15",
+     "person": "tessa",
+     "other_value": "oaxaca",
+     "message": "where is my sister headed",
+     "queries": [
+      "sister moving city",
+      "relocating move"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "remind me which ingredient i should stay away from",
+     "source_message": 3,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame seeds",
+      "Sesame"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "remind me which ingredient i should stay away from",
+     "queries": [
+      "ingredient",
+      "food avoid"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "whats the venue for ollie's big day",
+     "source_message": 13,
+     "key": "brackenfield",
+     "same_meaning": [
+      "Brackenfield",
+      "a barn at brackenfield",
+      "the barn past the lake"
+     ],
+     "category": "C28",
+     "person": "ollie",
+     "message": "whats the venue for ollie's big day",
+     "queries": [
+      "ollie venue",
+      "big concert"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which band is rowan into",
+     "source_message": 22,
+     "key": "khruangbin",
+     "same_meaning": [
+      "Khruangbin"
+     ],
+     "category": "C23",
+     "person": "rowan",
+     "message": "which band is rowan into",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Rowan is into khruangbin.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what did i purchase recently",
+     "source_message": 23,
+     "key": "kayak",
+     "same_meaning": [
+      "a kayak"
+     ],
+     "category": "C40",
+     "person": "me",
+     "message": "what did i purchase recently",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You bought a kayak.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "do you remember which vehicle priya owns",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "do you remember which vehicle priya owns",
+     "queries": [
+      "vehicle priya owns",
+      "car"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which town was rowan raised in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C05",
+     "person": "rowan",
+     "message": "which town was rowan raised in",
+     "queries": [
+      "town rowan raised",
+      "grew hometown"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "where is tessa studying",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C14",
+     "person": "tessa",
+     "overlap_message": 2,
+     "message": "where is tessa studying",
+     "queries": [
+      "tessa studying",
+      "major course degree"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where will ollie work after moving",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C02",
+     "person": "ollie",
+     "overlap_message": 19,
+     "message": "where will ollie work after moving",
+     "queries": [
+      "ollie work",
+      "job employer"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    }
+   ]
+  }
+ }
+}
