@@ -9228,3 +9228,11 @@ start trained a step).
 `results/demo2/judge_k13t2_82_demo2/`): older / in view / never told plain / shared word **2 of 6 / 2 of 2 / 2 of 2 /
 1 of 2**. **Bombs.** Right: the dog's breed, the venue; "what does dev drive" found and declined; "where is tessa
 studying" named geology (as K4.7, K4.8). Demo2 readings: 15. T3 (1e-4, 1 epoch, natural rows only) runs next.
+
+## R-234 · 2026-11-13 · REOPENED · T3 bombs Demo2; T4 next
+
+**Demo2 on T3 seed 82** (`k13t3_r229`: 1e-4, 1 epoch, natural rows only; 18:13; 504 tensors loaded, adapter changed;
+two fresh blind Sonnet judges, 48 items, 0 disagreements; `results/demo2/judge_k13t3_82_demo2/`): **2 of 6 / 2 of 2 /
+2 of 2 / 1 of 2. Bombs.** The same two older items right as every try; "dev drive" found and declined; "where is
+tessa studying" named geology. Demo2 readings: 16. T1, T2 and T3 give the same older count and the same items; T4
+(3e-4, 1 epoch, natural only) runs next by R-229.
