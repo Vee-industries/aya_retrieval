@@ -8959,3 +8959,24 @@ lock: train seed 82, Demo2 on its epoch-2 checkpoint at once, then screening on 
 
 Prediction (lane, A alone, seed 82): Demo2 older 2 of 6, never-told 3 of 4; hard_dev never_told 46 of 48. Mine:
 never-told 4 of 4, older 2 or 3 of 6 (near even), hard_dev never_told at least 45.
+
+## R-221 · 2026-11-13 · REOPENED · K4.6e2 fails screening at seed 82; its queue stopped; K4.8 takes the card
+
+**K4.6e2 seed 82** (queue `q219`; `scripts/records/decide_r191.py` counts): hard_dev never_told / false retrieval /
+recall / in_view: **39 / 10 / 75 / 40** (K4.6 at epoch 3: 46 / 4 / 72 / 39; K1.3: 46 / 2 / 52 / 41); probe 48 / 0 /
+92 / 44 (K1.3 47 / 1 / 90 / 45). **Two screening lines fail at seed 82**: hard_dev never_told 39 against a floor of 44,
+and hard_dev false retrieval 10 against a ceiling of 4 (6.37's 1 plus 3). The lines hold per seed, so by the
+registered rule K4.6e2 cannot ship whatever seeds 83 and 94 score (as K4.1, R-210). Its epoch-2 checkpoint passed
+Demo2's never-told items 4 of 4 and failed hard_dev's never_told items, which are built with a same-type fact about
+another person (R-066, R-073). The prediction (R-219: never_told at least 44, false retrieval at most 4) was wrong
+on both. Queue `q219` stopped at 14:47 during seed 82's first outside-writer run (no partial result kept); seeds 83 and
+94 do not train. No panel, because the stop follows the registered lines. K4.8's queue `q220`, waiting on the card
+lock, started at once (train seed 82 from 14:47). **Disclosed for K4.8**: the epoch-2 read registered for it (R-220)
+was chosen to match K4.6e2, and K4.6e2 now shows an epoch-2 checkpoint scoring worse on hard_dev never_told than
+epoch 3 (39 against 46). The read stays as registered, since changing it now would be choosing after a result;
+epoch 3 is still saved for every seed.
+
+The lane's recount of "search once, then stop" on K4.6e2's outside-writer logs (R-220) cannot run: those logs were
+never written. It moves to K4.8's seed 82 outside-writer logs.
+
+Shippable pick: K1.3, unchanged.
