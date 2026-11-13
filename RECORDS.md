@@ -9285,3 +9285,10 @@ never-told 3 of 4). New right: "what does dev drive" ("Dev's saab"), found and d
 missed: "where do i work", the sister, the ingredient (never found); "where is tessa studying" named geology.
 Demo2 readings: 17. Disclosed: the pass is one item over the line on a chat now read 17 times. By R-229 the queue
 runs Demo3 (held out, unread) on T4 seed 82 next; Demo3 is read for the first time.
+
+**Demo3 on T4 seed 82** (`results/demo2/branches_k13t4_r229_82_demo3.json`, `demo_dir` demo3, 18:41; Demo3's first
+reading; two fresh blind Sonnet judges, 48 items, 0 disagreements; `results/demo2/judge_k13t4_82_demo3/`), with search,
+older / in view / never told plain / shared word: **T4 4 of 6 / 2 of 2 / 2 of 2 / 1 of 2**; base 1 of 6 / 1 of 2 /
+0 of 2 / 0 of 2; T4 with an empty index 0 / 2 / 2 / 2. **T4 passes Demo3.** By R-229 T4 is the try screened: hard_dev
+on seed 82 first with R-222's early stop, then the rest of seed 82, then seeds 83 (trained the same way from K1.3's
+seed 83 adapter) and 94. Later round-1 tries (T5, T6) and round 2 wait; they run only if T4 fails a screening line.

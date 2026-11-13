@@ -1,0 +1,48 @@
+1 | WRONG | Neither says it does not know nor was told; states other facts
+2 | WRONG | Names a series for a never-told fact
+3 | WRONG | Names a series for a never-told fact
+4 | RIGHT_INVENTED | Middlemarch correct; adds book club detail
+5 | WRONG | Santorini, not Montenegro
+6 | RIGHT | Duluth
+7 | RIGHT | Says it does not have that from you
+8 | ABSTAINED | Does not recall a name
+9 | ABSTAINED | Says it does not know
+10 | RIGHT | Says it does not know
+11 | WRONG | Names warehouse manager for never-told fact
+12 | RIGHT | Fairphone
+13 | ABSTAINED | Unable to provide the city
+14 | WRONG | Talks about Middlemarch lawyer, no Saab
+15 | ABSTAINED | Does not have it from you
+16 | ABSTAINED | Does not recall a name
+17 | WRONG | Talks about Middlemarch lawyer, no Saab
+18 | ABSTAINED | Says it does not know
+19 | WRONG | Hidden charges, not sesame
+20 | WRONG | Portugal, not Estonia
+21 | RIGHT | Says it does not know
+22 | RIGHT | Says it does not have it from you
+23 | RIGHT | Estonia
+24 | RIGHT | Middlemarch
+25 | WRONG | Neither says it does not know nor was told; states other facts
+26 | RIGHT | Middlemarch
+27 | ABSTAINED | Says it does not know
+28 | WRONG | Names warehouse manager for never-told fact
+29 | WRONG | Fairphone offered with Pixel alternative, not an answer
+30 | RIGHT_INVENTED | Middlemarch correct; adds book club detail
+31 | ABSTAINED | Does not have it from you
+32 | WRONG | Hidden charges, not sesame
+33 | RIGHT | Says it does not know
+34 | WRONG | Says no wheels, names a value
+35 | ABSTAINED | Does not have it from you
+36 | WRONG | Names welsh, a value, instead of not knowing
+37 | ABSTAINED | Does not have it from you
+38 | RIGHT | Montenegro
+39 | WRONG | Portugal, not Estonia
+40 | ABSTAINED | Says it does not see it
+41 | RIGHT | Fairphone
+42 | RIGHT | Says it does not have it from you
+43 | WRONG | Fairphone offered with Pixel alternative, not an answer
+44 | RIGHT | Duluth; extra details not clearly conflicting
+45 | RIGHT | Saab
+46 | WRONG | Says no wheels, names a value
+47 | RIGHT | Says it does not have it from you
+48 | WRONG | Santorini, not Montenegro
