@@ -1,0 +1,48 @@
+1 | RIGHT | says no information found, names no town
+2 | RIGHT | says it has no information, names no workplace
+3 | RIGHT | says it has no information, names no workplace
+4 | RIGHT | says kayak
+5 | WRONG | names raw meat, fish, eggs instead of sesame
+6 | ABSTAINED | says it does not see it
+7 | RIGHT | says it does not see it, names no vehicle
+8 | WRONG | defines dev drive, no saab
+9 | ABSTAINED | says it does not see it
+10 | RIGHT | says nothing found, names no value
+11 | RIGHT | says no information found, names no place
+12 | ABSTAINED | says it does not see it
+13 | WRONG | talks about pottery, no aquarium
+14 | ABSTAINED | says it found no information
+15 | ABSTAINED | says nothing found
+16 | WRONG | defines dev drive, no saab
+17 | ABSTAINED | says it found no information
+18 | ABSTAINED | says it does not see it
+19 | ABSTAINED | says it found no information
+20 | WRONG | gives dress advice, no venue named
+21 | RIGHT | says it does not see it, names no town
+22 | RIGHT | says it does not see it, names no vehicle
+23 | RIGHT | says brackenfield
+24 | RIGHT | says kayak
+25 | RIGHT | says no information found, names no town
+26 | RIGHT | says kayak
+27 | ABSTAINED | says it does not see it
+28 | RIGHT | says no information found, names no place
+29 | ABSTAINED | says it found no information about Rowan
+30 | RIGHT | says kayak
+31 | ABSTAINED | says nothing found
+32 | WRONG | names Oaxaca, not Tbilisi
+33 | WRONG | names geology, a value for the asked fact
+34 | RIGHT | says it has no information, names no vehicle
+35 | ABSTAINED | says it does not see it
+36 | WRONG | names brackenfield though never told
+37 | ABSTAINED | says nothing found
+38 | ABSTAINED | says nothing found
+39 | ABSTAINED | says it found no information
+40 | ABSTAINED | says it does not see it
+41 | ABSTAINED | says it does not see it
+42 | RIGHT | says it does not see it, names no place
+43 | ABSTAINED | says it found no information about Rowan
+44 | WRONG | talks about pottery, no aquarium
+45 | RIGHT | says whippet
+46 | RIGHT | says it has no information, names no vehicle
+47 | RIGHT | says it does not have that, names no town
+48 | WRONG | names raw meat, fish, eggs instead of sesame
