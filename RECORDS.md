@@ -8711,3 +8711,27 @@ the person plus telling words 119 (58%). Built once, it cut the rows found by a 
 from 76 to 46. Not used. The writers' 72% may be high, since the same writers wrote the chats and the queries.
 `build_k4_5.main` takes the record. K4.6's target goes to the R-210 lane from K4.5's own dev misses, not Demo2's
 items.
+
+**The R-210 lane on K4.6** (from K4.5's dev misses). K4.5's older and confirm misses on seed 82: hard_dev 24 (no
+search 2, searched never found 1, found and declined 11, found with a wrong value 10), K1.3 44; probe screen 1, K1.3
+4. 13 of K4.5's 24 hard_dev misses are one type outside the training categories (a hiring panel's weekday; 1 of 14
+right, K1.3 5), left alone, since adding it would tune to hard_dev's design (R-066). Search misses show on the
+outside-writer sets (K4.1 only, seed 82: 98 older misses, 66 never found; in 61 of those the model searched once,
+got passages without the fact and stopped), and training explains it: after a search output with text, about 25
+rows search again and about 300 decline.
+
+**K4.6** (`scripts/records/build_k4_6.py`): K4.5's whole chain rerun from K4.5's stripped writer copies with one
+change, `build_k3.NEVER_TOLD_TWICE` for the K3 writers' never_told rows only (not near_miss or other_person): when the
+first search returns text, the second query runs too, and the row keeps both searches if the second returns text
+(else one); then the decline. Changed from the lane's rule, which kept a row with an empty second search: built that
+way (once), the R-205 balance cut 256 natural rows (every decline at passage count 0, where no value row exists)
+and K3.2's cut ran out of check_true rows (a crash); so a second search that returns nothing is not added. With the
+option off, `build_k3.py` rebuilds K3's rows byte for byte. Built once: 1,726 rows (K4.5 1,772); natural K3.1 534,
+K3.2 480 (54 check_true cut). After a search output with text, training rows now search again 64 times and reply
+1,212 (K4.5: 23 and 1,258; `results/panels/R-214/after_text_k4_6.txt`). Check (`check_k3.py --set k4_6_r214`,
+K4.5's lines): **0 FAIL** (`results/panels/R-214/check_k4_6.txt`). Queue `q214` as `q210`.
+
+Prediction (lane), before training: hard_dev seed 82 never_told 45 of 48 (43 to 47), false retrieval 3, recall 72 to
+75; Demo2 older 2 or 3 of 6 (about 40% to reach 3); both gates about 25%. Main risk: a second search on a never-told
+question returns another person's same-type fact and the model names it (15 rows teach the decline there). The
+added rows are fewer than the lane expected (41 against about 100), so the gain may be small.

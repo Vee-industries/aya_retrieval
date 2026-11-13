@@ -26,7 +26,8 @@ CANDIDATES = {
     "K4.2": "k4_2_r210",  # R-210 (bombed Demo2)
     "K4.3": "k4_3_r211",  # R-211 (not trained)
     "K4.4": "k4_4_r212",  # R-212 (bombed Demo2)
-    "K4.5": "k4_5_r213",  # R-213
+    "K4.5": "k4_5_r213",  # R-213 (bombed Demo2)
+    "K4.6": "k4_6_r214",  # R-214
 }
 REF = "fix17cs37"
 BASE = "base191"

@@ -71,12 +71,14 @@ def write_writers() -> int:
     return changed[0]
 
 
-def main(record: str = "R-213") -> None:
+def main(record: str = "R-213", never_told_twice: bool = False) -> None:
+    """Rerun the chain; ``never_told_twice`` (R-214) applies to the K3 writers' rows only."""
     print(f"queries changed: {write_writers()}")
     k3, k4, k4_4 = WRITERS / "k3", WRITERS / "k4", WRITERS / "k4_4"
 
     k31 = load("build_k3_1")
     k31.K3.WRITERS, k31.OUT = k3, DIR / "k3_1.jsonl"
+    k31.K3.NEVER_TOLD_TWICE = never_told_twice
     k31.main()
 
     k32 = load("build_k3_2")

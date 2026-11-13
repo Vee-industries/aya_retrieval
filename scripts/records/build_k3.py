@@ -49,6 +49,9 @@ OUT = Path("data/screens/k3_r205.jsonl")
 SALT = "R-205"
 IN_VIEW_FROM = 22  # messages 22 to 24 are in view; 1 to 21 are searched
 MAX_ROW_TOKENS = 1024  # R-102's limit
+NEVER_TOLD_TWICE = (
+    False  # R-214 (K4.6): never_told rows also search twice when both searches return text
+)
 KINDS = {
     "older": OLDER,
     "check_true": CONFIRM,
@@ -121,6 +124,8 @@ def chat_rows(writer: str, c: int, chat: dict, work: Path) -> list[dict]:
             searches = [(question["query"], first)]
             if not passages(first):
                 searches.append((question["second_query"], search(question["second_query"])))
+            elif NEVER_TOLD_TWICE and passages(second := search(question["second_query"])):
+                searches.append((question["second_query"], second))
             if not passages(searches[-1][1]):
                 continue  # R-020: never_told rows only with passages
             reply, names_value = unknown_reply(row_id), False
