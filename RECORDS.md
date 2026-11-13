@@ -8750,3 +8750,13 @@ housewarming-gift type (R-073) and outside the training categories. The data tha
 outside-writer sets, which K4.6 targets. **Diagnostic** (queue `q214d`, not eligible for the pick): K4.6 seed 82 on
 hard_dev, blind_dev and blind_dev2, to compare with K4.1's (the only earlier candidate scored there) before any
 K4.7 design.
+
+**K4.6's seed 82 diagnostic** (queue `q214d` done 11:22; not eligible for the pick; counts by
+`results/panels/R-214/diagnostic_k4_6.py`, output `diagnostic_k4_6.txt`, the decline split a rough phrase match).
+Seed 82, hard_dev never_told / false retrieval / recall, then outside-writer older and confirm right (blind +
+blind2): **K4.6 46 / 4 / 72, 65 + 67 = 132**; K4.5 47 / 2 / 72, not scored there; K4.1 34 / 8 / 65, 55 + 67 = 122;
+K1.3 46 / 2 / 52, 41 + 48 = 89. K4.6 passes seed 82's hard_dev lines (never_told at least 44; false retrieval at
+most 6.37's 1 plus 3) and is the highest of any candidate on the outside-writer sets. On those sets its misses are
+still mostly never found (39 and 34), then found and declined (8 and 8). K4.5 and K4.6 both bomb Demo2 at 2 of 6
+older; K1.3 scored 0 there. Asked Kevin 11:25 whether K4.6 goes to seeds 83 and 94 despite the Demo2 gate, or a
+K4.7 targets never-found facts (designing on the outside-writer sets would weaken them as a screening gate).

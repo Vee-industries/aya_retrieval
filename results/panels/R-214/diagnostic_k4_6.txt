@@ -1,0 +1,10 @@
+hd     k1_3_r200: {'found, declined': 25, 'found, other line': 7, 'never found': 9, 'never_told right': 46, 'no search': 3, 'right': 52}, false retrieval 2
+blind  k1_3_r200: {'found, declined': 11, 'found, other line': 7, 'never found': 41, 'never_told right': 39, 'no search': 20, 'right': 41}
+blind2 k1_3_r200: {'found, declined': 8, 'found, other line': 8, 'never found': 30, 'never_told right': 32, 'no search': 26, 'right': 48}
+hd     k4_1_r209: {'found, declined': 22, 'found, other line': 5, 'never_told right': 34, 'no search': 4, 'right': 65}, false retrieval 8
+blind  k4_1_r209: {'found, declined': 11, 'found, other line': 12, 'never found': 42, 'never_told right': 39, 'right': 55}
+blind2 k4_1_r209: {'found, declined': 8, 'found, other line': 12, 'never found': 32, 'never_told right': 35, 'no search': 1, 'right': 67}
+hd     k4_5_r213: {'found, declined': 11, 'found, other line': 10, 'never found': 1, 'never_told right': 47, 'no search': 2, 'right': 72}, false retrieval 2
+hd     k4_6_r214: {'found, declined': 18, 'found, other line': 4, 'never_told right': 46, 'no search': 2, 'right': 72}, false retrieval 4
+blind  k4_6_r214: {'found, declined': 8, 'found, other line': 8, 'never found': 39, 'never_told right': 39, 'right': 65}
+blind2 k4_6_r214: {'found, declined': 8, 'found, other line': 11, 'never found': 34, 'never_told right': 35, 'right': 67}
