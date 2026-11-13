@@ -8240,7 +8240,7 @@ the key was in the reply for base 1, 6.37 3, K1 2, K1.3 1. No reply to messages 
 arm 0 of 6). Shared content words with the source (R-201): 0 on five of the six older questions.
 
 **What it shows.** On facts told earlier, K1 and K1.3 do no better than declining everything: 0 of 6 each. Their
-search held the source message on 5 and 4 of the 6 older questions, and the reply declined ("I don't have that from
+search held the source message on 6 and 5 of the 6 older questions, and the reply declined ("I don't have that from
 you", "I checked and you haven't told me that") or gave another stored line (the look-alike's dog name for its
 breed). Queries still carry template words that are in no message ("Dev car auction", "priya car auction", "sister
 moving city" for a trip). K1.3 answered both shared-word never-told questions with an unrelated stored fact
