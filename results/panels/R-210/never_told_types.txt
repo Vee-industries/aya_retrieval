@@ -1,0 +1,5 @@
+R-210: never_told rows by outcome and query count (rough phrase match; design only)
+hd k1_3_r200 {'names_value': 2, 'right': 142} queries: {1: 144}
+probe k1_3_r200 {'names_value': 3, 'right': 141} queries: {1: 144}
+hd k4_1_r209 {'names_value': 18, 'out_of_calls': 22, 'right': 104} queries: {1: 70, 2: 38, 3: 14, 4: 22}
+probe k4_1_r209 {'names_value': 2, 'out_of_calls': 41, 'right': 101} queries: {1: 82, 2: 12, 3: 9, 4: 41}

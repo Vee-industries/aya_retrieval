@@ -8499,3 +8499,25 @@ affected by that. Base with search scored 1 of 6 older here against 0 in R-204, 
 of replies: base's 12 replies are byte for byte R-204's, so the difference is the judges between rounds, which
 puts about one item of judge noise on every count here. Prediction (R-208): older 3 of 6, never-told 3 of 4; both one
 better.
+
+## R-210 · 2026-11-13 · REOPENED · K4.1 fails screening; K1.3 stays the provisional pick; K4.2 to a panel
+
+**K4.1's screening** (queue `q209` done 05:24, 0 FAIL lines in the log; `scripts/records/decide_r191.py`, output
+`results/panels/R-210/decide_r191.txt`). **4 FAIL**: hard_dev never_told 34 (seed 82) and 40 (seed 83) of 48 against
+a floor of 44; hard_dev false retrieval 8 and 7 against ceilings of 4 and 5. Every recall line passes; pooled dev
+recall 577 against K1.3's 501 (dev numbers on the outside-writer sets get optimistic as candidates accumulate,
+R-209). By the registered rule K4.1 cannot ship; **the shippable arm stays K1.3** (pick recall 742), provisional
+until Saturday 18:00 (R-202). Seed 94 is trained and scored but takes no part in a failed candidate's verdict
+(hard_dev never_told 30 of 48 there).
+
+**Why** (`results/panels/R-210/never_told_types.txt`, a rough phrase match for design only). Over seeds 82, 83
+and 94, K4.1's never_told misses are 22 (hard_dev) and 41 (probe) rows that searched 4 times and ran out of calls,
+and 18 (hard_dev) that named a value, often the same person's fact of another category ("Lorcan uni", then
+"degree studying", then "Lorcan is studying psychology"). K1.3 searched once on every never_told row (misses 2
+and 3). In K4.1's natural rows a second search ends in a value 104 times and a decline 25 times; a never_told row
+searches twice only when its first search returns nothing (4 rows). Demo2's never-told 4 of 4 did not show this: it
+is one chat, and not blind for K4.x (R-208).
+
+**Next candidate, K4.2**, under Kevin's "if 3.1 fails move onto the next": never_told and near_miss rows run both
+queries and decline, with a one-to-one cut at two searches (`results/panels/R-210/k42_design.md`). Sent to an
+against lane before it is built.

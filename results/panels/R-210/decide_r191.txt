@@ -1,0 +1,87 @@
+PASS  K1: probe recall seed 82 93 above base's 30
+PASS  K1: hd recall seed 82 57 above base's 20
+PASS  K1: outside-writer recall seed 82 81 above base's 53
+PASS  K1: T2 other-facts recall seed 82 143 above base's 53
+PASS  K1: probe in_view seed 82 46 at least 41
+PASS  K1: probe statement seed 82 48 at least 44 of 48
+PASS  K1: hard_dev never_told seed 82 47 at least 44 of 48
+PASS  K1: probe false retrieval seed 82 0 at most 6.37's 0 plus 3
+PASS  K1: hd false retrieval seed 82 1 at most 6.37's 1 plus 3
+PASS  K1: probe recall seed 83 95 above base's 30
+PASS  K1: hd recall seed 83 65 above base's 20
+PASS  K1: outside-writer recall seed 83 90 above base's 53
+PASS  K1: T2 other-facts recall seed 83 153 above base's 53
+PASS  K1: probe in_view seed 83 44 at least 41
+PASS  K1: probe statement seed 83 48 at least 44 of 48
+PASS  K1: hard_dev never_told seed 83 48 at least 44 of 48
+PASS  K1: probe false retrieval seed 83 0 at most 6.37's 0 plus 3
+PASS  K1: hd false retrieval seed 83 1 at most 6.37's 2 plus 3
+PASS  K1: T3 copies 68 at most half of 6.37's 368
+PASS  K1: T2 false answers 3 at most half of 6.37's 53
+== K1: 0 FAIL, 0 WAIT, pooled dev recall 481 (R-191)
+== K1: pick recall over seeds (82, 83, 94): 720 (R-192)
+PASS  K2.1: probe recall seed 82 96 above base's 30
+PASS  K2.1: hd recall seed 82 68 above base's 20
+PASS  K2.1: outside-writer recall seed 82 102 above base's 53
+PASS  K2.1: T2 other-facts recall seed 82 161 above base's 53
+PASS  K2.1: probe in_view seed 82 46 at least 41
+PASS  K2.1: probe statement seed 82 48 at least 44 of 48
+PASS  K2.1: hard_dev never_told seed 82 48 at least 44 of 48
+PASS  K2.1: probe false retrieval seed 82 0 at most 6.37's 0 plus 3
+PASS  K2.1: hd false retrieval seed 82 1 at most 6.37's 1 plus 3
+PASS  K2.1: probe recall seed 83 91 above base's 30
+PASS  K2.1: hd recall seed 83 51 above base's 20
+PASS  K2.1: outside-writer recall seed 83 77 above base's 53
+PASS  K2.1: T2 other-facts recall seed 83 138 above base's 53
+FAIL  K2.1: probe in_view seed 83 40 at least 41
+PASS  K2.1: probe statement seed 83 48 at least 44 of 48
+PASS  K2.1: hard_dev never_told seed 83 48 at least 44 of 48
+PASS  K2.1: probe false retrieval seed 83 1 at most 6.37's 0 plus 3
+PASS  K2.1: hd false retrieval seed 83 0 at most 6.37's 2 plus 3
+PASS  K2.1: T3 copies 45 at most half of 6.37's 368
+PASS  K2.1: T2 false answers 20 at most half of 6.37's 53
+== K2.1: 1 FAIL, 0 WAIT, pooled dev recall 485 (R-191)
+PASS  K1.3: probe recall seed 82 90 above base's 30
+PASS  K1.3: hd recall seed 82 52 above base's 20
+PASS  K1.3: outside-writer recall seed 82 89 above base's 53
+PASS  K1.3: T2 other-facts recall seed 82 135 above base's 53
+PASS  K1.3: probe in_view seed 82 45 at least 41
+PASS  K1.3: probe statement seed 82 48 at least 44 of 48
+PASS  K1.3: hard_dev never_told seed 82 46 at least 44 of 48
+PASS  K1.3: probe false retrieval seed 82 1 at most 6.37's 0 plus 3
+PASS  K1.3: hd false retrieval seed 82 2 at most 6.37's 1 plus 3
+PASS  K1.3: probe recall seed 83 94 above base's 30
+PASS  K1.3: hd recall seed 83 72 above base's 20
+PASS  K1.3: outside-writer recall seed 83 104 above base's 53
+PASS  K1.3: T2 other-facts recall seed 83 159 above base's 53
+PASS  K1.3: probe in_view seed 83 45 at least 41
+PASS  K1.3: probe statement seed 83 48 at least 44 of 48
+PASS  K1.3: hard_dev never_told seed 83 48 at least 44 of 48
+PASS  K1.3: probe false retrieval seed 83 1 at most 6.37's 0 plus 3
+PASS  K1.3: hd false retrieval seed 83 1 at most 6.37's 2 plus 3
+PASS  K1.3: T3 copies 68 at most half of 6.37's 368
+PASS  K1.3: T2 false answers 9 at most half of 6.37's 53
+== K1.3: 0 FAIL, 0 WAIT, pooled dev recall 501 (R-191)
+== K1.3: pick recall over seeds (82, 83, 94): 742 (R-192)
+PASS  K4.1: probe recall seed 82 93 above base's 30
+PASS  K4.1: hd recall seed 82 65 above base's 20
+PASS  K4.1: outside-writer recall seed 82 122 above base's 53
+PASS  K4.1: T2 other-facts recall seed 82 153 above base's 53
+PASS  K4.1: probe in_view seed 82 44 at least 41
+PASS  K4.1: probe statement seed 82 48 at least 44 of 48
+FAIL  K4.1: hard_dev never_told seed 82 34 at least 44 of 48
+PASS  K4.1: probe false retrieval seed 82 1 at most 6.37's 0 plus 3
+FAIL  K4.1: hd false retrieval seed 82 8 at most 6.37's 1 plus 3
+PASS  K4.1: probe recall seed 83 93 above base's 30
+PASS  K4.1: hd recall seed 83 77 above base's 20
+PASS  K4.1: outside-writer recall seed 83 127 above base's 53
+PASS  K4.1: T2 other-facts recall seed 83 164 above base's 53
+PASS  K4.1: probe in_view seed 83 43 at least 41
+PASS  K4.1: probe statement seed 83 48 at least 44 of 48
+FAIL  K4.1: hard_dev never_told seed 83 40 at least 44 of 48
+PASS  K4.1: probe false retrieval seed 83 1 at most 6.37's 0 plus 3
+FAIL  K4.1: hd false retrieval seed 83 7 at most 6.37's 2 plus 3
+PASS  K4.1: T3 copies 69 at most half of 6.37's 368
+PASS  K4.1: T2 false answers 12 at most half of 6.37's 53
+== K4.1: 4 FAIL, 0 WAIT, pooled dev recall 577 (R-191)
+== shippable arm for S3: K1.3 (pick recall 742)
