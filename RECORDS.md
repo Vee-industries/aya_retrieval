@@ -8156,3 +8156,9 @@ pick stays R-192's.
 **Predictions** (mine, before the chat exists): base with search about 4 of 8 facts and 2 of 4 never told; 6.37 about
 5 of 8 and 1 of 4; K1 about 5 of 8 and 3 of 4; K1.3 within one item of K1 on each kind. Every arm with an empty index
 at most 2 of 6 older facts.
+
+**Writer and check** (19:03). One fresh writer agent, given only the brief; its transcript shows one Read (the brief)
+and two Writes (`demo2/chat.txt`, `demo2/questions.json`), no other tool. `scripts/records/demo2_check.py`: 0 FAIL
+of 13 rules, first try. Content words each fact question shares with its source message, questions 1 to 8: 0, 0, 0,
+0, 0, 1, 1, 0 (words in `results/demo2/overlap.json`). Nobody has read the chat or the questions. The run is queued
+behind K1.3's queue (`qd2`, card lock).

@@ -1,0 +1,14 @@
+{"questions": [
+  {"kind": "older", "question": "where do i work again lol", "source_message": 1, "key": "aquarium", "same_meaning": ["the aquarium", "an aquarium"], "category": "C02", "person": "me"},
+  {"kind": "older", "question": "what does dev drive", "source_message": 5, "key": "saab", "same_meaning": ["a saab", "Saab"], "category": "C17", "person": "dev"},
+  {"kind": "older", "question": "what kind of dog is marguerite's new one", "source_message": 7, "key": "whippet", "same_meaning": ["a whippet", "whippet puppy"], "category": "C10", "person": "marguerite"},
+  {"kind": "older", "question": "where is my sister headed", "source_message": 15, "key": "tbilisi", "same_meaning": ["Tbilisi", "tbilisi, georgia", "georgia"], "category": "C15", "person": "tessa", "other_value": "oaxaca"},
+  {"kind": "older", "question": "remind me which ingredient i should stay away from", "source_message": 3, "key": "sesame", "same_meaning": ["sesame seeds", "Sesame"], "category": "C19", "person": "me"},
+  {"kind": "older", "question": "whats the venue for ollie's big day", "source_message": 13, "key": "brackenfield", "same_meaning": ["Brackenfield", "a barn at brackenfield", "the barn past the lake"], "category": "C28", "person": "ollie"},
+  {"kind": "in_view", "question": "which band is rowan into", "source_message": 22, "key": "khruangbin", "same_meaning": ["Khruangbin"], "category": "C23", "person": "rowan"},
+  {"kind": "in_view", "question": "what did i purchase recently", "source_message": 23, "key": "kayak", "same_meaning": ["a kayak"], "category": "C40", "person": "me"},
+  {"kind": "never_told", "question": "do you remember which vehicle priya owns", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C17", "person": "priya"},
+  {"kind": "never_told", "question": "which town was rowan raised in", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C05", "person": "rowan"},
+  {"kind": "never_told", "question": "where is tessa studying", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C14", "person": "tessa", "overlap_message": 2},
+  {"kind": "never_told", "question": "where will ollie work after moving", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C02", "person": "ollie", "overlap_message": 19}
+]}
