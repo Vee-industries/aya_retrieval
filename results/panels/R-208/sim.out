@@ -1,0 +1,3 @@
+{'me': 369, 'named': 358, 'named_ref_in_fact_line': 323, 'named_ref_query_returns_fact': 328, 'person_has_2plus_facts': 161, 'named_ref_in_over5_lines': 0}
+categories of stored facts (top): [('C02', 40), ('C21', 40), ('C30', 38), ('C03', 35), ('C04', 35), ('C17', 35), ('C09', 33), ('C13', 33), ('C14', 33), ('C10', 32), ('C22', 32), ('C26', 32)]
+K3.2 natural rows: 526 Counter({'older': 164, 'confirm': 135, 'never_told': 106, 'statement': 62, 'in_view': 59})

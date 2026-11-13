@@ -8442,3 +8442,17 @@ then 83 and 94.
 
 **Predictions** (mine, before any writer runs): about 150 near-miss and contrast rows; check passes. Demo2 seed 82:
 older 3 of 6, never-told 3 of 4.
+
+**K4's against lane** (`results/panels/R-208/`, read while the writers wrote; ready with listed changes). All three
+changes are made before the build:
+1. Demo2 is not blind for K4: the brief's first close pairs (teaches against studies, moving against where someone
+   will work, a pet's name against its breed) are Demo2's own misses and its Q3. K4's Demo2 never-told result counts
+   only as a regression check, though Kevin's bomb rule still applies to it. K4 also targets S3's matching item type
+   (a never-told question sharing a word with another fact of the same person).
+2. Keep rules: a near_miss row is kept only if (a) the fact annotations show the asked person has a stated fact of
+   the stored category and none of the asked category, and (b) its last search output holds the asked person's
+   stored-category message. Contrast rows are kept only if found. Drops reported by person.
+3. Value and decline equal: among the kept rows, at each last-search passage count, the larger side (contrast value
+   rows or near_miss decline rows) is cut in a hashed order to the size of the smaller, so a close category word over
+   the asked person's returned fact means decline half the time, and the passage gap is 0 by construction. Reported:
+   the decline share by asked category.

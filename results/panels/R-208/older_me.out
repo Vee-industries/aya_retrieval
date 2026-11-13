@@ -1,0 +1,9 @@
+('never_told', 'me', 'decline', 1) 3
+('never_told', 'me', 'decline', 2) 4
+('never_told', 'other', 'decline', 1) 117
+('older', 'me', 'decline', 2) 34
+('older', 'me', 'value', 1) 11
+('older', 'me', 'value', 2) 95
+('older', 'other', 'decline', 2) 6
+('older', 'other', 'value', 1) 88
+('older', 'other', 'value', 2) 22
