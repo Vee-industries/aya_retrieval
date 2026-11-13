@@ -9176,3 +9176,8 @@ its Demo2 and T1 continues under `qtry.sh` (its adapter and Demo2 kept).
 
 **Correction.** The lane briefs of R-220 and R-227 said K1.3 has 722 rows; it has 1,094 rows, of which 722 hold a
 search output (the count R-220 reports correctly). No lane's verdict rested on the number.
+
+**Demo3 written (16:44).** One fresh Sonnet writer; its transcript shows one Read (`docs/demo3/BRIEF.md`) and two
+Writes (`demo3/chat.txt`, `demo3/questions.json`), no other tool. `demo2_check.py` pointed at `demo3/`: **0 FAIL**,
+first try. Content words each fact question shares with its source, questions 1 to 8: 0, 0, 1, 0, 1, 2, 0, 1 (words in
+`results/demo3/overlap.json`). Nobody has read the chat or the questions.

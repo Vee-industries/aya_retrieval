@@ -1,0 +1,14 @@
+{"questions": [
+  {"kind": "older", "question": "which city is my sister settled in", "source_message": 3, "key": "duluth", "same_meaning": ["Duluth", "Duluth, Minnesota"], "category": "C04", "person": "nell", "other_value": "tulsa"},
+  {"kind": "older", "question": "whats my furry roommate called again", "source_message": 5, "key": "pickle", "same_meaning": ["Pickle"], "category": "C09", "person": "me"},
+  {"kind": "older", "question": "what car does marcus get around in", "source_message": 8, "key": "saab", "same_meaning": ["Saab", "an old Saab"], "category": "C17", "person": "marcus"},
+  {"kind": "older", "question": "which ingredient do i have to dodge at restaurants", "source_message": 13, "key": "sesame", "same_meaning": ["sesame", "sesame seeds", "sesame allergy"], "category": "C19", "person": "me"},
+  {"kind": "older", "question": "where is priya headed on her getaway", "source_message": 7, "key": "montenegro", "same_meaning": ["Montenegro"], "category": "C15", "person": "priya"},
+  {"kind": "older", "question": "which country do cousin teo's people trace back to", "source_message": 16, "key": "estonia", "same_meaning": ["Estonia", "Estonian"], "category": "C37", "person": "teo"},
+  {"kind": "in_view", "question": "what gadget do i carry around now for calls and photos", "source_message": 22, "key": "fairphone", "same_meaning": ["Fairphone", "a Fairphone"], "category": "C35", "person": "me"},
+  {"kind": "in_view", "question": "what novel is teo into at the moment", "source_message": 23, "key": "middlemarch", "same_meaning": ["Middlemarch"], "category": "C25", "person": "teo"},
+  {"kind": "never_told", "question": "what wheels does priya have", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C17", "person": "priya"},
+  {"kind": "never_told", "question": "which language does ingrid speak", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C36", "person": "ingrid"},
+  {"kind": "never_told", "question": "what is marcus's role at the warehouse", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C03", "person": "marcus", "overlap_message": 6},
+  {"kind": "never_told", "question": "which series is hollis binging when the night is slow", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C24", "person": "hollis", "overlap_message": 9}
+]}
