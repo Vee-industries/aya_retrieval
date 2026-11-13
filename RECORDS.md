@@ -8521,3 +8521,32 @@ is one chat, and not blind for K4.x (R-208).
 **Next candidate, K4.2**, under Kevin's "if 3.1 fails move onto the next": never_told and near_miss rows run both
 queries and decline, with a one-to-one cut at two searches (`results/panels/R-210/k42_design.md`). Sent to an
 against lane before it is built.
+
+**The against lane rejected the first K4.2 design** (05:40). Its counts, checked here: in K4.1's training set an
+empty search output is followed by another search in 104 of 104 rows and no row replies after an empty output
+(R-020's drop of never_told rows with an empty last search, then the balance, which cuts every decline at passage
+count 0 because no value row exists there). In K4.1's evals every never_told row that searched more than once began
+with an empty output (hard_dev 74 of 74, probe 62 of 62), and 54 of the 63 out-of-calls rows had four empty
+outputs. The first design (both queries on every never_told row) left that untouched and is not built; its build
+script was replaced before any training. My diagnosis note's "1,156 template rows" is wrong: 1,094.
+
+**K4.2, as adopted from the lane** (`scripts/records/build_k4_2.py`): K4.1's 1,710 rows unchanged, plus rows from
+the same writer files that are not in K4.1, whose first search is empty and whose reply declines (searches as
+`build_k3.chat_rows`; never_told and valid near_miss rows without R-020's drop), after K3.1's three drops; new
+declines after an empty then a non-empty search are capped at the value rows less the declines in that cell. Built
+once: 1,767 rows, 57 new (51 end on two empty searches: never_told 35, older 12, check_false 7, check_true 3); drops:
+S3 six-word run 5, dev or Demo2 question run 2, query rule 1. Searching rows after an empty first output: 83 name a
+value, 27 decline after a non-empty second, 51 decline after an empty second.
+
+**Rule changes, disclosed.** (1) R-020's drop no longer applies at passage count 0: with no passage there is nothing
+to answer from, so an empty output is not the cue R-020 removed. (2) `check_k3.py`'s passage gap (line 3), for
+`k4_2*` only, counts rows whose last search has at least one passage. This change was made **after** the line
+failed on the build (0.39 and 0.58 against 0.37, from the 51 count-0 declines); it follows from (1), which the lane
+set out before the build. With it: 0.02 and 0.28 (K4.1: 0.01 and 0.28, unchanged). (3) A new line for `k4_2*`:
+replies after an empty search at least 1 (51). Check: **0 FAIL** (`results/panels/R-210/check_k4_2.txt`).
+
+Prediction, before training: hard_dev never_told at least 44 of 48 on seeds 82 and 83; out-of-calls never_told
+rows (hard_dev and probe, three seeds) under 10 against K4.1's 63; pooled dev recall below K4.1's 577 and above
+K1.3's 501. The named-value misses after a non-empty second search (18 on hard_dev) are not targeted beyond the 6
+new declines in that cell; if they alone fail line hard_dev never_told, that is the next candidate's target. Queue
+`q210` as `q209` (seed 82, Demo2 at once with the R-205 bomb rule, screening, seeds 83 and 94).

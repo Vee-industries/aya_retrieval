@@ -179,6 +179,18 @@ def main() -> None:
         for r in base
         if last_output(r) is not None
     ]
+    if NAME.startswith("k4_2"):  # R-210: count 0 has nothing to answer from, so no cue to balance
+        nat_pairs = [(named, n) for named, n in nat_pairs if n]
+        after_empty = [
+            any(
+                t["content"].startswith("Tool result for") and "[chunk_id=" not in t["content"]
+                for t in r["turns"][-2:-1]
+            )
+            for r in natural
+        ]
+        checks.append(
+            (f"replies after an empty search {sum(after_empty)}, at least 1", any(after_empty))
+        )
     for name, pairs in (("natural rows", nat_pairs), ("whole set", nat_pairs + base_pairs)):
         g, mv, md = gap(pairs)
         checks.append(

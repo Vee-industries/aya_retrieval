@@ -23,6 +23,7 @@ CANDIDATES = {
     "K2.1": "k2_1_r187",
     "K1.3": "k1_3_r200",
     "K4.1": "k4_1_r209",  # R-209; K1.2, K3, K3.1, K3.2 and K4 did not reach screening
+    "K4.2": "k4_2_r210",  # R-210
 }
 REF = "fix17cs37"
 BASE = "base191"
