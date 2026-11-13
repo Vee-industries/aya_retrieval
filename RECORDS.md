@@ -9236,3 +9236,42 @@ two fresh blind Sonnet judges, 48 items, 0 disagreements; `results/demo2/judge_k
 2 of 2 / 1 of 2. Bombs.** The same two older items right as every try; "dev drive" found and declined; "where is
 tessa studying" named geology. Demo2 readings: 16. T1, T2 and T3 give the same older count and the same items; T4
 (3e-4, 1 epoch, natural only) runs next by R-229.
+
+## R-235 · 2026-11-13 · REOPENED · Round 2 of the stage tries registered before any round-2 result
+
+Kevin (about 18:20): "if none passes we do it again and try more levers". Round 1 (R-229) runs to its end as
+registered; round 2 runs only if no round-1 try reaches screening. **The lane** (design, against-minded, Opus;
+`results/panels/R-235/round2_brief.md`, `round2_lane.md`): every try so far answers the same 2 Demo2 older items; a
+lever has real odds only if it changes what the model does on the recorded failure (a first query that never returns
+the fact, then a stop: 65 of K4.6's 108 outside-writer misses), not how much it trains; all odds low. Disclosed (the
+lane's own note): the outside-writer sets steered this ranking, so they are not held out for round 2's design.
+
+**Lever 1, built: merged first query** (`scripts/records/build_k4_8m.py`; `build_k3.MERGED_QUERY` and
+`build_k3.merged_query`, off by default): K4.8's chain with each K3-writer row's one search made of the writer's
+`query` words then its `second_query` words not already there, one OR call; the row names the value if that search
+returns the source, else declines; never_told rows kept if it returns passages. With it off the chain rebuilds K4.8
+byte for byte (SHA-256 0473d905..., both). The first build failed one R-205 line (check_false 176 under check_true
+178); fixed with K3.2's own hashed check_true cut run until check_false is also at least check_true
+(`build_k3_2.AT_LEAST_TRUE`, on only for the merged build; it cut 2 rows). Built: 2,604 rows; natural rows by
+(names value, searches): (True, 1) 787, (False, 1) 409, (True, 2) 16, (False, 2) 54 (K4.8: 501, 245, 210, 191).
+Check (`check_k3.py --set k4_8m_r235`): **0 FAIL** (`results/panels/R-235/check_k4_8m.txt`). Disclosed: the merged
+query can hold up to 7 words, outside the writer brief's 1 to 4 for a first query; the check line on first queries
+reads the writers' own `query` field, which is unchanged.
+
+**Round 2, fixed order** (each a stage, 1e-4, 1 epoch, the try queue `qtry.sh` with a fifth argument naming the
+adapter it starts from; every other rule as R-229, Demo3 included):
+
+| Try | Label | Starts from | Rows |
+|---|---|---|---|
+| R2a | `k13r2a_r235` | K1.3 | `k4_8m_r235` (merged first query) |
+| R2b | `k46r2b_r235` | K4.6 at epoch 3 | `k1_3_r200` (K1.3's set) |
+| R2c | `k13r2c_r235` | K1.3 | `k5_r226` (third search, R-226) |
+| R2d | `k13r2d_r235` | K1.3 | `k4_9_r224` (27 miss-then-hit rows, first call masked, R-224) |
+
+R2b: K4.6 has only seed 82 trained; if R2b passes Demo2 and Demo3, K4.6 seeds 83 and 94 train first exactly as K4.6
+did (3 epochs from base), then R2b's stage on each; disclosed if it happens. The lane's lever 2 (the writer's
+`second_query` searched first) runs only if R2a reaches screening and fails it on false retrieval; its lever 6 (fewer
+declines cut by the balance) is not run: it has no rule from the record. If rounds 1 and 2 both fail, Kevin is told
+the result as the lane wrote it: K1.3 stays the pick, passes screening and fails the Demo2 gate at 0 of 6; no try
+that passes screening passes Demo2; the measured cause; and the decision is his (submit K1.3 with the failure
+disclosed, or rule on the fixed tool, prompt or eval).

@@ -20,6 +20,7 @@ BASE = Path("data/screens/k3_1_r206.jsonl")
 OUT = Path("data/screens/k3_2_r207.jsonl")
 SALT = "R-207"
 SHARE = 0.15
+AT_LEAST_TRUE = False  # R-235: also cut until check_false rows are at least check_true rows
 
 
 def main() -> None:
@@ -34,7 +35,9 @@ def main() -> None:
         key=lambda i: hashlib.sha256(f"{SALT}|{i}".encode()).digest(),
     )
     cut = set()
-    while false / (len(natural) - len(cut)) < SHARE:
+    while false / (len(natural) - len(cut)) < SHARE or (
+        AT_LEAST_TRUE and false < len(true_rows) - len(cut)
+    ):
         cut.add(true_rows[len(cut)])
     out = [r for r in rows if r["id"] not in cut]
     text = "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in out)

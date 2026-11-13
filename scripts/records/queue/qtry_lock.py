@@ -1,6 +1,6 @@
 """Wait for, then hold, the card lock while one qtry.sh try runs (R-229); log to LABEL.log beside it.
 
-Usage: python qtry_lock.py LABEL LR EPOCHS DATA
+Usage: python qtry_lock.py LABEL LR EPOCHS DATA [INIT]
 """
 
 import errno
@@ -28,7 +28,7 @@ while True:  # wait for the card if anything holds it
 try:
     with open(HERE / f"{sys.argv[1]}.log", "w", encoding="utf-8") as log:
         rc = subprocess.run(
-            [BASH, str(HERE / "qtry.sh"), *sys.argv[1:5]],
+            [BASH, str(HERE / "qtry.sh"), *sys.argv[1:6]],
             stdout=log,
             stderr=subprocess.STDOUT,
             creationflags=0x00004000,

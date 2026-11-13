@@ -71,9 +71,11 @@ def write_writers() -> int:
     return changed[0]
 
 
-def main(record: str = "R-213", never_told_twice: bool = False, third_query=None) -> None:
-    """Rerun the chain; ``never_told_twice`` (R-214) and ``third_query`` (R-226) apply to the K3
-    writers' rows only."""
+def main(
+    record: str = "R-213", never_told_twice: bool = False, third_query=None, merged: bool = False
+) -> None:
+    """Rerun the chain; ``never_told_twice`` (R-214), ``third_query`` (R-226) and ``merged``
+    (R-235) apply to the K3 writers' rows only."""
     print(f"queries changed: {write_writers()}")
     k3, k4, k4_4 = WRITERS / "k3", WRITERS / "k4", WRITERS / "k4_4"
 
@@ -81,10 +83,12 @@ def main(record: str = "R-213", never_told_twice: bool = False, third_query=None
     k31.K3.WRITERS, k31.OUT = k3, DIR / "k3_1.jsonl"
     k31.K3.NEVER_TOLD_TWICE = never_told_twice
     k31.K3.THIRD_QUERY = third_query
+    k31.K3.MERGED_QUERY = merged
     k31.main()
 
     k32 = load("build_k3_2")
     k32.BASE, k32.OUT = k31.OUT, DIR / "k3_2.jsonl"
+    k32.AT_LEAST_TRUE = merged  # R-235: the merged build keeps R-205's check_false line
     k32.main()
 
     k41 = load("build_k4_1")

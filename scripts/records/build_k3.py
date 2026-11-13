@@ -53,6 +53,7 @@ NEVER_TOLD_TWICE = (
     False  # R-214 (K4.6): never_told rows also search twice when both searches return text
 )
 THIRD_QUERY = None  # R-226 (K5): question -> a third search after two that miss, or None
+MERGED_QUERY = False  # R-235: one search of the query's and second_query's words together
 KINDS = {
     "older": OLDER,
     "check_true": CONFIRM,
@@ -78,6 +79,14 @@ def third_query(question: dict) -> str | None:
     """``THIRD_QUERY``'s search for a question, unless it repeats one of the question's two."""
     third = THIRD_QUERY(question) if THIRD_QUERY else None
     return None if third in (question.get("query"), question.get("second_query")) else third
+
+
+def merged_query(question: dict) -> str:
+    """The question's query words, then its second_query words not already in it (R-235)."""
+    words = question["query"].split()
+    seen = {w.casefold() for w in words}
+    words += [w for w in (question.get("second_query") or "").split() if w.casefold() not in seen]
+    return " ".join(words)
 
 
 def view_turns(exchanges: list[tuple[str, str]]) -> list[dict]:
@@ -126,10 +135,14 @@ def chat_rows(writer: str, c: int, chat: dict, work: Path) -> list[dict]:
             turns.append({"role": "assistant", "content": question["reply"]})
             rows.append({"id": row_id, "kind": kind, "turns": turns, "meta": meta})
             continue
+        if MERGED_QUERY:  # R-235: the merged query is the one search; no second
+            question = {**question, "query": merged_query(question), "second_query": None}
         first = search(question["query"])
         if kind == NEVER_TOLD:
             searches = [(question["query"], first)]
-            if not passages(first):
+            if MERGED_QUERY:
+                pass
+            elif not passages(first):
                 searches.append((question["second_query"], search(question["second_query"])))
             elif NEVER_TOLD_TWICE and passages(second := search(question["second_query"])):
                 searches.append((question["second_query"], second))
@@ -142,7 +155,7 @@ def chat_rows(writer: str, c: int, chat: dict, work: Path) -> list[dict]:
         else:
             source = f"User: {messages[question['source_message'] - 1]['user']}\n"
             searches = [(question["query"], first)]
-            if source not in first + "\n":
+            if source not in first + "\n" and not MERGED_QUERY:
                 second = search(question["second_query"])
                 searches.append((question["second_query"], second))
                 if source not in second + "\n" and (third := third_query(question)):

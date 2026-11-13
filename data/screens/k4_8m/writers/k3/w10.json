@@ -1,0 +1,2376 @@
+{
+ "chats": [
+  {
+   "messages": [
+    {
+     "user": "ugh monday again, barely slept",
+     "assistant": "Sorry to hear it, hope the coffee kicks in soon.",
+     "fact": null
+    },
+    {
+     "user": "still getting used to the new job at kestrelford, the greenhouses there are boiling",
+     "assistant": "New jobs take a little while to settle into, hang in there.",
+     "fact": {
+      "category": "C02",
+      "person": "me",
+      "value": "kestrelford"
+     }
+    },
+    {
+     "user": "my sister merrin finally got a dog, his name is pickwick lol",
+     "assistant": "What a great name, congrats to her!",
+     "fact": {
+      "category": "C09",
+      "person": "merrin",
+      "value": "pickwick"
+     }
+    },
+    {
+     "user": "gonna try to cook something proper tonight instead of toast",
+     "assistant": "Good plan, even something simple beats toast.",
+     "fact": null
+    },
+    {
+     "user": "went bouldering after work and my forearms are dead",
+     "assistant": "Sounds like a solid session, give those arms a rest.",
+     "fact": {
+      "category": "C21",
+      "person": "me",
+      "value": "bouldering"
+     }
+    },
+    {
+     "user": "my brother and his wife josette are coming for dinner sunday",
+     "assistant": "That sounds like a nice evening to look forward to.",
+     "fact": null
+    },
+    {
+     "user": "josette's cat turnip knocked her plant off the shelf again",
+     "assistant": "Cats really can't resist knocking things over.",
+     "fact": {
+      "category": "C09",
+      "person": "josette",
+      "value": "turnip"
+     }
+    },
+    {
+     "user": "dinner went ok, nobody fought about politics for once",
+     "assistant": "A peaceful family dinner is a win.",
+     "fact": null
+    },
+    {
+     "user": "merrin says hes a whippet so he basically never stops running",
+     "assistant": "She'll need a big yard for all that energy.",
+     "fact": {
+      "category": "C10",
+      "person": "merrin",
+      "value": "whippet"
+     }
+    },
+    {
+     "user": "inventory day tomorrow, wish me luck",
+     "assistant": "Good luck, I hope it goes quickly.",
+     "fact": null
+    },
+    {
+     "user": "my impreza is making a weird rattling noise again",
+     "assistant": "That's worth getting checked before it gets worse.",
+     "fact": {
+      "category": "C17",
+      "person": "me",
+      "value": "impreza"
+     }
+    },
+    {
+     "user": "my uncle is packing up to go live in tobermory, says he wants the quiet",
+     "assistant": "A quiet place sounds like it could really suit him.",
+     "fact": {
+      "category": "C01",
+      "person": "uncle",
+      "value": "tobermory"
+     }
+    },
+    {
+     "user": "honestly kind of jealous of him lol",
+     "assistant": "Totally understandable, a fresh start can sound pretty appealing.",
+     "fact": null
+    },
+    {
+     "user": "fenwick wont stop playing khruangbin in the car, its all he listens to",
+     "assistant": "At least it makes for good driving music.",
+     "fact": {
+      "category": "C23",
+      "person": "fenwick",
+      "value": "khruangbin"
+     }
+    },
+    {
+     "user": "anyway no clue what to do this weekend, too tired to plan",
+     "assistant": "Maybe something low key, like a long walk or a movie night.",
+     "fact": null
+    },
+    {
+     "user": "started middlemarch finally, its long but i like it",
+     "assistant": "It's a slow burn but worth sticking with.",
+     "fact": {
+      "category": "C25",
+      "person": "me",
+      "value": "middlemarch"
+     }
+    },
+    {
+     "user": "my neighbour is mowing at the crack of dawn again",
+     "assistant": "That's a rough way to wake up.",
+     "fact": null
+    },
+    {
+     "user": "brannagh from work just got a fairphone and wont shut up about it",
+     "assistant": "Sounds like a very happy convert.",
+     "fact": {
+      "category": "C35",
+      "person": "brannagh",
+      "value": "fairphone"
+     }
+    },
+    {
+     "user": "lunch break was way too short today",
+     "assistant": "Short breaks really make the afternoon drag.",
+     "fact": null
+    },
+    {
+     "user": "doc says the wrist thing is tendonitis so no climbing for a bit",
+     "assistant": "That's frustrating, I hope it heals up quickly.",
+     "fact": {
+      "category": "C30",
+      "person": "me",
+      "value": "tendonitis"
+     }
+    },
+    {
+     "user": "gonna binge something tonight i think",
+     "assistant": "Sounds like a well-earned lazy night.",
+     "fact": null
+    },
+    {
+     "user": "kinda bored, raining again",
+     "assistant": "Rainy days are perfect for staying cozy.",
+     "fact": null
+    },
+    {
+     "user": "grabbing a scone at saltbox, its my fave cafe tbh",
+     "assistant": "Nothing beats a favourite spot on a rainy day.",
+     "fact": {
+      "category": "C26",
+      "person": "me",
+      "value": "saltbox"
+     }
+    },
+    {
+     "user": "ok heading home now",
+     "assistant": "Get home safe and stay dry.",
+     "fact": null
+    }
+   ],
+   "questions": [
+    {
+     "kind": "older",
+     "question": "who am i working for at the moment, blanking",
+     "source_message": 2,
+     "value": "kestrelford",
+     "category": "C02",
+     "person": "me",
+     "query": "working",
+     "second_query": "job employer",
+     "reply": "You're working at kestrelford."
+    },
+    {
+     "kind": "older",
+     "question": "which novel have i been slogging through",
+     "source_message": 16,
+     "value": "middlemarch",
+     "category": "C25",
+     "person": "me",
+     "query": "novel",
+     "second_query": "book reading",
+     "reply": "You've been reading middlemarch."
+    },
+    {
+     "kind": "older",
+     "question": "where was my uncle relocating to",
+     "source_message": 12,
+     "value": "tobermory",
+     "category": "C01",
+     "person": "uncle",
+     "query": "uncle relocating",
+     "second_query": "moving move",
+     "reply": "Your uncle is moving to tobermory."
+    },
+    {
+     "kind": "older",
+     "question": "any idea what band fenwick loves",
+     "source_message": 14,
+     "value": "khruangbin",
+     "category": "C23",
+     "person": "fenwick",
+     "query": "band fenwick",
+     "second_query": "music songs",
+     "reply": "Fenwick is all about khruangbin."
+    },
+    {
+     "kind": "check_true",
+     "question": "i still drive the impreza right",
+     "source_message": 11,
+     "value": "impreza",
+     "category": "C17",
+     "person": "me",
+     "query": "drive impreza",
+     "second_query": "car",
+     "reply": "Yes, you drive an impreza."
+    },
+    {
+     "kind": "check_true",
+     "question": "merrin has a whippet doesnt she",
+     "source_message": 9,
+     "value": "whippet",
+     "category": "C10",
+     "person": "merrin",
+     "query": "merrin whippet",
+     "second_query": "dog breed",
+     "reply": "Yes, Merrin's dog is a whippet."
+    },
+    {
+     "kind": "check_false",
+     "question": "the pup merrin got, thats turnip yeah",
+     "source_message": 3,
+     "value": "pickwick",
+     "category": "C09",
+     "person": "merrin",
+     "query": "merrin pup",
+     "second_query": "dog name",
+     "reply": "No, Merrin's dog is pickwick; turnip is Josette's cat."
+    },
+    {
+     "kind": "check_false",
+     "question": "my hand injury was a sprain wasnt it",
+     "source_message": 20,
+     "value": "tendonitis",
+     "category": "C30",
+     "person": "me",
+     "query": "hand injury",
+     "second_query": "wrist doctor",
+     "reply": "No, the doctor said it was tendonitis."
+    },
+    {
+     "kind": "never_told",
+     "question": "what phone do i have",
+     "source_message": null,
+     "value": null,
+     "category": "C35",
+     "person": "me",
+     "query": "phone",
+     "second_query": "device brand",
+     "reply": null
+    },
+    {
+     "kind": "never_told",
+     "question": "fenwick drives a jetta right",
+     "source_message": null,
+     "value": null,
+     "category": "C17",
+     "person": "fenwick",
+     "query": "fenwick drives",
+     "second_query": "car vehicle",
+     "reply": null
+    },
+    {
+     "kind": "in_view",
+     "question": "coffee spot i love most, whats it called",
+     "source_message": 23,
+     "value": "saltbox",
+     "category": "C26",
+     "person": "me",
+     "query": null,
+     "second_query": null,
+     "reply": "Your favourite is saltbox."
+    }
+   ]
+  },
+  {
+   "messages": [
+    {
+     "user": "hey, finally done with my midterm, brain is mush",
+     "assistant": "Congrats on getting through it, time to rest your brain.",
+     "fact": null
+    },
+    {
+     "user": "honestly oceanography is way harder than i thought it would be",
+     "assistant": "It's a demanding field, but it sounds like you're keeping up.",
+     "fact": {
+      "category": "C13",
+      "person": "me",
+      "value": "oceanography"
+     }
+    },
+    {
+     "user": "the library at carrowmore closes so early, worst thing about going there",
+     "assistant": "Early closing times make studying tough.",
+     "fact": {
+      "category": "C14",
+      "person": "me",
+      "value": "carrowmore"
+     }
+    },
+    {
+     "user": "made pasta, it was mid",
+     "assistant": "Not every dinner can be a winner.",
+     "fact": null
+    },
+    {
+     "user": "corentin surprised me with flowers, best boyfriend ever",
+     "assistant": "That's really sweet of him.",
+     "fact": {
+      "category": "C08",
+      "person": "me",
+      "value": "corentin"
+     }
+    },
+    {
+     "user": "my neighbour ilse brought over soup cuz she heard i was sick",
+     "assistant": "What a kind neighbour to have.",
+     "fact": null
+    },
+    {
+     "user": "ilse next door grew up in kilbarra, she was telling me all about it",
+     "assistant": "Sounds like she had some good stories to share.",
+     "fact": {
+      "category": "C05",
+      "person": "ilse next door",
+      "value": "kilbarra"
+     }
+    },
+    {
+     "user": "book club tonight, we're doing a mystery this time",
+     "assistant": "Mysteries make for great discussion.",
+     "fact": null
+    },
+    {
+     "user": "funny thing, theres another ilse in book club, she grew up in drumkeel",
+     "assistant": "Two of them, that must get confusing.",
+     "fact": {
+      "category": "C05",
+      "person": "ilse from book club",
+      "value": "drumkeel"
+     }
+    },
+    {
+     "user": "texted my brother tavish, he hasnt replied in days",
+     "assistant": "Hopefully he's just busy and gets back to you soon.",
+     "fact": {
+      "category": "C32",
+      "person": "me",
+      "value": "tavish"
+     }
+    },
+    {
+     "user": "weather is finally nice",
+     "assistant": "Perfect excuse to get outside for a bit.",
+     "fact": null
+    },
+    {
+     "user": "my brother is a farrier now so hes always out at some barn",
+     "assistant": "That's hands-on work, no wonder he's hard to reach.",
+     "fact": {
+      "category": "C03",
+      "person": "tavish",
+      "value": "farrier"
+     }
+    },
+    {
+     "user": "dorrit started bassoon lessons, she says its so hard",
+     "assistant": "That's a tricky one to pick up, good on her.",
+     "fact": {
+      "category": "C22",
+      "person": "dorrit",
+      "value": "bassoon"
+     }
+    },
+    {
+     "user": "i should really clean my room",
+     "assistant": "A quick tidy can feel really good once it's done.",
+     "fact": null
+    },
+    {
+     "user": "binged like half of taskmaster last night instead of studying",
+     "assistant": "Comedy is a good way to unwind, even if it ate the evening.",
+     "fact": {
+      "category": "C24",
+      "person": "me",
+      "value": "taskmaster"
+     }
+    },
+    {
+     "user": "feeling guilty about it now haha",
+     "assistant": "Everyone needs a break sometimes.",
+     "fact": null
+    },
+    {
+     "user": "taking the ferry to class every morning is kinda peaceful",
+     "assistant": "A calm start to the day sounds lovely.",
+     "fact": {
+      "category": "C39",
+      "person": "me",
+      "value": "ferry"
+     }
+    },
+    {
+     "user": "my mom bought a kayak, shes never even been on a lake",
+     "assistant": "Sounds like she's ready for an adventure.",
+     "fact": {
+      "category": "C40",
+      "person": "mom",
+      "value": "kayak"
+     }
+    },
+    {
+     "user": "lol she says shes gonna learn",
+     "assistant": "Love that attitude.",
+     "fact": null
+    },
+    {
+     "user": "dorrit's little girl ottilie drew me a picture",
+     "assistant": "That's adorable, kids' drawings are the best.",
+     "fact": {
+      "category": "C11",
+      "person": "dorrit",
+      "value": "ottilie"
+     }
+    },
+    {
+     "user": "putting it on my fridge for sure",
+     "assistant": "It deserves a spot of honour.",
+     "fact": null
+    },
+    {
+     "user": "this apartment is so damp",
+     "assistant": "Damp places can be really uncomfortable.",
+     "fact": null
+    },
+    {
+     "user": "ok i caved and got a dehumidifier",
+     "assistant": "That should help a lot with the damp.",
+     "fact": {
+      "category": "C40",
+      "person": "me",
+      "value": "dehumidifier"
+     }
+    },
+    {
+     "user": "anyway gonna try to study now",
+     "assistant": "Good luck, you've got this.",
+     "fact": null
+    }
+   ],
+   "questions": [
+    {
+     "kind": "older",
+     "question": "remind me what my major is",
+     "source_message": 2,
+     "value": "oceanography",
+     "category": "C13",
+     "person": "me",
+     "query": "major",
+     "second_query": "studying degree",
+     "reply": "You're studying oceanography."
+    },
+    {
+     "kind": "older",
+     "question": "whos the guy im dating",
+     "source_message": 5,
+     "value": "corentin",
+     "category": "C08",
+     "person": "me",
+     "query": "dating guy",
+     "second_query": "boyfriend partner",
+     "reply": "You're dating corentin."
+    },
+    {
+     "kind": "older",
+     "question": "ilse next door, wheres she from originally",
+     "source_message": 7,
+     "value": "kilbarra",
+     "category": "C05",
+     "person": "ilse next door",
+     "query": "ilse originally",
+     "second_query": "grew hometown",
+     "reply": "Your neighbour Ilse grew up in kilbarra."
+    },
+    {
+     "kind": "older",
+     "question": "tavish does what for a living",
+     "source_message": 12,
+     "value": "farrier",
+     "category": "C03",
+     "person": "tavish",
+     "query": "tavish living",
+     "second_query": "brother job",
+     "reply": "Tavish is a farrier."
+    },
+    {
+     "kind": "check_true",
+     "question": "i commute on the ferry yeah",
+     "source_message": 17,
+     "value": "ferry",
+     "category": "C39",
+     "person": "me",
+     "query": "commute ferry",
+     "second_query": "boat ride",
+     "reply": "Yes, you take the ferry."
+    },
+    {
+     "kind": "check_true",
+     "question": "dorrit plays bassoon now doesnt she",
+     "source_message": 13,
+     "value": "bassoon",
+     "category": "C22",
+     "person": "dorrit",
+     "query": "dorrit bassoon",
+     "second_query": "instrument lessons",
+     "reply": "Yes, Dorrit is learning the bassoon."
+    },
+    {
+     "kind": "check_false",
+     "question": "so the book club ilse is from kilbarra too",
+     "source_message": 9,
+     "value": "drumkeel",
+     "category": "C05",
+     "person": "ilse from book club",
+     "query": "book club ilse",
+     "second_query": "grew hometown",
+     "reply": "No, book club Ilse grew up in drumkeel; kilbarra is your neighbour Ilse."
+    },
+    {
+     "kind": "check_false",
+     "question": "mom picked up a canoe recently right",
+     "source_message": 18,
+     "value": "kayak",
+     "category": "C40",
+     "person": "mom",
+     "query": "mom canoe",
+     "second_query": "bought purchase",
+     "reply": "No, your mom bought a kayak."
+    },
+    {
+     "kind": "never_told",
+     "question": "where does corentin go to school",
+     "source_message": null,
+     "value": null,
+     "category": "C14",
+     "person": "corentin",
+     "query": "corentin school",
+     "second_query": "college university",
+     "reply": null
+    },
+    {
+     "kind": "never_told",
+     "question": "isnt dorrit a dentist",
+     "source_message": null,
+     "value": null,
+     "category": "C03",
+     "person": "dorrit",
+     "query": "dorrit dentist",
+     "second_query": "job work",
+     "reply": null
+    },
+    {
+     "kind": "in_view",
+     "question": "what did i end up buying for the damp",
+     "source_message": 23,
+     "value": "dehumidifier",
+     "category": "C40",
+     "person": "me",
+     "query": null,
+     "second_query": null,
+     "reply": "You got a dehumidifier."
+    }
+   ]
+  },
+  {
+   "messages": [
+    {
+     "user": "long day, service calls back to back",
+     "assistant": "That sounds exhausting, hope you get to put your feet up.",
+     "fact": null
+    },
+    {
+     "user": "im mostly an estimator now so less time on ladders, more spreadsheets",
+     "assistant": "A change of pace, even if spreadsheets aren't as fun.",
+     "fact": {
+      "category": "C03",
+      "person": "me",
+      "value": "estimator"
+     }
+    },
+    {
+     "user": "the guys at voltara are paying for my certification, best employer ive had",
+     "assistant": "That's a great perk to have.",
+     "fact": {
+      "category": "C02",
+      "person": "me",
+      "value": "voltara"
+     }
+    },
+    {
+     "user": "my daughter isolde has a cold so nobody slept",
+     "assistant": "Poor thing, I hope she feels better soon.",
+     "fact": {
+      "category": "C11",
+      "person": "me",
+      "value": "isolde"
+     }
+    },
+    {
+     "user": "my daughter is begging to try fencing after watching the olympics",
+     "assistant": "That could be a really fun sport for her.",
+     "fact": {
+      "category": "C21",
+      "person": "isolde",
+      "value": "fencing"
+     }
+    },
+    {
+     "user": "made a huge pot of chili",
+     "assistant": "Perfect for a chilly night.",
+     "fact": null
+    },
+    {
+     "user": "my husband ruairi ate most of it straight from the pot",
+     "assistant": "Sounds like it was a hit.",
+     "fact": {
+      "category": "C08",
+      "person": "me",
+      "value": "ruairi"
+     }
+    },
+    {
+     "user": "anyway the boss is in a mood today",
+     "assistant": "Hopefully it passes quickly.",
+     "fact": null
+    },
+    {
+     "user": "marek my boss just bought a ridgeline and parks it across every spot",
+     "assistant": "Bold parking strategy.",
+     "fact": {
+      "category": "C17",
+      "person": "boss marek",
+      "value": "ridgeline"
+     }
+    },
+    {
+     "user": "funny, my cousin is also named marek, family loves that name",
+     "assistant": "That must make family gatherings confusing.",
+     "fact": null
+    },
+    {
+     "user": "cousin marek drives a beat up miata, total opposite",
+     "assistant": "Ha, very different tastes in cars.",
+     "fact": {
+      "category": "C17",
+      "person": "cousin marek",
+      "value": "miata"
+     }
+    },
+    {
+     "user": "need to mow the lawn",
+     "assistant": "Good luck, hopefully the weather holds.",
+     "fact": null
+    },
+    {
+     "user": "honestly harrowgate is a nice place to live but the hydro rates are brutal",
+     "assistant": "Lovely town, rough bills.",
+     "fact": {
+      "category": "C04",
+      "person": "me",
+      "value": "harrowgate"
+     }
+    },
+    {
+     "user": "my husband came down with shingles, poor guy",
+     "assistant": "That's painful, I hope he recovers quickly.",
+     "fact": {
+      "category": "C30",
+      "person": "ruairi",
+      "value": "shingles"
+     }
+    },
+    {
+     "user": "so im on dinner and bedtime duty all week",
+     "assistant": "That's a lot on your plate, hang in there.",
+     "fact": null
+    },
+    {
+     "user": "sabeen took me to marigold for my birthday, its her favourite place",
+     "assistant": "Sounds like a lovely treat.",
+     "fact": {
+      "category": "C26",
+      "person": "sabeen",
+      "value": "marigold"
+     }
+    },
+    {
+     "user": "food coma now lol",
+     "assistant": "The sign of a good meal.",
+     "fact": null
+    },
+    {
+     "user": "dagny at work is covering my shift so i can stay home",
+     "assistant": "That's a good coworker to have.",
+     "fact": {
+      "category": "C34",
+      "person": "me",
+      "value": "dagny"
+     }
+    },
+    {
+     "user": "the kids school has a pajama day tomorrow",
+     "assistant": "That sounds like fun for them.",
+     "fact": null
+    },
+    {
+     "user": "trying to find matching pjs is a nightmare",
+     "assistant": "It's always harder than it should be.",
+     "fact": null
+    },
+    {
+     "user": "ok bedtime battle time",
+     "assistant": "Good luck, may it go smoothly.",
+     "fact": null
+    },
+    {
+     "user": "big news at work today",
+     "assistant": "Sounds intriguing.",
+     "fact": null
+    },
+    {
+     "user": "my coworker's moving to tromso of all places",
+     "assistant": "What a big adventure for her.",
+     "fact": {
+      "category": "C01",
+      "person": "dagny",
+      "value": "tromso"
+     }
+    },
+    {
+     "user": "gonna miss her at the office",
+     "assistant": "It's hard when a good one leaves.",
+     "fact": null
+    }
+   ],
+   "questions": [
+    {
+     "kind": "older",
+     "question": "my actual role these days, remind me",
+     "source_message": 2,
+     "value": "estimator",
+     "category": "C03",
+     "person": "me",
+     "query": "role",
+     "second_query": "job title",
+     "reply": "You're mostly an estimator now."
+    },
+    {
+     "kind": "older",
+     "question": "which town is home for us",
+     "source_message": 13,
+     "value": "harrowgate",
+     "category": "C04",
+     "person": "me",
+     "query": "town home",
+     "second_query": "live lives",
+     "reply": "You live in harrowgate."
+    },
+    {
+     "kind": "older",
+     "question": "the sport my daughter wanted to start, what was it",
+     "source_message": 5,
+     "value": "fencing",
+     "category": "C21",
+     "person": "isolde",
+     "query": "daughter sport",
+     "second_query": "hobby lessons",
+     "reply": "She wanted to try fencing."
+    },
+    {
+     "kind": "older",
+     "question": "restaurant sabeen loves most, whats it called",
+     "source_message": 16,
+     "value": "marigold",
+     "category": "C26",
+     "person": "sabeen",
+     "query": "restaurant sabeen",
+     "second_query": "favourite place",
+     "reply": "Sabeen's favourite is marigold."
+    },
+    {
+     "kind": "check_true",
+     "question": "ruairi had shingles yeah",
+     "source_message": 14,
+     "value": "shingles",
+     "category": "C30",
+     "person": "ruairi",
+     "query": "ruairi shingles",
+     "second_query": "husband sick",
+     "reply": "Yes, he had shingles."
+    },
+    {
+     "kind": "check_true",
+     "question": "im still with voltara arent i",
+     "source_message": 3,
+     "value": "voltara",
+     "category": "C02",
+     "person": "me",
+     "query": "voltara",
+     "second_query": "work employer",
+     "reply": "Yes, you're with voltara."
+    },
+    {
+     "kind": "check_false",
+     "question": "boss marek is the one with the miata right",
+     "source_message": 9,
+     "value": "ridgeline",
+     "category": "C17",
+     "person": "boss marek",
+     "query": "boss marek",
+     "second_query": "car drives",
+     "reply": "No, your boss Marek drives a ridgeline; the miata is cousin Marek's."
+    },
+    {
+     "kind": "check_false",
+     "question": "freya was the colleague who helped me out recently, right",
+     "source_message": 18,
+     "value": "dagny",
+     "category": "C34",
+     "person": "me",
+     "query": "colleague freya",
+     "second_query": "coworker work",
+     "reply": "No, that was dagny."
+    },
+    {
+     "kind": "never_told",
+     "question": "what car do i drive",
+     "source_message": null,
+     "value": null,
+     "category": "C17",
+     "person": "me",
+     "query": "car drive",
+     "second_query": "vehicle",
+     "reply": null
+    },
+    {
+     "kind": "never_told",
+     "question": "was sabeen down with the flu",
+     "source_message": null,
+     "value": null,
+     "category": "C30",
+     "person": "sabeen",
+     "query": "sabeen flu",
+     "second_query": "sick illness",
+     "reply": null
+    },
+    {
+     "kind": "in_view",
+     "question": "where is my coworker headed",
+     "source_message": 23,
+     "value": "tromso",
+     "category": "C01",
+     "person": "dagny",
+     "query": null,
+     "second_query": null,
+     "reply": "She's moving to tromso."
+    }
+   ]
+  },
+  {
+   "messages": [
+    {
+     "user": "back from band practice, ears ringing",
+     "assistant": "Sounds like a loud one, enjoy the quiet now.",
+     "fact": null
+    },
+    {
+     "user": "brought the mandolin this time instead of guitar, it went over well",
+     "assistant": "Nice to switch things up and have it land.",
+     "fact": {
+      "category": "C22",
+      "person": "me",
+      "value": "mandolin"
+     }
+    },
+    {
+     "user": "so tired i almost fell asleep on the way home",
+     "assistant": "Sounds like you need an early night.",
+     "fact": null
+    },
+    {
+     "user": "the streetcar every morning is slow but i get reading done",
+     "assistant": "Built-in reading time is a nice upside.",
+     "fact": {
+      "category": "C39",
+      "person": "me",
+      "value": "streetcar"
+     }
+    },
+    {
+     "user": "my brother leopold called, first time in ages",
+     "assistant": "Always nice to reconnect.",
+     "fact": {
+      "category": "C32",
+      "person": "me",
+      "value": "leopold"
+     }
+    },
+    {
+     "user": "my brother's still up in quarrybank, says the winters are rough",
+     "assistant": "Long winters can wear on anyone.",
+     "fact": {
+      "category": "C04",
+      "person": "leopold",
+      "value": "quarrybank"
+     }
+    },
+    {
+     "user": "made soup with whatever was in the fridge",
+     "assistant": "Those are often the best soups.",
+     "fact": null
+    },
+    {
+     "user": "my brother-in-law henrik lives out in fenmoor, total opposite, he never stops complaining about the heat",
+     "assistant": "Sounds like they could trade complaints.",
+     "fact": {
+      "category": "C04",
+      "person": "henrik",
+      "value": "fenmoor"
+     }
+    },
+    {
+     "user": "family group chat is chaos today",
+     "assistant": "Family chats have a way of doing that.",
+     "fact": null
+    },
+    {
+     "user": "my mom's vizsla chewed through her fence lol",
+     "assistant": "Those dogs have endless energy.",
+     "fact": {
+      "category": "C10",
+      "person": "mom",
+      "value": "vizsla"
+     }
+    },
+    {
+     "user": "night classes in horticulture start next week, kind of nervous",
+     "assistant": "Nerves are normal, you'll settle in fast.",
+     "fact": {
+      "category": "C13",
+      "person": "me",
+      "value": "horticulture"
+     }
+    },
+    {
+     "user": "bought a new notebook for it, feeling like a kid again",
+     "assistant": "Fresh supplies make starting something new fun.",
+     "fact": null
+    },
+    {
+     "user": "the campus at ellesmere is huge, got totally lost",
+     "assistant": "Big campuses take a while to learn.",
+     "fact": {
+      "category": "C14",
+      "person": "me",
+      "value": "ellesmere"
+     }
+    },
+    {
+     "user": "pell is obsessed with mitski, dragged me to a show",
+     "assistant": "Glad you got a night out of it.",
+     "fact": {
+      "category": "C23",
+      "person": "pell",
+      "value": "mitski"
+     }
+    },
+    {
+     "user": "my legs are sore from standing all night",
+     "assistant": "A hot bath might help.",
+     "fact": null
+    },
+    {
+     "user": "rewatching detectorists again, its so cozy",
+     "assistant": "Comfort shows are perfect for winding down.",
+     "fact": {
+      "category": "C24",
+      "person": "me",
+      "value": "detectorists"
+     }
+    },
+    {
+     "user": "anouk and i finally got coffee, we've been friends since we were kids",
+     "assistant": "Old friends are the best kind.",
+     "fact": {
+      "category": "C34",
+      "person": "me",
+      "value": "anouk"
+     }
+    },
+    {
+     "user": "it was raining so we stayed for hours",
+     "assistant": "Sounds like a perfect catch-up.",
+     "fact": null
+    },
+    {
+     "user": "my oldest friend's reading piranesi and says i have to read it next",
+     "assistant": "Sounds like a strong recommendation.",
+     "fact": {
+      "category": "C25",
+      "person": "anouk",
+      "value": "piranesi"
+     }
+    },
+    {
+     "user": "ok adding it to the pile",
+     "assistant": "The pile always grows.",
+     "fact": null
+    },
+    {
+     "user": "practice again later this week",
+     "assistant": "Hope it goes as well as the last one.",
+     "fact": null
+    },
+    {
+     "user": "brother-in-law texted me a blurry photo lol",
+     "assistant": "A mystery photo, nice.",
+     "fact": null
+    },
+    {
+     "user": "henrik really needs a new phone, his motorola camera is ancient",
+     "assistant": "That would explain the blurry picture.",
+     "fact": {
+      "category": "C35",
+      "person": "henrik",
+      "value": "motorola"
+     }
+    },
+    {
+     "user": "anyway time for bed",
+     "assistant": "Sleep well.",
+     "fact": null
+    }
+   ],
+   "questions": [
+    {
+     "kind": "older",
+     "question": "how do i usually commute",
+     "source_message": 4,
+     "value": "streetcar",
+     "category": "C39",
+     "person": "me",
+     "query": "commute",
+     "second_query": "bus train ride",
+     "reply": "You take the streetcar."
+    },
+    {
+     "kind": "older",
+     "question": "my evening course subject, what is it",
+     "source_message": 11,
+     "value": "horticulture",
+     "category": "C13",
+     "person": "me",
+     "query": "course subject",
+     "second_query": "studying classes",
+     "reply": "You're studying horticulture."
+    },
+    {
+     "kind": "older",
+     "question": "where does my brother live these days",
+     "source_message": 6,
+     "value": "quarrybank",
+     "category": "C04",
+     "person": "leopold",
+     "query": "brother live",
+     "second_query": "lives town",
+     "reply": "Your brother lives in quarrybank."
+    },
+    {
+     "kind": "older",
+     "question": "anouk had a book recommendation, which one",
+     "source_message": 19,
+     "value": "piranesi",
+     "category": "C25",
+     "person": "anouk",
+     "query": "anouk book recommendation",
+     "second_query": "reading novel",
+     "reply": "Anouk's been pushing piranesi."
+    },
+    {
+     "kind": "check_true",
+     "question": "henrik has a place in fenmoor right",
+     "source_message": 8,
+     "value": "fenmoor",
+     "category": "C04",
+     "person": "henrik",
+     "query": "henrik fenmoor",
+     "second_query": "lives home",
+     "reply": "Yes, Henrik lives in fenmoor."
+    },
+    {
+     "kind": "check_true",
+     "question": "mom has a vizsla right",
+     "source_message": 10,
+     "value": "vizsla",
+     "category": "C10",
+     "person": "mom",
+     "query": "mom vizsla",
+     "second_query": "dog breed",
+     "reply": "Yes, her dog is a vizsla."
+    },
+    {
+     "kind": "check_false",
+     "question": "so my brother lives in fenmoor too",
+     "source_message": 6,
+     "value": "quarrybank",
+     "category": "C04",
+     "person": "leopold",
+     "query": "brother lives",
+     "second_query": "town home",
+     "reply": "No, your brother is in quarrybank; fenmoor is Henrik."
+    },
+    {
+     "kind": "check_false",
+     "question": "i played banjo at practice right",
+     "source_message": 2,
+     "value": "mandolin",
+     "category": "C22",
+     "person": "me",
+     "query": "played banjo",
+     "second_query": "instrument guitar",
+     "reply": "No, you brought the mandolin."
+    },
+    {
+     "kind": "never_told",
+     "question": "pell lives where again",
+     "source_message": null,
+     "value": null,
+     "category": "C04",
+     "person": "pell",
+     "query": "pell lives",
+     "second_query": "home town",
+     "reply": null
+    },
+    {
+     "kind": "never_told",
+     "question": "isnt my dog a beagle",
+     "source_message": null,
+     "value": null,
+     "category": "C10",
+     "person": "me",
+     "query": "dog beagle",
+     "second_query": "pet breed",
+     "reply": null
+    },
+    {
+     "kind": "in_view",
+     "question": "which phone brand does henrik use",
+     "source_message": 23,
+     "value": "motorola",
+     "category": "C35",
+     "person": "henrik",
+     "query": null,
+     "second_query": null,
+     "reply": "He has a motorola."
+    }
+   ]
+  },
+  {
+   "messages": [
+    {
+     "user": "first week done, im wiped",
+     "assistant": "You made it through, that's worth celebrating.",
+     "fact": null
+    },
+    {
+     "user": "the vets at brackenridge are so nice, i think im gonna like it there",
+     "assistant": "Great people make a new job so much easier.",
+     "fact": {
+      "category": "C02",
+      "person": "me",
+      "value": "brackenridge"
+     }
+    },
+    {
+     "user": "brought home a ton of scrubs to wash",
+     "assistant": "Laundry day, then.",
+     "fact": null
+    },
+    {
+     "user": "my cat mothball sat on my clean laundry immediately lol",
+     "assistant": "Classic cat move.",
+     "fact": {
+      "category": "C09",
+      "person": "me",
+      "value": "mothball"
+     }
+    },
+    {
+     "user": "being a sphynx she's always hunting for anything warm",
+     "assistant": "Warm laundry must be irresistible.",
+     "fact": {
+      "category": "C10",
+      "person": "me",
+      "value": "sphynx"
+     }
+    },
+    {
+     "user": "my cousin jory came by for dinner",
+     "assistant": "Nice to have some company.",
+     "fact": null
+    },
+    {
+     "user": "cousin jory's working at copperfield now, the warehouse place",
+     "assistant": "Sounds like a steady gig.",
+     "fact": {
+      "category": "C02",
+      "person": "cousin jory",
+      "value": "copperfield"
+     }
+    },
+    {
+     "user": "kinda funny, theres a jory at my gym too",
+     "assistant": "Small world.",
+     "fact": null
+    },
+    {
+     "user": "gym jory works at harbourline, he does their boats or something",
+     "assistant": "Interesting line of work.",
+     "fact": {
+      "category": "C02",
+      "person": "gym jory",
+      "value": "harbourline"
+     }
+    },
+    {
+     "user": "need groceries badly",
+     "assistant": "A shop run might be in order.",
+     "fact": null
+    },
+    {
+     "user": "phoenicia is my favourite spot, treated myself there instead of shopping",
+     "assistant": "A well-earned treat.",
+     "fact": {
+      "category": "C26",
+      "person": "me",
+      "value": "phoenicia"
+     }
+    },
+    {
+     "user": "my dad's moving to penticton next spring, says he's done with snow",
+     "assistant": "Sounds like he's ready for milder weather.",
+     "fact": {
+      "category": "C01",
+      "person": "dad",
+      "value": "penticton"
+     }
+    },
+    {
+     "user": "gonna miss having him close",
+     "assistant": "That's a hard part of any move.",
+     "fact": null
+    },
+    {
+     "user": "curling league starts soon, im the worst on the team haha",
+     "assistant": "Everyone starts somewhere, enjoy it.",
+     "fact": {
+      "category": "C21",
+      "person": "me",
+      "value": "curling"
+     }
+    },
+    {
+     "user": "my neighbour arvid put a trampoline in his yard, the kids are thrilled",
+     "assistant": "That'll be the most popular yard on the street.",
+     "fact": {
+      "category": "C40",
+      "person": "arvid",
+      "value": "trampoline"
+     }
+    },
+    {
+     "user": "it's so loud though",
+     "assistant": "The price of fun, I guess.",
+     "fact": null
+    },
+    {
+     "user": "slipped on the ice and got whiplash, lovely",
+     "assistant": "Ouch, take it easy while it heals.",
+     "fact": {
+      "category": "C30",
+      "person": "me",
+      "value": "whiplash"
+     }
+    },
+    {
+     "user": "off work tomorrow because of it",
+     "assistant": "Rest is the best thing for it.",
+     "fact": null
+    },
+    {
+     "user": "my sister liesl dropped off soup",
+     "assistant": "That's a kind sister.",
+     "fact": {
+      "category": "C32",
+      "person": "me",
+      "value": "liesl"
+     }
+    },
+    {
+     "user": "my sister's boyfriend emrys made it actually, he's a good cook",
+     "assistant": "Sounds like a keeper.",
+     "fact": {
+      "category": "C08",
+      "person": "liesl",
+      "value": "emrys"
+     }
+    },
+    {
+     "user": "feeling a bit better already",
+     "assistant": "Glad to hear it.",
+     "fact": null
+    },
+    {
+     "user": "the neighbour has music on again",
+     "assistant": "Hopefully it's at least good music.",
+     "fact": null
+    },
+    {
+     "user": "arvid loves vulfpeck apparently, its all he plays",
+     "assistant": "At least it's upbeat.",
+     "fact": {
+      "category": "C23",
+      "person": "arvid",
+      "value": "vulfpeck"
+     }
+    },
+    {
+     "user": "might go knock and ask him to turn it down",
+     "assistant": "A friendly ask usually works.",
+     "fact": null
+    }
+   ],
+   "questions": [
+    {
+     "kind": "older",
+     "question": "my kitty, whats she called",
+     "source_message": 4,
+     "value": "mothball",
+     "category": "C09",
+     "person": "me",
+     "query": "kitty",
+     "second_query": "cat pet name",
+     "reply": "Your cat is mothball."
+    },
+    {
+     "kind": "older",
+     "question": "which sport did i sign up for this season",
+     "source_message": 14,
+     "value": "curling",
+     "category": "C21",
+     "person": "me",
+     "query": "sport",
+     "second_query": "league hobby",
+     "reply": "You joined curling."
+    },
+    {
+     "kind": "older",
+     "question": "dad is relocating where",
+     "source_message": 12,
+     "value": "penticton",
+     "category": "C01",
+     "person": "dad",
+     "query": "dad relocating",
+     "second_query": "moving move",
+     "reply": "Your dad is moving to penticton."
+    },
+    {
+     "kind": "older",
+     "question": "cousin jory, who employs him now",
+     "source_message": 7,
+     "value": "copperfield",
+     "category": "C02",
+     "person": "cousin jory",
+     "query": "cousin jory employs",
+     "second_query": "works job",
+     "reply": "Cousin Jory works at copperfield."
+    },
+    {
+     "kind": "check_true",
+     "question": "it was whiplash i got from that fall yeah",
+     "source_message": 17,
+     "value": "whiplash",
+     "category": "C30",
+     "person": "me",
+     "query": "whiplash fall",
+     "second_query": "injury hurt",
+     "reply": "Yes, you got whiplash."
+    },
+    {
+     "kind": "check_true",
+     "question": "liesl is with emrys still right",
+     "source_message": 20,
+     "value": "emrys",
+     "category": "C08",
+     "person": "liesl",
+     "query": "liesl emrys",
+     "second_query": "boyfriend partner",
+     "reply": "Yes, Liesl's boyfriend is emrys."
+    },
+    {
+     "kind": "check_false",
+     "question": "gym jory is at copperfield too isnt he",
+     "source_message": 9,
+     "value": "harbourline",
+     "category": "C02",
+     "person": "gym jory",
+     "query": "gym jory",
+     "second_query": "works job",
+     "reply": "No, gym Jory works at harbourline; copperfield is your cousin Jory."
+    },
+    {
+     "kind": "check_false",
+     "question": "im employed at fernhill clinic right",
+     "source_message": 2,
+     "value": "brackenridge",
+     "category": "C02",
+     "person": "me",
+     "query": "employed clinic",
+     "second_query": "work job",
+     "reply": "No, you work at brackenridge."
+    },
+    {
+     "kind": "never_told",
+     "question": "what does arvid call his pet",
+     "source_message": null,
+     "value": null,
+     "category": "C09",
+     "person": "arvid",
+     "query": "arvid pet",
+     "second_query": "dog cat",
+     "reply": null
+    },
+    {
+     "kind": "never_told",
+     "question": "doesnt liesl work at the library",
+     "source_message": null,
+     "value": null,
+     "category": "C02",
+     "person": "liesl",
+     "query": "liesl library",
+     "second_query": "job employer",
+     "reply": null
+    },
+    {
+     "kind": "in_view",
+     "question": "whos that band arvid's into",
+     "source_message": 23,
+     "value": "vulfpeck",
+     "category": "C23",
+     "person": "arvid",
+     "query": null,
+     "second_query": null,
+     "reply": "Arvid loves vulfpeck."
+    }
+   ]
+  },
+  {
+   "messages": [
+    {
+     "user": "shop was freezing this morning",
+     "assistant": "Hope you warmed up once things got going.",
+     "fact": null
+    },
+    {
+     "user": "being a cooper means my hands are always wrecked from the hoops",
+     "assistant": "Hard work on the hands, for sure.",
+     "fact": {
+      "category": "C03",
+      "person": "me",
+      "value": "cooper"
+     }
+    },
+    {
+     "user": "got a big order of barrels to finish",
+     "assistant": "Busy times are good for business.",
+     "fact": null
+    },
+    {
+     "user": "my outlander barely fit all the staves lol",
+     "assistant": "Glad you squeezed them in.",
+     "fact": {
+      "category": "C17",
+      "person": "me",
+      "value": "outlander"
+     }
+    },
+    {
+     "user": "mom called, she's been bingeing tv",
+     "assistant": "Sounds like she's having a cozy time.",
+     "fact": null
+    },
+    {
+     "user": "mom's hooked on shetland, calls me after every episode",
+     "assistant": "Sounds like she found a new favourite.",
+     "fact": {
+      "category": "C24",
+      "person": "mom",
+      "value": "shetland"
+     }
+    },
+    {
+     "user": "my stepmom is the opposite, she hates mysteries",
+     "assistant": "Everyone has their own taste.",
+     "fact": null
+    },
+    {
+     "user": "my stepmom's watching ozark nonstop instead",
+     "assistant": "Very different picks in the same family.",
+     "fact": {
+      "category": "C24",
+      "person": "stepmom",
+      "value": "ozark"
+     }
+    },
+    {
+     "user": "family dinners are interesting with both of them around",
+     "assistant": "I bet the conversations are lively.",
+     "fact": null
+    },
+    {
+     "user": "i grew up in saltcoats so this rain feels like home",
+     "assistant": "Nothing like weather that reminds you of home.",
+     "fact": {
+      "category": "C05",
+      "person": "me",
+      "value": "saltcoats"
+     }
+    },
+    {
+     "user": "ozias brought his daughter fenna to the shop today, she loved it",
+     "assistant": "Kids love seeing where things get made.",
+     "fact": {
+      "category": "C11",
+      "person": "ozias",
+      "value": "fenna"
+     }
+    },
+    {
+     "user": "she swept up every bit of sawdust lol",
+     "assistant": "A natural helper.",
+     "fact": null
+    },
+    {
+     "user": "ozias is really into falconry, he brought his hawk once",
+     "assistant": "That must have been a sight.",
+     "fact": {
+      "category": "C21",
+      "person": "ozias",
+      "value": "falconry"
+     }
+    },
+    {
+     "user": "kinda want to learn but seems like a lot",
+     "assistant": "It does take real commitment.",
+     "fact": null
+    },
+    {
+     "user": "been practicing accordion at night, neighbours hate me",
+     "assistant": "Practice is practice, they'll get used to it.",
+     "fact": {
+      "category": "C22",
+      "person": "me",
+      "value": "accordion"
+     }
+    },
+    {
+     "user": "maybe i need to buy them earplugs",
+     "assistant": "That could be a nice peace offering.",
+     "fact": null
+    },
+    {
+     "user": "priya at work rides a scooter in every day even in this weather",
+     "assistant": "That's some serious dedication.",
+     "fact": {
+      "category": "C39",
+      "person": "priya",
+      "value": "scooter"
+     }
+    },
+    {
+     "user": "my nephew dax just got into kingsmere, the whole family's proud",
+     "assistant": "That's a great achievement for him.",
+     "fact": {
+      "category": "C14",
+      "person": "dax",
+      "value": "kingsmere"
+     }
+    },
+    {
+     "user": "gonna get him a little gift",
+     "assistant": "He'll appreciate that.",
+     "fact": null
+    },
+    {
+     "user": "carbury is so quiet at night, love living here",
+     "assistant": "A quiet place to live is hard to beat.",
+     "fact": {
+      "category": "C04",
+      "person": "me",
+      "value": "carbury"
+     }
+    },
+    {
+     "user": "except for my practicing haha",
+     "assistant": "Well, mostly quiet then.",
+     "fact": null
+    },
+    {
+     "user": "my phone keeps dying",
+     "assistant": "That's so annoying.",
+     "fact": null
+    },
+    {
+     "user": "this blackberry is older than dax probably",
+     "assistant": "Might be time for an upgrade.",
+     "fact": {
+      "category": "C35",
+      "person": "me",
+      "value": "blackberry"
+     }
+    },
+    {
+     "user": "anyway gonna grab dinner",
+     "assistant": "Enjoy your meal.",
+     "fact": null
+    }
+   ],
+   "questions": [
+    {
+     "kind": "older",
+     "question": "where am i originally from",
+     "source_message": 10,
+     "value": "saltcoats",
+     "category": "C05",
+     "person": "me",
+     "query": "originally",
+     "second_query": "grew hometown",
+     "reply": "You grew up in saltcoats."
+    },
+    {
+     "kind": "older",
+     "question": "which vehicle do i have",
+     "source_message": 4,
+     "value": "outlander",
+     "category": "C17",
+     "person": "me",
+     "query": "vehicle",
+     "second_query": "car drive",
+     "reply": "You drive an outlander."
+    },
+    {
+     "kind": "older",
+     "question": "ozias has some unusual pastime, what is it",
+     "source_message": 13,
+     "value": "falconry",
+     "category": "C21",
+     "person": "ozias",
+     "query": "ozias pastime",
+     "second_query": "hobby into",
+     "reply": "Ozias is into falconry."
+    },
+    {
+     "kind": "older",
+     "question": "my nephew was accepted at which school",
+     "source_message": 18,
+     "value": "kingsmere",
+     "category": "C14",
+     "person": "dax",
+     "query": "nephew school",
+     "second_query": "college university",
+     "reply": "Dax got into kingsmere."
+    },
+    {
+     "kind": "check_true",
+     "question": "mom is into shetland these days right",
+     "source_message": 6,
+     "value": "shetland",
+     "category": "C24",
+     "person": "mom",
+     "query": "mom shetland",
+     "second_query": "show watching",
+     "reply": "Yes, she's hooked on shetland."
+    },
+    {
+     "kind": "check_true",
+     "question": "priya commutes by scooter, correct?",
+     "source_message": 17,
+     "value": "scooter",
+     "category": "C39",
+     "person": "priya",
+     "query": "priya scooter",
+     "second_query": "ride work",
+     "reply": "Yes, Priya rides a scooter."
+    },
+    {
+     "kind": "check_false",
+     "question": "so stepmom is the shetland fan",
+     "source_message": 8,
+     "value": "ozark",
+     "category": "C24",
+     "person": "stepmom",
+     "query": "stepmom",
+     "second_query": "watching show",
+     "reply": "No, your stepmom watches ozark; shetland is your mom's."
+    },
+    {
+     "kind": "check_false",
+     "question": "fiddle is the instrument im learning right",
+     "source_message": 15,
+     "value": "accordion",
+     "category": "C22",
+     "person": "me",
+     "query": "fiddle instrument",
+     "second_query": "playing practicing",
+     "reply": "No, you've been practicing the accordion."
+    },
+    {
+     "kind": "never_told",
+     "question": "any idea what priya calls her kid",
+     "source_message": null,
+     "value": null,
+     "category": "C11",
+     "person": "priya",
+     "query": "priya kid",
+     "second_query": "son daughter child",
+     "reply": null
+    },
+    {
+     "kind": "never_told",
+     "question": "isnt ozias living in dunmore",
+     "source_message": null,
+     "value": null,
+     "category": "C04",
+     "person": "ozias",
+     "query": "ozias living",
+     "second_query": "lives home",
+     "reply": null
+    },
+    {
+     "kind": "in_view",
+     "question": "what phone am i using",
+     "source_message": 23,
+     "value": "blackberry",
+     "category": "C35",
+     "person": "me",
+     "query": null,
+     "second_query": null,
+     "reply": "You're on a blackberry."
+    }
+   ]
+  },
+  {
+   "messages": [
+    {
+     "user": "staff meeting ran forever today",
+     "assistant": "Long meetings are draining, glad it's over.",
+     "fact": null
+    },
+    {
+     "user": "being a sommelier sounds fancy but today i just carried crates",
+     "assistant": "The glamorous side of the job, clearly.",
+     "fact": {
+      "category": "C03",
+      "person": "me",
+      "value": "sommelier"
+     }
+    },
+    {
+     "user": "my feet are killing me",
+     "assistant": "Time to put them up.",
+     "fact": null
+    },
+    {
+     "user": "my partner anselm rubbed them for me, he's a saint",
+     "assistant": "That's a thoughtful partner.",
+     "fact": {
+      "category": "C08",
+      "person": "me",
+      "value": "anselm"
+     }
+    },
+    {
+     "user": "we're thinking about a big change",
+     "assistant": "Sounds exciting.",
+     "fact": null
+    },
+    {
+     "user": "we're probably moving to antigonish this summer, closer to his family",
+     "assistant": "That's a big step, exciting though.",
+     "fact": {
+      "category": "C01",
+      "person": "me",
+      "value": "antigonish"
+     }
+    },
+    {
+     "user": "packing is gonna be a nightmare",
+     "assistant": "Taking it a box at a time helps.",
+     "fact": null
+    },
+    {
+     "user": "my niece tamsin is doing linguistics at uni, she's so smart",
+     "assistant": "She sounds really bright.",
+     "fact": {
+      "category": "C13",
+      "person": "niece tamsin",
+      "value": "linguistics"
+     }
+    },
+    {
+     "user": "my old roommate is also called tamsin lol",
+     "assistant": "Funny coincidence.",
+     "fact": null
+    },
+    {
+     "user": "that tamsin is studying pharmacy now, career change",
+     "assistant": "Good for her for making the switch.",
+     "fact": {
+      "category": "C13",
+      "person": "old roommate tamsin",
+      "value": "pharmacy"
+     }
+    },
+    {
+     "user": "makes me wonder about going back to school",
+     "assistant": "It's never too late to learn something new.",
+     "fact": null
+    },
+    {
+     "user": "had to leave early, migraines again",
+     "assistant": "I'm sorry, I hope you get some relief.",
+     "fact": {
+      "category": "C30",
+      "person": "me",
+      "value": "migraines"
+     }
+    },
+    {
+     "user": "dark room and ice pack time",
+     "assistant": "Rest up.",
+     "fact": null
+    },
+    {
+     "user": "my boss hollis brings his dog gherkin to work sometimes",
+     "assistant": "A workplace dog is a nice bonus.",
+     "fact": {
+      "category": "C09",
+      "person": "hollis",
+      "value": "gherkin"
+     }
+    },
+    {
+     "user": "honestly the best part of my day",
+     "assistant": "Dogs make everything better.",
+     "fact": null
+    },
+    {
+     "user": "cyrene just got an axolotl, it looks like a little cartoon",
+     "assistant": "They really do look like they're smiling.",
+     "fact": {
+      "category": "C10",
+      "person": "cyrene",
+      "value": "axolotl"
+     }
+    },
+    {
+     "user": "lankum is my favourite band and they're touring near us",
+     "assistant": "Hope you manage to get tickets.",
+     "fact": {
+      "category": "C23",
+      "person": "me",
+      "value": "lankum"
+     }
+    },
+    {
+     "user": "tickets go on sale tomorrow",
+     "assistant": "Fingers crossed for you.",
+     "fact": null
+    },
+    {
+     "user": "driftwood is my favourite cafe, gonna miss it if we move",
+     "assistant": "Leaving a favourite spot is always hard.",
+     "fact": {
+      "category": "C26",
+      "person": "me",
+      "value": "driftwood"
+     }
+    },
+    {
+     "user": "i bought a rowboat on a whim, for the new place lol",
+     "assistant": "Ready for the move in style.",
+     "fact": {
+      "category": "C40",
+      "person": "me",
+      "value": "rowboat"
+     }
+    },
+    {
+     "user": "no idea where we'll store it till then",
+     "assistant": "Maybe a friend has some space.",
+     "fact": null
+    },
+    {
+     "user": "my partner is out orienteering all weekend so its just me",
+     "assistant": "Enjoy a quiet weekend to yourself.",
+     "fact": {
+      "category": "C21",
+      "person": "anselm",
+      "value": "orienteering"
+     }
+    },
+    {
+     "user": "gonna watch movies and order takeout",
+     "assistant": "That sounds like a perfect plan.",
+     "fact": null
+    },
+    {
+     "user": "maybe start packing a few boxes too",
+     "assistant": "Every bit helps.",
+     "fact": null
+    }
+   ],
+   "questions": [
+    {
+     "kind": "older",
+     "question": "where are we relocating to",
+     "source_message": 6,
+     "value": "antigonish",
+     "category": "C01",
+     "person": "me",
+     "query": "relocating",
+     "second_query": "moving move",
+     "reply": "You're moving to antigonish."
+    },
+    {
+     "kind": "older",
+     "question": "remind me what keeps sending me home sick",
+     "source_message": 12,
+     "value": "migraines",
+     "category": "C30",
+     "person": "me",
+     "query": "sick",
+     "second_query": "headache illness",
+     "reply": "Migraines keep sending you home."
+    },
+    {
+     "kind": "older",
+     "question": "hollis has a pup, whats it called",
+     "source_message": 14,
+     "value": "gherkin",
+     "category": "C09",
+     "person": "hollis",
+     "query": "hollis pup",
+     "second_query": "dog name",
+     "reply": "Hollis's dog is gherkin."
+    },
+    {
+     "kind": "older",
+     "question": "cyrene has a new pet, which kind",
+     "source_message": 16,
+     "value": "axolotl",
+     "category": "C10",
+     "person": "cyrene",
+     "query": "cyrene pet",
+     "second_query": "animal",
+     "reply": "Cyrene has an axolotl."
+    },
+    {
+     "kind": "check_true",
+     "question": "lankum is the group i love most yeah",
+     "source_message": 17,
+     "value": "lankum",
+     "category": "C23",
+     "person": "me",
+     "query": "lankum group",
+     "second_query": "band music",
+     "reply": "Yes, lankum is your favourite."
+    },
+    {
+     "kind": "check_true",
+     "question": "my niece is in linguistics right",
+     "source_message": 8,
+     "value": "linguistics",
+     "category": "C13",
+     "person": "niece tamsin",
+     "query": "niece linguistics",
+     "second_query": "studying degree",
+     "reply": "Yes, your niece is studying linguistics."
+    },
+    {
+     "kind": "check_false",
+     "question": "old roommate tamsin is in linguistics too isnt she",
+     "source_message": 10,
+     "value": "pharmacy",
+     "category": "C13",
+     "person": "old roommate tamsin",
+     "query": "roommate tamsin",
+     "second_query": "studying degree",
+     "reply": "No, your old roommate Tamsin is studying pharmacy; linguistics is your niece."
+    },
+    {
+     "kind": "check_false",
+     "question": "hearthstone is the coffee place i love right",
+     "source_message": 19,
+     "value": "driftwood",
+     "category": "C26",
+     "person": "me",
+     "query": "coffee place",
+     "second_query": "cafe favourite",
+     "reply": "No, your favourite is driftwood."
+    },
+    {
+     "kind": "never_told",
+     "question": "name of the axolotl cyrene has?",
+     "source_message": null,
+     "value": null,
+     "category": "C09",
+     "person": "cyrene",
+     "query": "axolotl cyrene",
+     "second_query": "pet called",
+     "reply": null
+    },
+    {
+     "kind": "never_told",
+     "question": "isnt hollis taking engineering classes",
+     "source_message": null,
+     "value": null,
+     "category": "C13",
+     "person": "hollis",
+     "query": "hollis engineering",
+     "second_query": "studying course",
+     "reply": null
+    },
+    {
+     "kind": "in_view",
+     "question": "what is my partner off doing",
+     "source_message": 22,
+     "value": "orienteering",
+     "category": "C21",
+     "person": "anselm",
+     "query": null,
+     "second_query": null,
+     "reply": "He's out orienteering."
+    }
+   ]
+  },
+  {
+   "messages": [
+    {
+     "user": "first day back after the holidays, ugh",
+     "assistant": "Easing back in is always rough.",
+     "fact": null
+    },
+    {
+     "user": "welding classes have me smelling like burnt metal constantly",
+     "assistant": "Comes with the territory, I suppose.",
+     "fact": {
+      "category": "C13",
+      "person": "me",
+      "value": "welding"
+     }
+    },
+    {
+     "user": "instructor is tough but fair",
+     "assistant": "That's the best kind to learn from.",
+     "fact": null
+    },
+    {
+     "user": "the shop at northcliff is way better equipped than i expected",
+     "assistant": "Good tools make learning a lot easier.",
+     "fact": {
+      "category": "C14",
+      "person": "me",
+      "value": "northcliff"
+     }
+    },
+    {
+     "user": "my silverado is basically my toolbox now",
+     "assistant": "Trucks are handy like that.",
+     "fact": {
+      "category": "C17",
+      "person": "me",
+      "value": "silverado"
+     }
+    },
+    {
+     "user": "gas prices are wild though",
+     "assistant": "They really add up.",
+     "fact": null
+    },
+    {
+     "user": "i carpool with a guy from class most days so it helps",
+     "assistant": "Sharing rides saves a lot.",
+     "fact": {
+      "category": "C39",
+      "person": "me",
+      "value": "carpool"
+     }
+    },
+    {
+     "user": "oisin from work does kendo, showed me a video",
+     "assistant": "That looks like an intense sport.",
+     "fact": {
+      "category": "C21",
+      "person": "oisin from work",
+      "value": "kendo"
+     }
+    },
+    {
+     "user": "my nephew is visiting this weekend",
+     "assistant": "That should be fun.",
+     "fact": null
+    },
+    {
+     "user": "funny, he's also called oisin, and he does parkour off every wall",
+     "assistant": "Sounds like a lot of energy to keep up with.",
+     "fact": {
+      "category": "C21",
+      "person": "nephew oisin",
+      "value": "parkour"
+     }
+    },
+    {
+     "user": "my sister's nerves are shot lol",
+     "assistant": "An active kid is no joke.",
+     "fact": null
+    },
+    {
+     "user": "my grandma grew up in ballina and still talks about the sea there",
+     "assistant": "Sounds like a place she really loved.",
+     "fact": {
+      "category": "C05",
+      "person": "grandma",
+      "value": "ballina"
+     }
+    },
+    {
+     "user": "she's getting up there in years but sharp as ever",
+     "assistant": "That's wonderful to hear.",
+     "fact": null
+    },
+    {
+     "user": "reading kindred right now, couldnt put it down last night",
+     "assistant": "Sounds like a gripping read.",
+     "fact": {
+      "category": "C25",
+      "person": "me",
+      "value": "kindred"
+     }
+    },
+    {
+     "user": "tired today because of it",
+     "assistant": "Worth it for a good book.",
+     "fact": null
+    },
+    {
+     "user": "marguerite swears kalamata is the best restaurant in the city",
+     "assistant": "Worth checking out then.",
+     "fact": {
+      "category": "C26",
+      "person": "marguerite",
+      "value": "kalamata"
+     }
+    },
+    {
+     "user": "we might go later this week",
+     "assistant": "Hope it lives up to the hype.",
+     "fact": null
+    },
+    {
+     "user": "bertil at work just had a baby girl, saoirse, so cute",
+     "assistant": "Congratulations to him.",
+     "fact": {
+      "category": "C11",
+      "person": "bertil",
+      "value": "saoirse"
+     }
+    },
+    {
+     "user": "the whole shop chipped in for a gift",
+     "assistant": "That's a lovely gesture.",
+     "fact": null
+    },
+    {
+     "user": "brackwater has the best walking trails, love living out here",
+     "assistant": "Great trails are a real perk.",
+     "fact": {
+      "category": "C04",
+      "person": "me",
+      "value": "brackwater"
+     }
+    },
+    {
+     "user": "went for a long walk after work",
+     "assistant": "Perfect way to clear your head.",
+     "fact": null
+    },
+    {
+     "user": "my friend texted me a pic of her new phone",
+     "assistant": "Fun, a new gadget.",
+     "fact": null
+    },
+    {
+     "user": "marguerite went with a huawei, kinda surprised",
+     "assistant": "Interesting choice.",
+     "fact": {
+      "category": "C35",
+      "person": "marguerite",
+      "value": "huawei"
+     }
+    },
+    {
+     "user": "anyway heading to bed",
+     "assistant": "Sleep well.",
+     "fact": null
+    }
+   ],
+   "questions": [
+    {
+     "kind": "older",
+     "question": "what trade am i learning",
+     "source_message": 2,
+     "value": "welding",
+     "category": "C13",
+     "person": "me",
+     "query": "trade learning",
+     "second_query": "studying classes",
+     "reply": "You're studying welding."
+    },
+    {
+     "kind": "older",
+     "question": "which town do i call home",
+     "source_message": 20,
+     "value": "brackwater",
+     "category": "C04",
+     "person": "me",
+     "query": "town home",
+     "second_query": "live living",
+     "reply": "You live in brackwater."
+    },
+    {
+     "kind": "older",
+     "question": "grandma is originally from where",
+     "source_message": 12,
+     "value": "ballina",
+     "category": "C05",
+     "person": "grandma",
+     "query": "grandma originally",
+     "second_query": "grew hometown",
+     "reply": "Your grandma grew up in ballina."
+    },
+    {
+     "kind": "older",
+     "question": "bertil named his daughter what",
+     "source_message": 18,
+     "value": "saoirse",
+     "category": "C11",
+     "person": "bertil",
+     "query": "bertil daughter",
+     "second_query": "baby girl",
+     "reply": "Bertil's daughter is saoirse."
+    },
+    {
+     "kind": "check_true",
+     "question": "i drive a silverado still yeah",
+     "source_message": 5,
+     "value": "silverado",
+     "category": "C17",
+     "person": "me",
+     "query": "drive silverado",
+     "second_query": "truck car",
+     "reply": "Yes, you drive a silverado."
+    },
+    {
+     "kind": "check_true",
+     "question": "marguerite rates kalamata highest right",
+     "source_message": 16,
+     "value": "kalamata",
+     "category": "C26",
+     "person": "marguerite",
+     "query": "marguerite kalamata",
+     "second_query": "restaurant favourite",
+     "reply": "Yes, she says kalamata is the best."
+    },
+    {
+     "kind": "check_false",
+     "question": "my nephew oisin is into kendo right",
+     "source_message": 10,
+     "value": "parkour",
+     "category": "C21",
+     "person": "nephew oisin",
+     "query": "nephew oisin",
+     "second_query": "sport hobby",
+     "reply": "No, your nephew Oisin does parkour; kendo is Oisin from work."
+    },
+    {
+     "kind": "check_false",
+     "question": "beloved is the book keeping me up isnt it",
+     "source_message": 14,
+     "value": "kindred",
+     "category": "C25",
+     "person": "me",
+     "query": "book",
+     "second_query": "reading novel",
+     "reply": "No, you're reading kindred."
+    },
+    {
+     "kind": "never_told",
+     "question": "any clue what marguerite calls her son",
+     "source_message": null,
+     "value": null,
+     "category": "C11",
+     "person": "marguerite",
+     "query": "marguerite son",
+     "second_query": "child kid",
+     "reply": null
+    },
+    {
+     "kind": "never_told",
+     "question": "doesnt bertil drive a jeep",
+     "source_message": null,
+     "value": null,
+     "category": "C17",
+     "person": "bertil",
+     "query": "bertil drive",
+     "second_query": "car truck",
+     "reply": null
+    },
+    {
+     "kind": "in_view",
+     "question": "so what brand did marguerite pick",
+     "source_message": 23,
+     "value": "huawei",
+     "category": "C35",
+     "person": "marguerite",
+     "query": null,
+     "second_query": null,
+     "reply": "She went with a huawei."
+    }
+   ]
+  }
+ ]
+}

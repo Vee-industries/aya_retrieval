@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # R-229 one try of the stage ladder: a stage on each seed's K1.3 adapter, then Demo2, then Demo3 (held out), then
 # screening, modeled on q227.sh. Run under the card lock by qtry_lock.py; no push.
-# Usage: qtry.sh LABEL LR EPOCHS DATA
+# Usage: qtry.sh LABEL LR EPOCHS DATA [INIT]
 #   LABEL  results label, e.g. k13t2_r229 (adapters/screens/LABEL_SEED)
 # After each Demo run the queue prints DEMO2 READY or DEMO3 READY and waits for a read file beside the log:
 # LABEL_read2.txt, then LABEL_read3.txt, holding "pass" or "bomb" (written by hand after two blind judges).
 # A bomb, or a failed hard_dev line on seed 82 or 83 (hd_gate.py), ends the try; the lock then passes on.
 set -u
-LABEL=$1 LR=$2 EPOCHS=$3 DATA=$4
+LABEL=$1 LR=$2 EPOCHS=$3 DATA=$4 INIT=${5:-k1_3_r200}  # R-235: INIT names the adapter a stage starts from
 S="$(cd "$(dirname "$0")" && pwd)"
 W="/c/Users/Gaming/Desktop/hackathons/Lexsi Sprint"
 VP="$W/venv/Scripts/python.exe"
@@ -43,11 +43,11 @@ blindrun() {  # folder, label, adapter dir
   timeout $CAP "$VP" scripts/run_recall_eval.py --seed 0 --items-dir "data/$1/chats" --index "C:/Users/Gaming/scratch/eval_${LABEL}_blind.sqlite" --label "$2" --arms tool_loop --max-vram-fraction $VRAM --adapter "$3" 2>&1 | quiet | tail -3
   have "$2_seed_0" || fail "$2"; commit "$2"
 }
-train() {  # seed: the stage on the same seed's K1.3 adapter
+train() {  # seed: the stage on the same seed's INIT adapter (K1.3 unless named)
   local AD="$W/adapters/screens/${LABEL}_$1"
   [ -s "$AD/adapter_model.safetensors" ] && { echo "== have adapter ${LABEL}_$1"; return 0; }
   clean; rm -rf "$AD"; echo "== train ${LABEL} seed $1 (lr $LR, $EPOCHS epochs, $DATA) $(date)"
-  timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$AD" --data "$DATA" --report-name "${LABEL}_$1" --lora-r 32 --lora-targets $MLP --learning-rate "$LR" --epochs "$EPOCHS" --loss-on chat_decision --max-vram-fraction $VRAM --init-adapter "$W/adapters/screens/k1_3_r200_$1" 2>&1 | tee "$S/train_${LABEL}_$1.log" | quiet | tail -2
+  timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$AD" --data "$DATA" --report-name "${LABEL}_$1" --lora-r 32 --lora-targets $MLP --learning-rate "$LR" --epochs "$EPOCHS" --loss-on chat_decision --max-vram-fraction $VRAM --init-adapter "$W/adapters/screens/${INIT}_$1" 2>&1 | tee "$S/train_${LABEL}_$1.log" | quiet | tail -2
   [ -s "$AD/adapter_model.safetensors" ] || fail "train ${LABEL}_$1"
   git add results/recall_train && git commit -q -m "${LABEL} seed $1 trained (R-229)" -m "$ATTR"
 }
