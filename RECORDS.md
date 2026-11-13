@@ -9201,3 +9201,9 @@ not reruns under R-229. Fix that keeps the card rule (whole card under 85%): `qt
 blocks; it changes no computed number. If T2 still runs out of memory under it, the next step is put to Kevin (a
 higher cap breaks the card rule; batch 1 with gradient accumulation 2 changes a training setting). T1 ran at the old
 0.85 cap; the cap changes speed and memory, not results (R-088).
+
+**Second start (17:13) ran out of memory too**, at the same step, with the allocator setting. Kevin's rule allows no
+exception to the card rule, so the layout changes instead: `qtry.sh` trains with `--batch-size 1 --grad-accum 2`,
+the same 2 rows per optimizer step with half the activations held at once. Not identical in numbers to K1.3's batch 2
+(rows are padded and averaged in pairs either way, but in a different order of operations); it applies to T2 to T6
+alike, and T1 (batch 2, cap 0.85) differs from them in this one respect. T2 restarts a third time; still no result.

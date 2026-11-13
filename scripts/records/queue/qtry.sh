@@ -47,7 +47,7 @@ train() {  # seed: the stage on the same seed's K1.3 adapter
   local AD="$W/adapters/screens/${LABEL}_$1"
   [ -s "$AD/adapter_model.safetensors" ] && { echo "== have adapter ${LABEL}_$1"; return 0; }
   clean; rm -rf "$AD"; echo "== train ${LABEL} seed $1 (lr $LR, $EPOCHS epochs, $DATA) $(date)"
-  timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$AD" --data "$DATA" --report-name "${LABEL}_$1" --lora-r 32 --lora-targets $MLP --learning-rate "$LR" --epochs "$EPOCHS" --loss-on chat_decision --max-vram-fraction $VRAM --init-adapter "$W/adapters/screens/k1_3_r200_$1" 2>&1 | tee "$S/train_${LABEL}_$1.log" | quiet | tail -2
+  timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$AD" --data "$DATA" --report-name "${LABEL}_$1" --lora-r 32 --lora-targets $MLP --learning-rate "$LR" --epochs "$EPOCHS" --batch-size 1 --grad-accum 2 --loss-on chat_decision --max-vram-fraction $VRAM --init-adapter "$W/adapters/screens/k1_3_r200_$1" 2>&1 | tee "$S/train_${LABEL}_$1.log" | quiet | tail -2
   [ -s "$AD/adapter_model.safetensors" ] || fail "train ${LABEL}_$1"
   git add results/recall_train && git commit -q -m "${LABEL} seed $1 trained (R-229)" -m "$ATTR"
 }
