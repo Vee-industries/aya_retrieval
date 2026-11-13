@@ -1,0 +1,48 @@
+1 | RIGHT | says no information found, names no town
+2 | RIGHT | says it has no information, names no workplace
+3 | RIGHT | says it has no information, names no workplace
+4 | RIGHT | names kayak
+5 | WRONG | names raw meat, fish, eggs instead of sesame
+6 | RIGHT | names the aquarium
+7 | WRONG | only a tool call, no statement of not knowing
+8 | WRONG | explains a dev drive term, no saab
+9 | ABSTAINED | says it does not see it
+10 | WRONG | only a tool call, no statement of not knowing
+11 | RIGHT | says no information found, names no place
+12 | RIGHT | names khruangbin
+13 | WRONG | talks about pottery, not the aquarium
+14 | ABSTAINED | says it could not find the information
+15 | WRONG | only a tool call, no venue named
+16 | WRONG | explains a dev drive term, no saab
+17 | ABSTAINED | says it could not find the information
+18 | ABSTAINED | says it does not see it
+19 | ABSTAINED | says it could not find the destination
+20 | WRONG | gives outfit advice, venue not named
+21 | RIGHT | says it does not see it
+22 | RIGHT | says it does not see it
+23 | RIGHT | names Brackenfield
+24 | RIGHT | names kayak
+25 | RIGHT | says no information found, names no town
+26 | RIGHT | names kayak
+27 | WRONG | only a tool call, no saab
+28 | RIGHT | says no information found, names no place
+29 | ABSTAINED | says it could not find the information
+30 | RIGHT | names kayak
+31 | WRONG | only a tool call, no whippet
+32 | WRONG | names Oaxaca for a different person
+33 | WRONG | names a value, geology, for a never told fact
+34 | RIGHT | says it has no information on the vehicle
+35 | WRONG | only a tool call, no aquarium
+36 | WRONG | states another fact, does not say it does not know
+37 | WRONG | only a tool call, no sesame
+38 | WRONG | only a tool call, no sesame
+39 | ABSTAINED | says it could not find the venue
+40 | WRONG | only a tool call, no Tbilisi
+41 | RIGHT | names khruangbin
+42 | WRONG | only a tool call, no statement of not knowing
+43 | ABSTAINED | says it could not find the information
+44 | WRONG | talks about pottery, not the aquarium
+45 | RIGHT | names whippet
+46 | RIGHT | says it has no information on the vehicle
+47 | WRONG | only a tool call, no statement of not knowing
+48 | WRONG | names raw meat, fish, eggs instead of sesame

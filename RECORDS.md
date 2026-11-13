@@ -8398,3 +8398,47 @@ K3.2 trains: queue `q207` (seed 82, Demo2 on seed 82 under R-205's bomb rule, sc
 **Kevin, 22:40, before Demo2 on K3.2 runs:** "don't keep training it if it bombs". So if K3.2 seed 82 bombs under
 R-205's rule, queue `q207` is stopped as soon as the judges' tally is in: seeds 83 and 94 are not trained, K3.2 has one
 seed and is not eligible for the pick (R-191 needs both screening seeds), and the next candidate is designed at once.
+
+## R-208 · 2026-11-12 · REOPENED · K3.2 bombs Demo2 on never-told (2 of 4); its queue stopped; K4 registered
+
+**Demo2 on K3.2 seed 82** (`results/demo2/branches_k3_2_r207_82.json`, run 23:26; two fresh blind judges, each one
+Read and one Write; 48 items, 1 disagreement; `results/demo2/judge_k3_2_82/`). Baselines first:
+
+| Arm | Older (6) | In view (2) | Never told, plain (2) | Never told, shared word (2) |
+|---|---|---|---|---|
+| declines everything | 0 | 0 | 2 | 2 |
+| base, search | 0 | 1 | 2 | 2 |
+| K3.2, empty index | 0 | 2 | 0 | 0 |
+| K3.2, search | 3 | 2 | 2 | 0 |
+
+K3.2 recalled 3 of 6 older facts (K1 and K1.3: 0): "where do i work" through its second search, the dog's breed, and
+the wedding venue (C28, a category it did not train). It declined two facts its search had found. On both
+shared-word never-told questions it gave the same person's other stored fact ("She's studying geology." for a person
+who teaches geology; Ollie's move to Halifax for where Ollie will work). Never-told 2 of 4 is under R-205's line
+(3), so **K3.2 bombs**. Under Kevin's rule the queue was stopped at 23:40 (seed 82's first screening run killed, no
+file written); seeds 83 and 94 were not trained; K3.2 is not eligible for the pick. Prediction (R-205): older 3 of 6,
+right; never-told 3 of 4, wrong by one.
+
+**Cause, in K3.2's rows.** 67 of its 106 natural never_told rows already return a stated fact of the asked person and
+decline; none asks a category close to that fact. Demo2's two misses are near misses (studying against teaches, work
+after moving against moving).
+
+**K4** = K3.2's 1,620 rows plus near-miss rows over the same 64 chats, written by 2 fresh writer agents
+(`docs/k4/WRITER_BRIEF.md`; each reads 4 of the 8 K3 writer files and nothing else, Write its one output). Per chat: 2
+near_miss never_told questions (a person with a stored fact of category X, asked a category Y close to X that is
+never stated for them), and 1 contrast question (the stored X fact itself, asked in words close to the near miss).
+Each with a first query of question words and a second query, as R-205. Rows built by R-205's rules (`build_k4.py`:
+never_told kept only with passages; contrast rows as older rows; no balance step on the old rows; the balance rule run
+over the new rows alone; 1,024-token limit).
+
+**Check** (`check_k3.py --set k4_r208`, R-206's lines with one change made before the build): line 6 becomes "facts
+about the user at least a third of natural fact rows; check_false rows at least as many as check_true rows" (adding
+never_told and older rows would dilute a 15% share by construction). New, reported: near_miss rows whose output holds
+the asked person's stored fact (want most), contrast rows found. An against lane reads this design while the writers
+write (resumed, not new); a finding that breaks the design stops the build. A FAIL means the next candidate at once.
+
+**Queue** `q208`: seed 82, Demo2 at once under R-205's bomb rule (and Kevin's: a bomb stops the queue), screening,
+then 83 and 94.
+
+**Predictions** (mine, before any writer runs): about 150 near-miss and contrast rows; check passes. Demo2 seed 82:
+older 3 of 6, never-told 3 of 4.

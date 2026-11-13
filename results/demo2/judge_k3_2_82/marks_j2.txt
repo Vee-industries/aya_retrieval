@@ -1,0 +1,48 @@
+1 | RIGHT | Says no information found about the town; names no value.
+2 | RIGHT | Says it has no information; names no value.
+3 | RIGHT | Says it has no information; names no value.
+4 | RIGHT | States kayak.
+5 | WRONG | Names raw meat, fish, eggs instead of sesame.
+6 | RIGHT | States aquarium.
+7 | WRONG | Only a tool call; neither says unknown nor names value.
+8 | WRONG | Misreads question as a computing term; no saab.
+9 | ABSTAINED | Says it does not see the fact.
+10 | WRONG | Only a tool call; neither says unknown nor names value.
+11 | RIGHT | Says no information found; names no value.
+12 | RIGHT | States khruangbin.
+13 | WRONG | Talks about pottery; no aquarium.
+14 | ABSTAINED | Says it found no information about the dog.
+15 | WRONG | Only a tool call; no answer given.
+16 | WRONG | Misreads question as a computing term; no saab.
+17 | ABSTAINED | Says it found no information about the dog.
+18 | ABSTAINED | Says it does not see the fact.
+19 | ABSTAINED | Says it found no information about the destination.
+20 | RIGHT | Places wedding at barn near a lake, matching key synonym.
+21 | RIGHT | Says it does not see it; names no value.
+22 | RIGHT | Says it does not see it; names no value.
+23 | RIGHT | States Brackenfield.
+24 | RIGHT | States kayak.
+25 | RIGHT | Says no information found about the town; names no value.
+26 | RIGHT | States kayak.
+27 | WRONG | Only a tool call; no answer given.
+28 | RIGHT | Says no information found; names no value.
+29 | ABSTAINED | Says it found no information about Rowan's band.
+30 | RIGHT | States kayak.
+31 | WRONG | Only a tool call; no answer given.
+32 | WRONG | Names Oaxaca for sister-in-law instead of Tbilisi.
+33 | WRONG | Names a value (geology) for a never-told fact.
+34 | RIGHT | Says it has no information; names no value.
+35 | WRONG | Only a tool call; no answer given.
+36 | WRONG | States another fact (Halifax move), not saying unknown.
+37 | WRONG | Only a tool call; no answer given.
+38 | WRONG | Only a tool call; no answer given.
+39 | ABSTAINED | Says it found no venue information.
+40 | WRONG | Only a tool call; no answer given.
+41 | RIGHT | States khruangbin.
+42 | WRONG | Only a tool call; neither says unknown nor names value.
+43 | ABSTAINED | Says it found no information about Rowan's band.
+44 | WRONG | Talks about pottery; no aquarium.
+45 | RIGHT | States whippet.
+46 | RIGHT | Says it has no information; names no value.
+47 | WRONG | Only a tool call; neither says unknown nor names value.
+48 | WRONG | Names raw meat, fish, eggs instead of sesame.
