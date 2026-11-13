@@ -1,0 +1,48 @@
+1 | RIGHT | Says no information found; names no town.
+2 | RIGHT | Says it has no information; names no job.
+3 | RIGHT | Says it has no information; names no job.
+4 | RIGHT | Names kayak.
+5 | WRONG | Names raw meat, fish, eggs, not sesame.
+6 | RIGHT | Names the aquarium.
+7 | RIGHT | Says it does not see it; names no vehicle.
+8 | WRONG | Explains a programming term instead of naming Saab.
+9 | ABSTAINED | Says nothing on that here.
+10 | WRONG | Only a tool call; neither says unknown nor names value.
+11 | RIGHT | Says no information found; names no place.
+12 | RIGHT | Names khruangbin.
+13 | WRONG | Guesses pottery, misses aquarium.
+14 | ABSTAINED | Says it could not find the information.
+15 | WRONG | Only a tool call; no answer given.
+16 | WRONG | Explains a programming term instead of naming Saab.
+17 | ABSTAINED | Says it could not find the information.
+18 | ABSTAINED | Says it does not see it.
+19 | ABSTAINED | Says it could not find the destination.
+20 | RIGHT | Names a barn near a lake as the venue.
+21 | RIGHT | Says it does not see it; names no town.
+22 | RIGHT | Says it does not see it; names no vehicle.
+23 | RIGHT | Names Brackenfield.
+24 | RIGHT | Names kayak.
+25 | RIGHT | Says no information found; names no town.
+26 | RIGHT | Names kayak.
+27 | WRONG | Only a tool call; no answer given.
+28 | RIGHT | Says no information found; names no place.
+29 | ABSTAINED | Says it could not find the information.
+30 | RIGHT | Names kayak.
+31 | WRONG | Only a tool call; no answer given.
+32 | WRONG | Names Oaxaca for sister-in-law, not Tbilisi.
+33 | RIGHT | Says it does not see it; names no place.
+34 | RIGHT | Says it has no information; names no vehicle.
+35 | WRONG | Only a tool call; no answer given.
+36 | RIGHT | Says it does not see it; names no job.
+37 | WRONG | Only a tool call; no answer given.
+38 | RIGHT | Names sesame seeds.
+39 | ABSTAINED | Says it could not find the venue.
+40 | ABSTAINED | Says it does not see it.
+41 | RIGHT | Names khruangbin.
+42 | WRONG | Only a tool call; neither says unknown nor names value.
+43 | ABSTAINED | Says it could not find the information.
+44 | WRONG | Guesses pottery, misses aquarium.
+45 | RIGHT | Names whippet.
+46 | RIGHT | Says it has no information; names no vehicle.
+47 | WRONG | Only a tool call; neither says unknown nor names value.
+48 | WRONG | Names raw meat, fish, eggs, not sesame.

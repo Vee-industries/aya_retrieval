@@ -8479,3 +8479,22 @@ candidate. Queue, Demo2 rules and predictions as R-208 (Demo2 never-told for K4.
 1; one-to-one cut 26; 2 over 1,024 tokens). Check: **0 FAIL** of 11 (gap 0.01 natural, 0.28 whole set; six-word runs
 with S3 0, four-word runs 282 against K1.3's 148 reported; facts about the user 39.5% of 344). K4.1 trains: queue
 `q209` (seed 82, Demo2 at once, screening, seeds 83 and 94; a Demo2 bomb stops it).
+
+**Demo2 on K4.1 seed 82** (`results/demo2/branches_k4_1_r209_82.json`, run 00:33; two fresh blind judges, each one
+Read and one Write; 48 items, 0 disagreements; `results/demo2/judge_k4_1_82/`). Baselines first:
+
+| Arm | Older (6) | In view (2) | Never told, plain (2) | Never told, shared word (2) |
+|---|---|---|---|---|
+| declines everything | 0 | 0 | 2 | 2 |
+| base, search | 1 | 1 | 2 | 2 |
+| K4.1, empty index | 0 | 2 | 1 | 0 |
+| K4.1, search | 4 | 2 | 2 | 2 |
+
+**K4.1 does not bomb** (older 4 of 6, never-told 4 of 4); its queue goes on to seeds 83 and 94. Right: where the user
+works, the dog's breed, the ingredient to avoid (C19) and the wedding venue (C28), the last two outside the training
+categories. Wrong: "what does dev drive" (found, declined) and "where is my sister headed" (found, declined). Both
+shared-word never-told questions declined (one query misspelt the name, "essa studying"). Disclosed (R-208): the
+never-told result is a regression check only, since K4's brief named Demo2's misses; the older result is not
+affected by that. Base with search scored 1 of 6 older here against 0 in R-204, from fresh judges on the same kind
+of replies (see the replies-identical count below). Prediction (R-208): older 3 of 6, never-told 3 of 4; both one
+better.

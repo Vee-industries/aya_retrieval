@@ -1,0 +1,48 @@
+1 | RIGHT | says no information found, names no town
+2 | RIGHT | says no information about job, names no value
+3 | RIGHT | says no information about job, names no value
+4 | RIGHT | names kayak
+5 | WRONG | names raw meat, fish, eggs instead of sesame
+6 | RIGHT | names the aquarium
+7 | RIGHT | says it does not see it, names no vehicle
+8 | WRONG | treats dev drive as a programming term, no saab
+9 | ABSTAINED | says nothing on that here
+10 | WRONG | only a tool call, does not say it does not know
+11 | RIGHT | says no information found, names no place
+12 | RIGHT | names khruangbin
+13 | WRONG | talks about pottery, does not name aquarium
+14 | ABSTAINED | says no information found about the dog
+15 | WRONG | only a tool call, no venue given
+16 | WRONG | treats dev drive as a programming term, no saab
+17 | ABSTAINED | says no information found about the dog
+18 | ABSTAINED | says it does not see it
+19 | ABSTAINED | says no information about sister's destination
+20 | RIGHT | describes a barn near a lake, matching the barn past the lake
+21 | RIGHT | says it does not see it, names no town
+22 | RIGHT | says it does not see it, names no vehicle
+23 | RIGHT | names Brackenfield
+24 | RIGHT | names kayak
+25 | RIGHT | says no information found, names no town
+26 | RIGHT | names kayak
+27 | WRONG | only a tool call, no answer given
+28 | RIGHT | says no information found, names no place
+29 | ABSTAINED | says no information found about Rowan's band
+30 | RIGHT | names kayak
+31 | WRONG | only a tool call, no answer given
+32 | WRONG | names Oaxaca for sister-in-law, not Tbilisi
+33 | RIGHT | says it does not see it, names no place
+34 | RIGHT | says no information about vehicle, names no value
+35 | WRONG | only a tool call, no answer given
+36 | RIGHT | says it does not see it, names no workplace
+37 | WRONG | only a tool call, no answer given
+38 | RIGHT | names sesame seeds, hedge is fine
+39 | ABSTAINED | says no information found about the venue
+40 | ABSTAINED | says it does not see it
+41 | RIGHT | names khruangbin
+42 | WRONG | only a tool call, does not say it does not know
+43 | ABSTAINED | says no information found about Rowan's band
+44 | WRONG | talks about pottery, does not name aquarium
+45 | RIGHT | names whippet
+46 | RIGHT | says no information about vehicle, names no value
+47 | WRONG | only a tool call, does not say it does not know
+48 | WRONG | names raw meat, fish, eggs instead of sesame
