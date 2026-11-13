@@ -8325,3 +8325,45 @@ and rests on Demo2 and S3's brief.
 balance. Demo2, K3 seed 82 with search: 3 of 6 older, 3 of 4 never-told (not a bomb, narrowly). Dev, pooled over 82
 and 83: outside-writer recall about 215 (K1.3 193), hard_dev about 135 (K1.3 124); hard_dev found and declined over
 three seeds about 25 (K1.3 41).
+
+**K3's writers, build and check** (22:15 to 22:30). 8 fresh writers, each with one Read (the brief) and one Write
+(its file), no other tool; 64 chats, each 24 messages and 11 questions (`data/screens/k3_writers/`, committed as
+written). Built once: `data/screens/k3_r205.jsonl`, 1,714 rows, 620 natural (767 built, 135 cut by the balance, 12
+over 1,024 tokens). Check: **3 FAIL** of 11, so under R-205 K3 does not train.
+- FAIL, line 1: 74 first queries break the rule. 53 of them are a fault in the check (a possessive in the question,
+  "calderbrook's", read as a word other than "calderbrook"); the other 23 are real (a filler word of
+  `demonstrations.FILLER` such as "in", "place", "to", or a length).
+- FAIL, line 4a: 22 natural questions share a four-word run with a dev or Demo2 question. Mostly stock phrases ("remind
+  me what my" 5, "my sister in law" 3, "whats the name of" 3), and one starts as Demo2's "where do i work".
+- FAIL, line 5: four-word runs shared with S3, K3 346 against K1.3's 148 (bound 296).
+- PASS: second queries 0 with the value; replies 0 off their side; passage gap 0.03 natural, 0.21 whole set; natural
+  answer values also dev or Demo2 answers 8.8% of 375; facts about the user 44.3% of 370; check_false 15.3% of 620;
+  longest row 1,024 tokens. Reported: top scores, value rows 3.10 against declining rows 2.55.
+
+## R-206 · 2026-11-12 · REOPENED · K3.1 registered: K3's rows from the same writer files, three kinds of row dropped
+
+**Before the choice** (counts only; no S3 text read). S3's four-word runs shared per training run: the outside-writer
+dev chats (written apart from S3, 41,752 runs) 0.024; K3's natural rows (6,594 runs) 0.039; K1.3 0.011. So the 2x
+K1.3 bound compared natural text with template text. Natural rows sharing any run with S3: four-word 367 of 620,
+five-word 165, six-word 46, eight-word 0: no sentence copied, the overlap is stock phrasing. Kevin chose, from three
+options I gave with this as the recommendation: drop the 46 six-word rows and re-register line 5 as six-word runs.
+
+**Kevin, 22:35**: "i'm going to bed. don't let decisions like that stop the process again", then "if 3.1 fails move
+onto the next etc." So from here a failed candidate is followed by the next one, designed and registered without
+waiting, each recorded before it is built.
+
+**K3.1** (`scripts/records/build_k3_1.py`): K3's rows from the same writer files, unchanged, with three kinds of row
+dropped before the balance and token steps: (1) the first query breaks the brief's rule (possessives removed on both
+sides); (2) the question shares a four-word run with a hard_dev, probe, outside-writer or Demo2 question; (3) the row
+shares any six-word run with S3 (decontamination; makes S3 harder for K3.1, never easier).
+
+**Check** (`scripts/records/check_k3.py --set k3_1_r206`): R-205's lines with two changes, both disclosed as made after
+K3's result: line 1 removes possessives before comparing (a fault fix); line 5 becomes "natural rows sharing a six-word
+run with S3: 0", and the four-word count is reported beside K1.3's. Lines 1, 4a and 5 hold by construction; lines 2,
+3, 4b, 6 and 7 can still fail (the drops can move the passage gap and the shares).
+
+**Fixed in advance.** One build. A FAIL means no K3.1 and the next candidate is designed at once (Kevin). Queue
+`q206`: seed 82 trained, Demo2 on seed 82 at once with R-205's bomb rule unchanged, then screening, seeds 83 and 94.
+
+**Predictions** (mine, before the build): about 500 natural rows; every line passes. Demo2 and dev predictions as
+R-205's for K3.
