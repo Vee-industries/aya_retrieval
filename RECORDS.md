@@ -8170,3 +8170,45 @@ answered: "Hold until Saturday". So `decide_r191.py` still runs when K1.3's queu
 but the pick it names is not final while a later candidate can still train: any candidate whose three seeds finish
 training by Saturday 14 November 16:00 Eastern is screened and joins the pick by 18:00, and S3 starts by 19:00
 (R-194). The S3 queue is written and not started.
+
+## R-203 · 2026-11-12 · REOPENED · K1.3 passes screening and leads the pick, 742 to K1's 720; provisional under R-202
+
+**Screening.** `decide_r191.py` at 21:50, after queue `q200` finished (output `results/panels/R-203/decide_r191.txt`):
+K1.3 passes all 20 lines. Recall above base at both seeds: probe 90 and 94 against 30, hard_dev 52 and 72 against 20,
+outside-writer 89 and 104 against 53, T2 other-facts 135 and 159 against 53. T3 copies 68 (6.37: 368); T2 false answers
+9 (6.37: 53).
+
+| Candidate | Screening | Pooled dev recall, 82 and 83 (R-191) | Pick recall, 82, 83 and 94 (R-192) |
+|---|---|---|---|
+| K1 | 0 FAIL | 481 | 720 |
+| K2.1 | 1 FAIL (R-195) | 485 | not eligible |
+| K1.3 | 0 FAIL | 501 | 742 |
+
+The script names K1.3 as the shippable arm. Under R-202 that pick is provisional until Saturday 18:00: a later
+candidate trained by Saturday 16:00 joins it.
+
+**How much this says.** The 22-point lead over three seeds is about one seed's spread on these sets (sd about 19,
+R-196 lane), and at seed 82 K1.3 is below K1 on probe and hard_dev (90 and 52 against 93 and 57). It names what to
+test; it does not show K1.3 is better. S3 is the measure.
+
+**Predictions.** Mine (R-200): hard_dev pooled over 82 and 83 about 130, range 115 to 150: 124, inside the range. T3
+about 68: 68. T2 false answers about 5: 9. Kevin's (R-201), "it won't be be k1.3": the pick named K1.3, by less than
+one seed's spread.
+
+**Failure types on fact questions** (older and confirm, pooled over three seeds;
+`results/panels/R-203/failure_types.py`; "declines" is a phrase match, not a judge, for design only):
+
+| Set (questions) | Arm | Right | Found, declined | Found, other line | Not found | No search |
+|---|---|---|---|---|---|---|
+| hard_dev (288) | K1 | 179 | 63 | 30 | 5 | 11 |
+| hard_dev (288) | K1.3 | 190 | 41 | 36 | 16 | 5 |
+| outside writer 1 (360) | K1 | 119 | 29 | 19 | 110 | 83 |
+| outside writer 1 (360) | K1.3 | 133 | 28 | 19 | 117 | 63 |
+| outside writer 2 (360) | K1 | 139 | 22 | 23 | 92 | 84 |
+| outside writer 2 (360) | K1.3 | 141 | 15 | 35 | 96 | 73 |
+| probe (288) | K1 | 283 | 4 | 1 | 0 | 0 |
+| probe (288) | K1.3 | 278 | 2 | 5 | 3 | 0 |
+
+Reading (mine): K1.3 declines less often with the fact in front of it on hard_dev (63 to 41), the failure it was
+built for, but some of those became other lines. On the outside writers' chats the largest loss for both is a search
+that does not find the fact (about a third of questions), then no search; no candidate has trained query writing.

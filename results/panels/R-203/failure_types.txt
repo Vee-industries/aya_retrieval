@@ -1,0 +1,8 @@
+hd k1_r178 288 {'found_declines': 63, 'found_other_line': 30, 'no_search': 11, 'not_found': 5, 'right': 179}
+hd k1_3_r200 288 {'found_declines': 41, 'found_other_line': 36, 'no_search': 5, 'not_found': 16, 'right': 190}
+probe k1_r178 288 {'found_declines': 4, 'found_other_line': 1, 'right': 283}
+probe k1_3_r200 288 {'found_declines': 2, 'found_other_line': 5, 'not_found': 3, 'right': 278}
+blind k1_r178 360 {'found_declines': 29, 'found_other_line': 19, 'no_search': 83, 'not_found': 110, 'right': 119}
+blind k1_3_r200 360 {'found_declines': 28, 'found_other_line': 19, 'no_search': 63, 'not_found': 117, 'right': 133}
+blind2 k1_r178 360 {'found_declines': 22, 'found_other_line': 23, 'no_search': 84, 'not_found': 92, 'right': 139}
+blind2 k1_3_r200 360 {'found_declines': 15, 'found_other_line': 35, 'no_search': 73, 'not_found': 96, 'right': 141}
