@@ -1,0 +1,129 @@
+{"questions": [
+  {"file": "w1.json", "chat": 0, "kind": "near_miss", "question": "which town did ines grow up in", "person": "ines", "category": "C05", "stored_category": "C04", "query": "ines grow town", "second_query": "hometown childhood raised"},
+  {"file": "w1.json", "chat": 0, "kind": "near_miss", "question": "hey which uni did i graduate from", "person": "me", "category": "C14", "stored_category": "C02", "query": "uni graduate", "second_query": "college school degree"},
+  {"file": "w1.json", "chat": 0, "kind": "contrast", "question": "and ines is living in what town now", "person": "ines", "category": "C04", "source_message": 4, "value": "wexcombe", "query": "ines living town", "second_query": "home place lives", "reply": "Ines lives in wexcombe."},
+
+  {"file": "w1.json", "chat": 1, "kind": "near_miss", "question": "noor from my course listens to which band", "person": "noor from my course", "category": "C23", "stored_category": "C22", "query": "noor course band", "second_query": "music favourite"},
+  {"file": "w1.json", "chat": 1, "kind": "near_miss", "question": "where's my aunt living at the moment", "person": "my aunt", "category": "C04", "stored_category": "C01", "query": "aunt living", "second_query": "home lives town"},
+  {"file": "w1.json", "chat": 1, "kind": "contrast", "question": "remind me the instrument noor from my course plays", "person": "noor from my course", "category": "C22", "source_message": 6, "value": "bassoon", "query": "instrument noor course plays", "second_query": "orchestra music", "reply": "Noor from your course plays the bassoon."},
+
+  {"file": "w1.json", "chat": 2, "kind": "near_miss", "question": "whats fenn's job title these days", "person": "fenn", "category": "C03", "stored_category": "C02", "query": "fenn's job title", "second_query": "role position"},
+  {"file": "w1.json", "chat": 2, "kind": "near_miss", "question": "my mum lives where now", "person": "my mum", "category": "C04", "stored_category": "C05", "query": "mum lives", "second_query": "home town house"},
+  {"file": "w1.json", "chat": 2, "kind": "contrast", "question": "which company is fenn at these days", "person": "fenn", "category": "C02", "source_message": 15, "value": "ostrander", "query": "company fenn", "second_query": "work employer", "reply": "Fenn works at ostrander."},
+
+  {"file": "w1.json", "chat": 3, "kind": "near_miss", "question": "cousin bram goes to which uni", "person": "my cousin bram", "category": "C14", "stored_category": "C13", "query": "cousin bram uni", "second_query": "college university school"},
+  {"file": "w1.json", "chat": 3, "kind": "near_miss", "question": "senna plays some instrument right, which one", "person": "senna", "category": "C22", "stored_category": "C23", "query": "senna instrument", "second_query": "plays music"},
+  {"file": "w1.json", "chat": 3, "kind": "contrast", "question": "and the subject cousin bram studies is?", "person": "my cousin bram", "category": "C13", "source_message": 12, "value": "forestry", "query": "subject cousin bram studies", "second_query": "degree course", "reply": "Your cousin bram is doing forestry."},
+
+  {"file": "w1.json", "chat": 4, "kind": "near_miss", "question": "remind me which town i live in now", "person": "me", "category": "C04", "stored_category": "C05", "query": "town live", "second_query": "home flat lives"},
+  {"file": "w1.json", "chat": 4, "kind": "near_miss", "question": "what novel am i reading at the moment", "person": "me", "category": "C25", "stored_category": "C24", "query": "novel reading", "second_query": "book author"},
+  {"file": "w1.json", "chat": 4, "kind": "contrast", "question": "the town i grew up in, whats it called", "person": "me", "category": "C05", "source_message": 14, "value": "kellow", "query": "town grew", "second_query": "hometown childhood raised", "reply": "You grew up in kellow."},
+
+  {"file": "w1.json", "chat": 5, "kind": "near_miss", "question": "after the move where am i gonna be working", "person": "me", "category": "C02", "stored_category": "C01", "query": "move working", "second_query": "job employer"},
+  {"file": "w1.json", "chat": 5, "kind": "near_miss", "question": "odette grew up where, did she say", "person": "odette", "category": "C05", "stored_category": "C04", "query": "odette grew", "second_query": "hometown childhood raised"},
+  {"file": "w1.json", "chat": 5, "kind": "contrast", "question": "which town am i gonna be moving to", "person": "me", "category": "C01", "source_message": 2, "value": "harrowmere", "query": "town moving", "second_query": "relocating move new", "reply": "You're moving to harrowmere."},
+
+  {"file": "w1.json", "chat": 6, "kind": "near_miss", "question": "rafe lives in which town these days", "person": "rafe", "category": "C04", "stored_category": "C05", "query": "rafe lives town", "second_query": "home house place"},
+  {"file": "w1.json", "chat": 6, "kind": "near_miss", "question": "got a book on the go at the moment, which one", "person": "me", "category": "C25", "stored_category": "C24", "query": "book", "second_query": "reading novel"},
+  {"file": "w1.json", "chat": 6, "kind": "contrast", "question": "and which town was rafe raised in", "person": "rafe", "category": "C05", "source_message": 13, "value": "cairnholm", "query": "town rafe raised", "second_query": "grew childhood hometown", "reply": "Rafe grew up in cairnholm."},
+
+  {"file": "w1.json", "chat": 7, "kind": "near_miss", "question": "the cat marlo from yoga has, what breed is it", "person": "marlo from yoga", "category": "C10", "stored_category": "C09", "query": "cat marlo yoga breed", "second_query": "kind type"},
+  {"file": "w1.json", "chat": 7, "kind": "near_miss", "question": "grandad lives where right now", "person": "my grandad", "category": "C04", "stored_category": "C01", "query": "grandad lives", "second_query": "home house town"},
+  {"file": "w1.json", "chat": 7, "kind": "contrast", "question": "whats the name of the cat marlo from yoga has", "person": "marlo from yoga", "category": "C09", "source_message": 3, "value": "pistachio", "query": "name cat marlo yoga", "second_query": "called pet", "reply": "Her cat is called pistachio."},
+
+  {"file": "w2.json", "chat": 0, "kind": "near_miss", "question": "is tobin reading any book lately", "person": "tobin", "category": "C25", "stored_category": "C24", "query": "tobin reading book", "second_query": "novel author"},
+  {"file": "w2.json", "chat": 0, "kind": "near_miss", "question": "where did my sister grow up", "person": "mara", "category": "C05", "stored_category": "C04", "query": "sister grow", "second_query": "hometown childhood raised"},
+  {"file": "w2.json", "chat": 0, "kind": "contrast", "question": "the show tobin cant stop watching, name?", "person": "tobin", "category": "C24", "source_message": 17, "value": "ironvale", "query": "show tobin watching", "second_query": "series episodes binging", "reply": "Tobin is binging ironvale."},
+
+  {"file": "w2.json", "chat": 1, "kind": "near_miss", "question": "ines from choir goes to which uni", "person": "ines (choir)", "category": "C14", "stored_category": "C13", "query": "ines choir uni", "second_query": "school college university"},
+  {"file": "w2.json", "chat": 1, "kind": "near_miss", "question": "does my gf play any instrument", "person": "my girlfriend", "category": "C22", "stored_category": "C23", "query": "gf instrument", "second_query": "plays music"},
+  {"file": "w2.json", "chat": 1, "kind": "contrast", "question": "what subject does ines from choir study", "person": "ines (choir)", "category": "C13", "source_message": 4, "value": "linguistics", "query": "subject ines choir study", "second_query": "degree course major", "reply": "Ines from choir is in linguistics."},
+
+  {"file": "w2.json", "chat": 2, "kind": "near_miss", "question": "my brother's actual job title, any idea", "person": "my brother", "category": "C03", "stored_category": "C02", "query": "brother's job title", "second_query": "role position"},
+  {"file": "w2.json", "chat": 2, "kind": "near_miss", "question": "is hubby watching any show lately", "person": "my husband", "category": "C24", "stored_category": "C25", "query": "hubby watching show", "second_query": "series episodes tv"},
+  {"file": "w2.json", "chat": 2, "kind": "contrast", "question": "which company took my brother on", "person": "my brother", "category": "C02", "source_message": 6, "value": "fairholt", "query": "company brother", "second_query": "hired job work", "reply": "Your brother was hired at fairholt."},
+
+  {"file": "w2.json", "chat": 3, "kind": "near_miss", "question": "kit from soccer's dog, whats it called", "person": "kit (soccer)", "category": "C09", "stored_category": "C10", "query": "kit soccer's dog called", "second_query": "name pet"},
+  {"file": "w2.json", "chat": 3, "kind": "near_miss", "question": "my sister's gonna study what at uni", "person": "my sister", "category": "C13", "stored_category": "C14", "query": "sister's study uni", "second_query": "degree course subject"},
+  {"file": "w2.json", "chat": 3, "kind": "contrast", "question": "the breed of the dog kit from soccer has?", "person": "kit (soccer)", "category": "C10", "source_message": 6, "value": "vizsla", "query": "breed dog kit soccer", "second_query": "pup kind", "reply": "Kit from soccer has a vizsla."},
+
+  {"file": "w2.json", "chat": 4, "kind": "near_miss", "question": "mom's employed at which place", "person": "my mom", "category": "C02", "stored_category": "C03", "query": "mom's employed place", "second_query": "work company employer"},
+  {"file": "w2.json", "chat": 4, "kind": "near_miss", "question": "brigid plays an instrument right, which", "person": "brigid", "category": "C22", "stored_category": "C23", "query": "brigid instrument", "second_query": "plays music"},
+  {"file": "w2.json", "chat": 4, "kind": "contrast", "question": "and mom is employed as what again", "person": "my mom", "category": "C03", "source_message": 13, "value": "farrier", "query": "mom employed", "second_query": "job work career", "reply": "Your mom is a farrier."},
+
+  {"file": "w2.json", "chat": 5, "kind": "near_miss", "question": "mom reading any book lately, which one", "person": "my mom", "category": "C25", "stored_category": "C24", "query": "mom reading book", "second_query": "novel author"},
+  {"file": "w2.json", "chat": 5, "kind": "near_miss", "question": "who's my employer, like which service", "person": "me", "category": "C02", "stored_category": "C03", "query": "employer service", "second_query": "work job station"},
+  {"file": "w2.json", "chat": 5, "kind": "contrast", "question": "which show has mom got into lately", "person": "my mom", "category": "C24", "source_message": 6, "value": "larkmoor", "query": "show mom", "second_query": "watching series episodes", "reply": "Your mom is into larkmoor."},
+
+  {"file": "w2.json", "chat": 6, "kind": "near_miss", "question": "does the wife play any instrument herself", "person": "my wife", "category": "C22", "stored_category": "C23", "query": "wife play instrument", "second_query": "music lessons"},
+  {"file": "w2.json", "chat": 6, "kind": "near_miss", "question": "desmond grew up where", "person": "desmond", "category": "C05", "stored_category": "C04", "query": "desmond grew", "second_query": "hometown childhood raised"},
+  {"file": "w2.json", "chat": 6, "kind": "contrast", "question": "which singer does the wife listen to most", "person": "my wife", "category": "C23", "source_message": 8, "value": "corvina", "query": "singer wife listen", "second_query": "music band songs", "reply": "Your wife is always playing corvina."},
+
+  {"file": "w2.json", "chat": 7, "kind": "near_miss", "question": "the bf's cat, whats her name", "person": "my boyfriend", "category": "C09", "stored_category": "C10", "query": "bf's cat name", "second_query": "called pet"},
+  {"file": "w2.json", "chat": 7, "kind": "near_miss", "question": "cousin jen's new job, which company is it", "person": "jen (cousin)", "category": "C02", "stored_category": "C01", "query": "cousin jen's job company", "second_query": "employer work hired"},
+  {"file": "w2.json", "chat": 7, "kind": "contrast", "question": "what breed is the bf's cat again", "person": "my boyfriend", "category": "C10", "source_message": 10, "value": "sphynx", "query": "breed bf's cat", "second_query": "kind type", "reply": "The bf's cat is a sphynx."},
+
+  {"file": "w3.json", "chat": 0, "kind": "near_miss", "question": "Rory goes to which uni again", "person": "Rory", "category": "C14", "stored_category": "C13", "query": "Rory uni", "second_query": "university college school"},
+  {"file": "w3.json", "chat": 0, "kind": "near_miss", "question": "is my cat some fancy breed or what", "person": "me", "category": "C10", "stored_category": "C09", "query": "cat breed", "second_query": "kind kitty"},
+  {"file": "w3.json", "chat": 0, "kind": "contrast", "question": "what subject is Rory doing at uni", "person": "Rory", "category": "C13", "source_message": 9, "value": "geology", "query": "subject Rory uni", "second_query": "studying degree major", "reply": "Rory is doing geology."},
+
+  {"file": "w3.json", "chat": 1, "kind": "near_miss", "question": "cousin Jo's new puppy, name?", "person": "cousin Jo", "category": "C09", "stored_category": "C10", "query": "cousin Jo's puppy name", "second_query": "called dog"},
+  {"file": "w3.json", "chat": 1, "kind": "near_miss", "question": "Priya lives where at the moment", "person": "Priya", "category": "C04", "stored_category": "C01", "query": "Priya lives", "second_query": "home town house"},
+  {"file": "w3.json", "chat": 1, "kind": "contrast", "question": "remind me the breed of cousin Jo's puppy", "person": "cousin Jo", "category": "C10", "source_message": 3, "value": "whippet", "query": "breed cousin Jo's puppy", "second_query": "dog kind", "reply": "Cousin Jo's puppy is a whippet."},
+
+  {"file": "w3.json", "chat": 2, "kind": "near_miss", "question": "which business does my husband work for", "person": "my husband", "category": "C02", "stored_category": "C03", "query": "business husband work", "second_query": "employer shop company"},
+  {"file": "w3.json", "chat": 2, "kind": "near_miss", "question": "Nkechi watching any show lately", "person": "Nkechi", "category": "C24", "stored_category": "C25", "query": "Nkechi watching show", "second_query": "series episodes"},
+  {"file": "w3.json", "chat": 2, "kind": "contrast", "question": "what work does my husband do", "person": "my husband", "category": "C03", "source_message": 12, "value": "upholsterer", "query": "husband work", "second_query": "job trade profession", "reply": "Your husband is an upholsterer."},
+
+  {"file": "w3.json", "chat": 3, "kind": "near_miss", "question": "my boss's shop pet, whats it called", "person": "my boss", "category": "C09", "stored_category": "C10", "query": "boss's shop pet called", "second_query": "name named"},
+  {"file": "w3.json", "chat": 3, "kind": "near_miss", "question": "grandma lives where these days", "person": "grandma", "category": "C04", "stored_category": "C05", "query": "grandma lives", "second_query": "home town house"},
+  {"file": "w3.json", "chat": 3, "kind": "contrast", "question": "what kind of animal is my boss's shop pet", "person": "my boss", "category": "C10", "source_message": 9, "value": "ferret", "query": "animal boss's shop pet", "second_query": "kind brings", "reply": "Your boss has a ferret."},
+
+  {"file": "w3.json", "chat": 4, "kind": "near_miss", "question": "our dog's name, remind me", "person": "me", "category": "C09", "stored_category": "C10", "query": "dog's name", "second_query": "called pet"},
+  {"file": "w3.json", "chat": 4, "kind": "near_miss", "question": "Theo's actual job title, any idea", "person": "Theo", "category": "C03", "stored_category": "C02", "query": "Theo's job title", "second_query": "role position"},
+  {"file": "w3.json", "chat": 4, "kind": "contrast", "question": "which breed did we get for our dog", "person": "me", "category": "C10", "source_message": 15, "value": "vizsla", "query": "breed dog", "second_query": "kind walks", "reply": "Your dog is a vizsla."},
+
+  {"file": "w3.json", "chat": 5, "kind": "near_miss", "question": "my flatmate's uni, which one is it", "person": "my flatmate", "category": "C14", "stored_category": "C13", "query": "flatmate's uni", "second_query": "college school university"},
+  {"file": "w3.json", "chat": 5, "kind": "near_miss", "question": "Kwame plays an instrument yeah, which", "person": "Kwame", "category": "C22", "stored_category": "C23", "query": "Kwame instrument", "second_query": "plays music"},
+  {"file": "w3.json", "chat": 5, "kind": "contrast", "question": "what course is my flatmate on", "person": "my flatmate", "category": "C13", "source_message": 14, "value": "midwifery", "query": "course flatmate", "second_query": "studying training degree", "reply": "Your flatmate is training in midwifery."},
+
+  {"file": "w3.json", "chat": 6, "kind": "near_miss", "question": "what field is Rosa from choir studying", "person": "Rosa from choir", "category": "C13", "stored_category": "C14", "query": "field Rosa choir studying", "second_query": "subject degree course"},
+  {"file": "w3.json", "chat": 6, "kind": "near_miss", "question": "Dmitri works at which restaurant", "person": "Dmitri", "category": "C02", "stored_category": "C03", "query": "Dmitri works restaurant", "second_query": "job employer"},
+  {"file": "w3.json", "chat": 6, "kind": "contrast", "question": "which uni is Rosa from choir studying at", "person": "Rosa from choir", "category": "C14", "source_message": 2, "value": "Marchbank", "query": "uni Rosa choir studying", "second_query": "school college university", "reply": "Rosa from choir is at Marchbank."},
+
+  {"file": "w3.json", "chat": 7, "kind": "near_miss", "question": "Anouk's favourite band, any idea", "person": "Anouk", "category": "C23", "stored_category": "C22", "query": "Anouk's favourite band", "second_query": "music listening"},
+  {"file": "w3.json", "chat": 7, "kind": "near_miss", "question": "my sister's job title at work, whats that", "person": "my sister", "category": "C03", "stored_category": "C02", "query": "sister's job title", "second_query": "role position"},
+  {"file": "w3.json", "chat": 7, "kind": "contrast", "question": "which instrument is it Anouk plays again", "person": "Anouk", "category": "C22", "source_message": 12, "value": "oboe", "query": "instrument Anouk plays", "second_query": "orchestra music", "reply": "Anouk plays the oboe."},
+
+  {"file": "w4.json", "chat": 0, "kind": "near_miss", "question": "my brother listens to which band", "person": "brother", "category": "C23", "stored_category": "C22", "query": "brother listens band", "second_query": "music favourite"},
+  {"file": "w4.json", "chat": 0, "kind": "near_miss", "question": "at the new job whats my actual title", "person": "me", "category": "C03", "stored_category": "C02", "query": "job title", "second_query": "role position work"},
+  {"file": "w4.json", "chat": 0, "kind": "contrast", "question": "which instrument has my brother taken up", "person": "brother", "category": "C22", "source_message": 15, "value": "euphonium", "query": "instrument brother", "second_query": "plays music", "reply": "Your brother plays the euphonium."},
+
+  {"file": "w4.json", "chat": 1, "kind": "near_miss", "question": "my sister lives where for now", "person": "sister", "category": "C04", "stored_category": "C01", "query": "sister lives", "second_query": "home town"},
+  {"file": "w4.json", "chat": 1, "kind": "near_miss", "question": "any show i'm watching at the moment", "person": "me", "category": "C24", "stored_category": "C25", "query": "show watching", "second_query": "series episodes"},
+  {"file": "w4.json", "chat": 1, "kind": "contrast", "question": "and my sister is moving to which town", "person": "sister", "category": "C01", "source_message": 10, "value": "ardrossick", "query": "sister moving town", "second_query": "relocating move", "reply": "Your sister is moving to ardrossick."},
+
+  {"file": "w4.json", "chat": 2, "kind": "near_miss", "question": "which hospital am i employed at", "person": "me", "category": "C02", "stored_category": "C03", "query": "hospital employed", "second_query": "work job"},
+  {"file": "w4.json", "chat": 2, "kind": "near_miss", "question": "got a book going right now, which one", "person": "me", "category": "C25", "stored_category": "C24", "query": "book", "second_query": "reading novel"},
+  {"file": "w4.json", "chat": 2, "kind": "contrast", "question": "what am i employed as at the hospital", "person": "me", "category": "C03", "source_message": 2, "value": "sonographer", "query": "employed hospital", "second_query": "job title role", "reply": "You're a sonographer."},
+
+  {"file": "w4.json", "chat": 3, "kind": "near_miss", "question": "linnea's uni, which one", "person": "linnea", "category": "C14", "stored_category": "C13", "query": "linnea's uni", "second_query": "university college school"},
+  {"file": "w4.json", "chat": 3, "kind": "near_miss", "question": "older nephew is gonna study what", "person": "older nephew", "category": "C13", "stored_category": "C14", "query": "older nephew study", "second_query": "degree course subject"},
+  {"file": "w4.json", "chat": 3, "kind": "contrast", "question": "what subject is linnea doing at uni", "person": "linnea", "category": "C13", "source_message": 11, "value": "horticulture", "query": "subject linnea uni", "second_query": "masters degree course", "reply": "Linnea is doing a masters in horticulture."},
+
+  {"file": "w4.json", "chat": 4, "kind": "near_miss", "question": "once we move, where am i gonna work", "person": "me", "category": "C02", "stored_category": "C01", "query": "move work", "second_query": "job employer"},
+  {"file": "w4.json", "chat": 4, "kind": "near_miss", "question": "my hometown, which town was it", "person": "me", "category": "C05", "stored_category": "C04", "query": "hometown", "second_query": "grew childhood raised"},
+  {"file": "w4.json", "chat": 4, "kind": "contrast", "question": "where are we gonna move to, which town", "person": "me", "category": "C01", "source_message": 2, "value": "kestrelby", "query": "move town", "second_query": "relocating moving", "reply": "You're moving to kestrelby."},
+
+  {"file": "w4.json", "chat": 5, "kind": "near_miss", "question": "roommate theo, is he reading a book, which", "person": "roommate theo", "category": "C25", "stored_category": "C24", "query": "roommate theo book", "second_query": "reading novel"},
+  {"file": "w4.json", "chat": 5, "kind": "near_miss", "question": "dad watching anything on tv", "person": "dad", "category": "C24", "stored_category": "C25", "query": "dad watching tv", "second_query": "show series"},
+  {"file": "w4.json", "chat": 5, "kind": "contrast", "question": "which show is roommate theo watching", "person": "roommate theo", "category": "C24", "source_message": 5, "value": "shetland", "query": "show roommate theo", "second_query": "series binging", "reply": "Your roommate theo is watching shetland."},
+
+  {"file": "w4.json", "chat": 6, "kind": "near_miss", "question": "my brother's title at the new job?", "person": "brother", "category": "C03", "stored_category": "C02", "query": "brother's title job", "second_query": "role position"},
+  {"file": "w4.json", "chat": 6, "kind": "near_miss", "question": "brother in law, whats his job title", "person": "brother in law", "category": "C03", "stored_category": "C02", "query": "brother law job title", "second_query": "role position"},
+  {"file": "w4.json", "chat": 6, "kind": "contrast", "question": "which company is my brother at now", "person": "brother", "category": "C02", "source_message": 7, "value": "calderwood", "query": "company brother", "second_query": "work employer started", "reply": "Your brother just started at calderwood."},
+
+  {"file": "w4.json", "chat": 7, "kind": "near_miss", "question": "the town i grew up in, whats it called", "person": "me", "category": "C05", "stored_category": "C04", "query": "town grew", "second_query": "hometown childhood raised"},
+  {"file": "w4.json", "chat": 7, "kind": "near_miss", "question": "reading any book at the moment?", "person": "me", "category": "C25", "stored_category": "C24", "query": "reading book", "second_query": "novel author"},
+  {"file": "w4.json", "chat": 7, "kind": "contrast", "question": "and the town i live in now, whats it called", "person": "me", "category": "C04", "source_message": 2, "value": "penhallow", "query": "town live", "second_query": "home living", "reply": "You live in penhallow."}
+]}

@@ -122,6 +122,9 @@ def main() -> None:
         for c, chat in enumerate(json.loads(path.read_text(encoding="utf-8"))["chats"]):
             for q, question in enumerate(chat["questions"]):
                 questions[f"k3_{path.stem}_{c:02d}_{q:02d}"] = question
+    questions.update(
+        provenance.get("k4_questions", {})
+    )  # R-208: K4's near-miss and contrast questions
     if NAME != "k3_r205":  # R-207: only the questions whose rows are in the set (a fault fix)
         questions = {k: v for k, v in questions.items() if k in by_id}
     checks = []
@@ -248,6 +251,13 @@ def main() -> None:
         )
     )
 
+    if NAME.startswith("k4"):  # R-208: line 6's second half, registered before K4's build
+        kinds6 = Counter(m.get("kind") for m in meta.values() if m)
+        checks[-1] = (
+            f"check_false rows {kinds6['check_false']} at least check_true rows "
+            f"{kinds6['check_true']}",
+            kinds6["check_false"] >= kinds6["check_true"],
+        )
     # 7. tokens
     tokenizer = AutoTokenizer.from_pretrained(
         snapshot_download(MODEL_ID, revision=MODEL_REVISION, local_files_only=True)

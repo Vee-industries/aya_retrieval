@@ -8456,3 +8456,20 @@ changes are made before the build:
    rows or near_miss decline rows) is cut in a hashed order to the size of the smaller, so a close category word over
    the asked person's returned fact means decline half the time, and the passage gap is 0 by construction. Reported:
    the decline share by asked category.
+
+**K4's writers, build and check** (23:55). 2 fresh writers, each reading the brief and its 4 K3 writer files (one
+read them twice) and writing its one file, no other tool; 192 questions (128 near_miss, 64 contrast) over all 64
+chats (`data/screens/k4_writers/`). Built once: `data/screens/k4_r208.jsonl`, 1,721 rows, 101 new (51 near_miss, 50
+contrast; 136 built; dropped: near_miss without the stored fact 11 other and 10 user, contrast not found 3 user and 4
+other; one-to-one cut 32; 3 over 1,024 tokens). Check: **3 FAIL**: first queries off the rule 1, questions sharing a
+four-word run with dev or Demo2 2, rows sharing a six-word run with S3 9. The cause is mine: K4's build did not apply
+K3.1's three drops to its new rows. PASS: gap 0.03 natural, 0.27 whole set; answer values 10.5%; facts about the user
+39.3%; check_false 79 against check_true 56; longest row 1,024. K4 does not train.
+
+## R-209 · 2026-11-13 · REOPENED · K4.1 registered: K4 with K3.1's three drops applied to its new rows
+
+Under Kevin's "move onto the next", without waiting. **K4.1** (`scripts/records/build_k4_1.py`): K4's build from the
+same files, with `build_k3_1`'s drops (query rule, a four-word run with a dev or Demo2 question, a six-word run with
+S3) applied to the new rows before the one-to-one cut. K4's own output is unchanged by the refactor (same SHA-256).
+Check: `check_k3.py --set k4_1_r209`, R-208's lines. Lines 1, 4a and 5 hold by construction; a FAIL means the next
+candidate. Queue, Demo2 rules and predictions as R-208 (Demo2 never-told for K4.1 is a regression check, not blind).
