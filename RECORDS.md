@@ -8859,3 +8859,11 @@ submission.
 8. Video or slides (shortlist only, due 22 November) and a hosted demo: none; the Colab notebook exists.
 9. The two generated status lines, `ABSTRACT.md` (488 words, silent on the reopen) and whole-repo `ruff check .`
    (327 errors, all in `results/panels/` scripts from the candidate sessions, so CI's lint step would fail on a push).
+
+**R-217 update, 13:40 Eastern, Kevin's answers.** Teammates: none, confirmed. Compute cost: "just look at the history ...
+at 0$/hour". Summed from the results files: `results/recall_train/*.json` 161 runs, 97.3 hours (`train_seconds`);
+`results/recall_eval/*.json` 776 files, 90.9 hours (`seconds`); 188 hours of GPU time to 13 November. Stopped runs,
+agent time and demos are not in those files. At $0 an hour the compute cost is $0; the Claude agents' cost is not
+recorded. The compute paragraph in the article and the short article now say so (the "dollar cost not computed" wording
+is gone). The forecast item (Left for Kevin, 4) was not understood; nothing is added: the write-up keeps S3's registered
+pass thresholds and states that no forecast exists. Items 2 and 5 to 9 stay open.

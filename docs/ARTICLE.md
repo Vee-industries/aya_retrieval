@@ -1099,12 +1099,13 @@ seeds. On the outside-writer sets the comparison runs the other way: a chat of a
 1,400 tokens costs less to read whole than to search (section 6).
 
 **Compute and time per 1,000 replies.** All training and evaluation ran on one RTX 3080 (10 GB), each run with the
-card to itself. Training took 33 to 35 minutes a seed, so 6.37's eight seeds took 264 to 280 minutes. The records do
-not total the GPU hours over all candidates and name no rented compute; the dollar cost to the author is not computed.
-Time per 1,000 replies is the seconds a question times 1,000 on this card: 6.37 takes 1,670 to 2,080 s on the sealed
-pools, 1,700 to 1,960 s on the outside-writer sets and 3,810 s on LongMemEval-S, and code that always searches takes
-1,010 to 1,230 s, 1,450 to 1,480 s and 3,090 s. A price per 1,000 replies needs a provider's hourly rate, which the
-records do not hold. No comparison with closed models was made.
+card to itself. Training took 33 to 35 minutes a seed, so 6.37's eight seeds took 264 to 280 minutes. The recorded run files hold 97.3 hours of training (161 runs) and 90.9 hours of evaluation (776 run files), 188 hours
+of GPU time over every candidate and test to 13 November; stopped runs, agent time and the demos are not in them. The
+GPU is the author's own and costs $0 an hour (Kevin, 13 November), so the compute cost is $0. The cost of the Claude
+agents is not recorded. Time per 1,000 replies is the seconds a question times 1,000 on this card: 6.37 takes 1,670 to
+2,080 s on the sealed pools, 1,700 to 1,960 s on the outside-writer sets and 3,810 s on LongMemEval-S, and code that
+always searches takes 1,010 to 1,230 s, 1,450 to 1,480 s and 3,090 s. At $0 an hour, 1,000 replies cost $0 here; at a
+provider's rate they cost that rate times these seconds. No comparison with closed models was made.
 
 **Code that always searches is faster than 6.37 on every kind of chat it ran on.** Seconds are each
 run's wall-clock time over its questions (a sealed conversation holds one question), from separate

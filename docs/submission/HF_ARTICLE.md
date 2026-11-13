@@ -504,7 +504,13 @@ Seconds a question (a sealed conversation holds one question), from separate run
 Code is faster than 6.37 on every set. On the sealed chats 6.37 reads 1,196 to 1,266 tokens a turn and base 1,122 to
 1,154, 35 to 37% of the whole chat's tokens. On the outside-writer sets, a chat of about 1,400 tokens costs fewer
 tokens to read whole than to search. Training took 33 to 35 minutes a seed on one RTX 3080 (10 GB), with a training
-peak of 7.81 to 7.84 GiB; peak card memory in the sealed run was 7.02 GiB. No comparison with closed models was made. Time per 1,000 replies is the seconds a question times 1,000: 6.37 takes 1,670 to 2,080 s on the sealed pools, 1,700 to 1,960 s on the outside-writer sets and 3,810 s on LongMemEval-S, and code that always searches takes 1,010 to 1,230 s, 1,450 to 1,480 s and 3,090 s. The records do not total the GPU hours over all candidates and name no rented compute; the dollar cost to the author is not computed, and a price per 1,000 replies needs a provider's hourly rate, which the records do not hold.
+peak of 7.81 to 7.84 GiB; peak card memory in the sealed run was 7.02 GiB. No comparison with closed models was made. The recorded run files hold 97.3 hours of training (161 runs) and 90.9 hours of evaluation (776 run files), 188 hours
+of GPU time over every candidate and test to 13 November; stopped runs, agent time and the demos are not in them. The
+GPU is the author's own and costs $0 an hour (Kevin, 13 November), so the compute cost is $0. The cost of the Claude
+agents is not recorded. Time per 1,000 replies is the seconds a question times 1,000 on this card: 6.37 takes 1,670 to
+2,080 s on the sealed pools, 1,700 to 1,960 s on the outside-writer sets and 3,810 s on LongMemEval-S, and code that
+always searches takes 1,010 to 1,230 s, 1,450 to 1,480 s and 3,090 s. At $0 an hour, 1,000 replies cost $0 here; at a
+provider's rate they cost that rate times these seconds.
 
 Records: R-163, R-164, R-168, R-169, R-170.
 
