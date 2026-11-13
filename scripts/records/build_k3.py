@@ -196,7 +196,7 @@ def main() -> None:
 
     out = rows + added
     text = "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in out)
-    OUT.write_text(text, encoding="utf-8")
+    OUT.write_bytes(text.encode("utf-8"))
     report = {
         "provenance": provenance,
         "record": "R-205",
@@ -212,7 +212,7 @@ def main() -> None:
         "natural_rows_by_kind": dict(Counter(r["kind"] for r in added)),
         "meta": meta,
     }
-    OUT.with_suffix(".provenance.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
+    OUT.with_suffix(".provenance.json").write_bytes(json.dumps(report, indent=1).encode("utf-8"))
     print(
         f"{OUT}: {len(out)} rows, {len(added)} natural (built {len(built)}, "
         f"balance cut {report['cut_by_balance']}, token cut {report['cut_over_tokens']})"

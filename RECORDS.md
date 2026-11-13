@@ -8367,3 +8367,21 @@ run with S3: 0", and the four-word count is reported beside K1.3's. Lines 1, 4a 
 
 **Predictions** (mine, before the build): about 500 natural rows; every line passes. Demo2 and dev predictions as
 R-205's for K3.
+
+**K3.1's build and check** (22:50). Built once: `data/screens/k3_1_r206.jsonl`, 1,644 rows, 550 natural (767 built;
+dropped: query rule 21, dev or Demo2 question run 18, S3 six-word run 57; balance cut 110; 11 over 1,024 tokens).
+Check: 3 FAIL. Lines 1 (21) and 4a (22) failed on a fault in the check: it read every writer question, including
+those whose rows K3.1 dropped, not only the set's rows (the build dropped them, so by construction they are 0). Line 6
+failed for real: check_false 14.4% of 550 natural rows, under 15%; the drops and the balance cut check_false rows more
+than others. PASS: second queries 0; replies 0; gap 0.03 natural, 0.22 whole set; answer values 8.8%; six-word runs
+with S3 0 (four-word runs 284 against K1.3's 148, reported); facts about the user 43.7%; longest row 1,024. K3.1 does
+not train.
+
+## R-207 · 2026-11-12 · REOPENED · K3.2 registered: K3.1 with check_true rows cut until check_false is 15%
+
+Under Kevin's "if 3.1 fails move onto the next", without waiting. **K3.2** (`scripts/records/build_k3_2.py`):
+K3.1's set as built, with check_true rows cut in a hashed order (salt "R-207") until check_false rows are at least 15%
+of natural rows; nothing else changes. Check: `check_k3.py --set k3_2_r207`, R-206's lines, with the fault fix that
+lines 1 and 4 read only the questions whose rows are in the set (disclosed: made after K3.1's result). Line 6 now holds
+by construction; lines 2, 3, 4b and 7 can still fail (cutting value rows moves the gap). Queue, Demo2 bomb rule and
+predictions as R-206. A FAIL means the next candidate at once.

@@ -122,6 +122,8 @@ def main() -> None:
         for c, chat in enumerate(json.loads(path.read_text(encoding="utf-8"))["chats"]):
             for q, question in enumerate(chat["questions"]):
                 questions[f"k3_{path.stem}_{c:02d}_{q:02d}"] = question
+    if NAME != "k3_r205":  # R-207: only the questions whose rows are in the set (a fault fix)
+        questions = {k: v for k, v in questions.items() if k in by_id}
     checks = []
 
     # 1. queries
