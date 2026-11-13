@@ -9213,3 +9213,10 @@ the model and one long row's scoring (rows up to 1,024 tokens), not the batch, s
 either. Batch 2 is restored in `qtry.sh` so T2 to T6 match T1. **No layout found that keeps the card rule**: with
 the desktop's 0.7 GB, this training needs about 92% of the whole card, as every Lexsi run did. Put to Kevin (17:18);
 the card is idle until he answers.
+
+## R-232 · 2026-11-13 · REOPENED · Kevin allows the 0.85 cap for Lexsi tries; T2 restarts
+
+Kevin (17:18), asked whether Lexsi tries may run at the 0.85 process cap (whole card about 92%) since no layout fits
+under the card rule's 85%: "Yes, 0.85 cap". `qtry.sh` sets `VRAM=0.85` (the allocator setting of R-231 stays). This is
+his ruling for the Lexsi tries; the card rule is unchanged for everything else. T2 starts a fourth time (no earlier
+start trained a step).

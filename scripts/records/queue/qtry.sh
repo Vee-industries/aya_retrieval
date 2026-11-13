@@ -17,7 +17,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True  # R-231: fits the 0.78 
 ATTR="Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 MLP="q_proj k_proj v_proj o_proj gate_proj up_proj down_proj"
 CAP=5400
-VRAM=0.78  # R-228: the whole card stays under the card rule's 85% with the desktop's 0.7 GB
+VRAM=0.85  # R-232: Kevin allows the 0.85 process cap for Lexsi tries (whole card about 92%)
 quiet() { grep -v -E "Redirects are currently|triton not found|Loading weights" | cut -c1-600; }
 clean() { until ! git status --short --untracked-files=no | grep -q .; do echo "waiting for a clean tree $(date)"; sleep 60; done; }
 have() { [ -s "results/recall_eval/$1.json" ]; }
