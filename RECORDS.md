@@ -9220,3 +9220,11 @@ Kevin (17:18), asked whether Lexsi tries may run at the 0.85 process cap (whole 
 under the card rule's 85%: "Yes, 0.85 cap". `qtry.sh` sets `VRAM=0.85` (the allocator setting of R-231 stays). This is
 his ruling for the Lexsi tries; the card rule is unchanged for everything else. T2 starts a fourth time (no earlier
 start trained a step).
+
+## R-233 · 2026-11-13 · REOPENED · T2 bombs Demo2; T3 next
+
+**Demo2 on T2 seed 82** (`k13t2_r229`: 3e-4, 1 epoch, K4.8 whole; `results/demo2/branches_k13t2_r229_82_demo2.json`,
+17:53; 504 K1.3 tensors loaded, adapter changed; two fresh blind Sonnet judges, 48 items, 0 disagreements;
+`results/demo2/judge_k13t2_82_demo2/`): older / in view / never told plain / shared word **2 of 6 / 2 of 2 / 2 of 2 /
+1 of 2**. **Bombs.** Right: the dog's breed, the venue; "what does dev drive" found and declined; "where is tessa
+studying" named geology (as K4.7, K4.8). Demo2 readings: 15. T3 (1e-4, 1 epoch, natural rows only) runs next.
