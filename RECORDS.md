@@ -9119,3 +9119,18 @@ K4.6e2, K4.8e2, and this), so it is no longer a held-out test; with 6 older item
 Queue `q227` (`results/panels/R-227/q227.sh`, run from this session's scratchpad), behind K4.9's `q224` on the card
 lock; about 35 to 40 minutes per seed. Labels `*_k1_3s_r227_N`. Predictions, seed 82: against lane Demo2 older 1 of
 6 (0 to 2), never-told 4 of 4, hard_dev never_told 46, recall about 60; method lane older 2 of 6, never-told 4 of 4.
+
+## R-228 · 2026-11-13 · REOPENED · K4.9 stopped before Demo2 to start K1.3s; a card-rule gap found
+
+Kevin (about 16:35): "can we make this go faster to iterate more tries?". K4.9 (R-224) differs from K4.8 by 27 rows,
+and every prediction put it within one item of K4.8, which bombed (R-224, R-226's lane); it still had about an hour of
+training before its Demo2. **Stopped at 16:38** during seed 82's training (no adapter, nothing judged; it is not
+counted as a Demo2 reading), so K1.3s's queue `q227` took the card at 16:38:51. The K4.9 training process outlived
+its queue (the stop reached the lock and bash, not the pipeline's timeout chain) and ran beside K1.3s's start for
+about 40 seconds before it was stopped; K1.3s was still loading. To stop a queue: the training or eval's outer
+`timeout.exe` first, then the lock python. No panel, because stopping a queue changes no rule or gate.
+
+**Card-rule gap.** With K1.3s training the whole card holds 9.4 of 10 GB (92%). The SOP's card rule lets a run go on
+until the whole card reaches 85%; every Lexsi queue passes `--max-vram-fraction 0.85`, which caps the training
+process alone at 85%, so with the desktop's 0.7 GB the card passes 85%. True of every Lexsi run since the rule (R-088's
+setting predates it). Not changed mid-run (the fraction changes speed, not results, R-088); put to Kevin.
