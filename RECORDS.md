@@ -8253,3 +8253,75 @@ plainest view of it: these models read a fact only when it is worded close to th
 **Predictions** (mine, R-201): base with search 4 of 8 facts and 2 of 4 never told: 1 and 4. 6.37 5 of 8 and 1 of 4:
 3 and 0. K1 5 of 8 and 3 of 4: 2 and 4. K1.3 within one item of K1 on each kind: no on never told shared word (0
 against 2). Empty-index arms at most 2 of 6 older: 0 each. I overpredicted every arm's facts.
+
+## R-205 · 2026-11-12 · REOPENED · K1.4 dropped by its lane; K3 registered before any writer runs: natural rows from writer agents
+
+**Decision.** Kevin, after R-204: "cool yeah fix it. we've got a few days", then "yeah run the demo after seed 82
+and if it still bombs it move onto k4". Disclosed: designed after R-203's dev counts and Demo2's result (R-204).
+
+**K1.4, dropped before registration.** Draft: K1.3 with queries rewritten from the question's words and check-form
+confirm questions. Against lane (`results/panels/R-205/k14_lane/`; read-only replays of 669 of K1's searching rows):
+not ready. The query rewrite empties 41 of 160 never_told searches and moves the passage gap from 0.33 to 0.91 (the
+R-050/R-054 failure); a question-word query would have found 36 of K1.3's 210 outside-writer misses; the check forms
+repeat 7 and 7.1 (R-153 to R-158); neither change reaches Demo2's loss, which is reading (84 of K1.3's 254 found
+outside-writer older facts wrong; R-204).
+
+**K3** = K1.3's 1,094 rows unchanged, plus rows built from 8 fresh writer agents' chats (`docs/k3/WRITER_BRIEF.md`).
+The brief went through an against lane in its first form (`results/panels/R-205/k3_lane/`: not ready, ready with
+changes); every change below answers one of its findings.
+- Writers: each writes 8 chats of 24 user messages with assistant replies, facts in passing in any wording, at least
+  a third about the user, about half naming the person only by name or only by relation, a look-alike pair, two
+  kinds of detail for some people; training categories only (list I), so S3's outside-training categories stay
+  untrained. 11 questions per chat after message 24: 4 older, 2 check_true, 2 check_false (the look-alike's value as
+  the wrong one at least once), 2 never_told (one a check form), 1 in_view. For each searching question a first
+  query of question words (no filler) and a second query of words a person would likely use for that kind of fact,
+  never the value. Examples in the brief checked against the dev sets, Demo2, the first demo and K1.3: 0 files hold
+  any example name or value.
+- Rows (`scripts/records/build_k3.py`), shaped as K1.3's; the real keyword search (OR, top 5) over exchanges 1 to 21:
+  - Fact rows (older, check): if the first query's output holds the source message, one search and the writer's
+    reply. Else if the second query's does, both searches (miss then hit, as K1's two-search rows) and the writer's
+    reply. Else both searches and a reply from `TRAIN.unknown_replies` (searched, did not find): kept, not dropped
+    (lane finding 1: dropping them would make a question about the user mean "not told").
+  - Never_told rows: the first query; if it returns nothing, the second; kept only if the last search returns at
+    least one passage (R-020); a reply from `TRAIN.unknown_replies`.
+  - In_view rows: no search, the writer's reply. Statement rows: each fact message in 22 to 24 as the last message,
+    the 3 exchanges before it in view, the writer's reply.
+  - Balance (lane finding 2): searching rows are split into those whose reply names a value and those that decline
+    (never_told and not found). With r the overall ratio declines to value rows, at each last-search passage count c
+    the larger side is cut, in a hashed order, until declines at c equal round(r × value rows at c).
+  - Rows over 1,024 tokens dropped (R-102's limit).
+  - Each writer's transcript audited for tool calls; writer files committed as written.
+- Check before training (`scripts/records/check_k3.py`; a FAIL on any line means K3 does not train, and no writer
+  file is rewritten to pass):
+  1. Every first query's words are in its question and none is a filler word; 1 to 4 words. No second query holds
+     its value.
+  2. Value-naming rows' replies hold the stored value; declining rows' replies are from `TRAIN.unknown_replies`.
+  3. Passage gap between value-naming and declining rows at most 0.37, natural rows alone and the whole set.
+  4. Natural questions sharing a four-word run with a question of hard_dev, probe, either outside-writer set or
+     Demo2: 0. Natural answer values that are also answers there: at most 25% (writers converge on stock answers:
+     36 of set 2's 143 answers are set 1's, about 25%).
+  5. S3 (`overlap_s3_training.py`, counts only): four-word runs S3 shares with K3 at most twice those it shares with
+     K1.3.
+  6. Facts about the user at least a third of natural fact rows; check_false at least 15% of natural rows.
+  7. Every row at most 1,024 tokens.
+  Reported: rows by kind and by person (user, name only, relation only, both); kept, missed and second-search rows by
+  side; top scores by side (lane finding 2).
+- Training as K1.3 (rank 32, seven projections, lr 3e-4, chat_decision, three epochs, `--save-epochs 2`). Queue
+  `q205`: seed 82 trained, then Demo2 on seed 82 at once (Kevin), then seed 82's screening, seeds 83 and 94 as R-200.
+
+**Demo2 on K3 seed 82 (Kevin's rule, registered before the run).** Two fresh blind judges, R-201's brief and tally,
+counted right only when both judges mark right. K3 with search "bombs" if it recalls fewer than 3 of the 6 older facts
+or gets fewer than 3 of the 4 never-told right. If it bombs, K4's design starts at once; K3's queue goes on to seeds
+83 and 94 and K3 stays a candidate under R-191. Disclosed: Demo2 is not blind for K3 (K3 was designed after R-204),
+and 3 of Demo2's 6 older questions are outside-training categories (C15, C19, C28) that K3 does not train.
+
+**Disclosures.** S3's speaker items and template-free queries are no longer untrained (R-178: measured, not trained).
+The natural rows are written by the same kind of agent as the outside-writer dev sets and S3, so dev numbers on those
+sets get more optimistic; S3 is the measure. Fix 8 (R-051) added three wordings per type and did not lower
+found-and-wrong. The case for facts about the user is thin on the dev sets (about 4 of 240 outside-writer questions)
+and rests on Demo2 and S3's brief.
+
+**Predictions** (mine, before any writer runs): the check passes on the first build; about 600 natural rows after
+balance. Demo2, K3 seed 82 with search: 3 of 6 older, 3 of 4 never-told (not a bomb, narrowly). Dev, pooled over 82
+and 83: outside-writer recall about 215 (K1.3 193), hard_dev about 135 (K1.3 124); hard_dev found and declined over
+three seeds about 25 (K1.3 41).

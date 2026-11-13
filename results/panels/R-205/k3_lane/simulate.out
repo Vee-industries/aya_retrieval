@@ -1,0 +1,10 @@
+outside-writer dev chats, brief's query rule: {'older': 160, 'older_kept': 92, 'older_src_top': 47, 'confirm': 80, 'confirm_kept': 77, 'confirm_src_top': 48, 'confirm_true_kept': 40, 'nt': 80, 'nt_kept': 80, 'older_dropped': 68, 'older_dropped_overlap0': 64, 'confirm_other_kept': 37, 'confirm_dropped': 3, 'confirm_dropped_overlap0': 2}
+  older: rows 92, passages mean 3.11 dist [(1, 12), (2, 21), (3, 24), (4, 15), (5, 20)], top score mean 3.52 median 3.44, top-minus-second mean 1.12
+  confirm: rows 77, passages mean 3.27 dist [(1, 6), (2, 20), (3, 17), (4, 15), (5, 19)], top score mean 4.88 median 4.70, top-minus-second mean 1.78
+  never_told: rows 80, passages mean 2.79 dist [(1, 12), (2, 32), (3, 13), (4, 7), (5, 16)], top score mean 3.17 median 2.64, top-minus-second mean 0.93
+  fact rows kept (older+confirm): rows 169, passages mean 3.18 dist [(1, 18), (2, 41), (3, 41), (4, 30), (5, 39)], top score mean 4.14 median 4.14, top-minus-second mean 1.43
+  found-side gap in passages: 0.4
+K1.3 rows:
+  fact: rows 562, passages mean 2.98 dist [(1, 69), (2, 146), (3, 143), (4, 137), (5, 67)], top score mean 5.19 median 5.08, top-minus-second mean 2.02
+  never_told: rows 160, passages mean 2.74 dist [(1, 29), (2, 41), (3, 46), (4, 30), (5, 14)], top score mean 3.43 median 3.07, top-minus-second mean 0.67
+K1.3 outside-writer searches that missed the fact, reply: {('older', 'names_something'): 66, ('older', 'declined'): 144, ('confirm', 'names_something'): 3}

@@ -1,0 +1,23 @@
+Demo2: 24 exchanges
+  Q1 older                  person=me          query='work lol'                       passages=1 found_source=False
+  Q2 older                  person=dev         query='dev drive'                      passages=3 found_source=True
+  Q3 older                  person=marguerite  query='kind dog marguerite new'        passages=2 found_source=True
+  Q4 older                  person=tessa       query='sister headed'                  passages=2 found_source=False
+  Q5 older                  person=me          query='remind ingredient stay away'    passages=2 found_source=False
+  Q6 older                  person=ollie       query='whats venue ollie big'          passages=2 found_source=True
+  Q7 in_view                person=rowan       query='band rowan'                     passages=4 found_source=False
+  Q8 in_view                person=me          query='purchase recently'              passages=0 found_source=False
+  Q9 never_told             person=priya       query='vehicle priya owns'             passages=2 found_source=False
+  Q10 never_told             person=rowan       query='town rowan raised'              passages=4 found_source=False
+  Q11 never_told             person=tessa       query='tessa studying'                 passages=2 found_source=False
+  Q12 never_told             person=ollie       query='will ollie work after'          passages=2 found_source=False
+K1.3 search outputs: fact passages 1784 with 6 distinct acks; other passages 328 with 153 distinct; acks used on both: 0; fact passages whose ack is also used on another passage: 0
+  top fact acks: [('That sounds exciting for them.', 332), ("That's a change.", 298), ('Good to know.', 296), ("Oh, that's nice to hear.", 291), ('How are they finding it?', 284), ('Thanks for telling me.', 283)]
+outside-writer answers: set1 138, set2 143; set2 answers that are set1 answers 36 ['ankle', 'architecture', 'arthritis', 'asthma', 'basset', 'bergen', 'birdwatching', 'biscuit', 'bristol', 'calligraphy', 'civic', 'curling', 'dentist', 'diabetes', 'electrician', 'ferret', 'firefighter', 'fisherman', 'florist', 'halifax', 'izmir', 'japanese', 'lisbon', 'mcgill', 'mcmaster', 'nurse', 'oaxaca', 'paramedic', 'porto', 'rugby', 'shellfish', 'tesla', 'vespa', 'veterinarian', 'violin', 'welder']; set2 answers found anywhere in set1 chats 0
+  brief example 'anya': set1 True, set2 False, demo2 False
+  brief example 'winnipeg': set1 True, set2 True, demo2 True
+  brief example 'corolla': set1 True, set2 True, demo2 False
+  brief example 'priya': set1 True, set2 True, demo2 True
+  brief example 'landlord': set1 True, set2 True, demo2 False
+  brief example 'vet clinic': set1 False, set2 False, demo2 False
+  brief example 'sister-in-law': set1 True, set2 True, demo2 True
