@@ -52,6 +52,7 @@ MAX_ROW_TOKENS = 1024  # R-102's limit
 NEVER_TOLD_TWICE = (
     False  # R-214 (K4.6): never_told rows also search twice when both searches return text
 )
+THIRD_QUERY = None  # R-226 (K5): question -> a third search after two that miss, or None
 KINDS = {
     "older": OLDER,
     "check_true": CONFIRM,
@@ -71,6 +72,12 @@ def unknown_reply(row_id: str) -> str:
 
 def passages(output: str) -> int:
     return output.count("[chunk_id=")
+
+
+def third_query(question: dict) -> str | None:
+    """``THIRD_QUERY``'s search for a question, unless it repeats one of the question's two."""
+    third = THIRD_QUERY(question) if THIRD_QUERY else None
+    return None if third in (question.get("query"), question.get("second_query")) else third
 
 
 def view_turns(exchanges: list[tuple[str, str]]) -> list[dict]:
@@ -126,6 +133,9 @@ def chat_rows(writer: str, c: int, chat: dict, work: Path) -> list[dict]:
                 searches.append((question["second_query"], search(question["second_query"])))
             elif NEVER_TOLD_TWICE and passages(second := search(question["second_query"])):
                 searches.append((question["second_query"], second))
+            if len(searches) == 2 and (third := third_query(question)):
+                if passages(output := search(third)):
+                    searches.append((third, output))
             if not passages(searches[-1][1]):
                 continue  # R-020: never_told rows only with passages
             reply, names_value = unknown_reply(row_id), False
@@ -135,6 +145,8 @@ def chat_rows(writer: str, c: int, chat: dict, work: Path) -> list[dict]:
             if source not in first + "\n":
                 second = search(question["second_query"])
                 searches.append((question["second_query"], second))
+                if source not in second + "\n" and (third := third_query(question)):
+                    searches.append((third, search(third)))
             names_value = source in searches[-1][1] + "\n"
             reply = question["reply"] if names_value else unknown_reply(row_id)
         for query, output in searches:

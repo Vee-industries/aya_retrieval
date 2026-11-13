@@ -1,0 +1,12 @@
+W1113 16:22:15.838000 11864 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+queries changed: 101
+data\screens\k5\k3_1.jsonl: 2094 rows, 1000 natural (built 1531, dropped {'dev or Demo2 question run': 57, 'S3 six-word run': 58, 'query rule': 34}, balance cut 248, token cut 134)
+data\screens\k5\k3_2.jsonl: 2094 rows, 0 check_true rows cut, 1000 natural
+data\screens\k5\k4_1.jsonl: 2309 rows, 215 new {'near_miss': 108, 'contrast': 107} (built 270, balance cut 50, token cut 5); dropped {'near_miss without the stored fact (user)': 27, 'contrast not found (other)': 5, 'near_miss without the stored fact (other)': 9, 'near_miss invalid (other)': 3, 'contrast not found (user)': 4, 'S3 six-word run (other)': 12, 'dev or Demo2 question run (other)': 9, 'query rule (other)': 8}
+data\screens\k5\k4_3.jsonl: 2365 rows, 56 new (41 ending empty, {'never_told': 56}); dropped {'not new or first search not empty': 496, 'kind not kept': 61, 'S3 six-word run': 1, 'query rule': 3, 'dev or Demo2 question run': 1, 'cut at two searches': 0, 'over 1,024 tokens': 0}
+  first empty False, last has passages True, value False: 371
+  first empty False, last has passages True, value True: 1143
+  first empty True, last has passages False, value False: 41
+  first empty True, last has passages True, value False: 33
+  first empty True, last has passages True, value True: 159
+data\screens\k5_r226.jsonl: 2457 rows, 92 new {'other_person': 47, 'contrast': 45} (built 164, balance cut 50, token cut 2); dropped {'other_person without the stored fact': 196, 'contrast not found': 23, 'S3 six-word run': 7, 'dev or Demo2 question run': 4, 'query rule': 9}; asked categories {'C01': 7, 'C02': 6, 'C03': 4, 'C04': 2, 'C05': 3, 'C09': 5, 'C10': 7, 'C11': 1, 'C13': 3, 'C17': 7, 'C21': 6, 'C22': 2, 'C23': 7, 'C24': 5, 'C25': 8, 'C26': 8, 'C30': 1, 'C35': 7, 'C39': 3}

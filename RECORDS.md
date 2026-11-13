@@ -9067,3 +9067,26 @@ restore K4.6's shared-word declines at epoch 2.
 
 K4.9's queue `q224`, waiting on the card lock, started at 16:17 (train seed 82; same rule, R-224). K1.3 stays the
 pick.
+
+## R-226 · 2026-11-13 · REOPENED · Lane: no candidate after K4.9 is justified; K5 built as its least weak option, not queued
+
+**The lane** (against, Opus; `results/panels/R-226/next_brief.md`, `next_against.md`), asked whether any candidate
+after K4.9 is more likely than not to pass Demo2 and screening by Saturday 16:00: **none**. The Demo2 older count has
+stayed at 2 or below at epoch 3 for eight candidates (K4.2 to K4.8), on the same two items; the three candidates that
+reached 3 or more (K3, K4.1, K4.6 at epoch 2) each failed never-told or hard_dev. Checked against this file: right,
+except one overstatement, which is corrected here: it calls K4.5 and K4.6 "passing screening on seed 82"; they passed
+seed 82's hard_dev lines in diagnostics (R-213, R-214), not full screening. Its least weak option, if the owner's
+rule requires a run: fact rows whose two searches miss search a third time, then decline; predicted to fail.
+
+**K5** (`scripts/records/build_k5.py`; `build_k3.THIRD_QUERY`, off by default, and `build_k4_5.main(third_query=)`):
+K4.8's chain with that third search on the K3 writers' rows, the third query R-214's telling-words query
+(`telling_words_r214.second_query`), used only when it differs from both of the question's queries. **Plumbing**: with
+the third search off it rebuilds K4.8 byte for byte (SHA-256 0473d905..., both). Built once: 2,457 rows (K4.8 2,487);
+K3.1 step natural rows 1,000 (K4.8 1,128): balance cut 248 (213), **cut over 1,024 tokens 134 (40)**, since a third
+search output makes rows long. Three-search rows kept: 40, of which 14 name a value (older 7, confirm 7) and 26
+decline (never_told 12, older 8, confirm 6). So K5 loses 128 natural rows to gain 14 rows that find the fact on a
+third search. Not checked (`check_k3.py` has no `k5` lines) and **not queued**: by its own numbers it is weaker than
+K4.8, and the lane predicts it fails. Kevin's rule is that a bomb means the next candidate at once; the lane finds no
+candidate worth the card, so this is put to Kevin (16:40) rather than queued.
+
+Shippable pick: K1.3 unless K4.9 passes Demo2 and screening.
