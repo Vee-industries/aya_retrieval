@@ -9093,7 +9093,7 @@ Shippable pick: K1.3 unless K4.9 passes Demo2 and screening.
 
 ## R-227 · 2026-11-13 · REOPENED · K1.3s registered: K1.3 plus one gentle epoch of K4.8's set, not trained from base
 
-Kevin (16:30), after R-226: "do we need to train fresh?", "i meant back from like 0.0". Every K candidate so far
+Kevin (about 16:25), after R-226: "do we need to train fresh?", "i meant back from like 0.0". Every K candidate so far
 trained a fresh adapter on the base model; the trainer can start from a saved adapter (`--init-adapter`, R-103), as
 6.37's stages did (R-105, R-110: 1 epoch at a peak of 1e-4, linear decay to 0, on the stage before). Two lanes on
 **K1.3 plus one gentle epoch of the natural rows** (`results/panels/R-227/stone_brief.md`), method (Sonnet) and
@@ -9113,7 +9113,7 @@ candidate misses ever come back in a search, or is the fault the fixed tool? Fro
 (`found_source`): K4.1's searches found all four, K3.2's three, K4.6's two, every K4.x at least one; so the facts are
 retrievable with the tool, and the misses are the model's queries and declines. The check reads Demo2's logs for a
 go or no-go only; no item text enters any build. **Disclosed**: a two-stage model; chosen after the K4.x line failed
-Demo2; Demo2's seed 82 chat has now been used to judge 12 candidate readings (K3.2, K4.1, K4.2, K4.4 to K4.8, K4.5e2,
+Demo2; Demo2's seed 82 chat has now been used to judge at least 13 candidate readings (K3.2, K4.1, K4.2, K4.4 to K4.9, K4.5e2,
 K4.6e2, K4.8e2, and this), so it is no longer a held-out test; with 6 older items and a line at 3, one item decides.
 
 Queue `q227` (`results/panels/R-227/q227.sh`, run from this session's scratchpad), behind K4.9's `q224` on the card
