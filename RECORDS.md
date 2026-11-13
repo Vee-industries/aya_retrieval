@@ -8674,3 +8674,13 @@ Prediction (lane), before training: Demo2 older 3 of 6 (about 45% to reach 3), n
 never_told 43 of 48 (41 to 46), false retrieval 5, recall about 75; both gates on seeds 82 and 83 about 25%. If K4.5
 bombs Demo2, hard_dev on its seed 82 adapter runs as a diagnostic (not eligible) before any further design; if the
 wrong-person rows cannot pass hard_dev there, no further candidate and K1.3 stays the pick.
+
+**Demo2 on K4.5 seed 82** (`results/demo2/branches_k4_5_r213_82.json`, run 09:11; two fresh blind judges, 48 items,
+0 disagreements; `results/demo2/judge_k4_5_82/`): K4.5 with search older **2** of 6, in view 2 of 2, never told
+plain 2 of 2, **shared word 2 of 2** (base: 0, 1, 2, 2). **K4.5 bombs.** Right: the dog's breed (query "dog
+marguerite", no possessive) and the venue. Misses: "where do i work" and the ingredient (searches empty, then a
+decline; the ingredient after three searches), the sister (not found), "dev drive" (found, declined). Both
+shared-word never-told items declined, including "where will ollie work after moving", which K4.4 answered. As
+R-213 set, hard_dev on K4.5's seed 82 adapter runs as a diagnostic (not eligible): the queue already runs the
+probe screen and then hard_dev for seed 82, so it is stopped when hard_dev is written, before any further eval or
+training.
