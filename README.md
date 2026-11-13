@@ -34,23 +34,75 @@ After the freeze (9 November) and the sealed result, the scripted demo was run f
 training set and gave an unrelated stored fact. Eight more questions, written by an agent that saw only the demo
 script and registered before they ran, gave the untrained model 2 and 6.37 0: 6.37 repeated its own wrong answer,
 still in view, on 6 of 8 (R-176). I reopened the project (R-177). A new test, written by six writer agents that
-never see the training data, the demo or these records, is sealed before any new training row exists (R-178). One
-candidate, built to address two of the three weaknesses (unrelated passages given as answers, and repeating a wrong
-answer in view), replaces 6.37 only if it passes the rule registered before the sealed run; the third (queries
-learned from a few fact templates, and no facts about the speaker in training) is measured on the new test, not
-trained. Every result about the frozen 6.37 below stands unchanged. This section will carry the new test's result,
+never see the training data, the demo or these records, is sealed before any new training row exists (R-178). Candidates built to address the weaknesses (unrelated passages given as answers, and repeating a wrong answer in view)
+compete for one place on the new test. The pick replaces 6.37 only if it passes the rule registered before the sealed
+run (R-178, R-191 to R-194). The third weakness (queries learned from a few fact templates, and no facts about the
+speaker in training) was left untrained at first; the natural-chat rows from R-205 on target it. Every result about the frozen 6.37 below stands unchanged. This section will carry the new test's result,
 whatever it shows.
 
-Since then (R-179 to R-201, 12 November). The first candidate, K1, answered all 4 of the scripted demo's questions
-and 3 of the 8 registered ones (R-184). Against 6.37's gates it failed three recall lines and passed both
-failure-mode targets (R-183); against the untrained model with the tool, the standard adopted in R-191, it passed all
-20 screening lines at both screening seeds (R-198). Of five later candidates, K2 and K1.1 failed their training-set
-checks and never trained (R-186, R-197), K2.1 trained and failed one screening line (R-195), and K1.2 failed its
-check on an uneven random draw (R-200). K1.3 is K1 with each fact restated in other wordings in fixed shares, so that
-wording no longer tells an answer from a decoy; it passed its check and is training (R-200). The candidate with the
-higher pooled recall on the development sets over three seeds goes to the sealed test, once, after the last
-candidate's training (R-192, R-194). A second demo, on a chat and questions written by a fresh agent and read by
-nobody before the run, is registered (R-201).
+Since then (R-179 to R-215, 12 and 13 November). S3, the new test, was written by six writer agents and sealed before
+any training row (R-179). It stays closed until Saturday 14 November, and the pick for it is fixed by 18:00 Eastern
+that day (R-202). Seventeen candidate sets were registered, K1 to K4.7 (R-194 asks that the count be stated; every
+candidate chosen among on reused development sets makes the winner's development numbers more optimistic). Nine
+finished training at seed 82 or more seeds, K4.7 is training, and four reached every screening line: K1, K2.1, K1.3
+and K4.1.
+
+K1 answered all 4 of the scripted demo's questions and 3 of the 8 registered ones (R-184). Against 6.37's gates it
+failed three recall lines and passed both failure-mode targets (R-183); against the untrained model with the tool, the
+standard adopted in R-191, it passed all 20 screening lines at both screening seeds (R-198). K2 and K1.1 failed their
+training-set checks and never trained (R-186, R-197), K2.1 trained and failed one screening line (R-195), and K1.2
+failed its check on an uneven random draw (R-200). K1.3 is K1 with each fact restated in other wordings in fixed
+shares. It passed all 20 screening lines and leads the pick on pooled recall over three seeds, 742 against K1's 720
+(R-203); the lead is about one seed's spread, so the pick is provisional. On Demo2, a chat and 12 questions written by
+a fresh agent and read by nobody before the run (R-201), K1 and K1.3 each recalled 0 of the 6 facts told earlier, as
+many as declining everything, and 6.37 recalled 2 (R-204).
+
+From R-205 the candidates add natural training chats written by fresh writer agents. K3, K3.1 and K4 failed their
+training-set checks and did not train (R-205, R-206, R-208). K3.2, K4.2, K4.4, K4.5 and K4.6 trained at seed 82 and
+failed Demo2's registered rule (at least 3 of 6 older facts and 3 of 4 never-told questions), so their later seeds
+were not trained (R-208, R-210, R-212, R-213, R-214). K4.1 passed Demo2 and failed 4 screening lines (R-210). K4.3 did
+not train (R-211). On the two outside-writer sets K4.6 recalled 132 older and confirm questions at seed 82 (a
+diagnostic, not eligible for the pick), against K1.3's 89 and K4.1's 122 (R-214). K4.7, K4.6 plus 64 natural chats
+from 8 new writers, passed its check and is training (R-215). The shipped model stays 6.37 unless a candidate passes
+the registered rule on S3, which runs once, by 19:00 Eastern on 14 November (R-194, R-202).
+
+## Submission summary
+
+**Title and claim.** Teaching a 3B model to search a long chat it can no longer see: a LoRA adapter trained with
+AgentTune (6.37) makes Tiny Aya Global recall 91 to 107 of 120 out-of-view facts on the sealed test, where the
+untrained model with the same tool recalls 13 to 32.
+
+**Track and problem statement.**
+
+- Track 3, Agentic Fine-tuning, problem statement 4 of the track's list: "Fine-tuning for retrieval-augmented
+  generation: Train a model that decides when and what to retrieve, grounds its answers in the retrieved text and
+  ignores distracting documents."
+- No other track and no "Other" statement.
+
+**Headline, before to after.** Recall of out-of-view facts on the sealed test (four conditions, run once): 13 to 32 of
+120 for base with the tool, 91 to 107 for 6.37 seed 82; pooled over the eight training seeds, base 8.3 to 28.3% and
+6.37 85.2 to 90.4%. On chats from outside writers the picture is different (two sets, recall of 120): base with the
+tool 26 and 27, 6.37 39 and 53, base shown the whole chat 71 and 65.
+
+**Base model and method.** Tiny Aya Global (`CohereLabs/tiny-aya-global`, 3.35B, CC-BY-NC-4.0) plus a rank-32 LoRA,
+trained by supervised fine-tuning with AgentTune on 1,094 rows to call a keyword search tool, read the passages and
+answer, or decline when the chat never held the fact.
+
+**For judges: one minute.**
+
+- Built: a LoRA adapter that makes a 3.35B model search an old chat with a keyword tool, answer from what it finds,
+  and decline when the fact was never told. It is tested with only the last three exchanges in view.
+- Strongest baselines first: on short outside-writer chats (about 1,400 tokens), base shown the whole chat recalls
+  best (71 and 65 of 120), and plain code that searches every turn recalls as well as 6.37 and runs faster.
+- Where training helps: on the sealed generated chats 6.37 recalls 91 to 107 of 120 against 13 to 32 for base with the
+  tool. On the outside-writer chats it searches when the answer is out of view and leaves answers in view alone, where
+  code searches every turn.
+- Where it fails: on LongMemEval-S it declines 233 of 470 answerable questions; on the scripted demo it gave an
+  unrelated stored fact on 2 of 4 questions and repeated its own wrong answer on 6 of 8 (R-175, R-176).
+- State: the project was reopened on 12 November to fix those two demo failures. 6.37 is still the shipped model;
+  later candidates are screened, and a new sealed test (S3) opens once, on 14 November (see "Reopened").
+- Where to look: `RECORDS.md` (every decision and number), the README (reproduction), and the two Hugging Face
+  collections.
 
 ## Results at a glance
 
@@ -97,7 +149,7 @@ marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this r
 
 ## Setup
 
-Needs Python 3.12 and one 10 GB GPU. On Windows, match the PyTorch build to your driver.
+Needs Python 3.12 and one 10 GB GPU. Training the shipped seed peaked at 7.83 GiB of card memory and took 34 minutes; the sealed run's inference peak was 7.02 GiB. On Windows, match the PyTorch build to your driver.
 
 ```bash
 python -m venv ../venv
@@ -400,7 +452,38 @@ weights instead. Nothing from that project's code or test sets is used here.
 | `.github/workflows/` | CI: lint and tests on CPU (see Checks) |
 | `notebooks/` | The demo notebook (Colab); `tests/test_notebook.py` keeps its pins equal to CI's |
 | `figures/` | The write-up's figures, drawn from `results/` by `scripts/make_figures.py` |
+| `RECORDS.md`, `HANDOFF.md`, `docs/PROJECT_MAP.md` | The dated log of every decision and result; where the project stands; what each part does and how the parts connect (R-216) |
+| `data/screens/` | Every candidate's training set and writer files, each with its provenance file; `data/heldout3/` holds S3, sealed and hashed (R-179), and is not opened before its run |
+| `results/demo2/`, `results/panels/` | Demo2 runs and judge folders; each panel's and count's output, by record |
 | `docs/` | The write-up (`ARTICLE.md`) and model card (`MODEL_CARD.md`), both made from `results/` by `scripts/make_article.py` from their templates; sample rows in `docs/samples/` |
+
+## Reproduce the results
+
+Every results file under `results/` carries its provenance (command, commit, package versions), and `RECORDS.md` names
+the record that registered it. Training is not bit-reproducible on this card (R-029); generation is: a repeated run of
+seed 82 gave the same reply on 240 of 240 questions (R-156). Runs need the card to themselves. The base is pinned to
+revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
+
+1. Train the shipped adapter (about 34 minutes; the command is under "Chat with it").
+2. Score it on a development pool. This command reproduces `results/recall_eval/hd_fix17cs37_82_seed_73157.json`;
+   `probe` runs the same way with `--pool probe`.
+
+```bash
+../venv/Scripts/python scripts/run_recall_eval.py --pool hard_dev --seed 73157 --items-per-kind 24 --index ../scratch/eval_hard_dev.sqlite --label hd_fix17cs37_82 --arms tool_loop --max-vram-fraction 0.85 --adapter ../adapters/screens/fix17cs37_82
+```
+
+3. The sealed run (R-162): `scripts/records/queue/final.sh`, which starts with `scripts/records/freeze_r154.py check
+   results/freeze/sealed_manifest.json` and stops unless every frozen file and value matches. The sealed pools are
+   read only with `--final`; the run is scored by `scripts/records/score_r162.py` into `results/analysis/R-162/`, with
+   sheets from `sheets_r162.py`, briefs from `briefs_r162.py` and judge transcripts checked by `audit_judge_r162.py`.
+4. The later analyses: `scripts/records/writeup_r164.py` (whole-chat control), `blind_r146.py` and `blind2_r157.py`
+   (the outside-writer sets), `refs_r168.py` (code that always searches, on the sealed pools), `rigor_r139.py`
+   (development rigor).
+5. LongMemEval-S: `scripts/run_longmemeval.py` (one arm a call; its data file is not in the repository, its SHA-256 is
+   in R-170), then `scripts/records/score_r170.py` and, for judged accuracy, `judge_sheets_r170.py` and
+   `score_judged_r170.py`.
+6. The write-ups and figures: `PYTHONPATH=src python scripts/make_article.py` and `scripts/make_figures.py`; no result
+   number in `docs/ARTICLE.md` or `docs/MODEL_CARD.md` is typed by hand.
 
 ## Checks
 
@@ -414,6 +497,33 @@ CI (`.github/workflows/ci.yml`) runs the same three on a CPU runner on every pus
 the commits every result was made with and no model weights. `tests/test_inference.py` needs Tiny Aya's gated
 tokenizer, so CI runs it only when the repository has an `HF_TOKEN` secret; without one, CI says so and runs the
 other 24 test files.
+
+## Declaration, AI use and team
+
+- Outside the hackathon: only the plan of 20 October (R-001) and Latent Lab Explorer, the author's local chat engine,
+  none of whose code, test sets or private chats is in this repository. Everything else was made from 1 November 2026
+  (`RECORDS.md` marks each entry PRE-SPRINT, SPRINT or REOPENED).
+- AI use: Claude (Anthropic) wrote the code, the generated pools, the training sets, the tests and the write-ups and
+  ran the experiments, under Kevin's direction; every commit as of 13 November (1,362) carries a Claude co-author
+  line. Claude Opus agents wrote the outside-writer chats and S3, Claude Sonnet agents judged. People marked 50 scorer
+  lines (the author and a second, independent marker) and 50 LongMemEval-S lines (the author). No percentage of
+  generated code or text is claimed; the records do not count it.
+- Team: Kevin Vaillancourt alone; no teammates tagged.
+- Acknowledgements and more detail: the full write-up, `docs/ARTICLE.md`.
+
+## Changelog
+
+- **10 November (R-171, R-172).** First published version: the adapter 6.37, both datasets and both collections on
+  Hugging Face, and the write-up with the sealed result, the outside-writer sets and LongMemEval-S.
+- **12 November (R-173 to R-178).** Write-ups reworked after a blind rubric read, with overstatements corrected
+  (R-173); notebook, CI and demo block (R-174); the scripted demo and eight more registered questions, which showed
+  two weaknesses of 6.37 (R-175, R-176); the project reopened with a new sealed test and ship rule (R-177, R-178).
+- **12 to 13 November (R-179 to R-217), this version.** The reopened work: the "Reopened" section added with S3's seal
+  (R-179) and updated through R-215, covering candidates K1 to K4.7 (R-180 to R-215). Added to match the submission
+  checklist (R-217): a submission summary, the data, language, split and leak-check description, metric directions,
+  the tool environment, a threat model, models and licences, compute and time per 1,000 replies, planned work, a
+  declaration of work done outside the hackathon, an LLM usage statement and the team line. No number about 6.37
+  changed, and 6.37 is still the shipped model.
 
 ## Licences
 
