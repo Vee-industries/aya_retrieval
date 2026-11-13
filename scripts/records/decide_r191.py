@@ -18,7 +18,12 @@ import json
 
 from aya_retrieval.report_data import EVAL_DIR, false_retrieval
 
-CANDIDATES = {"K1": "k1_r178", "K2.1": "k2_1_r187", "K1.3": "k1_3_r200"}  # R-200: K1.2 failed
+CANDIDATES = {
+    "K1": "k1_r178",
+    "K2.1": "k2_1_r187",
+    "K1.3": "k1_3_r200",
+    "K4.1": "k4_1_r209",  # R-209; K1.2, K3, K3.1, K3.2 and K4 did not reach screening
+}
 REF = "fix17cs37"
 BASE = "base191"
 SEEDS = (82, 83)
