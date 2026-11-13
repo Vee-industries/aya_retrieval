@@ -1,0 +1,48 @@
+1 | RIGHT | Says it found no information; names no value
+2 | RIGHT | Says it has no information; names no value
+3 | RIGHT | Says it has no information; names no value
+4 | RIGHT | Names kayak
+5 | WRONG | Names raw meat, fish, eggs instead of sesame
+6 | ABSTAINED | Says nothing found
+7 | RIGHT | Says nothing found; names no value
+8 | WRONG | Explains dev drive as a term; no saab
+9 | ABSTAINED | Says nothing on that
+10 | RIGHT | Says nothing found; names no value
+11 | RIGHT | Says no information found; names no value
+12 | RIGHT | Names khruangbin
+13 | WRONG | Talks about pottery; no aquarium
+14 | ABSTAINED | Says no information found
+15 | ABSTAINED | Says nothing found
+16 | WRONG | Explains dev drive as a term; no saab
+17 | ABSTAINED | Says no information found
+18 | ABSTAINED | Says it does not see it
+19 | ABSTAINED | Says no information found
+20 | WRONG | Gives dress advice; no venue named
+21 | RIGHT | Says it does not have it; names no value
+22 | RIGHT | Says it does not see it; names no value
+23 | RIGHT | Names Brackenfield
+24 | RIGHT | Names kayak
+25 | RIGHT | Says no information found; names no value
+26 | RIGHT | Names kayak
+27 | ABSTAINED | Says nothing found
+28 | RIGHT | Says no information found; names no value
+29 | ABSTAINED | Says no information found
+30 | RIGHT | Names kayak
+31 | ABSTAINED | Says nothing found
+32 | WRONG | Names Oaxaca, not Tbilisi
+33 | RIGHT | Says it does not see it; names no value
+34 | RIGHT | Says it has no information; names no value
+35 | ABSTAINED | Says nothing found
+36 | WRONG | Names Halifax for a never-told fact
+37 | ABSTAINED | Says nothing found
+38 | ABSTAINED | Says user may not have mentioned it
+39 | ABSTAINED | Says no information found
+40 | ABSTAINED | Says nothing found
+41 | RIGHT | Names khruangbin
+42 | RIGHT | Says nothing found; names no value
+43 | ABSTAINED | Says no information found
+44 | WRONG | Talks about pottery; no aquarium
+45 | ABSTAINED | Says nothing found
+46 | RIGHT | Says it has no information; names no value
+47 | RIGHT | Says nothing found; names no value
+48 | WRONG | Names raw meat, fish, eggs instead of sesame

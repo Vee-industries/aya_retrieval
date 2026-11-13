@@ -1,0 +1,5 @@
+k1_3_r200 {('template', False): 722}
+k4_1_r209 {('template', False): 722, ('natural', False): 587, ('natural', True): 37}
+k4_4_r212 {('template', False): 722, ('natural', False): 688, ('natural', True): 59}
+k1_3_r200 {('apostrophe', 'empty'): 3, ('plain', 'empty'): 154, ('plain', 'hit'): 711}
+k4_1_r209 {('apostrophe', 'empty'): 1, ('apostrophe', 'hit'): 17, ('plain', 'empty'): 356, ('plain', 'hit'): 794}

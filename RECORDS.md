@@ -8629,3 +8629,23 @@ lines): **0 FAIL** (`results/panels/R-210/check_k4_4.txt`). Queue `q212` as `q21
 
 Prediction, before training: hard_dev never_told at least 44 of 48 on seeds 82 and 83 (K4.2 seed 82: 41); hard_dev
 false retrieval at most 4; Demo2 older at least 3 of 6. Both of the last two are near even.
+
+**Demo2 on K4.4 seed 82** (`results/demo2/branches_k4_4_r212_82.json`, run 08:00; two fresh blind judges, 48 items,
+0 disagreements; `results/demo2/judge_k4_4_82/`): K4.4 with search older **1** of 6, in view 2 of 2, never told
+plain 2 of 2, shared word 1 of 2. **K4.4 bombs**; its queue was stopped at 08:12 during seed 82's first screening
+eval; seeds 83 and 94 do not train. Right: the wedding venue. Misses: "where do i work" and the ingredient (two
+empty searches, then a decline, as K4.2), the dog's breed (below), the sister (not found), "dev drive" (found,
+declined). The shared-word never-told miss is the near-miss trap ("where will ollie work after moving", reply
+"moving to Halifax").
+
+**A search-tool property found on the dog item** (vendored AgentTune `rag/retrieval/sqlite_fts.py` line 95):
+each query word is quoted as an FTS phrase, so a possessive such as "marguerite's" becomes the phrase "marguerite
+s" and matches only text that also has the possessive. On K4.4's Demo2 chat, "dog marguerite's" and
+"marguerite's" return nothing; "dog marguerite" and "marguerite" return the dog's message. The tool is what 6.37
+and every candidate were scored with and what S3 uses, so it is not changed; the model's queries are what can
+change. Counts (`results/panels/R-210/possessive_counts.txt`): K1.3's 722 template queries hold no apostrophe; the
+natural rows hold 37 (K4.1) and 59 (K4.4) possessive queries; on dev, K4.1 made 18 apostrophe queries over 3 seeds
+(1 empty), so on dev this is small.
+
+Across the candidates with the decline after two empty searches: Demo2 older K4.1 4, K4.2 2, K4.4 1, while K4.2's
+hard_dev recall on seed 82 was 77 against K4.1's 65. Next candidate to the lane.
