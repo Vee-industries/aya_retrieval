@@ -9207,3 +9207,9 @@ exception to the card rule, so the layout changes instead: `qtry.sh` trains with
 the same 2 rows per optimizer step with half the activations held at once. Not identical in numbers to K1.3's batch 2
 (rows are padded and averaged in pairs either way, but in a different order of operations); it applies to T2 to T6
 alike, and T1 (batch 2, cap 0.85) differs from them in this one respect. T2 restarts a third time; still no result.
+
+**Third start (17:16) ran out of memory too**, before its first step at batch 1 (7.66 GiB allocated). The memory is
+the model and one long row's scoring (rows up to 1,024 tokens), not the batch, so batch 1 does not fit the 0.78 cap
+either. Batch 2 is restored in `qtry.sh` so T2 to T6 match T1. **No layout found that keeps the card rule**: with
+the desktop's 0.7 GB, this training needs about 92% of the whole card, as every Lexsi run did. Put to Kevin (17:18);
+the card is idle until he answers.
