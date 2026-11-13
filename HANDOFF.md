@@ -31,4 +31,4 @@ Created 2026-11-13 12:46 ET (R-216). Read this, then `docs/PROJECT_MAP.md`, then
 
 Demo2 older (of 6) / hard_dev never_told, false retrieval, recall / outside-writer recall:
 K1.3 0 / 46, 2, 52 / 89; K4.1 4 / 34, 8, 65 / 122; K4.5 2 / 47, 2, 72 / not run; K4.6 2 / 46, 4, 72 / 132;
-K4.7 2 / not run; K4.6e2 (epoch 2) 3 / in screening (R-219).
+K4.7 2 / not run; K4.6e2 (epoch 2) 3 / 39, 10, 75 / not run (fails screening, R-221).
