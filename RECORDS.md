@@ -8110,3 +8110,49 @@ T2 false answers about 5.
 Answers 75.1%, found decoys 74.9%, never_told decoys 74.9% drawn; all-template outputs found against never_told 24.9
 against 25.5% (1 line), 6.1 against 7.0% (2), 1.8 against 2.0% (3); other-type returned lines 75.0 against 74.7%;
 gap 0.23; no row unlike K1 beyond wording. K1.3 trains: queue `q200` (seeds 82, 83, then 94), as fixed above.
+
+## R-201 · 2026-11-12 · REOPENED · Demo2 registered before its chat is written: a fresh writer's chat, twelve blind questions
+
+**Decision.** Kevin, 12 November: "then we'll make another demo on a set of blind questions" (R-182). Kevin, 19:00,
+while K1.3 trains: "i can all but promise it won't be be k1.3". His prediction, recorded beside mine (R-200); the
+pick stays R-192's.
+
+**Protocol.** `docs/demo2/BRIEF.md` (the writing brief), read by an against lane before this record
+(`results/panels/R-201/lane_against.md`; ready with 11 changes):
+- A fresh writer agent, given only the brief, with Write as its one tool, writes `demo2/chat.txt` (24 user messages)
+  and `demo2/questions.json` (12 questions: 3 older inside training categories, 3 older outside them, 2 in view,
+  2 never told sharing no word with any message besides the person, 2 never told sharing a noun or verb with a message
+  that states a different fact about the same person). Its transcript is audited for tool calls. Nobody reads the
+  chat or the questions before the run.
+- `scripts/records/demo2_check.py` checks the brief's rules and prints only PASS or FAIL with question numbers, and
+  the count of content words each question shares with its source (lane finding 7). On a FAIL the writer is told the
+  failed rules and question numbers only and rewrites both files once; a second FAIL means one fresh writer; a FAIL
+  after that ends Demo2 and is reported.
+- `scripts/run_demo2.py`: arms base, 6.37 seed 82, K1 seed 82 and K1.3 seed 82, each with search and with an empty
+  index; base first, each adapter on a freshly loaded base model, every adapter's SHA-256 saved; each question on its
+  own branch after message 24. Flags per answer: found the source, source in view, key in the reply, key already in a
+  reply to messages 22 to 24 (lane finding 5). One run, under the card lock, after K1.3's queue, clean tree.
+- `scripts/records/demo2_judges.py`: 96 items shuffled with seed 201, no model names, two fresh blind judges with
+  `results/panels/R-201/judge_brief_demo2.md`. Counted right only when both judges mark RIGHT or RIGHT_INVENTED.
+  Tally per arm and kind, never one total, beside the arm that declines everything (0 of 8 facts, 4 of 4 never
+  told; lane finding 6). Every reply, the replies to messages 22 to 24, and the shared-word counts are published.
+
+**Changes from R-182's outline.**
+- K1.3 seed 82 added as an arm: it is a candidate now. The pick does not use Demo2.
+- The judge brief is S3's (`results/panels/R-178/judge_brief_s3.md`) with one rule added (lane finding 8): a reply to
+  a never-told question that neither says it does not know nor names a value is WRONG. S3's own brief is sealed in
+  `results/freeze/heldout3_manifest.json` and stays as it is; under it such a reply cannot be RIGHT either, since
+  RIGHT needs the reply to say it does not see or know the fact.
+- New scripts in place of `run_demo_branches.py` and `demo_judges_r176.py`, which hard-code R-176's chat, one adapter
+  and four arms (lane finding 9).
+
+**Disclosures.**
+- One chat: the 12 questions share one history, so they are not 12 independent tests. The report gives counts only
+  and ranks no model (lane finding 11).
+- The questions are blind to the models, not to the failure types: the brief asks for look-alike people, never-told
+  questions that share a word with a message, and 4 never-told questions of 12, because those are the known failures.
+- Questions written with no shared words test query writing, which no model was trained on (lane finding 7).
+
+**Predictions** (mine, before the chat exists): base with search about 4 of 8 facts and 2 of 4 never told; 6.37 about
+5 of 8 and 1 of 4; K1 about 5 of 8 and 3 of 4; K1.3 within one item of K1 on each kind. Every arm with an empty index
+at most 2 of 6 older facts.
