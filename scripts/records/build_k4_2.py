@@ -104,7 +104,8 @@ def near_miss_valid(chat: dict, q: dict) -> bool:
     return q.get("stored_category") in facts and q.get("category") not in facts
 
 
-def main() -> None:
+def main(out_path: Path = OUT, record: str = "R-210", kinds: set[str] | None = None) -> None:
+    """Build the set; ``kinds`` (R-211) keeps only new rows of those kinds."""
     provenance = run_metadata()
     base_text = BASE.read_text(encoding="utf-8")
     rows = [json.loads(line) for line in base_text.splitlines()]
@@ -148,6 +149,9 @@ def main() -> None:
     dropped = Counter()
     fresh = [r for r in built if r["id"] not in have and first_empty(r)]
     dropped["not new or first search not empty"] = len(built) - len(fresh)
+    if kinds:
+        dropped["kind not kept"] = sum(r["meta"]["kind"] not in kinds for r in fresh)
+        fresh = [r for r in fresh if r["meta"]["kind"] in kinds]
     dev_runs = set().union(*(K31.CHECK.runs(q) for q in K31.CHECK.dev_questions()))
     s3 = set()
     for path in sorted(K31.OVERLAP.CHATS.glob("*.json")):
@@ -188,7 +192,7 @@ def main() -> None:
 
     out = rows + fits
     text = "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in out)
-    OUT.write_bytes(text.encode("utf-8"))
+    out_path.write_bytes(text.encode("utf-8"))
     cells = Counter()
     for r in out:
         if outputs(r):
@@ -198,7 +202,7 @@ def main() -> None:
             cells[f"first empty {first_empty(r)}, last has passages {last}, value {value}"] += 1
     report = {
         "provenance": provenance,
-        "record": "R-210",
+        "record": record,
         "base_set": BASE.as_posix(),
         "base_sha256": hashlib.sha256(base_text.encode("utf-8")).hexdigest(),
         "writer_files_sha256": hashes,
@@ -212,9 +216,11 @@ def main() -> None:
         "k4_questions": k4_questions,
         "meta": meta,
     }
-    OUT.with_suffix(".provenance.json").write_bytes(json.dumps(report, indent=1).encode("utf-8"))
+    report_text = json.dumps(report, indent=1)
+    out_path.with_suffix(".provenance.json").write_bytes(report_text.encode("utf-8"))
     print(
-        f"{OUT}: {len(out)} rows, {len(fits)} new ({report['new_rows_ending_empty']} ending empty, "
+        f"{out_path}: {len(out)} rows, {len(fits)} new "
+        f"({report['new_rows_ending_empty']} ending empty, "
         f"{report['new_rows_by_kind']}); dropped {report['dropped']}"
     )
     for cell, n in report["searching_rows_by_cell"].items():

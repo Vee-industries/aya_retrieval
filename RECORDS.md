@@ -8570,3 +8570,27 @@ harness fault: Demo2's index holds the model's own replies, so the same query ca
 not another. K4.1's "work" found message 1 only because its reply there said "a work environment"; K4.2 replied
 "That was a fun moment!". Not a fault (the chat as each model held it), but it puts more than judge noise on every
 older count, K4.1's 4 of 6 included. Next candidate to the R-210 lane.
+
+## R-211 · 2026-11-13 · REOPENED · K4.3 registered, to train only if a K4.2 diagnostic passes; else K1.3 stays
+
+**The R-210 lane on the next candidate** (after K4.2's bomb). Rejected: (A) dropping the 104 rows that start empty
+(it removes the only path to the outside-writer sets' two-search right answers, and leaves K1.3's habit, 0 of 6
+older on Demo2); (C) a third search (no third query exists; making one is K1.4's query rewrite, rejected in R-205;
+third and later searches gave 0 right of 9 on the outside-writer sets and were wrong 12 of 17 on K4.1's hard_dev
+never_told). **Adopted: (B) K4.3**, behind one diagnostic, else (D) stop with K1.3 as the pick.
+
+**Diagnostic** (queue `q210d`, not a candidate result and not eligible for the pick): hard_dev on K4.2's existing
+seed 82 adapter, since K4.3 rests on the same rule (decline after two empty searches), which has never been measured
+on hard_dev. Kevin's "don't keep training it if it bombs" covers training; this is one eval of a trained adapter.
+Rule, before the result: hard_dev never_told at least 44 of 48 and hard_dev false retrieval at most 4 (seed 82's
+R-191 lines): K4.3 trains (queue as q210). Otherwise no further candidate; K1.3 stays the pick.
+
+**K4.3** (`scripts/records/build_k4_3.py`): K4.2's build unchanged, keeping only the new never_told rows (near_miss
+built as never_told). `build_k4_2.main` takes the output path, the record and the kinds; K4.2's set is unchanged by
+this (same SHA-256, 19ec0ae2...). Built once: 1,745 rows, 35 new (31 end on two empty searches, 4 decline after an
+empty then a non-empty search); the 22 new fact rows of K4.2 dropped, so fact rows are K4.1's. Disclosed: the
+choice came after Demo2; the lane's reason is not Demo2's items: 18 of K4.2's 20 fact-row declines after two empty
+searches asked about the user and train the model to give up on a fact that is in the chat. Check (same lines as
+K4.2, `check_k3.py` extended to `k4_3*`): **0 FAIL** (`results/panels/R-210/check_k4_3.txt`). Main risk (lane): the
+rule is the same, only smaller (after two empty searches, 35 of 35 rows decline), so a "where do i work" miss can
+recur; two of Demo2's six older items turn on search luck, so K4.3's chance of passing Demo2 is near even.
