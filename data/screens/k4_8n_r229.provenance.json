@@ -1,0 +1,7 @@
+{
+ "record": "R-229",
+ "base_set": "data/screens/k4_8_r220.jsonl",
+ "dropped_template_rows": 1094,
+ "rows": 1393,
+ "out_sha256": "3e2058ca60d5781706dded7d4d59d3cb7306d125fca0c1dd3af4364fbdd94825"
+}

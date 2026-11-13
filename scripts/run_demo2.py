@@ -35,8 +35,6 @@ from aya_retrieval.models import load_model
 from aya_retrieval.provenance import REPO_ROOT, require_clean_tree, run_metadata
 
 SCRIPTS = Path(__file__).resolve().parent
-SCRIPT = REPO_ROOT / "demo2" / "chat.txt"
-QUESTIONS = REPO_ROOT / "demo2" / "questions.json"
 MESSAGES = 24
 IN_VIEW_FROM = MESSAGES - EXCHANGES_IN_VIEW + 1  # message 22: the first one still in view
 
@@ -77,12 +75,19 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--adapter", action="append", default=[], help="NAME=PATH, in run order")
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument(
+        "--demo-dir",
+        type=Path,
+        default=REPO_ROOT / "demo2",
+        help="folder with chat.txt and questions.json (R-229: demo3 is the held-out chat)",
+    )
     args = parser.parse_args()
+    script, questions_path = args.demo_dir / "chat.txt", args.demo_dir / "questions.json"
     logging.basicConfig(level=logging.WARNING)
     require_clean_tree()
     metadata = run_metadata()
-    messages = [line for line in SCRIPT.read_text(encoding="utf-8").splitlines() if line]
-    questions = json.loads(QUESTIONS.read_text(encoding="utf-8"))["questions"]
+    messages = [line for line in script.read_text(encoding="utf-8").splitlines() if line]
+    questions = json.loads(questions_path.read_text(encoding="utf-8"))["questions"]
     if len(messages) != MESSAGES or len(questions) != 12:
         raise SystemExit(
             f"expected 24 messages and 12 questions: {len(messages)}, {len(questions)}"
@@ -121,8 +126,9 @@ def main() -> None:
         "provenance": metadata,
         "record": "R-201",
         "adapters": hashes,
-        "chat_sha256": hashlib.sha256(SCRIPT.read_bytes()).hexdigest(),
-        "questions_sha256": hashlib.sha256(QUESTIONS.read_bytes()).hexdigest(),
+        "demo_dir": args.demo_dir.name,
+        "chat_sha256": hashlib.sha256(script.read_bytes()).hexdigest(),
+        "questions_sha256": hashlib.sha256(questions_path.read_bytes()).hexdigest(),
         "arms": arms,
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)

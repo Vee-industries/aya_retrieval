@@ -9134,3 +9134,45 @@ about 40 seconds before it was stopped; K1.3s was still loading. To stop a queue
 until the whole card reaches 85%; every Lexsi queue passes `--max-vram-fraction 0.85`, which caps the training
 process alone at 85%, so with the desktop's 0.7 GB the card passes 85%. True of every Lexsi run since the rule (R-088's
 setting predates it). Not changed mid-run (the fraction changes speed, not results, R-088); put to Kevin.
+
+## R-229 · 2026-11-13 · REOPENED · The stage ladder registered before any try result; Demo3 written as the held-out chat
+
+Kevin (about 16:45), on running more stage tries: "keep the scientific integrity intact just rapid fire the shit".
+Registered here before K1.3s's first Demo2 result and before any other try trains.
+
+**Demo3.** Demo2's seed 82 chat has judged at least 13 readings (R-227), so it is no longer held out. A fresh writer
+(Sonnet), given only `docs/demo3/BRIEF.md` (Demo2's brief word for word except its two output paths, now
+`demo3/`), writes `demo3/chat.txt` and `demo3/questions.json`; `demo2_check.py`'s rules apply (R-201: one rewrite
+on a FAIL, then one fresh writer, then Demo3 ends and is reported); nobody reads its chat or questions before a run.
+`scripts/run_demo2.py --demo-dir demo3` runs it (the option defaults to `demo2`; a Demo2 run is unchanged). Judging as
+Demo2: two fresh blind Sonnet judges, counted right only when both mark it right; the same pass line (at least 3 of 6
+older and 3 of 4 never-told).
+
+**The ladder.** Each try is a stage on each seed's K1.3 adapter (as K1.3s, R-227) with one setting changed. Values only
+from the record: learning rate 1e-4 (6.37's stages, R-105) or 3e-4 (K1.3's own); epochs 1 (the stages) or 3 (every K
+run); rows K4.8's whole set (`k4_8_r220`) or K4.8's natural rows alone (`k4_8n_r229`, `scripts/records/build_k4_8n.py`:
+K4.8 minus K1.3's 1,094 rows, 1,393 rows, a subset of K4.8's checked set). Fixed order, cheapest first:
+
+| Try | Label | Rows | Learning rate | Epochs |
+|---|---|---|---|---|
+| T1 | `k1_3s_r227` (K1.3s, running) | K4.8 whole | 1e-4 | 1 |
+| T2 | `k13t2_r229` | K4.8 whole | 3e-4 | 1 |
+| T3 | `k13t3_r229` | natural only | 1e-4 | 1 |
+| T4 | `k13t4_r229` | natural only | 3e-4 | 1 |
+| T5 | `k13t5_r229` | K4.8 whole | 1e-4 | 3 |
+| T6 | `k13t6_r229` | K4.8 whole | 3e-4 | 3 |
+
+**Rules, fixed now.** Each try trains seed 82, runs Demo2; a Demo2 pass runs Demo3; a Demo3 pass runs hard_dev on seed
+82 first with R-222's early stop, then full screening on 82, 83 (trained the same way) and 94, then `decide_r191.py`.
+The **first try in this order that passes Demo2 and Demo3** is the one screened; later tries are not run once one
+reaches screening, unless it then fails a screening line, when the ladder resumes at the next try. No try outside
+this table; no try is rerun. Demo3 is read only for tries that pass Demo2, and every Demo2 and Demo3 reading is
+counted in the final report. Every try's numbers are recorded, failures included. A try that reaches screening joins
+the pick against K1.3 by R-192's pooled recall; if none does by the R-194 cutoff (every seed trained by Saturday
+16:00), K1.3 ships. Each try runs `scripts/records/queue/qtry.sh` (copied to this session's scratchpad to run, with
+`qtry_lock.py` under the card lock) with `--max-vram-fraction 0.78` (R-228: the whole card stays under 85%); T1 keeps
+its 0.85 (started before this rule). T1's queue `q227` has no Demo3 step: if T1 passes Demo2, `q227` is stopped after
+its Demo2 and T1 continues under `qtry.sh` (its adapter and Demo2 kept).
+
+**Correction.** The lane briefs of R-220 and R-227 said K1.3 has 722 rows; it has 1,094 rows, of which 722 hold a
+search output (the count R-220 reports correctly). No lane's verdict rested on the number.
