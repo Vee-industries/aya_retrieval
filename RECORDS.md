@@ -9190,3 +9190,14 @@ with search, older / in view / never told plain / shared word: **2 of 6 / 2 of 2
 2). **Bombs** on older. Right: the dog's breed, the venue; "what does dev drive" found and declined; the other three
 never found. Predictions: method lane older 2, never-told 4 (right); against lane older 1, never-told 4. Demo2
 readings now: 14 (R-227's 13 and this). By R-229, T2 (3e-4, 1 epoch, K4.8 whole) runs next.
+
+## R-231 · 2026-11-13 · REOPENED · T2 runs out of card memory at R-228's cap; allocator setting added; T2 and T3 restart
+
+T2's first start (17:11) ran out of GPU memory one step in (`torch.OutOfMemoryError`: 7.55 GiB allocated, 0.19 GiB
+reserved and free, the 0.78 cap's 7.80 GiB allowed). T3, waiting on the lock, took the card at 17:12 and was stopped
+before its first step (it would hit the same limit). Neither trained, neither has a result, so their restarts are
+not reruns under R-229. Fix that keeps the card rule (whole card under 85%): `qtry.sh` exports
+`PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`, which lets PyTorch grow memory in place instead of in fixed
+blocks; it changes no computed number. If T2 still runs out of memory under it, the next step is put to Kevin (a
+higher cap breaks the card rule; batch 1 with gradient accumulation 2 changes a training setting). T1 ran at the old
+0.85 cap; the cap changes speed and memory, not results (R-088).

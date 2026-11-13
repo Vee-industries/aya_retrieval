@@ -13,6 +13,7 @@ W="/c/Users/Gaming/Desktop/hackathons/Lexsi Sprint"
 VP="$W/venv/Scripts/python.exe"
 cd "$W/aya_retrieval" || exit 1
 export HF_HUB_OFFLINE=1 HF_HUB_DISABLE_TELEMETRY=1
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True  # R-231: fits the 0.78 cap; changes no numbers
 ATTR="Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 MLP="q_proj k_proj v_proj o_proj gate_proj up_proj down_proj"
 CAP=5400
