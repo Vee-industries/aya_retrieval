@@ -10211,3 +10211,13 @@ garbage". The counts behind it, from the record: the same model, K1.3 seed 82, s
 fixed line on one 6-question demo moves by one item between demos and cannot tell these models apart; the totals over
 both demos use 12 older and 8 never-told questions. The write-up states this reason and that the change was made after
 both models' demo readings existed.
+
+## R-284 · 2026-11-14 · REOPENED · S3's coherence sample and sheet; three judges started
+
+`draw_s3_sample.py --final` (17:26): 120 of 834 S3 items, seed 178 (`results/s3/coherence_sample.json`).
+`score_s3.py sheet --final`: 240 lines, 120 base with the tool and 120 C1 seed 82, shuffled by seed 1780, no model names
+(`results/s3/coherence/sheet.txt`, `key.json`, `rubric.txt`; the orchestrator has not read the sheet). Three fresh
+Sonnet judges started at about 17:28, each with its own folder in this session's scratchpad holding only the sheet and
+rubric, and a brief that is R-128 judge 1's with only the folder path, the sheet name (one sheet in place of four) and
+the line count changed (`results/s3/coherence/judge_brief_j1.txt`; judges 2 and 3 differ only in folder). Judge 1
+decides (R-154). Weekly usage 94% (all models, 17:26). The queue reached C1 seed 83 at about 17:20.
