@@ -1,0 +1,124 @@
+{
+ "id": "w9_00",
+ "exchanges": [
+  [
+   "hey, finally home, today was long",
+   "Welcome back, sounds like you've earned a quiet evening."
+  ],
+  [
+   "first week at harrowfield done and the horses already like me more than the people do lol",
+   "Ha, horses are good judges of character, congrats on getting through week one."
+  ],
+  [
+   "my sister wren is coming over sat with the new puppy so i gotta hide my shoes",
+   "Smart move, puppies love a good shoe."
+  ],
+  [
+   "wren finally picked a name for him, its turnip, i cant even",
+   "That's an adorable choice for a little pup."
+  ],
+  [
+   "rained the whole way home, im soaked",
+   "Hope you've got something warm to change into."
+  ],
+  [
+   "physio says its tendonitis in my wrist from all the hammering",
+   "Ouch, that sounds sore, I hope some rest helps it settle."
+  ],
+  [
+   "my sister-in-law maeve brought her whippet to dinner and it ate a napkin off the table",
+   "Bold dog, at least it was only a napkin."
+  ],
+  [
+   "kinda want takeout but also trying to save money",
+   "A cheap homemade dinner could scratch the same itch."
+  ],
+  [
+   "dara dragged me to pannikin again, she is obsessed with their scones",
+   "Sounds like she's found her happy place."
+  ],
+  [
+   "work was chill today, mostly cleaning tack",
+   "A calm day like that is underrated."
+  ],
+  [
+   "my buddy olu is moving out to lunenburg, gonna miss that guy",
+   "That's a big change, and you'll have a great excuse to visit."
+  ],
+  [
+   "watched the sunset from the porch, felt good",
+   "Little moments like that are the best."
+  ],
+  [
+   "honestly the ferry ride every morning is the best part of my day",
+   "Starting the day out on the water sounds lovely."
+  ],
+  [
+   "cant decide if i should repaint the bathroom",
+   "A fresh colour can make a small room feel new."
+  ],
+  [
+   "my sister says her basenji yodels instead of barking which is hilarious",
+   "That must make for some very musical mornings."
+  ],
+  [
+   "so tired, might just go to bed early",
+   "Early nights are a good reset."
+  ],
+  [
+   "my neighbours ancient saab wouldnt start again so i gave him a boost",
+   "Nice of you to help him get going."
+  ],
+  [
+   "made soup from scratch for once, pretty proud",
+   "Homemade soup is a win, well done."
+  ],
+  [
+   "picked up the mandolin again after like years, my fingers hate me",
+   "The calluses will come back faster than you think."
+  ],
+  [
+   "anyone else feel like this week lasted a month",
+   "It definitely happens, hang in there."
+  ],
+  [
+   "dad keeps going on about ballycastle like its paradise, he grew up there",
+   "Sounds like it left him with a lot of happy memories."
+  ],
+  [
+   "going to try sleeping in tomorrow, no alarms",
+   "Enjoy the lie-in, you deserve it."
+  ],
+  [
+   "reading piranesi before bed and its so strange in a good way",
+   "That one really sticks with people, enjoy it."
+  ],
+  [
+   "ok gonna make tea and wind down",
+   "Sounds perfect, have a cozy night."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "go-to cafe for dara, whats it called",
+   "answer": "pannikin",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "older",
+   "message": "remind me which place hired me",
+   "answer": "harrowfield",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "maeve's dog, whats its name",
+   "wrong": [
+    "turnip"
+   ]
+  }
+ ]
+}

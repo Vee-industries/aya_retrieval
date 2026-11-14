@@ -1,0 +1,124 @@
+{
+ "id": "w11_01",
+ "exchanges": [
+  [
+   "midterm in hydrology tomorrow and i have read exactly nothing",
+   "You've got this, a focused evening of review can go a long way."
+  ],
+  [
+   "pulling an all nighter probably",
+   "Keep some snacks and water close if you do!"
+  ],
+  [
+   "the library at marrowgate closes early on fridays, worst school policy ever",
+   "That's rough timing for exam season."
+  ],
+  [
+   "my roommate juno is practicing bassoon at the crack of dawn again",
+   "That's quite the alarm clock!"
+  ],
+  [
+   "earplugs on my shopping list now lol",
+   "Smart move for your sleep."
+  ],
+  [
+   "my fairphone screen cracked AGAIN ugh",
+   "Oh no, that's so frustrating."
+  ],
+  [
+   "priya from my lab is obsessed with quillfeather, she plays them nonstop",
+   "Sounds like she's found her band."
+  ],
+  [
+   "honestly they're not bad",
+   "Nice when a friend's music grows on you."
+  ],
+  [
+   "my brother teodor is visiting next weekend, havent seen him since summer",
+   "That'll be a great reunion."
+  ],
+  [
+   "my brother says he's moving to brevik in the spring, mom is not thrilled",
+   "Big changes can be hard on parents, but exciting for him."
+  ],
+  [
+   "anyway back to studying",
+   "Good luck, you can do it!"
+  ],
+  [
+   "ok i caved and watched an episode of driftmark",
+   "One episode is a reasonable study break!"
+  ],
+  [
+   "it was two episodes",
+   "Ha, that happens to the best of us."
+  ],
+  [
+   "my cousin priya keeps sending me halvorsen songs, she thinks he's a genius",
+   "Fun to have someone sending you new music."
+  ],
+  [
+   "bought a percolator at the thrift shop, feeling very adult",
+   "A good coffee setup is a solid investment for exam season."
+  ],
+  [
+   "the coffee it makes tastes kinda burnt tho",
+   "A coarser grind or less time on the heat might help."
+  ],
+  [
+   "dr okafor loves hollyhock, the little cafe by the bridge, he even does office hours there",
+   "Office hours with good coffee sounds very civilized."
+  ],
+  [
+   "might go bug him about the groundwater chapter",
+   "Good idea, that's what office hours are for."
+  ],
+  [
+   "juno is reading ivanhoe for fun which is wild to me",
+   "Respect to anyone reading the classics for fun!"
+  ],
+  [
+   "im so tired",
+   "Hang in there, rest is coming soon."
+  ],
+  [
+   "gonna nap before i start again",
+   "A short nap could help you focus."
+  ],
+  [
+   "the tram this morning was packed again, smelled like wet dog",
+   "Not the most pleasant ride, hope the rest of the day was better."
+  ],
+  [
+   "anyway exam went ok i think",
+   "That's a relief, well done."
+  ],
+  [
+   "treating myself to fries",
+   "You've earned them."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where's my brother relocating",
+   "answer": "brevik",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "which uni do i go to",
+   "answer": "marrowgate",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "never_told",
+   "message": "what book is dr okafor reading",
+   "wrong": [
+    "ivanhoe"
+   ]
+  }
+ ]
+}

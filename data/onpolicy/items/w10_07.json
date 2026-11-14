@@ -1,0 +1,124 @@
+{
+ "id": "w10_07",
+ "exchanges": [
+  [
+   "first day back after the holidays, ugh",
+   "Easing back in is always rough."
+  ],
+  [
+   "welding classes have me smelling like burnt metal constantly",
+   "Comes with the territory, I suppose."
+  ],
+  [
+   "instructor is tough but fair",
+   "That's the best kind to learn from."
+  ],
+  [
+   "the shop at northcliff is way better equipped than i expected",
+   "Good tools make learning a lot easier."
+  ],
+  [
+   "my silverado is basically my toolbox now",
+   "Trucks are handy like that."
+  ],
+  [
+   "gas prices are wild though",
+   "They really add up."
+  ],
+  [
+   "i carpool with a guy from class most days so it helps",
+   "Sharing rides saves a lot."
+  ],
+  [
+   "oisin from work does kendo, showed me a video",
+   "That looks like an intense sport."
+  ],
+  [
+   "my nephew is visiting this weekend",
+   "That should be fun."
+  ],
+  [
+   "funny, he's also called oisin, and he does parkour off every wall",
+   "Sounds like a lot of energy to keep up with."
+  ],
+  [
+   "my sister's nerves are shot lol",
+   "An active kid is no joke."
+  ],
+  [
+   "my grandma grew up in ballina and still talks about the sea there",
+   "Sounds like a place she really loved."
+  ],
+  [
+   "she's getting up there in years but sharp as ever",
+   "That's wonderful to hear."
+  ],
+  [
+   "reading kindred right now, couldnt put it down last night",
+   "Sounds like a gripping read."
+  ],
+  [
+   "tired today because of it",
+   "Worth it for a good book."
+  ],
+  [
+   "marguerite swears kalamata is the best restaurant in the city",
+   "Worth checking out then."
+  ],
+  [
+   "we might go later this week",
+   "Hope it lives up to the hype."
+  ],
+  [
+   "bertil at work just had a baby girl, saoirse, so cute",
+   "Congratulations to him."
+  ],
+  [
+   "the whole shop chipped in for a gift",
+   "That's a lovely gesture."
+  ],
+  [
+   "brackwater has the best walking trails, love living out here",
+   "Great trails are a real perk."
+  ],
+  [
+   "went for a long walk after work",
+   "Perfect way to clear your head."
+  ],
+  [
+   "my friend texted me a pic of her new phone",
+   "Fun, a new gadget."
+  ],
+  [
+   "marguerite went with a huawei, kinda surprised",
+   "Interesting choice."
+  ],
+  [
+   "anyway heading to bed",
+   "Sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "bertil named his daughter what",
+   "answer": "saoirse",
+   "wrong": [],
+   "fact_exchange": 17
+  },
+  {
+   "kind": "older",
+   "message": "what trade am i learning",
+   "answer": "welding",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "where does my grandma live these days",
+   "wrong": [
+    "ballina"
+   ]
+  }
+ ]
+}

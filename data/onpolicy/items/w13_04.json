@@ -1,0 +1,124 @@
+{
+ "id": "w13_04",
+ "exchanges": [
+  [
+   "it's official, we're moving to quillhaven in the fall",
+   "That's exciting, a fresh start!"
+  ],
+  [
+   "boxes everywhere already and we havent even started",
+   "The box stage is always chaotic."
+  ],
+  [
+   "my girlfriend sabine labelled everything with colour codes, its intense",
+   "Colour coding will make unpacking way easier."
+  ],
+  [
+   "the gf is studying horticulture so half the boxes are just plants",
+   "Moving plants is its own adventure."
+  ],
+  [
+   "i'm worried the big fern wont survive teh drive",
+   "Keep it out of direct sun in the car and it should be fine."
+  ],
+  [
+   "assuming my old forester even makes it lol",
+   "Fingers crossed the old car has one more trip in it."
+  ],
+  [
+   "it's making a weird clicking noise",
+   "Might be worth a quick check before the drive."
+  ],
+  [
+   "my cousin nadia offered to help pack after her curling game sunday",
+   "That's really nice of her."
+  ],
+  [
+   "different nadia, my dentist, spent my whole cleaning telling me about her archery league",
+   "Hard to chat back with a mouth full of tools."
+  ],
+  [
+   "i just nodded a lot",
+   "The only possible response, really."
+  ],
+  [
+   "jasper made me promise to watch shogun before we go",
+   "He must really love it."
+  ],
+  [
+   "we're gonna have a goodbye movie night at his place",
+   "That sounds like a fun send-off."
+  ],
+  [
+   "jasper's dog pemberton will be there too, he's the best boy",
+   "A dog at movie night makes it even better."
+  ],
+  [
+   "my coworker ottoline is throwing me a little farewell lunch",
+   "That's a lovely send-off from work."
+  ],
+  [
+   "kinda emotional about leaving that job tbh",
+   "It makes sense to feel that way after a good team."
+  ],
+  [
+   "grandpa is rereading middlemarch yet again, he says it gets better",
+   "Some books really do reward a reread."
+  ],
+  [
+   "he wants me to borrow it after, i said maybe",
+   "A very diplomatic answer."
+  ],
+  [
+   "gonna miss tamarind so much, best breakfast burritos in the city",
+   "Leaving your go-to spot is always hard."
+  ],
+  [
+   "we'll find a new one i guess",
+   "Hunting for a new favourite is part of the fun."
+  ],
+  [
+   "jasper brought his whippet over and it keeps stealing socks out of the boxes",
+   "Sock thieves are the worst kind of helpers."
+  ],
+  [
+   "ok taking a break, my back hurts",
+   "Good call, rest up."
+  ],
+  [
+   "the new place has a huge window in the kitchen",
+   "Great light for all those plants."
+  ],
+  [
+   "and the archivist position there starts right after we land",
+   "Perfect timing with the new role."
+  ],
+  [
+   "it's all coming together i think",
+   "It really sounds like it is."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me what book grandpa has going",
+   "answer": "middlemarch",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "older",
+   "message": "where are we relocating to",
+   "answer": "quillhaven",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "never_told",
+   "message": "where do we live now",
+   "wrong": [
+    "quillhaven"
+   ]
+  }
+ ]
+}

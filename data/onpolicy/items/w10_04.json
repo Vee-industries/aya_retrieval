@@ -1,0 +1,124 @@
+{
+ "id": "w10_04",
+ "exchanges": [
+  [
+   "first week done, im wiped",
+   "You made it through, that's worth celebrating."
+  ],
+  [
+   "the vets at brackenridge are so nice, i think im gonna like it there",
+   "Great people make a new job so much easier."
+  ],
+  [
+   "brought home a ton of scrubs to wash",
+   "Laundry day, then."
+  ],
+  [
+   "my cat mothball sat on my clean laundry immediately lol",
+   "Classic cat move."
+  ],
+  [
+   "being a sphynx she's always hunting for anything warm",
+   "Warm laundry must be irresistible."
+  ],
+  [
+   "my cousin jory came by for dinner",
+   "Nice to have some company."
+  ],
+  [
+   "cousin jory's working at copperfield now, the warehouse place",
+   "Sounds like a steady gig."
+  ],
+  [
+   "kinda funny, theres a jory at my gym too",
+   "Small world."
+  ],
+  [
+   "gym jory works at harbourline, he does their boats or something",
+   "Interesting line of work."
+  ],
+  [
+   "need groceries badly",
+   "A shop run might be in order."
+  ],
+  [
+   "phoenicia is my favourite spot, treated myself there instead of shopping",
+   "A well-earned treat."
+  ],
+  [
+   "my dad's moving to penticton next spring, says he's done with snow",
+   "Sounds like he's ready for milder weather."
+  ],
+  [
+   "gonna miss having him close",
+   "That's a hard part of any move."
+  ],
+  [
+   "curling league starts soon, im the worst on the team haha",
+   "Everyone starts somewhere, enjoy it."
+  ],
+  [
+   "my neighbour arvid put a trampoline in his yard, the kids are thrilled",
+   "That'll be the most popular yard on the street."
+  ],
+  [
+   "it's so loud though",
+   "The price of fun, I guess."
+  ],
+  [
+   "slipped on the ice and got whiplash, lovely",
+   "Ouch, take it easy while it heals."
+  ],
+  [
+   "off work tomorrow because of it",
+   "Rest is the best thing for it."
+  ],
+  [
+   "my sister liesl dropped off soup",
+   "That's a kind sister."
+  ],
+  [
+   "my sister's boyfriend emrys made it actually, he's a good cook",
+   "Sounds like a keeper."
+  ],
+  [
+   "feeling a bit better already",
+   "Glad to hear it."
+  ],
+  [
+   "the neighbour has music on again",
+   "Hopefully it's at least good music."
+  ],
+  [
+   "arvid loves vulfpeck apparently, its all he plays",
+   "At least it's upbeat."
+  ],
+  [
+   "might go knock and ask him to turn it down",
+   "A friendly ask usually works."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "cousin jory, who employs him now",
+   "answer": "copperfield",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "older",
+   "message": "which sport did i sign up for this season",
+   "answer": "curling",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "never_told",
+   "message": "is arvid seeing anyone",
+   "wrong": [
+    "emrys"
+   ]
+  }
+ ]
+}

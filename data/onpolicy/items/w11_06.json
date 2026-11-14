@@ -1,0 +1,124 @@
+{
+ "id": "w11_06",
+ "exchanges": [
+  [
+   "morning! we've lived in brackenridge forty years and never seen frost like this",
+   "Sounds beautiful but treacherous, mind your step!"
+  ],
+  [
+   "staying in with tea i think",
+   "A very sensible plan."
+  ],
+  [
+   "the outback wouldnt start this morning, battery again",
+   "Cold mornings are tough on batteries."
+  ],
+  [
+   "my neighbour gave me a jump, lovely man",
+   "Good neighbours are worth their weight in gold."
+  ],
+  [
+   "my son's little lad arlo is coming to stay this weekend",
+   "How lovely, enjoy the visit!"
+  ],
+  [
+   "my grandson just got into fellmoor academy, so proud",
+   "That's wonderful news, congratulations to him!"
+  ],
+  [
+   "my son is a cartographer so the boy has always loved maps",
+   "That's a lovely thing to pass down."
+  ],
+  [
+   "been in the shed all week with my woodturning, made a bowl",
+   "Sounds like a satisfying project."
+  ],
+  [
+   "it's a bit wonky",
+   "Wonky gives it character."
+  ],
+  [
+   "my daughter is reading middlemarch for her book club",
+   "A classic, that should spark good discussion."
+  ],
+  [
+   "and my daughter in law is halfway through persuasion, they compare notes",
+   "How nice that they share that."
+  ],
+  [
+   "ive never been much of a reader myself",
+   "Everyone has their own way to unwind."
+  ],
+  [
+   "the doctor says the toe is gout, no more port for me",
+   "Oh dear, I hope it eases quickly."
+  ],
+  [
+   "very unfair",
+   "It does feel that way."
+  ],
+  [
+   "my friend delphine from church brought round soup",
+   "What a kind friend."
+  ],
+  [
+   "my friend from church loves buttercup, the cafe by the station",
+   "Sounds like a nice spot to try together."
+  ],
+  [
+   "might take her there next week",
+   "That would be a nice thank you."
+  ],
+  [
+   "my wife is doing the crossword",
+   "A perfect quiet afternoon."
+  ],
+  [
+   "she's stuck on one clue",
+   "Those can be maddening."
+  ],
+  [
+   "lovely sunset tonight",
+   "Nothing like a winter sunset."
+  ],
+  [
+   "going to watch a bit of telly",
+   "Enjoy your evening."
+  ],
+  [
+   "we're hooked on kittiwake, the one about the lighthouse keeper",
+   "Sounds like a cozy series to watch together."
+  ],
+  [
+   "my wife thinks the keeper did it",
+   "Every good mystery needs a suspect."
+  ],
+  [
+   "we'll see",
+   "Enjoy finding out!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "what does my son do for a living",
+   "answer": "cartographer",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "older",
+   "message": "which school is my grandson going to",
+   "answer": "fellmoor",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "never_told",
+   "message": "whereabouts did i grow up",
+   "wrong": [
+    "brackenridge"
+   ]
+  }
+ ]
+}

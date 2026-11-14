@@ -1,0 +1,124 @@
+{
+ "id": "w3_04",
+ "exchanges": [
+  [
+   "long day, three lockouts before lunch",
+   "Sounds like a busy morning!"
+  ],
+  [
+   "being a locksmith means everyone calls you on their worst day lol",
+   "You must be a hero to a lot of people."
+  ],
+  [
+   "Ines from work does falconry on weekends, she showed me pics of her hawk",
+   "That's such an unusual hobby, very cool."
+  ],
+  [
+   "Bramwell made dinner tonight, my partner is the best cook",
+   "Lucky you, nothing beats a home-cooked meal."
+  ],
+  [
+   "risotto. so good",
+   "Yum, that's a tough one to get right."
+  ],
+  [
+   "my son Leopold wants to be a pilot this week, last week it was a dinosaur",
+   "Kids have the best career plans."
+  ],
+  [
+   "my Outback is making a weird noise again, ugh",
+   "Hope it's nothing serious."
+  ],
+  [
+   "booked it in at the garage",
+   "Good idea to get it checked."
+  ],
+  [
+   "Theo's packing up for Kittering, his wife got a job there",
+   "That's a big move for them."
+  ],
+  [
+   "my aunt still uses a Nokia brick, refuses to upgrade",
+   "Honestly, those old things are indestructible."
+  ],
+  [
+   "my neighbour Ines is big into curling, wants me to come try",
+   "Could be a fun thing to try together."
+  ],
+  [
+   "it involves brooms right? i'm in",
+   "Ha, that's the spirit."
+  ],
+  [
+   "reading Gilead before bed, slow but lovely",
+   "Sounds like a perfect bedtime read."
+  ],
+  [
+   "the dog woke me at five though",
+   "Early starts with dogs are rough."
+  ],
+  [
+   "our vizsla has endless energy, two walks isnt enough",
+   "Some breeds just need a lot of exercise."
+  ],
+  [
+   "Theo's been at Quillfeather for years, theyre letting him go remote",
+   "Nice that he gets to keep the job."
+  ],
+  [
+   "we're throwing Theo a goodbye party soon",
+   "That'll be a nice send-off."
+  ],
+  [
+   "need to figure out food for it",
+   "Snacks and drinks go a long way."
+  ],
+  [
+   "my son wants a bouncy castle at Theo's party lol",
+   "Ha, can't fault his ambition."
+  ],
+  [
+   "work tomorow is booked solid",
+   "Pace yourself."
+  ],
+  [
+   "partner says i should take a day off soon",
+   "Sounds like good advice."
+  ],
+  [
+   "maybe next week",
+   "Something to look forward to."
+  ],
+  [
+   "my aunt wants brunch at Lantern again sunday, its her absolute favourite",
+   "Sounds like a lovely tradition."
+  ],
+  [
+   "ok sleep. night",
+   "Good night!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "Ines from work has that bird hobby, whats it called",
+   "answer": "falconry",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "older",
+   "message": "who does Theo work for",
+   "answer": "Quillfeather",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "never_told",
+   "message": "where does Bramwell work",
+   "wrong": [
+    "Quillfeather"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w13_01",
+ "exchanges": [
+  [
+   "ugh midterm season is eating me alive",
+   "Hang in there, it's always the worst stretch."
+  ],
+  [
+   "linguistics sounded fun when i picked it, now its all phonetics charts",
+   "The charts get easier once the sounds click."
+  ],
+  [
+   "i keep mixing up the symbols for two of the vowels",
+   "Flashcards with audio might help those stick."
+  ],
+  [
+   "the library at corriveau is open til midnight at least",
+   "Late library hours are a lifesaver this time of year."
+  ],
+  [
+   "my brother bought a miata, midlife crisis came early",
+   "A little convertible is a classic choice for that."
+  ],
+  [
+   "he sent me a million pics of it",
+   "Sounds like he's very proud of it."
+  ],
+  [
+   "ines is practicing bassoon in the next room and its so loud",
+   "That's a big sound to study through."
+  ],
+  [
+   "headphones are on max lol",
+   "Noise cancelling would earn its keep today."
+  ],
+  [
+   "my uncle tobias got shingles, poor guy is miserable",
+   "That sounds really painful, I hope he feels better soon."
+  ],
+  [
+   "putting on alvvays to drown out the practicing, they never miss",
+   "Good music for a focus session."
+  ],
+  [
+   "is coffe this late a bad idea",
+   "Probably, if you want any sleep tonight."
+  ],
+  [
+   "cracked my fairphone screen on the bus stop bench",
+   "Oh no, at least those are easy to repair yourself."
+  ],
+  [
+   "ordered the replacement part already",
+   "Nice, quick fix then."
+  ],
+  [
+   "my brother in law just picked up a sienna so the family van era begins",
+   "Welcome to the minivan life for him."
+  ],
+  [
+   "family dinner sunday is going to be all car talk",
+   "Maybe bring a topic of your own just in case."
+  ],
+  [
+   "ines grew up in vellacourt so she thinks this city is tiny",
+   "Funny how hometown size shapes that."
+  ],
+  [
+   "my grandma got hooked on taskmaster, she calls me after every episode",
+   "Love that, it's a great one to share."
+  ],
+  [
+   "she does the impressions too its hilarious",
+   "That sounds like the best phone call."
+  ],
+  [
+   "finally caved and bought a dehumidifier, the basement apartment is so damp",
+   "That should make a big difference with the damp."
+  ],
+  [
+   "it already filled up once",
+   "Wow, it was clearly needed."
+  ],
+  [
+   "ok back to the phonetics",
+   "You've got this, one chart at a time."
+  ],
+  [
+   "my sister odalys just sent me a cat video to help me study lol",
+   "Very supportive procrastination aid."
+  ],
+  [
+   "gonna go bouldering after to clear my head",
+   "Climbing is a great way to reset."
+  ],
+  [
+   "or maybe just sleep, we'll see",
+   "Either one sounds like a good call."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "how's uncle tobias doing, what was wrong with him",
+   "answer": "shingles",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "older",
+   "message": "which uni do i go to",
+   "answer": "corriveau",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "never_told",
+   "message": "what instrument do i play",
+   "wrong": [
+    "alvvays"
+   ]
+  }
+ ]
+}

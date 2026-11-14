@@ -1,0 +1,124 @@
+{
+ "id": "w11_07",
+ "exchanges": [
+  [
+   "first day at palisade went ok, the coffee machine is fancy",
+   "Glad it went well, fancy coffee is a great perk."
+  ],
+  [
+   "everyone seems nice so far",
+   "That's a promising start."
+  ],
+  [
+   "officially an actuary now which sounds way cooler than it is",
+   "Ha, it still sounds pretty impressive."
+  ],
+  [
+   "rafa from accounting rollerblades in every morning, absolute legend",
+   "That's one way to wake up!"
+  ],
+  [
+   "my legs hurt just thinking about it",
+   "I bet!"
+  ],
+  [
+   "rafa from my gym takes the monorail in from the suburbs, says it beats driving",
+   "Nice that it saves him some hassle."
+  ],
+  [
+   "two rafas in my life now lol",
+   "Ha, that could get confusing."
+  ],
+  [
+   "my sister odalys called, she's doing great",
+   "Lovely to hear."
+  ],
+  [
+   "my sister's dog is a borzoi, its taller than her when it stands up",
+   "That's an elegant and very big dog!"
+  ],
+  [
+   "anyway im so tired",
+   "First weeks are draining, rest up."
+  ],
+  [
+   "we're moving to saltgate soon, closer to the office",
+   "A shorter commute will be a nice change."
+  ],
+  [
+   "packing is gonna suck",
+   "It always does, but you'll manage."
+  ],
+  [
+   "signed up for a night course in mandarin, wish me luck",
+   "Good luck, that's an exciting challenge!"
+  ],
+  [
+   "my friend ines says corvina is the best band alive",
+   "Ha, strong opinions!"
+  ],
+  [
+   "kinda agree tbh",
+   "Sounds like they're worth a listen."
+  ],
+  [
+   "my kobo died so im reading on my phone, it's awful",
+   "Small screens make it hard, hopefully a replacement comes soon."
+  ],
+  [
+   "bought a hammock for the balcony, first purchase for the new place",
+   "Perfect for lazy afternoons."
+  ],
+  [
+   "if it fits lol",
+   "Fingers crossed!"
+  ],
+  [
+   "gonna cook a big stew tonight",
+   "Sounds cozy."
+  ],
+  [
+   "spilled half of it",
+   "Oh no, hopefully the other half was tasty."
+  ],
+  [
+   "it was",
+   "Good, crisis averted."
+  ],
+  [
+   "work tomorrow ugh",
+   "Hang in there."
+  ],
+  [
+   "ines and her girlfriend wilhelmina are coming over for dinner friday",
+   "Fun, dinner with friends sounds great."
+  ],
+  [
+   "need to clean everything first",
+   "A good push to tidy up."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "whats the company i just joined",
+   "answer": "palisade",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "older",
+   "message": "the language i'm learning, which one",
+   "answer": "mandarin",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "never_told",
+   "message": "which band does odalys like",
+   "wrong": [
+    "corvina"
+   ]
+  }
+ ]
+}

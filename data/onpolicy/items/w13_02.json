@@ -1,0 +1,124 @@
+{
+ "id": "w13_02",
+ "exchanges": [
+  [
+   "night shifts as a dispatcher are wrecking my sleep",
+   "That schedule is brutal on the body clock."
+  ],
+  [
+   "slept til noon and still feel like a zombie",
+   "Maybe some sunlight and water will help shake it off."
+  ],
+  [
+   "my boyfriend aurelio made me soup at least",
+   "That's a sweet thing to come home to."
+  ],
+  [
+   "it was mostly salt but its the thought",
+   "The thought definitely counts."
+  ],
+  [
+   "they might move me to days at kingsbarrow freight if someone retires",
+   "Fingers crossed a day spot opens up."
+  ],
+  [
+   "theo lives over in grisdale, kinda far from me",
+   "That's a bit of a trek then."
+  ],
+  [
+   "honestly whatever, still need coffee",
+   "Coffee first, decisions later."
+  ],
+  [
+   "the bf has gotten really into falconry which is a sentence i never thought id say",
+   "That's a very unexpected hobby, in the best way."
+  ],
+  [
+   "he wants to get a bird eventually. i said absolutely not",
+   "That sounds like a negotiation in progress."
+  ],
+  [
+   "my mom wants to do brunch at lantana this weekend",
+   "Brunch with your mom sounds lovely."
+  ],
+  [
+   "and my stepmom wants fennimore the same day so thats a fun scheduling puzzle",
+   "Two brunches in one day is ambitious."
+  ],
+  [
+   "might just do both and skip dinner",
+   "A double brunch day is a bold plan."
+  ],
+  [
+   "been teaching myself the mandolin on my nights off",
+   "That's a lovely instrument to pick up."
+  ],
+  [
+   "my fingertips are destroyed",
+   "The calluses will come, hang in there."
+  ],
+  [
+   "priya's little boy caspian lost his first tooth today",
+   "That's a big milestone for a kid."
+  ],
+  [
+   "priya also just got into ashgrove for her masters, shes juggling a lot",
+   "She's got a lot going on, good for her."
+  ],
+  [
+   "i should send her flowers or somthing",
+   "That would be a kind gesture."
+  ],
+  [
+   "theo keeps checking his garmin mid conversation its so rude lol",
+   "Fitness watches can be very distracting."
+  ],
+  [
+   "anyway rain all day ugh",
+   "Perfect weather for staying in."
+  ],
+  [
+   "the streetcar was packed this morning, smelled like wet dog",
+   "Rainy rush hour is the worst for that."
+  ],
+  [
+   "got a seat eventually though",
+   "Small victories."
+  ],
+  [
+   "ok i'm making tea and getting on the couch",
+   "Sounds like a cozy plan."
+  ],
+  [
+   "the bf is working late so its just me",
+   "Some solo couch time can be nice."
+  ],
+  [
+   "starting severance finally, everyone says its great",
+   "Enjoy, it's a gripping one."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "priya's kid, what's the name",
+   "answer": "caspian",
+   "wrong": [],
+   "fact_exchange": 14
+  },
+  {
+   "kind": "older",
+   "message": "what's my actual title at work",
+   "answer": "dispatcher",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "never_told",
+   "message": "what's priya studying",
+   "wrong": [
+    "ashgrove"
+   ]
+  }
+ ]
+}

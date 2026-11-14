@@ -1,0 +1,124 @@
+{
+ "id": "w12_05",
+ "exchanges": [
+  [
+   "evening! just back from my bookkeeping night class, brain fried",
+   "Night classes after a full day take real dedication."
+  ],
+  [
+   "my son corvin is supposed to be doing homework but hes on his phone",
+   "Ah, the eternal homework battle!"
+  ],
+  [
+   "his school, pendleby, piles it on though, i kinda get it",
+   "That's a lot for a kid to juggle."
+  ],
+  [
+   "rain rain rain",
+   "Sounds like a cosy night in is called for."
+  ],
+  [
+   "my sister odile is rereading kindred, she cant help herself",
+   "Some books just keep pulling people back."
+  ],
+  [
+   "funny bc the other odile, from book club, picked ivanhoe for this month and nobody wants to",
+   "Ha, a tough pick for a group read!"
+  ],
+  [
+   "i might skip book club honestly",
+   "No harm in sitting one out."
+  ],
+  [
+   "the boy wants to quit euphonium, i said finish the year at least",
+   "Sticking it out to the end of the year sounds fair."
+  ],
+  [
+   "dinner was beans on toast, very glamorous",
+   "A true classic, no shame in it."
+  ],
+  [
+   "my coworker hollis covered my shift, owe him one",
+   "Good coworkers are worth their weight in gold."
+  ],
+  [
+   "turns out hes off at some fencing tournament this weekend, never knew that about him",
+   "Fun to learn surprising things about the people you work with."
+  ],
+  [
+   "been bingeing columbo reruns, the man is a legend",
+   "Classic detective shows never get old."
+  ],
+  [
+   "my brother benedikt called from abroad, the line was awful",
+   "Nice to hear from him even with a crackly line."
+  ],
+  [
+   "made me miss stannerby, we grew up right by the harbour there",
+   "Hometown nostalgia can hit hard sometimes."
+  ],
+  [
+   "kinda want to go back for a visit someday",
+   "That could be a lovely trip to plan."
+  ],
+  [
+   "living in owlsbury is fine but its not home, you know?",
+   "Totally, where you live now and where you're from can feel really different."
+  ],
+  [
+   "my motorola screen cracked when i dropped it, typing on shards lol",
+   "Careful with your fingers, a cheap screen protector might help."
+  ],
+  [
+   "the kid finished his homework, miracle",
+   "Celebrate the small victories!"
+  ],
+  [
+   "might bake something tomorow",
+   "Baking is a great way to unwind."
+  ],
+  [
+   "tired but in a nice way",
+   "That's the best kind of tired."
+  ],
+  [
+   "my sister wants me to read along with her, maybe",
+   "Could be a nice way to stay connected."
+  ],
+  [
+   "book club odile just got a basenji puppy, shes posting it nonstop",
+   "Puppy photos are hard to resist sharing!"
+  ],
+  [
+   "ok time to sleep",
+   "Sleep well!"
+  ],
+  [
+   "early start tomorrow ugh, night",
+   "Goodnight, hope the morning goes smoothly."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "hollis does which sport again",
+   "answer": "fencing",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "older",
+   "message": "which instrument does my son play",
+   "answer": "euphonium",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "never_told",
+   "message": "which show does hollis watch",
+   "wrong": [
+    "columbo"
+   ]
+  }
+ ]
+}

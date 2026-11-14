@@ -1,0 +1,124 @@
+{
+ "id": "w7_06",
+ "exchanges": [
+  [
+   "lazy day, still in pyjamas",
+   "Sounds like a perfect lazy day."
+  ],
+  [
+   "my sister switched her major to forestry, she loves it",
+   "Good for her, sounds like a great fit."
+  ],
+  [
+   "being a sommelier sounds fancy but its mostly lifting boxes lol",
+   "Ha, the glamorous side hides a lot of heavy lifting."
+  ],
+  [
+   "my roommate is making pancakes, bless him",
+   "Pancake mornings are the best mornings."
+  ],
+  [
+   "meanwhile my stepsister is doing astronomy, the brains in this family",
+   "Sounds like a family full of curious minds."
+  ],
+  [
+   "i should really go for a walk but its cold",
+   "Even a short one might feel good."
+  ],
+  [
+   "love living in Carrowmore but the parking is a nightmare",
+   "Every great neighbourhood has its catch."
+  ],
+  [
+   "dmitri's parrot Ptolemy learned to say hello lol",
+   "That's adorable, a polite bird!"
+  ],
+  [
+   "watching the snow come down",
+   "So cozy from inside."
+  ],
+  [
+   "rolled my ankle on the ice, physio says its a sprain",
+   "Ouch, rest up and keep it elevated."
+  ],
+  [
+   "so much for my walk lol",
+   "The couch it is then."
+  ],
+  [
+   "my stepsister goes to Ravenhurst, its pretty far",
+   "Long trips home, but worth it."
+  ],
+  [
+   "my sister called, shes coming to visit soon",
+   "Something to look forward to."
+  ],
+  [
+   "splurged on a kayak, cant wait for summer",
+   "Summer on the water sounds amazing."
+  ],
+  [
+   "now i just need the ankle to heal lol",
+   "It'll be ready long before the warm weather."
+  ],
+  [
+   "my coworker Ingrid is covering my shifts while my ankle heals",
+   "That's really good of her."
+  ],
+  [
+   "dmitri dropped off soup, such a sweetheart",
+   "Good friends show up with soup."
+  ],
+  [
+   "dmitri is really into bouldering these days",
+   "Sounds like a fun way to stay strong."
+  ],
+  [
+   "he wants me to try it once my foot is better",
+   "Could be a fun thing to do together."
+  ],
+  [
+   "dmitri swears by Ochre, that little ramen place",
+   "A trusted ramen spot is a treasure."
+  ],
+  [
+   "might try it with my roommate this weekend",
+   "Sounds like a tasty plan."
+  ],
+  [
+   "spent the whole afternoon napping",
+   "Sometimes that's exactly what you need."
+  ],
+  [
+   "got some packing boxes from the grocery store",
+   "Free boxes are the best kind."
+  ],
+  [
+   "oh and we're officially moving to Fallowmead in the fall!",
+   "That's huge news, congratulations!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "name of dmitris bird?",
+   "answer": "Ptolemy",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "older",
+   "message": "remind me whats wrong with my foot",
+   "answer": "sprain",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "never_told",
+   "message": "which uni is my sister at",
+   "wrong": [
+    "forestry"
+   ]
+  }
+ ]
+}

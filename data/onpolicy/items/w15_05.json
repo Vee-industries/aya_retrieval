@@ -1,0 +1,124 @@
+{
+ "id": "w15_05",
+ "exchanges": [
+  [
+   "hello hello",
+   "Hello, good to hear from you."
+  ],
+  [
+   "my linguistics seminar today was actually fun for once",
+   "Nice, those days make it worth it."
+  ],
+  [
+   "mom still lives in carrowmore, i drive up to see her on weekends",
+   "That's a lovely routine to have with her."
+  ],
+  [
+   "rhea and lazlo are finally engaged!!",
+   "That's wonderful, congrats to them."
+  ],
+  [
+   "so sleepy",
+   "Maybe an early night is in order."
+  ],
+  [
+   "my campus at vessmore is gorgeous in the fall",
+   "Autumn leaves on campus sound beautiful."
+  ],
+  [
+   "deshawn from work takes the streetcar in and its always late",
+   "Transit delays are the worst."
+  ],
+  [
+   "my stepmom lives out in wickenburg now, its so far",
+   "That's quite a distance to visit."
+  ],
+  [
+   "lunch was leftovers again",
+   "Leftovers can be the best lunch."
+  ],
+  [
+   "rhea's favourite band fogcutter was playing last night, she dragged me along",
+   "Sounds like an amazing night out."
+  ],
+  [
+   "my cousin pia sent baby photos, her son thaddeus is so chubby",
+   "Babies at that age are the cutest."
+  ],
+  [
+   "got a new xiaomi phone, the camera is wild",
+   "Sounds like a great upgrade."
+  ],
+  [
+   "essay due soon and i havent started",
+   "You can still knock it out, just start small."
+  ],
+  [
+   "bought a breadmaker and the whole flat smells amazing",
+   "Fresh loaves at home is the dream."
+  ],
+  [
+   "mom wants to visit for my birthday",
+   "That sounds lovely."
+  ],
+  [
+   "deshawn brought donuts to work",
+   "Donut days are the best days."
+  ],
+  [
+   "reading glasswing before bed, its so creepy",
+   "Creepy books before bed are a bold choice."
+  ],
+  [
+   "pia is exhausted lol",
+   "New parents usually are."
+  ],
+  [
+   "rhea wants me to be a bridesmaid",
+   "What an honour, that's exciting."
+  ],
+  [
+   "my stepmom called, she wants to come down too",
+   "Sounds like a busy visit ahead."
+  ],
+  [
+   "my seminar group meets tomorrow",
+   "Good luck with the meeting."
+  ],
+  [
+   "rear ended at a light yesterday, doc says its whiplash",
+   "That's awful, I hope you're resting your neck."
+  ],
+  [
+   "the other driver was super apologetic at least",
+   "At least they owned it."
+  ],
+  [
+   "gonna lie down for a while",
+   "Good idea, take care of yourself."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "cousin pia had a boy, whats he called",
+   "answer": "thaddeus",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "older",
+   "message": "the book thats creeping me out at night, title?",
+   "answer": "glasswing",
+   "wrong": [],
+   "fact_exchange": 16
+  },
+  {
+   "kind": "never_told",
+   "message": "where does pia live",
+   "wrong": [
+    "carrowmore"
+   ]
+  }
+ ]
+}

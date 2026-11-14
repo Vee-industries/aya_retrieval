@@ -1,0 +1,124 @@
+{
+ "id": "w15_00",
+ "exchanges": [
+  [
+   "hey, long day, finally sitting down with some tea",
+   "Sounds well earned, enjoy the quiet."
+  ],
+  [
+   "first week at the arboretum done, my feet are wrecked from walking the trails",
+   "Congrats on getting through the first week, that sounds like a lovely place to work."
+  ],
+  [
+   "its supposed to rain all weekend which kinda ruins my plans",
+   "That's a shame, maybe a good excuse for a cozy weekend in."
+  ],
+  [
+   "my sister finally named her puppy, mungo lol",
+   "Ha, that's a great name for a puppy."
+  ],
+  [
+   "been going bouldering after work, my forearms are dead",
+   "That's brutal on the forearms, but it gets easier."
+  ],
+  [
+   "do you ever just forget what day it is",
+   "All the time, the week blurs together sometimes."
+  ],
+  [
+   "my sister in law has a cat called tolliver and he hates everyone",
+   "Some cats just pick their one person, if any."
+  ],
+  [
+   "ordered pizza, no regrets",
+   "Pizza night is always a good call."
+  ],
+  [
+   "my brother orrin is coming to stay for a few days, need to clean the spare room",
+   "A visit from family is worth the tidying."
+  ],
+  [
+   "dara picked me up in her ancient saab, the heater doesnt even work",
+   "A car with no heat makes for a chilly ride."
+  ],
+  [
+   "kinda nervous about the staff meeting tomorrow",
+   "You'll be fine, early meetings are usually just introductions."
+  ],
+  [
+   "doc says its tendonitis in my wrist so no climbing for a while",
+   "Sorry to hear it, rest should help it heal."
+  ],
+  [
+   "made soup with whatever was in the fridge and it actually turned out good",
+   "Fridge soup is an underrated art."
+  ],
+  [
+   "dad was telling stories about growing up in kilbarra again, he really misses it",
+   "It's sweet that he still holds onto those memories."
+  ],
+  [
+   "my brother is bringing his wife too so the house is gonna be packed",
+   "A full house can be fun for a few days."
+  ],
+  [
+   "dara works as a farrier, she was telling me about horses kicking her lol",
+   "That sounds tough but pretty interesting."
+  ],
+  [
+   "the weather turned and now its sunny, typical",
+   "Classic, the forecast never gets it right."
+  ],
+  [
+   "started watching hollowmere last night and im already way too many episodes in",
+   "Sounds like it hooked you fast."
+  ],
+  [
+   "my neighbour wendell bought a trampoline for his kids and the noise is unreal",
+   "At least the kids are having fun."
+  ],
+  [
+   "might go to the farmers market sunday",
+   "That sounds like a nice way to spend the morning."
+  ],
+  [
+   "my phone died again, this motorola is on its last legs",
+   "Might be time to start looking at a replacement."
+  ],
+  [
+   "feeling better today honestly, just tired",
+   "Glad to hear it, rest up tonight."
+  ],
+  [
+   "turns out my sister's puppy is a whippet, she thought he was a mutt",
+   "That explains the skinny legs and all the speed."
+  ],
+  [
+   "ok gonna head to bed, night",
+   "Good night, sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where am i employed these days",
+   "answer": "arboretum",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "older",
+   "message": "dara has some job with animals, what is it",
+   "answer": "farrier",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "never_told",
+   "message": "whats my actual role these days",
+   "wrong": [
+    "arboretum"
+   ]
+  }
+ ]
+}

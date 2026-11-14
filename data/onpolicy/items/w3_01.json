@@ -1,0 +1,124 @@
+{
+ "id": "w3_01",
+ "exchanges": [
+  [
+   "morning! slept like a rock for once",
+   "Love that, a good night's sleep changes everything."
+  ],
+  [
+   "work's been nuts, being the only cartographer on the team means every map lands on my desk",
+   "That's a lot on your plate, hope it calms down soon."
+  ],
+  [
+   "my cousin Jo just got a whippet puppy and its all legs",
+   "Puppies at that gangly stage are adorable."
+  ],
+  [
+   "my gf Isolde says we need a dog too. i said absolutely not lol",
+   "Sounds like that debate isn't over yet!"
+  ],
+  [
+   "she's very persuasive tho",
+   "Ha, you might lose this one."
+  ],
+  [
+   "mum's been laid up with shingles all week, poor thing",
+   "Oh no, I hope she feels better soon."
+  ],
+  [
+   "taking her soup later",
+   "That's really kind of you."
+  ],
+  [
+   "mum was telling me about growing up in Ardmore, sounded so peaceful",
+   "Small-town childhood stories are the best."
+  ],
+  [
+   "anyway rainy afternoon, nothing planned",
+   "Perfect excuse for a lazy one."
+  ],
+  [
+   "Jo from work brought her basenji to the office today, it does this yodel thing",
+   "That's such a funny sound for a dog to make!"
+  ],
+  [
+   "night classes at Brindlewood start next week, kinda nervous",
+   "Totally normal to be nervous, you'll do great."
+  ],
+  [
+   "Priya's been playing Stereolab nonstop in the car",
+   "Sounds like she's found her soundtrack."
+  ],
+  [
+   "grabbed takeout, to tired to cook",
+   "Sometimes that's the right call."
+  ],
+  [
+   "my brother Thaddeus called, first time in ages",
+   "That must have been nice to hear from him."
+  ],
+  [
+   "he's doing ok i think",
+   "Glad to hear it."
+  ],
+  [
+   "Priya told me shes relocating to Lockridge in the spring",
+   "Big change for her, you'll miss having her close."
+  ],
+  [
+   "gonna miss her honestly",
+   "It's hard when friends move away."
+  ],
+  [
+   "my gf wants to plan a weekend trip before then",
+   "A trip sounds like a great idea."
+  ],
+  [
+   "phone died twice today, my Fairphone battery is on its last legs",
+   "At least the battery on those is easy to swap."
+  ],
+  [
+   "ordered a new battery for it",
+   "Good call, much cheaper than a new phone."
+  ],
+  [
+   "ok groceries done",
+   "Nice, one less thing to do."
+  ],
+  [
+   "thinking of making a curry tonight",
+   "Curry sounds perfect for this weather."
+  ],
+  [
+   "mum sounded better on the phone btw",
+   "That's really good news."
+  ],
+  [
+   "also i caved and bought a kayak, its sitting in the garage lol",
+   "Ha, now you just need some sunny weekends!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "hey whats my job title again",
+   "answer": "cartographer",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "older",
+   "message": "where'd mum spend her childhood",
+   "answer": "Ardmore",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "never_told",
+   "message": "Priya lives where at the moment",
+   "wrong": [
+    "Lockridge"
+   ]
+  }
+ ]
+}

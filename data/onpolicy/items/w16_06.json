@@ -1,0 +1,124 @@
+{
+ "id": "w16_06",
+ "exchanges": [
+  [
+   "good morning dear, up early as usual",
+   "Good morning, early starts can be lovely."
+  ],
+  [
+   "was out birdwatching at dawn, saw a heron",
+   "What a wonderful sight to start the day."
+  ],
+  [
+   "my nephew is studying dentistry now, cant believe it",
+   "That's a big step, the family must be proud."
+  ],
+  [
+   "seems like yesterday he was in nappies",
+   "They grow up so fast."
+  ],
+  [
+   "my husband anselm burnt the toast again, every single morning",
+   "Ha, some traditions are hard to break."
+  ],
+  [
+   "i dont have the heart to tell him",
+   "That's very kind of you."
+  ],
+  [
+   "took our dog juniper round the reservoir, she was knackered after",
+   "Sounds like a lovely long walk."
+  ],
+  [
+   "the weather is turning though",
+   "Time to dig out the warm coats."
+  ],
+  [
+   "my niece has picked linguistics, she always loved languages",
+   "That suits her perfectly then."
+  ],
+  [
+   "she speaks better french than me already",
+   "That's impressive."
+  ],
+  [
+   "the vet says our old basset is getting a bit chubby",
+   "Maybe fewer treats and a few more walks."
+  ],
+  [
+   "easier said than done with those eyes",
+   "Those pleading looks are hard to resist."
+  ],
+  [
+   "my husband insists on lanterna every friday, he loves their carbonara",
+   "Having a favourite spot is a nice routine."
+  ],
+  [
+   "i would try somewhere new but he wont budge",
+   "Maybe a compromise on special occasions."
+  ],
+  [
+   "my old colleague wendell popped round for tea, hadnt seen him in ages",
+   "How lovely to reconnect."
+  ],
+  [
+   "we talked for hours about the old school days",
+   "Sounds like a wonderful afternoon."
+  ],
+  [
+   "knee is playing up, gp thinks its bursitis",
+   "That sounds sore, I hope rest helps."
+  ],
+  [
+   "so no long rambles for a bit",
+   "Your knee will thank you for the rest."
+  ],
+  [
+   "my neighbour gwyneth is moving to anglesey, ill miss her terribly",
+   "That's sad, but you can always visit her."
+  ],
+  [
+   "she's been next door for years",
+   "That's a real friendship to have nearby."
+  ],
+  [
+   "my nephew is settling in well at carrowmore, rings every sunday",
+   "Good that he keeps in touch."
+  ],
+  [
+   "made a lemon drizzle cake this afternoon",
+   "That sounds delicious."
+  ],
+  [
+   "gwyneth lent me rebecca before she goes, i cant put it down",
+   "A gripping read is the best kind."
+  ],
+  [
+   "right, time for my programme",
+   "Enjoy your evening."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "that pastime of mine with the binoculars, whats it called",
+   "answer": "birdwatching",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "older",
+   "message": "where does my husband always want to eat out",
+   "answer": "lanterna",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "never_told",
+   "message": "any health issues for wendell",
+   "wrong": [
+    "bursitis"
+   ]
+  }
+ ]
+}

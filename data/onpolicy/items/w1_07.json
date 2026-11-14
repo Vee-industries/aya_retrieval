@@ -1,0 +1,124 @@
+{
+ "id": "w1_07",
+ "exchanges": [
+  [
+   "finally unpacked the last box, the new place feels like home",
+   "That's a great feeling, well done."
+  ],
+  [
+   "living in otterby is so quiet compared to the city, i can hear birds",
+   "Sounds peaceful, enjoy the birdsong."
+  ],
+  [
+   "marlo from yoga has a cat called pistachio and it sits on her mat during class",
+   "A cat that joins in, amazing."
+  ],
+  [
+   "my lenovo crashed mid meeting, so embarassing",
+   "Tech always picks the worst moment."
+  ],
+  [
+   "ugh, rainy again",
+   "Cosy indoor day then."
+  ],
+  [
+   "doing a carpool to the office with some neighbours now, saves a fortune",
+   "Saving money and making friends, nice."
+  ],
+  [
+   "my niece got into oceanography, shes always loved the sea",
+   "That suits her perfectly."
+  ],
+  [
+   "found a lovely cafe called haverlock round the corner, their scones are unreal",
+   "A good local spot is a treasure."
+  ],
+  [
+   "my neighbour marlo has a bloodhound that howls at the bins",
+   "Ha, a dog with opinions."
+  ],
+  [
+   "work is quiet, im just answering emails",
+   "Quiet days can be nice."
+  ],
+  [
+   "my niece will be at kingsmere, miles from home",
+   "Big adventure for her."
+  ],
+  [
+   "my brother tobiah is coming to see the house",
+   "Nice, you can show off the new place."
+  ],
+  [
+   "solenne is my whole personality right now, cant stop listening",
+   "Sounds like you've found a new favourite artist."
+  ],
+  [
+   "neighbour marlo says the dog is called barnaby, very fitting",
+   "That's a great name for a big hound."
+  ],
+  [
+   "my grandad's selling up and going to westerhay to be near the sea",
+   "Sounds like a lovely retirement plan."
+  ],
+  [
+   "tired, early night",
+   "Sleep well."
+  ],
+  [
+   "my brother says hell help with the garden",
+   "Handy, extra hands always help."
+  ],
+  [
+   "got a trampoline for the garden, im a grown adult",
+   "Never too old for a bounce."
+  ],
+  [
+   "yoga was hard today, my legs are jelly",
+   "That means it worked."
+  ],
+  [
+   "the neighbours dog woke me up again",
+   "Earplugs might be worth a try."
+  ],
+  [
+   "my niece wants me to visit her next term",
+   "That would be a lovely trip."
+  ],
+  [
+   "might paint the spare room green",
+   "Green is such a calming colour."
+  ],
+  [
+   "grandad's already packing, hes so excited",
+   "Lovely to see him so keen."
+  ],
+  [
+   "oh, marlo from yoga is reading lanternfall and wont shut up about it",
+   "Must be a gripping read."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "how about my niece, which subject is she doing",
+   "answer": "oceanography",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "older",
+   "message": "whats that bakery place i like near my house",
+   "answer": "haverlock",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "never_told",
+   "message": "marlo from yoga's cat, what breed is it",
+   "wrong": [
+    "bloodhound"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w7_01",
+ "exchanges": [
+  [
+   "morning! slept terribly, the wind kept rattling my window",
+   "Ugh, windy nights are the worst for sleep."
+  ],
+  [
+   "first week as a cartographer is going ok, still learning the software",
+   "Sounds like you're settling in nicely."
+  ],
+  [
+   "made pancakes and burned the first batch as usual",
+   "The first batch is always the sacrifice."
+  ],
+  [
+   "marnie from work is bringing her husband Casimir to the potluck",
+   "The more the merrier at a potluck."
+  ],
+  [
+   "my dad is finally selling up and moving to Quillmere",
+   "Big change for him, hope it all goes smoothly."
+  ],
+  [
+   "cant decide what to bring to the potluck, maybe a big salad",
+   "A salad is always welcome next to all the heavy dishes."
+  ],
+  [
+   "honestly the ferry ride in is the best part of my day",
+   "Hard to beat starting the day out on the water."
+  ],
+  [
+   "my daughter Ottilie lost another tooth today lol",
+   "The tooth fairy is busy at your place!"
+  ],
+  [
+   "someone set off fireworks at midnight, why",
+   "Some people just can't wait for a holiday."
+  ],
+  [
+   "and marnie next door just got engaged to some guy named Lucan",
+   "Exciting news for her!"
+  ],
+  [
+   "my daughter starts at Wyndhollow elementary next term, shes nervous",
+   "Totally normal, she'll settle in fast."
+  ],
+  [
+   "might repaint the kitchen, its so beige",
+   "A new colour could really brighten it up."
+  ],
+  [
+   "cant stop listening to Khruangbin while i work",
+   "Great background music for focusing."
+  ],
+  [
+   "rain again, of course",
+   "At least the plants are happy."
+  ],
+  [
+   "funny, i grew up in Tarrowby and it never rained this much",
+   "Ha, maybe the weather followed you here."
+  ],
+  [
+   "my dad called, hes stressed about all the packing",
+   "Packing up a whole house is a lot, poor guy."
+  ],
+  [
+   "my dad has been bingeing Taskmaster to cope lol",
+   "Good choice, it's hard to stay stressed while laughing."
+  ],
+  [
+   "cooked a huge pot of chili for the week",
+   "That's lunches sorted."
+  ],
+  [
+   "marnie from work is studying linguistics at night, so impressive",
+   "That takes real dedication."
+  ],
+  [
+   "i need a vacation so bad",
+   "You've earned one, that's for sure."
+  ],
+  [
+   "my Fairphone screen cracked again ugh",
+   "Oh no, hope it's an easy repair."
+  ],
+  [
+   "ok potluck is tomorrow, wish me luck",
+   "Good luck, it'll be a fun time."
+  ],
+  [
+   "my daughter made a card for my dad, so cute",
+   "That will make his week."
+  ],
+  [
+   "marnie next door has Wilco on full volume rn lol",
+   "At least she has good taste."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where was my hometown again",
+   "answer": "Tarrowby",
+   "wrong": [],
+   "fact_exchange": 14
+  },
+  {
+   "kind": "older",
+   "message": "marnie beside me, whos her fiance",
+   "answer": "Lucan",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "never_told",
+   "message": "hometown of marnie next door?",
+   "wrong": [
+    "Tarrowby"
+   ]
+  }
+ ]
+}

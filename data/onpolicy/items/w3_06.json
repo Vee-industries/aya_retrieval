@@ -1,0 +1,124 @@
+{
+ "id": "w3_06",
+ "exchanges": [
+  [
+   "choir practice ran long tonight, my voice is gone",
+   "Rest it with some warm tea."
+  ],
+  [
+   "Rosa from choir is doing her masters at Marchbank, shes so smart",
+   "Impressive, that's a lot to juggle."
+  ],
+  [
+   "Liesel picked me up after, my wife is a saint",
+   "That was really kind of her."
+  ],
+  [
+   "we drove past the old neighbourhood, i grew up in Penmarrow and it's all changed",
+   "It's strange seeing old places change."
+  ],
+  [
+   "dad's pet Horatio got out in the garden again",
+   "Hope he didn't wander far!"
+  ],
+  [
+   "he did not get far lol, they're slow",
+   "Ha, at least he's easy to catch."
+  ],
+  [
+   "my Garmin says i walked a ton today",
+   "Nice, your legs must be feeling it."
+  ],
+  [
+   "Dmitri works as a sommelier now, he can smell a wine and name the year",
+   "That's an impressive party trick."
+  ],
+  [
+   "dad's gout is flaring up, he cant walk to the shop",
+   "Poor guy, hope it settles soon."
+  ],
+  [
+   "might go do his groceries",
+   "That'd be a big help to him."
+  ],
+  [
+   "i go to work on rollerblades, people stare lol",
+   "Ha, the most fun commute around."
+  ],
+  [
+   "my niece Rosa just got into Kestrel, the fancy school",
+   "Congrats to her, that's a big deal."
+  ],
+  [
+   "the whole family is buzzing",
+   "Sounds like a proud moment."
+  ],
+  [
+   "Juniper does the best scones, it's my favourite cafe by far",
+   "Good scones are worth seeking out."
+  ],
+  [
+   "had two today oops",
+   "No regrets!"
+  ],
+  [
+   "dad's tortoise is apparently older than me",
+   "Wow, they really do live a long time."
+  ],
+  [
+   "Dmitri invited us to a tasting next week",
+   "That sounds fun and fancy."
+  ],
+  [
+   "my wife is already planning her outfit",
+   "Ha, she's ready for it."
+  ],
+  [
+   "long week ahaed",
+   "Take it one day at a time."
+  ],
+  [
+   "choir concert is next month, nervous",
+   "You'll be great."
+  ],
+  [
+   "ok bath and bed",
+   "Sounds perfect."
+  ],
+  [
+   "got stung twice this morning, beekeeping is not for the faint hearted",
+   "Ouch, that's real dedication."
+  ],
+  [
+   "honey harvest soon though",
+   "That'll make it all worth it."
+  ],
+  [
+   "night!",
+   "Good night!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "that little critter dad has, whats it called",
+   "answer": "Horatio",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "older",
+   "message": "how do i get to the office",
+   "answer": "rollerblades",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "never_told",
+   "message": "Liesel's hometown, where is it",
+   "wrong": [
+    "Penmarrow"
+   ]
+  }
+ ]
+}

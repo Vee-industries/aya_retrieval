@@ -1,0 +1,124 @@
+{
+ "id": "w6_05",
+ "exchanges": [
+  [
+   "long day, horses lined up from dawn",
+   "That's a full shift already."
+  ],
+  [
+   "farrier life, my back is wrecked",
+   "Hope you can put your feet up tonight."
+  ],
+  [
+   "mags made stew though so things are looking up",
+   "Stew fixes most things."
+  ],
+  [
+   "snow already up here in glenmorrow, way early",
+   "Early snow is a surprise, stay warm."
+  ],
+  [
+   "roads are a mess",
+   "Take it slow out there."
+  ],
+  [
+   "our boy lachlan built a snow fort and refuses to come in",
+   "Sounds like a kid having the best day."
+  ],
+  [
+   "hes got school tomorrow too",
+   "Hopefully he'll be tired enough to sleep well."
+  ],
+  [
+   "actually ashcombe primary already called a snow day lol",
+   "Lucky kid, more fort time!"
+  ],
+  [
+   "talked to my cousin ines tonight, shes housebound with the weather too",
+   "Good time for a long chat."
+  ],
+  [
+   "shes binging borgen, says its better than any politics news",
+   "Political dramas can be weirdly addictive."
+  ],
+  [
+   "might start it myself",
+   "Could be a good winter project."
+  ],
+  [
+   "our dog barnaby has been herding the chickens all afternoon",
+   "Ha, always on the job."
+  ],
+  [
+   "chickens are not impressed",
+   "Can't blame them."
+  ],
+  [
+   "kelpie through and through, cant switch off",
+   "Working breeds really do need a job."
+  ],
+  [
+   "went to yoga in town, first time in ages",
+   "Good for you, how did it feel?"
+  ],
+  [
+   "ines from my yoga class was raving about taskmaster, different ines from my cousin haha",
+   "Two Ineses, two very different TV picks."
+  ],
+  [
+   "my knees did not enjoy yoga",
+   "Gentle stretches might help."
+  ],
+  [
+   "the tacoma barely made it up the hill home",
+   "Glad you made it back safe."
+  ],
+  [
+   "need new tires before it gets worse",
+   "Definitely worth doing before winter sets in."
+  ],
+  [
+   "my brother-in-law got on at the quarry, steady work at least",
+   "Steady work is a real relief."
+  ],
+  [
+   "played some fiddle by the fire to unwind",
+   "Sounds like the perfect evening."
+  ],
+  [
+   "mags says im getting better, which is generous",
+   "Sounds like progress to me."
+  ],
+  [
+   "the boy just came in with a sore throat, doc thinks tonsillitis",
+   "Poor kid, hope he feels better soon."
+  ],
+  [
+   "so much for the snow fort",
+   "Hopefully he's back out there soon."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "our dog, what breed is he",
+   "answer": "kelpie",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "that drama cousin ines is hooked on, name?",
+   "answer": "borgen",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "never_told",
+   "message": "what book is cousin ines into",
+   "wrong": [
+    "borgen"
+   ]
+  }
+ ]
+}

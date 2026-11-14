@@ -1,0 +1,124 @@
+{
+ "id": "w14_06",
+ "exchanges": [
+  [
+   "yo",
+   "Hey, good to hear from you."
+  ],
+  [
+   "took the longboard to work again, almost ate it on the hill by the bakery",
+   "Glad you stayed upright, that hill sounds sketchy."
+  ],
+  [
+   "knees intact, pride less so",
+   "Pride heals fast."
+  ],
+  [
+   "my sister just got into pharmacy at uni, shes freaking out",
+   "That's amazing news, she should be proud."
+  ],
+  [
+   "good freaking out i mean",
+   "The best kind."
+  ],
+  [
+   "work was fine, being a locksmith means a lot of people locked out of their cars yelling at me",
+   "Sounds like you're the hero of a lot of bad days."
+  ],
+  [
+   "a lady tipped me in cookies though",
+   "Cookie tips are the best tips."
+  ],
+  [
+   "ines came over with her boyfriend Thaddeus, hes very tall and very quiet",
+   "Tall and quiet can be a nice combo."
+  ],
+  [
+   "we watched a movie and he barely said a word",
+   "Maybe he's just shy at first."
+  ],
+  [
+   "my dad's gotten super into falconry, he has a hawk now, im not joking",
+   "That's a seriously unique hobby."
+  ],
+  [
+   "mom is not thrilled about the hawk",
+   "That's understandable, it's a big new houseguest."
+  ],
+  [
+   "i finally bought a hammock for the balcony",
+   "Perfect spot to relax."
+  ],
+  [
+   "already napped in it",
+   "That's the right way to break it in."
+  ],
+  [
+   "marcus at work has a OnePlus and wont shut up about how fast it charges",
+   "Some people really love their phone specs."
+  ],
+  [
+   "i dont care marcus",
+   "Sounds like you've heard it plenty."
+  ],
+  [
+   "reading Dracula and its way creepier than i expected",
+   "The old classics can be surprisingly spooky."
+  ],
+  [
+   "the letters format is so good",
+   "It really pulls you into the story."
+  ],
+  [
+   "my stepsister is studying forestry and keeps sending me pictures of moss",
+   "That's a very wholesome kind of spam."
+  ],
+  [
+   "the moss is cool tbh",
+   "Moss doesn't get enough credit."
+  ],
+  [
+   "Wilco has been my favourite band since high school and theyre touring near me",
+   "You should definitely try to catch a show."
+  ],
+  [
+   "my sister lives out in Quarrington so maybe well go together",
+   "That sounds like a fun plan."
+  ],
+  [
+   "if tickets arent insane",
+   "Fingers crossed they're reasonable."
+  ],
+  [
+   "ines named her new pet Marzipan, sending me so many videos",
+   "New pet videos are the best."
+  ],
+  [
+   "anyway time for bed",
+   "Good night, sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "what pastime has dad picked up",
+   "answer": "falconry",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "which novel am i partway through",
+   "answer": "Dracula",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "never_told",
+   "message": "what company do i work for",
+   "wrong": [
+    "locksmith"
+   ]
+  }
+ ]
+}

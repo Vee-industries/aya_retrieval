@@ -1,0 +1,124 @@
+{
+ "id": "w7_07",
+ "exchanges": [
+  [
+   "home finally, what a day",
+   "Glad you made it, time to relax."
+  ],
+  [
+   "ezra next door does falconry, theres literally a hawk in his yard",
+   "That's such an unusual thing to have next door!"
+  ],
+  [
+   "my first shift as a dispatcher was chaos",
+   "First shifts always are, it gets easier."
+  ],
+  [
+   "eating cereal for dinner, no regrets",
+   "Sometimes that's the right call."
+  ],
+  [
+   "my nephew ezra is obsessed with skateboarding, he has scabs everywhere",
+   "Sounds like he's fully committed."
+  ],
+  [
+   "my sister says hes fine, just clumsy lol",
+   "Kids bounce back fast."
+  ],
+  [
+   "my Nokia finally died, need a new phone",
+   "Sorry, that's always a pain to replace."
+  ],
+  [
+   "my mom grew up in Ballinreagh, she wants to visit this year",
+   "A trip back sounds lovely for her."
+  ],
+  [
+   "its freezing in my apartment",
+   "Time for a blanket and something warm."
+  ],
+  [
+   "the tram was packed this morning, i had someones elbow in my face",
+   "Rush hour is brutal."
+  ],
+  [
+   "need a nap before i do anything else",
+   "A nap sounds like a smart move."
+  ],
+  [
+   "my coworker Bartholomew keeps stealing my pens",
+   "Time to label them, maybe."
+  ],
+  [
+   "work is gonna be busy all week",
+   "Hang in there."
+  ],
+  [
+   "tamsin is learning the harp, its so pretty",
+   "That's such a lovely thing to learn."
+  ],
+  [
+   "she played for me last night, i almost cried",
+   "That must have been beautiful."
+  ],
+  [
+   "ezra, the nephew, starts at Thistlewood academy soon",
+   "Exciting, a new chapter for him."
+  ],
+  [
+   "my sister is more nervous than he is lol",
+   "Parents always are."
+  ],
+  [
+   "grabbed lunch at Cardamom again, im a regular at this point",
+   "Nothing beats a reliable lunch spot."
+  ],
+  [
+   "the owner knows my order now haha",
+   "That's when you know it's your place."
+  ],
+  [
+   "tamsin bought a kiln, shes going all in",
+   "Sounds like a serious new project."
+  ],
+  [
+   "tamsin wants to have a craft night soon",
+   "That sounds like fun."
+  ],
+  [
+   "my mom just started at Larkspur pharmacy",
+   "Good for her, a fresh start!"
+  ],
+  [
+   "she seems really happy about it",
+   "That's great to hear."
+  ],
+  [
+   "ok im off to bed, early shift tomorrow",
+   "Sleep well and good luck tomorrow."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "mom's hometown, remind me",
+   "answer": "Ballinreagh",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "older",
+   "message": "what's my new job called",
+   "answer": "dispatcher",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "never_told",
+   "message": "my sister, any instrument she plays",
+   "wrong": [
+    "harp"
+   ]
+  }
+ ]
+}

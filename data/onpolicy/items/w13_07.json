@@ -1,0 +1,124 @@
+{
+ "id": "w13_07",
+ "exchanges": [
+  [
+   "long day, finally home",
+   "Welcome home, time to put your feet up."
+  ],
+  [
+   "the monorail broke down halfway so we sat there forever",
+   "That's a frustrating way to end a shift."
+  ],
+  [
+   "my coworker delphine shared her snacks with the whole car at least",
+   "A true hero in a crisis."
+  ],
+  [
+   "i'd have starved otherwise lol",
+   "Snack-sharing builds lifelong bonds."
+  ],
+  [
+   "and now i've got one of my migraines coming on",
+   "A dark room and some water might help."
+  ],
+  [
+   "lying in the dark rn",
+   "Good call, rest your eyes."
+  ],
+  [
+   "my dad texted a vid of him playing trombone at the bandstand",
+   "That's a fun thing to get from your dad."
+  ],
+  [
+   "then my stepdad had to one-up him with harmonica lol, its a whole rivalry",
+   "A musical feud is the best kind."
+  ],
+  [
+   "my mom is staying out of it",
+   "Very wise of her."
+  ],
+  [
+   "mom's off birding at the marsh this weekend anyway",
+   "Sounds like a peaceful escape."
+  ],
+  [
+   "i'm trying to read kindred but my head hurts too much",
+   "It'll be waiting for you when you feel better."
+  ],
+  [
+   "maybe an audiobook instead",
+   "That's a gentle option."
+  ],
+  [
+   "oren told me he's moving to tindale for a girl he met online lol",
+   "Bold move, hope it works out for him."
+  ],
+  [
+   "i'm skeptical but supportive",
+   "That's a balanced stance."
+  ],
+  [
+   "oren's been sending me wilco songs nonstop, they're his favourite",
+   "Sounds like he's in a good mood."
+  ],
+  [
+   "i like some of them i gues",
+   "Some songs grow on you."
+  ],
+  [
+   "my cartography course has a big map project due soon",
+   "Hopefully the headache clears in time."
+  ],
+  [
+   "its actually really fun when my brain works",
+   "That's a great sign you picked the right course."
+  ],
+  [
+   "my aunt offered to lend me her beetle so i can skip transit for a bit",
+   "That's a kind offer."
+  ],
+  [
+   "it has no air conditioning though",
+   "Windows down it is."
+  ],
+  [
+   "reminds me of the car we had growing up in kirkwhelan",
+   "Funny how cars bring back memories."
+  ],
+  [
+   "feeling a bit better now actually",
+   "Glad it's easing up."
+  ],
+  [
+   "might go test out the kayak i just bought this weekend",
+   "Sounds like a great way to unwind."
+  ],
+  [
+   "if the weather holds",
+   "Hope it does for you."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which kind of headaches do i get",
+   "answer": "migraines",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "older",
+   "message": "mom's hobby is what again",
+   "answer": "birding",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "never_told",
+   "message": "which uni am i enrolled at",
+   "wrong": [
+    "cartography"
+   ]
+  }
+ ]
+}

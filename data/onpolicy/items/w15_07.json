@@ -1,0 +1,124 @@
+{
+ "id": "w15_07",
+ "exchanges": [
+  [
+   "hey hey",
+   "Hey, nice to hear from you."
+  ],
+  [
+   "my sister switched her major to geology, rocks everywhere in her room now",
+   "Sounds like she's found her passion."
+  ],
+  [
+   "corwin and i have been together long enough that his mum likes me now lol",
+   "That's a milestone worth celebrating."
+  ],
+  [
+   "hal from work plays ironpine nonstop at his desk",
+   "Sounds like he's a big fan."
+  ],
+  [
+   "need to do laundry",
+   "The never ending chore."
+  ],
+  [
+   "we're moving to antigonish after the summer",
+   "Big change, that should be exciting."
+  ],
+  [
+   "my stepsister is studying midwifery, shes in clinicals now",
+   "That's such important work."
+  ],
+  [
+   "tired but good",
+   "That's the best kind of tired."
+  ],
+  [
+   "bea's daughter rosalind turned into a whole person overnight, she talks constantly",
+   "They grow up so fast."
+  ],
+  [
+   "went birding at the marsh and saw a heron",
+   "Herons are such a great sighting."
+  ],
+  [
+   "hal is reading larkspur and keeps quoting it at me",
+   "Must be a good one if he's quoting it."
+  ],
+  [
+   "rain again ugh",
+   "At least it's cozy weather for staying in."
+  ],
+  [
+   "my sister got a new sony phone and wont stop taking selfies",
+   "Ha, sounds like she loves it."
+  ],
+  [
+   "grandad goes to puddleby every morning, its his favourite cafe",
+   "That's a lovely little ritual."
+  ],
+  [
+   "coughing so much it hurts, turns out its pleurisy",
+   "That sounds painful, I hope you heal quickly."
+  ],
+  [
+   "my boyfriend made me soup",
+   "That's sweet of him."
+  ],
+  [
+   "i carpool to work with the neighbours now",
+   "Saves gas and you get company."
+  ],
+  [
+   "hal wants to start a book club at work",
+   "That could be fun."
+  ],
+  [
+   "my stepsister delivered her first baby as a student!",
+   "What an incredible experience for her."
+  ],
+  [
+   "packing up the kitchen already",
+   "Getting a head start is smart."
+  ],
+  [
+   "grandad is sad we're leaving",
+   "It's hard on family, but you can still visit."
+  ],
+  [
+   "bea bought a treadmill and now her kid thinks its a ride",
+   "Ha, that's adorable but keep an eye on her."
+  ],
+  [
+   "my sister says she might visit before we go",
+   "That would be a nice send off."
+  ],
+  [
+   "okay im off to bed",
+   "Sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me which hangout grandad loves",
+   "answer": "puddleby",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "whats the name of the guy im seeing",
+   "answer": "corwin",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "never_told",
+   "message": "hal plays which instrument",
+   "wrong": [
+    "ironpine"
+   ]
+  }
+ ]
+}

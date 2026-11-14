@@ -1,0 +1,124 @@
+{
+ "id": "w9_07",
+ "exchanges": [
+  [
+   "morning, slept like a rock",
+   "Love that, it makes the whole day better."
+  ],
+  [
+   "carpooling into work with the guy next door is actually kinda nice, he brings muffins",
+   "Muffins make any ride better."
+  ],
+  [
+   "rainy day, perfect for staying in",
+   "Sounds like a cozy plan."
+  ],
+  [
+   "my mum's dachshund only listens to her and ignores everyone else",
+   "Sounds like a very loyal little dog."
+  ],
+  [
+   "so much to do today, where do i even start",
+   "Maybe pick the smallest task and build from there."
+  ],
+  [
+   "ferdie is an auctioneer and he talks so fast even at dinner",
+   "Habits like that are hard to switch off."
+  ],
+  [
+   "i really need a haircut",
+   "A fresh cut always feels good."
+  ],
+  [
+   "rewatching blackadder again and it still gets me every time",
+   "Some comedy never gets old."
+  ],
+  [
+   "had a good chat with my boss today for once",
+   "That's nice, those conversations can really help."
+  ],
+  [
+   "lou has whiplash from that fender bender last week, shes in a neck brace",
+   "Poor thing, I hope she heals up quickly."
+  ],
+  [
+   "my coworker hildegard brought in cake for no reason, honestly icon behaviour",
+   "Cake for no reason is the best kind."
+  ],
+  [
+   "cant find my keys anywhere",
+   "They always turn up in the last place you look."
+  ],
+  [
+   "my stepmum got a vizsla and it just runs laps around the yard all day",
+   "Sounds like a dog with endless energy."
+  ],
+  [
+   "the sunset tonight was unreal",
+   "Those are worth stopping for."
+  ],
+  [
+   "my son ambrose drew me a picture of a dragon eating a car",
+   "That sounds like a masterpiece."
+  ],
+  [
+   "thinking about painting the kitchen",
+   "A new colour could really brighten it."
+  ],
+  [
+   "ferdie swears bellwether does the best brunch in town, its his favourite",
+   "Sounds like a spot worth trying."
+  ],
+  [
+   "got sucked into youtube again",
+   "It happens to the best of us."
+  ],
+  [
+   "mum grew up on this little island called inishcarra and wants to take us all back",
+   "That would be a lovely trip."
+  ],
+  [
+   "bit of a lazy evening",
+   "Those are good for recharging."
+  ],
+  [
+   "my brother casimir finally called me back after like forever",
+   "Glad you two got to catch up."
+  ],
+  [
+   "bought a telescope so i can stare at saturn from the balcony",
+   "That sounds like a great way to spend clear nights."
+  ],
+  [
+   "cooking chili tonight",
+   "Perfect weather for it."
+  ],
+  [
+   "alright gonna crash, night",
+   "Good night, sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "the colleague with the surprise dessert, name?",
+   "answer": "hildegard",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "older",
+   "message": "how do i get to the office these days",
+   "answer": "carpooling",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "whats the name of mum's dog",
+   "wrong": [
+    "dachshund"
+   ]
+  }
+ ]
+}

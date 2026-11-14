@@ -1,0 +1,124 @@
+{
+ "id": "w2_00",
+ "exchanges": [
+  [
+   "hey, survived day one at brightwell lol",
+   "Congrats on making it through day one!"
+  ],
+  [
+   "honestly so tired, they had me shadowing ppl for like 9 hours",
+   "That's a long stretch of shadowing, hope you can put your feet up tonight."
+  ],
+  [
+   "officially a dispatcher now, which is wild cause i cant even plan my own week",
+   "Ha, maybe keeping everyone else on schedule will rub off on your own week."
+  ],
+  [
+   "my sister came by w groceries, she lives out in calderbrook so it was a trek for her",
+   "That was really kind of her to make the drive."
+  ],
+  [
+   "made pasta tonight, nothin fancy",
+   "Simple pasta is hard to beat after a long day."
+  ],
+  [
+   "pickwick knocked a whole mug off the counter while i was cooking",
+   "Cats do love testing gravity, hope it wasn't a favourite mug."
+  ],
+  [
+   "dad's sciatica is acting up again so hes stuck on the couch",
+   "Oh no, I hope he gets some relief soon."
+  ],
+  [
+   "weather's been gross all week tbh",
+   "Grey weeks really drag, hopefully it clears up soon."
+  ],
+  [
+   "my sister in law keeps saying wrenfield is way quieter than the city lol, trying to get us to visit",
+   "A quiet weekend away could be nice if you can make it work."
+  ],
+  [
+   "tobin dragged me to orienteering on saturday, i got lost within 10 min which i think is the opposite of the point",
+   "Getting lost is practically a rite of passage, sounds like a fun day out."
+  ],
+  [
+   "jodie, my brothers wife, sent a pic of her tomato plants, theyre massive",
+   "Sounds like she's got a real green thumb."
+  ],
+  [
+   "priya from work swears by quillon for lunch, the sandwiches are apparently unreal",
+   "Sounds like a lunch spot worth trying soon."
+  ],
+  [
+   "my feet hurt so bad from these new shoes",
+   "New shoes can be brutal until they break in."
+  ],
+  [
+   "kind of bored tonight, might just go to bed early",
+   "An early night sounds like a good plan after this week."
+  ],
+  [
+   "slept like a rock, feeling human again",
+   "That's great, a good sleep fixes a lot."
+  ],
+  [
+   "the cat is a korat btw, ppl always think shes a russian blue",
+   "Easy mix-up, they do look a lot alike."
+  ],
+  [
+   "tobin's been binging ironvale nonstop, wont shut up about it",
+   "Sounds like he's completely hooked."
+  ],
+  [
+   "work tomorrow is a double, pray for me",
+   "Good luck, pack some good snacks."
+  ],
+  [
+   "my elantra made a weird clunk noise on the way home",
+   "Might be worth getting that checked before it gets worse."
+  ],
+  [
+   "my sister mara wants to do a family dinner next sunday at dads",
+   "That sounds like a nice way to get everyone together."
+  ],
+  [
+   "thinking of bringing a pie or somethin",
+   "A pie is always a welcome contribution."
+  ],
+  [
+   "lol remind me never to drink coffee after 4",
+   "Noted, afternoon coffee is a sneaky sleep thief."
+  ],
+  [
+   "just set up the dehumidifier i bought, basement already smells better",
+   "That should make the basement a lot more pleasant."
+  ],
+  [
+   "ok gonna go watch something and pass out",
+   "Enjoy, and sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me who my new employer is",
+   "answer": "brightwell",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "older",
+   "message": "whats my cats name",
+   "answer": "pickwick",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "never_told",
+   "message": "is tobin reading any book lately",
+   "wrong": [
+    "ironvale"
+   ]
+  }
+ ]
+}

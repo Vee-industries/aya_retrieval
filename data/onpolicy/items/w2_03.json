@@ -1,0 +1,124 @@
+{
+ "id": "w2_03",
+ "exchanges": [
+  [
+   "guess who got the archivist job!!!",
+   "Congratulations, that's huge!"
+  ],
+  [
+   "still kinda in shock tbh",
+   "Totally understandable, let it sink in."
+  ],
+  [
+   "the commute is gonna be the ferry every morning, which honestly sounds kind of romantic",
+   "Starting the day out on the water does sound lovely."
+  ],
+  [
+   "kit from soccer picked me up in her miata, top down, freezing",
+   "Brave choice in this weather!"
+  ],
+  [
+   "my hair is a disaster from that ride lol",
+   "Windswept is a look, right?"
+  ],
+  [
+   "her dog is a vizsla and it sat on my lap the whole way",
+   "That sounds like a pretty sweet travel companion."
+  ],
+  [
+   "fencing practice tonight, my thighs are already crying",
+   "Good luck, your legs will thank you eventually."
+  ],
+  [
+   "mom wants to go to lumetta for her birthday, its her favourite",
+   "A favourite spot is a perfect pick for a birthday."
+  ],
+  [
+   "need to find her a gift",
+   "Maybe something she's mentioned wanting lately?"
+  ],
+  [
+   "my sister got into ravensholt!! so proud of her",
+   "That's wonderful news, congrats to her!"
+  ],
+  [
+   "dad is blasting halvorsen in the garage again",
+   "Sounds like he's in a good mood."
+  ],
+  [
+   "neighbours are having a party, its so loud",
+   "Hopefully it winds down early."
+  ],
+  [
+   "my other friend kit, the old roommate one, just bought a wrangler and wont stop posting about it",
+   "Sounds like a very proud new owner."
+  ],
+  [
+   "two kits in my life is confusing everyone",
+   "Nicknames might help keep them straight!"
+  ],
+  [
+   "might make soup tomorow",
+   "Soup sounds perfect for this time of year."
+  ],
+  [
+   "friends from my old job are taking me out for drinks friday",
+   "A proper send-off, have fun!"
+  ],
+  [
+   "philippa is my little sister btw, shes the one going to university",
+   "She must be so excited for this next step."
+  ],
+  [
+   "feeling kinda nostalgic today",
+   "Those days can be bittersweet."
+  ],
+  [
+   "back in dunmorrow where i was a kid we'd do bonfires every friday",
+   "That sounds like a lovely way to spend childhood weekends."
+  ],
+  [
+   "work orientation is monday",
+   "Hope it's a smooth start."
+  ],
+  [
+   "nervous about meeting everyone",
+   "That's normal, and they're probably excited to meet you too."
+  ],
+  [
+   "picked out an outfit for monday already lol",
+   "Ready ahead of time, nice!"
+  ],
+  [
+   "brindlewood is my new comfort show, just started it and im hooked",
+   "Nothing beats finding a new show to unwind with."
+  ],
+  [
+   "ok sleep",
+   "Good night!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "the restaurant mom loves, whats it called",
+   "answer": "lumetta",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "older",
+   "message": "which school accepted my sister",
+   "answer": "ravensholt",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "never_told",
+   "message": "what breed of dog does my old roommate kit have",
+   "wrong": [
+    "vizsla"
+   ]
+  }
+ ]
+}

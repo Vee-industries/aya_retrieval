@@ -1,0 +1,124 @@
+{
+ "id": "w5_04",
+ "exchanges": [
+  [
+   "night shift done, finally home",
+   "Welcome home, hope you can get some proper rest."
+  ],
+  [
+   "being a radiographer on nights means i see some weird xrays lol",
+   "I bet you've got some stories from those shifts!"
+  ],
+  [
+   "my daughter marisol called from uni, she sounds stressed",
+   "Sounds like she could use a pep talk."
+  ],
+  [
+   "my daughters doing biochemistry and the exams are brutal",
+   "That's a tough field, she must be working hard."
+  ],
+  [
+   "made a big pot of chili",
+   "Chili is perfect for leftovers all week."
+  ],
+  [
+   "my husband eamon is in the garage again with his lathe",
+   "Sounds like he's found his happy place!"
+  ],
+  [
+   "the skoda wouldnt start this morning, had to get a jump",
+   "Ugh, that's a rough way to start the day."
+  ],
+  [
+   "gus next door has a cockatoo that screams at the mailman",
+   "Ha, that bird has strong opinions!"
+  ],
+  [
+   "so tired of the rain",
+   "Hopefully it dries up soon."
+  ],
+  [
+   "my stepdaughter just started architecture, she's already drawing on everything",
+   "Sounds like she's found her calling!"
+  ],
+  [
+   "ashgrove is short staffed again so im picking up extra shifts",
+   "That's a lot on your plate, take care of yourself."
+  ],
+  [
+   "lorna's been dizzy for weeks, turns out its vertigo",
+   "Poor thing, that sounds really unsettling."
+  ],
+  [
+   "brought her soup today",
+   "That was a kind thing to do."
+  ],
+  [
+   "gus's bird is called pumpernickel which is honestly perfect",
+   "What a great name for a loud bird!"
+  ],
+  [
+   "my husband turned me a bowl for our anniversary, woodturning is his whole personality now",
+   "A handmade bowl is such a thoughtful gift."
+  ],
+  [
+   "feeling a bit low today",
+   "Sorry you're feeling down, be gentle with yourself."
+  ],
+  [
+   "lorna wants to do dinner at olivetta when she's better, her fave place",
+   "That'll be something nice to look forward to."
+  ],
+  [
+   "car's at the mechanic now",
+   "Hopefully it's a quick fix."
+  ],
+  [
+   "daughter passed her midterm!!",
+   "That's great news, she must be relieved!"
+  ],
+  [
+   "big week at the clinic",
+   "Hope it goes smoothly for you."
+  ],
+  [
+   "slept like a rock",
+   "Nothing beats a solid sleep."
+  ],
+  [
+   "watching taskmaster with my husband, i cried laughing",
+   "Laughing that hard is the best medicine."
+  ],
+  [
+   "ok back to work tomorrow",
+   "Good luck with the shift!"
+  ],
+  [
+   "night",
+   "Good night!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "gus's parrot thing, what's it named",
+   "answer": "pumpernickel",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "whats my exact role at work",
+   "answer": "radiographer",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "which uni does my daughter attend",
+   "wrong": [
+    "biochemistry"
+   ]
+  }
+ ]
+}

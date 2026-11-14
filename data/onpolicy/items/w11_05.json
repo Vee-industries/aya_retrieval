@@ -1,0 +1,124 @@
+{
+ "id": "w11_05",
+ "exchanges": [
+  [
+   "got bumped up to saucier today!!",
+   "Congratulations, that's a big step up!"
+  ],
+  [
+   "celebrating with cheap wine lol",
+   "Cheap wine for a big win, perfect."
+  ],
+  [
+   "service at ravensong was insane tonight, never working a saturday double again",
+   "Sounds exhausting, put your feet up."
+  ],
+  [
+   "my girlfriend calla made me soup when i got home",
+   "That's so sweet of her."
+  ],
+  [
+   "shes the best",
+   "Sounds like you're lucky to have each other."
+  ],
+  [
+   "my girlfriend's been practicing the theremin all night, sounds like a ghost movie",
+   "Ha, quite the spooky soundtrack."
+  ],
+  [
+   "my friend teo is studying ornithology and sends me bird facts at stupid o'clock",
+   "What a fun friend to have."
+  ],
+  [
+   "did you know crows hold grudges",
+   "They really do, they can remember faces!"
+  ],
+  [
+   "my uncle's moving to pinehallow, says he wants some quiet",
+   "Sounds like a peaceful choice."
+  ],
+  [
+   "and my great uncle is moving to carrickmore the same month, family chaos",
+   "That's a lot of moving in one family!"
+  ],
+  [
+   "new phone finally, went with a motorola",
+   "Nice, enjoy the upgrade!"
+  ],
+  [
+   "transferring all my photos takes forever",
+   "It's tedious, but worth it."
+  ],
+  [
+   "bought a mandoline for the kitchen and already nicked my thumb",
+   "Ouch, those blades are no joke, be careful!"
+  ],
+  [
+   "lesson learned, using the guard now",
+   "Wise move."
+  ],
+  [
+   "kayaking on my day off tomorrow if it doesnt rain",
+   "Fingers crossed for good weather."
+  ],
+  [
+   "it's gonna rain",
+   "Bummer, maybe a cozy day instead."
+  ],
+  [
+   "my coworker perpetua covered my shift so long weekend for me",
+   "That's a great coworker to have."
+  ],
+  [
+   "gonna sleep in so hard",
+   "You deserve it."
+  ],
+  [
+   "my girlfriend wants to go to the market sunday",
+   "Markets make a nice weekend outing."
+  ],
+  [
+   "need new knives anyway",
+   "A market might have some good ones."
+  ],
+  [
+   "my mom called, she's doing well",
+   "Glad to hear it."
+  ],
+  [
+   "my girlfriend grew up in corrabeg, she wants to take me there in summer",
+   "That would be a special trip."
+  ],
+  [
+   "ok gonna make pancakes",
+   "Enjoy your pancakes!"
+  ],
+  [
+   "with blueberries",
+   "Even better."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "whats my new title at work",
+   "answer": "saucier",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "older",
+   "message": "remind me the restaurant i cook at",
+   "answer": "ravensong",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "never_told",
+   "message": "is calla studying anything, what",
+   "wrong": [
+    "ornithology"
+   ]
+  }
+ ]
+}

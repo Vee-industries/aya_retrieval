@@ -61,8 +61,9 @@ train() {  # seed: the stage on the same seed's INIT adapter (K1.3 unless named)
   local AD="$W/adapters/screens/${LABEL}_$1"
   [ -s "$AD/adapter_model.safetensors" ] && { echo "== have adapter ${LABEL}_$1"; return 0; }
   init "$1"
+  local D="${DATA//SEED/$1}"  # R-253: a per-seed set names its seed as SEED
   clean; rm -rf "$AD"; echo "== train ${LABEL} seed $1 (lr $LR, $EPOCHS epochs, $DATA) $(date)"
-  timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$AD" --data "$DATA" --report-name "${LABEL}_$1" --lora-r 32 --lora-targets $MLP --learning-rate "$LR" --epochs "$EPOCHS" --loss-on chat_decision --max-vram-fraction $VRAM --init-adapter "$W/adapters/screens/${INIT}_$1" 2>&1 | tee "$S/train_${LABEL}_$1.log" | quiet | tail -2
+  timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$AD" --data "$D" --report-name "${LABEL}_$1" --lora-r 32 --lora-targets $MLP --learning-rate "$LR" --epochs "$EPOCHS" --loss-on chat_decision --max-vram-fraction $VRAM --init-adapter "$W/adapters/screens/${INIT}_$1" 2>&1 | tee "$S/train_${LABEL}_$1.log" | quiet | tail -2
   [ -s "$AD/adapter_model.safetensors" ] || fail "train ${LABEL}_$1"
   git add results/recall_train && git commit -q -m "${LABEL} seed $1 trained (R-229)" -m "$ATTR"
 }

@@ -1,0 +1,124 @@
+{
+ "id": "w11_00",
+ "exchanges": [
+  [
+   "hey, survived my first week at fernhollow, my back is wrecked from hauling soil bags",
+   "Congrats on getting through the first week, go easy on that back this weekend!"
+  ],
+  [
+   "gonna just lie on the couch all saturday i think",
+   "Sounds like a well earned couch day."
+  ],
+  [
+   "my sister wren finally got settled in ashcombe, she sounds so happy there",
+   "That's lovely, it's great when a new place clicks right away."
+  ],
+  [
+   "weather's been gross all week tho",
+   "Hopefully it clears up for your lazy weekend."
+  ],
+  [
+   "the ferry this morning was so choppy i almost wore my coffee",
+   "Yikes, a rough crossing and hot coffee is a risky combo!"
+  ],
+  [
+   "dara got a cat!! named it marzipan which is adorable",
+   "That's such a sweet name for a cat!"
+  ],
+  [
+   "anyway what should i make for dinner, i have rice and like one onion",
+   "A simple onion fried rice could work nicely with just that."
+  ],
+  [
+   "dara says it's a korat, had to google what that even is",
+   "Sounds like a fairly rare breed, fun to learn about."
+  ],
+  [
+   "my sister in law is still stuck up in pellbridge, says the winter there is brutal",
+   "Brr, hopefully she has a good coat and a warm house."
+  ],
+  [
+   "ok fried rice it is",
+   "Enjoy, it's hard to go wrong with that."
+  ],
+  [
+   "signed up for a fencing class at the rec centre, kinda terrified lol",
+   "That's exciting, you'll probably love it once the nerves wear off!"
+  ],
+  [
+   "the guy training me at work is ignatius, super patient with all my dumb questions",
+   "Having a patient trainer makes such a difference in a new job."
+  ],
+  [
+   "i keep forgetting the latin names of plants tho",
+   "That takes time, they'll stick with repetition."
+  ],
+  [
+   "my dad sold his truck and bought a skoda of all things",
+   "Ha, that's quite a change of pace for him!"
+  ],
+  [
+   "he says its great on gas so whatever",
+   "Can't argue with saving on fuel."
+  ],
+  [
+   "doc says my wrist pain is tendinitis, probably from all the repotting",
+   "Ouch, I hope rest and a brace help it settle down soon."
+  ],
+  [
+   "so now i have to wear a brace at work which is so annoying",
+   "Annoying, but hopefully it's only for a few weeks."
+  ],
+  [
+   "had lunch at tidewater again, i swear their soup is the best in town",
+   "A reliable soup spot is a real treasure."
+  ],
+  [
+   "might go see a movie tonight if im not too tired",
+   "A movie sounds like a nice way to unwind."
+  ],
+  [
+   "nah probably just gonna sleep",
+   "Sleep is a perfectly good plan too."
+  ],
+  [
+   "cant believe its already november",
+   "The year really has flown by."
+  ],
+  [
+   "my mom is already planning the holiday menu lol",
+   "Sounds like she's excited to host!"
+  ],
+  [
+   "wren just called, she's bringing her boyfriend osric to dinner sunday",
+   "Nice, a chance to get to know him a bit."
+  ],
+  [
+   "hope he likes lasagna",
+   "Lasagna is a pretty safe bet for winning people over."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "what make of car did dad end up getting",
+   "answer": "skoda",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "brain fog today, whats my employer called",
+   "answer": "fernhollow",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "never_told",
+   "message": "my sister in law, where is she from originally",
+   "wrong": [
+    "pellbridge"
+   ]
+  }
+ ]
+}

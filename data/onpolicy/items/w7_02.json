@@ -1,0 +1,124 @@
+{
+ "id": "w7_02",
+ "exchanges": [
+  [
+   "home from work and completely wiped",
+   "Sounds like a long one, time to put your feet up."
+  ],
+  [
+   "my brother just got taken on at the Holloway brewery, hes thrilled",
+   "That's great news for him!"
+  ],
+  [
+   "dinner is gonna be toast and eggs, zero energy",
+   "Honestly that's a solid dinner."
+  ],
+  [
+   "took clementine to the dog park and she rolled in something gross",
+   "Bath time, I guess!"
+  ],
+  [
+   "ravi, my sisters husband, works at Brackley hospital",
+   "That must keep him busy."
+  ],
+  [
+   "the neighbours are renovating and the drilling starts so early",
+   "That's a rough way to wake up."
+  ],
+  [
+   "everyone at the park asks about the dog, shes a vizsla btw",
+   "They're such striking dogs, no wonder people ask."
+  ],
+  [
+   "finally caved and bought a dehumidifier, the basement smelled awful",
+   "Good call, damp smells are the worst."
+  ],
+  [
+   "its so muggy out today",
+   "Perfect weather to stay inside with a fan."
+  ],
+  [
+   "my sister Imogen is coming to stay this weekend",
+   "That should be a nice visit."
+  ],
+  [
+   "need to clean the guest room before she gets here lol",
+   "A quick tidy and it'll be ready."
+  ],
+  [
+   "my mum has shingles, poor thing, shes miserable",
+   "That sounds so painful, I hope she recovers quickly."
+  ],
+  [
+   "making her some soup to drop off later",
+   "That's really kind of you."
+  ],
+  [
+   "joss is training for a triathlon, shes nuts",
+   "That's seriously impressive dedication."
+  ],
+  [
+   "burned my tongue on my tea, rookie mistake",
+   "Ouch, that one always stings."
+  ],
+  [
+   "being a paralegal means reading so much fine print lol",
+   "Sounds like a job for someone with sharp eyes."
+  ],
+  [
+   "my sister got in, we're ordering pizza",
+   "Pizza night sounds perfect."
+  ],
+  [
+   "my sister wont shut up about Piranesi, says i have to read it",
+   "Sounds like a strong recommendation."
+  ],
+  [
+   "we stayed up way too late talking",
+   "Those are the best kind of nights."
+  ],
+  [
+   "joss drives a tiny Fiat now, its adorable",
+   "Small cars are so handy in the city."
+  ],
+  [
+   "my brother wants us all to come by the taproom on the weekend",
+   "Sounds like a fun family outing."
+  ],
+  [
+   "the dog is snoring next to me, its so loud",
+   "Some pups really are noisy sleepers."
+  ],
+  [
+   "gonna start cycling in to work tomorrow, wish me luck",
+   "Good luck, it's a great way to start the day."
+  ],
+  [
+   "ok time for bed, long day tomorrow",
+   "Sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me what i picked up for downstairs",
+   "answer": "dehumidifier",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "older",
+   "message": "i keep blanking on my pups name",
+   "answer": "clementine",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "never_told",
+   "message": "whats my mum reading at the moment",
+   "wrong": [
+    "Piranesi"
+   ]
+  }
+ ]
+}

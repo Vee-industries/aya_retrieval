@@ -1,0 +1,124 @@
+{
+ "id": "w15_02",
+ "exchanges": [
+  [
+   "morning! barely awake",
+   "Morning, coffee might help."
+  ],
+  [
+   "my girlfriend ysolde made pancakes so the day is off to a good start",
+   "That's a lovely way to start the day."
+  ],
+  [
+   "nora from book club is a cartographer, she showed me these hand drawn maps",
+   "That sounds like such a cool skill."
+  ],
+  [
+   "work is slow today, thank god",
+   "A quiet day is sometimes exactly what you need."
+  ],
+  [
+   "benji at work keeps an axolotl at his desk, its kinda cute",
+   "That's an unusual desk buddy."
+  ],
+  [
+   "my mum has shingles and shes miserable",
+   "Poor thing, I hope she feels better soon."
+  ],
+  [
+   "we finally settled in marrowdale, the commute is longer but the rent is way better",
+   "Lower rent is worth a bit more travel."
+  ],
+  [
+   "should i get a haircut or just let it grow",
+   "Letting it grow could be fun for a change."
+  ],
+  [
+   "my cousin nora is a sommelier now, she wouldnt shut up about tannins at dinner",
+   "Sounds like she really loves her new job."
+  ],
+  [
+   "my datsun wouldnt start again, i swear its haunted",
+   "Old cars have their moods, hopefully it's a quick fix."
+  ],
+  [
+   "benji named the little guy quincy",
+   "Ha, that suits a tiny desk pet."
+  ],
+  [
+   "rainy and grey all day",
+   "Perfect weather for staying in."
+  ],
+  [
+   "my nephew started trombone lessons, my sister is regretting it already",
+   "Brass practice at home takes some patience."
+  ],
+  [
+   "binged pinewatch all weekend, the ending wrecked me",
+   "Sounds like it was worth the binge."
+  ],
+  [
+   "mum says the itching is a bit better",
+   "Glad she's improving a little."
+  ],
+  [
+   "i think im getting a cold",
+   "Take it easy and drink lots of water."
+  ],
+  [
+   "my nephew got into fennimore, the arts school downtown",
+   "That's a big achievement, he must be thrilled."
+  ],
+  [
+   "my girlfriend wants to go camping soon",
+   "Camping could be a nice break."
+  ],
+  [
+   "nora from book club picked the next book and its huge",
+   "A big book can be a fun challenge."
+  ],
+  [
+   "work potluck tomorrow, im bringing chili",
+   "Chili is always a crowd pleaser."
+  ],
+  [
+   "my cousin keeps sending me wine pairing memes",
+   "Sounds like she's having fun with it."
+  ],
+  [
+   "dropped my fairphone in the sink but it survived",
+   "Lucky, that was a close call."
+  ],
+  [
+   "anyway gonna make some tea",
+   "Enjoy your tea."
+  ],
+  [
+   "night!",
+   "Good night!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "whats the name of the woman im dating",
+   "answer": "ysolde",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "older",
+   "message": "what does benji call his tiny pet",
+   "answer": "quincy",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "never_told",
+   "message": "mum's job, any idea",
+   "wrong": [
+    "sommelier"
+   ]
+  }
+ ]
+}

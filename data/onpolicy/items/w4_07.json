@@ -1,0 +1,124 @@
+{
+ "id": "w4_07",
+ "exchanges": [
+  [
+   "first snow of the year!!",
+   "Ooh, how exciting, enjoy it!"
+  ],
+  [
+   "penhallow gets so quiet when it snows, i love it here",
+   "That sounds so peaceful and cosy."
+  ],
+  [
+   "made a big pot of tea and just stared out the window",
+   "Honestly the best way to enjoy a snowy day."
+  ],
+  [
+   "my husband cosmo is making his famous chili tonight",
+   "Yum, perfect weather for it."
+  ],
+  [
+   "he takes it way too seriously lol",
+   "Ha, a dedicated chef!"
+  ],
+  [
+   "my husband swears the chili back in varrowick, where he grew up, was better",
+   "Ha, hometown food always tastes best in memory."
+  ],
+  [
+   "rough week for my friends though",
+   "Oh no, I'm sorry to hear that."
+  ],
+  [
+   "bea from yoga got a concussion falling off her bike",
+   "Ouch, I hope she's resting up."
+  ],
+  [
+   "and my aunt bea has vertigo again, whats with the beas lately",
+   "Ha, rough luck all round, hope they both recover soon."
+  ],
+  [
+   "gonna send them both flowers",
+   "That's a really thoughtful gesture."
+  ],
+  [
+   "my daughter calliope lost a tooth at breakfast and was SO proud",
+   "Aw, that's such a big moment for a little one."
+  ],
+  [
+   "tooth fairy rates have gone way up apparently",
+   "Ha, inflation hits everyone."
+  ],
+  [
+   "my daughter loves her teacher at brightmoor, which is a relief",
+   "That makes such a difference, glad she's happy there."
+  ],
+  [
+   "kids are in bed, finally some me time",
+   "Enjoy every minute of it."
+  ],
+  [
+   "dusted off my mandolin for the first time in ages",
+   "Nice, hope your fingers remember the way."
+  ],
+  [
+   "trying to learn some alvvays on it, theyre my absolute favourite",
+   "That sounds like a fun challenge."
+  ],
+  [
+   "my fingertips are not thanking me",
+   "Ha, the calluses will come back."
+  ],
+  [
+   "we started severance last night and now i cant sleep",
+   "Ha, that's the sign of a gripping show."
+  ],
+  [
+   "so tense, i keep thinking about it at work",
+   "It really gets under your skin."
+  ],
+  [
+   "house is about to get busy too",
+   "Sounds like a full house coming up."
+  ],
+  [
+   "my husband's brother ignatius is staying with us next week",
+   "That'll be nice, hope the visit goes smoothly."
+  ],
+  [
+   "my huawei keeps dying in the cold, so annoying",
+   "Ugh, cold really drains batteries fast."
+  ],
+  [
+   "oh you'll laugh at this",
+   "Ha, go on then."
+  ],
+  [
+   "my husband just bought a kayak and we dont even live near water",
+   "Ha, maybe a road trip is in your future."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "how is aunt bea, what was her problem",
+   "answer": "vertigo",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "older",
+   "message": "which town do i call home",
+   "answer": "penhallow",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "does cosmo play an instrument",
+   "wrong": [
+    "mandolin"
+   ]
+  }
+ ]
+}

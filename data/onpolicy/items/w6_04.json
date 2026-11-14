@@ -1,0 +1,124 @@
+{
+ "id": "w6_04",
+ "exchanges": [
+  [
+   "monday again how",
+   "They come around fast, don't they."
+  ],
+  [
+   "work at kestrel is tense, layoff rumours again",
+   "That uncertainty is stressful, hope it's just talk."
+  ],
+  [
+   "as a dispatcher im probably safe but still",
+   "Still unsettling even if you're likely fine."
+  ],
+  [
+   "my boss grady says not to worry which is exactly what someone says before you should worry",
+   "Ha, that does sound ominous."
+  ],
+  [
+   "at least my place in dunmore is cheap so im not panicking",
+   "Low rent is a great safety net."
+  ],
+  [
+   "carpooled with the two tomases today lol",
+   "Sounds like a full car."
+  ],
+  [
+   "big tomas has a beetle and we were crammed in like sardines",
+   "Cozy is one word for it."
+  ],
+  [
+   "my legs are still cramped",
+   "A good stretch should help."
+  ],
+  [
+   "gonna stretch it out at bouldering tonight",
+   "Perfect way to loosen up."
+  ],
+  [
+   "fell off the same problem like ten times",
+   "That's how you learn it though!"
+  ],
+  [
+   "little tomas keeps saying his miata is better but it has room for exactly nobody",
+   "Two seats isn't great for carpooling."
+  ],
+  [
+   "so were stuck with big tomas's car or the bus",
+   "Not the worst options."
+  ],
+  [
+   "alvvays is my comfort band, been looping them all day",
+   "Nothing like a comfort album on repeat."
+  ],
+  [
+   "need it with how loud the office is",
+   "Headphones are a lifesaver."
+  ],
+  [
+   "also migraines are back, ugh",
+   "Oh no, hope you can rest your eyes tonight."
+  ],
+  [
+   "staring at the dispatch board doesnt help",
+   "Screen breaks might help a bit."
+  ],
+  [
+   "my girlfriend saoirse is making soup tonight so thats something",
+   "Homemade soup is the best medicine."
+  ],
+  [
+   "shes so busy with exams tho",
+   "Hope she gets a breather soon."
+  ],
+  [
+   "pharmacy school is no joke, shes studying constantly",
+   "That's a demanding program, she must be dedicated."
+  ],
+  [
+   "anyway work gossip update",
+   "Oh, spill!"
+  ],
+  [
+   "my desk buddy marisol heard the layoffs are just a rumour",
+   "Fingers crossed she's right."
+  ],
+  [
+   "celebrated by ordering a kettlebell online lol, home gym era",
+   "Love a home gym upgrade."
+  ],
+  [
+   "probably wont use it",
+   "Hey, maybe it'll surprise you."
+  ],
+  [
+   "ok soup is ready, bye",
+   "Enjoy dinner!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "gf is training to be what again",
+   "answer": "pharmacy",
+   "wrong": [],
+   "fact_exchange": 18
+  },
+  {
+   "kind": "older",
+   "message": "that climbing thing i do, whats it called",
+   "answer": "bouldering",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "never_told",
+   "message": "marisol, what car has she got",
+   "wrong": [
+    "beetle"
+   ]
+  }
+ ]
+}

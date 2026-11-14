@@ -1,0 +1,124 @@
+{
+ "id": "w15_06",
+ "exchanges": [
+  [
+   "yo",
+   "Hey there, good to hear from you."
+  ],
+  [
+   "my uncle dan drove us to the lake in his peugeot, it rattles like crazy",
+   "Sounds like a memorable ride."
+  ],
+  [
+   "grew up in bellwick, tiny place, everyone knew everyone",
+   "Small towns have their charm."
+  ],
+  [
+   "jules got hired at pemberton, the bakery on main",
+   "Great news, free pastries maybe."
+  ],
+  [
+   "legs are sore from the gym",
+   "That means it worked, stretch it out."
+  ],
+  [
+   "ana next door has a dog called mortimer and he barked at me all morning",
+   "Some dogs take a while to warm up."
+  ],
+  [
+   "my trainer dan pulled up in a lada today, didnt know they still made those",
+   "That's a rare sight these days."
+  ],
+  [
+   "kinda want takeout",
+   "Takeout sounds like a good plan."
+  ],
+  [
+   "finished driftline last night, i need a new show",
+   "The void after a good series is real."
+  ],
+  [
+   "my buddy lucan is coming over to watch the game",
+   "Sounds like a fun evening."
+  ],
+  [
+   "ellery has taken up falconry, she has an actual hawk now",
+   "That's an incredible hobby."
+  ],
+  [
+   "its weirdly warm out",
+   "Enjoy it while it lasts."
+  ],
+  [
+   "ana says the dog is a vizsla, that explains all the energy",
+   "Those dogs need a ton of exercise."
+  ],
+  [
+   "been practicing theremin, the neighbours probably hate me",
+   "It's a wonderfully strange instrument."
+  ],
+  [
+   "jules brings home day old bread now, its great",
+   "Perks of the job."
+  ],
+  [
+   "ellery's favourite spot is gristmill, we're going there tonight",
+   "Hope you have a great meal."
+  ],
+  [
+   "uncle dan wants help fixing his roof",
+   "That's a big job, be careful up there."
+  ],
+  [
+   "my trainer says im getting stronger",
+   "That's great to hear, keep it up."
+  ],
+  [
+   "lazy sunday vibes",
+   "Those are the best kind of days."
+  ],
+  [
+   "ellery let me hold the hawk, terrifying",
+   "What an experience though."
+  ],
+  [
+   "job hunting is draining",
+   "It really is, hang in there."
+  ],
+  [
+   "got a call back from the city!",
+   "Exciting, fingers crossed."
+  ],
+  [
+   "i start as a dispatcher for the fire department next week",
+   "Congratulations, that's meaningful work."
+  ],
+  [
+   "celebrating with pizza tonight",
+   "Well deserved, enjoy it."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "any idea where jules works now",
+   "answer": "pemberton",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "older",
+   "message": "that series i wrapped up, what was it called",
+   "answer": "driftline",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "never_told",
+   "message": "uncle dan's pets, whats the name",
+   "wrong": [
+    "mortimer"
+   ]
+  }
+ ]
+}

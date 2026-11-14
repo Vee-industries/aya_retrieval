@@ -1,0 +1,124 @@
+{
+ "id": "w1_00",
+ "exchanges": [
+  [
+   "ugh morning, slept terribly, the neighbours had a party till late",
+   "Oof, that's rough, hope the coffee is strong today."
+  ],
+  [
+   "first week at kestrel done and honestly i think i like it",
+   "That's great to hear, a good start makes all the difference."
+  ],
+  [
+   "they gave me the title cartographer which still sounds made up to me lol",
+   "It sounds pretty grand, you should get business cards."
+  ],
+  [
+   "my sister ines finally signed for a place in wexcombe, shes buzzing",
+   "Aw, a new home is such a big step, good for her."
+  ],
+  [
+   "going to try and cook something proper tonight instead of toast",
+   "Go for it, even a simple pasta beats toast."
+  ],
+  [
+   "dara came over with her sphynx in a little jumper, i cant cope",
+   "A hairless cat in a jumper is peak cuteness."
+  ],
+  [
+   "weather's grim, my umbrella turned inside out on the way in",
+   "Classic, those things never survive a proper gust."
+  ],
+  [
+   "my sister in law is renting a cottage out in dunmere for the year",
+   "That sounds peaceful, a cottage stint could be lovely."
+  ],
+  [
+   "booked my first fencing lesson, pray for me",
+   "Exciting, you'll be lunging like a pro in no time."
+  ],
+  [
+   "work is mostly drainage maps so far, weirdly soothing",
+   "Soothing work is underrated, honestly."
+  ],
+  [
+   "the micra made that grinding noise again on the way home",
+   "Uh oh, might be worth getting the car looked at soon."
+  ],
+  [
+   "my coworker ottoline has basically adopted me, she showed me where all the good snacks are",
+   "Having a work ally that early is gold."
+  ],
+  [
+   "might binge something tonight, havent decided what yet",
+   "A cosy night in sounds well earned."
+  ],
+  [
+   "dara says mothball only eats if you sit with him, spoiled boy",
+   "Ha, sounds like he has her well trained."
+  ],
+  [
+   "ines's boyfriend rafferty is doing all the heavy lifting for the move",
+   "That's love, carrying boxes up the stairs."
+  ],
+  [
+   "im so tired, early night for me",
+   "Good plan, rest up."
+  ],
+  [
+   "cracked the screen on my fairphone, at least you can swap the parts yourself",
+   "Lucky it's the repairable kind, that'll save you a fortune."
+  ],
+  [
+   "my brother keeps sending me memes at work, im going to get caught",
+   "Maybe mute him during office hours."
+  ],
+  [
+   "dara wants to do a picnic if it ever stops raining",
+   "Fingers crossed for a dry spell."
+  ],
+  [
+   "lunch was leftovers again, i need to get better at this",
+   "A bit of meal prep at the weekend might help."
+  ],
+  [
+   "had a nice chat with my mum on the phone, she sounds well",
+   "That's lovely, it's nice when they sound good."
+  ],
+  [
+   "found a secondhand copy of saltmarsh and im hooked already",
+   "Nothing better than a book that grabs you straight away."
+  ],
+  [
+   "my sister in law wants us all down at hers soon, could be fun",
+   "A trip out to the countryside sounds nice."
+  ],
+  [
+   "anyway, off to make tea, chat later",
+   "Enjoy, talk soon."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "hey what breed is the cat dara has",
+   "answer": "sphynx",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "older",
+   "message": "whats my official role at the new place",
+   "answer": "cartographer",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "never_told",
+   "message": "which town did ines grow up in",
+   "wrong": [
+    "wexcombe"
+   ]
+  }
+ ]
+}

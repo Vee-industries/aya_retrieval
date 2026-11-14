@@ -1,0 +1,124 @@
+{
+ "id": "w14_01",
+ "exchanges": [
+  [
+   "morning! barely awake but here",
+   "Good morning, hope the coffee kicks in soon."
+  ],
+  [
+   "lab practical today for my horticulture course, wish me luck",
+   "Good luck, you've got this!"
+  ],
+  [
+   "we have to identify a ton of plants just from their leaves",
+   "That's a tricky skill, but practice really pays off."
+  ],
+  [
+   "my boyfriend Ferran made me breakfast before i left which was sweet",
+   "What a thoughtful way to start a big day."
+  ],
+  [
+   "eggs and toast, nothing fancy but still",
+   "Simple breakfasts made with care are the best kind."
+  ],
+  [
+   "my cousin sam wont stop texting me about Severance, shes obsessed",
+   "It sounds like she's really hooked on it."
+  ],
+  [
+   "i keep telling her ill start it eventually",
+   "There's no rush, it'll be there when you're ready."
+  ],
+  [
+   "came home and played my mandolin for a while to decompress",
+   "Playing music is a great way to unwind."
+  ],
+  [
+   "the practical went ok i think? hard to tell",
+   "Not knowing is normal, and it sounds like you did fine."
+  ],
+  [
+   "mom has shingles and is miserable, she says it burns like crazy",
+   "Poor thing, I hope she feels better soon."
+  ],
+  [
+   "im gonna drop off soup for her this weekend",
+   "That's really kind of you."
+  ],
+  [
+   "the library at Larchwood closes so early its ridiculous, where am i supposed to study",
+   "Early closing is so frustrating during a busy term."
+  ],
+  [
+   "maybe ill just study at home but kit is always loud",
+   "Headphones might help on the loud days."
+  ],
+  [
+   "sam at work is watching Shogun and spoils it at lunch every single day",
+   "That's rough, some people just can't keep a secret."
+  ],
+  [
+   "i dont even watch it and i know whos going to die",
+   "That's a lot of spoilers for a show you're not watching."
+  ],
+  [
+   "theres a new guy on my team at work, Osric, he brought donuts on his first day",
+   "Bringing treats is a great way to make a good impression."
+  ],
+  [
+   "everyone loves him already obviously",
+   "Donuts tend to do that."
+  ],
+  [
+   "Brindle is hands down my favourite cafe, im camped there all afternoon now",
+   "Sounds like a cozy spot to get work done."
+  ],
+  [
+   "got Alvvays playing in my headphones, best band ever honestly",
+   "Good music makes studying a lot easier."
+  ],
+  [
+   "ok i actually got a lot done today",
+   "Nice work, that's a productive day."
+  ],
+  [
+   "mom wants me to visit her in Ferndell but the drive out there takes forever",
+   "Maybe a podcast would make the drive go faster."
+  ],
+  [
+   "might go soon if i can borrow a car",
+   "Hopefully you can work something out."
+  ],
+  [
+   "oh and kit bought a dehumidifier and now the whole apartment hums at night",
+   "A low hum can take some getting used to."
+  ],
+  [
+   "i kind of like it actually, like white noise",
+   "Then that's a happy accident."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "the bf, whats his name",
+   "answer": "Ferran",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "older",
+   "message": "which illness has mom got",
+   "answer": "shingles",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "never_told",
+   "message": "osric's favourite show, any idea",
+   "wrong": [
+    "Severance"
+   ]
+  }
+ ]
+}

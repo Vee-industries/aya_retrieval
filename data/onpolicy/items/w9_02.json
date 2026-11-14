@@ -1,0 +1,124 @@
+{
+ "id": "w9_02",
+ "exchanges": [
+  [
+   "hiya, quick break before my next call",
+   "Nice, enjoy the breather."
+  ],
+  [
+   "being a cartographer sounds fancy but honestly its mostly spreadsheets",
+   "Ha, the glamour hides a lot of data work."
+  ],
+  [
+   "my roommate sam is bingeing severance and wont stop talking about it",
+   "Sounds like it's really got its hooks in."
+  ],
+  [
+   "weather is gorgeous today for once",
+   "Hope you get to soak some of it up."
+  ],
+  [
+   "ate way too much at lunch, food coma incoming",
+   "A short walk might help shake it off."
+  ],
+  [
+   "my axolotl just floats there staring at me like im the weird one",
+   "They do have a very judgy little face."
+  ],
+  [
+   "trying to drink more water this week",
+   "That's a good habit to build."
+  ],
+  [
+   "my grandpa grew up in some fishing village called kilbrannan and he tells the same stories every visit",
+   "Those stories are worth hearing a few times."
+  ],
+  [
+   "my inbox is a disaster",
+   "Maybe tackle it in small chunks."
+  ],
+  [
+   "my boss sam admitted shes been watching taskmaster every night, didnt expect that from her",
+   "It's fun finding out people's guilty pleasures."
+  ],
+  [
+   "might reorganize my desk later, its chaos",
+   "A tidy desk can make a surprising difference."
+  ],
+  [
+   "curling league tonight, we lost but the beers after were good",
+   "Sounds like the evening was still a win."
+  ],
+  [
+   "my plants are finally perking up",
+   "Nice, they must like where you put them."
+  ],
+  [
+   "priya's little guy rafferty took his first steps, she sent me so many videos",
+   "What a milestone, she must be thrilled."
+  ],
+  [
+   "cant focus at all today",
+   "Some days are like that, be easy on yourself."
+  ],
+  [
+   "gumbo spent all day hiding in the little cave in his tank",
+   "Sounds like he wanted some alone time."
+  ],
+  [
+   "ordered pizza, no regrets",
+   "Pizza nights are always justified."
+  ],
+  [
+   "lars from work swears by his nokia, refuses to get anything newer",
+   "Ha, there's something to be said for a phone that just works."
+  ],
+  [
+   "had the weirdest dream last night",
+   "Dreams can get strange, hopefully it was a fun kind of weird."
+  ],
+  [
+   "my old volvo made a noise like a dying goose on the way home",
+   "That doesn't sound good, maybe worth getting it looked at."
+  ],
+  [
+   "my nephew got into ridgemoor, the whole family is buzzing",
+   "That's great news, congrats to him."
+  ],
+  [
+   "weekend plans: nothing, and im excited about it",
+   "A nothing weekend sounds perfect."
+  ],
+  [
+   "tamarind is still my fave place to eat, those dumplings are unreal",
+   "Good dumplings are worth going back for."
+  ],
+  [
+   "ok back to work, wish me luck",
+   "Good luck, you've got this."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which sport am i into these days",
+   "answer": "curling",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "older",
+   "message": "priya has a kid, name?",
+   "answer": "rafferty",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "never_told",
+   "message": "where's grandpa living now",
+   "wrong": [
+    "kilbrannan"
+   ]
+  }
+ ]
+}

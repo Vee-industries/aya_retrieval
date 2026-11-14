@@ -1,0 +1,124 @@
+{
+ "id": "w11_02",
+ "exchanges": [
+  [
+   "the baby, ottilie, finally slept through the night, i feel like a new person",
+   "That's huge, enjoy feeling rested!"
+  ],
+  [
+   "still had three coffees tho",
+   "No shame, you've earned them."
+  ],
+  [
+   "back on shift as a phlebotomist monday, kinda nervous after leave",
+   "Totally normal to feel nervous, you'll find your rhythm quickly."
+  ],
+  [
+   "harrowby clinic says i can do mornings only for now which helps",
+   "That's a really supportive arrangement."
+  ],
+  [
+   "my husband caspian is taking the late shift with the baby",
+   "Sounds like great teamwork."
+  ],
+  [
+   "laundry pile is out of control lol",
+   "It always seems to multiply on its own."
+  ],
+  [
+   "nell from work has a parrot named bartholomew and it says hello to everyone",
+   "A friendly parrot sounds like a delight."
+  ],
+  [
+   "my neighbour nell got a puppy, she called it chutney",
+   "What a cute name for a pup!"
+  ],
+  [
+   "my neighbour says her pup is a vizsla, zoomies all day long",
+   "Those dogs are known for their energy!"
+  ],
+  [
+   "ok going to try a nap",
+   "Good idea, rest while you can."
+  ],
+  [
+   "nap failed",
+   "Sorry, maybe next time."
+  ],
+  [
+   "my mother in law grew up in skerrin, she keeps telling the baby stories about it",
+   "Those stories will be lovely for the little one."
+  ],
+  [
+   "my husband traded his old hatchback for a sienna, very dad energy",
+   "A practical choice with a little one!"
+  ],
+  [
+   "my father in law took up beekeeping since he retired",
+   "What a fun retirement project."
+  ],
+  [
+   "we might get honey for xmas lol",
+   "That would be a sweet gift!"
+  ],
+  [
+   "had leftover lasagna for breakfast",
+   "Breakfast of champions."
+  ],
+  [
+   "weather is lovely today",
+   "Perfect for a stroll with the stroller."
+  ],
+  [
+   "went for a walk round the park",
+   "Fresh air does wonders."
+  ],
+  [
+   "doctor confirmed shingles, probably stress",
+   "Ugh, I'm sorry, I hope the meds kick in fast."
+  ],
+  [
+   "so ouch",
+   "Sending gentle vibes your way."
+  ],
+  [
+   "my husband's mom offered to help this week, bless her",
+   "That will make a big difference."
+  ],
+  [
+   "the baby's smiling so much now",
+   "That's the best stage."
+  ],
+  [
+   "reading saltwife during night feeds now, so gripping",
+   "Glad you have a good read for those quiet hours."
+  ],
+  [
+   "ok she's up, gotta go",
+   "Go get her, chat soon!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "can't recall the name of my workplace",
+   "answer": "harrowby",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "older",
+   "message": "blanking on the name of my husband lol",
+   "answer": "caspian",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "never_told",
+   "message": "what was my father in law's old job",
+   "wrong": [
+    "beekeeping"
+   ]
+  }
+ ]
+}

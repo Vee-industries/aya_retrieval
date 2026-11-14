@@ -1,0 +1,124 @@
+{
+ "id": "w3_00",
+ "exchanges": [
+  [
+   "ugh monday again. coffee is not workin yet",
+   "Hope the second cup does the trick!"
+  ],
+  [
+   "so i finally started at Halvorsen last week, the vet clinic on the hill",
+   "Congrats on the new job, that's exciting!"
+  ],
+  [
+   "first few days were chaos tho lol",
+   "The first week anywhere is always a whirlwind."
+  ],
+  [
+   "my sister lives out in Kelloway now and its such a trek to visit her",
+   "That's a long haul, but worth it to see her."
+  ],
+  [
+   "anyway got roped into a work potluck friday",
+   "Potlucks are a good excuse to try a new recipe."
+  ],
+  [
+   "Tobias keeps trying to get me into fencing, he goes like three nights a week",
+   "Sounds like he's really hooked on it!"
+  ],
+  [
+   "i take the ferry in every morning which is honestly the best part of my day",
+   "That sounds like a lovely way to start the day."
+  ],
+  [
+   "weather was gross today tho, total sideways rain",
+   "Ugh, sideways rain is the worst."
+  ],
+  [
+   "my nephew Rory is doing geology at uni, he sent me a pic of some rock lol",
+   "Ha, that's sweet of him to share his finds."
+  ],
+  [
+   "my landlord pulled up in this ancient Skoda to fix the sink",
+   "At least he showed up to fix it!"
+  ],
+  [
+   "sink is still dripping btw",
+   "Oh no, hopefully he comes back soon."
+  ],
+  [
+   "my sister-in-law has a cute little flat in Penhallow",
+   "That sounds cozy!"
+  ],
+  [
+   "been picking up my mandolin again after like a year off",
+   "Nice, it's great you're getting back into it."
+  ],
+  [
+   "fingers hurt tho haha",
+   "That'll ease up once the calluses come back."
+  ],
+  [
+   "doc says the wrist thing is tendonitis so no heavy lifting for a bit",
+   "Sorry to hear that, take it easy on it."
+  ],
+  [
+   "which is fun when your job involves lifting dogs",
+   "That does sound tricky with all those patients."
+  ],
+  [
+   "my friend Dara wants to do dinner at Olivetti saturday, its her fave",
+   "That sounds like a great plan for the weekend."
+  ],
+  [
+   "might be too tired though, we'll see",
+   "No pressure, you can decide closer to the day."
+  ],
+  [
+   "my cat Pemberton knocked a whole plant off the shelf last night",
+   "Cats really do love chaos."
+  ],
+  [
+   "dirt everywhere. EVERYWHERE",
+   "Oh no, that's a messy cleanup."
+  ],
+  [
+   "ok vacuumed. sitting down finally",
+   "You've earned the rest!"
+  ],
+  [
+   "potluck plan is just gonna be store bought cookies honestly",
+   "No shame in that, everyone loves cookies."
+  ],
+  [
+   "now bingeing Columbo reruns, the raincoat guy is the best",
+   "Classic detective shows never get old."
+  ],
+  [
+   "ok bed soon. night",
+   "Sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "for Rory, what's the major",
+   "answer": "geology",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "older",
+   "message": "remind me which sport Tobias does",
+   "answer": "fencing",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "never_told",
+   "message": "what subject is Tobias studying",
+   "wrong": [
+    "geology"
+   ]
+  }
+ ]
+}

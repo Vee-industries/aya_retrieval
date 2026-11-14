@@ -1,0 +1,124 @@
+{
+ "id": "w1_04",
+ "exchanges": [
+  [
+   "night shift done, im a zombie",
+   "Get yourself to bed, you've earned it."
+  ],
+  [
+   "being a radiographer means i see the wierdest x rays, today someone swallowed a key",
+   "Wow, never a dull moment in your line of work."
+  ],
+  [
+   "my partner wren made me breakfast when i got in, keeper",
+   "That's so sweet, hold on to that one."
+  ],
+  [
+   "thandie's back studying, she got into elderglen for nursing",
+   "Good for her, that's a big step."
+  ],
+  [
+   "my dad still drives that ancient saab, it smells like old coffee",
+   "Old cars have such character, smells included."
+  ],
+  [
+   "im so hungry and theres nothing in",
+   "Time for a takeaway maybe."
+  ],
+  [
+   "kasimir from work has a tortoise, i didnt know people actually had those",
+   "They live for ages apparently, so it's quite the commitment."
+  ],
+  [
+   "hollisford is short staffed again so im covering extra shifts",
+   "That's exhausting, make sure you rest in between."
+  ],
+  [
+   "watching gullhaven to wind down, its so cosy",
+   "A gentle show is perfect after a long shift."
+  ],
+  [
+   "my stepdad just bought an outlander, him and dad are now competing",
+   "Ha, a bit of friendly rivalry."
+  ],
+  [
+   "thandie's little boy lorcan has started saying my name",
+   "Aw, that's adorable."
+  ],
+  [
+   "the weather's lovely for once",
+   "Make the most of it."
+  ],
+  [
+   "kasimir named his pet pemberton, which is hilarious",
+   "That's a very distinguished name."
+  ],
+  [
+   "went back to kellow where i grew up, nothings changed",
+   "There's something comforting about a place staying the same."
+  ],
+  [
+   "my partner wants a holiday but i cant get time off",
+   "Maybe book something for when things calm down."
+  ],
+  [
+   "the flat is so damp i finally caved and got a dehumidifier",
+   "Good call, that should help a lot."
+  ],
+  [
+   "kasimir says i should come to his barbecue",
+   "Sounds fun if you can make it."
+  ],
+  [
+   "watched the sunset from the balcony, felt like a person again",
+   "Those little moments really help."
+  ],
+  [
+   "thandie wants a brunch catch up soon",
+   "Brunch is always a good idea."
+  ],
+  [
+   "need new work shoes, mine are falling apart",
+   "Comfy shoes are worth the money in your job."
+  ],
+  [
+   "my dad rang to complain about my stepdad's new car again lol",
+   "Sounds like the rivalry is heating up."
+  ],
+  [
+   "honestly so tired today",
+   "Take it easy tonight."
+  ],
+  [
+   "so many dishes to do, ugh",
+   "Put a podcast on and power through."
+  ],
+  [
+   "oh and thandie's teaching herself the theremin, lord help her flatmates",
+   "That's a spooky sounding hobby, love it."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "whats the tortoise kasimir owns called",
+   "answer": "pemberton",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "older",
+   "message": "which college is thandie at now",
+   "answer": "elderglen",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "never_told",
+   "message": "thandie's pet, whats it called",
+   "wrong": [
+    "pemberton"
+   ]
+  }
+ ]
+}

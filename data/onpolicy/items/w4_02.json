@@ -1,0 +1,124 @@
+{
+ "id": "w4_02",
+ "exchanges": [
+  [
+   "what a week and its only wednesday",
+   "Oof, hang in there, the weekend's coming."
+  ],
+  [
+   "long day at the hospital, being a sonographer is not as calm as people think",
+   "I bet, it must take a lot of focus all day."
+  ],
+  [
+   "got home and the house looked like a tornado went through",
+   "Ha, the joys of coming home to chaos."
+  ],
+  [
+   "my youngest thaddeus has decided he only eats beige food now",
+   "Ha, the beige phase is a rite of passage."
+  ],
+  [
+   "pasta, toast, plain rice. thats the whole menu",
+   "Well, at least it's easy to cook!"
+  ],
+  [
+   "and our cat brisket knocked my coffee off the counter this morning",
+   "Cats really do love gravity experiments."
+  ],
+  [
+   "zero remorse, just stared at me",
+   "Classic cat energy."
+  ],
+  [
+   "youd think a ragdoll would be the chill type but nope, pure menace",
+   "Ha, so much for the breed's reputation!"
+  ],
+  [
+   "work drama today too, the parking situation is a mess",
+   "Parking battles are the worst way to start a shift."
+  ],
+  [
+   "cass from work just got a tundra and it barely fits in a space lol",
+   "Ha, that's a lot of truck for a hospital lot."
+  ],
+  [
+   "funny bc the other cass, the one next door, drives this tiny kona",
+   "Ha, opposite ends of the size scale."
+  ],
+  [
+   "i should really get to bed earlier",
+   "Sleep is always a good idea, especially this week."
+  ],
+  [
+   "my husband grew up in glenvarra and still talks about it like its paradise",
+   "Ha, everyone's hometown is the best one in their eyes."
+  ],
+  [
+   "we might visit his parents there in the summer",
+   "That sounds like a nice trip."
+  ],
+  [
+   "my husband's at fencing again tonight so im on bath duty",
+   "Ha, enjoy the splash zone."
+  ],
+  [
+   "the kids think hes a pirate when he practices in the garden",
+   "That's adorable, a backyard sword show."
+  ],
+  [
+   "my mum's got shingles, poor thing, shes miserable",
+   "Oh no, I hope she feels better soon."
+  ],
+  [
+   "gonna drop soup off for her tomorrow",
+   "That's really kind of you, she'll appreciate it."
+  ],
+  [
+   "watching taskmaster after the kids are down, best part of my day",
+   "Sounds like the perfect way to unwind."
+  ],
+  [
+   "petra at work swears by her fairphone, she repairs it herself",
+   "That's impressive, a very handy skill."
+  ],
+  [
+   "she's trying to convert the whole ward lol",
+   "Ha, a true evangelist."
+  ],
+  [
+   "date night at tamarind on friday, its our favourite spot",
+   "Lovely, enjoy a night off together!"
+  ],
+  [
+   "already arranged a sitter, miracles happen",
+   "Ha, well done, that's half the battle."
+  ],
+  [
+   "ok bath time, wish me luck",
+   "Good luck, stay dry!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "mum was sick with what again",
+   "answer": "shingles",
+   "wrong": [],
+   "fact_exchange": 16
+  },
+  {
+   "kind": "older",
+   "message": "where is my husband from originally",
+   "answer": "glenvarra",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "never_told",
+   "message": "which hospital am i employed at",
+   "wrong": [
+    "sonographer"
+   ]
+  }
+ ]
+}

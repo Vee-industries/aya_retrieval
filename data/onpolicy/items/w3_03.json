@@ -1,0 +1,124 @@
+{
+ "id": "w3_03",
+ "exchanges": [
+  [
+   "ok i survived my first week of the semester",
+   "Congrats, the first week is the hardest!"
+  ],
+  [
+   "linguistics is way harder than i expected tbh",
+   "It's a tough field, but you'll get the hang of it."
+  ],
+  [
+   "my brother came to visit and practiced his bassoon in my tiny room, neighbours loved it lol",
+   "Ha, a free concert for the whole building."
+  ],
+  [
+   "Ashcombe campus is gorgeous in the fall tho",
+   "Autumn on campus is hard to beat."
+  ],
+  [
+   "coffee here is terrible though",
+   "That's a crime on any campus."
+  ],
+  [
+   "Bea is obsessed with Severance and wont talk about anything else",
+   "Sounds like she's fully hooked."
+  ],
+  [
+   "my coworker Lennart covered my shift at the bookshop so i could study",
+   "That's a good coworker to have."
+  ],
+  [
+   "owe him big",
+   "Maybe a coffee as thanks."
+  ],
+  [
+   "my boss brings her ferret to the shop, customers go wild for it",
+   "That's a pretty unusual shop mascot!"
+  ],
+  [
+   "grandma told me she grew up in Corrabay, i never knew that",
+   "It's lovely learning those family stories."
+  ],
+  [
+   "she says it was all fishing boats back then",
+   "That sounds like a picturesque place."
+  ],
+  [
+   "Marzipan escaped her cage again, found her under the fridge",
+   "Little escape artist!"
+  ],
+  [
+   "my brother-in-law sent a video of him playing accordion at a wedding",
+   "That must have livened up the party."
+  ],
+  [
+   "honestly it was pretty good",
+   "Sounds like he's got real talent."
+  ],
+  [
+   "studying with Khruangbin on loop, they're my all time favourite",
+   "Good study music makes such a difference."
+  ],
+  [
+   "essay due monday, not startd",
+   "You've still got time, you can do it."
+  ],
+  [
+   "Bea fell off her bike and got a concussion, shes ok but resting",
+   "Oh no, glad she's okay."
+  ],
+  [
+   "bringing her snacks tomorrow",
+   "She'll appreciate that."
+  ],
+  [
+   "my roommate keeps eating my yogurt",
+   "The eternal roommate struggle."
+  ],
+  [
+   "gonna start labelling everything",
+   "Sounds like a solid plan."
+  ],
+  [
+   "rainy weekend forecast, perfect for the essay i guess",
+   "Silver lining!"
+  ],
+  [
+   "splurged on a dehumidifier because my room smells like a basement",
+   "That should help a lot with the damp."
+  ],
+  [
+   "already filled the tank once",
+   "Wow, that room really needed it."
+  ],
+  [
+   "ok essay time. wish me luck",
+   "Good luck, you've got this!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where was grandma a kid",
+   "answer": "Corrabay",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "boss has some animal at work, which kind",
+   "answer": "ferret",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "never_told",
+   "message": "which show is my roommate watching",
+   "wrong": [
+    "Severance"
+   ]
+  }
+ ]
+}

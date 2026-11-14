@@ -1,0 +1,124 @@
+{
+ "id": "w9_03",
+ "exchanges": [
+  [
+   "ugh mondays man",
+   "Hang in there, the week gets easier from here."
+  ],
+  [
+   "rollerblading to the office every morning has made me insufferably smug",
+   "Honestly, that's earned smugness."
+  ],
+  [
+   "my coffee maker died this morning, rip",
+   "That's a rough way to start the day."
+  ],
+  [
+   "my brother niall just started at quarrystone, the brewery downtown, hes thrilled",
+   "That sounds like a dream gig for him."
+  ],
+  [
+   "might bake cookies later if i have the energy",
+   "Cookies are always worth the effort."
+  ],
+  [
+   "ines is doing her masters in linguistics and corrects my grammar constantly now",
+   "Occupational hazard, I suppose."
+  ],
+  [
+   "its so windy out, my hair is a mess",
+   "Windy days are rough on everyone's hair."
+  ],
+  [
+   "my daughter clementine lost her first tooth today and wants the tooth fairy to bring a pony",
+   "That's a big day, I hope the tooth fairy has a plan."
+  ],
+  [
+   "finished all my laundry, feel like an adult",
+   "That's a real accomplishment, well done."
+  ],
+  [
+   "my brother-in-law works at a hospice and honestly hes a saint",
+   "That takes a special kind of person."
+  ],
+  [
+   "trying a new recipe tonight, fingers crossed",
+   "Fingers crossed it turns out great."
+  ],
+  [
+   "my landlords cat bartholomew keeps sleeping on my doormat like he owns it",
+   "Sounds like he's claimed you."
+  ],
+  [
+   "been listening to portishead nonstop, nobody else even comes close for me",
+   "It's great when one artist just clicks like that."
+  ],
+  [
+   "tired but in a good way",
+   "That's the best kind of tired."
+  ],
+  [
+   "work meeting ran super long today",
+   "Those can really drain the day."
+  ],
+  [
+   "ines showed me around calderwood, her campus library is gorgeous",
+   "A beautiful library would make studying a lot nicer."
+  ],
+  [
+   "need to call the bank tomorrow, dreading it",
+   "Getting it done will be a relief."
+  ],
+  [
+   "doc says its a mild concussion from walking into the cupboard door, so embarrassing",
+   "Ouch, take it easy and let yourself rest."
+  ],
+  [
+   "watched the rain for like an hour, very zen",
+   "That sounds really calming."
+  ],
+  [
+   "we're moving to feldmoor in the spring, cant wait",
+   "Exciting, a fresh start is always fun."
+  ],
+  [
+   "finally bought a kayak, the lake better be ready",
+   "Sounds like a fun summer ahead."
+  ],
+  [
+   "niall is reading middlemarch for his book club and keeps texting me quotes",
+   "At least he's sharing the good parts."
+  ],
+  [
+   "might order thai for dinner",
+   "Thai sounds like a great call."
+  ],
+  [
+   "ok signing off, night",
+   "Good night, sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "that head bump i had, what did it turn out to be",
+   "answer": "concussion",
+   "wrong": [],
+   "fact_exchange": 17
+  },
+  {
+   "kind": "older",
+   "message": "what field is ines in for grad school",
+   "answer": "linguistics",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "never_told",
+   "message": "whats niall's job title",
+   "wrong": [
+    "quarrystone"
+   ]
+  }
+ ]
+}

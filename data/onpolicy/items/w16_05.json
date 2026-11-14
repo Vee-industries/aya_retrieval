@@ -1,0 +1,124 @@
+{
+ "id": "w16_05",
+ "exchanges": [
+  [
+   "hey, quiet day here",
+   "Quiet days can be really nice."
+  ],
+  [
+   "freelance illustrator life means i havent left the house since tuesday",
+   "Sounds like you could use a little time outside."
+  ],
+  [
+   "love living in brackenridge tho, so quiet at night",
+   "A peaceful place to live makes all the difference."
+  ],
+  [
+   "deadline friday, panicking slightly",
+   "You've got this, one piece at a time."
+  ],
+  [
+   "made a huge pot of chili to survive the week",
+   "Smart move, chili gets better every day."
+  ],
+  [
+   "cleo next door bought a canoe and she doesnt even live near water",
+   "Ha, maybe she's planning a road trip."
+  ],
+  [
+   "it's just sitting on her lawn lol",
+   "Very decorative at least."
+  ],
+  [
+   "my twin rasmus is turning into our dad, it's scary",
+   "Ha, it happens to the best of us."
+  ],
+  [
+   "he started ironing his jeans",
+   "That's a big sign, for sure."
+  ],
+  [
+   "cleo from book club bought a kiln for her garage, she's gone full pottery",
+   "That's commitment, she must be loving it."
+  ],
+  [
+   "she promised me a mug",
+   "A handmade mug is a great gift."
+  ],
+  [
+   "my twin just announced he's moving to dunedin, mum is in shock",
+   "Big news, that's a long way to go."
+  ],
+  [
+   "i kind of get it though, he's always wanted to travel",
+   "It's good he's chasing what he wants."
+  ],
+  [
+   "dusted off my accordion last night, the neighbours must love me",
+   "Ha, a bit of music never hurt anyone."
+  ],
+  [
+   "rusty but it came back fast",
+   "Muscle memory is amazing like that."
+  ],
+  [
+   "my friend bea's little boy lorcan drew me a dragon",
+   "That's so sweet, definitely one for the fridge."
+  ],
+  [
+   "honestly better than some of my work",
+   "Kids have a fearless style."
+  ],
+  [
+   "smell of seaweed always takes me right back to growing up in tarbert",
+   "Smells are powerful for bringing memories back."
+  ],
+  [
+   "taking the tram to the shared studio every day now, actual human contact",
+   "Good for you, a change of scene helps."
+  ],
+  [
+   "deadline met!!",
+   "Congrats, that's a huge relief."
+  ],
+  [
+   "my twin still uses a nokia brick, refuses to get a smartphone",
+   "There's something charming about that."
+  ],
+  [
+   "bea's had bonobo on in the car every time she picks me up",
+   "Sounds like a good soundtrack for a drive."
+  ],
+  [
+   "dinner with her family tomorrow",
+   "That'll be lovely."
+  ],
+  [
+   "ok im off to sleep",
+   "Night, rest well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where is my twin relocating",
+   "answer": "dunedin",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "older",
+   "message": "the town i was raised in, whats it called",
+   "answer": "tarbert",
+   "wrong": [],
+   "fact_exchange": 17
+  },
+  {
+   "kind": "never_told",
+   "message": "what car do i have",
+   "wrong": [
+    "tram"
+   ]
+  }
+ ]
+}

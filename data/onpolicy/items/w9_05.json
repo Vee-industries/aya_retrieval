@@ -1,0 +1,124 @@
+{
+ "id": "w9_05",
+ "exchanges": [
+  [
+   "heyy, hows it going",
+   "Going well, thanks for checking in."
+  ],
+  [
+   "the apartment in westhollow is tiny but i honestly love it",
+   "Small spaces can feel really cozy."
+  ],
+  [
+   "spent the morning doing absolutely nothing",
+   "Sometimes that's exactly what a morning needs."
+  ],
+  [
+   "kim from work takes the tram in and is somehow never late, unlike me",
+   "Some people just have the timing figured out."
+  ],
+  [
+   "craving pho so bad rn",
+   "Pho sounds perfect right about now."
+  ],
+  [
+   "my vertigo flared up again, the room was spinning all morning",
+   "That sounds awful, I hope it settles quickly."
+  ],
+  [
+   "my partner is a glazier so our windows are always spotless lol",
+   "That's a nice perk."
+  ],
+  [
+   "the power went out for a bit earlier",
+   "Hope it came back on without much trouble."
+  ],
+  [
+   "thinking of starting a little herb garden",
+   "Fresh herbs are a great thing to have on hand."
+  ],
+  [
+   "yusuf took me to selamta, its his favourite, the injera was incredible",
+   "Sounds like he has great taste."
+  ],
+  [
+   "my phone keeps dying at the worst times",
+   "That's frustrating, maybe the battery's getting old."
+  ],
+  [
+   "grew up in this tiny town called marrowvale, went back for the first time in ages",
+   "Going back like that can bring up a lot of memories."
+  ],
+  [
+   "today felt really long",
+   "Hope the evening is more relaxing."
+  ],
+  [
+   "kim, my partners sister, does her whole commute on a scooter, even in winter",
+   "That's real dedication."
+  ],
+  [
+   "trying to get to bed earlier this week",
+   "Good plan, your body will thank you."
+  ],
+  [
+   "archery class tonight and i finally hit the target lol",
+   "Nice, that must have felt great."
+  ],
+  [
+   "grandma's bestie philippa came over for tea and they gossiped for hours",
+   "Sounds like a lovely afternoon for them."
+  ],
+  [
+   "laundry mountain is calling me",
+   "One load at a time."
+  ],
+  [
+   "finally reading gilead and crying into my tea every chapter",
+   "Sounds like it's hitting you right in the heart."
+  ],
+  [
+   "so many emails today",
+   "Hopefully you got through the worst of them."
+  ],
+  [
+   "my outback smells like old fries permanently, i give up",
+   "A good deep clean might be in order someday."
+  ],
+  [
+   "had a nice chat with an old friend today",
+   "Reconnecting like that is always nice."
+  ],
+  [
+   "going to try a new pasta recipe",
+   "Hope it turns out delicious."
+  ],
+  [
+   "yusuf is playing accordion at his cousins wedding next weekend, im going to cry",
+   "That'll be a special moment for everyone."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "hometown of mine, name?",
+   "answer": "marrowvale",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "older",
+   "message": "where's my place located",
+   "answer": "westhollow",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "who employs my partner",
+   "wrong": [
+    "glazier"
+   ]
+  }
+ ]
+}

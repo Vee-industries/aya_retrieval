@@ -1,0 +1,124 @@
+{
+ "id": "w9_06",
+ "exchanges": [
+  [
+   "hii, finally done with class for the day",
+   "Nice, time to relax a bit."
+  ],
+  [
+   "my geology lecture today was all about rocks, shocking i know",
+   "Ha, hard to argue with the topic."
+  ],
+  [
+   "nadia from book club brought her husband barnaby and he talked about trains all night",
+   "Every group needs a train enthusiast."
+  ],
+  [
+   "its freezing in my room",
+   "Time for an extra blanket."
+  ],
+  [
+   "made instant noodles again, student life",
+   "A classic for a reason."
+  ],
+  [
+   "my cat fennimore knocked my tea over again, on purpose i swear",
+   "Cats do seem to know exactly what they're doing."
+  ],
+  [
+   "need to start my essay but lol",
+   "Even a rough first paragraph helps get the ball rolling."
+  ],
+  [
+   "gus finally got hired at the aquarium, hes feeding penguins now",
+   "That sounds like a dream job."
+  ],
+  [
+   "my roommate left dishes in the sink again",
+   "That can get old fast."
+  ],
+  [
+   "my brother is moving to kestrelport for a new job",
+   "That's a big step for him."
+  ],
+  [
+   "went for a long walk to clear my head",
+   "Walks are great for that."
+  ],
+  [
+   "mitski is the only thing getting me through this semester",
+   "Good music makes the hard stretches easier."
+  ],
+  [
+   "procrastinating by cleaning, classic",
+   "At least you get a clean room out of it."
+  ],
+  [
+   "my dentist nadia mentioned her wife oriane runs a bakery and now i want croissants",
+   "That's a dangerous thing to learn."
+  ],
+  [
+   "kinda homesick tonight",
+   "That's completely understandable, it comes and goes."
+  ],
+  [
+   "bought a typewriter at the flea market and my roommate already hates the noise",
+   "Sounds like a fun find, even if it's loud."
+  ],
+  [
+   "the library was packed today",
+   "Must be crunch time for everyone."
+  ],
+  [
+   "gus dropped his huawei in the toilet, rest in peace",
+   "Oof, hopefully the rice trick works."
+  ],
+  [
+   "walking across the halloran campus between my classes is so pretty in autumn",
+   "Autumn on a campus is hard to beat."
+  ],
+  [
+   "cant believe exams are so close",
+   "You've got this, one step at a time."
+  ],
+  [
+   "dad still drives his old corvair and refuses to sell it",
+   "Sounds like it means a lot to him."
+  ],
+  [
+   "treated myself to bubble tea",
+   "A well-deserved treat."
+  ],
+  [
+   "my sister tamsin is visiting this weekend, so excited",
+   "That sounds like a fun weekend ahead."
+  ],
+  [
+   "ok time to actually study",
+   "Good luck, you've got this."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "my brother is relocating where?",
+   "answer": "kestrelport",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "pet name escapes me lol",
+   "answer": "fennimore",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "never_told",
+   "message": "breed of my pet?",
+   "wrong": [
+    "fennimore"
+   ]
+  }
+ ]
+}

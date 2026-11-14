@@ -1,0 +1,124 @@
+{
+ "id": "w8_01",
+ "exchanges": [
+  [
+   "ok so i survived my last exam of the term",
+   "Congrats on making it through!"
+  ],
+  [
+   "honestly my hydrology courses are kicking my butt this year",
+   "It's a tough field, but you're getting there."
+  ],
+  [
+   "half the profs at bramwell grade like its a competition",
+   "That sounds stressful."
+  ],
+  [
+   "anyway im celebrating with a giant burrito",
+   "You've earned it."
+  ],
+  [
+   "mika from my lab is obsessed with tidewell, played them all afternoon",
+   "Always nice to find new music."
+  ],
+  [
+   "my roommate is making so much noise rn",
+   "Hopefully it settles down soon."
+  ],
+  [
+   "turns out my roommate is just binging taskmaster and laughing at every episode",
+   "At least it's a happy kind of noise."
+  ],
+  [
+   "kinda contagious tbh im laughing too",
+   "Laughter usually is."
+  ],
+  [
+   "so big news, im moving to corriebrook in the spring",
+   "Exciting, a fresh start!"
+  ],
+  [
+   "packing is gonna be a nightmare though",
+   "Packing always takes longer than expected."
+  ],
+  [
+   "ines wants to meet at bellwether tomorrow, its her favourite cafe for scones",
+   "Scones sound like a great plan."
+  ],
+  [
+   "my friend ines said her brother caspian might join us",
+   "The more the merrier."
+  ],
+  [
+   "hope hes not as loud as my roommate lol",
+   "Fingers crossed for a quiet one."
+  ],
+  [
+   "my cousin mika cant stop listening to copperjaw, totally diferent mika lol",
+   "Funny how two people with one name can have such different taste."
+  ],
+  [
+   "family group chat has been chaos all day",
+   "Group chats can get wild."
+  ],
+  [
+   "my mom started accordion lessons, she sends voice memos of every song",
+   "That's adorable."
+  ],
+  [
+   "my fairphone barely holds a charge for all her memos lol",
+   "Might be time for a new battery."
+  ],
+  [
+   "anyway the weather finally turned nice",
+   "Perfect timing for some fresh air."
+  ],
+  [
+   "might go orienteering this weekend if my legs cooperate",
+   "Sounds like a fun way to get outside."
+  ],
+  [
+   "my advisor wants a meeting on thursday ugh",
+   "Hope it's a quick one."
+  ],
+  [
+   "probably about my thesis outline",
+   "Good chance to get some feedback at least."
+  ],
+  [
+   "also the walk-in clinic says its bronchitis, so the weekend plans might be off",
+   "Rest up and feel better soon."
+  ],
+  [
+   "gonna stock up on tea and soup",
+   "Good plan, take it easy."
+  ],
+  [
+   "night!",
+   "Goodnight, feel better!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where am i relocating to, i keep blanking",
+   "answer": "corriebrook",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "older",
+   "message": "which instrument is mom learning",
+   "answer": "accordion",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "never_told",
+   "message": "does lab mika play any instrument",
+   "wrong": [
+    "tidewell"
+   ]
+  }
+ ]
+}

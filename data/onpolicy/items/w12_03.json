@@ -1,0 +1,124 @@
+{
+ "id": "w12_03",
+ "exchanges": [
+  [
+   "hiii. hands are wrecked from bouldering last night lol",
+   "Sounds like a solid session, give those hands a rest!"
+  ],
+  [
+   "mateo from the gym says i need to tape my fingers",
+   "Taping up is a good tip, your skin will thank you."
+  ],
+  [
+   "work was dead today, just me and my coworker leopold wiping tables",
+   "Slow shifts can drag, at least you had company."
+  ],
+  [
+   "i wanna practice accordion tonight but the neighbours hate me",
+   "Maybe an afternoon slot would keep the peace!"
+  ],
+  [
+   "my neighbour mateo is lovely tho, he fixed my door",
+   "A handy, friendly neighbour is a real gift."
+  ],
+  [
+   "he still uses a nokia lmao, like an actual brick",
+   "Those old ones are basically indestructible."
+  ],
+  [
+   "mitski has a new album coming and i am NOT ok, shes my all time fave",
+   "That's exciting, a new release from a favourite is the best."
+  ],
+  [
+   "kinda hungry, kinda lazy",
+   "The classic dilemma, maybe something quick and easy."
+  ],
+  [
+   "my big brother thaddeus phoned, first time in ages",
+   "That's nice to hear from him after a while."
+  ],
+  [
+   "hes deep into frasier reruns, quoting it at me nonstop",
+   "Ha, nothing like a sibling stuck in a quoting phase."
+  ],
+  [
+   "fell off the wall last week and the doctor said mild concussion",
+   "Oh no, please take it easy and let yourself heal."
+  ],
+  [
+   "so no climbing for a while, which is torture",
+   "Rest now means you'll be back on the wall sooner."
+  ],
+  [
+   "priyanka at work wont shut up about piranesi, shes halfway through",
+   "Sounds like it's really grabbed her."
+  ],
+  [
+   "went to bramblewood for a flat white, still the best cafe around",
+   "Having a reliable go-to spot is the best."
+  ],
+  [
+   "grandma bought a treadmill?? at her age?? icon",
+   "Good for her, that's genuinely inspiring!"
+  ],
+  [
+   "rainy again, my socks are soaked",
+   "Nothing worse than wet socks, hope you can dry off soon."
+  ],
+  [
+   "i ride my scooter to the cafe so rain is the worst",
+   "Wet rides are no fun, hope you've got a good rain jacket."
+  ],
+  [
+   "mateo from the gym got a new pixel and wont stop taking photos of his chalk bag",
+   "Ha, every new gadget owner goes through that phase."
+  ],
+  [
+   "whats a good thing to cook with just eggs and rice",
+   "Egg fried rice is a classic for exactly that combo!"
+  ],
+  [
+   "ok that worked, thanks",
+   "Glad it hit the spot!"
+  ],
+  [
+   "sleepy. early shift tomorow",
+   "Get some rest so the morning is a bit easier."
+  ],
+  [
+   "my brother's coming to visit next month maybe",
+   "That'll be nice to catch up in person."
+  ],
+  [
+   "ugh my head still hurts a bit",
+   "Be gentle with yourself and don't push it."
+  ],
+  [
+   "grandma's started aquafit too, shes unstoppable",
+   "She really is setting the bar high!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "the sitcom thaddeus is obsessed with, which one",
+   "answer": "frasier",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "priyanka's novel, whats the title",
+   "answer": "piranesi",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "never_told",
+   "message": "which series is priyanka watching",
+   "wrong": [
+    "piranesi"
+   ]
+  }
+ ]
+}

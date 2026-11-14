@@ -1,0 +1,124 @@
+{
+ "id": "w1_02",
+ "exchanges": [
+  [
+   "morning! kids are finally at school and the house is silent",
+   "Enjoy the peace while it lasts."
+  ],
+  [
+   "being a farrier is great until youre bent over all day",
+   "Sounds like a job that really works the back."
+  ],
+  [
+   "my husband corwin has taken over the cooking this week, bless him",
+   "Lucky you, enjoy being cooked for."
+  ],
+  [
+   "marit next door got a new puppy, its a vizsla and its pure chaos",
+   "Those pups have endless energy, she'll be busy."
+  ],
+  [
+   "rain rain rain, the yard is a swamp",
+   "Muddy boots season, then."
+  ],
+  [
+   "started watching brackwater last night, its so creepy",
+   "A good creepy show is perfect for dark evenings."
+  ],
+  [
+   "my mum grew up in kilbarra and shes taking us all there in the summer",
+   "That'll be a lovely trip down memory lane for her."
+  ],
+  [
+   "think ive got shingles, the doctors having a look tomorow",
+   "Oh no, that's really painful, I hope they can help."
+  ],
+  [
+   "the little one wants a sleepover, im not ready",
+   "Sleepovers are a big milestone, for you as much as them."
+  ],
+  [
+   "fenn's finally sold his old banger and got a defender, hes unbearable about it",
+   "Ha, new car pride is real."
+  ],
+  [
+   "our youngest tadeo lost a tooth at breakfast",
+   "Aw, the tooth fairy has a visit to make."
+  ],
+  [
+   "marit says quince chewed through her garden hose",
+   "Puppies really do eat everything."
+  ],
+  [
+   "my mother in law was raised in pentreath, she never stops talking about it",
+   "Sounds like a place she's very fond of."
+  ],
+  [
+   "so tired today, need a nap",
+   "A quick nap could do wonders."
+  ],
+  [
+   "my mate fenn has been at the ostrander yard for ages, they keep promoting him",
+   "Sounds like they know a good worker when they see one."
+  ],
+  [
+   "my motorola keeps dying by lunchtime, i need a new battery",
+   "Annoying, a battery swap might bring it back to life."
+  ],
+  [
+   "the school play is coming up, i have to make a costume",
+   "Costume making can be fun, good luck."
+  ],
+  [
+   "my husband burnt the pasta lol, so much for the cooking",
+   "Happens to the best of us."
+  ],
+  [
+   "marit and i might go for walks together once the puppy's trained",
+   "That sounds like a nice routine."
+  ],
+  [
+   "weekend plans: absolutely nothing",
+   "Sounds perfect."
+  ],
+  [
+   "my mum wants me to dig out her old photo albums",
+   "That could be a fun afternoon."
+  ],
+  [
+   "fenn invited us for a barbecue, hes showing off the new car",
+   "A barbecue sounds great, enjoy."
+  ],
+  [
+   "the eldest has started on the euphonium at school, send earplugs",
+   "Brass at home, brave of you."
+  ],
+  [
+   "anyway, kettle's on, catch you later",
+   "Enjoy your cuppa."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where does fenn work",
+   "answer": "ostrander",
+   "wrong": [],
+   "fact_exchange": 14
+  },
+  {
+   "kind": "older",
+   "message": "remind me what my husband is called",
+   "answer": "corwin",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "never_told",
+   "message": "whats fenn's job title these days",
+   "wrong": [
+    "ostrander"
+   ]
+  }
+ ]
+}

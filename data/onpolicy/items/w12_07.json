@@ -1,0 +1,124 @@
+{
+ "id": "w12_07",
+ "exchanges": [
+  [
+   "service was chaos tonight, half the dining room sent stuff back",
+   "That sounds like a brutal shift."
+  ],
+  [
+   "being the saucier means every complaint lands on me lol",
+   "That's a lot of pressure, sounds like you held it together though."
+  ],
+  [
+   "fin from the kitchen has gotten really into archery, he took me on my day off",
+   "Sounds like a fun way to spend a day off."
+  ],
+  [
+   "got home at midnight, feet are dead",
+   "Put those feet up, you've earned it."
+  ],
+  [
+   "my sister henrike is visiting next week with her kid",
+   "That's nice, a family visit to look forward to."
+  ],
+  [
+   "her daughter philippa is the sweetest, always drawing",
+   "Sounds like a lovely, creative kid."
+  ],
+  [
+   "she just started at ravensworth and loves her teacher",
+   "It's great when a kid clicks with a teacher right away."
+  ],
+  [
+   "need to clean the flat before they arrive, its a disaster",
+   "A quick tidy blitz can work wonders."
+  ],
+  [
+   "living in merrowby means the nearest decent shop is miles away, ugh",
+   "That makes running errands a real chore."
+  ],
+  [
+   "practised mandolin for a bit to wind down",
+   "A bit of music is a good way to relax after a shift."
+  ],
+  [
+   "my brothers boy fin has a judo grading saturday, hes so nervous",
+   "Fingers crossed for him, nerves just mean he cares."
+  ],
+  [
+   "kinda want to make bread tomorrow",
+   "Fresh bread is always worth the effort."
+  ],
+  [
+   "magnus at work keeps quoting beloved at me, hes reading it on breaks",
+   "Sounds like it's really stuck with him."
+  ],
+  [
+   "my best friend aurelio came over with wine",
+   "A friend and a bottle of wine sounds like the perfect evening."
+  ],
+  [
+   "he brought his ferret in a little harness which was chaos",
+   "Ha, that sounds like an unforgettable guest!"
+  ],
+  [
+   "watched a bit of poldark after, guilty pleasure",
+   "Everyone deserves a guilty pleasure show."
+  ],
+  [
+   "feet still hurt",
+   "Maybe a warm soak would help."
+  ],
+  [
+   "my sister texted, theyre arriving earlier than planned",
+   "Good thing you've made a start on the flat!"
+  ],
+  [
+   "gotta buy sheets for the spare bed",
+   "Fresh sheets will make it cosy for them."
+  ],
+  [
+   "ugh head chef is in a mood",
+   "Hopefully it blows over quickly."
+  ],
+  [
+   "i miss glaskin sometimes, growing up by the loch was magic",
+   "Places from childhood really stay with you."
+  ],
+  [
+   "anyway the kid's gonna love the park here",
+   "Parks are always a hit with kids."
+  ],
+  [
+   "magnus keeps dragging us to sabzi after shifts, its his fave spot",
+   "Sounds like a great place to unwind after a long night."
+  ],
+  [
+   "ok bed. night",
+   "Goodnight, rest those feet!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "philippa's school, which one is it",
+   "answer": "ravensworth",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "older",
+   "message": "the thing i play to unwind, which instrument",
+   "answer": "mandolin",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "never_told",
+   "message": "does henrike have a pet, what kind",
+   "wrong": [
+    "ferret"
+   ]
+  }
+ ]
+}

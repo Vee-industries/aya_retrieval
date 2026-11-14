@@ -1,0 +1,124 @@
+{
+ "id": "w15_04",
+ "exchanges": [
+  [
+   "hey you around",
+   "Right here whenever you need me."
+  ],
+  [
+   "big news, we're moving to kamloops in the spring",
+   "Wow, that's a big change, exciting."
+  ],
+  [
+   "kit, my roommate, has been learning mandolin and its actually not bad",
+   "Nice, sounds like she's making progress."
+  ],
+  [
+   "got the archivist job at the city museum!!",
+   "Congratulations, that's amazing news."
+  ],
+  [
+   "rough sleep last night",
+   "Sorry, hope tonight is better."
+  ],
+  [
+   "my ferret got into the cupboard again",
+   "Sneaky little thing, they get everywhere."
+  ],
+  [
+   "gus next door swears bellhaven does the best brunch in town",
+   "Sounds like a spot worth checking out."
+  ],
+  [
+   "my little sister marisol is visiting this weekend",
+   "That should be a fun weekend."
+  ],
+  [
+   "dad still drives his studebaker to church every sunday",
+   "That's a classic, he must love it."
+  ],
+  [
+   "packing boxes is the worst",
+   "It really is, but you'll get there."
+  ],
+  [
+   "named the little rascal lentil btw",
+   "Cute name for a troublemaker."
+  ],
+  [
+   "my cousin kit plays accordion at weddings, shes booked solid",
+   "That's a fun side gig."
+  ],
+  [
+   "need more coffee",
+   "Sounds like a coffee kind of day."
+  ],
+  [
+   "gus has vertigo and cant climb ladders anymore",
+   "That must be frustrating for him."
+  ],
+  [
+   "dad is obsessed with gullwing, he watches it every night",
+   "Sounds like he's found his show."
+  ],
+  [
+   "my sister wants to see the museum before we leave",
+   "That'd be a nice outing together."
+  ],
+  [
+   "my barber lives out in fernvale so hes always late",
+   "Long drive, that explains it."
+  ],
+  [
+   "the roommate is sad were moving",
+   "It's hard leaving good roommates behind."
+  ],
+  [
+   "found a cheap moving truck finally",
+   "Great, that's one less thing to worry about."
+  ],
+  [
+   "the little rascal stole a sock",
+   "Ha, they love stealing socks."
+  ],
+  [
+   "dad keeps asking if we need help with boxes",
+   "Nice to have him offering."
+  ],
+  [
+   "cant decide on paint for the new place",
+   "Neutral colours are an easy start."
+  ],
+  [
+   "signed up for fencing at the club near the new house",
+   "That sounds like a fun way to meet people there."
+  ],
+  [
+   "anyway, dinner time",
+   "Enjoy your dinner."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "whats the name of my pet",
+   "answer": "lentil",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "older",
+   "message": "gus raves about some restaurant, which one",
+   "answer": "bellhaven",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "never_told",
+   "message": "where do i live right now",
+   "wrong": [
+    "kamloops"
+   ]
+  }
+ ]
+}

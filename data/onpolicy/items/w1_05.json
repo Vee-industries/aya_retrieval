@@ -1,0 +1,124 @@
+{
+ "id": "w1_05",
+ "exchanges": [
+  [
+   "boxes everywhere, im drowning in bubble wrap",
+   "Packing is chaos, you'll get there."
+  ],
+  [
+   "cant believe im actualy relocating to harrowmere soon",
+   "A fresh start somewhere new, how exciting."
+  ],
+  [
+   "my brother did his wrist in at the gym, tendonitis apparently",
+   "Ouch, I hope he rests it properly."
+  ],
+  [
+   "my old flatmate calder says i have to visit fennimore before i go, its his favourite, best cake around",
+   "Sounds like a sweet send off."
+  ],
+  [
+   "packing tape has betrayed me",
+   "It always runs out at the worst moment."
+  ],
+  [
+   "doing an evening course in viticulture, i want to make my own wine someday",
+   "That's a lovely dream to work towards."
+  ],
+  [
+   "my sister gets to work on her scooter even in the rain, shes hardcore",
+   "That's dedication, rain or shine."
+  ],
+  [
+   "brother's lurcher keeps stealing socks",
+   "Ha, a sock thief, classic dog behaviour."
+  ],
+  [
+   "joined an archery club near the new place already",
+   "Nice, a good way to meet people out there."
+  ],
+  [
+   "starving, nothing in but crackers",
+   "Crackers and cheese counts as dinner."
+  ],
+  [
+   "my boss calder took us all to larkspur, his favourite, for my leaving lunch",
+   "What a nice way to send you off."
+  ],
+  [
+   "odette's going to be my closest friend there, shes been in pellston for ages, just up the road from the new place",
+   "Handy having a friend nearby."
+  ],
+  [
+   "listening to thistledown while i pack, they keep me sane",
+   "Good music makes packing bearable."
+  ],
+  [
+   "my sister dropped her xiaomi in a puddle lol",
+   "Oh no, hope it survived."
+  ],
+  [
+   "feeling a bit sad leaving everything behind",
+   "That's totally normal, it's a big change."
+  ],
+  [
+   "my brother's dog is called sorrel btw, total menace",
+   "The menaces are always the most loveable."
+  ],
+  [
+   "my mate jessamy is driving the van for me, legend",
+   "Friends with vans are worth their weight in gold."
+  ],
+  [
+   "brother cant even lift boxes with his wrist so hes useless",
+   "At least he can supervise."
+  ],
+  [
+   "need something to read for the long journey",
+   "A good book makes travel fly by."
+  ],
+  [
+   "the landlord wants the keys back soon",
+   "Nearly there then."
+  ],
+  [
+   "calder from the old flat is coming to help clean",
+   "Extra hands make it quicker."
+  ],
+  [
+   "picked up ravenmoor at the station, already halfway in",
+   "Sounds like it's grabbed you."
+  ],
+  [
+   "odette says shell show me round when i arrive",
+   "That'll help you settle in fast."
+  ],
+  [
+   "right, last box taped, bed",
+   "Well done, sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "tell me again what subject my night school class is",
+   "answer": "viticulture",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "older",
+   "message": "where's odette based",
+   "answer": "pellston",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "never_told",
+   "message": "my brother's phone, which brand is it",
+   "wrong": [
+    "xiaomi"
+   ]
+  }
+ ]
+}

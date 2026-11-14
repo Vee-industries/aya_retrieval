@@ -1,0 +1,124 @@
+{
+ "id": "w1_06",
+ "exchanges": [
+  [
+   "long day in the workshop, my hands are wrecked",
+   "Sounds like a soak and a sit down is in order."
+  ],
+  [
+   "been an upholsterer for years and i still love a good old armchair",
+   "It's great when the work still feels satisfying."
+  ],
+  [
+   "my wife brannagh thinks i love the chairs more than her lol",
+   "Ha, I'm sure she knows where she stands."
+  ],
+  [
+   "backs playing up, the physio reckons its sciatica",
+   "That's miserable, I hope they can sort it."
+  ],
+  [
+   "rafe's new wrangler is massive, he can barely park it",
+   "Big motors are a pain in tight spaces."
+  ],
+  [
+   "nothing planned tonight, might just order pizza",
+   "Pizza night sounds perfect."
+  ],
+  [
+   "my brother's playing lacrosse for some local team now, never saw that coming",
+   "Good on him for trying something new."
+  ],
+  [
+   "our girl ottilie has been singing nonstop all week",
+   "A little performer in the house, lovely."
+  ],
+  [
+   "work at marchbank is mad busy, everyone wants their sofas done at once",
+   "Busy is good for business at least."
+  ],
+  [
+   "devlin the apprentice glued his sleeve to a cushion today",
+   "Ha, a rite of passage for apprentices."
+  ],
+  [
+   "my brother in law flies hawks, falconry is his whole personality",
+   "That's a very cool and unusual pastime."
+  ],
+  [
+   "rain again, nobody wants to leave the house",
+   "Perfect weather for staying in."
+  ],
+  [
+   "rafe grew up in cairnholm, way up north, says it was freezing",
+   "Sounds like he's built for the cold then."
+  ],
+  [
+   "my daughter starts at fernleigh soon, im not ready",
+   "Big milestone, for both of you."
+  ],
+  [
+   "watching ironbark with the wife, we're hooked",
+   "Nice to have something you both enjoy."
+  ],
+  [
+   "sore back day, staying on the sofa",
+   "Rest up and take it easy."
+  ],
+  [
+   "rafe wants a pint at the weekend",
+   "Sounds like a good catch up."
+  ],
+  [
+   "my wife's birthday is coming up, no idea what to get her",
+   "Something thoughtful will always land well."
+  ],
+  [
+   "bought a projector for the back garden so we can do movie nights",
+   "Outdoor movie nights sound brilliant."
+  ],
+  [
+   "devlin's getting better, slowly",
+   "Good to hear he's coming along."
+  ],
+  [
+   "my brother in law brought one of his birds round, the kid loved it",
+   "What a memorable visit for her."
+  ],
+  [
+   "mum's coming over for lunch, id better tidy",
+   "Good luck with the tidying."
+  ],
+  [
+   "rafe's partner is called juno, shes a laugh",
+   "Sounds like a fun couple."
+  ],
+  [
+   "ok, time to sleep, back's killing me",
+   "Night, hope it eases off."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "originally where's rafe from",
+   "answer": "cairnholm",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "older",
+   "message": "my condition, what was it called",
+   "answer": "sciatica",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "never_told",
+   "message": "my wife's hometown, whats it called",
+   "wrong": [
+    "cairnholm"
+   ]
+  }
+ ]
+}

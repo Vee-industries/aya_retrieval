@@ -1,0 +1,124 @@
+{
+ "id": "w16_01",
+ "exchanges": [
+  [
+   "morning, survived the commute somehow",
+   "Glad you made it, hope the day goes smoother from here."
+  ],
+  [
+   "the coffee machine at work is broken AGAIN",
+   "That's a rough start, hope it gets fixed soon."
+  ],
+  [
+   "being a phlebotomist means everyone flinches when i walk in lol",
+   "Ha, at least you make it quick for them."
+  ],
+  [
+   "had a kid today who was braver than most adults tho",
+   "Kids can surprise you like that."
+  ],
+  [
+   "drove through dunmarrow on the way back, weird being where i grew up",
+   "Going back to your hometown always stirs up memories."
+  ],
+  [
+   "my brother caspian called out of nowhere, he never calls",
+   "That's a nice surprise, hope it was good news."
+  ],
+  [
+   "it was good news actually, kind of",
+   "Kind of good news is still worth something."
+  ],
+  [
+   "turns out my brother is moving to valparaiso, like the other side of the world",
+   "That's a huge move, exciting and a little scary."
+  ],
+  [
+   "im happy for him but also sad",
+   "That mix of feelings makes total sense."
+  ],
+  [
+   "ines from work just got into fencing, showed me her bruises",
+   "Sounds intense, she must really love it."
+  ],
+  [
+   "lunch was leftovers, living the dream",
+   "Leftovers are an underrated lunch."
+  ],
+  [
+   "odalys finally had the baby!! a little girl, isolde",
+   "Congratulations to her, that's wonderful news!"
+  ],
+  [
+   "my cousin ines is obsessed with bouldering, keeps begging me to come",
+   "Could be fun to give it a go with her once."
+  ],
+  [
+   "my arms would give up instantly though",
+   "Everyone starts somewhere, you'd get stronger fast."
+  ],
+  [
+   "dropped my fairphone in the sink and it survived somehow",
+   "Lucky, that was a close call."
+  ],
+  [
+   "still drying it in rice just in case",
+   "Better safe than sorry."
+  ],
+  [
+   "been bingeing taskmaster every night, cant stop laughing",
+   "A show that makes you laugh like that is a gift."
+  ],
+  [
+   "the upstairs flat had a party last night, barely slept",
+   "That's rough, hope you can catch up on sleep tonight."
+  ],
+  [
+   "and my neighbour practices the bassoon first thing every morning, send help",
+   "That's quite the alarm clock."
+  ],
+  [
+   "impulse bought a dehumidifier, adulthood has peaked",
+   "Honestly, a dry flat is a real luxury."
+  ],
+  [
+   "my mum wants to do a family dinner before he leaves",
+   "That sounds like a lovely send off."
+  ],
+  [
+   "first class at thornfield college is tomorrow night, eek",
+   "You'll do great, first nights are always the hardest."
+  ],
+  [
+   "packed my bag already like a kid",
+   "Being prepared is a good look."
+  ],
+  [
+   "ok bed, early start",
+   "Sleep well, good luck tomorrow."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me my official job title",
+   "answer": "phlebotomist",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "older",
+   "message": "how did odalys name her daughter",
+   "answer": "isolde",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "never_told",
+   "message": "where does my brother live right now",
+   "wrong": [
+    "valparaiso"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w6_07",
+ "exchanges": [
+  [
+   "dinner rush was insane tonight",
+   "Sounds intense, glad you survived it."
+  ],
+  [
+   "being the saucier means everything goes through me lol",
+   "No pressure then, ha."
+  ],
+  [
+   "half the line called in sick",
+   "That makes a rough night even rougher."
+  ],
+  [
+   "beatriz on grill was a hero tho, she says rowing at dawn keeps her calm",
+   "Early workouts and grill work, she's tough."
+  ],
+  [
+   "i need whatever shes having",
+   "Maybe some of that calm will rub off."
+  ],
+  [
+   "my brother lorcan texted, hes coming to visit",
+   "Fun, it'll be nice to see him."
+  ],
+  [
+   "first time in ages",
+   "That makes it extra special."
+  ],
+  [
+   "he switched his degree to astronomy, wants to drag me stargazing",
+   "Sounds like a cool night out."
+  ],
+  [
+   "ill probably fall asleep on the grass",
+   "Honestly a nice way to spend it."
+  ],
+  [
+   "his professors at wexmoor sound intense",
+   "Tough professors can push you to grow."
+  ],
+  [
+   "back at work, tasting all the sauces again",
+   "The best and worst part of the job."
+  ],
+  [
+   "the other beatriz, the host, does kendo, imagine her with a sword lol",
+   "Two Beatrizes, both very tough."
+  ],
+  [
+   "shed be terrifying",
+   "Ha, good thing she's on your side."
+  ],
+  [
+   "home now, my bunny turnip is thumping because dinner is late",
+   "Sounds like someone's hungry and annoyed."
+  ],
+  [
+   "spoiled little thing",
+   "She's earned it, I'm sure."
+  ],
+  [
+   "lionhead fur everywhere, its shedding season",
+   "Brushing time, then!"
+  ],
+  [
+   "need a better brush",
+   "A good one makes a big difference."
+  ],
+  [
+   "my best friend solveig is gonna come help me deep clean",
+   "What a good friend."
+  ],
+  [
+   "well get takeout after, obviously",
+   "Takeout is the best reward."
+  ],
+  [
+   "from jadeite, the only dumplings ill eat that i didnt make",
+   "High praise from a professional."
+  ],
+  [
+   "chef renfrew still uses a blackberry, im not kidding",
+   "That's a commitment to the classics."
+  ],
+  [
+   "he says it never dies",
+   "Can't argue with that battery life."
+  ],
+  [
+   "bought myself a new mandoline today, my old one was dull",
+   "Fresh blade, careful of your fingers!"
+  ],
+  [
+   "ok bed, i smell like garlic",
+   "Occupational hazard, sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me my role in the kitchen",
+   "answer": "saucier",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "older",
+   "message": "my brother's field of study?",
+   "answer": "astronomy",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "never_told",
+   "message": "solveig's phone, which brand",
+   "wrong": [
+    "blackberry"
+   ]
+  }
+ ]
+}

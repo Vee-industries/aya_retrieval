@@ -1,0 +1,124 @@
+{
+ "id": "w5_07",
+ "exchanges": [
+  [
+   "hey, rough night, barely slept",
+   "Sorry, hope today goes easy on you."
+  ],
+  [
+   "the migraines are back, been in a dark room all morning",
+   "That sounds miserable, rest up and stay hydrated."
+  ],
+  [
+   "my forestry lab got cancelled anyway so not missing much",
+   "At least the timing worked out a bit."
+  ],
+  [
+   "sam from the gym plays accordion at the farmers market on weekends",
+   "That's such a charming way to spend a weekend."
+  ],
+  [
+   "living out in tullymore means the bus takes forever",
+   "Long bus rides are a real time sink."
+  ],
+  [
+   "thinking of getting a dog but my landlord would kill me",
+   "Maybe worth asking, some landlords are flexible."
+  ],
+  [
+   "my grandma grew up in kilbarra and still talks about the cliffs",
+   "Sounds like a place full of good memories for her."
+  ],
+  [
+   "grandma's cat dumpling sleeps on her feet every night",
+   "That's a very loyal little foot warmer."
+  ],
+  [
+   "shift at the hardware store tonight",
+   "Hope it's a quiet one."
+  ],
+  [
+   "my coworker tobiah covered for me when i got sick, owe him big",
+   "It's great having someone who has your back."
+  ],
+  [
+   "ravensgate was the only college that took me, so glad i got in",
+   "Sounds like it was meant to be."
+  ],
+  [
+   "the other sam, at work, keeps a harmonica in his apron and plays it on breaks",
+   "That must make breaks pretty fun."
+  ],
+  [
+   "pizza for dinner, no shame",
+   "Pizza is always a good call."
+  ],
+  [
+   "imogen got a job offer in carramor, shes moving in the new year",
+   "Exciting for her, a fresh start!"
+  ],
+  [
+   "gonna miss her a lot",
+   "It's hard when a good friend moves away."
+  ],
+  [
+   "imogen's a taxidermist so packing her studio will be wild",
+   "That'll be one interesting moving van!"
+  ],
+  [
+   "head is a bit better today",
+   "Really glad to hear that."
+  ],
+  [
+   "my truck needs new tires before winter",
+   "Good idea to get that sorted early."
+  ],
+  [
+   "the hilux has been solid though, cant complain",
+   "A reliable vehicle is worth a lot out there."
+  ],
+  [
+   "grandma called, she says hi to everyone",
+   "That's sweet of her."
+  ],
+  [
+   "studying for a tree id quiz",
+   "Good luck, you'll do great."
+  ],
+  [
+   "aced it!!",
+   "Amazing, well done!"
+  ],
+  [
+   "treated myself to snowshoes for the trails",
+   "Perfect for getting out on the trails this winter."
+  ],
+  [
+   "first snow cant come soon enough",
+   "Hopefully it shows up soon for you."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "imogen does what for work",
+   "answer": "taxidermist",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "older",
+   "message": "whats my town called again",
+   "answer": "tullymore",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "never_told",
+   "message": "gym sam's favourite band?",
+   "wrong": [
+    "accordion"
+   ]
+  }
+ ]
+}

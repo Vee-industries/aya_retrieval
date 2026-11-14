@@ -1,0 +1,124 @@
+{
+ "id": "w8_02",
+ "exchanges": [
+  [
+   "morning! barely slept",
+   "Oof, hope the coffee is strong."
+  ],
+  [
+   "my son anselm was up in the middle of the night with a nightmare",
+   "Poor kid, hope he's okay."
+  ],
+  [
+   "hes fine now, sleeping like nothing happened",
+   "Kids bounce back fast."
+  ],
+  [
+   "my wife ottilie took the morning shift so i could nap",
+   "That's a great teammate."
+  ],
+  [
+   "so now im wide awake obviously",
+   "Classic."
+  ],
+  [
+   "honestly our street in saltcote is so quiet at this hour, just birds",
+   "Sounds peaceful."
+  ],
+  [
+   "my neighbour gus was out already, he says it reminds him of growing up in wexcombe",
+   "Sweet that it brings back memories."
+  ],
+  [
+   "he brought over some eggs from his hens",
+   "Fresh eggs are the best."
+  ],
+  [
+   "my brother dov just texted a pic of his lada, hes so proud of it",
+   "Love that enthusiasm."
+  ],
+  [
+   "meanwhile my brother in law swears by his skoda and they argue about it constantly",
+   "A friendly rivalry at least."
+  ],
+  [
+   "family dinners are never boring",
+   "Sounds lively."
+  ],
+  [
+   "i wanna get back into woodturning this winter, the lathe is just sitting there",
+   "Good way to spend the cold months."
+  ],
+  [
+   "need to clear out the garage first though",
+   "Always the first step."
+  ],
+  [
+   "my coworker rosalind finally got the dispatcher spot she wanted",
+   "Good for her."
+  ],
+  [
+   "we're getting takeout to celebrate later",
+   "Fun way to mark it."
+  ],
+  [
+   "my wife is three episodes deep into shetland",
+   "Sounds like a good binge."
+  ],
+  [
+   "i keep falling asleep halfway thru lol",
+   "Happens to the best of us."
+  ],
+  [
+   "the daycare called, my little guy has croup",
+   "Oh no, hope he feels better soon."
+  ],
+  [
+   "so thats the rest of my day sorted",
+   "Lots of cuddles and rest then."
+  ],
+  [
+   "at least the telescope i ordered arrived, something to look forward to",
+   "Nice, here's to clear skies."
+  ],
+  [
+   "if it ever stops being cloudy",
+   "Fingers crossed for a clear night."
+  ],
+  [
+   "work tomorrow, ugh",
+   "Hope it goes quickly."
+  ],
+  [
+   "gonna have to leave extra early",
+   "Smart move."
+  ],
+  [
+   "the streetcar is always packed in the mornings",
+   "Hope you get a seat."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "new role for rosalind, what was it",
+   "answer": "dispatcher",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "sleep deprived quiz, name of my wife?",
+   "answer": "ottilie",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "never_told",
+   "message": "my wife, which town was she raised in",
+   "wrong": [
+    "wexcombe"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w13_06",
+ "exchanges": [
+  [
+   "home sick today, doc says bronchitis",
+   "Sorry to hear that, rest and fluids."
+  ],
+  [
+   "i sound like a foghorn",
+   "Very dramatic voice, at least."
+  ],
+  [
+   "my wife marisol is bringing me tea every hour like a nurse",
+   "That's lovely care."
+  ],
+  [
+   "and our son anselm drew me a get well card with a dinosaur on it",
+   "That's adorable, keep that one forever."
+  ],
+  [
+   "the dinosaur has a thermometer lol",
+   "A medically accurate dinosaur."
+  ],
+  [
+   "been watching bluey with him all afternoon and honestly its so good",
+   "It's beloved by adults for a reason."
+  ],
+  [
+   "i cried at one episode not gonna lie",
+   "That show does sneak up on you."
+  ],
+  [
+   "called in to glenholm library, they were super nice about it",
+   "Good to have an understanding workplace."
+  ],
+  [
+   "my nephew felix is starting welding at the college",
+   "That's a really useful trade."
+  ],
+  [
+   "he's always been good with his hands",
+   "Sounds like a great fit."
+  ],
+  [
+   "funny, felix our landlord is also taking night classes, astronomy of all things",
+   "Night classes for stargazing makes sense."
+  ],
+  [
+   "rent's going up again though so hes not my favourite person",
+   "That's frustrating timing."
+  ],
+  [
+   "living in harlowe is getting so pricey now",
+   "Housing costs are rough everywhere lately."
+  ],
+  [
+   "we might have to look further out",
+   "Worth checking a few options."
+  ],
+  [
+   "bettina says we need a night out at volpetti when i'm better",
+   "Something to look forward to."
+  ],
+  [
+   "bettina's brother caradoc is visiting her this week so maybe after",
+   "Nice that she has family in town."
+  ],
+  [
+   "i just want to taste food agian",
+   "Hopefully your appetite comes back soon."
+  ],
+  [
+   "my son's school, birchmount, is doing a pajama day tomorrow",
+   "Pajama day is a classic."
+  ],
+  [
+   "he's way too excited about it",
+   "As he should be."
+  ],
+  [
+   "the parrot, tobermory, keeps copying my cough",
+   "That's both hilarious and a little rude."
+  ],
+  [
+   "it's the only new sound he's learned in months",
+   "He picked a memorable one."
+  ],
+  [
+   "ok taking more cough syrup",
+   "Hope it helps you sleep."
+  ],
+  [
+   "the bird is a cockatiel so he'll be doing that cough for years probably",
+   "You might be stuck with that impression."
+  ],
+  [
+   "night night",
+   "Sleep well and feel better."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "who's bettina's brother",
+   "answer": "caradoc",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "older",
+   "message": "which illness have i got",
+   "answer": "bronchitis",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "never_told",
+   "message": "what is bettina studying",
+   "wrong": [
+    "welding"
+   ]
+  }
+ ]
+}

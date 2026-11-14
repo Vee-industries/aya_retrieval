@@ -1,0 +1,124 @@
+{
+ "id": "w8_07",
+ "exchanges": [
+  [
+   "omg i have news",
+   "Ooh, I'm all ears!"
+  ],
+  [
+   "my boyfriend lucan asked me to move in with him",
+   "That's a big, exciting step!"
+  ],
+  [
+   "i said yes obviously lol",
+   "Congrats to you both!"
+  ],
+  [
+   "my bf is a farrier so the place comes with a barn full of horseshoes lol",
+   "That sounds like a fun home."
+  ],
+  [
+   "its kinda far from everything though",
+   "Quiet can be nice."
+  ],
+  [
+   "so i'll have to carpool with his neighbour to get to work",
+   "At least you'll have company."
+  ],
+  [
+   "and my classes at calloway start in a few weeks too",
+   "Lots of changes at once."
+  ],
+  [
+   "im stressed but happy",
+   "That's a good kind of stress."
+  ],
+  [
+   "my mom june was thrilled, she played a celebratory tune on her bassoon over video",
+   "That's such a sweet reaction."
+  ],
+  [
+   "my stepmom carol then had to one-up her with the dulcimer lol",
+   "Sounds like a musical family."
+  ],
+  [
+   "parents are a lot sometimes",
+   "But it's nice they care."
+  ],
+  [
+   "my little sister delphine wants the spare room for visits already",
+   "She's planning ahead!"
+  ],
+  [
+   "i told her to wait till we've unpacked",
+   "Fair enough."
+  ],
+  [
+   "my coworker hollis offered his truck for the move",
+   "That's really helpful."
+  ],
+  [
+   "saves us renting one",
+   "Nice savings."
+  ],
+  [
+   "fen is bringing her girlfriend marisol to help pack",
+   "Many hands make light work."
+  ],
+  [
+   "i promised pizza",
+   "Pizza is the classic moving fuel."
+  ],
+  [
+   "actually my friend fen says we have to get takeout from yunhai instead, its her favourite",
+   "Sounds like a tasty change of plan."
+  ],
+  [
+   "fine by me",
+   "Hard to argue with good takeout."
+  ],
+  [
+   "gotta back up everything on my lenovo before the move",
+   "Smart idea."
+  ],
+  [
+   "last time i lost all my photos",
+   "That's painful, good call backing up."
+  ],
+  [
+   "my bf is out tonight so its just me and the boxes",
+   "Some quiet time for you then."
+  ],
+  [
+   "my bf has gotten really into archery lately, says it calms him",
+   "Sounds like a great way to unwind."
+  ],
+  [
+   "ok packing a box before bed",
+   "One box at a time!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me the name of my sis",
+   "answer": "delphine",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "older",
+   "message": "which college am i enrolled at",
+   "answer": "calloway",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "never_told",
+   "message": "delphine's favourite restaurant?",
+   "wrong": [
+    "yunhai"
+   ]
+  }
+ ]
+}

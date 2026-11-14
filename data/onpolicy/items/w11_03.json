@@ -1,0 +1,124 @@
+{
+ "id": "w11_03",
+ "exchanges": [
+  [
+   "ok its official, we're moving to dunmarra after new year",
+   "Big news, congrats on making it official!"
+  ],
+  [
+   "so much to pack",
+   "One box at a time, you'll get there."
+  ],
+  [
+   "gonna miss our little flat in kessock tho",
+   "It's natural to feel attached to a place you've made home."
+  ],
+  [
+   "the landlady maeve is being weird about the deposit",
+   "Hopefully it gets sorted without a fuss."
+  ],
+  [
+   "my coworker ansel offered to help me pack saturday",
+   "That's kind, extra hands make it go much faster."
+  ],
+  [
+   "my best mate rook works at hopshire, the brewery on the corner, so he's bringing beer",
+   "Packing with beer sounds a lot more fun."
+  ],
+  [
+   "lol yes",
+   "Sounds like a plan."
+  ],
+  [
+   "rook also just got made cellarman which he's thrilled about",
+   "Good for him, sounds like a well earned step up."
+  ],
+  [
+   "maeve the landlady drives this huge bronco and parks it across two spots",
+   "That would test anyone's patience."
+  ],
+  [
+   "my cousin maeve just got a miata, very jealous",
+   "A fun little car, no wonder you're jealous!"
+  ],
+  [
+   "packing my accordion super carefully, been playing it since i was little",
+   "Definitely worth wrapping that one well."
+  ],
+  [
+   "it's the one thing i'd grab in a fire",
+   "That says a lot about how much it means to you."
+  ],
+  [
+   "grew up in tollerby so this is my first time living far from family",
+   "That's a big step, but an exciting one."
+  ],
+  [
+   "my gran's got bronchitis so im visiting her before we go",
+   "I hope she feels better soon, she'll love the visit."
+  ],
+  [
+   "she makes the best scones",
+   "Sounds like a cozy visit then."
+  ],
+  [
+   "bought a dehumidifier for the new place, apparently its damp",
+   "Good thinking, that'll save you a lot of hassle."
+  ],
+  [
+   "kinda stressed honestly",
+   "Moves are stressful, be kind to yourself."
+  ],
+  [
+   "rook says it'll be fine",
+   "He sounds like a good friend to have around."
+  ],
+  [
+   "the new place is near the sea at least",
+   "Sea views are a nice consolation."
+  ],
+  [
+   "made pasta for dinner, too tired for anything else",
+   "Pasta is the perfect tired night meal."
+  ],
+  [
+   "the deposit thing got sorted btw",
+   "Great, one less thing to worry about."
+  ],
+  [
+   "lumenhart has been on repeat all week, cant get enough",
+   "Comfort music is perfect during a big change."
+  ],
+  [
+   "my coworker is bringing donuts saturday too",
+   "Donuts make packing day much better."
+  ],
+  [
+   "ok bed time",
+   "Sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me the city we're relocating to",
+   "answer": "dunmarra",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "older",
+   "message": "whats my hometown",
+   "answer": "tollerby",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "never_told",
+   "message": "where did ansel grow up",
+   "wrong": [
+    "tollerby"
+   ]
+  }
+ ]
+}

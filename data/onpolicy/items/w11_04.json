@@ -1,0 +1,124 @@
+{
+ "id": "w11_04",
+ "exchanges": [
+  [
+   "my dog pemberton ate a whole sock this morning, vet says he'll be fine",
+   "Phew, glad he's going to be okay, what a little rascal."
+  ],
+  [
+   "i was panicking",
+   "Totally understandable, that's scary."
+  ],
+  [
+   "he's a basenji so nothing in this house is safe",
+   "Ha, curious breeds keep you on your toes."
+  ],
+  [
+   "my sister named her son fennick, she sent pics today",
+   "Lovely name, congrats to her!"
+  ],
+  [
+   "he's so tiny",
+   "Newborns are impossibly small."
+  ],
+  [
+   "my brother lachlan is coming home for reading week",
+   "Nice, it'll be fun to have him around."
+  ],
+  [
+   "work was so boring today",
+   "Sorry, hopefully tomorrow is better."
+  ],
+  [
+   "my boss bettina spent the whole meeting talking about her curling league",
+   "Sounds like she's very passionate about it!"
+  ],
+  [
+   "i bike in every day and today it poured the whole way",
+   "Oof, hope you had a change of clothes."
+  ],
+  [
+   "my stepsister's little girl is called linnea, she's walking now",
+   "Aw, that's such a fun stage."
+  ],
+  [
+   "my old asus laptop finally died so im on my phone",
+   "Bad timing, hopefully you can get it fixed or replaced."
+  ],
+  [
+   "might just get a tablet",
+   "Could be a handy option."
+  ],
+  [
+   "my brother is doing viticulture, wants to make wine someday",
+   "What a cool field to be in."
+  ],
+  [
+   "my brother's at dunhallow, the other side of the country",
+   "That's far, no wonder visits feel special."
+  ],
+  [
+   "had a weird dream last night",
+   "Dreams can be so strange."
+  ],
+  [
+   "something about a giant sock",
+   "Sounds like the morning stuck with you!"
+  ],
+  [
+   "otto dragged us to saffronia again, he says it's his favourite place on earth",
+   "Nice to have a friend who knows what he likes."
+  ],
+  [
+   "the lamb was amazing tho",
+   "Sounds like a great meal."
+  ],
+  [
+   "the dog is sulking because i wont share",
+   "Classic guilt trip from the pup."
+  ],
+  [
+   "gonna bake cookies this weekend",
+   "Yum, enjoy!"
+  ],
+  [
+   "chocolate chip obviously",
+   "A timeless choice."
+  ],
+  [
+   "otto says hi",
+   "Say hi back!"
+  ],
+  [
+   "just started bellwether and im hooked already",
+   "Sounds like a great find."
+  ],
+  [
+   "one more episode then bed",
+   "Famous last words, enjoy!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me the brand of my broken computer",
+   "answer": "asus",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "older",
+   "message": "where does my brother go to uni",
+   "answer": "dunhallow",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "never_told",
+   "message": "does otto have a hobby, what is it",
+   "wrong": [
+    "curling"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w6_06",
+ "exchanges": [
+  [
+   "rainy tuesday vibes",
+   "Perfect weather for tea and a blanket."
+  ],
+  [
+   "spent all day cataloguing old letters, archivist problems",
+   "Sounds tedious but kind of fascinating."
+  ],
+  [
+   "the basement at the halverson where i work is freezing too",
+   "Cold storage is great for paper, less so for people."
+  ],
+  [
+   "anyway family stuff this weekend",
+   "Hope it's a fun one."
+  ],
+  [
+   "my sister is bringing her new man fergus to meet everyone",
+   "Big moment, hope it goes smoothly."
+  ],
+  [
+   "mom is already planning interrogation questions lol",
+   "Ha, the classic family vetting."
+  ],
+  [
+   "got to work on my scooter today, soaked to the bone",
+   "Oof, hope you dried off quick."
+  ],
+  [
+   "need better rain gear",
+   "Waterproof everything!"
+  ],
+  [
+   "at least my kobo survived in my bag",
+   "Phew, waterlogged gadgets are the worst."
+  ],
+  [
+   "it has my whole library on it",
+   "That would've been a tragic loss."
+  ],
+  [
+   "currently halfway through rebecca and its so creepy",
+   "Gothic novels are perfect for rainy days."
+  ],
+  [
+   "perfect rainy day read honestly",
+   "Couldn't agree more."
+  ],
+  [
+   "my stepsister is coming too, with her husband ambrose",
+   "Full house this weekend!"
+  ],
+  [
+   "hope everyone gets along",
+   "Fingers crossed it's all smiles."
+  ],
+  [
+   "clem wants to do dinner at pomegranate after, its her favourite place",
+   "A favourite spot is always a safe bet."
+  ],
+  [
+   "i could eat their flatbread forever",
+   "Sounds delicious."
+  ],
+  [
+   "told clem i grew up in kirkwall and shed never heard of it",
+   "Not many people have, it's a hidden gem."
+  ],
+  [
+   "everyone thinks its the edge of the world",
+   "In the best way, I'm sure."
+  ],
+  [
+   "bonobo on repeat while i work, my fave by far",
+   "Great working music."
+  ],
+  [
+   "keeps me sane in the archive",
+   "Music makes long tasks fly."
+  ],
+  [
+   "yusuf at work lost his voice, laryngitis, so its been very quiet",
+   "Poor guy, hope he recovers soon."
+  ],
+  [
+   "big news tho, i got offered a post down south",
+   "Oh wow, that's exciting!"
+  ],
+  [
+   "means moving to falmouth next spring",
+   "A seaside move, how lovely."
+  ],
+  [
+   "still deciding but leaning yes",
+   "Sounds like your gut knows."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "the guy my stepsister married, his name",
+   "answer": "ambrose",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "older",
+   "message": "job title of mine?",
+   "answer": "archivist",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "is clem sick with anything",
+   "wrong": [
+    "laryngitis"
+   ]
+  }
+ ]
+}

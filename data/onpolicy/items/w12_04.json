@@ -1,0 +1,124 @@
+{
+ "id": "w12_04",
+ "exchanges": [
+  [
+   "back at it. another week as a millwright apprentice and my arms hate me",
+   "It's physical work, your arms will toughen up soon."
+  ],
+  [
+   "the folks at tarrant have us on nights now which wrecks my sleep",
+   "Night shifts take some adjusting, be kind to yourself."
+  ],
+  [
+   "i carpool in with a couple guys from my street, they argue about football the whole way",
+   "At least the ride is never boring!"
+  ],
+  [
+   "my girlfriend elowen made soup for when i got home, love her",
+   "That's such a kind thing to come home to."
+  ],
+  [
+   "my brother kit came by to borrow tools again",
+   "Sounds like you're the family hardware store."
+  ],
+  [
+   "his datsun is held together with tape at this point",
+   "Ha, sounds like a car with a lot of stories."
+  ],
+  [
+   "weather is grim",
+   "Grim weather calls for something warm to drink."
+  ],
+  [
+   "came down with shingles of all things, doc said its stress",
+   "That sounds really painful, I hope you can get some rest."
+  ],
+  [
+   "so im off work for a bit, kinda bored",
+   "Maybe a good excuse to rest properly for once."
+  ],
+  [
+   "my brother in law fergal offered to drive me to appointments in his lancia, very fancy",
+   "That's generous of him, and a stylish ride too."
+  ],
+  [
+   "the tortoise escaped into the hedge again, mum was frantic",
+   "Escape artists, all of them!"
+  ],
+  [
+   "my mum reckons admiral is older than her and he still has more energy than me",
+   "Slow and steady really does win the race."
+  ],
+  [
+   "had wilco on all morning, still my fave band",
+   "Good music makes a sick day a lot better."
+  ],
+  [
+   "my friend dov is moving to brackenfold, gutted",
+   "That's hard, it's tough when a friend moves away."
+  ],
+  [
+   "he says its for a quieter life but i reckon its for a girl",
+   "Could be a bit of both!"
+  ],
+  [
+   "dov also bought a canoe so hes clearly having a midlife thing",
+   "Ha, there are worse midlife purchases!"
+  ],
+  [
+   "napped half the afternoon",
+   "Your body probably needed it."
+  ],
+  [
+   "craving dumplings from kalinka so bad, best place in town",
+   "Nothing beats a craving for a favourite spot."
+  ],
+  [
+   "my girlfriend says shell pick some up after her shift",
+   "She sounds like a keeper."
+  ],
+  [
+   "feeling a bit better today actualy",
+   "Glad to hear it, small steps."
+  ],
+  [
+   "kit said hes coming round with a film tonight",
+   "A film night sounds like a good distraction."
+  ],
+  [
+   "the lads i ride in with sent me a get well card, soft",
+   "That's really thoughtful of them."
+  ],
+  [
+   "fergal's dragging me to curling once im better, apparently hes obsessed",
+   "That could be a fun new thing to try!"
+  ],
+  [
+   "anyway, nap time again",
+   "Enjoy the rest!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me whats my trade called",
+   "answer": "millwright",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "older",
+   "message": "where's dov relocating",
+   "answer": "brackenfold",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "never_told",
+   "message": "what car do i own",
+   "wrong": [
+    "carpool"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w7_00",
+ "exchanges": [
+  [
+   "ugh coffee is not doing its job yet this morning",
+   "Hang in there, the second cup usually helps."
+  ],
+  [
+   "so i finally started at the Larchmont nursery, my hands are covered in dirt lol",
+   "Congrats on the new job, getting your hands dirty sounds kind of fun."
+  ],
+  [
+   "its pouring here, the gutters are basically waterfalls",
+   "Sounds like a good day to stay in and keep dry."
+  ],
+  [
+   "my sister just signed a lease in Penhallow, not too far from me",
+   "Nice, close enough for easy visits."
+  ],
+  [
+   "my cat mortimer just knocked a plant off the shelf and stared at me like it was my fault",
+   "Classic cat move, he clearly has no regrets."
+  ],
+  [
+   "thinking soup tonight, maybe something with lentils",
+   "Lentil soup is perfect for this weather."
+  ],
+  [
+   "dee, my brothers wife, finally bought a house out in Corrigan",
+   "That's a big step, good for her."
+  ],
+  [
+   "going to ruthie's birthday thing on the weekend, need to find a gift",
+   "Fun, I'm sure you'll find something she'll love."
+  ],
+  [
+   "been practicing euphonium again, the neighbours must love me haha",
+   "Ha, at least they're getting free concerts."
+  ],
+  [
+   "the vet said its normal for a ragdoll to shed this much, so thats a relief",
+   "Good news, nothing to worry about then."
+  ],
+  [
+   "finally cleaned out the fridge, found some scary stuff in the back",
+   "Brave work, a fresh fridge feels great."
+  ],
+  [
+   "my brother threw his back out, doc says its sciatica",
+   "Ouch, I hope he takes it easy and feels better soon."
+  ],
+  [
+   "kinda tired today, might sneak in a nap",
+   "A nap sounds well earned."
+  ],
+  [
+   "started Middlemarch last night, slow going but i like it",
+   "It rewards patience, so it's worth sticking with."
+  ],
+  [
+   "ruthie wants to grab lunch soon, havent seen her in ages",
+   "Catching up sounds really nice."
+  ],
+  [
+   "my coworker Halvard brought cinnamon buns in today, absolute legend",
+   "That's the kind of coworker everyone needs."
+  ],
+  [
+   "my umbrella finally died, flipped inside out in the wind",
+   "Might be time for a sturdier one."
+  ],
+  [
+   "my sister still drives that ancient Saab, it makes the weirdest noises",
+   "Old cars really do have personality."
+  ],
+  [
+   "kinda proud of myself for meal prepping this week",
+   "Nice work, future you will be grateful."
+  ],
+  [
+   "dee is obsessed with curling now, shes at the rink every night",
+   "Sounds like she's found her thing."
+  ],
+  [
+   "the cat is asleep on my laptop again, guess im not working",
+   "He's clearly claiming it as his."
+  ],
+  [
+   "tomorrows gonna be long, we have a huge plant delivery coming",
+   "Hope it all goes smoothly."
+  ],
+  [
+   "we tried this new spot called Saffronia for dinner, i think its my new favourite",
+   "Love finding a new go-to place."
+  ],
+  [
+   "ok im heading to bed, night",
+   "Good night, sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which town does my sister live in now",
+   "answer": "Penhallow",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "older",
+   "message": "hey whats my coworkers name",
+   "answer": "Halvard",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "never_told",
+   "message": "what car does ruthie have",
+   "wrong": [
+    "Saab"
+   ]
+  }
+ ]
+}

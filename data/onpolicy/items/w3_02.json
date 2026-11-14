@@ -1,0 +1,124 @@
+{
+ "id": "w3_02",
+ "exchanges": [
+  [
+   "hiya, finally a quiet evening",
+   "Enjoy it, those are rare!"
+  ],
+  [
+   "my daughter Ottilie lost her first tooth today, big drama",
+   "Aw, that's a big milestone!"
+  ],
+  [
+   "the tooth fairy is apparently paying a lot these days",
+   "Inflation hits everyone, even fairies."
+  ],
+  [
+   "Marco next door got hired at Brightwater, the brewery by the river",
+   "Nice, that sounds like a fun place to work."
+  ],
+  [
+   "he's already promising free samples lol",
+   "Sounds like a good neighbour to have."
+  ],
+  [
+   "love living in Gransby but the parking is a nightmare",
+   "Parking woes are the price of a nice area."
+  ],
+  [
+   "my dad still refuses to sell his Corvair, it leaks oil everywhere",
+   "Some cars are just too sentimental to let go."
+  ],
+  [
+   "started bouldering with a group on thursdays, my forearms are dead",
+   "That's a serious workout, good on you."
+  ],
+  [
+   "Marco at the gym works days at Fennimore hospital, no idea how he has energy to train people",
+   "He must run on pure caffeine."
+  ],
+  [
+   "Nkechi is halfway through Piranesi and keeps texting me quotes",
+   "Sounds like she's completely absorbed in it."
+  ],
+  [
+   "kinda want to read it after her but my pile is huge",
+   "The to-read pile always wins."
+  ],
+  [
+   "my husband is an upholsterer so our ratty old armchair finally looks amazing",
+   "Handy skill to have in the house!"
+  ],
+  [
+   "dizzy spell at work again, gp thinks its vertigo",
+   "That sounds rough, take it slow."
+  ],
+  [
+   "had to sit on the floor for a bit",
+   "Good that you sat down right away."
+  ],
+  [
+   "my daughter starts at Holloway after the summer, cant believe it",
+   "Such a big step for both of you."
+  ],
+  [
+   "bought her a tiny backpack already",
+   "That's adorable."
+  ],
+  [
+   "date night at Marigold friday, its always our spot",
+   "Sounds like the perfect night out."
+  ],
+  [
+   "need a sitter tho",
+   "Fingers crossed someone's free."
+  ],
+  [
+   "Nkechi offered to babysit, legend",
+   "What a good friend!"
+  ],
+  [
+   "my dad called to say hes coming for dinner sunday",
+   "That'll be nice to have him over."
+  ],
+  [
+   "need to clean the whole hosue now lol",
+   "Nothing like a visitor to motivate cleaning."
+  ],
+  [
+   "i take the tram in every day and this morning it was rammed",
+   "Packed commutes are the worst."
+  ],
+  [
+   "ok putting on a show and switching my brain off",
+   "Enjoy the downtime!"
+  ],
+  [
+   "night night",
+   "Good night!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "what's that climbing thing i got into",
+   "answer": "bouldering",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "older",
+   "message": "my husband, whats his profession",
+   "answer": "upholsterer",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "never_told",
+   "message": "what car is Nkechi driving",
+   "wrong": [
+    "Corvair"
+   ]
+  }
+ ]
+}

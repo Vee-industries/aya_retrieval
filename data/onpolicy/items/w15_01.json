@@ -1,0 +1,124 @@
+{
+ "id": "w15_01",
+ "exchanges": [
+  [
+   "ugh mondays",
+   "Hang in there, the week gets easier."
+  ],
+  [
+   "my hydrology lab ran late again, we were measuring creek flow all afternoon",
+   "Fieldwork can eat a whole day, but it sounds fun."
+  ],
+  [
+   "ines put her headphones on and has been blasting grackle all night",
+   "Sounds like she's got a favourite."
+  ],
+  [
+   "i need a haircut so bad",
+   "A fresh cut always helps."
+  ],
+  [
+   "my cousin mark is moving to whitehorse, he says he wants the cold lol",
+   "Brave choice, he'll get plenty of that."
+  ],
+  [
+   "the library at calloway closes so early, so annoying when ur a student with papers due",
+   "That's frustrating during crunch time."
+  ],
+  [
+   "made it to practice but my bassoon reed split halfway through",
+   "Bad luck, hopefully you had a spare."
+  ],
+  [
+   "anyway what should i make for dinner",
+   "Something quick like a stir fry might hit the spot."
+  ],
+  [
+   "mark from work just told everyone hes relocating to inverness",
+   "Big move, you'll probably miss having him around."
+  ],
+  [
+   "kinda tired of the rain honestly",
+   "Same, a sunny day would be nice."
+  ],
+  [
+   "aunt joy had the baby! they named her peregrine",
+   "Congratulations to your aunt, that's a beautiful name."
+  ],
+  [
+   "the ferry to class this morning was so foggy you couldnt see the other side",
+   "That sounds eerie but kind of beautiful."
+  ],
+  [
+   "ines is reading saltmarrow and wont stop talking about it",
+   "Nothing like a book you can't put down."
+  ],
+  [
+   "my grandpa has a girlfriend now, odette, shes lovely",
+   "That's sweet, good for him."
+  ],
+  [
+   "thinking about taking a nap",
+   "A nap sounds perfect right now."
+  ],
+  [
+   "we went to pomegrano for my birthday, its my favourite place ever",
+   "Sounds like a great way to celebrate."
+  ],
+  [
+   "my aunt is so tired, the baby doesnt sleep",
+   "Those early weeks are rough for new parents."
+  ],
+  [
+   "group project meeting got cancelled, best news all week",
+   "Love a surprise free hour."
+  ],
+  [
+   "grandpa wants us all over for dinner sunday",
+   "That sounds like a nice family evening."
+  ],
+  [
+   "ines borrowed my umbrella and lost it lol",
+   "Classic roommate move."
+  ],
+  [
+   "cousin mark is selling all his furniture before he leaves, might grab his couch",
+   "Could be a good deal if it's comfy."
+  ],
+  [
+   "my room is so damp, everything smells musty",
+   "Damp rooms are the worst, airing it out might help."
+  ],
+  [
+   "so i bought a dehumidifier and its already pulling out water",
+   "Nice, that should make a big difference."
+  ],
+  [
+   "ok back to studying",
+   "Good luck, you've got this."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "the spot i love most for eating out, which one is it",
+   "answer": "pomegrano",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "older",
+   "message": "aunt joy and her newborn, whats the little one called",
+   "answer": "peregrine",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "never_told",
+   "message": "is ines relocating anywhere soon",
+   "wrong": [
+    "whitehorse"
+   ]
+  }
+ ]
+}

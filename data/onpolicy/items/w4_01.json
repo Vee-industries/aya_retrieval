@@ -1,0 +1,124 @@
+{
+ "id": "w4_01",
+ "exchanges": [
+  [
+   "finally done with midterms, i could sleep for a week",
+   "You've earned every bit of that rest!"
+  ],
+  [
+   "honestly switching to geology was the best call i made all year",
+   "Love that, it's so nice when a change clicks like that."
+  ],
+  [
+   "rocks are just cooler than spreadsheets, sorry not sorry",
+   "No argument from me, rocks have way better stories."
+  ],
+  [
+   "the campus at wexmoor is gorgeous in the fall tho",
+   "Autumn on campus sounds really pretty."
+  ],
+  [
+   "my boyfriend rafferty is visiting this weekend!!",
+   "Yay, that's exciting, have the best time!"
+  ],
+  [
+   "gotta clean my room before he gets here its a disaster",
+   "Ha, the classic pre-visit tidy sprint."
+  ],
+  [
+   "my boyfriend's driving up in his rusty old forester lol, pray for it",
+   "Ha, here's hoping it makes the trip in one piece."
+  ],
+  [
+   "weather looks nice for it at least",
+   "Perfect, sunny drives are the best."
+  ],
+  [
+   "being near the coast makes me miss tullagh, i grew up right on the water",
+   "Coastal childhoods stay with you, that's lovely."
+  ],
+  [
+   "my sister is moving to ardrossick soon, im gonna miss her",
+   "Aw, that's bittersweet, at least visits will be fun."
+  ],
+  [
+   "and my sister in law just told us shes moving to pellbury, everyones leaving lol",
+   "Wow, big year for moves in your family!"
+  ],
+  [
+   "family group chat has been chaos all day",
+   "Ha, I can only imagine the notifications."
+  ],
+  [
+   "my lab partner ezio forgot the samples AGAIN",
+   "Oh no, that must be so frustrating mid-project."
+  ],
+  [
+   "had to redo the whole thing myself lol",
+   "That's annoying, but at least it's done right now."
+  ],
+  [
+   "reading piranesi between classes, its so weird and good",
+   "Sounds like a great one to get lost in."
+  ],
+  [
+   "coffee is the only thing keeping me upright today",
+   "Hang in there, caffeine is a true friend."
+  ],
+  [
+   "my sister is a farrier so she can find work anywhere tbh",
+   "That's handy, horses are everywhere!"
+  ],
+  [
+   "studying at quillon again, best cafe in town honestly",
+   "Nice, a good study spot makes all the difference."
+  ],
+  [
+   "they know my order now which is either cute or concerning",
+   "Definitely cute, you're a regular!"
+  ],
+  [
+   "my sister in law's daughter marisol said her first full sentence today",
+   "That's such a sweet milestone!"
+  ],
+  [
+   "pretty sure it was no more peas lol",
+   "Ha, a strong opinion right out of the gate."
+  ],
+  [
+   "my little brother anselm keeps texting me memes during lectures",
+   "Ha, little brothers have impeccable timing."
+  ],
+  [
+   "i keep laughing out loud in the middle of class, its embarrassing",
+   "Maybe put the phone on silent for a bit!"
+  ],
+  [
+   "anyway gonna go clean before he shows up",
+   "Good luck with the tidy, enjoy the weekend!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "blanking on what the sister in law's kid is called",
+   "answer": "marisol",
+   "wrong": [],
+   "fact_exchange": 19
+  },
+  {
+   "kind": "older",
+   "message": "what job does my sister have",
+   "answer": "farrier",
+   "wrong": [],
+   "fact_exchange": 16
+  },
+  {
+   "kind": "never_told",
+   "message": "does my sister have any kids",
+   "wrong": [
+    "marisol"
+   ]
+  }
+ ]
+}

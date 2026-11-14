@@ -1,0 +1,124 @@
+{
+ "id": "w3_05",
+ "exchanges": [
+  [
+   "happy friday!!",
+   "Happy Friday to you too!"
+  ],
+  [
+   "shift at Pinecrest was weirdly quiet, nobody crashed anything",
+   "A quiet shift is a rare gift."
+  ],
+  [
+   "mum finally decided, shes moving to Whitlow to be near the coast",
+   "That sounds like a lovely change for her."
+  ],
+  [
+   "my best mate Saoirse is coming over tonight with wine",
+   "Sounds like a perfect Friday night."
+  ],
+  [
+   "gonna order pizza probably",
+   "Can't go wrong with pizza."
+  ],
+  [
+   "Kwame drove us to the gig in his tiny Miata, my knees were in my face",
+   "Ha, small cars and long legs don't mix."
+  ],
+  [
+   "it was a Wilco show, Kwame's had tickets for months, theyre his favourite band",
+   "He must have been over the moon."
+  ],
+  [
+   "my back's been killing me, physio thinks its sciatica",
+   "Ouch, I hope the treatment helps."
+  ],
+  [
+   "exercises are boring but whatever",
+   "Boring but worth it."
+  ],
+  [
+   "my physio does orienteering competitions on weekends, she's super fit",
+   "No wonder she's so energetic."
+  ],
+  [
+   "my stepmum is moving to Dunmere for work",
+   "Lots of family moves happening!"
+  ],
+  [
+   "so everyone is leaving lol",
+   "That's a lot of change at once."
+  ],
+  [
+   "practiced the theremin for an hour, the cat hated it",
+   "Ha, it does make some eerie sounds."
+  ],
+  [
+   "my flatmate is training in midwifery, her shifts are wild",
+   "That's demanding but such important work."
+  ],
+  [
+   "we barely see each other",
+   "Opposite schedules can be tough."
+  ],
+  [
+   "rain agian",
+   "At least it's cozy indoors."
+  ],
+  [
+   "watching Taskmaster whenever i get a free night, it's my comfort show",
+   "Everyone needs a go-to comfort watch."
+  ],
+  [
+   "my best mate is running late, typical",
+   "Classic, at least she's coming."
+  ],
+  [
+   "ok she's here, wine open",
+   "Enjoy your evening!"
+  ],
+  [
+   "morning. slight headache lol",
+   "Drink lots of water!"
+  ],
+  [
+   "lying in the garden",
+   "Sounds peaceful."
+  ],
+  [
+   "the hammock i ordered finally came and i'm never getting out of it",
+   "Sounds like the perfect lazy day."
+  ],
+  [
+   "mum called about the move, so much packing",
+   "Moving is a lot of work."
+  ],
+  [
+   "might go help her next weekend",
+   "She'll really appreciate that."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "what's that instrument i play",
+   "answer": "theremin",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "older",
+   "message": "where's my job again",
+   "answer": "Pinecrest",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "my flatmate's uni, which one is it",
+   "wrong": [
+    "midwifery"
+   ]
+  }
+ ]
+}

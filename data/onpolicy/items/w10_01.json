@@ -1,0 +1,124 @@
+{
+ "id": "w10_01",
+ "exchanges": [
+  [
+   "hey, finally done with my midterm, brain is mush",
+   "Congrats on getting through it, time to rest your brain."
+  ],
+  [
+   "honestly oceanography is way harder than i thought it would be",
+   "It's a demanding field, but it sounds like you're keeping up."
+  ],
+  [
+   "the library at carrowmore closes so early, worst thing about going there",
+   "Early closing times make studying tough."
+  ],
+  [
+   "made pasta, it was mid",
+   "Not every dinner can be a winner."
+  ],
+  [
+   "corentin surprised me with flowers, best boyfriend ever",
+   "That's really sweet of him."
+  ],
+  [
+   "my neighbour ilse brought over soup cuz she heard i was sick",
+   "What a kind neighbour to have."
+  ],
+  [
+   "ilse next door grew up in kilbarra, she was telling me all about it",
+   "Sounds like she had some good stories to share."
+  ],
+  [
+   "book club tonight, we're doing a mystery this time",
+   "Mysteries make for great discussion."
+  ],
+  [
+   "funny thing, theres another ilse in book club, she grew up in drumkeel",
+   "Two of them, that must get confusing."
+  ],
+  [
+   "texted my brother tavish, he hasnt replied in days",
+   "Hopefully he's just busy and gets back to you soon."
+  ],
+  [
+   "weather is finally nice",
+   "Perfect excuse to get outside for a bit."
+  ],
+  [
+   "my brother is a farrier now so hes always out at some barn",
+   "That's hands-on work, no wonder he's hard to reach."
+  ],
+  [
+   "dorrit started bassoon lessons, she says its so hard",
+   "That's a tricky one to pick up, good on her."
+  ],
+  [
+   "i should really clean my room",
+   "A quick tidy can feel really good once it's done."
+  ],
+  [
+   "binged like half of taskmaster last night instead of studying",
+   "Comedy is a good way to unwind, even if it ate the evening."
+  ],
+  [
+   "feeling guilty about it now haha",
+   "Everyone needs a break sometimes."
+  ],
+  [
+   "taking the ferry to class every morning is kinda peaceful",
+   "A calm start to the day sounds lovely."
+  ],
+  [
+   "my mom bought a kayak, shes never even been on a lake",
+   "Sounds like she's ready for an adventure."
+  ],
+  [
+   "lol she says shes gonna learn",
+   "Love that attitude."
+  ],
+  [
+   "dorrit's little girl ottilie drew me a picture",
+   "That's adorable, kids' drawings are the best."
+  ],
+  [
+   "putting it on my fridge for sure",
+   "It deserves a spot of honour."
+  ],
+  [
+   "this apartment is so damp",
+   "Damp places can be really uncomfortable."
+  ],
+  [
+   "ok i caved and got a dehumidifier",
+   "That should help a lot with the damp."
+  ],
+  [
+   "anyway gonna try to study now",
+   "Good luck, you've got this."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "ilse next door, wheres she from originally",
+   "answer": "kilbarra",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "older",
+   "message": "remind me what my major is",
+   "answer": "oceanography",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "where is the book club ilse based these days",
+   "wrong": [
+    "drumkeel"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w4_05",
+ "exchanges": [
+  [
+   "so tired, i was up til who knows when writing",
+   "Sounds like a long night, hope you got some rest."
+  ],
+  [
+   "linguistics grad school is eating my soul lol",
+   "Ha, hang in there, it'll be worth it."
+  ],
+  [
+   "and the library at thornwick closes way too early for night owls like me",
+   "Ugh, that's rough when you're on a deadline."
+  ],
+  [
+   "home is chaos too",
+   "Oh no, sounds like there's no escape."
+  ],
+  [
+   "my roommate theo is binging shetland so the whole flat is moody murder vibes",
+   "Ha, cosy and creepy at the same time."
+  ],
+  [
+   "and theo from the lab is on endeavour, so i get spoilers from both sides",
+   "Ha, surrounded by detectives."
+  ],
+  [
+   "two theos in my life is too many theos",
+   "Ha, you might need nicknames for them."
+  ],
+  [
+   "my roommate takes the tram to his shift and somehow still gets home before me",
+   "Ha, maybe public transport is the secret."
+  ],
+  [
+   "weather turned cold and someone nearby is burning peat",
+   "That smell is so distinctive."
+  ],
+  [
+   "it reminded me of kilbraddan, where i grew up",
+   "Smells really can carry you right back home."
+  ],
+  [
+   "called my dad on the walk home",
+   "That's a nice way to spend a walk."
+  ],
+  [
+   "dad's gout is acting up again, he's grumpy about it",
+   "Poor guy, I hope it settles soon."
+  ],
+  [
+   "my dad is slogging through middlemarch for his book group, says its keeping him sane",
+   "Ha, a hefty read for a tough week."
+  ],
+  [
+   "might go visit him next month",
+   "I'm sure he'd love that."
+  ],
+  [
+   "rosalind plays harmonium in some folk band now, very her",
+   "Ha, that sounds delightfully on brand."
+  ],
+  [
+   "going to their show friday",
+   "That sounds like a fun night out."
+  ],
+  [
+   "rosalind says lambchop is the reason she got into music at all",
+   "Love when one artist sparks a whole path."
+  ],
+  [
+   "i should really work on my lit review instead of texting you",
+   "Ha, I'll be here when you take a break."
+  ],
+  [
+   "my cousin's baby perpetua is finally sleeping through the night apparently",
+   "That's huge, they must be so relieved."
+  ],
+  [
+   "meanwhile i sleep like a newborn, as in badly",
+   "Ha, hope that turns around soon."
+  ],
+  [
+   "my motorola screen cracked again, classic me",
+   "Oh no, a sturdy case might be worth it."
+  ],
+  [
+   "treated myself this weekend to make up for it",
+   "You deserve something nice after all that."
+  ],
+  [
+   "bought a hammock for the balcony, best decision ever",
+   "That sounds like the perfect reading spot."
+  ],
+  [
+   "ok back to the lit review, wish me luck",
+   "Good luck, you've got this!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me of my hometown",
+   "answer": "kilbraddan",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "which novel has dad been stuck on",
+   "answer": "middlemarch",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "never_told",
+   "message": "dad watching anything on tv",
+   "wrong": [
+    "middlemarch"
+   ]
+  }
+ ]
+}

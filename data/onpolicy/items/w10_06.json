@@ -1,0 +1,124 @@
+{
+ "id": "w10_06",
+ "exchanges": [
+  [
+   "staff meeting ran forever today",
+   "Long meetings are draining, glad it's over."
+  ],
+  [
+   "being a sommelier sounds fancy but today i just carried crates",
+   "The glamorous side of the job, clearly."
+  ],
+  [
+   "my feet are killing me",
+   "Time to put them up."
+  ],
+  [
+   "my partner anselm rubbed them for me, he's a saint",
+   "That's a thoughtful partner."
+  ],
+  [
+   "we're thinking about a big change",
+   "Sounds exciting."
+  ],
+  [
+   "we're probably moving to antigonish this summer, closer to his family",
+   "That's a big step, exciting though."
+  ],
+  [
+   "packing is gonna be a nightmare",
+   "Taking it a box at a time helps."
+  ],
+  [
+   "my niece tamsin is doing linguistics at uni, she's so smart",
+   "She sounds really bright."
+  ],
+  [
+   "my old roommate is also called tamsin lol",
+   "Funny coincidence."
+  ],
+  [
+   "that tamsin is studying pharmacy now, career change",
+   "Good for her for making the switch."
+  ],
+  [
+   "makes me wonder about going back to school",
+   "It's never too late to learn something new."
+  ],
+  [
+   "had to leave early, migraines again",
+   "I'm sorry, I hope you get some relief."
+  ],
+  [
+   "dark room and ice pack time",
+   "Rest up."
+  ],
+  [
+   "my boss hollis brings his dog gherkin to work sometimes",
+   "A workplace dog is a nice bonus."
+  ],
+  [
+   "honestly the best part of my day",
+   "Dogs make everything better."
+  ],
+  [
+   "cyrene just got an axolotl, it looks like a little cartoon",
+   "They really do look like they're smiling."
+  ],
+  [
+   "lankum is my favourite band and they're touring near us",
+   "Hope you manage to get tickets."
+  ],
+  [
+   "tickets go on sale tomorrow",
+   "Fingers crossed for you."
+  ],
+  [
+   "driftwood is my favourite cafe, gonna miss it if we move",
+   "Leaving a favourite spot is always hard."
+  ],
+  [
+   "i bought a rowboat on a whim, for the new place lol",
+   "Ready for the move in style."
+  ],
+  [
+   "no idea where we'll store it till then",
+   "Maybe a friend has some space."
+  ],
+  [
+   "my partner is out orienteering all weekend so its just me",
+   "Enjoy a quiet weekend to yourself."
+  ],
+  [
+   "gonna watch movies and order takeout",
+   "That sounds like a perfect plan."
+  ],
+  [
+   "maybe start packing a few boxes too",
+   "Every bit helps."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "cyrene has a new pet, which kind",
+   "answer": "axolotl",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "older",
+   "message": "hollis has a pup, whats it called",
+   "answer": "gherkin",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "never_told",
+   "message": "what breed is hollis's pet",
+   "wrong": [
+    "gherkin"
+   ]
+  }
+ ]
+}

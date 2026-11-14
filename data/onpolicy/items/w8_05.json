@@ -1,0 +1,124 @@
+{
+ "id": "w8_05",
+ "exchanges": [
+  [
+   "home sick today, bleh",
+   "Sorry to hear it, rest up."
+  ],
+  [
+   "marzipan has been glued to me all morning, best nurse",
+   "Cats always know when you need them."
+  ],
+  [
+   "she keeps kneading my blanket",
+   "Peak cat behaviour."
+  ],
+  [
+   "my vet says sphynx cats run warm, so shes basically a heating pad",
+   "Handy on a sick day."
+  ],
+  [
+   "i should be working but my brain is soup",
+   "Your brain deserves the day off."
+  ],
+  [
+   "being an archivist is not fun with a headache, so much squinting",
+   "Definitely a day to rest your eyes."
+  ],
+  [
+   "my sister sent a video of orrin taking his first steps",
+   "What a sweet thing to watch."
+  ],
+  [
+   "he looked so proud of himself",
+   "As he should!"
+  ],
+  [
+   "and my stepsister jo says tamsin is already talking in full sentences",
+   "Kids grow up so fast."
+  ],
+  [
+   "family group chat is basically just baby content now",
+   "Not the worst thing to scroll through."
+  ],
+  [
+   "my brother leopold keeps sending memes instead lol",
+   "Someone has to balance it out."
+  ],
+  [
+   "hes the comic relief",
+   "Every family needs one."
+  ],
+  [
+   "dara offered to bring groceries over, though she lives all the way out in hollinsby",
+   "That's really kind of her."
+  ],
+  [
+   "told her not to bother, i have crackers",
+   "Crackers can carry you through."
+  ],
+  [
+   "my friend dara is rewatching columbo and says i should join her",
+   "A good comfort pick."
+  ],
+  [
+   "might actually do that",
+   "Sounds like a cozy plan."
+  ],
+  [
+   "really craving the soup from crumbhouse, its my favourite spot",
+   "Hope you can get some soon."
+  ],
+  [
+   "they dont deliver though sadly",
+   "That's a shame."
+  ],
+  [
+   "oh and the lease is signed, we're officially moving to fernlow",
+   "Congratulations, that's exciting!"
+  ],
+  [
+   "the new place has a window seat for the cat",
+   "She'll love that."
+  ],
+  [
+   "my boss rollerblades to the office every day, so he thinks being sick is a choice lol",
+   "That's a bit unfair of him."
+  ],
+  [
+   "going to try reading gilead instead of looking at screens",
+   "Sounds like a restful choice."
+  ],
+  [
+   "my eyes need a break",
+   "Good call."
+  ],
+  [
+   "nap time, bye",
+   "Rest well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "brain fog: name of my bro?",
+   "answer": "leopold",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "older",
+   "message": "remind me of my job title",
+   "answer": "archivist",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "never_told",
+   "message": "my employer, which place is it",
+   "wrong": [
+    "archivist"
+   ]
+  }
+ ]
+}

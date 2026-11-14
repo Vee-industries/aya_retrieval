@@ -1,0 +1,124 @@
+{
+ "id": "w7_03",
+ "exchanges": [
+  [
+   "hi, finally a quiet evening",
+   "Enjoy it, those are rare."
+  ],
+  [
+   "my cousin lena got a job at the Marrowfield library",
+   "That sounds like a peaceful place to work."
+  ],
+  [
+   "the house is finally quiet, i can breathe",
+   "Enjoy the peace while it lasts."
+  ],
+  [
+   "my husband Desmond surprised me with flowers today",
+   "Aw, that's so sweet of him."
+  ],
+  [
+   "dusted off my old cello, my fingers hurt so bad",
+   "They'll toughen up again with practice."
+  ],
+  [
+   "might bake something this weekend",
+   "Baking is such a nice way to unwind."
+  ],
+  [
+   "lena upstairs works at Ostrander, the furniture place, she got us a discount",
+   "Handy neighbour to have!"
+  ],
+  [
+   "the hallway light keeps flickering, so creepy",
+   "Might be time to change the bulb."
+  ],
+  [
+   "my son Barnaby refused every single vegetable tonight",
+   "Classic, they all go through that phase."
+  ],
+  [
+   "bex grew up in Lowther, she says its tiny",
+   "Small towns have their charm."
+  ],
+  [
+   "bex and i are getting coffee later",
+   "Have a nice catch-up."
+  ],
+  [
+   "been playing Alvvays nonstop",
+   "Great pick, so dreamy."
+  ],
+  [
+   "my husband is working late again",
+   "Hope he's home soon."
+  ],
+  [
+   "bex is moving to Saltcote in the spring",
+   "Exciting, a fresh start for her."
+  ],
+  [
+   "im gonna miss her so much",
+   "You can still visit, and there are always video calls."
+  ],
+  [
+   "my husband is hooked on Severance, he wont stop theorizing",
+   "It's a show that really gets in your head."
+  ],
+  [
+   "my son wants a puppy now, help",
+   "That's a big decision, good luck!"
+  ],
+  [
+   "signed up for an online course in horticulture, nerdy but fun",
+   "Not nerdy at all, that sounds great."
+  ],
+  [
+   "the garden is a mess though, need to start somewhere",
+   "Perfect place to practice what you learn."
+  ],
+  [
+   "lena upstairs dropped her Motorola down the stairs lol",
+   "Hope it survived the fall!"
+  ],
+  [
+   "ok im starving",
+   "Time for a snack then."
+  ],
+  [
+   "craving dumplings from Peppercorn, our usual spot",
+   "Dumplings sound like the perfect plan."
+  ],
+  [
+   "might order in tonight honestly",
+   "No shame in that, sounds cozy."
+  ],
+  [
+   "my son just fell asleep on the couch, finally",
+   "Enjoy the quiet!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me where bex is heading",
+   "answer": "Saltcote",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "which instrument am i playing these days",
+   "answer": "cello",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "never_told",
+   "message": "which book has my husband been reading",
+   "wrong": [
+    "Severance"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w5_05",
+ "exchanges": [
+  [
+   "big news, we're moving to eastmere in the spring",
+   "That's huge, congrats on the move!"
+  ],
+  [
+   "so much packing to do already",
+   "Starting early will make it way less stressful."
+  ],
+  [
+   "nico from work says rent in larkhill is cheaper, he'd know he lives there",
+   "Good to have someone with inside info on prices."
+  ],
+  [
+   "my coworker fintan offered to help us move, what a gem",
+   "Friends with strong arms are worth their weight in gold."
+  ],
+  [
+   "the tram was late again, i missed my stop daydreaming",
+   "Daydreaming on the commute happens to everyone."
+  ],
+  [
+   "my sister had her baby! a little girl called anouk",
+   "Oh how wonderful, congratulations to her!"
+  ],
+  [
+   "im an auntie now omg",
+   "That's such a special new title!"
+  ],
+  [
+   "been practising mandolin to calm down, its working",
+   "Music is a great way to unwind."
+  ],
+  [
+   "harriet is doing her masters at pellingham, shes so smart",
+   "That's impressive, good for her!"
+  ],
+  [
+   "coffee with her tomorrow",
+   "Sounds like a nice catch-up."
+  ],
+  [
+   "my cousin nico, not work nico lol, has a flat in glenbrae",
+   "Two nicos definitely keeps things confusing!"
+  ],
+  [
+   "found a box of old photos while packing",
+   "That's always a fun trip down memory lane."
+  ],
+  [
+   "harriet's masters is in oceanography, like deep sea stuff",
+   "Deep sea research sounds fascinating."
+  ],
+  [
+   "beirut came on shuffle, still my all time fave band",
+   "Nothing hits like a favourite from back in the day."
+  ],
+  [
+   "my sister traded her sports car for a honda odyssey, full mom mode",
+   "Practical choice with a new baby!"
+  ],
+  [
+   "my motorola screen cracked when i dropped a box on it",
+   "Oh no, hopefully a screen fix is cheap."
+  ],
+  [
+   "phone shop said its fixable at least",
+   "That's a relief!"
+  ],
+  [
+   "packing tape is my life now",
+   "The packing tape era is real."
+  ],
+  [
+   "work nico brought me boxes from his garage",
+   "That's a really handy favour."
+  ],
+  [
+   "baby pics from my sister are melting me",
+   "Newborn photos are the sweetest."
+  ],
+  [
+   "sore back from lifting everything",
+   "Take it easy and maybe stretch a bit tonight."
+  ],
+  [
+   "it snowed!",
+   "First snow is always kind of magical."
+  ],
+  [
+   "impulse bought a toboggan on the way home, no regrets",
+   "Perfect timing with the snow, enjoy the hills!"
+  ],
+  [
+   "gonna go try it out",
+   "Have fun out there!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which town is our new home gonna be",
+   "answer": "eastmere",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "older",
+   "message": "harriet's university, which was it",
+   "answer": "pellingham",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "never_told",
+   "message": "where did work nico grow up",
+   "wrong": [
+    "larkhill"
+   ]
+  }
+ ]
+}

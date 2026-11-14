@@ -1,0 +1,124 @@
+{
+ "id": "w8_06",
+ "exchanges": [
+  [
+   "just got back from choir, voice is shot",
+   "Sounds like a big rehearsal."
+  ],
+  [
+   "noor from choir was telling me about her job at the planetarium, so cool",
+   "That sounds like a dream job."
+  ],
+  [
+   "she gets into the dome shows for free",
+   "What a perk."
+  ],
+  [
+   "the drive home to gorsebridge took forever though",
+   "Long drives after a long night are rough."
+  ],
+  [
+   "some accident on the highway",
+   "Hope everyone was okay."
+  ],
+  [
+   "my best friend philippa called the whole way to keep me company",
+   "Nice to have company on a long drive."
+  ],
+  [
+   "my best friend just bought a fiat and wont shut up about it",
+   "New car excitement is real."
+  ],
+  [
+   "she wants to do a road trip in it",
+   "That could be a blast."
+  ],
+  [
+   "my arms are still sore from bouldering yesterday",
+   "Sounds like a good session."
+  ],
+  [
+   "need to strech more honestly",
+   "Your muscles will thank you."
+  ],
+  [
+   "ran into the other noor, my neighbour, she brought me honey from the apiary where she works",
+   "Lucky you, fresh honey!"
+  ],
+  [
+   "two noors in my life now lol",
+   "Easy to mix them up!"
+  ],
+  [
+   "my grandpa had coltrane on full blast when i dropped by, his fave ever",
+   "Sounds like he has great taste."
+  ],
+  [
+   "grandpa was telling stories about growing up in kilbrannan by the docks",
+   "Those stories must be fun to hear."
+  ],
+  [
+   "i could listen to him for hours",
+   "Treasure those stories."
+  ],
+  [
+   "tonight im just watching detectorists and eating toast",
+   "Perfect cozy evening."
+  ],
+  [
+   "toast for dinner is a valid choice",
+   "Absolutely valid."
+  ],
+  [
+   "finally broke down and bought a juicer, we'll see if i use it",
+   "Fresh juice could be fun."
+  ],
+  [
+   "probably gonna gather dust lol",
+   "Maybe it'll surprise you."
+  ],
+  [
+   "the vertigo has been better this week thankfully",
+   "Glad to hear it's easing up."
+  ],
+  [
+   "doctor said to keep hydrated",
+   "Good reason to use the new gadget."
+  ],
+  [
+   "anyway, busy day tomorrow",
+   "Hope it goes smoothly."
+  ],
+  [
+   "my welding class has a practical exam tomorrow night",
+   "Good luck, you'll do great."
+  ],
+  [
+   "wish me luck",
+   "Good luck!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where did grandpa spend his childhood",
+   "answer": "kilbrannan",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "favourite musician of grandpa?",
+   "answer": "coltrane",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "never_told",
+   "message": "what's choir noor's job title",
+   "wrong": [
+    "planetarium"
+   ]
+  }
+ ]
+}

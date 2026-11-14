@@ -1,0 +1,124 @@
+{
+ "id": "w13_03",
+ "exchanges": [
+  [
+   "morning! survived teh school run",
+   "Good morning, nicely done."
+  ],
+  [
+   "my daughter wilhelmina insisted on wearing her rain boots in full sun",
+   "Kids and their fashion choices are unbeatable."
+  ],
+  [
+   "picking my battles today lol",
+   "Very wise strategy."
+  ],
+  [
+   "came home and rutabaga had shredded a cushion",
+   "Oh no, someone was bored."
+  ],
+  [
+   "the dog is a basenji so at least he doesnt bark about it, he just yodels",
+   "A yodelling culprit is pretty funny though."
+  ],
+  [
+   "need to get him more toys",
+   "Puzzle toys might keep him busy."
+  ],
+  [
+   "typing is slow today my wrist tendonitis is back",
+   "Rest it when you can, and maybe a brace."
+  ],
+  [
+   "my uncle sol is moving to brackenmoor next month",
+   "Big move for him, hope it goes smoothly."
+  ],
+  [
+   "he's been talking about it for years",
+   "Nice that he's finally doing it."
+  ],
+  [
+   "my husband lorcan is already planning the farewell bbq",
+   "A send-off party sounds like fun."
+  ],
+  [
+   "the husband got the afternoon off from tidewell to set up",
+   "Handy timing for party prep."
+  ],
+  [
+   "i'm on salad duty, so exciting",
+   "Someone has to bring the greens."
+  ],
+  [
+   "and then sol across the street told me shes moving to pennick, everyone is leaving",
+   "That's a lot of goodbyes at once."
+  ],
+  [
+   "gonna miss her honestly, she waters my plants",
+   "Good neighbours are hard to replace."
+  ],
+  [
+   "rosalind sent me a khruangbin playlist for the bbq, she cant get enough of them",
+   "That'll set a nice relaxed mood."
+  ],
+  [
+   "she has such good taste in music",
+   "Always useful to have someone like that around."
+  ],
+  [
+   "my niece just got her acceptance from larchmont, so proud",
+   "That's fantastic news for her."
+  ],
+  [
+   "my sister cried on the phone lol",
+   "Happy tears are the best kind."
+  ],
+  [
+   "i bought a telescope on a total impulse",
+   "Clear nights are going to be fun now."
+  ],
+  [
+   "the kid wants to look at saturn every night",
+   "That's a great thing to get her excited about."
+  ],
+  [
+   "tried taking a pic through the eyepiece with my motorola and its just a blur",
+   "Phone astrophotography is trickier than it looks."
+  ],
+  [
+   "back in drumlee where i grew up you could see the milky way from the yard",
+   "Dark skies like that are special."
+  ],
+  [
+   "city light polution is the worst",
+   "A trip out of town might be worth it."
+  ],
+  [
+   "ok gotta go make the salad",
+   "Have fun with the prep."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "kid's name, remind me?",
+   "answer": "wilhelmina",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "older",
+   "message": "where's my niece going to school",
+   "answer": "larchmont",
+   "wrong": [],
+   "fact_exchange": 16
+  },
+  {
+   "kind": "never_told",
+   "message": "my niece plans to major in what",
+   "wrong": [
+    "larchmont"
+   ]
+  }
+ ]
+}

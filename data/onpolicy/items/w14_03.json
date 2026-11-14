@@ -1,0 +1,124 @@
+{
+ "id": "w14_03",
+ "exchanges": [
+  [
+   "ok big news. were actually doing it",
+   "That sounds exciting, I'm all ears."
+  ],
+  [
+   "were moving to Trieste! my husband got the transfer approved",
+   "That's huge, congratulations to you both!"
+  ],
+  [
+   "i have to learn italian fast lol",
+   "Immersion will help a lot once you're there."
+  ],
+  [
+   "my mom cried when i told her, she grew up in Ardmallow and never left the county",
+   "It's understandable, a big move can be emotional for family."
+  ],
+  [
+   "shell come visit though, she promised",
+   "That's something to look forward to."
+  ],
+  [
+   "ill have to quit the restaurant, being a sommelier there was honestly my dream job",
+   "Leaving a job you love is bittersweet."
+  ],
+  [
+   "maybe i can find wine work over there, its italy after all",
+   "That seems like a great place to keep doing what you love."
+  ],
+  [
+   "my dog Tuppence is going to hate the flight",
+   "Hopefully the trip goes smoother than expected."
+  ],
+  [
+   "the vet gave us some calming stuff for her",
+   "That should help make the journey easier."
+  ],
+  [
+   "my husband's brother Corwin offered to drive us to the airport which was nice",
+   "That's a kind offer, airport runs are a big help."
+  ],
+  [
+   "he drives like a maniac though",
+   "Maybe leave a little extra time and hold on tight."
+  ],
+  [
+   "my friend tamsin is doing linguistics at uni so shes already teaching me phrases",
+   "Having a language nerd friend is perfect timing."
+  ],
+  [
+   "mostly swear words so far",
+   "Those are always the first ones people learn."
+  ],
+  [
+   "our son is sad to leave Hartwell, he really loves his teacher",
+   "Leaving a favourite teacher is hard for a kid."
+  ],
+  [
+   "were telling him he can video call his friends",
+   "That should make the change a little easier for him."
+  ],
+  [
+   "my coworker dev takes the ferry in every day and said hell miss our chats on the deck",
+   "Sounds like a nice coworker to have had."
+  ],
+  [
+   "packing is going terribly by the way",
+   "Packing always takes longer than anyone expects."
+  ],
+  [
+   "and like an idiot i just bought a treadmill, now i have to sell it",
+   "Oof, that timing is unlucky, but someone will snap it up."
+  ],
+  [
+   "my mother-in-law grew up in Kilbrannan and keeps saying we should just move there instead",
+   "She's probably just going to miss you."
+  ],
+  [
+   "she means well",
+   "It sounds like she cares a lot."
+  ],
+  [
+   "our whippet keeps sleeping in the open suitcase like she knows",
+   "Dogs always seem to sense when something's up."
+  ],
+  [
+   "my husband is reading Middlemarch to calm down, its his comfort book",
+   "A familiar book is a good way to settle the nerves."
+  ],
+  [
+   "im just doom scrolling apartment listings",
+   "Hopefully you find somewhere great soon."
+  ],
+  [
+   "ok gotta go tape more boxes",
+   "Good luck with the packing!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where was mom raised",
+   "answer": "Ardmallow",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "older",
+   "message": "breed of my dog?",
+   "answer": "whippet",
+   "wrong": [],
+   "fact_exchange": 20
+  },
+  {
+   "kind": "never_told",
+   "message": "tamsin goes to which uni",
+   "wrong": [
+    "linguistics"
+   ]
+  }
+ ]
+}

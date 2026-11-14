@@ -1,0 +1,124 @@
+{
+ "id": "w7_05",
+ "exchanges": [
+  [
+   "hey, rough sleep last night",
+   "Sorry to hear it, hope today is gentle on you."
+  ],
+  [
+   "my aunt petra lives out in Duncrieff, middle of nowhere",
+   "Sounds peaceful, if a little remote."
+  ],
+  [
+   "started watching Shogun, the subtitles are worth it",
+   "Great choice, everyone says it's gripping."
+  ],
+  [
+   "made a huge pot of coffee, i need it",
+   "Sounds like a coffee kind of day."
+  ],
+  [
+   "my brother Lorcan finally called me back",
+   "Glad you two got to catch up."
+  ],
+  [
+   "we talked forever, it was nice",
+   "Those long chats are the best."
+  ],
+  [
+   "petra at work lives over in Hollin, near the old mill",
+   "Sounds like a charming spot."
+  ],
+  [
+   "my old Volvo needs new tires again",
+   "Car upkeep never seems to end."
+  ],
+  [
+   "trying to cut back on sugar, its not going well",
+   "Small steps still count."
+  ],
+  [
+   "my wife Rosalind is making her famous curry tonight",
+   "That sounds delicious."
+  ],
+  [
+   "the whole house smells amazing",
+   "Best part of a home-cooked meal."
+  ],
+  [
+   "my brother just switched to a Pixel and wont shut up about the camera",
+   "Ha, new phone excitement is real."
+  ],
+  [
+   "my daughter wants to paint her room purple",
+   "Bold choice, could be fun."
+  ],
+  [
+   "taking the streetcar in today since the car is in the shop",
+   "Hope the repair is quick and cheap."
+  ],
+  [
+   "work was so busy today",
+   "Glad it's over, time to unwind."
+  ],
+  [
+   "my daughter Fenna wrote her own song today, so proud",
+   "That's wonderful, a little songwriter!"
+  ],
+  [
+   "she made us all sit and listen lol",
+   "The best kind of concert."
+  ],
+  [
+   "my wife is reading Rebecca for her book club",
+   "That's a great one for discussion."
+  ],
+  [
+   "might take a bath and do nothing",
+   "Sounds like the perfect plan."
+  ],
+  [
+   "my brother works at Ferncliff now, some tech startup",
+   "Exciting place to be."
+  ],
+  [
+   "petra at work brought me leftover cake",
+   "Coworker cake is the best cake."
+  ],
+  [
+   "aunt petra is moving to Glenmorrow, closer to us finally",
+   "That's lovely, you'll get to see her more."
+  ],
+  [
+   "listening to Portishead while i cook",
+   "Moody music and cooking, nice combo."
+  ],
+  [
+   "ok dinner time, chat later",
+   "Enjoy your dinner!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which novel has the wife got on the go",
+   "answer": "Rebecca",
+   "wrong": [],
+   "fact_exchange": 17
+  },
+  {
+   "kind": "older",
+   "message": "what show am i into lately",
+   "answer": "Shogun",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "never_told",
+   "message": "lorcan lives where these days",
+   "wrong": [
+    "Duncrieff"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w5_00",
+ "exchanges": [
+  [
+   "ugh my feet. survived the first week shelving at hollisford library tho",
+   "Congrats on making it through week one, your feet will toughen up soon!"
+  ],
+  [
+   "made pasta tonight and it came out kinda gluey lol",
+   "Gluey pasta still counts as dinner, the next batch will be better."
+  ],
+  [
+   "my little brother osric is driving up saturday, havent seen him since spring",
+   "That's exciting, it's been a while since you two caught up!"
+  ],
+  [
+   "need to clean the guest room before then, its a disaster",
+   "A quick tidy and some fresh sheets will go a long way."
+  ],
+  [
+   "and my brother's bringing his dog fennel so rip my couch",
+   "Maybe toss a blanket over the couch before they arrive!"
+  ],
+  [
+   "work was slow today, mostly just reshelving kids books",
+   "Slow days can be kind of nice for catching your breath."
+  ],
+  [
+   "maya from work keeps dragging me to marigold for lunch, their soup is unreal",
+   "Sounds like a lunch spot worth getting dragged to!"
+  ],
+  [
+   "weather is so grey this week",
+   "Grey weeks are rough, hopefully the sun shows up soon."
+  ],
+  [
+   "my brothers dog is a vizsla btw so its basically a orange rocket with legs",
+   "Ha, that breed has endless energy, you'll need some long walks."
+  ],
+  [
+   "ok guest room is clean. mostly",
+   "Mostly clean is a win in my book!"
+  ],
+  [
+   "wrist has been bugging me, doc said its tendonitis from all the lifting",
+   "Oof, go easy on it and maybe try a brace while it heals."
+  ],
+  [
+   "cant believe how fast this month went",
+   "Time really does fly once the busy stretch starts."
+  ],
+  [
+   "ilse has a bassoon recital next week and i promised id go",
+   "That's sweet of you to go support her!"
+  ],
+  [
+   "should i bring flowers to that or is that weird",
+   "Flowers are a lovely gesture for a recital, not weird at all."
+  ],
+  [
+   "started reading piranesi last night and now im hooked",
+   "That's a great one to get lost in, enjoy it!"
+  ],
+  [
+   "brother got in late, we stayed up way too late talking",
+   "Those late night catch-ups are the best kind."
+  ],
+  [
+   "the other maya, my neighbour, swears tamarind does better curry than anywhere in town",
+   "Sounds like you've got a curry spot to try next!"
+  ],
+  [
+   "my brother says rent in aldermoor is getting way too pricey for him, he might not renew his lease",
+   "Rent creeping up everywhere is so frustrating."
+  ],
+  [
+   "the dog ate one of my socks lmao",
+   "Classic dog move, hopefully it passes without drama!"
+  ],
+  [
+   "going orienteering sunday if my wrist lets me, the club has a new course",
+   "Hope the wrist cooperates, a new course sounds fun."
+  ],
+  [
+   "my partner joss is making lasagna for everyone tonight, what a guy",
+   "That's a kind way to feed a full house!"
+  ],
+  [
+   "brother heads home tomorrow, kinda sad",
+   "It's always bittersweet when a good visit ends."
+  ],
+  [
+   "bought a dehumidifier today bc the basement smells like a swamp",
+   "Good call, that should clear the damp right up."
+  ],
+  [
+   "ok bed time, long day tomorrow",
+   "Sleep well, you've earned it!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "maya next door has a fave restaurant, which one was it",
+   "answer": "tamarind",
+   "wrong": [],
+   "fact_exchange": 16
+  },
+  {
+   "kind": "older",
+   "message": "my brothers pup, whats its name",
+   "answer": "fennel",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "never_told",
+   "message": "maya from work, which town is she renting in",
+   "wrong": [
+    "aldermoor"
+   ]
+  }
+ ]
+}

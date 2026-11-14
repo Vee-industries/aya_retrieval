@@ -1,0 +1,124 @@
+{
+ "id": "w2_02",
+ "exchanges": [
+  [
+   "morning, already on my second coffee",
+   "Sounds like one of those mornings!"
+  ],
+  [
+   "my son thaddeus has a field trip today and was up at 5 from excitement",
+   "That kind of excitement is the best, hope he has a great time."
+  ],
+  [
+   "my wrist is killing me, doc says its tendinitis from all the typing",
+   "Ouch, I hope some rest takes the edge off."
+  ],
+  [
+   "my husband lorcan is making his famous chili tonight",
+   "That sounds like a cozy dinner."
+  ],
+  [
+   "rain rain rain",
+   "Perfect weather for staying in, at least."
+  ],
+  [
+   "my brother just got hired at fairholt, hes been looking for months",
+   "That's great news, all that searching paid off."
+  ],
+  [
+   "the kid wants to quit soccer and do band instead, he picked trombone of all things",
+   "Bold choice, your house is about to get a lot louder."
+  ],
+  [
+   "ugh forgot to defrost the chiken",
+   "Classic, maybe it's a takeout night."
+  ],
+  [
+   "my brother in law wes says quarrystone is doing layoffs, hope hes ok",
+   "That's stressful, fingers crossed he's safe."
+  ],
+  [
+   "hubbys reading hollowmere and keeps reading bits out loud to me",
+   "Sounds like a good one if he can't keep it to himself."
+  ],
+  [
+   "grocery bill was insane this week",
+   "Prices really are wild lately."
+  ],
+  [
+   "my laptop is a lenovo from like 2015, it sounds like a jet engine",
+   "Sounds like it has earned its retirement."
+  ],
+  [
+   "school pickup line was a nightmare",
+   "Those lines can test anyone's patience."
+  ],
+  [
+   "my friend fran invited us over, she lives out in birchmoor now, gorgeous house",
+   "That sounds like a lovely visit to look forward to."
+  ],
+  [
+   "ok i need a nap",
+   "Go for it, you've earned one."
+  ],
+  [
+   "signed up for horticulture classes at the community college, nervous lol",
+   "That's exciting, a few nerves are normal when starting something new."
+  ],
+  [
+   "first class is tuesday night",
+   "Hope it goes really well."
+  ],
+  [
+   "my brothers dog marzipan ate a sock and they had to go to the emergency vet",
+   "Yikes, I hope the pup is okay."
+  ],
+  [
+   "the dogs fine now thankfully",
+   "That's such a relief to hear."
+  ],
+  [
+   "trying to plan a birthday party and its stressing me out",
+   "Party planning can be a lot, one thing at a time."
+  ],
+  [
+   "my son wants a dinosaur cake",
+   "That sounds like a fun one to make."
+  ],
+  [
+   "we got a trampoline for the backyard, kid hasnt come inside since",
+   "Sounds like money well spent!"
+  ],
+  [
+   "probably gonna regret that when someone breaks an arm",
+   "Here's hoping it's all bounces and no breaks."
+  ],
+  [
+   "anyway, dinner time",
+   "Enjoy your dinner!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "instrument my boy went with?",
+   "answer": "trombone",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "older",
+   "message": "which course did i enroll in",
+   "answer": "horticulture",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "never_told",
+   "message": "which town is my brother based in",
+   "wrong": [
+    "birchmoor"
+   ]
+  }
+ ]
+}

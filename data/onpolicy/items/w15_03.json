@@ -1,0 +1,124 @@
+{
+ "id": "w15_03",
+ "exchanges": [
+  [
+   "hiya, just got home",
+   "Welcome back, hope the day was decent."
+  ],
+  [
+   "my brother got a job at halvorsen, the shipping company",
+   "Good for him, that's exciting news."
+  ],
+  [
+   "grew up in corrigan and i still miss the lake there",
+   "Lakeside childhoods are the best kind."
+  ],
+  [
+   "tavi is studying forestry now, she wants to work outdoors",
+   "That sounds like a great fit for her."
+  ],
+  [
+   "its so cold today",
+   "Bundle up, it sounds bitter out."
+  ],
+  [
+   "been listening to mothlight on repeat, their new album is so good",
+   "Nothing beats an album you can't stop replaying."
+  ],
+  [
+   "my brother in law started at the tannery, he says the smell never leaves",
+   "That sounds like a tough smell to live with."
+  ],
+  [
+   "i forgot my lunch again",
+   "Ugh, hope you found something decent to eat."
+  ],
+  [
+   "ottoline at work covered my shift, i owe her big time",
+   "Sounds like a great coworker to have."
+  ],
+  [
+   "grandma called, she sounds happy lately",
+   "That's lovely to hear."
+  ],
+  [
+   "my brother and his wife named the baby casimir",
+   "That's a distinctive name, I like it."
+  ],
+  [
+   "kinda bored tonight",
+   "Maybe a good night for a movie."
+  ],
+  [
+   "i rollerblade to work now, way faster than the bus",
+   "That sounds fun and quick."
+  ],
+  [
+   "tavi bought a telescope and wants to go stargazing",
+   "Stargazing sounds like a lovely plan."
+  ],
+  [
+   "my boss still uses a nokia, like the old brick kind",
+   "Ha, those things are indestructible."
+  ],
+  [
+   "might paint the bedroom this weekend",
+   "A fresh colour can really change a room."
+  ],
+  [
+   "grandma is moving to lunenburg to be near her sister",
+   "It's nice she'll be close to family."
+  ],
+  [
+   "the new place has a dishwasher finally",
+   "Life changing, honestly."
+  ],
+  [
+   "my brother is barely sleeping with the new baby",
+   "Those first months are exhausting."
+  ],
+  [
+   "tavi wants to grab dinner next weekend",
+   "That sounds like a nice catch up."
+  ],
+  [
+   "started reading emberfall last night, im hooked already",
+   "Love when a book grabs you right away."
+  ],
+  [
+   "work was chaos today",
+   "Sounds draining, glad it's over."
+  ],
+  [
+   "grandma joined a curling league, at her age!",
+   "That's fantastic, good for her."
+  ],
+  [
+   "ok time for bed",
+   "Sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "that colleague who saved my butt, whats her name",
+   "answer": "ottoline",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "older",
+   "message": "where was i raised",
+   "answer": "corrigan",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "never_told",
+   "message": "what phone does grandma use",
+   "wrong": [
+    "nokia"
+   ]
+  }
+ ]
+}

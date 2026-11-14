@@ -1,0 +1,124 @@
+{
+ "id": "w1_01",
+ "exchanges": [
+  [
+   "hiya, finally got a seat in the library, its packed",
+   "Nice one, grabbing a seat in there is an achievement."
+  ],
+  [
+   "still cant beleive i picked metallurgy, the lab coats are so itchy",
+   "Itchy coats aside, it sounds like a fascinating subject."
+  ],
+  [
+   "my flatmate yusra slipped on the stairs and now shes got whiplash, poor thing",
+   "Ouch, I hope she heals up quickly."
+  ],
+  [
+   "lecture got cancelled so im just vibing",
+   "Free time, enjoy it."
+  ],
+  [
+   "the ferry this morning was so choppy i nearly lost my breakfast",
+   "A rough crossing is no fun on any stomach."
+  ],
+  [
+   "noor from my course plays bassoon in the orchestra, shes class",
+   "That's impressive, it's a tricky one to play."
+  ],
+  [
+   "had beans on toast again, student life",
+   "Classic, cheap and cheerful."
+  ],
+  [
+   "my aunt's packing up her whole life to go to elsmoor, shes mad",
+   "Brave of her to start fresh somewhere new."
+  ],
+  [
+   "been playing marrowbone on repeat all week, cant stop",
+   "Sounds like they're your soundtrack right now."
+  ],
+  [
+   "the careers fair at brantwood is soon, i guess i should go since im paying to be there",
+   "Worth a look, you never know who you'll meet."
+  ],
+  [
+   "yusra's begging me to go to marisol again, she says the churros are the best in town",
+   "Churros are a strong argument, honestly."
+  ],
+  [
+   "ugh im so behind on reading",
+   "You'll catch up, one chapter at a time."
+  ],
+  [
+   "my brother halvard rang to say hes coming to visit",
+   "Aw, it'll be nice to see him."
+  ],
+  [
+   "the neighbour noor was practising her mandolin at midnight lol",
+   "Late night concerts, at least it's a gentle one."
+  ],
+  [
+   "treated myself to a telescope with my birthday money",
+   "Ooh, hope you get some clear nights for it."
+  ],
+  [
+   "its freezing in this flat, the heating is broken",
+   "Brr, hope the landlord sorts it fast."
+  ],
+  [
+   "my brother's bringing his daughter odalys, shes obsessed with me",
+   "You're clearly the fun one in the family."
+  ],
+  [
+   "group project meeting went badly, nobody did their part",
+   "That's frustrating, hopefully it picks up."
+  ],
+  [
+   "yusra is milking the injury so i do the dishes lol",
+   "Ha, can't blame her for trying."
+  ],
+  [
+   "maybe ill take my new toy up the hill if its clear",
+   "Sounds like a perfect night out."
+  ],
+  [
+   "cant decide whether to do a masters or not",
+   "No rush, you've got time to figure it out."
+  ],
+  [
+   "noor from my course wants me to come watch her concert",
+   "You should go, live music is always fun."
+  ],
+  [
+   "my aunt says shell grow lemons there, apparently its sunny",
+   "Sounds like she picked a good spot."
+  ],
+  [
+   "oh and i joined the bouldering club, we'll see how long that lasts",
+   "Good on you, it's a great workout."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "whats wrong with yusra, she hurt herself right",
+   "answer": "whiplash",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "older",
+   "message": "how do i usually get to campus",
+   "answer": "ferry",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "never_told",
+   "message": "noor from my course listens to which band",
+   "wrong": [
+    "bassoon"
+   ]
+  }
+ ]
+}

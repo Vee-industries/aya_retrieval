@@ -1,0 +1,124 @@
+{
+ "id": "w14_07",
+ "exchanges": [
+  [
+   "evening!",
+   "Evening, hope your day went well."
+  ],
+  [
+   "my cousin rowan is moving to Antwerp for a job and im so jealous",
+   "That sounds like an amazing adventure."
+  ],
+  [
+   "european cafes, bikes everywhere, the dream",
+   "It does sound pretty idyllic."
+  ],
+  [
+   "meanwhile im stuck writing a lab report for oceanography",
+   "Lab reports are a slog, but you'll get through it."
+  ],
+  [
+   "its about plankton. so much plankton",
+   "Plankton deserve their moment too."
+  ],
+  [
+   "my partner brought home day-old bread from Lindqvist where she works, best perk ever",
+   "Free bread is a top-tier perk."
+  ],
+  [
+   "we ate most of a loaf standing in the kitchen",
+   "That's the only correct way to eat fresh bread."
+  ],
+  [
+   "dara slipped on ice and got a concussion, shes ok but has to rest",
+   "I'm glad she's okay, rest is important."
+  ],
+  [
+   "no screens for her which she says is torture",
+   "That's a tough rule to follow these days."
+  ],
+  [
+   "my dog Parsnip ate a sock today, again",
+   "Hopefully it passes without any trouble."
+  ],
+  [
+   "vet says hell be fine, just gross",
+   "Gross but fine is the best outcome."
+  ],
+  [
+   "grandpa pulled out his harmonica at lunch and played for the whole restaurant",
+   "That must have been a fun surprise for everyone."
+  ],
+  [
+   "some people clapped, some looked mortified",
+   "Sounds like a memorable lunch either way."
+  ],
+  [
+   "my boss rolled up in a brand new Volvo today and wouldnt stop talking about it",
+   "New car excitement is hard to contain."
+  ],
+  [
+   "im just happy i dont have car payments",
+   "That's a nice freedom to have."
+  ],
+  [
+   "rowan next door told me hes moving to Kelowna, which is wild because my cousin is also a rowan and also moving",
+   "That's quite the coincidence."
+  ],
+  [
+   "so many rowans moving at once",
+   "It's a big season for Rowans."
+  ],
+  [
+   "watching Frasier reruns to procrastinate",
+   "That's a cozy way to avoid work."
+  ],
+  [
+   "the lab report is not writing itself",
+   "Sadly, they never do."
+  ],
+  [
+   "dara's daughter Juniper is staying with us while dara recovers",
+   "That's really kind of you to help out."
+  ],
+  [
+   "the library on campus at Halverton has a quiet room so i might go hide there tomorrow",
+   "A quiet room sounds perfect for getting it done."
+  ],
+  [
+   "partner and i are getting dinner first",
+   "Enjoy dinner together."
+  ],
+  [
+   "Maplewood, our favourite diner, they have the best pancakes",
+   "Breakfast for dinner is always a good call."
+  ],
+  [
+   "ok later!",
+   "See you later!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "what field am i studying",
+   "answer": "oceanography",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "older",
+   "message": "name of my university?",
+   "answer": "Halverton",
+   "wrong": [],
+   "fact_exchange": 20
+  },
+  {
+   "kind": "never_told",
+   "message": "does my partner play an instrument",
+   "wrong": [
+    "harmonica"
+   ]
+  }
+ ]
+}

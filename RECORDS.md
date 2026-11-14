@@ -9572,3 +9572,30 @@ Rules as R-229, R-237 and R-242 (hard_dev first; Demo2, then Demo3; seeds 83 and
 `qtry.sh` now also trains a missing T6 start adapter exactly as T6 was (a stage on the seed's K1.3 adapter, 3e-4, 3
 epochs, K4.8's set; about 80 minutes a seed), so R5a and R5d need their seed 82 gates by about 12:00. Each start's own
 set passed the checker (K1.3 R-200, K4.8 R-220, K4.6 R-214); every stage trains on `k5f_r247`.
+
+## R-253 · 2026-11-14 · REOPENED · Kevin: a different approach; round 5 withdrawn; on-policy corrections registered
+
+Kevin (about 04:50): "if these are lucky draws then try a different approach". **Round 5 (R-252) is withdrawn**
+before any of its tries ran (its chain was stopped before it started): it was more draws of the same kind.
+
+**The approach.** Every try so far trained on rows written ahead of time. This one trains on the model's own mistakes
+on the training chats. (1) `scripts/records/build_onpolicy_items.py`: K4.8's 128 K3 writer chats as dev-set items
+(`data/onpolicy/items/`), per chat 2 `older` questions and 1 trap (a K4 near-miss or K4.4 wrong-person question, as
+`never_told` with the stored fact's value as its wrong value), chosen by SHA-256("R-253|...") with no look at any
+result: 384 items, 0 dropped by the loader. (2) `qop_eval.sh`: K1.3's seed 82, 83 and 94 adapters run the fixed eval
+harness over them. (3) For each seed, rows from the model's own turns (its queries, the tool's real outputs for them):
+an older item it got wrong whose last search returned the source message gets the writer's value reply; a trap item
+where it named the wrong value gets a decline. (4) A stage on K1.3's seed adapter, 1e-4 x 1, on those rows plus K1.3's
+1,094 rows. **The against lane** (Opus; `results/panels/R-253/onpolicy_brief.md`, `onpolicy_against.md`): not as
+written; seed 82 first after three changes, all adopted: (a) **balance**: answer rows and decline rows one to one
+(K4's one-to-one rule, R-208), the decline side filled with the model's own correct trap declines; (b) **a
+rehearsal-only control C0**, K1.3 plus 1e-4 x 1 on its own 1,094 rows, run first, the simplest baseline that could
+explain any change; (c) row counts by type and the chat-id overlap with every gate set printed before training (must
+be 0). Also: "returned the source" is the source message's exact text in the tool's real output (as `build_k3.py`);
+rows whose own queries break R-205's first-query rule are dropped (the checker's line). Disclosed: each seed trains
+on its own correction set, so the seed spread mixes data and initialisation. The lane's prediction: the same trade
+unless the balance holds (Demo2 older about 2, hard_dev false retrieval 4 to 6).
+
+Order (`chain5_r253.sh`, after the T6 and T4 grid): the three evals (about 25 minutes each), C0 (`k13c0_r253`), then
+OP (`k13op_r253`, per-seed sets `data/screens/k13op_SEED_r253.jsonl`). `qtry.sh` now reads `SEED` in a set's path as
+the seed. Both are full tries under every rule.

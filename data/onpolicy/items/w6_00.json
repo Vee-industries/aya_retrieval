@@ -1,0 +1,124 @@
+{
+ "id": "w6_00",
+ "exchanges": [
+  [
+   "ugh mondays. first full week back at the hospital after the holidays",
+   "Welcome back, hope the week goes easy on you."
+  ],
+  [
+   "they finally moved me off general imaging, im officially a sonographer now lol",
+   "Congrats, that's a huge step up!"
+  ],
+  [
+   "my partner anselm made pancakes to celebrate, hes the best",
+   "That's so sweet, what a nice way to mark it."
+  ],
+  [
+   "and then quillon stole one right off the counter, that dog has no shame",
+   "Ha, no pancake is safe around a determined pup."
+  ],
+  [
+   "weather is gross today, sleet everywhere",
+   "Sleet is miserable, stay dry out there."
+  ],
+  [
+   "at least i take the tram so no scraping the windshield",
+   "Skipping the ice scraper is a real perk."
+  ],
+  [
+   "my mom wants us all over for dinner sunday",
+   "Sounds like a cozy family night."
+  ],
+  [
+   "my sister just started at the brightwater aquarium, she gets to feed the otters",
+   "Feeding otters sounds like a dream gig."
+  ],
+  [
+   "kinda jealous ngl, i just stare at ultrasound screens all day",
+   "Your screens help a lot of people though!"
+  ],
+  [
+   "the dog is a vizsla so he needs to run for hours every day",
+   "Those high-energy breeds really keep you moving."
+  ],
+  [
+   "took him to the river trail after work, im wiped",
+   "Sounds like you both earned a good rest."
+  ],
+  [
+   "oh and my sister-in-law got hired at halloway bakery downtown",
+   "Nice, free pastries for the family hopefully!"
+  ],
+  [
+   "so now both of them have cooler jobs than me haha",
+   "Hey, yours is pretty impressive too."
+  ],
+  [
+   "ferris from work is weirdly obsessed with archery lately, he showed me videos of his form for ages",
+   "Sounds like he's found his thing."
+  ],
+  [
+   "lunch was a sad desk salad",
+   "Desk salads are rough, hope dinner makes up for it."
+  ],
+  [
+   "my sister is slogging through middlemarch for her book club and complaining nonstop",
+   "Classic novels can be a slog, hope she makes it to the end."
+  ],
+  [
+   "thinking about a lazy weekend honestly",
+   "A lazy weekend sounds well deserved."
+  ],
+  [
+   "my wrist has been killing me, doc says its tendinitis from the probe",
+   "Ouch, hope it settles down with some rest."
+  ],
+  [
+   "gotta wear a brace at work now which is so annoying",
+   "That's a pain, but hopefully it helps it heal faster."
+  ],
+  [
+   "odile finally ditched the bus and got a skoda, shes thrilled",
+   "Good for her, no more waiting at the stop!"
+  ],
+  [
+   "she offered me rides but honestly my way in is quicker",
+   "Hard to beat a quick routine."
+  ],
+  [
+   "basement smells kinda musty, been worried about mold",
+   "Musty smells are worth jumping on early."
+  ],
+  [
+   "so i grabbed a dehumidifier on the way home, hoping it helps",
+   "Good call, that should dry things out."
+  ],
+  [
+   "ok time to crash, night!",
+   "Goodnight, sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "ferris has some new pastime, what was it",
+   "answer": "archery",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "remind me whats my new title at the hospital",
+   "answer": "sonographer",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "which show has my sister been watching",
+   "wrong": [
+    "middlemarch"
+   ]
+  }
+ ]
+}

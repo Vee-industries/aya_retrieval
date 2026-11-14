@@ -1,0 +1,124 @@
+{
+ "id": "w8_00",
+ "exchanges": [
+  [
+   "ugh what a week, finally friday",
+   "Glad you made it to the weekend!"
+  ],
+  [
+   "so guess what i got the job at the arboretum!!",
+   "That's huge, congratulations!"
+  ],
+  [
+   "start date is monday so i have like two days to panic",
+   "Plenty of time to panic and then relax."
+  ],
+  [
+   "im gonna be a propagator, basically baby plants all day",
+   "That sounds like a lovely way to spend your days."
+  ],
+  [
+   "jonah came over last night to celebrate w me",
+   "Nice, sounds like a good night."
+  ],
+  [
+   "my buddy jonah brought his dog pemberton and he ate half a sandwich off the counter",
+   "Sounds like he had a great night too."
+  ],
+  [
+   "anyway gotta figure out laundry and groceries this weekend",
+   "Busy weekend ahead then."
+  ],
+  [
+   "also my wrist is acting up agian, doc said its tendonitis from all the typing at my old job",
+   "Ouch, hopefully the new job is kinder to it."
+  ],
+  [
+   "my saab is making a weird rattling noise too, of course",
+   "Of course it picks now to act up."
+  ],
+  [
+   "my landlord says hes coming to look at the heater tuesday",
+   "Hope he gets it sorted quickly."
+  ],
+  [
+   "talked to my sister, shes all settled in thistlemoor now",
+   "Good to hear she's settled in."
+  ],
+  [
+   "she sounds really happy which is nice",
+   "That's always nice to hear."
+  ],
+  [
+   "my sister in law is still out in dunmarrow, she wants us all to visit",
+   "A visit could be a nice trip."
+  ],
+  [
+   "idk if i can swing a trip with the new job tho",
+   "Fair, maybe once you're settled in."
+  ],
+  [
+   "jonah swears the zoomies are a vizsla thing, his dog never stops",
+   "High-energy breed for sure."
+  ],
+  [
+   "ok making pasta for dinner, nothing fancy",
+   "Pasta is always a solid choice."
+  ],
+  [
+   "my coworker nell from the old place just texted, shes doing a fencing tournamnet next month",
+   "That sounds intense, good luck to her."
+  ],
+  [
+   "i might go watch, never seen it in person",
+   "Could be a fun outing."
+  ],
+  [
+   "my dad ray called, hes rereading middlemarch for like the third time",
+   "He must really love it."
+  ],
+  [
+   "he keeps trying to get me to read it lol",
+   "Maybe one day!"
+  ],
+  [
+   "the good news is i can take the ferry to work, way better than driving",
+   "That sounds like a nicer way to start the day."
+  ],
+  [
+   "the basement is so damp lately tho, everything smells musty",
+   "Damp basements are the worst."
+  ],
+  [
+   "so i caved and bought a dehumidifier today",
+   "Hopefully that clears the air down there."
+  ],
+  [
+   "ok im gonna crash, big weekend of nothing",
+   "Enjoy the rest!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "what did the doctor call my arm issue",
+   "answer": "tendonitis",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "older",
+   "message": "remind me which place hired me lol",
+   "answer": "arboretum",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "what car does nell drive",
+   "wrong": [
+    "saab"
+   ]
+  }
+ ]
+}

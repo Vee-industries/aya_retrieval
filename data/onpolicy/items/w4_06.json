@@ -1,0 +1,124 @@
+{
+ "id": "w4_06",
+ "exchanges": [
+  [
+   "soaked to the bone today lol",
+   "Oof, hope you're warm and dry now."
+  ],
+  [
+   "being an arborist in this wind is no joke",
+   "I bet, that sounds genuinely sketchy up there."
+  ],
+  [
+   "we had to call it early bc of the gusts",
+   "Probably the safest call."
+  ],
+  [
+   "the crew at fennimore is solid though, nobody takes dumb risks",
+   "That's so important in a job like yours."
+  ],
+  [
+   "my partner jessamy made soup for when i got home",
+   "Aw, that's the perfect welcome after a cold day."
+  ],
+  [
+   "leek and potato, elite",
+   "A true classic, great choice."
+  ],
+  [
+   "my brother just started at calderwood, the shipping place",
+   "Nice, hope the new job treats him well."
+  ],
+  [
+   "hes already complaining about the hours lol",
+   "Ha, that's an early start on the grumbling."
+  ],
+  [
+   "and my brother in law has been at tillworth forever, he loves it",
+   "Ha, nice to have one happy camper in the family."
+  ],
+  [
+   "family dinner on sunday should be interesting",
+   "Sounds like there'll be lots to talk about."
+  ],
+  [
+   "kasimir's dog pudding ate a whole sock yesterday",
+   "Oh no, I hope the pup is okay!"
+  ],
+  [
+   "kasimir swears his basenji never barks, it just yodels at him",
+   "Ha, that's a pretty charming quirk."
+  ],
+  [
+   "vet said the sock situation should resolve itself, gross",
+   "Ha, nature will take its course."
+  ],
+  [
+   "my old saab finally failed inspection",
+   "Oh no, that's a frustrating bit of news."
+  ],
+  [
+   "repairs would cost more than its worth honestly",
+   "That's a tough spot, sometimes it's time to let go."
+  ],
+  [
+   "my partner has gotten super into birdwatching, we have feeders everywhere now",
+   "Ha, your garden must be a busy spot."
+  ],
+  [
+   "theres a woodpecker that visits every morning",
+   "That's such a lovely thing to wake up to."
+  ],
+  [
+   "grabbed a pastry at bramble on the way, still the best cafe around",
+   "A good pastry can fix almost any day."
+  ],
+  [
+   "almond croissant, no regrets",
+   "Excellent choice."
+  ],
+  [
+   "been carpooling with the crew since the car died",
+   "That's handy, and probably more fun too."
+  ],
+  [
+   "the radio fights are intense though",
+   "Ha, whoever drives picks the music, surely."
+  ],
+  [
+   "my coworker fenwick lent me his thermos today, absolute legend",
+   "Ha, a true hero of cold days."
+  ],
+  [
+   "oh and kasimir is moving to merrowdale, the dog is gonna love the space",
+   "That sounds like a great change for both of them."
+  ],
+  [
+   "ok soup round two then bed",
+   "Enjoy, and sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which car have i got",
+   "answer": "saab",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "what breed of dog does kasimir have",
+   "answer": "basenji",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "never_told",
+   "message": "brother in law, whats his job title",
+   "wrong": [
+    "tillworth"
+   ]
+  }
+ ]
+}

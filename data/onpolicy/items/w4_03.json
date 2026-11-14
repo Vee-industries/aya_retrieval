@@ -1,0 +1,124 @@
+{
+ "id": "w4_03",
+ "exchanges": [
+  [
+   "brrr its freezing today",
+   "Bundle up, it sounds bitter out there."
+  ],
+  [
+   "money's tight so i said yes to more hours",
+   "That's a smart move, every bit helps."
+  ],
+  [
+   "picked up extra shifts at hollowmere, the bakery smells unreal at least",
+   "That's a pretty great perk to have at work."
+  ],
+  [
+   "but i have to be in before sunrise",
+   "Oof, early starts are tough."
+  ],
+  [
+   "cycling there in the dark is brutal in this cold",
+   "Stay safe out there, lights and layers!"
+  ],
+  [
+   "practising the bassoon later if my lips survive the wind",
+   "Ha, good luck, a warm drink first might help."
+  ],
+  [
+   "got a little recital coming up so no skipping",
+   "That's exciting, the practice will pay off."
+  ],
+  [
+   "nothing gets me going like khruangbin on the ride home",
+   "Great choice, so smooth for winding down."
+  ],
+  [
+   "my friend linnea's girlfriend oriel is cooking for us tonight",
+   "That sounds like a lovely evening."
+  ],
+  [
+   "she makes the best dumplings ive ever had",
+   "Yum, I hope you're hungry!"
+  ],
+  [
+   "linnea is doing a masters in horticulture so their flat is basically a jungle",
+   "Ha, sounds like a very green flat."
+  ],
+  [
+   "i kill every plant i touch so im jealous",
+   "Ha, maybe she can give you some tips."
+  ],
+  [
+   "my coworker bettany brought in homemade jam today",
+   "That's so sweet of her, literally."
+  ],
+  [
+   "we put it on the day old croissants, perfect",
+   "Sounds like a great combo."
+  ],
+  [
+   "my older nephew just got into larchmont, everyone is thrilled",
+   "That's wonderful news, congrats to him!"
+  ],
+  [
+   "my sister cried on the phone lol",
+   "Aw, happy tears are the best."
+  ],
+  [
+   "my younger nephew goes to ferncliffe which he hates lol",
+   "Ha, maybe it'll grow on him."
+  ],
+  [
+   "anyway trying to read more before bed instead of scrolling",
+   "That's a great habit to build."
+  ],
+  [
+   "halfway through kindred and i cant put it down",
+   "Love when a story grabs you like that."
+  ],
+  [
+   "my brother dashiell says hes coming to the recital, which is sweet",
+   "That's lovely, nice to have support in the crowd."
+  ],
+  [
+   "hes never once been on time for anything though",
+   "Ha, maybe save him a seat near the back."
+  ],
+  [
+   "went to the flea market this morning, so many weird things",
+   "Flea markets are the best for odd treasures."
+  ],
+  [
+   "ended up buying a secondhand metronome for practice",
+   "Nice find, that'll come in handy before the recital."
+  ],
+  [
+   "ok time to defrost and practise",
+   "Enjoy, and warm up those fingers!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "linnea is studying what again",
+   "answer": "horticulture",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "older",
+   "message": "who's my favourite band",
+   "answer": "khruangbin",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "never_told",
+   "message": "linnea's uni, which one",
+   "wrong": [
+    "horticulture"
+   ]
+  }
+ ]
+}

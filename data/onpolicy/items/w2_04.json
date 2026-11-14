@@ -1,0 +1,124 @@
+{
+ "id": "w2_04",
+ "exchanges": [
+  [
+   "finals week is gonna end me",
+   "You'll get through it, one exam at a time."
+  ],
+  [
+   "us entomology kids get zero sleep, its basically a law",
+   "Sounds like a tough but fascinating program."
+  ],
+  [
+   "i longboard to campus every day and today i almost ate it on the hill",
+   "Glad you stayed upright, that hill sounds sketchy."
+  ],
+  [
+   "luca from the cafe is doing rowing now so hes up at like 5am",
+   "That's an early start, impressive commitment."
+  ],
+  [
+   "made it through my shift without spilling anything, a miracle",
+   "A clean shift is a win!"
+  ],
+  [
+   "brigid my roommate has velveteers on full blast and i dont even mind",
+   "Sounds like you two have matching taste in music."
+  ],
+  [
+   "her bf luca is over again, the other luca not cafe luca lol",
+   "Two of them could get confusing fast!"
+  ],
+  [
+   "hes super into beekeeping, brought us a jar of honey",
+   "What a sweet gift, literally."
+  ],
+  [
+   "i love honey so this is a win",
+   "Perfect for tea during study sessions."
+  ],
+  [
+   "my lab partner wendeline saved my grade today",
+   "Sounds like a great person to have in your corner."
+  ],
+  [
+   "bellhaven's library closes way too early for finals",
+   "That's rough timing, hopefully you can find another quiet spot."
+  ],
+  [
+   "pulled an all nighter, regreting it",
+   "Try to sneak in a nap if you can."
+  ],
+  [
+   "mom got kicked by a horse at work, the joys of being a farrier lol, shes fine",
+   "Glad she's okay, that sounds scary."
+  ],
+  [
+   "my brother has shingles?? i thought that was an old person thing",
+   "It can hit anyone, I hope he feels better soon."
+  ],
+  [
+   "cosmo is my big brother, hes 30 so maybe it is an old person thing",
+   "Ha, I'm sure he'd love hearing that."
+  ],
+  [
+   "ok back to studying",
+   "Good luck, you've got this."
+  ],
+  [
+   "had a weird dream about bugs lol",
+   "Sounds like your studies are following you to bed."
+  ],
+  [
+   "brigid's so stressed lately",
+   "Finals season is hard on everyone."
+  ],
+  [
+   "lease is up in may and im moving to saltcombe after graduation",
+   "That's a big change, exciting though."
+  ],
+  [
+   "kinda scared to leave everyone",
+   "That's natural, and the people who matter will stay in touch."
+  ],
+  [
+   "cafe luca says hell visit",
+   "That's sweet of him."
+  ],
+  [
+   "last exam tomorrow",
+   "Almost there!"
+  ],
+  [
+   "brigid's huawei got stolen at the bus stop today, shes devastated",
+   "That's awful, I'm sorry she's dealing with that."
+  ],
+  [
+   "gonna go cheer her up with ice cream",
+   "That's a kind idea, enjoy!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "lab partner's name?",
+   "answer": "wendeline",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "which band is brigid always playing",
+   "answer": "velveteers",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "never_told",
+   "message": "what's brigid studying",
+   "wrong": [
+    "entomology"
+   ]
+  }
+ ]
+}

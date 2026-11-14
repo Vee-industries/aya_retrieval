@@ -1,0 +1,124 @@
+{
+ "id": "w13_00",
+ "exchanges": [
+  [
+   "ok big news i finally got the job at halverson clinic!!",
+   "Congratulations, that's huge news!"
+  ],
+  [
+   "still kinda in shock tbh, i applied on a whim",
+   "Sometimes the whim applications are the ones that land."
+  ],
+  [
+   "only downside is my sciatica is flaring so sitting all day is gonna suck",
+   "Oof, a good chair and some stretch breaks might help."
+  ],
+  [
+   "dara dragged me to her fencing class last night lol i was terrible",
+   "Being terrible at the first class is basically tradition."
+  ],
+  [
+   "my legs are so sore from it",
+   "Sounds like a proper workout, hope they recover quick."
+  ],
+  [
+   "my aunt maren called, shes a taxidermist so she always has the weirdest stories",
+   "That job must come with some unforgettable stories."
+  ],
+  [
+   "also our cat marzipan learned to open the cupboard",
+   "Uh oh, a cat who can open doors is a whole new problem."
+  ],
+  [
+   "found her sitting in the cereal box this morning",
+   "That's an adorable crime scene."
+  ],
+  [
+   "my sister switched her major to geology, mom is not thrilled",
+   "Rocks are a cool thing to study, hopefully your mom comes around."
+  ],
+  [
+   "anyway what should i make for dinner, i have rice and like one onion",
+   "A simple fried rice with that onion could work nicely."
+  ],
+  [
+   "the cat is a chartreux so shes basically a chunky grey potato",
+   "Chunky grey potato is a perfect description."
+  ],
+  [
+   "funny thing, the maren next door is a locksmith, so two marens with odd jobs",
+   "Two Marens with unusual trades is a fun coincidence."
+  ],
+  [
+   "she helped me when i locked myself out last spring",
+   "Very handy neighbour to have."
+  ],
+  [
+   "started piranesi last night and i cant put it down",
+   "It's a strange, gripping one, enjoy it."
+  ],
+  [
+   "stayed up way too late reading",
+   "That's the sign of a good book."
+  ],
+  [
+   "my cousin is moving to lisdoon for some farm job",
+   "That's a big change, hope it goes well for them."
+  ],
+  [
+   "so now i have to help pack a truck on saturday ugh",
+   "Pizza as payment is the standard rate for moving help."
+  ],
+  [
+   "dara offered to bring her old saab to haul boxes",
+   "Every bit of trunk space helps on moving day."
+  ],
+  [
+   "feelin a bit tired today honestly",
+   "Go easy on yourself, it's been a busy week."
+  ],
+  [
+   "at least the ferry ride to work will give me time to read",
+   "A boat commute with a book sounds pretty great."
+  ],
+  [
+   "weather looks gross tomorow tho",
+   "Bring a good raincoat for the crossing."
+  ],
+  [
+   "ok first day outfit, jeans or nice pants",
+   "Nice pants for day one, then you can read the room."
+  ],
+  [
+   "grabbing breakfast at bramblewick first, their scones are unreal",
+   "A good scone is the right way to start a new job."
+  ],
+  [
+   "ok going to bed early, wish me luck",
+   "Good luck, you're going to do great!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me what subject my sister's doing at uni",
+   "answer": "geology",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "older",
+   "message": "which novel was i hooked on",
+   "answer": "piranesi",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "never_told",
+   "message": "whats my job title these days",
+   "wrong": [
+    "halverson"
+   ]
+  }
+ ]
+}

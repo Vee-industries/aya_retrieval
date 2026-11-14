@@ -1,0 +1,124 @@
+{
+ "id": "w4_00",
+ "exchanges": [
+  [
+   "ugh mondays. barely slept, the neighbours dog was howling half the night",
+   "Oof, that sounds rough, hope the day goes easy on you."
+  ],
+  [
+   "anyway first week at the new place is going ok, kelderhaus is way more chill than my old job",
+   "That's great to hear, a calmer workplace makes a huge difference."
+  ],
+  [
+   "odile who sits next to me is kind of intense tho lol",
+   "Ha, every office has one, hopefully she grows on you."
+  ],
+  [
+   "the ferry in every morning is honestly the best part, coffee and sea air",
+   "That sounds like a lovely way to start the day."
+  ],
+  [
+   "dara came by last night with the new puppy, im in love",
+   "Aw, puppy visits are the best kind of visits!"
+  ],
+  [
+   "dara finally settled on a name for it, pistachio lmao",
+   "That's adorable, very on brand for a puppy."
+  ],
+  [
+   "she wants me to puppysit next weekend which i mean yes obviously",
+   "Sounds like a weekend well spent!"
+  ],
+  [
+   "dara says its a vizsla so its basically going to be a lunatic",
+   "Ha, that's a high energy breed, she'll need lots of long walks."
+  ],
+  [
+   "ok my wrist has been killing me all week",
+   "Ouch, I hope you can get it looked at soon."
+  ],
+  [
+   "physio says its tendinitis, too much typing apparently",
+   "Ugh, hopefully some rest and stretches sort it out quickly."
+  ],
+  [
+   "jules from my old flat lives out in brackenford now, such a long drive to see her",
+   "That's a trek, but probably worth it for a good catch up."
+  ],
+  [
+   "might go see her saturday if the weather holds",
+   "Fingers crossed for sunshine!"
+  ],
+  [
+   "different jules btw, my cousin jules finally settled in lowmarsh, says its tiny",
+   "Small towns can be really charming once you get used to them."
+  ],
+  [
+   "family stuff is a lot this month honestly",
+   "That's understandable, go easy on yourself."
+  ],
+  [
+   "my brother picked up the euphonium again, neighbours must love him",
+   "Ha, nothing like a brass revival to liven up the street."
+  ],
+  [
+   "been watching detectorists every night before bed, so cosy",
+   "Sounds like the perfect wind down show."
+  ],
+  [
+   "odile asked me to cover her shift thursday ugh",
+   "Hopefully she returns the favour sometime."
+  ],
+  [
+   "odile still carries around this ancient nokia, refuses smartphones on principle",
+   "Honestly kind of iconic, the battery probably lasts forever."
+  ],
+  [
+   "went bouldering after work, arms are jelly",
+   "Nice, sore arms mean you climbed hard!"
+  ],
+  [
+   "might order takeout tonight, too tired to cook",
+   "Totally fair, you've earned an easy night."
+  ],
+  [
+   "my aunt is obsessed with stereolab, she played them the whole car ride yesterday",
+   "Ha, at least it was a good soundtrack for the drive."
+  ],
+  [
+   "flat is so damp lately, the windows are dripping every morning",
+   "Damp is miserable, airing it out a bit might help."
+  ],
+  [
+   "just bought a dehumidifier off marketplace, fingers crossed it works",
+   "Good call, that should help a lot with the windows."
+  ],
+  [
+   "anyway gonna crash early, long day tomorrow",
+   "Sleep well, talk soon!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "the band my aunt loves, which one was it",
+   "answer": "stereolab",
+   "wrong": [],
+   "fact_exchange": 20
+  },
+  {
+   "kind": "older",
+   "message": "remind me what my commute is like",
+   "answer": "ferry",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "never_told",
+   "message": "who does dara work for",
+   "wrong": [
+    "kelderhaus"
+   ]
+  }
+ ]
+}

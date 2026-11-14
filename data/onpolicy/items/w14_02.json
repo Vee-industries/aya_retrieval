@@ -1,0 +1,124 @@
+{
+ "id": "w14_02",
+ "exchanges": [
+  [
+   "hey hey, survived another monday",
+   "Glad you made it through."
+  ],
+  [
+   "the forklift at Marrowfield broke down so we all just stood around the warehouse for hours",
+   "At least it was an easy shift, in a way."
+  ],
+  [
+   "boss wasnt thrilled lol",
+   "I can imagine that didn't go over well."
+  ],
+  [
+   "my wife went bouldering after work and came home with chalk literally everywhere",
+   "Sounds like she had a good time though."
+  ],
+  [
+   "the couch is grey now. it was blue",
+   "Maybe a lint roller can rescue it."
+  ],
+  [
+   "our daughter Odessa drew a picture of me as a dinosaur today",
+   "That sounds like a masterpiece worth framing."
+  ],
+  [
+   "its on the fridge already obviously",
+   "Exactly where it belongs."
+  ],
+  [
+   "lena next door practices cello every evening and honestly its kind of nice",
+   "Live music through the wall isn't a bad deal."
+  ],
+  [
+   "way better than the old neighbours who fought all the time",
+   "That's a big upgrade."
+  ],
+  [
+   "my wrist has been killing me, doc says its tendinitis from lifting boxes",
+   "Ouch, I hope you can rest it a bit."
+  ],
+  [
+   "got a brace for it, looks very dramatic",
+   "Dramatic but hopefully helpful."
+  ],
+  [
+   "my brother says hes moving to Whitehorse, no idea why, its freezing up there",
+   "It's a bold choice, maybe he loves the cold."
+  ],
+  [
+   "he claims he likes the quiet",
+   "Some people really do thrive somewhere peaceful."
+  ],
+  [
+   "funny thing, my boss is also named lena and she plays trombone in a jazz band on weekends",
+   "That's quite a coincidence, and a fun hobby for her."
+  ],
+  [
+   "i cant picture her doing anything fun honestly",
+   "People can surprise you outside of work."
+  ],
+  [
+   "my Crosstrek needs new tires before winter",
+   "Good call getting that sorted before the snow."
+  ],
+  [
+   "and of course money is tight this month",
+   "That timing is always frustrating."
+  ],
+  [
+   "gus came over and we listened to Khruangbin all night, hes such a fan",
+   "That sounds like a relaxing night."
+  ],
+  [
+   "my Motorola is so old the screen flickers when i text",
+   "Sounds like it might be time to think about a replacement."
+  ],
+  [
+   "nah its fine, it survives everything",
+   "Fair enough, loyalty to a tough phone."
+  ],
+  [
+   "my brother's girlfriend Anouk is going with him which makes more sense now",
+   "Moving with a partner does make the decision easier."
+  ],
+  [
+   "ok kid is asleep, wife is asleep, its my time",
+   "Enjoy the peace and quiet."
+  ],
+  [
+   "putting on Taskmaster and eating crackers in the dark",
+   "That sounds like a perfect evening."
+  ],
+  [
+   "living the dream",
+   "Honestly, it kind of is."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "name of my child?",
+   "answer": "Odessa",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "older",
+   "message": "whats the condition in my arm called",
+   "answer": "tendinitis",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "never_told",
+   "message": "where does my brother live right now",
+   "wrong": [
+    "Whitehorse"
+   ]
+  }
+ ]
+}

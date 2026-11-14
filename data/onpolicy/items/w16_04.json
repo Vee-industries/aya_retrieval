@@ -1,0 +1,124 @@
+{
+ "id": "w16_04",
+ "exchanges": [
+  [
+   "ok who decided mondays should exist",
+   "Whoever it was owes everyone an apology."
+  ],
+  [
+   "being a dispatcher is basically yelling at drivers all day",
+   "Sounds exhausting, your voice must need a break."
+  ],
+  [
+   "had three trucks break down before ten",
+   "That's a rough morning, hope the rest was calmer."
+  ],
+  [
+   "marek from accounts turned up in a polestar today, total flex",
+   "Ha, someone's doing well for themselves."
+  ],
+  [
+   "everyone went out to look at it at lunch",
+   "Sounds like the most exciting lunch break in a while."
+  ],
+  [
+   "i stuck with my sad sandwich",
+   "Sad sandwiches still count as lunch."
+  ],
+  [
+   "the other marek, the warehouse one, still drives a beat up hilux",
+   "Nothing wrong with something reliable."
+  ],
+  [
+   "anyway home now, feet up",
+   "Enjoy the rest, you've earned it."
+  ],
+  [
+   "my gf linnea got a promotion today!!",
+   "That's amazing, congratulations to her!"
+  ],
+  [
+   "we're going out to celebrate friday",
+   "That sounds like a great night."
+  ],
+  [
+   "our cat bramwell knocked my coffee all over the desk",
+   "Classic cat move, hope nothing important got soaked."
+  ],
+  [
+   "laptop survived thankfully",
+   "Phew, that could've been a disaster."
+  ],
+  [
+   "he's a ragdoll so he just flops on whatever im using",
+   "That's a very cuddly way to get attention."
+  ],
+  [
+   "work tomorrow is gonna be chaos, new routes",
+   "Hope it goes smoother than you expect."
+  ],
+  [
+   "rewatching detectorists for the fifth time, so comforting",
+   "A comfort show is the best kind of evening."
+  ],
+  [
+   "might make pasta later",
+   "Pasta is always a good idea."
+  ],
+  [
+   "hester's reading piranesi and keeps texting me theories",
+   "Sounds like she's really hooked on it."
+  ],
+  [
+   "i havent read it so i just send question marks",
+   "Ha, that's a fair response."
+  ],
+  [
+   "my dad's gout is back, he's been grumpy all week",
+   "Poor guy, hope it settles soon."
+  ],
+  [
+   "my huawei battery dies by lunch every single day now",
+   "Sounds like it might be time for a new battery or phone."
+  ],
+  [
+   "my gf dragged me to quillon again, she lives for their pastries",
+   "At least the pastries sound worth the trip."
+  ],
+  [
+   "tbh i didnt mind",
+   "Sounds like it was a good outing after all."
+  ],
+  [
+   "signed up for an archery taster on saturday, wish me luck",
+   "Good luck, that sounds really fun to try."
+  ],
+  [
+   "ok night night",
+   "Good night, sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which novel is hester into",
+   "answer": "piranesi",
+   "wrong": [],
+   "fact_exchange": 16
+  },
+  {
+   "kind": "older",
+   "message": "how's dad, what was his health thing",
+   "answer": "gout",
+   "wrong": [],
+   "fact_exchange": 18
+  },
+  {
+   "kind": "never_told",
+   "message": "linnea's health lately, anything up",
+   "wrong": [
+    "gout"
+   ]
+  }
+ ]
+}

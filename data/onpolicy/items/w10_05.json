@@ -1,0 +1,124 @@
+{
+ "id": "w10_05",
+ "exchanges": [
+  [
+   "shop was freezing this morning",
+   "Hope you warmed up once things got going."
+  ],
+  [
+   "being a cooper means my hands are always wrecked from the hoops",
+   "Hard work on the hands, for sure."
+  ],
+  [
+   "got a big order of barrels to finish",
+   "Busy times are good for business."
+  ],
+  [
+   "my outlander barely fit all the staves lol",
+   "Glad you squeezed them in."
+  ],
+  [
+   "mom called, she's been bingeing tv",
+   "Sounds like she's having a cozy time."
+  ],
+  [
+   "mom's hooked on shetland, calls me after every episode",
+   "Sounds like she found a new favourite."
+  ],
+  [
+   "my stepmom is the opposite, she hates mysteries",
+   "Everyone has their own taste."
+  ],
+  [
+   "my stepmom's watching ozark nonstop instead",
+   "Very different picks in the same family."
+  ],
+  [
+   "family dinners are interesting with both of them around",
+   "I bet the conversations are lively."
+  ],
+  [
+   "i grew up in saltcoats so this rain feels like home",
+   "Nothing like weather that reminds you of home."
+  ],
+  [
+   "ozias brought his daughter fenna to the shop today, she loved it",
+   "Kids love seeing where things get made."
+  ],
+  [
+   "she swept up every bit of sawdust lol",
+   "A natural helper."
+  ],
+  [
+   "ozias is really into falconry, he brought his hawk once",
+   "That must have been a sight."
+  ],
+  [
+   "kinda want to learn but seems like a lot",
+   "It does take real commitment."
+  ],
+  [
+   "been practicing accordion at night, neighbours hate me",
+   "Practice is practice, they'll get used to it."
+  ],
+  [
+   "maybe i need to buy them earplugs",
+   "That could be a nice peace offering."
+  ],
+  [
+   "priya at work rides a scooter in every day even in this weather",
+   "That's some serious dedication."
+  ],
+  [
+   "my nephew dax just got into kingsmere, the whole family's proud",
+   "That's a great achievement for him."
+  ],
+  [
+   "gonna get him a little gift",
+   "He'll appreciate that."
+  ],
+  [
+   "carbury is so quiet at night, love living here",
+   "A quiet place to live is hard to beat."
+  ],
+  [
+   "except for my practicing haha",
+   "Well, mostly quiet then."
+  ],
+  [
+   "my phone keeps dying",
+   "That's so annoying."
+  ],
+  [
+   "this blackberry is older than dax probably",
+   "Might be time for an upgrade."
+  ],
+  [
+   "anyway gonna grab dinner",
+   "Enjoy your meal."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "ozias has some unusual pastime, what is it",
+   "answer": "falconry",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "older",
+   "message": "my nephew was accepted at which school",
+   "answer": "kingsmere",
+   "wrong": [],
+   "fact_exchange": 17
+  },
+  {
+   "kind": "never_told",
+   "message": "where did priya grow up",
+   "wrong": [
+    "saltcoats"
+   ]
+  }
+ ]
+}

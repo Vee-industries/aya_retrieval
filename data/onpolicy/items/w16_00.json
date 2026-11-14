@@ -1,0 +1,124 @@
+{
+ "id": "w16_00",
+ "exchanges": [
+  [
+   "ugh monday again, already need a nap",
+   "Hang in there, a nap later sounds well earned."
+  ],
+  [
+   "long shift at fernhollow today, the spring rush is real",
+   "Sounds busy, hope the customers were at least nice."
+  ],
+  [
+   "weather was gorgeous tho so i ate lunch outside",
+   "Lunch in the sun is the best kind of break."
+  ],
+  [
+   "my bf teodor made soup for dinner so the day is saved",
+   "That's sweet of him, a warm dinner fixes a lot."
+  ],
+  [
+   "my sister maren got a puppy and named it pimento lol",
+   "Ha, that's a great name for a puppy!"
+  ],
+  [
+   "shes sending me videos of it nonstop",
+   "Puppy videos are a pretty good thing to be flooded with."
+  ],
+  [
+   "signed up for the evening arboriculture course, kinda nervous",
+   "Good for you, it'll be great to learn more about trees."
+  ],
+  [
+   "maren says the pup is a whippet so it just zooms in circles",
+   "That breed does love to run, she'll need plenty of space."
+  ],
+  [
+   "tired but cant sleep, classic",
+   "Maybe some tea and a dim screen will help you wind down."
+  ],
+  [
+   "went to see maren's flat in larkhill, tiny but she loves it",
+   "A cozy place you love beats a big one you don't."
+  ],
+  [
+   "my coworker osric covered for me when i was late, owe him one",
+   "That's a good coworker to have around."
+  ],
+  [
+   "might bring him donuts tomorrow",
+   "Donuts are a classic thank-you, he'll appreciate it."
+  ],
+  [
+   "my sister in law talia lives out in wickham so we barely see her",
+   "Distance makes it hard, but it's nice when you do get together."
+  ],
+  [
+   "she might come down for maren's birthday tho",
+   "That would be a nice chance to catch up."
+  ],
+  [
+   "my dad finally sold the van and bought a bronco, midlife crisis much",
+   "Ha, at least he's having fun with it."
+  ],
+  [
+   "he keeps offering me rides just to show it off",
+   "Sounds like he's very proud of the new ride."
+  ],
+  [
+   "wrist is acting up again, doc says its tendinitis from all the pruning",
+   "Ouch, try to rest it when you can and go easy at work."
+  ],
+  [
+   "so now i have a brace, very glamorous",
+   "Glamorous or not, it'll help it heal."
+  ],
+  [
+   "bexley is finally reading middlemarch after i nagged her for ages",
+   "Nagging pays off, hope she enjoys it."
+  ],
+  [
+   "the ferry was so rough this morning i nearly lost my coffee",
+   "Choppy water and hot coffee are a risky combo."
+  ],
+  [
+   "anyway weekend plans are nothing, just sleeping",
+   "A slow weekend sounds like exactly what you need."
+  ],
+  [
+   "maybe a movie if im feeling brave",
+   "A movie night at home sounds perfect."
+  ],
+  [
+   "my bf has had khruangbin on repeat all week, i know every song now",
+   "At least it's music you can both enjoy."
+  ],
+  [
+   "ok going to make tea, chat later",
+   "Enjoy your tea, talk soon."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "hey what class am i enrolled in now",
+   "answer": "arboriculture",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "older",
+   "message": "which novel has bexley got her nose in",
+   "answer": "middlemarch",
+   "wrong": [],
+   "fact_exchange": 18
+  },
+  {
+   "kind": "never_told",
+   "message": "what does talia drive",
+   "wrong": [
+    "bronco"
+   ]
+  }
+ ]
+}

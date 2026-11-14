@@ -1,0 +1,124 @@
+{
+ "id": "w16_03",
+ "exchanges": [
+  [
+   "hiii back from campus finally",
+   "Welcome back, hope you can relax now."
+  ],
+  [
+   "geophysics lecture was brutal today, my brain hurts",
+   "Sounds like a heavy one, give your brain a rest tonight."
+  ],
+  [
+   "half the room fell asleep honestly",
+   "Ha, at least you stayed awake through it."
+  ],
+  [
+   "the library at aldermoor is rammed during exam season",
+   "Finding a seat must be a battle."
+  ],
+  [
+   "ended up working from a cafe instead",
+   "A cafe can be a nice change of scene."
+  ],
+  [
+   "my flat in saltmarsh has no heating again, wearing three jumpers",
+   "That's miserable, hope the landlord sorts it fast."
+  ],
+  [
+   "landlord says monday maybe",
+   "Fingers crossed he actually follows through."
+  ],
+  [
+   "my sister ottilie is coming to stay this weekend",
+   "That'll be lovely, you'll have a nice catch up."
+  ],
+  [
+   "my flatmate saoirse left dishes in the sink for days, im losing it",
+   "That would test anyone's patience."
+  ],
+  [
+   "we had a chat, its fine now",
+   "Glad you sorted it out calmly."
+  ],
+  [
+   "my brother just qualified as a paramedic, so proud of him",
+   "That's a huge achievement, congrats to him!"
+  ],
+  [
+   "professor lindqvist grew up in kiruna, he talks about the snow constantly",
+   "He must find the winters here very mild."
+  ],
+  [
+   "he's actually a great teacher though",
+   "That makes a big difference in a tough subject."
+  ],
+  [
+   "my brother in law is a sommelier so every family dinner turns into a wine lecture",
+   "At least the wine must be good."
+  ],
+  [
+   "ugh assignment due tomorrow and ive barely started",
+   "You can do it, start with the easiest bit."
+  ],
+  [
+   "my flatmate has taken up curling of all things",
+   "That's a fun and unexpected hobby."
+  ],
+  [
+   "she keeps sweeping the kitchen floor like its ice",
+   "Ha, practice is practice."
+  ],
+  [
+   "listening to stromae on loop to get through this essay",
+   "Good music makes the writing go faster."
+  ],
+  [
+   "my bike chain snapped on the way in this morning, walked the rest",
+   "That's annoying, hope it's an easy fix."
+  ],
+  [
+   "essay done!! barely but done",
+   "Well done, that's a relief."
+  ],
+  [
+   "treated myself and bought a hammock for the balcony",
+   "Perfect spot to unwind after all that work."
+  ],
+  [
+   "cant wait for the weekend now",
+   "It's well earned after this week."
+  ],
+  [
+   "my sister is moving to inverness next year, she just told me on the phone",
+   "Big news, you'll have a new place to visit."
+  ],
+  [
+   "bit gutted but happy for her",
+   "That makes sense, it's a big change."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me the name of the girl i live with",
+   "answer": "saoirse",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "older",
+   "message": "which neighbourhood is my place in",
+   "answer": "saltmarsh",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "never_told",
+   "message": "my brother's hobby, any idea",
+   "wrong": [
+    "curling"
+   ]
+  }
+ ]
+}

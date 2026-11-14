@@ -1,0 +1,124 @@
+{
+ "id": "w8_04",
+ "exchanges": [
+  [
+   "hey, rainy one today huh",
+   "Perfect weather for staying in."
+  ],
+  [
+   "spent the whole shift at the hatchery soaked anyway",
+   "Hope you got warm afterwards."
+  ],
+  [
+   "the fish dont care about rain lol",
+   "Lucky fish."
+  ],
+  [
+   "my coworker hesper brought soup for everyone, legend",
+   "What a kind gesture."
+  ],
+  [
+   "honestly the best part of the day",
+   "Soup on a rainy day is hard to beat."
+  ],
+  [
+   "tomas from soccer told us hes moving to quillbridge next month",
+   "Big change for him."
+  ],
+  [
+   "we're gonna miss him in goal",
+   "Sounds like a big loss for the team."
+  ],
+  [
+   "and my cousin tomas is moving to larkfield, why is every tomas leaving",
+   "Funny coincidence."
+  ],
+  [
+   "gonna have to plan two goodbye dinners",
+   "Busy social calendar!"
+  ],
+  [
+   "my peugeot needs new wipers badly too",
+   "Definitely worth sorting before more rain."
+  ],
+  [
+   "plus my neck still hurts from the whiplash last month",
+   "Hope it heals up soon."
+  ],
+  [
+   "physio says to take it easy",
+   "Good advice to follow."
+  ],
+  [
+   "kaz got accepted at rookhaven college!!",
+   "That's fantastic news."
+  ],
+  [
+   "kaz is gonna do viticulture, wants to make wine someday",
+   "Sounds like a fun path."
+  ],
+  [
+   "im low key jealous",
+   "Understandable, it sounds exciting."
+  ],
+  [
+   "at least curling season starts soon",
+   "Something to look forward to."
+  ],
+  [
+   "our team was terrible last year but we had fun",
+   "Fun is what matters."
+  ],
+  [
+   "my aunt finally had the baby, they named her wrenna",
+   "Congratulations to the whole family!"
+  ],
+  [
+   "cutest thing ive ever seen",
+   "Babies are the best."
+  ],
+  [
+   "makes me miss morrowdale where i grew up",
+   "Home always pulls at you."
+  ],
+  [
+   "might visit for the holidays",
+   "That would be lovely."
+  ],
+  [
+   "kaz wants to come too",
+   "Road trip!"
+  ],
+  [
+   "kaz will spend the whole drive on that huawei of his though",
+   "Someone has to pick the music."
+  ],
+  [
+   "ok time for bed",
+   "Sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "whats the newborn called, the one from my aunt",
+   "answer": "wrenna",
+   "wrong": [],
+   "fact_exchange": 17
+  },
+  {
+   "kind": "older",
+   "message": "my hometown is called what again",
+   "answer": "morrowdale",
+   "wrong": [],
+   "fact_exchange": 19
+  },
+  {
+   "kind": "never_told",
+   "message": "hesper, which school does she attend",
+   "wrong": [
+    "rookhaven"
+   ]
+  }
+ ]
+}

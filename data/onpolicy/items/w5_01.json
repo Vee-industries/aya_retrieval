@@ -1,0 +1,124 @@
+{
+ "id": "w5_01",
+ "exchanges": [
+  [
+   "morning! running on like no sleep",
+   "Sending coffee vibes your way!"
+  ],
+  [
+   "the ferry was packed again, standing room only the whole way across",
+   "Standing for the whole crossing sounds exhausting."
+  ],
+  [
+   "my sister just passed her sommelier exam, shes insufferable now lol",
+   "Ha, she earned a little bragging, that's a tough exam!"
+  ],
+  [
+   "my son ambrose lost another tooth, the tooth fairy is going broke",
+   "The tooth fairy's budget is taking a real beating!"
+  ],
+  [
+   "grabbing groceries after work, need ideas for dinner",
+   "A quick stir fry is always an easy win."
+  ],
+  [
+   "teo wont shut up about khruangbin, he's seen them more times than i can count",
+   "Sounds like he's a true superfan!"
+  ],
+  [
+   "honestly kinda miss growing up in kettlemere, everything was walkable",
+   "Walkable towns really do have a special charm."
+  ],
+  [
+   "the kid has a spelling test tomorrow and is panicking",
+   "A little practice tonight should calm those nerves."
+  ],
+  [
+   "my sister-in-law is a cartographer which sounds made up but its real",
+   "That's such a cool job, making maps for a living!"
+  ],
+  [
+   "dropped my phone in the sink, thank god the fairphone survived",
+   "Phew, glad it made it through the dunk!"
+  ],
+  [
+   "rainy and gross out",
+   "Perfect excuse for a cozy night in."
+  ],
+  [
+   "my sons school, brackenridge, is doing a bake sale and i volunteered somehow",
+   "Volunteering by accident is a classic parent move!"
+  ],
+  [
+   "any good cookie recipes that survive being made at midnight",
+   "Basic chocolate chip is pretty forgiving, even late at night."
+  ],
+  [
+   "teo got me watching severance, im a few episodes in and very confused",
+   "Confused is the right reaction, it gets even stranger!"
+  ],
+  [
+   "my coworker halvard brought in homemade pretzels, legend",
+   "Homemade pretzels at work is elite behaviour."
+  ],
+  [
+   "bake sale went ok, sold out of the brownies",
+   "Selling out is a total success!"
+  ],
+  [
+   "my sister's moving to dunmarra for some fancy wine bar job",
+   "Big move, hopefully it's a great fit for her."
+  ],
+  [
+   "gonna miss her tho",
+   "That's understandable, you can still visit though."
+  ],
+  [
+   "signed up for horticulture night classes, finally doing something for me",
+   "That sounds like a lovely thing to do for yourself."
+  ],
+  [
+   "first class is all about soil apparently",
+   "Soil is the foundation of everything, so it makes sense!"
+  ],
+  [
+   "tired. so tired.",
+   "Rest up, you've had a full week."
+  ],
+  [
+   "the kids asleep finally",
+   "Enjoy the quiet while it lasts!"
+  ],
+  [
+   "car is making a weird noise again, my poor miata is falling apart",
+   "Might be worth getting it looked at before it gets worse."
+  ],
+  [
+   "ok gonna watch something dumb and sleep",
+   "Sounds like the perfect end to the day."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "the guy at work who baked stuff for everyone, name?",
+   "answer": "halvard",
+   "wrong": [],
+   "fact_exchange": 14
+  },
+  {
+   "kind": "older",
+   "message": "whats my hometown called",
+   "answer": "kettlemere",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "never_told",
+   "message": "what school is my gardening course at",
+   "wrong": [
+    "horticulture"
+   ]
+  }
+ ]
+}

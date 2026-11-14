@@ -1,0 +1,124 @@
+{
+ "id": "w12_00",
+ "exchanges": [
+  [
+   "ugh mondays. survived my first week at halvorsen tho so thats something",
+   "Congrats on getting through the first week, that's a real milestone!"
+  ],
+  [
+   "the boss there, rupert, talks so fast i just nod like i understand",
+   "Nodding along is a time-honoured strategy, you'll catch his pace soon."
+  ],
+  [
+   "commute is kinda nice tho, i take the ferry across every morning and just stare at the water",
+   "That sounds like a pretty peaceful way to start the day."
+  ],
+  [
+   "my sister ysolde finally adopted a cat lol",
+   "Oh that's lovely, a new family member!"
+  ],
+  [
+   "she called it pumpernickel which is the most her thing ever",
+   "That's an adorable name, it sounds like it has character."
+  ],
+  [
+   "apparently its a korat, i had to google what that even is",
+   "Ha, there are so many breeds out there that most people have never heard of."
+  ],
+  [
+   "lunch was leftover soup again. i rly need to meal prep",
+   "Leftover soup still counts as a win, but meal prep could save you some stress."
+  ],
+  [
+   "my wrist is killing me, doc says its tendonitis from all the typing",
+   "Ouch, I hope you can rest it a bit and get some relief soon."
+  ],
+  [
+   "tamsin from accounting gave me a lift home in her saab, the thing makes noises",
+   "Sounds like a ride with a bit of personality!"
+  ],
+  [
+   "kind of tired today, slept badly",
+   "Sorry to hear that, maybe an early night will help."
+  ],
+  [
+   "ysolde lives way out in dunmarrow so i dont get to see the cat much",
+   "That's a shame, hopefully you'll get a visit in when things calm down."
+  ],
+  [
+   "my sister in law is the opposite, shes right in the middle of town in keswold",
+   "Handy having someone close by right in town."
+  ],
+  [
+   "watched the rain for like an hour instead of doing laundry",
+   "Honestly, rain watching is a perfectly valid use of time."
+  ],
+  [
+   "okello is learning the bassoon for some reason, his neighbours must love him",
+   "That's a brave instrument to take up, good on him."
+  ],
+  [
+   "started middlemarch on the boat this morning, its sooo long",
+   "It's a big one, but lots of people say it's worth the slog."
+  ],
+  [
+   "might go to the market saturday if the weather holds",
+   "Fingers crossed for a dry day, markets are lovely."
+  ],
+  [
+   "my dad keeps telling stories about growing up in glenvarra like its a fairy tale",
+   "Those old hometown stories can be the best ones."
+  ],
+  [
+   "had khruangbin on repeat all afternoon, best band ever honestly",
+   "Nothing like a favourite band on loop to carry you through an afternoon."
+  ],
+  [
+   "rupert said im doing fine so far, so relieved",
+   "That's great feedback to get early on!"
+  ],
+  [
+   "thinking of making pasta tonight, nothing fancy",
+   "Simple pasta is one of life's great comforts."
+  ],
+  [
+   "kinda want a nap but its way too early",
+   "A short rest might still do you good."
+  ],
+  [
+   "okello texted, hes been doing falconry on weekends now?? the man has range",
+   "He really does seem to collect unusual pastimes!"
+  ],
+  [
+   "anyway im gonna go fold that laundry finally",
+   "Good luck, future you will be grateful."
+  ],
+  [
+   "tamsin's coming over friday to watch a movie, should be fun",
+   "That sounds like a fun way to end the week."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "what did ysolde end up naming her new kitty",
+   "answer": "pumpernickel",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "older",
+   "message": "hey which company hired me recently",
+   "answer": "halvorsen",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "never_told",
+   "message": "where does dad live now",
+   "wrong": [
+    "glenvarra"
+   ]
+  }
+ ]
+}

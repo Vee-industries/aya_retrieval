@@ -1,0 +1,124 @@
+{
+ "id": "w5_02",
+ "exchanges": [
+  [
+   "back from the stables, i smell like a horse lol",
+   "Nothing a good shower can't fix!"
+  ],
+  [
+   "being a farrier is great until a pony decides to lean on you",
+   "That sounds like a very heavy kind of hug!"
+  ],
+  [
+   "my cousin priya got me a growler from the quillon brewery where she works, so nice",
+   "What a nice perk of having family in the brewing biz!"
+  ],
+  [
+   "cat knocked over my plant again",
+   "Cats and houseplants are eternal enemies."
+  ],
+  [
+   "the cat's name is quince and she's a menace",
+   "She sounds like she runs the house!"
+  ],
+  [
+   "any tips for keeping a cat off counters",
+   "A bit of double sided tape on the edges works for a lot of people."
+  ],
+  [
+   "voice is shot, walk in clinic says laryngitis so no talking for me",
+   "Rest that voice, texting it is for now!"
+  ],
+  [
+   "my girlfriend rhiannon made me honey lemon tea, shes the best",
+   "That's so caring, hope it soothes your throat."
+  ],
+  [
+   "the clinic wait was forever tho",
+   "Long waits are the worst when you feel rough."
+  ],
+  [
+   "odette roped me into trying curling on thursday, i have no balance",
+   "Everyone wobbles at first, it'll be a laugh!"
+  ],
+  [
+   "fell on the ice twice lmao",
+   "Ouch, but at least you gave it a go!"
+  ],
+  [
+   "rent here in marrowby keeps going up, its getting silly",
+   "Rising rent is such a pain to keep up with."
+  ],
+  [
+   "the other priya, from book club, just landed a job at mossgate",
+   "Good for her, new jobs are exciting!"
+  ],
+  [
+   "book club is reading something boring this month",
+   "Maybe the next pick will be more your speed."
+  ],
+  [
+   "my gf is deep into middlemarch, she reads it in the bath",
+   "A long novel and a hot bath sounds like a perfect evening."
+  ],
+  [
+   "my uncle still drives that ancient saab, refuses to sell it",
+   "Some people just love an old car they can trust."
+  ],
+  [
+   "made soup for dinner, voice still gone",
+   "Soup is perfect for a sore throat."
+  ],
+  [
+   "listening to alvvays on repeat, they never get old",
+   "Having a band you can loop forever is the best."
+  ],
+  [
+   "the cat is a ragdoll so she just goes floppy when you pick her up",
+   "That floppy thing is adorable!"
+  ],
+  [
+   "work tomorrow, a whole barn of horses to shoe",
+   "That's a busy day, pace yourself."
+  ],
+  [
+   "kinda stressed about money stuff",
+   "That's a heavy thing to carry, hope it eases up soon."
+  ],
+  [
+   "uncle called, hes moving to porthaven to be near the sea",
+   "Sounds like a peaceful change for him."
+  ],
+  [
+   "good for him honestly",
+   "It's nice when people chase what makes them happy."
+  ],
+  [
+   "ok nap time",
+   "Enjoy the rest!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "odette's sport, which one was it",
+   "answer": "curling",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "my kitty, what do i call her",
+   "answer": "quince",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "never_told",
+   "message": "any show my gf is watching these days",
+   "wrong": [
+    "middlemarch"
+   ]
+  }
+ ]
+}

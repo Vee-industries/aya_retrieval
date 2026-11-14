@@ -1,0 +1,124 @@
+{
+ "id": "w2_06",
+ "exchanges": [
+  [
+   "big news, we're moving to brackenridge in the spring",
+   "That's exciting, a fresh start!"
+  ],
+  [
+   "packing is already a nightmare and we havent even started",
+   "Starting with one room at a time can help."
+  ],
+  [
+   "uncle otto came by and played his accordion for the kids, very loud",
+   "Sounds like the kids got quite a show."
+  ],
+  [
+   "took a 2x4 to the head at work last week, doc says mild concussion",
+   "Ouch, take it easy and let yourself heal."
+  ],
+  [
+   "so no screens for a while which is torture",
+   "That's rough, maybe a good excuse for some audiobooks."
+  ],
+  [
+   "neighbour otto, not my uncle the other one, sits on his porch with a harmonica every night",
+   "Free evening concerts, not a bad perk."
+  ],
+  [
+   "his parrot pistachio whistles along, its honestly kind of charming",
+   "That's a pretty adorable duet."
+  ],
+  [
+   "my wife has corvina playing in the kitchen every morning, cant escape it",
+   "At least breakfast comes with a soundtrack."
+  ],
+  [
+   "weather is finaly warming up",
+   "About time, enjoy it!"
+  ],
+  [
+   "boss at tollgate gave me the week off for the head thing",
+   "That's good of them, rest up."
+  ],
+  [
+   "feels weird not working",
+   "It can take a bit to slow down."
+  ],
+  [
+   "my buddy desmond lives out in haverleigh so we'll be way closer after the move",
+   "That's a nice bonus to the move."
+  ],
+  [
+   "kinda excited honestly",
+   "You should be, it sounds like a great change."
+  ],
+  [
+   "the niece is reading thistlecrown and wont put it down at dinner",
+   "Hard to argue with a kid who loves reading."
+  ],
+  [
+   "shes 12 and reads more than i ever did",
+   "That's wonderful to see."
+  ],
+  [
+   "still got my old blackberry, people laugh but it works",
+   "If it works, why fix it."
+  ],
+  [
+   "my ranger needs new tires before the move",
+   "Good call to sort that before the long drive."
+  ],
+  [
+   "quotes for movers are crazy",
+   "They really add up fast."
+  ],
+  [
+   "might just rent a trailer",
+   "That could save a good chunk of money."
+  ],
+  [
+   "uncle otto offered to help, hes surprisingly strong for 70",
+   "Sounds like a great helper to have."
+  ],
+  [
+   "wife wants to throw a goodbye bbq",
+   "That's a lovely way to say goodbye."
+  ],
+  [
+   "folks from wexley, where i grew up, might come down for it",
+   "It'll be nice to see some familiar faces."
+  ],
+  [
+   "gonna be a big crowd",
+   "The more the merrier!"
+  ],
+  [
+   "ok head hurts, gonna lie down",
+   "Take care of yourself and rest."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "desmond's town, remind me",
+   "answer": "haverleigh",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "older",
+   "message": "which singer is the wife into",
+   "answer": "corvina",
+   "wrong": [],
+   "fact_exchange": 7
+  },
+  {
+   "kind": "never_told",
+   "message": "desmond grew up where",
+   "wrong": [
+    "haverleigh"
+   ]
+  }
+ ]
+}

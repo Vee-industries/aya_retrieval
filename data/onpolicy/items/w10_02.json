@@ -1,0 +1,124 @@
+{
+ "id": "w10_02",
+ "exchanges": [
+  [
+   "long day, service calls back to back",
+   "That sounds exhausting, hope you get to put your feet up."
+  ],
+  [
+   "im mostly an estimator now so less time on ladders, more spreadsheets",
+   "A change of pace, even if spreadsheets aren't as fun."
+  ],
+  [
+   "the guys at voltara are paying for my certification, best employer ive had",
+   "That's a great perk to have."
+  ],
+  [
+   "my daughter isolde has a cold so nobody slept",
+   "Poor thing, I hope she feels better soon."
+  ],
+  [
+   "my daughter is begging to try fencing after watching the olympics",
+   "That could be a really fun sport for her."
+  ],
+  [
+   "made a huge pot of chili",
+   "Perfect for a chilly night."
+  ],
+  [
+   "my husband ruairi ate most of it straight from the pot",
+   "Sounds like it was a hit."
+  ],
+  [
+   "anyway the boss is in a mood today",
+   "Hopefully it passes quickly."
+  ],
+  [
+   "marek my boss just bought a ridgeline and parks it across every spot",
+   "Bold parking strategy."
+  ],
+  [
+   "funny, my cousin is also named marek, family loves that name",
+   "That must make family gatherings confusing."
+  ],
+  [
+   "cousin marek drives a beat up miata, total opposite",
+   "Ha, very different tastes in cars."
+  ],
+  [
+   "need to mow the lawn",
+   "Good luck, hopefully the weather holds."
+  ],
+  [
+   "honestly harrowgate is a nice place to live but the hydro rates are brutal",
+   "Lovely town, rough bills."
+  ],
+  [
+   "my husband came down with shingles, poor guy",
+   "That's painful, I hope he recovers quickly."
+  ],
+  [
+   "so im on dinner and bedtime duty all week",
+   "That's a lot on your plate, hang in there."
+  ],
+  [
+   "sabeen took me to marigold for my birthday, its her favourite place",
+   "Sounds like a lovely treat."
+  ],
+  [
+   "food coma now lol",
+   "The sign of a good meal."
+  ],
+  [
+   "dagny at work is covering my shift so i can stay home",
+   "That's a good coworker to have."
+  ],
+  [
+   "the kids school has a pajama day tomorrow",
+   "That sounds like fun for them."
+  ],
+  [
+   "trying to find matching pjs is a nightmare",
+   "It's always harder than it should be."
+  ],
+  [
+   "ok bedtime battle time",
+   "Good luck, may it go smoothly."
+  ],
+  [
+   "big news at work today",
+   "Sounds intriguing."
+  ],
+  [
+   "my coworker's moving to tromso of all places",
+   "What a big adventure for her."
+  ],
+  [
+   "gonna miss her at the office",
+   "It's hard when a good one leaves."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which town is home for us",
+   "answer": "harrowgate",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "older",
+   "message": "restaurant sabeen loves most, whats it called",
+   "answer": "marigold",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "never_told",
+   "message": "which school does isolde go to",
+   "wrong": [
+    "fencing"
+   ]
+  }
+ ]
+}

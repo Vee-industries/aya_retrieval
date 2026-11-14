@@ -1,0 +1,124 @@
+{
+ "id": "w9_04",
+ "exchanges": [
+  [
+   "evening! just woke up which feels wrong",
+   "Odd hours take some getting used to."
+  ],
+  [
+   "night shifts at the observatory are lonely but the sky is so worth it",
+   "That sounds like a pretty magical place to spend the night."
+  ],
+  [
+   "toast for breakfast at dinner time, living the dream",
+   "Whatever time it is, toast counts."
+  ],
+  [
+   "my uncle marco lives way up in ellerby, theres like one store",
+   "Sounds peaceful, if a little remote."
+  ],
+  [
+   "kinda want to dye my hair",
+   "Could be a fun change."
+  ],
+  [
+   "bex has gotten really into beekeeping, she brought me a jar of honey",
+   "Fresh honey from a friend is the best kind."
+  ],
+  [
+   "my plants are dying and i dont know why",
+   "Could be the light or the watering, worth experimenting."
+  ],
+  [
+   "started shogun last night and stayed up way too late",
+   "Sounds like it hooked you fast."
+  ],
+  [
+   "cant wait for payday lol",
+   "It always feels so far away."
+  ],
+  [
+   "hana got promoted to dispatcher, so proud of her",
+   "That's great, well deserved I'm sure."
+  ],
+  [
+   "took a really long shower, felt amazing",
+   "Sometimes that's all you need."
+  ],
+  [
+   "my bassoon teacher says im finally improving lol",
+   "That's great to hear, the practice is paying off."
+  ],
+  [
+   "the mall was a zoo today",
+   "Crowds can be exhausting."
+  ],
+  [
+   "marco the mechanic lives above his garage in dunmore, so hes always around when i need him",
+   "Handy to have someone that reliable nearby."
+  ],
+  [
+   "feeling kinda restless today",
+   "Maybe a walk would help burn some of that off."
+  ],
+  [
+   "my boyfriend thaddeus burned the toast again, the smoke alarm is our dinner bell",
+   "Ha, at least it's a reliable bell."
+  ],
+  [
+   "started journaling, lets see how long it lasts",
+   "Even a few entries can be worthwhile."
+  ],
+  [
+   "my son starts at fernhollow next fall and hes already nervous",
+   "That's natural, he'll settle in."
+  ],
+  [
+   "bex finally bought a hammock and now she basically lives in it",
+   "Sounds like the best purchase she's made."
+  ],
+  [
+   "the stars were insane last night",
+   "Clear nights are such a treat."
+  ],
+  [
+   "my kobo battery lasts forever honestly, best thing i own",
+   "It's nice when a gadget just works."
+  ],
+  [
+   "dinner was leftovers, no complaints",
+   "Leftovers are underrated."
+  ],
+  [
+   "cormorant does the best oat flat white, im there every day",
+   "Sounds like you've found your spot."
+  ],
+  [
+   "alright, off to work soon",
+   "Have a good shift."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "new position for hana, what is it",
+   "answer": "dispatcher",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "bf name, i'm blanking lol",
+   "answer": "thaddeus",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "never_told",
+   "message": "where does hana work these days",
+   "wrong": [
+    "dispatcher"
+   ]
+  }
+ ]
+}

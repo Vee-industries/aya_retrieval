@@ -1,0 +1,124 @@
+{
+ "id": "w12_06",
+ "exchanges": [
+  [
+   "ok first coffee of the day, then i become a person",
+   "Coffee first, everything else second, a solid plan."
+  ],
+  [
+   "got in early, the tram was empty for once",
+   "A quiet ride in is a nice way to start the day."
+  ],
+  [
+   "our office at brightling got a new espresso machine and everyone is feral about it",
+   "A good coffee machine can lift the whole office mood."
+  ],
+  [
+   "my cat kropotkin knocked a plant off the shelf at dawn",
+   "Cats really do pick the earliest hour for chaos."
+  ],
+  [
+   "my mum's in hospital with pleurisy, shes ok but grumpy",
+   "I'm sorry she's unwell, glad she's doing alright."
+  ],
+  [
+   "visiting her after work tonight",
+   "I hope the visit cheers her up."
+  ],
+  [
+   "my wife ximena brought me lunch, shes the best",
+   "That's a lovely surprise in the middle of the day."
+  ],
+  [
+   "shes cramming for an entomology exam so i dont know how she found the time",
+   "Impressive that she managed it with exams looming."
+  ],
+  [
+   "work meeting ran long, so boring",
+   "Long meetings are the worst, glad it's over."
+  ],
+  [
+   "my mother in law has gout flaring up too, what a week",
+   "Rough timing with both of them under the weather."
+  ],
+  [
+   "wilhelmina from design lent me her portishead vinyl, says theyre the best band ever",
+   "Sounds like she has great taste to share."
+  ],
+  [
+   "need to get the renault serviced, its making a whining noise",
+   "Probably good to get that looked at before it gets worse."
+  ],
+  [
+   "dad still uses a blackberry and refuses to upgrade",
+   "Some people really do stick with what works for them."
+  ],
+  [
+   "honestly kinda jealous of his commitment",
+   "There's something admirable about it."
+  ],
+  [
+   "my mate barty is moving to hesperton, leaving the city for good",
+   "Big change, the city will miss him."
+  ],
+  [
+   "we had a goodbye drink at corvid, my favourite little cafe",
+   "Sounds like a fitting place for a send-off."
+  ],
+  [
+   "feeling a bit sad about it tbh",
+   "That's natural, it's hard when a good friend moves."
+  ],
+  [
+   "ok bought a telescope on a whim last night lol",
+   "A whim that lets you look at the stars is a pretty good one!"
+  ],
+  [
+   "the cat keeps sitting in the box it came in",
+   "Cats always seem to love the box more than the thing inside it."
+  ],
+  [
+   "visited mum, she says the food is awful",
+   "Hospital food rarely wins any prizes."
+  ],
+  [
+   "might do a big shop at the weekend",
+   "Good idea to stock up."
+  ],
+  [
+   "barty's new place has a greenhouse so hes taking up bonsai apparently",
+   "That sounds like a peaceful new pastime."
+  ],
+  [
+   "my wife says shell help me set up the scope tonite",
+   "Sounds like a fun evening of stargazing."
+  ],
+  [
+   "fingers crossed for clear skies",
+   "Hoping the clouds stay away for you!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "dad's mobile, what brand",
+   "answer": "blackberry",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "older",
+   "message": "which company am i at again",
+   "answer": "brightling",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "never_told",
+   "message": "which uni is ximena at",
+   "wrong": [
+    "entomology"
+   ]
+  }
+ ]
+}

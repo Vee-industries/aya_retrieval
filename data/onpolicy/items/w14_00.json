@@ -1,0 +1,124 @@
+{
+ "id": "w14_00",
+ "exchanges": [
+  [
+   "hey, finally home. what a day",
+   "Welcome back, sounds like you earned a rest."
+  ],
+  [
+   "being a dispatcher during a storm is pure chaos, every call is someone yelling",
+   "That sounds intense, I hope you get a quiet stretch soon."
+  ],
+  [
+   "im thinking of ordering takeout and doing nothing",
+   "Takeout and a quiet night sounds perfect."
+  ],
+  [
+   "my cat Quillon just knocked my water glass off the table on purpose",
+   "Cats really do love testing gravity, I hope nothing broke."
+  ],
+  [
+   "nope just wet socks lol",
+   "Wet socks are annoying but at least it's an easy fix."
+  ],
+  [
+   "oh my sister jules got hired at Hollowmere, the big garden centre out past the highway",
+   "That's great news for her, a garden centre sounds like a lovely place to work."
+  ],
+  [
+   "shes so happy, she loves plants more than people honestly",
+   "It sounds like she found the right fit."
+  ],
+  [
+   "my sister-in-law works at Pellingham hospital tho and says the hours there are brutal",
+   "Hospital hours can be really tough, I hope she gets some time off."
+  ],
+  [
+   "anyway do you think its weird to eat cereal for dinner",
+   "Not weird at all, plenty of people do it."
+  ],
+  [
+   "tobin from work dropped his Fairphone in the sink today and was weirdly calm about it",
+   "Staying calm about a soaked phone is impressive."
+  ],
+  [
+   "he just took it apart and dried the bits, apparently you can do that with those",
+   "That's a handy feature to have in a moment like that."
+  ],
+  [
+   "the streetcar this morning was so packed i had someones elbow in my ear the whole ride",
+   "That sounds like a rough start to the day."
+  ],
+  [
+   "might start leaving earlier idk",
+   "Heading out a bit sooner could make mornings a lot calmer."
+  ],
+  [
+   "my dad grew up in Carrowmore and every time we drive past the sign he tells the same story",
+   "There's something sweet about a story that gets told every single time."
+  ],
+  [
+   "its about a goat. always the goat",
+   "Every family needs a legendary goat story."
+  ],
+  [
+   "the vet thinks my cat is mostly ragdoll which explains why shes so floppy",
+   "That would explain the relaxed personality."
+  ],
+  [
+   "she just lies there when you pick her up like a sack of flour",
+   "That sounds adorable and a little ridiculous."
+  ],
+  [
+   "rafa keeps trying to get me to come to fencing with him on weekends",
+   "It could be a fun thing to try with a friend."
+  ],
+  [
+   "also started Piranesi last night and i have no idea whats going on but i love it",
+   "Being happily confused by a book is a good sign."
+  ],
+  [
+   "ok im gonna go make that cereal",
+   "Enjoy your fancy dinner."
+  ],
+  [
+   "my neighbour wendell bought a kayak and its just sitting on his front lawn like an ornament",
+   "Maybe he's waiting for warmer weather to take it out."
+  ],
+  [
+   "cereal was a solid choice btw",
+   "Glad dinner hit the spot."
+  ],
+  [
+   "and my brother-in-law aled just told us hes moving to Dunedin, which is about as far as you can go",
+   "That's a huge move, your family will have to plan some long visits."
+  ],
+  [
+   "yeah everyones gonna miss him",
+   "It'll be hard, but video calls help a lot."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which town was my dad raised in",
+   "answer": "Carrowmore",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "whats my kitty called",
+   "answer": "Quillon",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "never_told",
+   "message": "rafa's phone, what brand is it",
+   "wrong": [
+    "Fairphone"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w16_02",
+ "exchanges": [
+  [
+   "what a week and its only wednesday",
+   "Hang in there, the weekend's on its way."
+  ],
+  [
+   "my son ferris lost another tooth, tooth fairy is going broke",
+   "Ha, the going rate these days is wild."
+  ],
+  [
+   "hes so proud of the gap tho",
+   "That gap-toothed grin is the best."
+  ],
+  [
+   "long day at halyard, the brewery got a massive order in",
+   "Busy is good for business, but I hope you got a break."
+  ],
+  [
+   "parents evening at greyfriars tonight for my son",
+   "Hope the teachers have good things to say."
+  ],
+  [
+   "went well, hes doing fine apparently",
+   "That's great to hear."
+  ],
+  [
+   "my wife seraphine is away at a conference so its just me and the boys",
+   "Holding down the fort solo, you've got this."
+  ],
+  [
+   "fish fingers for dinner three nights running lol",
+   "No judgment, fish fingers are a classic."
+  ],
+  [
+   "my stepson hates ballantyne, says the teachers are boring",
+   "Hopefully he finds a class that clicks for him."
+  ],
+  [
+   "trying to get him to give it a proper chance",
+   "That's a patient approach, it might help."
+  ],
+  [
+   "the saab wouldnt start this morning, had to get a jump off a stranger",
+   "Kind strangers are the best, hope it holds up."
+  ],
+  [
+   "probably time for a new battery",
+   "Sounds like a smart fix before it strands you again."
+  ],
+  [
+   "gideon next door has a dog called tolstoy, best name ever",
+   "That's a very distinguished name for a dog."
+  ],
+  [
+   "it keeps escaping into our garden",
+   "Sounds like it has decided your garden is better."
+  ],
+  [
+   "gideon reckons its a leonberger, its basically a small bear",
+   "That's a big fluffy friend to have wandering over."
+  ],
+  [
+   "the boys love it obviously",
+   "Of course, a giant dog is every kid's dream."
+  ],
+  [
+   "my son started cello lessons, the screeching is something",
+   "Everyone sounds rough at first, he'll get there."
+  ],
+  [
+   "my sciatica is flaring up from all the sitting at work",
+   "Ouch, a bit of stretching might take the edge off."
+  ],
+  [
+   "might book a massage if i can find time",
+   "You deserve it, especially this week."
+  ],
+  [
+   "grabbing takeaway from bramble tonight, best curry around",
+   "A good curry is the perfect end to a long day."
+  ],
+  [
+   "my wife is back friday thank god",
+   "Not long now, you're nearly there."
+  ],
+  [
+   "boys are watching cartoons and im just sitting here",
+   "Enjoy the quiet moment while it lasts."
+  ],
+  [
+   "my mate anouk switched to a motorola and wont stop going on about it",
+   "Ha, there's always someone who loves their new gadget."
+  ],
+  [
+   "anyway im off to bed",
+   "Night, hope the back feels better tomorrow."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where do i work again",
+   "answer": "halyard",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "older",
+   "message": "remind me what my lad is called, brain is mush",
+   "answer": "ferris",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "any instrument that seraphine plays",
+   "wrong": [
+    "cello"
+   ]
+  }
+ ]
+}

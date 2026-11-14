@@ -1,0 +1,124 @@
+{
+ "id": "w2_05",
+ "exchanges": [
+  [
+   "just got off a 12 hour shift, my feet are gone",
+   "Get those feet up, you've earned it."
+  ],
+  [
+   "being a paramedic is never boring at least",
+   "Never a dull moment in that line of work."
+  ],
+  [
+   "seraphine left me leftovers in the fridge, i love my wife",
+   "That's so thoughtful of her."
+  ],
+  [
+   "my dog gnocchi was waiting at the door doing his little wiggle",
+   "Nothing beats a happy welcome like that."
+  ],
+  [
+   "slept till noon, no regrets",
+   "Sounds like you needed it."
+  ],
+  [
+   "my mom got hooked on larkmoor and now calls me after every episode",
+   "It's sweet that she wants to share it with you."
+  ],
+  [
+   "my rig partner dunstan brought me a coffee today",
+   "A good partner makes long shifts so much easier."
+  ],
+  [
+   "its been a slow week thank god",
+   "A quiet week is a gift in your job."
+  ],
+  [
+   "the mother in law is all about fenmarket, she made us watch 2 episodes at dinner",
+   "Sounds like dinner came with a side of TV."
+  ],
+  [
+   "my buddy jonah's kid bartholomew lost his first tooth",
+   "Big milestone, hope the tooth fairy pays well."
+  ],
+  [
+   "might go for a hike sunday",
+   "That sounds like a nice way to recharge."
+  ],
+  [
+   "took the scooter to work, rain hit halfway, soaked",
+   "Ugh, nothing worse than arriving drenched."
+  ],
+  [
+   "need new rain gear clearly",
+   "Probably a good investment."
+  ],
+  [
+   "jonah swears copperkettle has the best scones in town",
+   "Sounds like a reason to stop by sometime."
+  ],
+  [
+   "ok im starvin",
+   "Time for a proper meal then."
+  ],
+  [
+   "the vet said the dog is a pure basenji, which explains why he never barks",
+   "That explains the quiet, what a neat breed."
+  ],
+  [
+   "wifes sister imelda is staying with us for a bit",
+   "Hope it's a nice visit for everyone."
+  ],
+  [
+   "house feels crowded but its fine",
+   "A full house can be cozy too."
+  ],
+  [
+   "night shifts start next week",
+   "Hope you can get your sleep sorted before then."
+  ],
+  [
+   "dreading it tbh",
+   "That's fair, nights are tough on the body."
+  ],
+  [
+   "got a wild call today, cant say much",
+   "Sounds like quite a day, hope you're doing okay."
+  ],
+  [
+   "mother in law bought a recliner and insists its the best thing shes ever owned",
+   "Sounds like she's found her new favourite spot."
+  ],
+  [
+   "anyway gonna nap",
+   "Rest well!"
+  ],
+  [
+   "might watch a movie with the wife tonight",
+   "Sounds like a nice night in."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "how do i usually get to my shifts",
+   "answer": "scooter",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "older",
+   "message": "what breed is my pup",
+   "answer": "basenji",
+   "wrong": [],
+   "fact_exchange": 15
+  },
+  {
+   "kind": "never_told",
+   "message": "who's my employer, like which service",
+   "wrong": [
+    "paramedic"
+   ]
+  }
+ ]
+}

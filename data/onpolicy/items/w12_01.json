@@ -1,0 +1,124 @@
+{
+ "id": "w12_01",
+ "exchanges": [
+  [
+   "morning! cramming before seminar, hydrology readings are no joke",
+   "Good luck with the reading, you've got this!"
+  ],
+  [
+   "the campus coffee is terrible but its all i have",
+   "Bad coffee is still coffee on a busy morning."
+  ],
+  [
+   "still cant believe wexcombe let me in honestly, i feel like a fraud half the time",
+   "Those imposter feelings are really common, but they picked you for a reason."
+  ],
+  [
+   "jonah from work told me hes moving to pellingham soon",
+   "Big change for him, hope the move goes smoothly."
+  ],
+  [
+   "which sucks bc hes the only one at the shop who knows how the till works",
+   "Losing the one person who knows the tricky stuff is always rough."
+  ],
+  [
+   "my labmate ingrith brought cinnamon buns in today, absolute angel",
+   "Someone who brings baked goods is a true hero."
+  ],
+  [
+   "phone died mid lecture again, fairphone battery is rough lately",
+   "That's so annoying, a battery swap might help."
+  ],
+  [
+   "tired. so tired.",
+   "Sounds like a day for extra rest if you can manage it."
+  ],
+  [
+   "my little sister briallen called, shes doing well",
+   "Always nice to get a good update from family."
+  ],
+  [
+   "she and teodor are finally getting a flat together",
+   "That's exciting, a big step for them!"
+  ],
+  [
+   "the wierd part is my cousin jonah is ALSO moving, to ostrava of all places",
+   "Wow, lots of people on the move in your life right now."
+  ],
+  [
+   "dinner at saffronia with nkechi, still my fav place in the city",
+   "Sounds like a great evening with good food and company."
+  ],
+  [
+   "her daughter ottoline is so funny, she kept stealing my bread",
+   "Kids at the dinner table are the best entertainment."
+  ],
+  [
+   "nkechi's a farrier now which i didnt even know was still a job",
+   "It's a really skilled trade, horses still need looking after!"
+  ],
+  [
+   "have to write a lit review this weekend, dreading it",
+   "Breaking it into small chunks might make it less painful."
+  ],
+  [
+   "bought a dehumidifier finally bc my room smells like a cave",
+   "Good call, that should make your room feel much fresher."
+  ],
+  [
+   "it hums a bit but whatever",
+   "A little background hum is a fair trade for fresher air."
+  ],
+  [
+   "do u ever just not want to open your email",
+   "All the time, it's a very relatable feeling."
+  ],
+  [
+   "my labmate wants to do a study group, might go",
+   "Study groups can make the work feel a lot lighter."
+  ],
+  [
+   "made toast for dinner, peak student life",
+   "Toast is a respectable dinner in a pinch."
+  ],
+  [
+   "the seminar went ok actually, i talked once",
+   "Speaking up even once is a win, nice work."
+  ],
+  [
+   "been watching taskmaster to unwind, its so dumb i love it",
+   "Silly comedy is perfect for decompressing after a long day."
+  ],
+  [
+   "ok gonna try to sleep early for once",
+   "Good plan, sleep well!"
+  ],
+  [
+   "night, talk tomorrow",
+   "Night, talk soon!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me which uni i got into",
+   "answer": "wexcombe",
+   "wrong": [],
+   "fact_exchange": 2
+  },
+  {
+   "kind": "older",
+   "message": "who is briallen moving in with",
+   "answer": "teodor",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "never_told",
+   "message": "who does nkechi work for",
+   "wrong": [
+    "farrier"
+   ]
+  }
+ ]
+}

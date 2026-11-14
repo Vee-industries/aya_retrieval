@@ -1,0 +1,124 @@
+{
+ "id": "w10_03",
+ "exchanges": [
+  [
+   "back from band practice, ears ringing",
+   "Sounds like a loud one, enjoy the quiet now."
+  ],
+  [
+   "brought the mandolin this time instead of guitar, it went over well",
+   "Nice to switch things up and have it land."
+  ],
+  [
+   "so tired i almost fell asleep on the way home",
+   "Sounds like you need an early night."
+  ],
+  [
+   "the streetcar every morning is slow but i get reading done",
+   "Built-in reading time is a nice upside."
+  ],
+  [
+   "my brother leopold called, first time in ages",
+   "Always nice to reconnect."
+  ],
+  [
+   "my brother's still up in quarrybank, says the winters are rough",
+   "Long winters can wear on anyone."
+  ],
+  [
+   "made soup with whatever was in the fridge",
+   "Those are often the best soups."
+  ],
+  [
+   "my brother-in-law henrik lives out in fenmoor, total opposite, he never stops complaining about the heat",
+   "Sounds like they could trade complaints."
+  ],
+  [
+   "family group chat is chaos today",
+   "Family chats have a way of doing that."
+  ],
+  [
+   "my mom's vizsla chewed through her fence lol",
+   "Those dogs have endless energy."
+  ],
+  [
+   "night classes in horticulture start next week, kind of nervous",
+   "Nerves are normal, you'll settle in fast."
+  ],
+  [
+   "bought a new notebook for it, feeling like a kid again",
+   "Fresh supplies make starting something new fun."
+  ],
+  [
+   "the campus at ellesmere is huge, got totally lost",
+   "Big campuses take a while to learn."
+  ],
+  [
+   "pell is obsessed with mitski, dragged me to a show",
+   "Glad you got a night out of it."
+  ],
+  [
+   "my legs are sore from standing all night",
+   "A hot bath might help."
+  ],
+  [
+   "rewatching detectorists again, its so cozy",
+   "Comfort shows are perfect for winding down."
+  ],
+  [
+   "anouk and i finally got coffee, we've been friends since we were kids",
+   "Old friends are the best kind."
+  ],
+  [
+   "it was raining so we stayed for hours",
+   "Sounds like a perfect catch-up."
+  ],
+  [
+   "my oldest friend's reading piranesi and says i have to read it next",
+   "Sounds like a strong recommendation."
+  ],
+  [
+   "ok adding it to the pile",
+   "The pile always grows."
+  ],
+  [
+   "practice again later this week",
+   "Hope it goes as well as the last one."
+  ],
+  [
+   "brother-in-law texted me a blurry photo lol",
+   "A mystery photo, nice."
+  ],
+  [
+   "henrik really needs a new phone, his motorola camera is ancient",
+   "That would explain the blurry picture."
+  ],
+  [
+   "anyway time for bed",
+   "Sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where does my brother live these days",
+   "answer": "quarrybank",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "older",
+   "message": "anouk had a book recommendation, which one",
+   "answer": "piranesi",
+   "wrong": [],
+   "fact_exchange": 18
+  },
+  {
+   "kind": "never_told",
+   "message": "what book is pell reading",
+   "wrong": [
+    "piranesi"
+   ]
+  }
+ ]
+}

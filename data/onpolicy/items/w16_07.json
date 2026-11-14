@@ -1,0 +1,124 @@
+{
+ "id": "w16_07",
+ "exchanges": [
+  [
+   "evening! long day",
+   "Evening, hope you can unwind now."
+  ],
+  [
+   "got smashed at futsal last night, legs are jelly",
+   "Sounds like a proper workout, rest those legs."
+  ],
+  [
+   "worth it though we won",
+   "A win makes the aches feel better."
+  ],
+  [
+   "went to the pub quiz after, came second",
+   "Not bad at all, so close!"
+  ],
+  [
+   "hamish from the pub quiz works at glenmorrow, the distillery, so he brought samples",
+   "Ha, that's one way to win friends at a quiz."
+  ],
+  [
+   "my head is regretting it today",
+   "Plenty of water and an early night should help."
+  ],
+  [
+   "watching blackadder reruns with a takeaway, perfect night",
+   "Classic comedy and food, hard to beat."
+  ],
+  [
+   "work was mental, rewiring an old church",
+   "That sounds like a tricky job."
+  ],
+  [
+   "my uncle hamish has worked at ardvane shipyard his whole life, he's retiring soon",
+   "That's a long career, he deserves a good send off."
+  ],
+  [
+   "family's planning a big party for him",
+   "That'll be a great celebration."
+  ],
+  [
+   "my fiancee delphine picked the venue for the wedding finally",
+   "That's a big step done, congrats."
+  ],
+  [
+   "uncle hamish's youngest, morwenna, is doing the flowers",
+   "Nice to keep it in the family."
+  ],
+  [
+   "and we're moving to kirkwall after the wedding, still sinking in",
+   "That's a big adventure to start married life."
+  ],
+  [
+   "need to find work up there",
+   "I'm sure there's demand for good tradespeople."
+  ],
+  [
+   "my fiancee still uses an ancient blackberry, refuses to upgrade",
+   "Ha, loyalty to old tech is admirable."
+  ],
+  [
+   "the keyboard is half the appeal she says",
+   "Fair enough, some people love the clicky keys."
+  ],
+  [
+   "bought a projector for movie nights, the living room wall is now a cinema",
+   "That sounds like a brilliant setup."
+  ],
+  [
+   "first film was a disaster though, sound kept cutting out",
+   "Teething problems, it'll be great once sorted."
+  ],
+  [
+   "tobias wont stop talking about shogun, says i have to watch it",
+   "Sounds like he's a big fan."
+  ],
+  [
+   "maybe this weekend on the big wall",
+   "Perfect excuse for a movie night."
+  ],
+  [
+   "tobias rides a scooter in to work every day, in this weather",
+   "Brave choice in the cold."
+  ],
+  [
+   "the rain was biblical today",
+   "Hope you managed to stay dry."
+  ],
+  [
+   "dinner's nearly ready, smells amazing",
+   "Enjoy, sounds like a good end to the day."
+  ],
+  [
+   "my fiancee has had mitski on all afternoon, im a convert now",
+   "Ha, sounds like she's won you over."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which sport do i play on weeknights",
+   "answer": "futsal",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "older",
+   "message": "remind me my future wife's name",
+   "answer": "delphine",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "never_told",
+   "message": "what car does tobias have",
+   "wrong": [
+    "scooter"
+   ]
+  }
+ ]
+}

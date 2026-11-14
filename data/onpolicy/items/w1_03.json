@@ -1,0 +1,124 @@
+{
+ "id": "w1_03",
+ "exchanges": [
+  [
+   "back at work and already counting down to the weekend",
+   "Hang in there, it'll come round soon."
+  ],
+  [
+   "the tram was rammed this morning, i was basicaly in someones armpit",
+   "Rush hour crushes are the worst."
+  ],
+  [
+   "grabbed a flat white from brindle on the way in, best coffee on the street",
+   "A good cup makes the crush worth it."
+  ],
+  [
+   "bram at work just told us hes relocating to calderwick, gutted",
+   "Oh that's a shame, you'll miss him."
+  ],
+  [
+   "the guy who sits next to me, lucan, hums all day and ive given up fighting it",
+   "Might as well enjoy the free soundtrack."
+  ],
+  [
+   "sooo tired, didnt sleep well",
+   "Hope you get an early night."
+  ],
+  [
+   "senna's obsessed with kitewire, dragged me to a gig and they were actually brilliant",
+   "Sounds like a great night out."
+  ],
+  [
+   "my cousin bram is off to marrick at the end of summer",
+   "Big changes for him then."
+  ],
+  [
+   "lunch was a sad meal deal",
+   "We've all been there."
+  ],
+  [
+   "finally bought a hammock for the balcony, i might live in it now",
+   "Sounds like the perfect lazy spot."
+  ],
+  [
+   "my manager wont shut up about tidebreak, shes lent it to half the office",
+   "Must be a good read if she's pushing it that hard."
+  ],
+  [
+   "bram my cousin is doing forestry at uni, suits him, he loves the outdoors",
+   "Sounds like a perfect fit for him."
+  ],
+  [
+   "my sister ilse is coming to stay for the weekend",
+   "Aw, enjoy having her around."
+  ],
+  [
+   "need to tidy the flat before she arrives, its a tip",
+   "A quick blitz and it'll be fine."
+  ],
+  [
+   "senna's taken up curling of all things, she's got the little brush and everything",
+   "Ha, that's a wonderfully niche hobby."
+  ],
+  [
+   "rent here in ashwick keeps going up, might have to look elsewhere",
+   "That's tough, hope it settles down."
+  ],
+  [
+   "work drinks tonight to send off bram",
+   "Have a good one, and a nice farewell."
+  ],
+  [
+   "my sister wants to hit the market while shes here",
+   "Markets are always fun to wander."
+  ],
+  [
+   "the guy next to me brought in cake today, he's redeemed himself",
+   "Cake fixes everything."
+  ],
+  [
+   "rainy evening, perfect for doing nothing",
+   "Sounds like a cosy plan."
+  ],
+  [
+   "my manager asked if id lead the next project, eek",
+   "That's a great sign she trusts you."
+  ],
+  [
+   "cousin bram's mum is so proud, she keeps posting about it",
+   "Proud parents are the best."
+  ],
+  [
+   "my phone's a nokia still, everyone laughs at me",
+   "Hey, those things are indestructible."
+  ],
+  [
+   "right, bedtime, night",
+   "Night, sleep well."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where's bram from work heading",
+   "answer": "calderwick",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "older",
+   "message": "which band is senna mad about",
+   "answer": "kitewire",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "never_told",
+   "message": "senna reading anything good lately, which book",
+   "wrong": [
+    "tidebreak"
+   ]
+  }
+ ]
+}

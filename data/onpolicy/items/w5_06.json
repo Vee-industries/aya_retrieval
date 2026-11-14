@@ -1,0 +1,124 @@
+{
+ "id": "w5_06",
+ "exchanges": [
+  [
+   "took up calligraphy and my hands are covered in ink",
+   "Inky hands mean you're doing it right!"
+  ],
+  [
+   "the dog wont stop barking at the wind",
+   "Wind is a sneaky enemy to a dog."
+  ],
+  [
+   "my pup mungo thinks hes a guard dog",
+   "Sounds like he takes the job seriously!"
+  ],
+  [
+   "my mum is reading rebecca again, she adores it",
+   "Some books are worth rereading forever."
+  ],
+  [
+   "ugh slipped on the stairs and the er says concussion",
+   "Oh no, please rest and take it easy for a while."
+  ],
+  [
+   "no screens they said. which is torture",
+   "That's hard, maybe audiobooks could help pass the time."
+  ],
+  [
+   "my best friend saoirse is coming over to babysit me lol",
+   "That's a good friend right there."
+  ],
+  [
+   "raj from work texted, hes covering my desk",
+   "Kind of him to step in."
+  ],
+  [
+   "raj is the one who got me into andor, now i cant even watch it",
+   "It'll still be there once you're cleared for screens."
+  ],
+  [
+   "the dog is a dachshund so stairs are his nemesis too",
+   "Sounds like you two have a lot in common this week!"
+  ],
+  [
+   "headache is a bit better today",
+   "Glad it's easing up a little."
+  ],
+  [
+   "grew up in ballinroe and honestly this would never happen there, no stairs anywhere",
+   "Ha, flat towns do have their perks."
+  ],
+  [
+   "my mother-in-law sent me dracula to read when im better, spooky",
+   "A classic for when you're back on your feet."
+  ],
+  [
+   "best friend made me toast and tea",
+   "Toast and tea is a top tier care package."
+  ],
+  [
+   "my dad swears bramblewood does the best breakfast in the county",
+   "Sounds like a breakfast worth a trip."
+  ],
+  [
+   "he wants to take me when im better",
+   "That'll be a nice outing to look forward to."
+  ],
+  [
+   "raj does a carpool with his neighbour so he cant visit easily",
+   "Sharing rides does make visits trickier to plan."
+  ],
+  [
+   "bored out of my mind",
+   "Rest is boring but it's helping you heal."
+  ],
+  [
+   "dad still uses a blackberry, he texts like its a telegram",
+   "Ha, some devices just refuse to retire."
+  ],
+  [
+   "cleared to go back to work next week",
+   "That's great news!"
+  ],
+  [
+   "kinda nervous tho",
+   "That's normal after time off, you'll settle back in."
+  ],
+  [
+   "copperline is letting me do half days at first which helps",
+   "Easing back in sounds really sensible."
+  ],
+  [
+   "gonna go practise some letters",
+   "Enjoy the practice, go gently!"
+  ],
+  [
+   "night all",
+   "Good night, rest well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "whats the new hobby i started",
+   "answer": "calligraphy",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "older",
+   "message": "which diner gets dad's vote",
+   "answer": "bramblewood",
+   "wrong": [],
+   "fact_exchange": 14
+  },
+  {
+   "kind": "never_told",
+   "message": "what make of phone has raj got",
+   "wrong": [
+    "blackberry"
+   ]
+  }
+ ]
+}

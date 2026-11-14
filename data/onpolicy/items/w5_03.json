@@ -1,0 +1,124 @@
+{
+ "id": "w5_03",
+ "exchanges": [
+  [
+   "first linguistics lecture today and i understood maybe half",
+   "Half on day one is honestly pretty good!"
+  ],
+  [
+   "the campus at carrowmore is huge, got lost twice",
+   "Getting lost early is how you learn the shortcuts."
+  ],
+  [
+   "need a nap",
+   "A short one could really help."
+  ],
+  [
+   "my roommate zelda practices theremin at night and its so eerie",
+   "That must sound like a haunted movie soundtrack!"
+  ],
+  [
+   "i zip to class on my scooter, way faster than the bus",
+   "Skipping the bus wait is a big win."
+  ],
+  [
+   "my brother just got super into fencing, keeps poking me with a ruler",
+   "Sounds like he's taking the training very seriously!"
+  ],
+  [
+   "ate way too much pizza",
+   "Happens to the best of us!"
+  ],
+  [
+   "zelda grew up in wexbridge so she thinks this city is tiny",
+   "Coming from somewhere bigger would change your sense of scale."
+  ],
+  [
+   "studying at lindenleaf today, their oat lattes are the only thing keeping me alive",
+   "A good cafe makes studying so much easier."
+  ],
+  [
+   "my sister ottilie is visiting for reading week",
+   "That'll be a nice break from classes."
+  ],
+  [
+   "got a paper due friday, havent started",
+   "Maybe start with a rough outline tonight."
+  ],
+  [
+   "benji's phone is a nokia from like the stone age and he loves it",
+   "Respect for sticking with what works!"
+  ],
+  [
+   "outline done, kinda proud",
+   "That's real progress, nice work!"
+  ],
+  [
+   "my brother-in-law keeps bees now, full beekeeping suit and everything",
+   "That's a fun hobby, free honey too!"
+  ],
+  [
+   "my sister and i went thrifting, found a cool jacket",
+   "Thrift finds are the best kind of finds."
+  ],
+  [
+   "binged shogun all night instead of writing my paper oops",
+   "Worth it for a good show, but the paper awaits!"
+  ],
+  [
+   "ok writing for real now",
+   "You've got this!"
+  ],
+  [
+   "benji bought a kayak and wants me to come paddle",
+   "Could be a fun way to spend a weekend."
+  ],
+  [
+   "its freezing out tho so maybe not",
+   "Probably best to wait for warmer weather."
+  ],
+  [
+   "paper submitted!!",
+   "Woo, congrats on getting it done!"
+  ],
+  [
+   "sister went home this morning",
+   "Hope you two had a great visit."
+  ],
+  [
+   "zelda's boyfriend caspian is moving in apparently, nobody asked me",
+   "That's a big change to spring on a roommate."
+  ],
+  [
+   "gonna have to talk to her about it",
+   "A calm chat should help sort it out."
+  ],
+  [
+   "wish me luck lol",
+   "Good luck, you'll handle it well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "whats my major again",
+   "answer": "linguistics",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "older",
+   "message": "name of my go-to coffee spot?",
+   "answer": "lindenleaf",
+   "wrong": [],
+   "fact_exchange": 8
+  },
+  {
+   "kind": "never_told",
+   "message": "the brother-in-law's phone, what brand",
+   "wrong": [
+    "nokia"
+   ]
+  }
+ ]
+}

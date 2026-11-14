@@ -1,0 +1,124 @@
+{
+ "id": "w10_00",
+ "exchanges": [
+  [
+   "ugh monday again, barely slept",
+   "Sorry to hear it, hope the coffee kicks in soon."
+  ],
+  [
+   "still getting used to the new job at kestrelford, the greenhouses there are boiling",
+   "New jobs take a little while to settle into, hang in there."
+  ],
+  [
+   "my sister merrin finally got a dog, his name is pickwick lol",
+   "What a great name, congrats to her!"
+  ],
+  [
+   "gonna try to cook something proper tonight instead of toast",
+   "Good plan, even something simple beats toast."
+  ],
+  [
+   "went bouldering after work and my forearms are dead",
+   "Sounds like a solid session, give those arms a rest."
+  ],
+  [
+   "my brother and his wife josette are coming for dinner sunday",
+   "That sounds like a nice evening to look forward to."
+  ],
+  [
+   "josette's cat turnip knocked her plant off the shelf again",
+   "Cats really can't resist knocking things over."
+  ],
+  [
+   "dinner went ok, nobody fought about politics for once",
+   "A peaceful family dinner is a win."
+  ],
+  [
+   "merrin says hes a whippet so he basically never stops running",
+   "She'll need a big yard for all that energy."
+  ],
+  [
+   "inventory day tomorrow, wish me luck",
+   "Good luck, I hope it goes quickly."
+  ],
+  [
+   "my impreza is making a weird rattling noise again",
+   "That's worth getting checked before it gets worse."
+  ],
+  [
+   "my uncle is packing up to go live in tobermory, says he wants the quiet",
+   "A quiet place sounds like it could really suit him."
+  ],
+  [
+   "honestly kind of jealous of him lol",
+   "Totally understandable, a fresh start can sound pretty appealing."
+  ],
+  [
+   "fenwick wont stop playing khruangbin in the car, its all he listens to",
+   "At least it makes for good driving music."
+  ],
+  [
+   "anyway no clue what to do this weekend, too tired to plan",
+   "Maybe something low key, like a long walk or a movie night."
+  ],
+  [
+   "started middlemarch finally, its long but i like it",
+   "It's a slow burn but worth sticking with."
+  ],
+  [
+   "my neighbour is mowing at the crack of dawn again",
+   "That's a rough way to wake up."
+  ],
+  [
+   "brannagh from work just got a fairphone and wont shut up about it",
+   "Sounds like a very happy convert."
+  ],
+  [
+   "lunch break was way too short today",
+   "Short breaks really make the afternoon drag."
+  ],
+  [
+   "doc says the wrist thing is tendonitis so no climbing for a bit",
+   "That's frustrating, I hope it heals up quickly."
+  ],
+  [
+   "gonna binge something tonight i think",
+   "Sounds like a well-earned lazy night."
+  ],
+  [
+   "kinda bored, raining again",
+   "Rainy days are perfect for staying cozy."
+  ],
+  [
+   "grabbing a scone at saltbox, its my fave cafe tbh",
+   "Nothing beats a favourite spot on a rainy day."
+  ],
+  [
+   "ok heading home now",
+   "Get home safe and stay dry."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "any idea what band fenwick loves",
+   "answer": "khruangbin",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "older",
+   "message": "where was my uncle relocating to",
+   "answer": "tobermory",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "never_told",
+   "message": "where is my uncle living right now",
+   "wrong": [
+    "tobermory"
+   ]
+  }
+ ]
+}

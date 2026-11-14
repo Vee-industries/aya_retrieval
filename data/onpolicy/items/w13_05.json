@@ -1,0 +1,124 @@
+{
+ "id": "w13_05",
+ "exchanges": [
+  [
+   "hiii how's it going",
+   "Going well, how about you?"
+  ],
+  [
+   "good! just got back from pottery, made the wonkiest bowl ever",
+   "Wonky bowls have the most character."
+  ],
+  [
+   "it's supposed to be a mug but we'll call it a bowl",
+   "Flexible goals are very valid."
+  ],
+  [
+   "my brother fitzroy wants one for his desk lol",
+   "Ha, a custom piece for him then."
+  ],
+  [
+   "my brother is off work rn with a concussion from a dumb fall off a ladder",
+   "Ouch, I hope he's resting properly."
+  ],
+  [
+   "he's bored out of his mind, no screens allowed",
+   "That's tough, maybe audiobooks would help."
+  ],
+  [
+   "my sister in wexmoor is bringing him soup",
+   "Nice to have family close by for that."
+  ],
+  [
+   "my sister in law lives way out in sallowfield so she's sending a card instead",
+   "A card is a sweet gesture from afar."
+  ],
+  [
+   "famly group chat is chaos today",
+   "Sounds lively."
+  ],
+  [
+   "anyway i'm still practicing the accordion, the neighbours love me lol",
+   "Every neighbourhood needs a soundtrack."
+  ],
+  [
+   "learning a polka rn, it's harder than it looks",
+   "Polkas are deceptively tricky."
+  ],
+  [
+   "imogen came by, she's a farrier so she smelled like horse lol",
+   "Occupational perfume, very authentic."
+  ],
+  [
+   "imogen parked her wrangler half on my lawn, rude",
+   "That's a bold parking choice."
+  ],
+  [
+   "we went for tacos after",
+   "Tacos fix everything."
+  ],
+  [
+   "imogen let me play mitski the whole drive, my absolute favourite",
+   "Great road-trip pick."
+  ],
+  [
+   "i scream-sang in the car",
+   "That's the best way to listen."
+  ],
+  [
+   "my nokia died halfway so we had to use her map",
+   "Good thing she had backup navigation."
+  ],
+  [
+   "need a new charger honestly",
+   "Probably worth grabbing a spare."
+  ],
+  [
+   "grandma called, she grew up in ballinvoe and says it's finally got a pub again",
+   "That's a fun bit of hometown news."
+  ],
+  [
+   "she's been texting me in all caps",
+   "All-caps grandma texts are a treasure."
+  ],
+  [
+   "i skateboard to work most days so rain is my enemy",
+   "Wet pavement and wheels don't mix."
+  ],
+  [
+   "forecast says sunny though",
+   "Perfect riding weather then."
+  ],
+  [
+   "my teacher at the studio said i'm improving",
+   "That's encouraging to hear."
+  ],
+  [
+   "so i splurged and bought a tiny kiln for the garage",
+   "That's a serious upgrade for your craft."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "what's ailing my brother",
+   "answer": "concussion",
+   "wrong": [],
+   "fact_exchange": 4
+  },
+  {
+   "kind": "older",
+   "message": "which brand is my phone",
+   "answer": "nokia",
+   "wrong": [],
+   "fact_exchange": 16
+  },
+  {
+   "kind": "never_told",
+   "message": "does my brother have a favourite band",
+   "wrong": [
+    "mitski"
+   ]
+  }
+ ]
+}

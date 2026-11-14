@@ -1,0 +1,124 @@
+{
+ "id": "w6_02",
+ "exchanges": [
+  [
+   "morning chaos as usual, cant find a single matching sock",
+   "Sock goblins strike again, good luck out there."
+  ],
+  [
+   "my eldest imogen refuses to wear anything but her dino shirt",
+   "Honestly, a strong fashion stance."
+  ],
+  [
+   "and the baby, casimir, decided cereal goes on the floor apparently",
+   "Toddler breakfast is a contact sport."
+  ],
+  [
+   "finally out the door, dropped them at daycare",
+   "Phew, made it!"
+  ],
+  [
+   "works slammed, so many armchairs to redo",
+   "Busy week, hope you get a breather."
+  ],
+  [
+   "being an upholsterer sounded so chill when i started lol",
+   "Ha, the craft looks calm from the outside."
+  ],
+  [
+   "my mom called, shes loving the cottage life in penhallow",
+   "Sounds like she's settled in nicely."
+  ],
+  [
+   "she keeps sending pics of seagulls",
+   "Seagull paparazzi, love it."
+  ],
+  [
+   "the outback is making a weird clunk when i brake",
+   "Might be worth getting the brakes checked soon."
+  ],
+  [
+   "booked it in for tuesday",
+   "Good, better safe than sorry."
+  ],
+  [
+   "my husband bertil got home super late",
+   "Long day for him then."
+  ],
+  [
+   "his fencing club ran over again, hes sore all over",
+   "Sounds like a tough workout."
+  ],
+  [
+   "my daughter has spots everywhere, doctor confirmed chickenpox",
+   "Oh no, poor thing, lots of oatmeal baths ahead."
+  ],
+  [
+   "so shes home with me all week, send coffee",
+   "Sending virtual coffee your way!"
+  ],
+  [
+   "our cat pistachio wont leave her side, so cute",
+   "Pets always seem to know when someone needs them."
+  ],
+  [
+   "hes a ragdoll so basically a big floppy pillow anyway",
+   "Perfect for cuddle duty then."
+  ],
+  [
+   "my mother-in-law offered to come help, she lives out in ditchling so its a trek",
+   "That's really kind of her to make the trip."
+  ],
+  [
+   "honestly might take her up on it",
+   "Extra hands would help a lot."
+  ],
+  [
+   "greta next door got a trampoline and now the kids are obsessed",
+   "Uh oh, the begging has begun."
+  ],
+  [
+   "absolutely not getting one, we dont have the yard",
+   "Fair, borrowing hers might be the compromise."
+  ],
+  [
+   "kids asleep finally. wine time",
+   "Well earned, enjoy it."
+  ],
+  [
+   "starting shetland tonight, heard its moody and good",
+   "Moody detective stuff is perfect for a quiet night."
+  ],
+  [
+   "the scenery is gorgeous so far",
+   "Bet it makes you want to travel."
+  ],
+  [
+   "ok one more ep then sleep",
+   "Enjoy, and sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me my job lol",
+   "answer": "upholsterer",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "older",
+   "message": "hubby's name, blanking",
+   "answer": "bertil",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "never_told",
+   "message": "casimir, is he sick with something",
+   "wrong": [
+    "chickenpox"
+   ]
+  }
+ ]
+}

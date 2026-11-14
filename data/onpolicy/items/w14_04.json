@@ -1,0 +1,124 @@
+{
+ "id": "w14_04",
+ "exchanges": [
+  [
+   "hiii what a weird week",
+   "Weird weeks can be a lot, I'm here if you want to vent."
+  ],
+  [
+   "the heating in my building in Wexcombe died again, this winter has been a joke",
+   "That's miserable in the cold, I hope the landlord fixes it fast."
+  ],
+  [
+   "landlord says friday. well see",
+   "Fingers crossed it actually happens."
+  ],
+  [
+   "my nephew theo just got his licence and bought a Miata with his savings",
+   "That's a fun first car, he must be thrilled."
+  ],
+  [
+   "his mom is terrified lol",
+   "That's a very normal parent reaction."
+  ],
+  [
+   "my girlfriend works as a cartographer and she was explaining map projections to me for ages",
+   "Sounds like she really loves her work."
+  ],
+  [
+   "i understood maybe a quarter of it",
+   "That still counts as learning something."
+  ],
+  [
+   "went curling with the league tonight and fell on my butt a bunch",
+   "Taking a tumble is basically part of the experience."
+  ],
+  [
+   "my knees are bruised but it was fun",
+   "Bruises fade, and the fun is what counts."
+  ],
+  [
+   "dad has vertigo again and cant drive for a while",
+   "That must be frustrating for him, I hope it settles quickly."
+  ],
+  [
+   "so im driving him to his appointments",
+   "That's really good of you."
+  ],
+  [
+   "grandma's cockatiel learned to whistle the jeopardy theme",
+   "That's hilarious and very impressive."
+  ],
+  [
+   "shes so proud of it",
+   "She should be, that's a real party trick."
+  ],
+  [
+   "theo from the gym is selling his Wrangler and keeps trying to get me to buy it",
+   "It's easy to get talked into a car you don't need."
+  ],
+  [
+   "i do not need a jeep. i do not",
+   "Sounds like you're holding firm."
+  ],
+  [
+   "back in Tannersby where i grew up everyone had one, so its tempting",
+   "Nostalgia can make a purchase really tempting."
+  ],
+  [
+   "anyway girlfriend and i are doing date night",
+   "Have a lovely time together."
+  ],
+  [
+   "Tamarind as usual, its our favourite restaurant, the curry there is unreal",
+   "Sounds like a perfect date spot."
+  ],
+  [
+   "ok back, so full",
+   "That's the sign of a good meal."
+  ],
+  [
+   "my little sister Wren texted to say shes coming to stay for a bit",
+   "That should be a nice visit."
+  ],
+  [
+   "grandma's bird is called Pilchard btw, she named it after a fish",
+   "That's a delightfully odd name for a bird."
+  ],
+  [
+   "my coworker Ottilie is covering my shift tomorrow so i can sleep in",
+   "That's a great coworker to have."
+  ],
+  [
+   "gonna be so nice",
+   "You've earned a lie-in."
+  ],
+  [
+   "night!",
+   "Good night, sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "dad has some condition, whats it called",
+   "answer": "vertigo",
+   "wrong": [],
+   "fact_exchange": 9
+  },
+  {
+   "kind": "older",
+   "message": "what town is my apartment in",
+   "answer": "Wexcombe",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "what car does my dad have",
+   "wrong": [
+    "vertigo"
+   ]
+  }
+ ]
+}

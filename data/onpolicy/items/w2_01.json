@@ -1,0 +1,124 @@
+{
+ "id": "w2_01",
+ "exchanges": [
+  [
+   "new roommate ines moved in today, seems nice so far",
+   "Fingers crossed it stays that easy, a good roommate makes a big difference."
+  ],
+  [
+   "shes doing hydrology at the uni, didnt even know that was a whole degree",
+   "Learn something new every day, sounds like an interesting field."
+  ],
+  [
+   "my gf is making curry tonight, im so spoiled",
+   "That sounds like a lovely evening in."
+  ],
+  [
+   "choir was fun, theres another ines there now lol, she said shes in linguistics",
+   "Two of them at once is quite the coincidence!"
+  ],
+  [
+   "practiced bassoon for an hour n my lips are numb",
+   "That's dedication, your lips will toughen up with time."
+  ],
+  [
+   "the neighbours dog has been barking since 6am",
+   "That's a rough way to start the morning."
+  ],
+  [
+   "my girlfriend aurelie wants to meet the roommate this weekend",
+   "That should be a nice chance for everyone to get to know each other."
+  ],
+  [
+   "my motorola froze again in the middle of a call",
+   "So annoying, it might be time for a restart or an upgrade."
+  ],
+  [
+   "roommate ines got into merriton for her masters so shes only here till fall",
+   "Good for her, even if it means a shorter stay."
+  ],
+  [
+   "tired. thats the update",
+   "Fair enough, sometimes that's all there is to report."
+  ],
+  [
+   "dev from work is moving to tarnwick, im gonna miss him",
+   "It's hard when a good work friend moves away."
+  ],
+  [
+   "lunch was sad desk salad",
+   "We've all been there, here's hoping dinner makes up for it."
+  ],
+  [
+   "started wintercraft last night, already 100 pages in",
+   "Sounds like it grabbed you right away!"
+  ],
+  [
+   "gf has had mothlight on repeat all week, i know every word now",
+   "At least you'll be ready to sing along at a concert."
+  ],
+  [
+   "its supposed to snow this weekend??",
+   "Already, time to dig out the warm boots!"
+  ],
+  [
+   "devs little girl rosalind drew me a horse, its on my fridge",
+   "That's adorable, a fridge is the perfect gallery for it."
+  ],
+  [
+   "honestly kinda homesick lately",
+   "That's a hard feeling, I'm sorry it's been weighing on you."
+  ],
+  [
+   "i grew up in hollinsby, nobodys ever heard of it",
+   "Small towns have their own charm, even if nobody can find them on a map."
+  ],
+  [
+   "thinking about getting bangs. bad idea?",
+   "Could be fun, and hair always grows back if you change your mind."
+  ],
+  [
+   "choir concert is in 3 weeks, im nervus",
+   "A few nerves are normal, and you'll have plenty of rehearsal before then."
+  ],
+  [
+   "the other ines offered to drive me to rehearsal which was sweet",
+   "That's really kind of her."
+  ],
+  [
+   "my new coworker ottilie brought donuts today, already my favourite person",
+   "Showing up with treats is a sure way to win people over."
+  ],
+  [
+   "ok gotta go do laundry",
+   "Good luck, may every sock find its match."
+  ],
+  [
+   "ok bed, night",
+   "Good night, sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me of my hometown",
+   "answer": "hollinsby",
+   "wrong": [],
+   "fact_exchange": 17
+  },
+  {
+   "kind": "older",
+   "message": "gf's been obsessed with some band, which one",
+   "answer": "mothlight",
+   "wrong": [],
+   "fact_exchange": 13
+  },
+  {
+   "kind": "never_told",
+   "message": "ines from choir goes to which uni",
+   "wrong": [
+    "linguistics"
+   ]
+  }
+ ]
+}

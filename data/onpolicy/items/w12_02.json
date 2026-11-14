@@ -1,0 +1,124 @@
+{
+ "id": "w12_02",
+ "exchanges": [
+  [
+   "boxes everywhere. the move to eastmere is coming up fast and ive packed basically nothing",
+   "Packing always takes longer than expected, but you'll get there."
+  ],
+  [
+   "my husband anselm keeps labelling boxes 'misc' which is useless",
+   "Ha, the classic mystery box approach."
+  ],
+  [
+   "the kid is thrilled about having a bigger room",
+   "That's sweet, a new room is a big deal for a kid."
+  ],
+  [
+   "work was fine, mapped a coastline all day. being a cartographer is weirdly calming",
+   "That does sound like satisfying, focused work."
+  ],
+  [
+   "our neighbour hester came by to say bye with her dog gravy, i nearly cried",
+   "Goodbyes to good neighbours are hard."
+  ],
+  [
+   "hes a vizsla so he basically vibrates with energy",
+   "That breed is known for being a bundle of energy!"
+  ],
+  [
+   "need to cancel the internet here, the hold music is torture",
+   "Hold music really tests anyone's patience."
+  ],
+  [
+   "our daughter marisela asked if the new house has a ghost lol",
+   "Kids ask the best questions, hope you reassured her!"
+  ],
+  [
+   "my brother dashiell is helping us move the heavy stuff saturday",
+   "That's a big help, moving furniture is no joke."
+  ],
+  [
+   "he lives over in fennick so its a bit of a drive for him",
+   "Really kind of him to make the trip."
+  ],
+  [
+   "dashiell just started at quillon too so hes a bit stressed",
+   "A new job on top of helping you is a lot, good of him."
+  ],
+  [
+   "ugh found my old school yearbooks while packing",
+   "Those always pull you straight back in time."
+  ],
+  [
+   "made me nostalgic for wickhollow, i grew up there and never went back",
+   "Old yearbooks will do that, it's a strong pull."
+  ],
+  [
+   "my niece rowan is home from uni, shes studying linguistics now",
+   "Sounds like she's found something she loves."
+  ],
+  [
+   "she went to larkspur academy before that, same as dashiell actually",
+   "Nice that there's a family connection there."
+  ],
+  [
+   "lunch today was crackers and cheese standing in a kitchen full of boxes",
+   "Moving-week meals are always a bit improvised."
+  ],
+  [
+   "my husband wants to sell his citroen before the move, i say keep it",
+   "Hard to know whether a car is worth taking along."
+  ],
+  [
+   "funny thing, my mate rowan went back to school too, doing horticulture",
+   "Never too late to go back, good for them!"
+  ],
+  [
+   "feeling a bit overwhelmed tbh",
+   "That's completely understandable with so much going on."
+  ],
+  [
+   "going to order pizza, no way im cooking tonight",
+   "Pizza sounds like exactly the right call."
+  ],
+  [
+   "hester said shell visit once were settled",
+   "That's lovely, it'll be nice to stay in touch."
+  ],
+  [
+   "packed the whole bookshelf tonight, small win",
+   "Small wins add up, nice work!"
+  ],
+  [
+   "the kid wants to bring every single stuffed animal",
+   "Honestly, that seems like a fair request for a big move."
+  ],
+  [
+   "dashiell's girlfriend is coming saturday too, apparently shes a sommelier",
+   "Sounds like she might bring good taste to the moving crew!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "remind me which town we're relocating to",
+   "answer": "eastmere",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "older",
+   "message": "where am i originally from",
+   "answer": "wickhollow",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "never_told",
+   "message": "which car does dashiell drive",
+   "wrong": [
+    "citroen"
+   ]
+  }
+ ]
+}

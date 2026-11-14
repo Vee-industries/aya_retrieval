@@ -1,0 +1,124 @@
+{
+ "id": "w3_07",
+ "exchanges": [
+  [
+   "finally signed the papers, we're moving to Ravensholm in the summer!!",
+   "Congratulations, that's huge news!"
+  ],
+  [
+   "boxes everywhere already",
+   "The packing chaos begins."
+  ],
+  [
+   "my sister Marisol offered to help pack, bless her",
+   "That's so kind of her."
+  ],
+  [
+   "my cousin bought a telescope and now texts me about saturn constantly",
+   "Ha, sounds like a new obsession."
+  ],
+  [
+   "my son Fenwick is not taking the move well, keeps hiding his toys",
+   "Big changes are hard for little ones."
+  ],
+  [
+   "gonna make his new room really fun",
+   "That should help him settle in."
+  ],
+  [
+   "Anouk is reading Middlemarch for her book club, says its a slog",
+   "It's a long one, but worth sticking with."
+  ],
+  [
+   "my grandad grew up in Glenarra, he wants us to visit before we go",
+   "That would be a lovely trip."
+  ],
+  [
+   "cracked the screen on my Xiaomi, of course, right before the move",
+   "Ugh, the timing is always awful."
+  ],
+  [
+   "my second cousin got a snowblower and offered to clear our driveway lol",
+   "Handy relative to have in winter."
+  ],
+  [
+   "it hasnt even snowed yet",
+   "Ha, at least he's prepared."
+  ],
+  [
+   "Anouk plays oboe in the community orchestra, concert is soon",
+   "That sounds like a nice night out."
+  ],
+  [
+   "we should go",
+   "It'd be a nice break from packing."
+  ],
+  [
+   "my sister works at Tidewell, she might get me a discount on movers",
+   "That would really help."
+  ],
+  [
+   "watching Poldark every night to decompress",
+   "Period dramas are great for unwinding."
+  ],
+  [
+   "hubby rolls his eyes at it",
+   "He's secretly into it, I bet."
+  ],
+  [
+   "my grandad called, hes so excited we're visiting",
+   "That's sweet, he'll love having you."
+  ],
+  [
+   "packing the kitchen tomorrow",
+   "The kitchen always takes the longest."
+  ],
+  [
+   "found so much jnuk",
+   "Moving is a great excuse to declutter."
+  ],
+  [
+   "donating like half of it",
+   "Someone else will love it."
+  ],
+  [
+   "tired but good tired",
+   "The best kind of tired."
+  ],
+  [
+   "my son finally helped pack his own room",
+   "That's a great sign."
+  ],
+  [
+   "the carpool to work is going to be the thing i miss most",
+   "It's nice when the commute comes with company."
+  ],
+  [
+   "ok sleep, big day tomorrow",
+   "Rest up!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which instrument is Anouk on",
+   "answer": "oboe",
+   "wrong": [],
+   "fact_exchange": 11
+  },
+  {
+   "kind": "older",
+   "message": "where are we relocating to again",
+   "answer": "Ravensholm",
+   "wrong": [],
+   "fact_exchange": 0
+  },
+  {
+   "kind": "never_told",
+   "message": "where's hubby employed",
+   "wrong": [
+    "Tidewell"
+   ]
+  }
+ ]
+}

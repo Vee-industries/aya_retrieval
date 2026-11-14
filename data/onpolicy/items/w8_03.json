@@ -1,0 +1,124 @@
+{
+ "id": "w8_03",
+ "exchanges": [
+  [
+   "band practice ran late again lol",
+   "Sounds like a productive one though."
+  ],
+  [
+   "my fingers are wrecked from the mandolin parts lio wrote",
+   "Sounds like a workout for your hands."
+  ],
+  [
+   "he keeps writing stuff thats way too fast",
+   "Good way to level up, at least."
+  ],
+  [
+   "lio had to leave early anyway, his shift at the cannery starts at dawn",
+   "That's an early start."
+  ],
+  [
+   "so we wrapped up around midnight",
+   "Long night!"
+  ],
+  [
+   "jules our drummer dragged everyone to lanterna after, its his favourite spot for late pasta",
+   "Late-night pasta sounds perfect."
+  ],
+  [
+   "i ate way too much garlic bread",
+   "No regrets, I hope."
+  ],
+  [
+   "they had hollowpine playing in the background, best band ever honestly",
+   "Nice when the music lines up."
+  ],
+  [
+   "my girlfriend saoirse met us there at the end",
+   "Nice that she could join."
+  ],
+  [
+   "she was wiped from being outside all day",
+   "Long day for her too."
+  ],
+  [
+   "my gf is deep in her ornithology degree, always out with binoculars",
+   "Sounds like fun fieldwork."
+  ],
+  [
+   "today im just recovering on the couch",
+   "Well deserved."
+  ],
+  [
+   "finally started piranesi, its so wierd and i love it",
+   "Sounds like a great couch companion."
+  ],
+  [
+   "called my nan this afternoon",
+   "That's sweet of you."
+  ],
+  [
+   "my nan says her bird pickwick learned a new whistle",
+   "That's adorable."
+  ],
+  [
+   "my nan maureen swears a budgie is better company than people",
+   "Hard to argue with that."
+  ],
+  [
+   "shes not wrong tbh",
+   "Pets are hard to beat."
+  ],
+  [
+   "the other jules, from pottery class, keeps begging me to try kittiwake, says its her favourite cafe",
+   "Maybe worth a visit."
+  ],
+  [
+   "too many juleses in my life lol",
+   "Sounds like it!"
+  ],
+  [
+   "my nokia died mid call with my nan, of course",
+   "Classic timing."
+  ],
+  [
+   "gotta pay rent tomorrow",
+   "Adulting never stops."
+  ],
+  [
+   "my landlady told me she grew up in pentreath, by the sea",
+   "That sounds lovely."
+  ],
+  [
+   "she invited me for tea sometime",
+   "That's nice of her."
+  ],
+  [
+   "anyway gonna practice a bit and sleep",
+   "Have a good night."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "the novel i'm reading, title?",
+   "answer": "piranesi",
+   "wrong": [],
+   "fact_exchange": 12
+  },
+  {
+   "kind": "older",
+   "message": "nan has a feathered buddy, whats his name",
+   "answer": "pickwick",
+   "wrong": [],
+   "fact_exchange": 14
+  },
+  {
+   "kind": "never_told",
+   "message": "jules our drummer, wheres he employed",
+   "wrong": [
+    "cannery"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w4_04",
+ "exchanges": [
+  [
+   "big news, we finally signed the lease",
+   "Congrats, that's a huge step!"
+  ],
+  [
+   "so yeah we're moving to kestrelby in the spring",
+   "How exciting, a fresh start in a new place!"
+  ],
+  [
+   "kind of nervous tbh",
+   "That's totally normal with a big change."
+  ],
+  [
+   "leaving dunmarrow is gonna be weird, its all ive known as an adult",
+   "It makes sense to feel attached to the place you've built your life in."
+  ],
+  [
+   "my wife is way more excited than me",
+   "Ha, her excitement might rub off on you."
+  ],
+  [
+   "my wife's an archivist so she can work pretty much anywhere with old papers lol",
+   "Ha, that's a nicely portable career."
+  ],
+  [
+   "my wife already lined up a spot at ostlund, the big library there",
+   "That's great, one less thing to worry about."
+  ],
+  [
+   "the packing though. oh my god",
+   "Packing is the worst part of any move."
+  ],
+  [
+   "bending over boxes all day has my sciatica flaring up",
+   "Ouch, take breaks and lift carefully."
+  ],
+  [
+   "ilse came by to help which was sweet",
+   "That's a good friend right there."
+  ],
+  [
+   "ilse finally got the pet she always wanted, an axolotl",
+   "Ha, what a fun and unusual choice!"
+  ],
+  [
+   "it looks like its permanently smiling",
+   "They really do have the happiest little faces."
+  ],
+  [
+   "ilse named the little guy gumbo which i cannot get over",
+   "Ha, that's a perfect name for him."
+  ],
+  [
+   "my sister ottilie is driving down this weekend to help pack",
+   "That's so kind, many hands make light work."
+  ],
+  [
+   "nico from book club says luccio is the only decent pizza in town",
+   "Ha, bold claim, sounds like a must-try."
+  ],
+  [
+   "my old roommate nico totally disagrees, hes all about brasswick",
+   "Ha, a proper pizza rivalry between the two of them."
+  ],
+  [
+   "might do a goodbye dinner and settle it once and for all",
+   "Sounds like a delicious way to say goodbye."
+  ],
+  [
+   "my oneplus died mid call with the movers ugh",
+   "Oh no, terrible timing, hope it charges back up."
+  ],
+  [
+   "they want a deposit before they confirm the date",
+   "That's pretty standard, at least it locks things in."
+  ],
+  [
+   "the impreza is gonna be packed to the roof with the fragile stuff",
+   "Ha, careful on the corners then."
+  ],
+  [
+   "honestly just want it all to be over",
+   "Soon enough you'll be unpacking in the new place."
+  ],
+  [
+   "at least the new area is supposed to be amazing for geocaching",
+   "That'll be a fun way to explore your new home."
+  ],
+  [
+   "trying to focus on the good stuff",
+   "That's a great mindset to carry through the move."
+  ],
+  [
+   "ok back to taping boxes",
+   "Good luck, you've got this!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "ilse has which kind of animal now",
+   "answer": "axolotl",
+   "wrong": [],
+   "fact_exchange": 10
+  },
+  {
+   "kind": "older",
+   "message": "tell me what job my wife has",
+   "answer": "archivist",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "never_told",
+   "message": "once we move, where am i gonna work",
+   "wrong": [
+    "kestrelby"
+   ]
+  }
+ ]
+}

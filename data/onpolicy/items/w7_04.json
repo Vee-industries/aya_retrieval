@@ -1,0 +1,124 @@
+{
+ "id": "w7_04",
+ "exchanges": [
+  [
+   "made it through my first exam, brain is fried",
+   "Well done, time to give your brain a rest."
+  ],
+  [
+   "the campus at Brightwater is gorgeous this time of year",
+   "Nice, a pretty campus makes the long days easier."
+  ],
+  [
+   "honestly geology is way harder than i expected",
+   "The first year is always the steepest climb."
+  ],
+  [
+   "living off instant noodles this week lol",
+   "Classic student fuel."
+  ],
+  [
+   "my grandma has bronchitis again, shes coughing nonstop",
+   "Poor thing, I hope she shakes it soon."
+  ],
+  [
+   "called her today, she sounded tired but ok",
+   "I'm sure hearing from you helped."
+  ],
+  [
+   "my friend Thaddeus helped me cram all night",
+   "Good friends make cramming bearable."
+  ],
+  [
+   "nell's bunny Gooseberry chewed through my charger cable",
+   "Bunnies and cables, a dangerous combo."
+  ],
+  [
+   "my mom keeps texting me to eat vegetables",
+   "Moms always know."
+  ],
+  [
+   "and now my grandpa has gout, both of them are a mess",
+   "That's a lot at once, sending them good wishes."
+  ],
+  [
+   "im so behind on laundry",
+   "One load at a time."
+  ],
+  [
+   "nell told me the bunny is a lionhead, explains the crazy fluff",
+   "Ha, that explains the look."
+  ],
+  [
+   "the library was packed today",
+   "Exam season will do that."
+  ],
+  [
+   "joined the fencing club, im terrible but its fun",
+   "Everyone starts somewhere, and fun is what matters."
+  ],
+  [
+   "my arms are so sore from practice",
+   "That means you're working hard."
+  ],
+  [
+   "bought a secondhand microscope off a guy online",
+   "Great find for a science student."
+  ],
+  [
+   "nell made us dinner, shes the best roommate",
+   "Lucky you, that's a great roommate."
+  ],
+  [
+   "nell practices her bagpipes in the shower, i cant escape",
+   "That's quite the morning soundtrack."
+  ],
+  [
+   "need earplugs honestly",
+   "Probably a smart investment."
+  ],
+  [
+   "grandma keeps telling stories about growing up in Kilbarrow",
+   "Those stories sound lovely to hear."
+  ],
+  [
+   "my mom wants me home for the long weekend",
+   "A trip home could be a nice break."
+  ],
+  [
+   "ok essay time, wish me luck",
+   "You've got this."
+  ],
+  [
+   "the Bramblewood cafe by campus is my new study spot, best chai",
+   "A good drink makes studying so much easier."
+  ],
+  [
+   "ok back to it, talk later",
+   "Good luck with the essay!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "nell plays what instrument again",
+   "answer": "bagpipes",
+   "wrong": [],
+   "fact_exchange": 17
+  },
+  {
+   "kind": "older",
+   "message": "which university am i at, blanking",
+   "answer": "Brightwater",
+   "wrong": [],
+   "fact_exchange": 1
+  },
+  {
+   "kind": "never_told",
+   "message": "where's grandma living now",
+   "wrong": [
+    "Kilbarrow"
+   ]
+  }
+ ]
+}

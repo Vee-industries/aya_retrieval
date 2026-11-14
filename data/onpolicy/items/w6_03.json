@@ -1,0 +1,124 @@
+{
+ "id": "w6_03",
+ "exchanges": [
+  [
+   "good morning! suns out for once",
+   "Lovely, enjoy the sunshine!"
+  ],
+  [
+   "been practising my accordion on the porch, the neighbours are being very patient",
+   "Porch concerts are a gift, whether they know it or not."
+  ],
+  [
+   "my fingers are stiff but its coming along",
+   "Steady practice will loosen them up."
+  ],
+  [
+   "had a long call with my sister philippa yesterday",
+   "Lovely to catch up with family."
+  ],
+  [
+   "she sold the old house finally",
+   "End of an era, that's a big step."
+  ],
+  [
+   "shes moving to harrogate to be near her kids",
+   "Being close to family makes a lot of sense."
+  ],
+  [
+   "neighbour hollis came by with tomatoes from his garden",
+   "Fresh garden tomatoes are the best."
+  ],
+  [
+   "turns out he grew up in inverkip, right by the water",
+   "A seaside childhood, how nice."
+  ],
+  [
+   "we talked boats for an hour",
+   "Sounds like a great chat."
+  ],
+  [
+   "reading gilead again, it gets better every time",
+   "Some books really reward coming back to them."
+  ],
+  [
+   "rafe called too, my grandson, hes in his first year",
+   "Exciting time for him!"
+  ],
+  [
+   "hes doing forestry, wants to work outdoors",
+   "That suits someone who loves the outdoors."
+  ],
+  [
+   "says the dorm food is dreadful",
+   "A rite of passage, I'm afraid."
+  ],
+  [
+   "tallowmere has a lovely campus though, we visited in the summer",
+   "A nice campus makes up for a lot."
+  ],
+  [
+   "choir tonight, were doing sea shanties",
+   "Fun, hope you're in good voice!"
+  ],
+  [
+   "the other hollis, from choir, says hes an aberfoyle lad originally",
+   "Two Hollises with very different roots, funny."
+  ],
+  [
+   "after choir we always go for pie",
+   "Pie after singing sounds perfect."
+  ],
+  [
+   "bramblewood diner is my go-to, best rhubarb pie in the county",
+   "A good pie spot is worth its weight in gold."
+  ],
+  [
+   "my granddaughter set up my new phone, i cant work it",
+   "New phones take some getting used to."
+  ],
+  [
+   "its a motorola, buttons are tiny",
+   "Bumping up the text size might help."
+  ],
+  [
+   "my old pal everett phoned to laugh at me about it",
+   "Good friends always find the funny side."
+  ],
+  [
+   "rafe says he gets the ferry across to campus every morning",
+   "What a scenic way to start the day."
+  ],
+  [
+   "makes me want to visit again",
+   "Sounds like a lovely trip to plan."
+  ],
+  [
+   "right, off to bed. goodnight",
+   "Goodnight, sleep well!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "favourite place to eat, can u remind me",
+   "answer": "bramblewood",
+   "wrong": [],
+   "fact_exchange": 17
+  },
+  {
+   "kind": "older",
+   "message": "what's my sister called",
+   "answer": "philippa",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "never_told",
+   "message": "my granddaughter, whats she studying",
+   "wrong": [
+    "forestry"
+   ]
+  }
+ ]
+}

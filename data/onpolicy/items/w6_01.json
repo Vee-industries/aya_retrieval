@@ -1,0 +1,124 @@
+{
+ "id": "w6_01",
+ "exchanges": [
+  [
+   "finally done with my stats midterm, brain is mush",
+   "Nice work getting through it, time to recharge."
+  ],
+  [
+   "still cant believe i chose hydrology, its so much math",
+   "The math pays off once it clicks, hang in there."
+  ],
+  [
+   "the library here at pellridge closes way too early on fridays which is criminal",
+   "That's rough when you need late study hours."
+  ],
+  [
+   "grabbed noodles with my lab group instead",
+   "Noodles with friends sounds like a good trade."
+  ],
+  [
+   "jonah from the lab plays euphonium in a brass band, who knew",
+   "Ha, that's a fun hidden talent."
+  ],
+  [
+   "my advisor dr hale wants a draft by next week, panicking a bit",
+   "You've got this, chip away at it a bit each day."
+  ],
+  [
+   "honestly miss the quiet back in kelsmoor where i grew up",
+   "Small-town quiet can be really grounding."
+  ],
+  [
+   "city noise at night here is no joke",
+   "Earplugs might be worth a try."
+  ],
+  [
+   "my fairphone screen cracked again so im typing through a spiderweb",
+   "Oof, hope a repair isn't too pricey."
+  ],
+  [
+   "anyway roommate drama tonight",
+   "Uh oh, hope it's nothing too serious."
+  ],
+  [
+   "my roommate jonah practices banjo at midnight, different jonah lol",
+   "Two Jonahs and lots of music, never a dull moment."
+  ],
+  [
+   "we worked it out, hell play earlier now",
+   "Glad you sorted it out calmly."
+  ],
+  [
+   "my little brother tavish called, big news",
+   "Ooh, can't wait to hear it."
+  ],
+  [
+   "he got some fancy fellowship",
+   "That's amazing, you must be proud."
+  ],
+  [
+   "so hes moving to valparaiso in the spring, im gonna miss him",
+   "That's a big move, but what an adventure."
+  ],
+  [
+   "sad but happy for him u know",
+   "Totally, it's bittersweet."
+  ],
+  [
+   "been rewatching detectorists to cope, so cozy",
+   "That sounds like perfect comfort viewing."
+  ],
+  [
+   "also my laptop fan sounds like a jet",
+   "Might be time to give it a cleaning."
+  ],
+  [
+   "wrote most of my draft at the marigold today, their oat lattes are unreal",
+   "Sounds like a productive spot with good fuel."
+  ],
+  [
+   "got a solid chunk done",
+   "Great progress!"
+  ],
+  [
+   "my study buddy ottilie read it over and said its decent",
+   "Nice to have a second pair of eyes on it."
+  ],
+  [
+   "khruangbin is my all time fave band and theyre touring here next month",
+   "Seeing your favourite live is the best."
+  ],
+  [
+   "dr hale approved the outline btw",
+   "That's a relief, nice work."
+  ],
+  [
+   "ok bed, early lab tomorrow",
+   "Sleep well, good luck tomorrow!"
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "which coffee spot do i like working from",
+   "answer": "marigold",
+   "wrong": [],
+   "fact_exchange": 18
+  },
+  {
+   "kind": "older",
+   "message": "where was home for me as a kid",
+   "answer": "kelsmoor",
+   "wrong": [],
+   "fact_exchange": 6
+  },
+  {
+   "kind": "never_told",
+   "message": "lab jonah's favourite band to listen to?",
+   "wrong": [
+    "euphonium"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "id": "w14_05",
+ "exchanges": [
+  [
+   "ugh my back",
+   "Oh no, that doesn't sound good."
+  ],
+  [
+   "doctor finally said its sciatica, which explains the shooting pain down my leg",
+   "At least you know what's going on now, I hope treatment helps."
+  ],
+  [
+   "i have to do stretches every morning now",
+   "Hopefully they start making a difference soon."
+  ],
+  [
+   "my brother sent pics of his son Lowen learning to crawl, so cute",
+   "That's such a sweet milestone."
+  ],
+  [
+   "he goes backwards mostly lol",
+   "Backwards still counts as progress."
+  ],
+  [
+   "work was slow, nothing much happens at the hatchery this time of year",
+   "A slow day can be a nice break sometimes."
+  ],
+  [
+   "jun brought his accordion to the break room and played polkas for everyone",
+   "That sounds like a surprisingly fun break."
+  ],
+  [
+   "some of us loved it, some wanted to leave",
+   "That's a pretty fair split for a polka concert."
+  ],
+  [
+   "the minivan is making a clunking noise again",
+   "That's worth getting checked before it gets worse."
+  ],
+  [
+   "honestly my Sienna has been nothing but trouble since i bought it used",
+   "Used cars can be such a gamble."
+  ],
+  [
+   "cass wants to meet at Bramble tomorrow, its her favourite cafe, they do these massive scones",
+   "Massive scones sound like a strong reason to go."
+  ],
+  [
+   "ill go if my back lets me",
+   "Hopefully it cooperates."
+  ],
+  [
+   "my brother-in-law just told us they named the baby Marisol",
+   "That's a beautiful name, congratulations to them."
+  ],
+  [
+   "so now both sides of the family have new babies",
+   "That's a lot of baby cuddles in your future."
+  ],
+  [
+   "my phone is a Nokia from forever ago and people laugh at it",
+   "If it works, it works."
+  ],
+  [
+   "it lasts all week on a charge though",
+   "That's honestly better than most new phones."
+  ],
+  [
+   "mom's sister Clementine is coming for dinner sunday",
+   "That should be a nice family dinner."
+  ],
+  [
+   "she always brings weird casseroles",
+   "Weird casseroles can be part of the charm."
+  ],
+  [
+   "i was telling Ignatius about it, hes been my best friend since we were kids",
+   "Old friends are the best people to share family stories with."
+  ],
+  [
+   "he thinks the casseroles are a power move",
+   "He might be onto something."
+  ],
+  [
+   "still love living in Bellhaven though, the street is so quiet",
+   "A quiet street is worth a lot."
+  ],
+  [
+   "ok back is a bit better tonight",
+   "Glad to hear it's easing up."
+  ],
+  [
+   "cass says shes been watching Bluey with her niece and is now weirdly invested",
+   "It's known for pulling grown-ups in too."
+  ],
+  [
+   "i might have to try it",
+   "Could be a fun, easy watch."
+  ]
+ ],
+ "questions": [
+  {
+   "kind": "older",
+   "message": "where's my workplace again",
+   "answer": "hatchery",
+   "wrong": [],
+   "fact_exchange": 5
+  },
+  {
+   "kind": "older",
+   "message": "the little boy my brother has, whats he called",
+   "answer": "Lowen",
+   "wrong": [],
+   "fact_exchange": 3
+  },
+  {
+   "kind": "never_told",
+   "message": "where did i grow up",
+   "wrong": [
+    "Bellhaven"
+   ]
+  }
+ ]
+}
