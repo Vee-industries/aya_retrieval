@@ -35,6 +35,8 @@ CANDIDATES = {
     "K1.3s": "k1_3s_r227",  # R-227: K1.3 + one epoch of K4.8's set at 1e-4
     "R2c": "k13r2c_r235",  # R-235, R-246: K1.3 + one epoch of K5's third-search set at 1e-4
     "R2cf": "k13r2cf_r247",  # R-247: R2c on K5's set fixed to pass check_k3.py
+    "OP": "k13op_r253",  # R-253: K1.3 + its own balanced corrections, 1e-4 x 1
+    "OP2": "k136op2_r256",  # R-256, R-260: the same from T6, K4.8 as rehearsal
 }
 # Screened but not eligible for the pick, with the record that says why.
 NOT_ELIGIBLE = {"R2c": "R-247: its set failed check_k3.py's user-fact line"}
