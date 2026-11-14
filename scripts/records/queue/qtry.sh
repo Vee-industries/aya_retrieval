@@ -43,12 +43,17 @@ blindrun() {  # folder, label, adapter dir
   timeout $CAP "$VP" scripts/run_recall_eval.py --seed 0 --items-dir "data/$1/chats" --index "C:/Users/Gaming/scratch/eval_${LABEL}_blind.sqlite" --label "$2" --arms tool_loop --max-vram-fraction $VRAM --adapter "$3" 2>&1 | quiet | tail -3
   have "$2_seed_0" || fail "$2"; commit "$2"
 }
-init() {  # seed: a missing K4.6 start adapter is trained as K4.6 was (R-214), 3 epochs from base (R-242)
+init() {  # seed: a missing K4.6 (R-242) or T6 (R-252) start adapter is trained exactly as it was
   local IA="$W/adapters/screens/${INIT}_$1"
   [ -s "$IA/adapter_model.safetensors" ] && return 0
-  [ "$INIT" = k4_6_r214 ] || fail "no start adapter ${INIT}_$1"
+  local HOW START=""
+  case "$INIT" in
+    k4_6_r214) HOW="--data data/screens/k4_6_r214.jsonl --learning-rate 3e-4 --save-epochs 2" ;;
+    k13t6_r229) HOW="--data data/screens/k4_8_r220.jsonl --learning-rate 3e-4 --epochs 3"; START="$W/adapters/screens/k1_3_r200_$1" ;;  # R-252: T6 as trained (R-229)
+    *) fail "no start adapter ${INIT}_$1" ;;
+  esac
   clean; rm -rf "$IA"; echo "== train start adapter ${INIT} seed $1 $(date)"
-  timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$IA" --data data/screens/k4_6_r214.jsonl --report-name "${INIT}_$1" --lora-r 32 --lora-targets $MLP --learning-rate 3e-4 --loss-on chat_decision --max-vram-fraction $VRAM --save-epochs 2 2>&1 | tee "$S/train_${INIT}_$1.log" | quiet | tail -2
+  timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$IA" $HOW ${START:+--init-adapter "$START"} --report-name "${INIT}_$1" --lora-r 32 --lora-targets $MLP --loss-on chat_decision --max-vram-fraction $VRAM 2>&1 | tee "$S/train_${INIT}_$1.log" | quiet | tail -2
   [ -s "$IA/adapter_model.safetensors" ] || fail "train ${INIT}_$1"
   git add results/recall_train && git commit -q -m "${INIT} seed $1 trained (R-242, start adapter)" -m "$ATTR"
 }

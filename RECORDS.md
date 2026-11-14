@@ -9548,3 +9548,27 @@ a third Demo2 older item sits at or past false retrieval 4, a trade no lever has
 21 times on its 10 items. It asks for no exception to the check R2c's set failed. This conflicts with Kevin's
 standing order (R-240), so it is put to him (04:46): stop after the blend and keep K1.3, or keep trying. The running
 blend finishes either way (registered).
+
+## R-252 · 2026-11-14 · REOPENED · Kevin: keep trying; round 5 registered before any round-5 result
+
+Kevin (04:48), asked R-251's question: "Keep trying". His standing order (R-240) holds over the lane's stop; the
+lane's finding is kept in front of every result below: on these lines a pass is partly a redraw, and only full
+screening on seeds 83 and 94 (never skipped for time) says more. No new lane: R-251's lane judged every remaining kind
+of lever a redraw, and Kevin ruled to go on.
+
+**Round 5: R2c's data, checked (`k5f_r247`, 0 FAIL, R-247), from other starts and the record's other settings.** R2c is
+the only try that passed every gate and every screening line; its set failed one check line, and the checked set
+under R2c's own setting failed hard_dev (R2cf, R-249). Fixed order (`chain4_r252.sh`, after the T6 and T4 grid ends):
+
+| Try | Label | Starts from | Rate x epochs |
+|---|---|---|---|
+| R5a | `k136r5a_r252` | T6 (hard_dev 44 / 4 / 72) | 1e-4 x 1 |
+| R5b | `k13r5b_r252` | K1.3 | 3e-4 x 1 (T4's rate) |
+| R5c | `k46r5c_r252` | K4.6 epoch 3 (46 / 4 / 72) | 1e-4 x 1 |
+| R5d | `k136r5d_r252` | T6 | 3e-4 x 1 |
+| R5e | `k13r5e_r252` | K1.3 | 1e-4 x 3 |
+
+Rules as R-229, R-237 and R-242 (hard_dev first; Demo2, then Demo3; seeds 83 and 94 train next; then screening).
+`qtry.sh` now also trains a missing T6 start adapter exactly as T6 was (a stage on the seed's K1.3 adapter, 3e-4, 3
+epochs, K4.8's set; about 80 minutes a seed), so R5a and R5d need their seed 82 gates by about 12:00. Each start's own
+set passed the checker (K1.3 R-200, K4.8 R-220, K4.6 R-214); every stage trains on `k5f_r247`.
