@@ -9690,3 +9690,16 @@ smaller still: K1.3 seed 83 got more older items right on the items, so fewer an
 
 **C0 seed 82** (`k13c0_r253`: K1.3 plus 1e-4 x 1 on its own 1,094 rows; 06:26): hard_dev never_told **48**, false
 retrieval **0**, recall 54, in_view 39 (K1.3: 46 / 2 / 52 / 41). Passes; Demo4 next.
+
+## R-258 · 2026-11-14 · REOPENED · Process corrections: commit chains, watcher deadline, usage readings, in-place record edits
+
+A peer session's SOP check (Claude's House R-033) listed four points in this session; each is fixed in practice from
+now, as the SOP already requires (not a new rule). (1) The 04:57 commit ran lint with `;` before `git add` (lint passed
+there); every commit is one `&&` chain from now. (2) The watcher (`wake.sh`) woke on events and on a 45-minute stall
+but had no deadline; it now also wakes late (90 minutes with no event, or a deadline given). (3) `get_usage` is read
+before starting agents from now (the stricter reading of SOP token rule 5, pending Kevin's answer on the Lexsi
+exemption). (4) **In-place edits of committed record lines, listed here as the correction**: R-221's "asked 14:52" to
+"asked 14:48" (the clock); R-226's "Kevin (16:40)" to "(16:24)"; R-227's "Kevin (16:30)" to "(about 16:25)" and "12
+candidate readings" to "at least 13" (adding K4.9); R-252's "Kevin (04:48)" to "(about 04:45)"; R-246's R2a entry
+gained "recall 68, in_view 46". Each changed a time or a count to match the clock or the files, not a result; from now
+a correction is appended, never written over a committed line.
