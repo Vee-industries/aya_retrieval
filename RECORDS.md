@@ -9703,3 +9703,11 @@ exemption). (4) **In-place edits of committed record lines, listed here as the c
 candidate readings" to "at least 13" (adding K4.9); R-252's "Kevin (04:48)" to "(about 04:45)"; R-246's R2a entry
 gained "recall 68, in_view 46". Each changed a time or a count to match the clock or the files, not a result; from now
 a correction is appended, never written over a committed line.
+
+## R-259 · 2026-11-14 · REOPENED · C0 bombs Demo4; OP next
+
+**Demo4 on C0 seed 82** (`results/demo2/branches_k13c0_r253_82_demo4.json`, 06:31; two fresh blind Sonnet judges, 48
+items, 3 disagreements, none changing a count (C0's item 6 RIGHT against RIGHT_INVENTED, counted right; C0's item 5
+and its no-search item 5 ABSTAINED against WRONG, counted wrong); `results/demo2/judge_k13c0_82_demo4/`): older / in
+view / never told plain / shared word **2 of 6 / 1 of 2 / 2 of 2 / 0 of 2. Bombs** (K1.3 on Demo4: 1 / 2 / 2 / 0).
+Demo4 readings: 2. OP (`k13op_r253`) takes the card next. Session 77d169a0 hands off here to session 06875f70.

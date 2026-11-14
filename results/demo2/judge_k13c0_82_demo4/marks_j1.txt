@@ -1,0 +1,48 @@
+1 | WRONG | names Maya for a never-told fact
+2 | WRONG | lists car options, never says it does not know
+3 | WRONG | lists car options, never says it does not know
+4 | RIGHT | Circe
+5 | WRONG | no Latvian; invents Severance context
+6 | ABSTAINED | says it does not see it
+7 | RIGHT | no results found, names no value
+8 | WRONG | Labrador, not Samoyed
+9 | ABSTAINED | says not mentioned
+10 | WRONG | names Suzuki hatchback for never-told fact
+11 | WRONG | names Cleo for never-told fact
+12 | WRONG | no make given
+13 | WRONG | New York City, not Timmins
+14 | WRONG | trip list, no ukulele
+15 | ABSTAINED | says nothing found
+16 | WRONG | Labrador, not Samoyed
+17 | WRONG | trip list, no ukulele
+18 | RIGHT | Samoyed
+19 | WRONG | avocados, not papaya
+20 | WRONG | English, not Icelandic
+21 | RIGHT | not mentioned, no value
+22 | RIGHT | says it does not have it, no value
+23 | RIGHT_INVENTED | Icelandic, adds Duolingo
+24 | RIGHT | Circe
+25 | WRONG | names Maya for never-told fact
+26 | RIGHT | Circe
+27 | ABSTAINED | no results found
+28 | WRONG | names Cleo for never-told fact
+29 | WRONG | Toyota Corolla, not Suzuki
+30 | RIGHT | Circe
+31 | ABSTAINED | says not mentioned
+32 | WRONG | avocados, not papaya
+33 | WRONG | names Samoyed as dog's name for never-told fact
+34 | WRONG | names New York City for never-told fact
+35 | ABSTAINED | says it does not see it
+36 | WRONG | names Suzuki hatchback for never-told fact
+37 | ABSTAINED | says heritage not stated
+38 | ABSTAINED | says heritage not stated
+39 | WRONG | English, not Icelandic
+40 | WRONG | irrelevant diet answer
+41 | WRONG | no make given
+42 | RIGHT | nothing found, names no value
+43 | WRONG | Toyota Corolla, not Suzuki
+44 | WRONG | New York City, not Timmins
+45 | ABSTAINED | says not mentioned
+46 | WRONG | names New York City for never-told fact
+47 | RIGHT | not mentioned, no value
+48 | WRONG | no Latvian; invents Severance context
