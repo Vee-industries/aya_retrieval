@@ -10202,3 +10202,12 @@ no S3 data): a planted pass passes; a pick that copies as often as 6.37 fails on
 coherence (0.85) is under base's 0.9 times 0.95 fails, and so does a rule with no tally; a gain carried by one chat of
 20 gives a bound not above 0; a judge missing a line is refused. No panel, because it implements a rule registered in
 R-178, R-191 and R-281 and changes no registered line.
+
+## R-283 · 2026-11-14 · REOPENED · Kevin's reason for R-276 and R-278, for the write-up
+
+Kevin (about 16:35, in chat), on whether the write-up says why the demo test changed: "because the results were
+garbage". The counts behind it, from the record: the same model, K1.3 seed 82, scored older 1 of 6 on Demo4 (R-257) and
+3 of 6 on Demo5 (R-277), two demos written from one brief; C1 and K1.3 swap places between the two (C1 3 and 2). A
+fixed line on one 6-question demo moves by one item between demos and cannot tell these models apart; the totals over
+both demos use 12 older and 8 never-told questions. The write-up states this reason and that the change was made after
+both models' demo readings existed.
