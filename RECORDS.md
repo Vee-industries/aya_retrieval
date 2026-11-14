@@ -9427,3 +9427,8 @@ so it must clear seed 82 by about Saturday 12:00 to have both seeds by 20:00 (R-
 `results/recall_eval/hd_k13r2a_r235_82_seed_73157.json`, 22:44): hard_dev never_told **42** (floor 44), false retrieval
 **6** (ceiling 4), recall 68, in_view 46. **Fails both**; no Demo read. The lane's stated risk (category words bring the other person's
 same-type fact into the top 5) is what the numbers show. R2b (a stage from K4.6 epoch 3 on K1.3's set) runs next.
+
+**R2b seed 82** (`k46r2b_r235`: from K4.6 epoch 3, 1e-4, 1 epoch, K1.3's set; 504 tensors, adapter changed; 23:04):
+hard_dev never_told **42**, false retrieval **8**, recall 72, in_view 32 (K4.6 alone 46 / 4 / 72 / 39). **Fails both**;
+no Demo read. A stage of K1.3's rows on K4.6 made it name more other people's facts, not fewer. R2c (third-search
+rows) runs next.
