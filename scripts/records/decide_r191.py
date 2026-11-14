@@ -34,7 +34,10 @@ CANDIDATES = {
     "K4.9": "k4_9_r224",  # R-224: R-222's checkpoint rule
     "K1.3s": "k1_3s_r227",  # R-227: K1.3 + one epoch of K4.8's set at 1e-4
     "R2c": "k13r2c_r235",  # R-235, R-246: K1.3 + one epoch of K5's third-search set at 1e-4
+    "R2cf": "k13r2cf_r247",  # R-247: R2c on K5's set fixed to pass check_k3.py
 }
+# Screened but not eligible for the pick, with the record that says why.
+NOT_ELIGIBLE = {"R2c": "R-247: its set failed check_k3.py's user-fact line"}
 REF = "fix17cs37"
 BASE = "base191"
 SEEDS = (82, 83)
@@ -153,7 +156,9 @@ def main() -> None:
         fails = sum(s == "FAIL" for s, _ in lines)
         waits = sum(s == "WAIT" for s, _ in lines)
         print(f"== {label}: {fails} FAIL, {waits} WAIT, pooled dev recall {pooled} (R-191)")
-        if fails == 0 and waits == 0:
+        if label in NOT_ELIGIBLE:
+            print(f"== {label}: not eligible ({NOT_ELIGIBLE[label]})")
+        elif fails == 0 and waits == 0:
             eligible[label] = pick_recall(name)
             print(f"== {label}: pick recall over seeds {PICK_SEEDS}: {eligible[label]} (R-192)")
     if None in eligible.values():

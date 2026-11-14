@@ -9478,3 +9478,20 @@ third-search value rows); it was then used as stage data in round 2 by the lane'
 checked by `check_k3.py` (R-226: no `k5` lines then); the stage trains on it as built. **By R-240 the tries go on**,
 now to beat R2c: R2d, the blend grid, R3a and the T6 and T4 blend run as queued; a try that passes every gate joins
 the pick against R2c by pick recall.
+
+**Correction, same night (03:10): R2c's set fails a check line, so R2c is not eligible; K1.3 stays the pick.** Run for
+the first time now (`check_k3.py` given K4.8's lines for `k5*` sets and K5's own writer copies), the checker on K5's
+set (`k5_r226`, R2c's stage data) reports **1 FAIL** (`results/panels/R-247/check_k5.txt`): facts about the user
+**32.9%** of 799 natural fact rows, under R-205's third. Every other line passes, S3's six-word line included (0). The
+process requires 0 FAIL before a set trains (`docs/PROJECT_MAP.md`, "How a candidate runs", step 1); R2c trained on it
+without the check (R-226 noted the check had not run; R-235 queued it anyway; my miss). Kevin allows no exception to a
+rule he ruled and is away, so the stricter reading holds: **R2c is screened but not eligible** (`decide_r191.py`
+`NOT_ELIGIBLE`), and the shippable arm is **K1.3** (742) again. R2c's numbers stand in the record above.
+
+**R2cf, registered before any result**: R2c's exact recipe (a stage on each seed's K1.3 adapter, 1e-4, 1 epoch) on
+`k5f_r247` (`scripts/records/build_k5f.py`: K5's set with 10 non-user `older` and `check_true` rows cut in the order of
+SHA-256("R-247|id") until user facts reach a third, as K3.2 cuts for its own line; `check_false` rows not cut).
+Check (`check_k3.py --set k5f_r247`): **0 FAIL** (user facts 263 of 789, 33.3%; `results/panels/R-247/check_k5f.txt`).
+R2cf runs **next after R2d**, ahead of the blend, through every gate: seed 82 hard_dev, Demo2 (its 21st reading),
+Demo3 (its third), then seeds 83 and 94 and full screening. Disclosed: R2cf is chosen because R2c passed every gate on
+an unchecked set; its Demo2 and Demo3 readings are not fresh for this recipe, which differs from R2c by 10 rows.
