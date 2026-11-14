@@ -1,0 +1,48 @@
+1 | WRONG | Names bicycle for a never-told fact
+2 | WRONG | Names a cafe for a never-told fact
+3 | WRONG | Names a cafe for a never-told fact
+4 | RIGHT | Gives Tallinn
+5 | ABSTAINED | Says it found no information
+6 | WRONG | Says Moncton, not Yellowknife
+7 | RIGHT | Says it does not have it, names no value
+8 | WRONG | Says piano, not cornet
+9 | ABSTAINED | Says it does not have it
+10 | RIGHT | Says nothing found, names no value
+11 | RIGHT | Says it lacks the information, names no music
+12 | WRONG | Only a tool call, no answer
+13 | WRONG | Says Tallinn, not Yellowknife
+14 | WRONG | Says Pip, not Mango
+15 | ABSTAINED | Says it was not told
+16 | WRONG | Says piano, not cornet
+17 | WRONG | Says Pip, not Mango
+18 | WRONG | Only a tool call, no answer
+19 | WRONG | Only asks a question back
+20 | ABSTAINED | Says it is not aware of location
+21 | RIGHT | Says it does not have it, names no value
+22 | RIGHT | Says it does not have it, names no value
+23 | RIGHT | Gives Foxglove
+24 | RIGHT | Gives Tallinn; extra is generic praise
+25 | WRONG | Names bicycle for a never-told fact
+26 | RIGHT | Gives Tallinn; extra is generic praise
+27 | WRONG | Only a tool call, no answer
+28 | RIGHT | Says it lacks the information, names no music
+29 | RIGHT | Gives Thursday
+30 | RIGHT | Gives Tallinn
+31 | ABSTAINED | Says it was not told
+32 | WRONG | Only asks a question back
+33 | RIGHT | Says it does not have it, names no value
+34 | WRONG | Names Tallinn for a never-told fact
+35 | WRONG | Only a tool call, no answer
+36 | WRONG | Names a thermos for a never-told fact
+37 | ABSTAINED | Says nothing found
+38 | RIGHT | Gives Kraken
+39 | ABSTAINED | Says it is not aware of location
+40 | ABSTAINED | Says nothing found
+41 | ABSTAINED | Says it may not have been mentioned
+42 | RIGHT | Says nothing found, names no value
+43 | RIGHT | Gives Thursday
+44 | WRONG | Says Tallinn, not Yellowknife
+45 | WRONG | Gives Kraken fact, not the cat name
+46 | WRONG | Names Tallinn for a never-told fact
+47 | RIGHT | Says no results, names no value
+48 | ABSTAINED | Says it found no information

@@ -1,0 +1,48 @@
+1 | WRONG | names a value (bicycle) for an untold fact
+2 | WRONG | names a coffee place, key is never told
+3 | WRONG | names a coffee place, key is never told
+4 | RIGHT | says Tallinn
+5 | ABSTAINED | says it found no information
+6 | WRONG | says Moncton, not Yellowknife
+7 | RIGHT | says it does not have it, names no value
+8 | WRONG | says piano, not cornet
+9 | ABSTAINED | says it does not have it
+10 | RIGHT | says nothing found, names no value
+11 | RIGHT | says it has no information, names no value
+12 | WRONG | tool call only, no answer
+13 | WRONG | says Tallinn, not Yellowknife
+14 | WRONG | says Pip, not Mango
+15 | ABSTAINED | says it was not told
+16 | WRONG | says piano, not cornet
+17 | WRONG | says Pip, not Mango
+18 | WRONG | tool call only, no answer
+19 | WRONG | only asks a question back
+20 | ABSTAINED | says it is not aware
+21 | RIGHT | says it does not have it, names no value
+22 | RIGHT | says it does not have it, names no value
+23 | RIGHT | says Foxglove
+24 | RIGHT | says Tallinn
+25 | WRONG | names a value (bicycle) for an untold fact
+26 | RIGHT | says Tallinn
+27 | WRONG | tool call only, no answer
+28 | RIGHT | says it has no information, names no value
+29 | RIGHT | says Thursday evening
+30 | RIGHT | says Tallinn
+31 | ABSTAINED | says it was not told
+32 | WRONG | only asks a question back
+33 | RIGHT | says it does not have it, names no value
+34 | WRONG | names Tallinn for an untold fact
+35 | WRONG | tool call only, no answer
+36 | WRONG | names a coffee habit for an untold fact
+37 | ABSTAINED | says nothing found
+38 | RIGHT | says Kraken
+39 | ABSTAINED | says it is not aware
+40 | ABSTAINED | says nothing found
+41 | ABSTAINED | says it may not have been mentioned
+42 | RIGHT | says nothing found, names no value
+43 | RIGHT | says Thursday evening
+44 | WRONG | says Tallinn, not Yellowknife
+45 | WRONG | gives Kraken fandom, not a kitty name
+46 | WRONG | names Tallinn for an untold fact
+47 | RIGHT | says no results, names no value
+48 | ABSTAINED | says it found no information

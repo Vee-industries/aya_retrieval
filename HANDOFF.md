@@ -1,8 +1,7 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 07:50 ET (R-266), at the SOP's context hand-off (session
-06875f70). Read this, then `docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-247 to
-R-266.
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 09:16 ET (R-270, session b661dc83). Read this, then
+`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-247 to R-270.
 
 ## State
 
@@ -10,24 +9,26 @@ R-266.
   a check line (R-247); its fixed set failed hard_dev (R-249). `decide_r191.py` lists R2c in `NOT_ELIGIBLE`.
 - **Demos (R-254, `docs/demos/WHY.md`):** Demo2 and Demo3 are retired (their answers were training values). Every try
   reads **Demo4** (screening) then **Demo5** (held out), both written fresh and checked clean by
-  `scripts/records/demo_contamination.py`. K1.3 on Demo4: older 1 of 6, never-told 2 of 4 (R-257). Readings: Demo4 3
-  (K1.3, C0, OP), Demo5 0.
-- **Nothing runs; the card is idle (07:45); no try is registered.** The on-policy tries are done: C0 bombed Demo4
+  `scripts/records/demo_contamination.py`. K1.3 on Demo4: older 1 of 6, never-told 2 of 4 (R-257). Readings: Demo4 4
+  (K1.3, C0, OP, C1), Demo5 1 (C1).
+- **Nothing runs; the card is idle (09:15); no try is registered; reported to Kevin (R-270).** OP4 (R-267:
+  on-policy second-search rows from OP) failed seed 82's hard_dev, 33 / 5 (R-268); its control C1 (OP's stage again on
+  its own set) passed hard_dev 46 / 0 / recall 68 and Demo4 3 of 6 / 3 of 4, and bombed Demo5 older 2 of 6, never-told
+  3 of 4 (R-269, R-270). By R-267, no smaller-dose retry today. The on-policy tries before it: C0 bombed Demo4
   (R-259); OP passed hard_dev (48 / 1 / 60) and bombed Demo4 older 2 of 6, never-told 3 of 4 (R-261, R-262); OP2 was
   stopped before training, its set held no corrections because T6 already gets its own training chats right (R-264);
   OP3 stopped by its rule, 0 new answer rows, since every reachable error OP has left is about someone else and its
-  user-fact errors are ones its search does not reach (R-265). C1 did not run.
-- **Next step: one lever, with an against lane, registered before it runs, seed 82's gates by 14:00.** Facts for the
-  brief: OP's two Demo4 declines had the source second in its own search output, behind a passage about someone else
-  (`found_source` in `branches_k13op_r253_82_demo4.json`); its other two older misses were a search with no result
-  ("instrument" for "ukulele") and no search. The training chats hold 512 older questions (277 about the user); the
-  items used 250, so about 260 are unused (a wider item set could at most about double OP's 18 answer rows). If no
-  lever is worth the card, report to Kevin with K1.3 as the pick.
+  user-fact errors are ones its search does not reach (R-265).
+- **Next step: Kevin's word.** K1.3 stays the pick. Facts for any further lever: OP's user-fact errors on its items
+  are search misses (106 of 117, R-267); teaching a second search (OP4) made it keep searching on never-told
+  questions (11 of 48 ran out of calls, R-268). C1's Demo5 older misses: two wrong with the source found, one out of
+  calls, one decline with the source not found (R-270).
 - **Queue scripts** (scratchpad of session 77d169a0,
   `C:\Users\Gaming\scratch\claude\C--Users-Gaming-Desktop-Claude-s-House\77d169a0-08a5-413f-bd51-6c88c27447de\scratchpad\`):
   `qtry5.sh` / `qtry5_lock.py` (a try with an optional start adapter `INIT` and a per-seed `PREP` script; `init`
-  trains a missing K4.6, T6 or OP start adapter as it was), `op3_prep.sh` (eval, build, stop rule, check),
-  `wake.sh` (watcher; add a new try's log glob to its `logs=` line). `build_onpolicy_rows.py SEED [k13|t6|op]`.
+  trains a missing K4.6, T6 or OP start adapter as it was), `op3_prep.sh` and `op4_prep.sh` (eval, build, stop rule,
+  check), `chain8_r267.sh` (OP4 then C1), `wake.sh` (watcher; add a new try's log glob to its `logs=` line).
+  `build_onpolicy_rows.py SEED [k13|t6|op|op4]`.
 
 ## How a try runs (`scripts/records/queue/qtry.sh`, run as `qtry3.sh` from the scratchpad)
 
@@ -54,5 +55,5 @@ search). Write `pass` or `bomb` into the read file; commit the record first (the
 ## Seed 82 numbers (hard_dev never_told / false retrieval / recall; Demo2 older / never-told unless noted)
 
 K1.3 46 / 2 / 52, Demo2 0 / 4, Demo4 1 / 2. K4.6 46 / 4 / 72, 2 / 4. T4 38 / 12 / 59, 3 / 3. T6 44 / 4 / 72, 2 / 4.
-R2c 45 / 4 / 63, 3 / 4 (not eligible). C0 48 / 0 / 54, Demo4 2 / 2. OP 48 / 1 / 60, Demo4 2 / 3. Every other try in
-R-227 to R-265 failed a gate or did not train.
+R2c 45 / 4 / 63, 3 / 4 (not eligible). C0 48 / 0 / 54, Demo4 2 / 2. OP 48 / 1 / 60, Demo4 2 / 3. OP4 33 / 5 (R-268). C1 46 / 0 / 68, Demo4 3 / 3, Demo5 2 / 3 (R-270). Every other try in
+R-227 to R-270 failed a gate or did not train.

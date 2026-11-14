@@ -9926,3 +9926,19 @@ effect OP's 36 corrections and K1.3's rows at 1e-4 for two epochs). It was regis
 explains a gain; under R-263 it runs under every rule as a try, so its pass counts as a try's pass. **Demo5 (held
 out, read 0 times) decides next**, with the same line; then seeds 83 and 94 (OP's start adapters trained as OP was),
 the whole screening and `decide_r191.py`. Weekly usage 90% (all models, 09:05).
+
+## R-270 · 2026-11-14 · REOPENED · C1 bombs Demo5 on the older line; no registered try left; K1.3 stays the pick
+
+**Demo5 on C1 seed 82** (`results/demo2/branches_k13opc1_r263_82_demo5.json`, 09:13; Demo5's first reading; two fresh
+blind Sonnet judges, each reading only `sheet.md` and writing only its marks file (transcripts checked: one read,
+one write each), 48 lines each, **0 disagreements**; `results/demo2/judge_k13opc1_82_demo5/`; the orchestrator did not
+read the sheet), with search, older / in view / never told plain / shared word: **2 of 6 / 1 of 2 / 2 of 2 / 1 of 2.
+Bombs** on the older line (3 needed); never-told 3 of 4 meets its line. Base 0 / 2 / 0 / 1. Older misses: two wrong
+replies with the source in its own search output (questions 1 and 3), one search that ran out of calls (question 2,
+4 searches), one decline with the source not found (question 4). C1's try ends (`k13opc1_r263_read3.txt` = bomb);
+chain8 ends. Demo5 readings: 1. Demo4 readings: 4.
+
+**State.** OP4 failed hard_dev (R-268) and C1 passed hard_dev and Demo4 and bombed Demo5. By R-267 (no smaller-dose
+retry today), no try is registered, and **K1.3 stays the pick** (pick recall 742). Reported to Kevin in chat, result
+first, with the counts from R-259 to R-270. Weekly usage at the end of this stage: 90% (all models, 09:15; 89% at its
+start, R-267). Nothing pushed.
