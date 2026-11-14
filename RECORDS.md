@@ -9685,3 +9685,5 @@ the user's own first, hashed within each group (both lines kept, nothing invente
 corrections (18 a side) and 7 check_false; seed 83, 18 corrections (9 a side) and 4 check_false; both 0 FAIL**
 (`results/panels/R-253/check_k13op_82.txt`, `_83.txt`); 0 item chats sharing a gate answer run. Seed 83's dose is
 smaller still: K1.3 seed 83 got more older items right on the items, so fewer answer rows exist.
+**Seed 94 built** (06:05): 24 corrections (12 a side) and its check_false rows, **0 FAIL**
+(`results/panels/R-253/check_k13op_94.txt`). All three OP sets exist; the control C0 has the card, then OP.
