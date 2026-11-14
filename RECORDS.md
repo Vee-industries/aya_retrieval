@@ -10221,3 +10221,9 @@ Sonnet judges started at about 17:28, each with its own folder in this session's
 rubric, and a brief that is R-128 judge 1's with only the folder path, the sheet name (one sheet in place of four) and
 the line count changed (`results/s3/coherence/judge_brief_j1.txt`; judges 2 and 3 differ only in folder). Judge 1
 decides (R-154). Weekly usage 94% (all models, 17:26). The queue reached C1 seed 83 at about 17:20.
+
+## R-285 · 2026-11-14 · REOPENED · The S3 scorer skips report arms not yet run
+
+`score_s3.py`'s `arms` now leaves out a report arm (K1, K1.3, K2.1) whose two runs are not both written, so the ship
+rule can be read when C1's runs land, before the report arms end (about 21:30). No panel, because report arms enter no
+line of the rule (R-281) and every line's inputs are unchanged; the five tests pass unchanged.

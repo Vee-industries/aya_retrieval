@@ -125,8 +125,10 @@ def arms(folder: Path = S3_DIR) -> dict[str, list[dict]]:
         "6.37": [r for s in SEEDS for r in load(f"s3_{OLD}_{s}", folder)],
         "pick": [r for s in SEEDS for r in load(f"s3_{PICK}_{s}", folder)],
     }
-    for name in REPORT:
-        out[name] = [r for s in (82, 83) for r in load(f"s3_{name}_{s}", folder)]
+    for name in REPORT:  # report arms gate nothing; one still running is left out, not guessed
+        labels = [f"s3_{name}_{s}" for s in (82, 83)]
+        if all((folder / f"{label}.json").exists() for label in labels):
+            out[name] = [r for label in labels for r in load(label, folder)]
     return out
 
 
