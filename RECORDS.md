@@ -9455,3 +9455,26 @@ R-240 the chain's later tries run after R2c's queue ends, to try to beat whichev
 recall 63, outside-writer recall 133 against K1.3's 89, T2 other-facts recall 155, probe in_view 45, statement 48,
 hard_dev never_told 45, probe false retrieval 0, hard_dev false retrieval 4). Seed 83: hard_dev never_told **47**,
 false retrieval **2** (ceiling 5), recall 71: R-222's early stop passed; the rest of seed 83 and seed 94 are running.
+
+## R-247 · 2026-11-14 · REOPENED · R2c passes screening and beats K1.3: pick recall 868 to 742; R2c is the pick
+
+**Screening** (`decide_r191.py` at 02:58 Saturday, after R2c's queue ended; output
+`results/panels/R-247/decide_r191.txt`): **R2c 0 FAIL, 0 WAIT on all 20 lines.** Seed 82 / seed 83: probe recall 93 /
+94 (base 30); hard_dev recall 63 / 71 (base 20); outside-writer recall 133 / 126 (base 53; K1.3 89 / 104); T2
+other-facts recall 155 / 165 (base 53); probe in_view 45 / 42 (at least 41); statement 48 / 48; hard_dev never_told 45
+/ 47 (at least 44); probe false retrieval 0 / 1 (at most 3); hard_dev false retrieval 4 / 2 (at most 4 / 5). T3 copies
+80 (at most 184); T2 false answers 3 (at most 26). Pooled dev recall 580 (K1.3 501). **Pick recall over seeds 82, 83
+and 94: R2c 868, K1.3 742.** `decide_r191.py` names **R2c the shippable arm for S3**, provisional until 22:00 (R-243).
+
+**What R2c is.** A stage on K1.3's adapter for each seed: 1 epoch at 1e-4 on K5's set (`k5_r226`: K4.8's chain with a
+third search, R-226), every other setting as K1.3 (R-235's round 2, R2c). Gates on seed 82: hard_dev 45 / 4, Demo2 3 of
+6 older and 4 of 4 never-told, Demo3 4 of 6 and 4 of 4.
+
+**Disclosed.** R2c is the 25th seed-82 reading since R-227 counted 13 (stage tries T1 to T6, lever 2, R2a to R2c; fresh
+K4.x before them); Demo2 has been read 20 times and Demo3 twice; R2c clears Demo2's older line by one item and seed
+82's hard_dev false retrieval line exactly (4, ceiling 4); K5, its row set, was registered and not queued in R-226
+because by its own counts it looked weaker than K4.8 (it lost 128 natural rows to the token limit and gained 14
+third-search value rows); it was then used as stage data in round 2 by the lane's ranking (R-235). Its build was not
+checked by `check_k3.py` (R-226: no `k5` lines then); the stage trains on it as built. **By R-240 the tries go on**,
+now to beat R2c: R2d, the blend grid, R3a and the T6 and T4 blend run as queued; a try that passes every gate joins
+the pick against R2c by pick recall.
