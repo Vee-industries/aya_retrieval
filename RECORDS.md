@@ -9644,3 +9644,14 @@ passes hard_dev, its Demo read is moved to Demo4 by hand.
 R-245's grid, seed 82 hard_dev (never_told / false retrieval): **w 0.33: 43 / 5; w 0.5: 42 / 6; w 0.67: 42 / 7. Fails
 at every w**; no Demo read (05:09). Every step toward T4 named more other people's facts, from T6's 44 / 4. The
 on-policy queue (R-253, chain5) takes the card: K1.3's Demo4 baseline, then the three evals, then C0, then OP.
+
+## R-256 · 2026-11-14 · REOPENED · OP2 registered before OP's result: on-policy corrections from T6
+
+Kevin (about 05:12): "keep trying". The on-policy lane's second option (R-253, `onpolicy_against.md`, answer 4): the
+same method from **T6** (hard_dev 44 / 4 / recall 72; its errors are naming other people's facts, so its corrections
+are mostly declines, pressing on the false retrieval line). **OP2**, runs only if OP (R-253) fails a gate: T6's seed
+adapter runs the on-policy items (`data/onpolicy/items`, 125 chats, 375 items); rows from its own turns, balanced one
+to one exactly as OP's; a stage on T6's seed adapter, 1e-4 x 1, on the corrections plus T6's own set (K4.8 whole,
+2,487 rows) as rehearsal. Every gate as R-253 (hard_dev first, Demo4, Demo5, screening). T6 exists for seed 82 only;
+seeds 83 and 94 are trained as T6 was (R-252's `init`, about 80 minutes each) before their evals, so OP2 must clear
+seed 82 by about 09:30 to have seeds 83 and 94 trained by 20:00. Registered before C0's or OP's results exist.
