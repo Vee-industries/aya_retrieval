@@ -1,0 +1,48 @@
+1 | WRONG | names Maya for a never-told fact
+2 | WRONG | lists car options, never says it does not know
+3 | WRONG | lists car options, never says it does not know
+4 | RIGHT | says Circe
+5 | WRONG | invents a show premise, gives no heritage, not a clean abstain
+6 | ABSTAINED | says it does not have it
+7 | RIGHT | says it does not have it, names no value
+8 | WRONG | says Labrador Retriever
+9 | ABSTAINED | says it does not have it
+10 | WRONG | names Suzuki hatchback for a never-told fact
+11 | WRONG | names Cleo for a never-told fact
+12 | RIGHT | Suzuki hatchback
+13 | WRONG | says New York City
+14 | WRONG | no instrument named, trip list instead
+15 | ABSTAINED | says you haven't told me
+16 | WRONG | says Labrador Retriever
+17 | WRONG | no instrument named, trip list instead
+18 | RIGHT | Samoyed
+19 | WRONG | says avocados
+20 | WRONG | says English, wrong subject
+21 | RIGHT | partner not mentioned, no value
+22 | RIGHT | says it does not have it, names no value
+23 | ABSTAINED | says it does not have it
+24 | RIGHT | Circe
+25 | WRONG | names Maya for a never-told fact
+26 | RIGHT | Circe
+27 | ABSTAINED | says you haven't told me
+28 | WRONG | names Cleo for a never-told fact
+29 | WRONG | says Toyota Corolla
+30 | RIGHT | says Circe
+31 | ABSTAINED | says it does not have it
+32 | WRONG | says avocados
+33 | WRONG | names Samoyed as the dog's name
+34 | WRONG | names New York City for a never-told fact
+35 | ABSTAINED | says it does not have it
+36 | WRONG | names Suzuki hatchback for a never-told fact
+37 | ABSTAINED | says heritage not stated, no value
+38 | ABSTAINED | says heritage not stated, no value
+39 | WRONG | says English, wrong subject
+40 | ABSTAINED | says it does not have it
+41 | RIGHT | Suzuki hatchback
+42 | RIGHT | says you haven't told me, no value
+43 | WRONG | says Toyota Corolla
+44 | WRONG | says New York City
+45 | ABSTAINED | says you may not have mentioned it
+46 | WRONG | names New York City for a never-told fact
+47 | RIGHT | partner not mentioned, no value
+48 | WRONG | invents a show premise, gives no heritage, not a clean abstain

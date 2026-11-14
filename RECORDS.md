@@ -9655,3 +9655,11 @@ to one exactly as OP's; a stage on T6's seed adapter, 1e-4 x 1, on the correctio
 2,487 rows) as rehearsal. Every gate as R-253 (hard_dev first, Demo4, Demo5, screening). T6 exists for seed 82 only;
 seeds 83 and 94 are trained as T6 was (R-252's `init`, about 80 minutes each) before their evals, so OP2 must clear
 seed 82 by about 09:30 to have seeds 83 and 94 trained by 20:00. Registered before C0's or OP's results exist.
+
+## R-257 · 2026-11-14 · REOPENED · K1.3 on Demo4 (the baseline): older 1 of 6, never-told 2 of 4
+
+**Demo4 on K1.3 seed 82** (`results/demo2/branches_k1_3_r200_82_demo4.json`, 05:15; Demo4's first reading; two fresh
+blind Sonnet judges, 48 items; `results/demo2/judge_k1_3_82_demo4/`), with search, older / in view / never told plain /
+shared word: **K1.3 1 of 6 / 2 of 2 / 2 of 2 / 0 of 2**; base 0 / 1 / 0 / 0; K1.3 with an empty index 0 / 2 / 2 / 1.
+The pick itself would bomb Demo4 on both lines (older under 3, never-told 2 of 4). This is the baseline every try's
+Demo4 reading is compared with. Demo4 readings: 1.

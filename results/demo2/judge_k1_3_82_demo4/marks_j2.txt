@@ -1,0 +1,48 @@
+1 | WRONG | Names Maya as partner; key is never told
+2 | WRONG | Lists car options, does not say it does not know
+3 | WRONG | Lists car options, does not say it does not know
+4 | RIGHT | Says Circe
+5 | ABSTAINED | Says heritage not detailed, names no value
+6 | ABSTAINED | Says it does not have that; key is Timmins
+7 | RIGHT | Says it does not have that; names no city
+8 | WRONG | Says Labrador Retriever, key is Samoyed
+9 | ABSTAINED | Says it does not have that
+10 | WRONG | Names Suzuki hatchback; key is never told
+11 | WRONG | Names Cleo; key is never told
+12 | RIGHT | Suzuki hatchback
+13 | WRONG | Says New York City, key is Timmins
+14 | WRONG | Travel list, no instrument named
+15 | ABSTAINED | Says it was not told
+16 | WRONG | Says Labrador Retriever, key is Samoyed
+17 | WRONG | Travel list, no instrument named
+18 | RIGHT | Samoyed
+19 | WRONG | Says avocados, key is papaya
+20 | WRONG | Says English, key is Icelandic
+21 | RIGHT | Partner not mentioned
+22 | RIGHT | Says it does not have that; names no city
+23 | ABSTAINED | Says it does not have that
+24 | RIGHT | Circe
+25 | WRONG | Names Maya as partner; key is never told
+26 | RIGHT | Circe
+27 | ABSTAINED | Says it was not told
+28 | WRONG | Names Cleo; key is never told
+29 | WRONG | Says Toyota Corolla, key is Suzuki
+30 | RIGHT | Says Circe
+31 | ABSTAINED | Says it does not have that
+32 | WRONG | Says avocados, key is papaya
+33 | WRONG | Names Samoyed as dog's name; key is never told
+34 | WRONG | Names New York City; key is never told
+35 | ABSTAINED | Says it does not have that
+36 | WRONG | Names Suzuki hatchback; key is never told
+37 | ABSTAINED | Says heritage not stated, names no value
+38 | ABSTAINED | Says heritage not stated, names no value
+39 | WRONG | Says English, key is Icelandic
+40 | ABSTAINED | Says it does not have that
+41 | RIGHT | Suzuki hatchback
+42 | RIGHT | Says it was not told; names no name
+43 | WRONG | Says Toyota Corolla, key is Suzuki
+44 | WRONG | Says New York City, key is Timmins
+45 | ABSTAINED | Says may not have been mentioned
+46 | WRONG | Names New York City; key is never told
+47 | RIGHT | Partner not mentioned
+48 | ABSTAINED | Says heritage not detailed, names no value
