@@ -9750,3 +9750,11 @@ shared-word never-told item than either. Its older misses: two declines ("I don'
 two wrong values, and two replies that are only a search call (cut at the reply length). Demo4 readings: 3. The lane's
 prediction for OP (R-253: Demo older about 2) held. By R-256, **OP2 runs next** (`chain6_r256.sh`, code R-260).
 Weekly usage 89% (07:04).
+
+## R-262 · 2026-11-14 · REOPENED · Correction to R-261: OP's four Demo4 older misses
+
+R-261's sentence on OP's older misses was written before it was checked against `key.json` and is wrong. From the key
+and tally (`results/demo2/judge_k13op_82_demo4/`), OP's with-search older items: questions 2 and 6 RIGHT; questions 1
+and 4 ABSTAINED (a decline after search); question 5 WRONG (says the fact is not stated, names no value); question 3
+WRONG (the reply is only a search call). So two declines, one not-stated reply and one search call only; no wrong
+value. The counts (2 of 6 older) and the bomb stand. OP2 (`k136op2_r256`) took the card at 07:06.
