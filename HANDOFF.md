@@ -1,21 +1,38 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 14:10 ET (R-279, session e01413cc). Read this, then
-`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-247 to R-272.
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 18:50 ET (R-287, session e01413cc). Read this, then
+`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-287.
 
 ## State
 
-- **Shippable pick: C1** (`k13opc1_r263`; `decide_r191.py` 0 FAIL of 20, pick recall 775 against K1.3's 742, R-279).
+- **S3 is run and scored (R-287): C1 fails the ship rule on one clause, so 6.37 seed 82 stays shipped.** C1 passes (a)
+  and (b) and two of (c)'s three parts; its N-hit false-answer rate, 51 of 708 (7.2%), is above base's 14 of 236
+  (5.9%). Against 6.37 on S3: copies 195 to 5 of 894, N-hit false answers 286 to 51 of 708, plain never-told 238 to 344
+  of 360, recall 347 to 364 of 1,242. Scored by `scripts/records/score_s3.py` (registered R-281, tested R-282);
+  coherence by three judges (R-286). The queue (`qs3.sh`, scratchpad of session 77d169a0, log `qs3.log`) still runs
+  the report arms K1, K1.3, K2.1 at 82 and 83 until about 21:30; after it ends, rerun `score_s3.py rule` and record
+  their counts (they enter no line). Nothing pushed (public repo: no push without Kevin's yes).
+- **Next: the write-up**, by Kevin's requirements (16:45, sent to the audit session `local_62a27534`): two papers,
+  extremely complementary; the short one (`docs/submission/HF_ARTICLE.md`, about 8,400 words now) tells the story in
+  about 5 pages and points to the long one (`docs/ARTICLE.md`, about 20,800 words now; "50 pages is way too long");
+  "I want cohesion. Data put together in places it belongs"; a chronology section, or methods told in order; "the dash
+  to try to get a replacement" told well, why it happened and how (R-177 on); every STANDARD v3 section (hypotheses and
+  deviations tables, leakage and flow tables, limits under the fixed headings, confirmatory or exploratory labels, every
+  number from results files), kv_voice_v2; figures from `scripts/make_figures.py` (S3 recall by arm with intervals; the
+  two fault rates; the never_told slide 48, 46, 43 across stages; reading errors against search misses; the
+  contamination finding). Disclose: the demo rule changed after both demo readings existed (R-276, R-278, Kevin's
+  reason R-283); Demo5 read twice and partly seen (R-277); S3 replies partly seen through judge reports (R-286); every
+  judge and lane is the author's model family. Then the audit session checks the drafts. Form due 16 November 07:59 ET.
+- **Pick before S3: C1** (`k13opc1_r263`; `decide_r191.py` 0 FAIL of 20, pick recall 775 against K1.3's 742, R-279).
   C1 is OP's stage run twice from K1.3 (1e-4 x 1 on OP's set, twice). It beat K1.3 by Kevin's rulings: a candidate must
   beat K1.3 (R-276), with the demos judged on their totals over Demo4 and Demo5 (R-278): older 5 of 12 against 4,
-  never-told 6 of 8 against 5. **Next: S3 on C1 by 23:00 (R-243), on Kevin's go.** `qs3.sh` (in the scratchpad of spare
-  session 3f7d989b) knows only K1, K1.3 and K2.1 as picks and needs C1 added. Before R-279 the pick was K1.3 (742); R2c
+  never-told 6 of 8 against 5. S3 ran on Kevin's go (R-280). Before R-279 the pick was K1.3 (742); R2c
   (868) is not eligible (R-247, R-249; `NOT_ELIGIBLE` in `decide_r191.py`).
 - **Demos (R-254, `docs/demos/WHY.md`):** Demo2 and Demo3 are retired (their answers were training values). Every try
   reads **Demo4** (screening) then **Demo5** (held out), both written fresh and checked clean by
   `scripts/records/demo_contamination.py`. K1.3 on Demo4: older 1 of 6, never-told 2 of 4 (R-257). Readings: Demo4 4
   (K1.3, C0, OP, C1), Demo5 2 (C1, K1.3: 3 of 6 / 3 of 4, R-277).
-- **Nothing runs; the card is idle (14:08); C1's try ran to the end and C1 is the pick (R-279).** Earlier today: Kevin ruled (R-276) that a candidate must beat K1.3 on each demo line, not a fixed line. K1.3 on Demo5: 3 of 6 older, 3 of 4 never-told; C1 2 of 6, so C1 does not beat K1.3 (R-277). Demo5 has been seen by the orchestrator through a judge's marks (R-277). OPO (OPT from OP, C1 its control): the lane advised against it (R-273), Kevin said run it anyway (R-274), and it stopped by its rule with 0 answer rows, because OP gets every older and confirm item on the training templates right (48 and 48 of 48, R-275). By R-274 the day's tries end. Kevin said keep trying (R-271); C2 (C1 plus the same stage a third time) failed hard_dev, never_told 43 (R-272), so by R-271 OPT did not run. OP4 (R-267:
+- **History of today's tries.** C1's try ran to the end and C1 became the pick (R-279). Earlier today: Kevin ruled (R-276) that a candidate must beat K1.3 on each demo line, not a fixed line. K1.3 on Demo5: 3 of 6 older, 3 of 4 never-told; C1 2 of 6, so C1 does not beat K1.3 (R-277). Demo5 has been seen by the orchestrator through a judge's marks (R-277). OPO (OPT from OP, C1 its control): the lane advised against it (R-273), Kevin said run it anyway (R-274), and it stopped by its rule with 0 answer rows, because OP gets every older and confirm item on the training templates right (48 and 48 of 48, R-275). By R-274 the day's tries end. Kevin said keep trying (R-271); C2 (C1 plus the same stage a third time) failed hard_dev, never_told 43 (R-272), so by R-271 OPT did not run. OP4 (R-267:
   on-policy second-search rows from OP) failed seed 82's hard_dev, 33 / 5 (R-268); its control C1 (OP's stage again on
   its own set) passed hard_dev 46 / 0 / recall 68 and Demo4 3 of 6 / 3 of 4, and bombed Demo5 older 2 of 6, never-told
   3 of 4 (R-269, R-270). By R-267, no smaller-dose retry today. The on-policy tries before it: C0 bombed Demo4

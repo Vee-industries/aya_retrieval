@@ -1,0 +1,197 @@
+{
+ "record": "R-281",
+ "chats": 60,
+ "arms": {
+  "always_search": {
+   "recall": {
+    "hits": 161,
+    "n": 414,
+    "rate": 0.3888888888888889
+   },
+   "in_view": {
+    "hits": 15,
+    "n": 60,
+    "rate": 0.25
+   },
+   "statement": {
+    "hits": 0,
+    "n": 60,
+    "rate": 0.0
+   },
+   "never_told_plain": {
+    "hits": 74,
+    "n": 120,
+    "rate": 0.6166666666666667
+   },
+   "copy": {
+    "hits": 65,
+    "n": 298,
+    "rate": 0.2181208053691275
+   },
+   "n_hit_false_answer": {
+    "hits": 121,
+    "n": 236,
+    "rate": 0.5127118644067796
+   }
+  },
+  "whole_chat": {
+   "recall": {
+    "hits": 274,
+    "n": 414,
+    "rate": 0.6618357487922706
+   },
+   "in_view": {
+    "hits": 53,
+    "n": 60,
+    "rate": 0.8833333333333333
+   },
+   "statement": {
+    "hits": 60,
+    "n": 60,
+    "rate": 1.0
+   },
+   "never_told_plain": {
+    "hits": 89,
+    "n": 120,
+    "rate": 0.7416666666666667
+   },
+   "copy": {
+    "hits": 2,
+    "n": 298,
+    "rate": 0.006711409395973154
+   },
+   "n_hit_false_answer": {
+    "hits": 57,
+    "n": 236,
+    "rate": 0.24152542372881355
+   }
+  },
+  "base_tool": {
+   "recall": {
+    "hits": 59,
+    "n": 414,
+    "rate": 0.14251207729468598
+   },
+   "in_view": {
+    "hits": 52,
+    "n": 60,
+    "rate": 0.8666666666666667
+   },
+   "statement": {
+    "hits": 58,
+    "n": 60,
+    "rate": 0.9666666666666667
+   },
+   "never_told_plain": {
+    "hits": 111,
+    "n": 120,
+    "rate": 0.925
+   },
+   "copy": {
+    "hits": 11,
+    "n": 298,
+    "rate": 0.03691275167785235
+   },
+   "n_hit_false_answer": {
+    "hits": 14,
+    "n": 236,
+    "rate": 0.059322033898305086
+   }
+  },
+  "6.37": {
+   "recall": {
+    "hits": 347,
+    "n": 1242,
+    "rate": 0.27938808373590984
+   },
+   "in_view": {
+    "hits": 161,
+    "n": 180,
+    "rate": 0.8944444444444445
+   },
+   "statement": {
+    "hits": 180,
+    "n": 180,
+    "rate": 1.0
+   },
+   "never_told_plain": {
+    "hits": 238,
+    "n": 360,
+    "rate": 0.6611111111111111
+   },
+   "copy": {
+    "hits": 195,
+    "n": 894,
+    "rate": 0.2181208053691275
+   },
+   "n_hit_false_answer": {
+    "hits": 286,
+    "n": 708,
+    "rate": 0.403954802259887
+   }
+  },
+  "pick": {
+   "recall": {
+    "hits": 364,
+    "n": 1242,
+    "rate": 0.29307568438003223
+   },
+   "in_view": {
+    "hits": 160,
+    "n": 180,
+    "rate": 0.8888888888888888
+   },
+   "statement": {
+    "hits": 166,
+    "n": 180,
+    "rate": 0.9222222222222223
+   },
+   "never_told_plain": {
+    "hits": 344,
+    "n": 360,
+    "rate": 0.9555555555555556
+   },
+   "copy": {
+    "hits": 5,
+    "n": 894,
+    "rate": 0.005592841163310962
+   },
+   "n_hit_false_answer": {
+    "hits": 51,
+    "n": 708,
+    "rate": 0.07203389830508475
+   }
+  }
+ },
+ "lines": [
+  {
+   "line": "(a) recall 0.293 above base's 0.143, bound 0.091 above 0",
+   "pass": true
+  },
+  {
+   "line": "(a) in_view 0.889 at least base's 0.867 minus 0.05",
+   "pass": true
+  },
+  {
+   "line": "(a) statement 0.922 at least base's 0.967 minus 0.05",
+   "pass": true
+  },
+  {
+   "line": "(a) never_told_plain 0.956 at least base's 0.925 minus 0.05",
+   "pass": true
+  },
+  {
+   "line": "(a) coherence (judge 1) 0.808 at least base's 0.792 times 0.95",
+   "pass": true
+  },
+  {
+   "line": "(b) copy 0.006 at most half of 6.37's 0.218, at least 0.10 lower, bound 0.164 above 0",
+   "pass": true
+  },
+  {
+   "line": "(c) N-hit false answers 0.072 at least 0.10 below 6.37's 0.404, bound 0.265 above 0, not above base's 0.059",
+   "pass": false
+  }
+ ],
+ "pass": false
+}

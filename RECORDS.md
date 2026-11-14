@@ -10240,3 +10240,37 @@ times 0.95, 0.752), **C1's 0.808 holds line (a)'s coherence part** under judge 1
 **Disclosed.** The judges' hand-back reports to the orchestrator quoted short pieces of some S3 replies and the names
 in them, as reasons for their 0 marks; the marks were final when they arrived. The orchestrator has not opened the
 sheet or any `results/s3/` run file. Weekly usage 94% (all models, 17:31).
+
+## R-287 · 2026-11-14 · REOPENED · S3: C1 fails the ship rule on one clause of (c); 6.37 seed 82 stays shipped
+
+**`score_s3.py rule`** (18:49; `results/s3/ship_rule.json`; 60 chats; C1 and 6.37 pooled over seeds 82, 83 and 94, base
+one run), raw counts, base with the tool / 6.37 / C1:
+
+| Measure | Base with tool | 6.37 | C1 |
+|---|---|---|---|
+| recall (older, confirm) | 59 / 414 (14.3%) | 347 / 1,242 (27.9%) | 364 / 1,242 (29.3%) |
+| in_view | 52 / 60 | 161 / 180 | 160 / 180 |
+| statement | 58 / 60 | 180 / 180 | 166 / 180 |
+| never_told plain | 111 / 120 | 238 / 360 | 344 / 360 |
+| copy, wrong view | 11 / 298 (3.7%) | 195 / 894 (21.8%) | 5 / 894 (0.6%) |
+| N-hit false answers | 14 / 236 (5.9%) | 286 / 708 (40.4%) | 51 / 708 (7.2%) |
+
+Baselines first (one run each): code that searches every turn, recall 161 / 414, N-hit false answers 121 / 236;
+base with the whole chat, recall 274 / 414, statement 60 / 60, copy 2 / 298, N-hit false answers 57 / 236.
+
+**Lines.** (a) recall 0.293 above base's 0.143, bound 0.091: PASS; in_view 0.889 against 0.867: PASS; statement 0.922
+against 0.967 minus 0.05: PASS; never_told plain 0.956 against 0.925: PASS; coherence judge 1 0.808 against 0.792 x
+0.95: PASS (R-286). (b) copy 0.006 against 6.37's 0.218, bound 0.164: PASS. (c) N-hit false answers 0.072, 0.332 below
+6.37's 0.404 with bound 0.265, both PASS, **and above base's 0.059: FAIL**. **The ship rule fails** (all of (a), (b)
+and (c) needed, R-178). By R-178, **6.37 seed 82 stays shipped**, and S3's numbers on 6.37 are its measured weakness.
+C1 misses by its N-hit false-answer rate being 1.3 points above base's (51 of 708 against 14 of 236); a miss by one
+line is a miss (STANDARD rule 2). Against 6.37 on S3: copies 195 to 5 of 894 (-97%), N-hit false answers 286 to 51 of
+708 (-82%), plain never-told 238 to 344 of 360 (+45%), recall 347 to 364 of 1,242 (+5%). The report arms (K1, K1.3,
+K2.1) run on until about 21:30 and enter no line.
+
+**Corrections and SOP items.** R-286's "Weekly usage 94% (all models, 17:31)" was read at 17:26 (the clock), not 17:31.
+SOP sweep items for this session: S15:4b055e16-7c75-49db-837c-127d457350a0 (past about 300k tokens of context
+without a hand-off): this entry, the HANDOFF update and the hand-off follow now. S7a:toolu_0166j77SBZ7iqwxfgWXqdGgf
+(the 16:30 commit for R-283 ran `git status --short | head -3` inside its chain, and the record append was a separate
+line before the lint chain): every commit from here runs only lint, format, tests, add and commit in one chain.
+Weekly usage at the end of this stage: 95% (all models, 18:49; 90% at its start, R-273).

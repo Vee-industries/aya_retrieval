@@ -72,8 +72,14 @@ corrections; `decide_r191.py` lists 24. Demo2 and Demo3 were retired because the
 totals (R-276, R-278, set after the demo readings existed). C1, K1.3 with two stages of on-policy corrections, recalled
 5 of 12 older facts over the two demos against K1.3's 4, and 6 of 8 never-told against 5 (seed 82). It passed all 20
 screening lines and leads the pick on pooled recall over three seeds, 775 against K1.3's 742 (R-279); the lead is
-under two seeds' spread. C1 is the pick for S3, which runs once, by 23:00 Eastern on 14 November (R-243). The shipped
-model stays 6.37 unless C1 passes the registered rule there.
+under two seeds' spread. C1 was the pick for S3.
+
+S3 (R-280 to R-287, 14 November), run once and scored by a rule and scorer fixed before it opened: **C1 fails the
+ship rule on one clause, so 6.37 stays shipped.** Its rate of false answers on never-told questions whose search
+returns text is 51 of 708 (7.2%), below 6.37's 286 of 708 (40.4%) but above base's 14 of 236 (5.9%), and the rule
+asks for both. Every other line passes. Against 6.37 on S3, C1 repeats an earlier wrong answer 5 times in 894 against
+195, declines a plain never-told question rightly 344 times in 360 against 238, and recalls 364 of 1,242 out-of-view
+facts against 347.
 
 ## Submission summary
 
