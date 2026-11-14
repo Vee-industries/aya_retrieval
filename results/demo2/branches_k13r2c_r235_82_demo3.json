@@ -1,0 +1,1754 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-14T04:43:11+00:00",
+  "command": [
+   "scripts/run_demo2.py",
+   "--demo-dir",
+   "demo3",
+   "--adapter",
+   "k13r2c_r235=C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/k13r2c_r235_82",
+   "--out",
+   "results/demo2/branches_k13r2c_r235_82_demo3.json"
+  ],
+  "git_commit": "8832c9c773d3887a9a33c5e421ebf8cda85fa91f",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "record": "R-201",
+ "adapters": {
+  "k13r2c_r235": {
+   "path": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\screens\\k13r2c_r235_82",
+   "sha256": "877f81ee7be85113ec7d737974bf2de41d9f0bfdecfb7ef59eb13d14de60aa0c"
+  }
+ },
+ "demo_dir": "demo3",
+ "chat_sha256": "c304477199206539030752deb7579d6148872241c87ba52bdb04a16fa615e4a9",
+ "questions_sha256": "8e302fbad5962805af8462ced44c0372eb1d2e6ae89c979f17c5e2066d8fcd72",
+ "arms": {
+  "base": {
+   "prefix": [
+    {
+     "message": "hey long day, i just started at the pharmacy on elm and my feet are killing me",
+     "queries": [
+      "pharmacy on Elm safe for feet pain"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I'm sorry to hear that your feet are hurting. If you're at a pharmacy on Elm and need relief, you might want to consider over-the-counter pain relievers like ibuprofen or acetaminophen, or try a warm compress to ease the discomfort. If the pain persists or worsens"
+    },
+    {
+     "message": "my sister nell sent me a pic of her new couch, she has terrible taste",
+     "queries": [
+      "couch design trends 2024"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It seems like your sister Nell's new couch might not be to everyone's taste. If you're looking for inspiration, you could explore current design trends online or ask friends for their opinions. Sometimes, a little research or input from others can help you find a couch that suits your preferences better."
+    },
+    {
+     "message": "nell lives in duluth so i only see her at christmas",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I see, so you only get to see your sister Nell during the holidays. That must be a bit of a challenge, but it's great that you still have those special moments together. If you're looking for ways to make the most of your time with her, you could plan a fun activity or a"
+    },
+    {
+     "message": "work was ok, marcus showed me where they hide the good coffee",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great start to your day! Marcus showing you where they hide the good coffee is a small but nice gesture. If you want to make the most of it, you could ask him for recommendations on other good coffee spots in the area. It’s always a good idea to explore and"
+    },
+    {
+     "message": "my cat pickle knocked a plant off the shelf this morning, no remorse at all",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh no, that’s a tough one! Pickle seems to have a knack for causing trouble. If you’re looking for ways to handle this, you could try setting up a cat-proofing system to prevent similar incidents in the future. Maybe there are some pet-friendly plants that you could consider"
+    },
+    {
+     "message": "marcus is at a warehouse on weekends too, no idea how he has the energy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marcus sounds like a busy person! If you’re curious about how he manages to have so much energy, you could ask him directly. Maybe he’s into fitness, or he just has a lot of hobbies outside of work. It’s always interesting to hear how others manage to stay active and energ"
+    },
+    {
+     "message": "my friend priya is flying to montenegro soon, im so jealous",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s so exciting! Montenegro is a beautiful destination—it’s known for its stunning beaches, mountains, and rich history. If you’re planning to visit or just want to enjoy the experience from home, you could recommend some must-see spots or activities to make the most of her trip. Here"
+    },
+    {
+     "message": "marcus is still driving that ancient saab, it sounds like a dying goat",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ah, the classic \"dying goat\" car! That’s a fun way to describe it. If you’re curious about Marcus’s car, you could ask him about it—maybe he’s got a story about how it’s been his loyal companion for years. It’s always fun to hear about"
+    },
+    {
+     "message": "my neighbor hollis is a nurse on the night ward, he never sleeps",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hollis sounds like a hardworking nurse. If you’re curious about how he manages to stay up all night, you could ask him about his routine or what keeps him up. Maybe he’s just really dedicated to his job, or maybe there’s something specific about his shift that keeps him awake"
+    },
+    {
+     "message": "my sister in law odette lives in tulsa, totally different vibe than nell",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Nell and Odette sound like two very different personalities. Nell seems to be more laid-back and relaxed, while Odette is described as living in a different vibe, which could imply a more active or adventurous lifestyle. If you’re curious about their personalities or how they compare, you could ask for a"
+    },
+    {
+     "message": "odette is hooked on some baking show, she makes me watch it every visit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Odette’s obsession with baking shows is a fun one! If you’re curious about what kind of shows she’s watching or why she’s so into it, you could ask her directly. Maybe she’s discovering new recipes or just enjoys the entertainment aspect. It’s always interesting to hear about what people"
+    },
+    {
+     "message": "trying to get back into running but my knee is being annoying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you’re trying to get back into running but are holding back due to knee issues. If you’re open to it, you could ask Odette for advice on how she stays active or if she has any tips for managing knee pain while exercising. She might have some insights or recommendations that"
+    },
+    {
+     "message": "oh and i cant eat sesame, found out the hard way last year",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ah, I see! Sesame is a common trigger for some people, especially if they have sensitivities or allergies. If you’re avoiding sesame, you could ask Odette if she has any favorite recipes or snacks that are sesame-free. She might have some great ideas for you to try"
+    },
+    {
+     "message": "hollis is picking up welsh from an app, he tried to teach me a greeting",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s great! Learning a new language is always exciting. If Hollis is using an app to teach Welsh, he might have a fun way of introducing greetings. You could ask him to teach you a Welsh greeting, or maybe even a few phrases, to get you started. It’s a great"
+    },
+    {
+     "message": "ingrid, my boss, wants the rota redone again, third time this week",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Ingrid is really pushing for a rota change, and it’s getting to be a bit of a repeat. Maybe you could ask her what’s driving the request—is it about workload, team needs, or something else? Sometimes, a conversation about the bigger picture can help. If"
+    },
+    {
+     "message": "my cousin teo's grandparents came over from estonia, he showed me old photos",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s fascinating! Estonia is a beautiful country with a rich history and culture. It’s great that Teo’s grandparents shared their stories through the photos. If you’re interested, you could ask Teo to tell you more about his family’s experiences or the traditions they might have brought with them. It’s"
+    },
+    {
+     "message": "bought a milk frother yesterday and now i make fancy lattes like a snob",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s awesome! A milk frother is a fantastic tool for elevating your coffee game. Fancy lattes are a great way to show off your newfound barista skills. If you’re feeling adventurous, you could try experimenting with different milk frothing techniques or even add some unique toppings to your"
+    },
+    {
+     "message": "priya texted from the airport, she forgot her charger of course",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Priya’s probably in a bit of a pickle! It’s always frustrating when you’re in a hurry and forget something important. Maybe she can borrow one from a friend or grab a portable charger from the airport’s convenience store. If she’s in a rush, she could also try using her phone"
+    },
+    {
+     "message": "ingrid let me leave early today so i actually ate dinner at a normal hour",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s great news! Eating dinner at a normal hour is a good way to maintain a healthy routine. It’s always nice to have a break from the usual schedule, especially if you’ve been working or studying hard. If you’re feeling good about it, you could even make it a habit to"
+    },
+    {
+     "message": "marcus wants me on his trivia team but i hate quizzes",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marcus’s trivia team sounds like a fun opportunity, but it’s totally understandable to feel hesitant about quizzes. If you’re not a fan of them, you could suggest an alternative way to contribute to the team—maybe Marcus could focus on other areas like event planning, marketing, or community outreach"
+    },
+    {
+     "message": "the walk home from the pharmacy is my favourite part, takes like twenty minutes",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a great way to start the day! A short, enjoyable walk can really set a positive tone. It’s a nice break from the hustle of the day, and you get to enjoy the fresh air and maybe even spot some interesting things along the way. If you’re feeling nostalgic,"
+    },
+    {
+     "message": "just got a new fairphone and the camera is actually decent",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s awesome! Fairphone is known for their focus on sustainability and ethical manufacturing, so it’s great to know the camera is decent. It’s always a plus when a new device delivers on its promises. If you’re into photography, you might enjoy exploring the phone’s features and experimenting with different"
+    },
+    {
+     "message": "teo is reading middlemarch for his book club and wont shut up about it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ah, *Middlemarch*—a classic! It’s fascinating how much depth there is in the novel, and it’s great that Téo is diving into it. If he’s really into it, maybe you could suggest a discussion topic or a specific scene to explore together? It could"
+    },
+    {
+     "message": "ok going to bed, big shift tomorrow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good luck with the big shift tomorrow! If you need anything to prepare or just want to talk about it, I’m here. Sweet dreams!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "which city is my sister settled in",
+     "source_message": 3,
+     "key": "duluth",
+     "same_meaning": [
+      "Duluth",
+      "Duluth, Minnesota"
+     ],
+     "category": "C04",
+     "person": "nell",
+     "other_value": "tulsa",
+     "message": "which city is my sister settled in",
+     "queries": [
+      "which city is my sister settled in"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=6.110]\nUser: my sister in law odette lives in tulsa, totally different vibe than nell\nAssistant: Nell and Odette sound like two very different personalities. Nell seems to be more laid-back and relaxed, while Odette is described as living in a different vibe, which could imply a more active or adventurous lifestyle. If you’re curious about their personali\n\n[chunk_id=exchange_0002::0 doc_id=exchange_0002 score=2.739]\nUser: nell lives in duluth so i only see her at christmas\nAssistant: I see, so you only get to see your sister Nell during the holidays. That must be a bit of a challenge, but it's great that you still have those special moments together. If you're looking for ways to make the most of your time with her, you could plan a fun activity or a\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=2.356]\nUser: my sister nell sent me a pic of her new couch, she has terrible taste\nAssistant: It seems like your sister Nell's new couch might not be to everyone's taste. If you're looking for inspiration, you could explore current design trends online or ask friends for their opinions. Sometimes, a little research or input from others can help you find a\n\n[chunk_id=exchange_0017::0 doc_id=exchange_0017 score=1.729]\nUser: priya texted from the airport, she forgot her charger of course\nAssistant: Priya’s probably in a bit of a pickle! It’s always frustrating when you’re in a hurry and forget something important. Maybe she can borrow one from a friend or grab a portable charger from the airport’s convenience store. If she’s in a rush, she could also try using he\n\n[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=1.186]\nUser: my cat pickle knocked a plant off the shelf this morning, no remorse at all\nAssistant: Oh no, that’s a tough one! Pickle seems to have a knack for causing trouble. If you’re looking for ways to handle this, you could try setting up a cat-proofing system to prevent similar incidents in the future. Maybe there are some pet-friendly plants that "
+     ],
+     "reply": "Your sister Nell lives in Duluth, Minnesota, and you only get to see her during the holidays. It’s a great way to make the most of your time together, like planning a fun activity or a special Christmas tradition. It’s also interesting that your sister-in-law Odette lives in",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "whats my furry roommate called again",
+     "source_message": 5,
+     "key": "pickle",
+     "same_meaning": [
+      "Pickle"
+     ],
+     "category": "C09",
+     "person": "me",
+     "message": "whats my furry roommate called again",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You mentioned \"furry\" earlier, but I don’t recall a name. Could you clarify or remind me?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what car does marcus get around in",
+     "source_message": 8,
+     "key": "saab",
+     "same_meaning": [
+      "Saab",
+      "an old Saab"
+     ],
+     "category": "C17",
+     "person": "marcus",
+     "message": "what car does marcus get around in",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marcus in *Middlemarch* is a lawyer, not a car owner. The novel focuses more on the characters and their relationships rather than specific details about Marcus’s personal life. If you’re interested in the novel’s themes or characters, I’d be happy to discuss those!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which ingredient do i have to dodge at restaurants",
+     "source_message": 13,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame",
+      "sesame seeds",
+      "sesame allergy"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which ingredient do i have to dodge at restaurants",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "The \"ingredient to dodge\" at restaurants is often **\"the hidden charges\"**—like extra tips, service fees, or unexpected taxes. To avoid surprises, always ask for a **\"total bill\"** upfront and clarify any fees before ordering. If you’re unsure, a friendly",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "where is priya headed on her getaway",
+     "source_message": 7,
+     "key": "montenegro",
+     "same_meaning": [
+      "Montenegro"
+     ],
+     "category": "C15",
+     "person": "priya",
+     "message": "where is priya headed on her getaway",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Priya is headed to **Santorini, Greece**, for her getaway. Known for its stunning sunsets, whitewashed buildings, and blue-domed churches, Santorini is a popular destination for relaxation and adventure. If you’re curious about her plans or want to know more about the island, let",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "which country do cousin teo's people trace back to",
+     "source_message": 16,
+     "key": "estonia",
+     "same_meaning": [
+      "Estonia",
+      "Estonian"
+     ],
+     "category": "C37",
+     "person": "teo",
+     "message": "which country do cousin teo's people trace back to",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Cousin Téo's people trace back to **Portugal**. Fairphone, the company behind the phone, is based in Portugal, and many of its employees are Portuguese. The phone’s design and manufacturing also reflect this heritage.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "what gadget do i carry around now for calls and photos",
+     "source_message": 22,
+     "key": "fairphone",
+     "same_meaning": [
+      "Fairphone",
+      "a Fairphone"
+     ],
+     "category": "C35",
+     "person": "me",
+     "message": "what gadget do i carry around now for calls and photos",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "For calls and photos, you might consider a compact camera phone or a dual-camera device. Options like the Fairphone 6 or the Google Pixel series offer good balance between functionality and portability. Let me know if you’d like more details!",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what novel is teo into at the moment",
+     "source_message": 23,
+     "key": "middlemarch",
+     "same_meaning": [
+      "Middlemarch"
+     ],
+     "category": "C25",
+     "person": "teo",
+     "message": "what novel is teo into at the moment",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Téo is currently reading *Middlemarch* for his book club. It’s a rich and detailed novel, so he’s clearly enjoying it! If you’d like to discuss it or explore other recommendations, let me know.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "what wheels does priya have",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "what wheels does priya have",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Priya has **no wheels**—she’s a person, not a vehicle! 😄 If you’re referring to a character or a fictional scenario, let me know, and I can help brainstorm ideas or explore the context further."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which language does ingrid speak",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C36",
+     "person": "ingrid",
+     "message": "which language does ingrid speak",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ingrid is a fictional character from *Middlemarch* by George Eliot, so she doesn’t speak a real language. However, if you’re curious about the context of her name, \"Ingrid\" is a Swedish name meaning \"beauty of the sea,\" which could reflect her"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what is marcus's role at the warehouse",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C03",
+     "person": "marcus",
+     "overlap_message": 6,
+     "message": "what is marcus's role at the warehouse",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marcus is the warehouse manager. He oversees all operations, ensuring efficiency and safety. He handles inventory, schedules, and team coordination. If you need to contact him, you can reach him at the warehouse office."
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "which series is hollis binging when the night is slow",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C24",
+     "person": "hollis",
+     "overlap_message": 9,
+     "message": "which series is hollis binging when the night is slow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "*Holly* (from *Holly and the Boys*) is a fan favorite! If you’re looking for a cozy series to binge when the night is slow, *The Haunting of Hill House* is a great pick. It’s a psychological horror series with a deep, atmospheric story"
+    }
+   ]
+  },
+  "base_no_search": {
+   "prefix": [
+    {
+     "message": "hey long day, i just started at the pharmacy on elm and my feet are killing me",
+     "queries": [
+      "pharmacy on Elm safe for feet pain"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I'm sorry to hear that your feet are hurting. If you're at a pharmacy on Elm and need relief, you might want to consider over-the-counter pain relievers like ibuprofen or acetaminophen, or try a warm compress to ease the discomfort. If the pain persists or worsens"
+    },
+    {
+     "message": "my sister nell sent me a pic of her new couch, she has terrible taste",
+     "queries": [
+      "couch design trends 2024"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It seems like your sister Nell's new couch might not be to everyone's taste. If you're looking for inspiration, you could explore current design trends online or ask friends for their opinions. Sometimes, a little research or input from others can help you find a couch that suits your preferences better."
+    },
+    {
+     "message": "nell lives in duluth so i only see her at christmas",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I see, so you only get to see your sister Nell during the holidays. That must be a bit of a challenge, but it's great that you still have those special moments together. If you're looking for ways to make the most of your time with her, you could plan a fun activity or a"
+    },
+    {
+     "message": "work was ok, marcus showed me where they hide the good coffee",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great start to your day! Marcus showing you where they hide the good coffee is a small but nice gesture. If you want to make the most of it, you could ask him for recommendations on other good coffee spots in the area. It’s always a good idea to explore and"
+    },
+    {
+     "message": "my cat pickle knocked a plant off the shelf this morning, no remorse at all",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh no, that’s a tough one! Pickle seems to have a knack for causing trouble. If you’re looking for ways to handle this, you could try setting up a cat-proofing system to prevent similar incidents in the future. Maybe there are some pet-friendly plants that you could consider"
+    },
+    {
+     "message": "marcus is at a warehouse on weekends too, no idea how he has the energy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marcus sounds like a busy person! If you’re curious about how he manages to have so much energy, you could ask him directly. Maybe he’s into fitness, or he just has a lot of hobbies outside of work. It’s always interesting to hear how others manage to stay active and energ"
+    },
+    {
+     "message": "my friend priya is flying to montenegro soon, im so jealous",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s so exciting! Montenegro is a beautiful destination—it’s known for its stunning beaches, mountains, and rich history. If you’re planning to visit or just want to enjoy the experience from home, you could recommend some must-see spots or activities to make the most of her trip. Here"
+    },
+    {
+     "message": "marcus is still driving that ancient saab, it sounds like a dying goat",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ah, the classic \"dying goat\" car! That’s a fun way to describe it. If you’re curious about Marcus’s car, you could ask him about it—maybe he’s got a story about how it’s been his loyal companion for years. It’s always fun to hear about"
+    },
+    {
+     "message": "my neighbor hollis is a nurse on the night ward, he never sleeps",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hollis sounds like a hardworking nurse. If you’re curious about how he manages to stay up all night, you could ask him about his routine or what keeps him up. Maybe he’s just really dedicated to his job, or maybe there’s something specific about his shift that keeps him awake"
+    },
+    {
+     "message": "my sister in law odette lives in tulsa, totally different vibe than nell",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Nell and Odette sound like two very different personalities. Nell seems to be more laid-back and relaxed, while Odette is described as living in a different vibe, which could imply a more active or adventurous lifestyle. If you’re curious about their personalities or how they compare, you could ask for a"
+    },
+    {
+     "message": "odette is hooked on some baking show, she makes me watch it every visit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Odette’s obsession with baking shows is a fun one! If you’re curious about what kind of shows she’s watching or why she’s so into it, you could ask her directly. Maybe she’s discovering new recipes or just enjoys the entertainment aspect. It’s always interesting to hear about what people"
+    },
+    {
+     "message": "trying to get back into running but my knee is being annoying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you’re trying to get back into running but are holding back due to knee issues. If you’re open to it, you could ask Odette for advice on how she stays active or if she has any tips for managing knee pain while exercising. She might have some insights or recommendations that"
+    },
+    {
+     "message": "oh and i cant eat sesame, found out the hard way last year",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ah, I see! Sesame is a common trigger for some people, especially if they have sensitivities or allergies. If you’re avoiding sesame, you could ask Odette if she has any favorite recipes or snacks that are sesame-free. She might have some great ideas for you to try"
+    },
+    {
+     "message": "hollis is picking up welsh from an app, he tried to teach me a greeting",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s great! Learning a new language is always exciting. If Hollis is using an app to teach Welsh, he might have a fun way of introducing greetings. You could ask him to teach you a Welsh greeting, or maybe even a few phrases, to get you started. It’s a great"
+    },
+    {
+     "message": "ingrid, my boss, wants the rota redone again, third time this week",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Ingrid is really pushing for a rota change, and it’s getting to be a bit of a repeat. Maybe you could ask her what’s driving the request—is it about workload, team needs, or something else? Sometimes, a conversation about the bigger picture can help. If"
+    },
+    {
+     "message": "my cousin teo's grandparents came over from estonia, he showed me old photos",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s fascinating! Estonia is a beautiful country with a rich history and culture. It’s great that Teo’s grandparents shared their stories through the photos. If you’re interested, you could ask Teo to tell you more about his family’s experiences or the traditions they might have brought with them. It’s"
+    },
+    {
+     "message": "bought a milk frother yesterday and now i make fancy lattes like a snob",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s awesome! A milk frother is a fantastic tool for elevating your coffee game. Fancy lattes are a great way to show off your newfound barista skills. If you’re feeling adventurous, you could try experimenting with different milk frothing techniques or even add some unique toppings to your"
+    },
+    {
+     "message": "priya texted from the airport, she forgot her charger of course",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Priya’s probably in a bit of a pickle! It’s always frustrating when you’re in a hurry and forget something important. Maybe she can borrow one from a friend or grab a portable charger from the airport’s convenience store. If she’s in a rush, she could also try using her phone"
+    },
+    {
+     "message": "ingrid let me leave early today so i actually ate dinner at a normal hour",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s great news! Eating dinner at a normal hour is a good way to maintain a healthy routine. It’s always nice to have a break from the usual schedule, especially if you’ve been working or studying hard. If you’re feeling good about it, you could even make it a habit to"
+    },
+    {
+     "message": "marcus wants me on his trivia team but i hate quizzes",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marcus’s trivia team sounds like a fun opportunity, but it’s totally understandable to feel hesitant about quizzes. If you’re not a fan of them, you could suggest an alternative way to contribute to the team—maybe Marcus could focus on other areas like event planning, marketing, or community outreach"
+    },
+    {
+     "message": "the walk home from the pharmacy is my favourite part, takes like twenty minutes",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a great way to start the day! A short, enjoyable walk can really set a positive tone. It’s a nice break from the hustle of the day, and you get to enjoy the fresh air and maybe even spot some interesting things along the way. If you’re feeling nostalgic,"
+    },
+    {
+     "message": "just got a new fairphone and the camera is actually decent",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s awesome! Fairphone is known for their focus on sustainability and ethical manufacturing, so it’s great to know the camera is decent. It’s always a plus when a new device delivers on its promises. If you’re into photography, you might enjoy exploring the phone’s features and experimenting with different"
+    },
+    {
+     "message": "teo is reading middlemarch for his book club and wont shut up about it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ah, *Middlemarch*—a classic! It’s fascinating how much depth there is in the novel, and it’s great that Téo is diving into it. If he’s really into it, maybe you could suggest a discussion topic or a specific scene to explore together? It could"
+    },
+    {
+     "message": "ok going to bed, big shift tomorrow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good luck with the big shift tomorrow! If you need anything to prepare or just want to talk about it, I’m here. Sweet dreams!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "which city is my sister settled in",
+     "source_message": 3,
+     "key": "duluth",
+     "same_meaning": [
+      "Duluth",
+      "Duluth, Minnesota"
+     ],
+     "category": "C04",
+     "person": "nell",
+     "other_value": "tulsa",
+     "message": "which city is my sister settled in",
+     "queries": [
+      "which city is my sister settled in"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It seems there was a misunderstanding. The search tool returned no results, so I’m unable to provide information about your sister’s city. If you’d like, I can help with something else, like suggesting places to visit in London or tips for a visit!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "whats my furry roommate called again",
+     "source_message": 5,
+     "key": "pickle",
+     "same_meaning": [
+      "Pickle"
+     ],
+     "category": "C09",
+     "person": "me",
+     "message": "whats my furry roommate called again",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You mentioned \"furry\" earlier, but I don’t recall a name. Could you clarify or remind me?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what car does marcus get around in",
+     "source_message": 8,
+     "key": "saab",
+     "same_meaning": [
+      "Saab",
+      "an old Saab"
+     ],
+     "category": "C17",
+     "person": "marcus",
+     "message": "what car does marcus get around in",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marcus in *Middlemarch* is a lawyer, not a car owner. The novel focuses more on the characters and their relationships rather than specific details about Marcus’s personal life. If you’re interested in the novel’s themes or characters, I’d be happy to discuss those!",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which ingredient do i have to dodge at restaurants",
+     "source_message": 13,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame",
+      "sesame seeds",
+      "sesame allergy"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which ingredient do i have to dodge at restaurants",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "The \"ingredient to dodge\" at restaurants is often **\"the hidden charges\"**—like extra tips, service fees, or unexpected taxes. To avoid surprises, always ask for a **\"total bill\"** upfront and clarify any fees before ordering. If you’re unsure, a friendly",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "where is priya headed on her getaway",
+     "source_message": 7,
+     "key": "montenegro",
+     "same_meaning": [
+      "Montenegro"
+     ],
+     "category": "C15",
+     "person": "priya",
+     "message": "where is priya headed on her getaway",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Priya is headed to **Santorini, Greece**, for her getaway. Known for its stunning sunsets, whitewashed buildings, and blue-domed churches, Santorini is a popular destination for relaxation and adventure. If you’re curious about her plans or want to know more about the island, let",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "which country do cousin teo's people trace back to",
+     "source_message": 16,
+     "key": "estonia",
+     "same_meaning": [
+      "Estonia",
+      "Estonian"
+     ],
+     "category": "C37",
+     "person": "teo",
+     "message": "which country do cousin teo's people trace back to",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Cousin Téo's people trace back to **Portugal**. Fairphone, the company behind the phone, is based in Portugal, and many of its employees are Portuguese. The phone’s design and manufacturing also reflect this heritage.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "what gadget do i carry around now for calls and photos",
+     "source_message": 22,
+     "key": "fairphone",
+     "same_meaning": [
+      "Fairphone",
+      "a Fairphone"
+     ],
+     "category": "C35",
+     "person": "me",
+     "message": "what gadget do i carry around now for calls and photos",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "For calls and photos, you might consider a compact camera phone or a dual-camera device. Options like the Fairphone 6 or the Google Pixel series offer good balance between functionality and portability. Let me know if you’d like more details!",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what novel is teo into at the moment",
+     "source_message": 23,
+     "key": "middlemarch",
+     "same_meaning": [
+      "Middlemarch"
+     ],
+     "category": "C25",
+     "person": "teo",
+     "message": "what novel is teo into at the moment",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Téo is currently reading *Middlemarch* for his book club. It’s a rich and detailed novel, so he’s clearly enjoying it! If you’d like to discuss it or explore other recommendations, let me know.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "what wheels does priya have",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "what wheels does priya have",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Priya has **no wheels**—she’s a person, not a vehicle! 😄 If you’re referring to a character or a fictional scenario, let me know, and I can help brainstorm ideas or explore the context further."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which language does ingrid speak",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C36",
+     "person": "ingrid",
+     "message": "which language does ingrid speak",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ingrid is a fictional character from *Middlemarch* by George Eliot, so she doesn’t speak a real language. However, if you’re curious about the context of her name, \"Ingrid\" is a Swedish name meaning \"beauty of the sea,\" which could reflect her"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what is marcus's role at the warehouse",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C03",
+     "person": "marcus",
+     "overlap_message": 6,
+     "message": "what is marcus's role at the warehouse",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Marcus is the warehouse manager. He oversees all operations, ensuring efficiency and safety. He handles inventory, schedules, and team coordination. If you need to contact him, you can reach him at the warehouse office."
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "which series is hollis binging when the night is slow",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C24",
+     "person": "hollis",
+     "overlap_message": 9,
+     "message": "which series is hollis binging when the night is slow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "*Holly* (from *Holly and the Boys*) is a fan favorite! If you’re looking for a cozy series to binge when the night is slow, *The Haunting of Hill House* is a great pick. It’s a psychological horror series with a deep, atmospheric story"
+    }
+   ]
+  },
+  "k13r2c_r235": {
+   "prefix": [
+    {
+     "message": "hey long day, i just started at the pharmacy on elm and my feet are killing me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a long day. If your feet are killing you, maybe you should take a break and rest for a bit."
+    },
+    {
+     "message": "my sister nell sent me a pic of her new couch, she has terrible taste",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a bummer. Couch taste is subjective, but it's always nice to see your sister enjoying something she's bought."
+    },
+    {
+     "message": "nell lives in duluth so i only see her at christmas",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a special time of the year."
+    },
+    {
+     "message": "work was ok, marcus showed me where they hide the good coffee",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's great to hear! Marcus seems like a cool guy."
+    },
+    {
+     "message": "my cat pickle knocked a plant off the shelf this morning, no remorse at all",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, that's a bit of a mess."
+    },
+    {
+     "message": "marcus is at a warehouse on weekends too, no idea how he has the energy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Marcus has a lot of energy. Maybe he's just really excited about something?"
+    },
+    {
+     "message": "my friend priya is flying to montenegro soon, im so jealous",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun trip. Enjoy it!"
+    },
+    {
+     "message": "marcus is still driving that ancient saab, it sounds like a dying goat",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ha, I love the image of Marcus driving a \"dying goat\". It's a fun way to describe something that's not very efficient."
+    },
+    {
+     "message": "my neighbor hollis is a nurse on the night ward, he never sleeps",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a very busy and important job."
+    },
+    {
+     "message": "my sister in law odette lives in tulsa, totally different vibe than nell",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like your sister-in-law odette has a unique lifestyle in tulsa."
+    },
+    {
+     "message": "odette is hooked on some baking show, she makes me watch it every visit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like odette is a bit of a show-off when it comes to baking."
+    },
+    {
+     "message": "trying to get back into running but my knee is being annoying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a struggle."
+    },
+    {
+     "message": "oh and i cant eat sesame, found out the hard way last year",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No worries, just be mindful of sesame."
+    },
+    {
+     "message": "hollis is picking up welsh from an app, he tried to teach me a greeting",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun way to learn a new language."
+    },
+    {
+     "message": "ingrid, my boss, wants the rota redone again, third time this week",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, that sounds like a bit of a headache."
+    },
+    {
+     "message": "my cousin teo's grandparents came over from estonia, he showed me old photos",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fascinating trip."
+    },
+    {
+     "message": "bought a milk frother yesterday and now i make fancy lattes like a snob",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ha! Now you're a latte snob."
+    },
+    {
+     "message": "priya texted from the airport, she forgot her charger of course",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, the classic airport story."
+    },
+    {
+     "message": "ingrid let me leave early today so i actually ate dinner at a normal hour",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a great day."
+    },
+    {
+     "message": "marcus wants me on his trivia team but i hate quizzes",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Quizzes can be fun, but it's good to hear that Marcus wants you on his team."
+    },
+    {
+     "message": "the walk home from the pharmacy is my favourite part, takes like twenty minutes",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a lovely walk."
+    },
+    {
+     "message": "just got a new fairphone and the camera is actually decent",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's great news!"
+    },
+    {
+     "message": "teo is reading middlemarch for his book club and wont shut up about it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fascinating book."
+    },
+    {
+     "message": "ok going to bed, big shift tomorrow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good night!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "which city is my sister settled in",
+     "source_message": 3,
+     "key": "duluth",
+     "same_meaning": [
+      "Duluth",
+      "Duluth, Minnesota"
+     ],
+     "category": "C04",
+     "person": "nell",
+     "other_value": "tulsa",
+     "message": "which city is my sister settled in",
+     "queries": [
+      "sister settled"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=2.771]\nUser: my sister in law odette lives in tulsa, totally different vibe than nell\nAssistant: It sounds like your sister-in-law odette has a unique lifestyle in tulsa.\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=2.445]\nUser: my sister nell sent me a pic of her new couch, she has terrible taste\nAssistant: That sounds like a bit of a bummer. Couch taste is subjective, but it's always nice to see your sister enjoying something she's bought."
+     ],
+     "reply": "Your sister odette lives in tulsa.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "whats my furry roommate called again",
+     "source_message": 5,
+     "key": "pickle",
+     "same_meaning": [
+      "Pickle"
+     ],
+     "category": "C09",
+     "person": "me",
+     "message": "whats my furry roommate called again",
+     "queries": [
+      "roommate called",
+      "cat pet"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=2.691]\nUser: my cat pickle knocked a plant off the shelf this morning, no remorse at all\nAssistant: Oh, that's a bit of a mess."
+     ],
+     "reply": "Your cat is pickle.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what car does marcus get around in",
+     "source_message": 8,
+     "key": "saab",
+     "same_meaning": [
+      "Saab",
+      "an old Saab"
+     ],
+     "category": "C17",
+     "person": "marcus",
+     "message": "what car does marcus get around in",
+     "queries": [
+      "marcus car"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0003::0 doc_id=exchange_0003 score=1.904]\nUser: work was ok, marcus showed me where they hide the good coffee\nAssistant: That's great to hear! Marcus seems like a cool guy.\n\n[chunk_id=exchange_0019::0 doc_id=exchange_0019 score=1.815]\nUser: marcus wants me on his trivia team but i hate quizzes\nAssistant: Quizzes can be fun, but it's good to hear that Marcus wants you on his team.\n\n[chunk_id=exchange_0005::0 doc_id=exchange_0005 score=1.749]\nUser: marcus is at a warehouse on weekends too, no idea how he has the energy\nAssistant: It sounds like Marcus has a lot of energy. Maybe he's just really excited about something?\n\n[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=1.673]\nUser: marcus is still driving that ancient saab, it sounds like a dying goat\nAssistant: Ha, I love the image of Marcus driving a \"dying goat\". It's a fun way to describe something that's not very efficient."
+     ],
+     "reply": "Marcus drives an ancient saab.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which ingredient do i have to dodge at restaurants",
+     "source_message": 13,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame",
+      "sesame seeds",
+      "sesame allergy"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which ingredient do i have to dodge at restaurants",
+     "queries": [
+      "ingredient dodge",
+      "food avoid"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "where is priya headed on her getaway",
+     "source_message": 7,
+     "key": "montenegro",
+     "same_meaning": [
+      "Montenegro"
+     ],
+     "category": "C15",
+     "person": "priya",
+     "message": "where is priya headed on her getaway",
+     "queries": [
+      "priya getaway"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0017::0 doc_id=exchange_0017 score=2.353]\nUser: priya texted from the airport, she forgot her charger of course\nAssistant: Oh, the classic airport story.\n\n[chunk_id=exchange_0006::0 doc_id=exchange_0006 score=2.244]\nUser: my friend priya is flying to montenegro soon, im so jealous\nAssistant: That sounds like a fun trip. Enjoy it!"
+     ],
+     "reply": "Priya is flying to Montenegro.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "which country do cousin teo's people trace back to",
+     "source_message": 16,
+     "key": "estonia",
+     "same_meaning": [
+      "Estonia",
+      "Estonian"
+     ],
+     "category": "C37",
+     "person": "teo",
+     "message": "which country do cousin teo's people trace back to",
+     "queries": [
+      "cousin teo country"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=5.627]\nUser: my cousin teo's grandparents came over from estonia, he showed me old photos\nAssistant: That sounds like a fascinating trip."
+     ],
+     "reply": "Your cousin teo's people come from estonia.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "what gadget do i carry around now for calls and photos",
+     "source_message": 22,
+     "key": "fairphone",
+     "same_meaning": [
+      "Fairphone",
+      "a Fairphone"
+     ],
+     "category": "C35",
+     "person": "me",
+     "message": "what gadget do i carry around now for calls and photos",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You have a fairphone.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what novel is teo into at the moment",
+     "source_message": 23,
+     "key": "middlemarch",
+     "same_meaning": [
+      "Middlemarch"
+     ],
+     "category": "C25",
+     "person": "teo",
+     "message": "what novel is teo into at the moment",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "He's reading Middlemarch.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "what wheels does priya have",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "what wheels does priya have",
+     "queries": [
+      "priya wheels"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0017::0 doc_id=exchange_0017 score=2.353]\nUser: priya texted from the airport, she forgot her charger of course\nAssistant: Oh, the classic airport story.\n\n[chunk_id=exchange_0006::0 doc_id=exchange_0006 score=2.244]\nUser: my friend priya is flying to montenegro soon, im so jealous\nAssistant: That sounds like a fun trip. Enjoy it!"
+     ],
+     "reply": "I don't know that one yet."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which language does ingrid speak",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C36",
+     "person": "ingrid",
+     "message": "which language does ingrid speak",
+     "queries": [
+      "ingrid language"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0013::0 doc_id=exchange_0013 score=2.579]\nUser: hollis is picking up welsh from an app, he tried to teach me a greeting\nAssistant: That sounds like a fun way to learn a new language.\n\n[chunk_id=exchange_0018::0 doc_id=exchange_0018 score=2.210]\nUser: ingrid let me leave early today so i actually ate dinner at a normal hour\nAssistant: Sounds like a great day.\n\n[chunk_id=exchange_0014::0 doc_id=exchange_0014 score=2.177]\nUser: ingrid, my boss, wants the rota redone again, third time this week\nAssistant: Oh, that sounds like a bit of a headache."
+     ],
+     "reply": "I don't know that one yet."
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what is marcus's role at the warehouse",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C03",
+     "person": "marcus",
+     "overlap_message": 6,
+     "message": "what is marcus's role at the warehouse",
+     "queries": [
+      "marcus role warehouse"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0005::0 doc_id=exchange_0005 score=4.129]\nUser: marcus is at a warehouse on weekends too, no idea how he has the energy\nAssistant: It sounds like Marcus has a lot of energy. Maybe he's just really excited about something?\n\n[chunk_id=exchange_0003::0 doc_id=exchange_0003 score=1.904]\nUser: work was ok, marcus showed me where they hide the good coffee\nAssistant: That's great to hear! Marcus seems like a cool guy.\n\n[chunk_id=exchange_0019::0 doc_id=exchange_0019 score=1.815]\nUser: marcus wants me on his trivia team but i hate quizzes\nAssistant: Quizzes can be fun, but it's good to hear that Marcus wants you on his team.\n\n[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=1.673]\nUser: marcus is still driving that ancient saab, it sounds like a dying goat\nAssistant: Ha, I love the image of Marcus driving a \"dying goat\". It's a fun way to describe something that's not very efficient."
+     ],
+     "reply": "I don't see it, so I'd only be guessing."
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "which series is hollis binging when the night is slow",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C24",
+     "person": "hollis",
+     "overlap_message": 9,
+     "message": "which series is hollis binging when the night is slow",
+     "queries": [
+      "hollis series"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0008::0 doc_id=exchange_0008 score=2.145]\nUser: my neighbor hollis is a nurse on the night ward, he never sleeps\nAssistant: That sounds like a very busy and important job.\n\n[chunk_id=exchange_0013::0 doc_id=exchange_0013 score=2.026]\nUser: hollis is picking up welsh from an app, he tried to teach me a greeting\nAssistant: That sounds like a fun way to learn a new language."
+     ],
+     "reply": "I don't see it, so I'd only be guessing."
+    }
+   ]
+  },
+  "k13r2c_r235_no_search": {
+   "prefix": [
+    {
+     "message": "hey long day, i just started at the pharmacy on elm and my feet are killing me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a long day. If your feet are killing you, maybe you should take a break and rest for a bit."
+    },
+    {
+     "message": "my sister nell sent me a pic of her new couch, she has terrible taste",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a bummer. Couch taste is subjective, but it's always nice to see your sister enjoying something she's bought."
+    },
+    {
+     "message": "nell lives in duluth so i only see her at christmas",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a special time of the year."
+    },
+    {
+     "message": "work was ok, marcus showed me where they hide the good coffee",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's great to hear! Marcus seems like a cool guy."
+    },
+    {
+     "message": "my cat pickle knocked a plant off the shelf this morning, no remorse at all",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, that's a bit of a mess."
+    },
+    {
+     "message": "marcus is at a warehouse on weekends too, no idea how he has the energy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Marcus has a lot of energy. Maybe he's just really excited about something?"
+    },
+    {
+     "message": "my friend priya is flying to montenegro soon, im so jealous",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun trip. Enjoy it!"
+    },
+    {
+     "message": "marcus is still driving that ancient saab, it sounds like a dying goat",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ha, I love the image of Marcus driving a \"dying goat\". It's a fun way to describe something that's not very efficient."
+    },
+    {
+     "message": "my neighbor hollis is a nurse on the night ward, he never sleeps",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a very busy and important job."
+    },
+    {
+     "message": "my sister in law odette lives in tulsa, totally different vibe than nell",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like your sister-in-law odette has a unique lifestyle in tulsa."
+    },
+    {
+     "message": "odette is hooked on some baking show, she makes me watch it every visit",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like odette is a bit of a show-off when it comes to baking."
+    },
+    {
+     "message": "trying to get back into running but my knee is being annoying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a struggle."
+    },
+    {
+     "message": "oh and i cant eat sesame, found out the hard way last year",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "No worries, just be mindful of sesame."
+    },
+    {
+     "message": "hollis is picking up welsh from an app, he tried to teach me a greeting",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun way to learn a new language."
+    },
+    {
+     "message": "ingrid, my boss, wants the rota redone again, third time this week",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, that sounds like a bit of a headache."
+    },
+    {
+     "message": "my cousin teo's grandparents came over from estonia, he showed me old photos",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fascinating trip."
+    },
+    {
+     "message": "bought a milk frother yesterday and now i make fancy lattes like a snob",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ha! Now you're a latte snob."
+    },
+    {
+     "message": "priya texted from the airport, she forgot her charger of course",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Oh, the classic airport story."
+    },
+    {
+     "message": "ingrid let me leave early today so i actually ate dinner at a normal hour",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sounds like a great day."
+    },
+    {
+     "message": "marcus wants me on his trivia team but i hate quizzes",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Quizzes can be fun, but it's good to hear that Marcus wants you on his team."
+    },
+    {
+     "message": "the walk home from the pharmacy is my favourite part, takes like twenty minutes",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a lovely walk."
+    },
+    {
+     "message": "just got a new fairphone and the camera is actually decent",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's great news!"
+    },
+    {
+     "message": "teo is reading middlemarch for his book club and wont shut up about it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fascinating book."
+    },
+    {
+     "message": "ok going to bed, big shift tomorrow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good night!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "which city is my sister settled in",
+     "source_message": 3,
+     "key": "duluth",
+     "same_meaning": [
+      "Duluth",
+      "Duluth, Minnesota"
+     ],
+     "category": "C04",
+     "person": "nell",
+     "other_value": "tulsa",
+     "message": "which city is my sister settled in",
+     "queries": [
+      "sister settled",
+      "brought home"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "whats my furry roommate called again",
+     "source_message": 5,
+     "key": "pickle",
+     "same_meaning": [
+      "Pickle"
+     ],
+     "category": "C09",
+     "person": "me",
+     "message": "whats my furry roommate called again",
+     "queries": [
+      "roommate called",
+      "cat pet",
+      "cat pet name"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what car does marcus get around in",
+     "source_message": 8,
+     "key": "saab",
+     "same_meaning": [
+      "Saab",
+      "an old Saab"
+     ],
+     "category": "C17",
+     "person": "marcus",
+     "message": "what car does marcus get around in",
+     "queries": [
+      "marcus car",
+      "driving vehicle"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which ingredient do i have to dodge at restaurants",
+     "source_message": 13,
+     "key": "sesame",
+     "same_meaning": [
+      "sesame",
+      "sesame seeds",
+      "sesame allergy"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which ingredient do i have to dodge at restaurants",
+     "queries": [
+      "ingredient dodge",
+      "food avoid"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "where is priya headed on her getaway",
+     "source_message": 7,
+     "key": "montenegro",
+     "same_meaning": [
+      "Montenegro"
+     ],
+     "category": "C15",
+     "person": "priya",
+     "message": "where is priya headed on her getaway",
+     "queries": [
+      "priya getaway",
+      "priya trip"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "which country do cousin teo's people trace back to",
+     "source_message": 16,
+     "key": "estonia",
+     "same_meaning": [
+      "Estonia",
+      "Estonian"
+     ],
+     "category": "C37",
+     "person": "teo",
+     "message": "which country do cousin teo's people trace back to",
+     "queries": [
+      "cousin teo country",
+      "ancestors family"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "what gadget do i carry around now for calls and photos",
+     "source_message": 22,
+     "key": "fairphone",
+     "same_meaning": [
+      "Fairphone",
+      "a Fairphone"
+     ],
+     "category": "C35",
+     "person": "me",
+     "message": "what gadget do i carry around now for calls and photos",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You have a fairphone.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what novel is teo into at the moment",
+     "source_message": 23,
+     "key": "middlemarch",
+     "same_meaning": [
+      "Middlemarch"
+     ],
+     "category": "C25",
+     "person": "teo",
+     "message": "what novel is teo into at the moment",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "He's reading Middlemarch.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "what wheels does priya have",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "priya",
+     "message": "what wheels does priya have",
+     "queries": [
+      "priya wheels",
+      "bicycle ride"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "which language does ingrid speak",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C36",
+     "person": "ingrid",
+     "message": "which language does ingrid speak",
+     "queries": [
+      "ingrid language",
+      "speak mother"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet."
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what is marcus's role at the warehouse",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C03",
+     "person": "marcus",
+     "overlap_message": 6,
+     "message": "what is marcus's role at the warehouse",
+     "queries": [
+      "marcus role warehouse",
+      "work job shift"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "which series is hollis binging when the night is slow",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C24",
+     "person": "hollis",
+     "overlap_message": 9,
+     "message": "which series is hollis binging when the night is slow",
+     "queries": [
+      "hollis series",
+      "show binge"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "I don't know that one yet."
+    }
+   ]
+  }
+ }
+}
