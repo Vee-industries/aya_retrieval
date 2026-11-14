@@ -9638,3 +9638,9 @@ Demo4 3, 8; Demo5 3, 4, 7 (reported). Nobody has read either chat. **From now on
 and `LABEL_read3.txt` as before), with Demo2's pass line. K1.3 (the pick) reads Demo4 once first, as the baseline, at
 the head of the on-policy eval queue. The T6 and T4 grid, already running, keeps R-245's Demo2 rule; if a w of it
 passes hard_dev, its Demo read is moved to Demo4 by hand.
+
+## R-255 · 2026-11-14 · REOPENED · The T6 and T4 grid fails hard_dev at every w
+
+R-245's grid, seed 82 hard_dev (never_told / false retrieval): **w 0.33: 43 / 5; w 0.5: 42 / 6; w 0.67: 42 / 7. Fails
+at every w**; no Demo read (05:09). Every step toward T4 named more other people's facts, from T6's 44 / 4. The
+on-policy queue (R-253, chain5) takes the card: K1.3's Demo4 baseline, then the three evals, then C0, then OP.
