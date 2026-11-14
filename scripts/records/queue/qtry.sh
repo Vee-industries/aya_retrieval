@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# R-229 one try of the stage ladder: a stage on each seed's K1.3 (or INIT) adapter, then seed 82's hard_dev (R-237),
+# R-229 (R-242 order) one try of the stage ladder: a stage on each seed's K1.3 (or INIT) adapter, then seed 82's hard_dev (R-237),
 # Demo2, Demo3 (held out), then the rest of screening, modeled on q227.sh. Run under the card lock by qtry_lock.py; no push.
 # Usage: qtry.sh LABEL LR EPOCHS DATA [INIT]
 #   LABEL  results label, e.g. k13t2_r229 (adapters/screens/LABEL_SEED)
@@ -43,9 +43,19 @@ blindrun() {  # folder, label, adapter dir
   timeout $CAP "$VP" scripts/run_recall_eval.py --seed 0 --items-dir "data/$1/chats" --index "C:/Users/Gaming/scratch/eval_${LABEL}_blind.sqlite" --label "$2" --arms tool_loop --max-vram-fraction $VRAM --adapter "$3" 2>&1 | quiet | tail -3
   have "$2_seed_0" || fail "$2"; commit "$2"
 }
+init() {  # seed: a missing K4.6 start adapter is trained as K4.6 was (R-214), 3 epochs from base (R-242)
+  local IA="$W/adapters/screens/${INIT}_$1"
+  [ -s "$IA/adapter_model.safetensors" ] && return 0
+  [ "$INIT" = k4_6_r214 ] || fail "no start adapter ${INIT}_$1"
+  clean; rm -rf "$IA"; echo "== train start adapter ${INIT} seed $1 $(date)"
+  timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$IA" --data data/screens/k4_6_r214.jsonl --report-name "${INIT}_$1" --lora-r 32 --lora-targets $MLP --learning-rate 3e-4 --loss-on chat_decision --max-vram-fraction $VRAM --save-epochs 2 2>&1 | tee "$S/train_${INIT}_$1.log" | quiet | tail -2
+  [ -s "$IA/adapter_model.safetensors" ] || fail "train ${INIT}_$1"
+  git add results/recall_train && git commit -q -m "${INIT} seed $1 trained (R-242, start adapter)" -m "$ATTR"
+}
 train() {  # seed: the stage on the same seed's INIT adapter (K1.3 unless named)
   local AD="$W/adapters/screens/${LABEL}_$1"
   [ -s "$AD/adapter_model.safetensors" ] && { echo "== have adapter ${LABEL}_$1"; return 0; }
+  init "$1"
   clean; rm -rf "$AD"; echo "== train ${LABEL} seed $1 (lr $LR, $EPOCHS epochs, $DATA) $(date)"
   timeout $CAP "$VP" scripts/run_recall_train.py --seed "$1" --out-dir "$AD" --data "$DATA" --report-name "${LABEL}_$1" --lora-r 32 --lora-targets $MLP --learning-rate "$LR" --epochs "$EPOCHS" --loss-on chat_decision --max-vram-fraction $VRAM --init-adapter "$W/adapters/screens/${INIT}_$1" 2>&1 | tee "$S/train_${LABEL}_$1.log" | quiet | tail -2
   [ -s "$AD/adapter_model.safetensors" ] || fail "train ${LABEL}_$1"
@@ -81,7 +91,7 @@ candidate() {  # seed
   train "$1"
   evalrun hard_dev 73157 "hd_${LABEL}_$1" "$AD"
   hdgate "$1"  # R-237: hard_dev first, so a try that fails it spends no Demo read
-  [ "$1" = 82 ] && { demo 2; demo 3; }
+  [ "$1" = 82 ] && { demo 2; demo 3; train 83; train 94; }  # R-242: both seeds trained by 16:00 first
   [ "$1" = 82 ] && evalrun probe 51203 "screen_${LABEL}_82" "$AD"
   evalrun probe 73157 "probe_${LABEL}_$1" "$AD"
   stress "st_cc_${LABEL}_$1" probe $CC --adapter "$AD"

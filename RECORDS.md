@@ -9373,3 +9373,15 @@ already all inside T4's 1,393 rows, R3c repeats data T4 trained on and is droppe
 the lane's fourth lever (fresh K4.6 with the second never_told search off), a cause test, not a candidate. K4.6 has
 seed 82 only; a K4.6-based try that clears seed 82 trains K4.6's seeds 83 and 94 first (3 epochs from base), and that
 is disclosed.
+
+## R-242 · 2026-11-13 · REOPENED · Kevin moves the try cutoff to Saturday 14:00; seeds 83 and 94 train right after seed 82's gates
+
+Kevin (about 20:55): "give it til 2pm saturday instead of 10am" (R-240's cutoff for a try to clear seed 82). R-194's
+deadlines stay (every seed trained by Saturday 16:00, pick by 18:00, S3 by 19:00). To fit them, `qtry.sh` (run as
+`qtry3.sh` from the next try on) now trains seeds 83 and 94 as soon as seed 82 passes hard_dev, Demo2 and Demo3,
+before the rest of seed 82's screening; a 1-epoch stage takes about 25 to 40 minutes a seed, so a 14:00 clear has
+both seeds trained by about 15:20, and the rest of screening (about 2.6 hours on all three seeds, from K4.7's queue)
+ends before 18:00. A try that starts from K4.6 (R2b, R3a, R3b) needs K4.6's own seeds 83 and 94, never trained:
+`qtry.sh` now trains a missing K4.6 start adapter exactly as K4.6 was (3e-4, 3 epochs from base, epoch 2 saved; about
+80 minutes a seed), so those tries must clear seed 82 by about 11:30. No gate or line changes. R2a's waiter started
+before this change and runs the earlier order; if R2a clears seed 82's gates, its seeds 83 and 94 are started by hand.
