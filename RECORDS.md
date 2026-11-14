@@ -9788,3 +9788,19 @@ pass. Queue: `chain7_r263.sh` after chain6 (scratchpad of 77d169a0). Code check:
 82 set has the same rows (SHA-256 equal); the round-2 path run on K1.3's own eval (a stand-in, outside the repo) drops
 all 36 round-1 items, adds no duplicate id, and reports 0 new answer rows, so the stop rule would fire there.
 `decide_r191.py` lists OP3 and C1.
+
+## R-264 · 2026-11-14 · REOPENED · OP2 stopped before training: its seed 82 set holds no corrections
+
+**T6 seed 82 on the 375 on-policy items** (`results/recall_eval/op_t6_82_seed_0.json`, 07:06 to 07:26), and OP2's
+build from it (`data/screens/k4_8op2_82_r256.provenance.json`): built 1 answer row, 2 decline rows, 55 correct trap
+declines; dropped 249 older items as right or with the source not returned, 63 traps with the value not returned;
+**kept 0 a side**. The set (`k4_8op2_82_r256`, 2,487 rows, 0 FAIL) is K4.8 exactly, with no correction. The reason:
+the items are K4.8's own training chats, and T6 trained 3 epochs on K4.8, so it gets almost every item on them right;
+the method has nothing to correct. R-256 and R-260 (my code, written before the result) did not foresee this, and
+neither set a stop rule for an empty set.
+
+**Stopped** (07:27): training OP2 on that set would be T6 plus one more epoch of its own set, not the registered
+method, so its training process was stopped about 40 seconds after it started, before any save (no adapter, no
+result). Stricter reading while Kevin is away; no gate was read. **OP2 is not a try** and gives no result. chain6 ended,
+and chain7 started OP3 (R-263) at 07:27. OP3's rule already stops on fewer than 10 new answer rows; OP's start was
+not trained on the item chats (K1.3's rows are templates; OP added only its 36 corrections, which round 2 dedupes).
