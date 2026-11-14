@@ -5,6 +5,10 @@ Usage: python scripts/records/build_onpolicy_rows.py SEED [START]
          set K4.8 whole as rehearsal, out ``data/screens/k4_8op2_SEED_r256.jsonl``, hashed with
          "R-256"). The base set's ``meta`` and ``k4_questions`` are carried, and R-207's
          check_false line counts the base's natural rows too (K1.3 has none, so OP is unchanged).
+         Or ``op`` (OP3, R-263: OP's eval ``op_op_SEED``, a second round whose rehearsal is OP's
+         whole seed set, round 1's corrections included; out
+         ``data/screens/k13op3_SEED_r263.jsonl``).
+         An item that already has a row in the base set gets no second row (R-263).
 
 Reads ``results/recall_eval/op_k13_SEED_seed_0.json`` (K1.3's seed adapter on the items in
 ``data/onpolicy/items``) and rebuilds each item's turns from the model's own queries, with the
@@ -42,6 +46,7 @@ META = Path("data/onpolicy/meta.json")
 STARTS = {  # start: (record, rehearsal set, output stem)
     "k13": ("R-253", Path("data/screens/k1_3_r200.jsonl"), "k13op_{seed}_r253"),
     "t6": ("R-256", Path("data/screens/k4_8_r220.jsonl"), "k4_8op2_{seed}_r256"),
+    "op": ("R-263", Path("data/screens/k13op_{seed}_r253.jsonl"), "k13op3_{seed}_r263"),
 }
 CHECKED = Path("data/screens/k4_8_r220.jsonl")  # K4.8, checked (R-220): its check_false rows
 FALSE_SHARE = 0.15  # R-207's line
@@ -117,6 +122,10 @@ def gate_overlap() -> dict[str, int]:
 
 def main(seed: int, start: str = "k13") -> None:
     tag, base_path, stem = STARTS[start]
+    base_path = Path(str(base_path).format(seed=seed))
+    earlier = {  # R-263: items already corrected in an earlier round
+        json.loads(line)["id"] for line in base_path.read_text(encoding="utf-8").splitlines()
+    }
     provenance = run_metadata()
     eval_path = f"results/recall_eval/op_{start}_{seed}_seed_0.json"
     result = json.loads(Path(eval_path).read_text(encoding="utf-8"))
@@ -174,6 +183,9 @@ def main(seed: int, start: str = "k13") -> None:
                 dropped["S3 six-word run"] += 1
                 continue
             rid = f"k3_op{seed}_{r['id']}"
+            if rid in earlier:
+                dropped["item corrected in an earlier round"] += 1
+                continue
             kind = "older" if r["kind"] == "older" else "never_told"
             m = {
                 "kind": q["kind"] if r["kind"] == "older" else "never_told",
@@ -199,6 +211,7 @@ def main(seed: int, start: str = "k13") -> None:
     )
     n = min(len(answers), len(declines))
     kept = K3.within_tokens(answers[:n] + declines[:n])
+    new_answers = sum(r["meta"]["names_value"] for r in kept)  # R-263's stop rule reads this
     base_text = base_path.read_text(encoding="utf-8")
     out_rows = [json.loads(line) for line in base_text.splitlines()]
     base_prov = json.loads(base_path.with_suffix(".provenance.json").read_text(encoding="utf-8"))
@@ -245,6 +258,7 @@ def main(seed: int, start: str = "k13") -> None:
         "rows": len(out),
         "built_by_type": {k: len(v) for k, v in rows_by_kind.items()},
         "kept_each_side": n,
+        "new_answer_rows": new_answers,
         "kept_by_kind": dict(Counter(meta[r["id"]]["kind"] for r in kept)),
         "dropped": dict(dropped),
         "gate_chat_overlap_six_word_runs": gate_overlap(),

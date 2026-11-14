@@ -9758,3 +9758,33 @@ and tally (`results/demo2/judge_k13op_82_demo4/`), OP's with-search older items:
 and 4 ABSTAINED (a decline after search); question 5 WRONG (says the fact is not stated, names no value); question 3
 WRONG (the reply is only a search call). So two declines, one not-stated reply and one search call only; no wrong
 value. The counts (2 of 6 older) and the bomb stand. OP2 (`k136op2_r256`) took the card at 07:06.
+
+## R-263 · 2026-11-14 · REOPENED · OP3 and its control C1 registered before OP2's result; against lane
+
+**Why a third on-policy try.** OP (R-261) passed seed 82's hard_dev with room (false retrieval 1) and failed only
+Demo4's older line (2 of 6). Both of its with-search declines on Demo4 (questions 1 and 4) had the source in OP's own
+search output, second after a passage about someone else (`found_source` true in
+`results/demo2/branches_k13op_r253_82_demo4.json`), which is the error class the on-policy answer rows teach. OP's
+answer dose was 18 rows (40 built; the user-fact cut and the one-to-one balance left 18).
+
+**The against lane** (Opus; brief and answer `results/panels/R-263/op3_brief.md`, `op3_against.md`, 07:12 to 07:14),
+first line: "run OP3 changed: check the two Demo4 search-declines first, stop if round 2 builds fewer than 10 new
+answer rows, dedupe by item, and run a registered same-stage control beside it." It judged OP3 closer to another
+small-edit draw than a new approach, estimated 7 to 13 new answer rows (an estimate from counts, it said), and noted
+that round 2 can reach only the two declines after search. **All four changes adopted.** (1) Checked: both declines
+had the source returned (above), so OP3 can reach them. (2) **Stop rule, registered now:** fewer than 10 new answer
+rows after every cut means OP3 does not train for that seed (`new_answer_rows` in the set's provenance). (3) **Dedupe:**
+an item with a row in round 1 gets no round-2 row (dropped as "item corrected in an earlier round"). (4) **C1**, the
+control: OP's seed adapter, the same stage (1e-4 x 1) on OP's own round-1 set, no round-2 rows.
+
+**OP3** (`k13op3_r263`), only if OP2 does not pass seed 82's gates: OP's seed adapter runs the 375 items
+(`op_op_SEED`); `build_onpolicy_rows.py SEED op` builds round 2 by OP's rules exactly (query cuts, user-fact cut,
+one-to-one balance, check_false to 15%, the same drops), hashed with "R-263", with OP's whole seed set
+(`k13op_SEED_r253`: K1.3's 1,094 rows plus round 1's corrections) as the base; out `data/screens/k13op3_SEED_r263.jsonl`,
+0 FAIL on `check_k3.py` before training; a stage from OP's seed adapter, 1e-4 x 1. Seeds 83 and 94 first train OP's
+start adapter exactly as OP was (`qtry5.sh` `init`). Every gate as before (hard_dev, Demo4, Demo5, screening). **C1**
+(`k13opc1_r263`) runs after OP3 if OP3 trained, under the same rules; it explains a gain and is not needed to read a
+pass. Queue: `chain7_r263.sh` after chain6 (scratchpad of 77d169a0). Code check: rebuilt with the new code, OP's seed
+82 set has the same rows (SHA-256 equal); the round-2 path run on K1.3's own eval (a stand-in, outside the repo) drops
+all 36 round-1 items, adds no duplicate id, and reports 0 new answer rows, so the stop rule would fire there.
+`decide_r191.py` lists OP3 and C1.
