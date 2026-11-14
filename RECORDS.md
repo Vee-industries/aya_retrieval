@@ -9432,3 +9432,6 @@ same-type fact into the top 5) is what the numbers show. R2b (a stage from K4.6 
 hard_dev never_told **42**, false retrieval **8**, recall 72, in_view 32 (K4.6 alone 46 / 4 / 72 / 39). **Fails both**;
 no Demo read. A stage of K1.3's rows on K4.6 made it name more other people's facts, not fewer. R2c (third-search
 rows) runs next.
+
+**R2c seed 82** (`k13r2c_r235`: K5's third-search set, 1e-4, 1 epoch, from K1.3; 23:37): hard_dev never_told **45**,
+false retrieval **4**, recall 63, in_view 43. **Passes both lines.** Demo2 runs next.
