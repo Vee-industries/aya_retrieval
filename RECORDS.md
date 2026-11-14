@@ -9942,3 +9942,40 @@ chain8 ends. Demo5 readings: 1. Demo4 readings: 4.
 retry today), no try is registered, and **K1.3 stays the pick** (pick recall 742). Reported to Kevin in chat, result
 first, with the counts from R-259 to R-270. Weekly usage at the end of this stage: 90% (all models, 09:15; 89% at its
 start, R-267). Nothing pushed.
+
+## R-271 · 2026-11-14 · REOPENED · Kevin: keep trying; C2 registered, then OPT only if C2 clears hard_dev; against lane
+
+Kevin (about 09:20), asked whether to keep trying before 14:00 or stay with K1.3: "yes please", read as keep trying
+(R-240's standing order). His word lifts R-267's "no smaller-dose retry today", a stop set in this session, not a
+gate; every gate stands. Weekly usage 90% (all models, 09:19).
+
+**Counts for the lever (hard_dev, seed 82, older and confirm, 96 items).** Right with the fact in its own search output
+/ wrong with it there (a reading error) / wrong with it not found: K1.3 52 / 32 / 12; OP 60 / 27 / 9; C1 68 / 23 / 5.
+C1's demo older misses: 4 of 7 are reading errors (Demo4 questions 1 and 4, Demo5 questions 1 and 3), 2 ran out of
+calls, 1 not found.
+
+**The against lane** (Opus; `results/panels/R-271/c2_brief.md`, `c2_against.md`, 09:20 to 09:22), on two options, A
+(C2: C1 plus the same stage a third time) and B (OPT: on-policy rows for C1's reading errors from a fresh draw of the
+training pool), first line: "run A then B changed: run A first, because B is A plus rows and so A is B's only
+control; run B only if A clears hard_dev, check that every answer row's value is in the real search output, and
+record any Demo5 pass from here on as a second read." It judged A a lever on hard_dev and unknown on the demos (each
+step has moved Demo4 older by one item of 6, a draw at that n), and named the risk: never_told fell 48 to 46 from OP
+to C1, 2 items above the line. **All adopted.**
+
+**C2** (`k13opc2_r271`): from C1's seed adapter (`k13opc1_r263`), 1e-4 x 1 on OP's seed set (`k13op_SEED_r253`, 0 FAIL
+when built, R-257), no new rows. Seeds 83 and 94: OP's start adapter, then C1's, trained exactly as they were
+(`qtry6.sh`, R-263's and R-253's recipes). Every gate as before; Demo5's reading here is its second (C1's was the
+first, and this lever was chosen knowing it). **Stop rules, registered now:** C2 fails hard_dev: no C3, no smaller
+retry, no OPT; K1.3 stays the pick. C2 passes hard_dev and misses Demo4: OPT runs, C2 as its control. C2 passes Demo4:
+Demo5 (read 2); a pass ends seed 82 (seeds 83 and 94 take C2's recipe, OPT is not run today); a fail runs OPT.
+
+**OPT** (`k13opt_r271`), only by the rules above: C1's seed adapter runs the eval on a fresh draw of the training pool
+(`--pool train`, a probe seed not used by any earlier train-pool row, 24 items a kind); rows from its own turns: an
+older or confirm item answered wrong with the fact in its own output gets the template's reply after its own queries
+and their real outputs, kept only if the answer value stands in that output (counted and reported); a never-told item
+where it named a value gets a decline; balanced one to one with its own correct declines (hashed with "R-271"); one
+stage from C1 at 1e-4 x 1 on OP's set plus the rows; fewer than 10 answer rows means no training; `check_k3.py` 0 FAIL
+first. Logged: rows dropped, answer rows whose source was not the first passage. Its code is written while C2 trains,
+before C2's result. Logged on every gate for both: reading errors, not-found, ran out of calls, never_told, false
+retrieval. **The day stops** for seed 82 when C2 and OPT have both failed a gate, or at 14:00. Prediction (lane,
+estimate): C2 hard_dev never_told 44 to 46, recall about 70 to 74, Demo4 older 3, Demo5 older 2 or 3.

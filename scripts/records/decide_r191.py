@@ -40,6 +40,8 @@ CANDIDATES = {
     "OP3": "k13op3_r263",  # R-263: a second on-policy round from OP
     "C1": "k13opc1_r263",  # R-263: OP3's control, OP's stage again on its round-1 set
     "OP4": "k13op4_r267",  # R-267: on-policy second-search rows from OP
+    "C2": "k13opc2_r271",  # R-271: C1 plus the same stage a third time
+    "OPT": "k13opt_r271",  # R-271: on-policy rows from C1 on the training templates
 }
 # Screened but not eligible for the pick, with the record that says why.
 NOT_ELIGIBLE = {"R2c": "R-247: its set failed check_k3.py's user-fact line"}
