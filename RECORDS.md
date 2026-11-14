@@ -9509,3 +9509,12 @@ an empty search 0 (at least 1) and the natural passage gap 1.36 (it holds only v
 (`results/panels/R-248/check_k4_6tw_r241.txt`). R3a could not be eligible, so **R3a is dropped**; its waiter is stopped
 when chain3 reaches it. The other sets in use were checked when built: K4.8 (R-220), K5 fixed (R-247), K4.9 (R-224),
 K4.8 merged (R-235), K1.3 (R-200). Lever 2's set (`k4_8nt_r237`) was never checked; lever 2 failed hard_dev anyway.
+
+## R-249 · 2026-11-14 · REOPENED · R2cf fails seed 82's hard_dev; R2c's passes were fragile
+
+**R2cf seed 82** (`k13r2cf_r247`: R2c's recipe on `k5f_r247`, K5's set less 10 rows; 04:05): hard_dev never_told **41**
+(floor 44), false retrieval **7** (ceiling 4), recall 66, in_view 46 (R2c: 45, 4, 63, 43). **Fails both**; no Demo
+read. Ten rows fewer (0.4% of the set), which also reorders the rows each training step sees, moved hard_dev by 4 on
+each line. R2c's pass of seed 82's lines (45 at a floor of 44, 4 at a ceiling of 4) and of Demo2 (one item over) sat
+inside that variation; R2c's results are a fragile pass, not a robust one, and are reported as such. K1.3 stays the
+pick. The blend grid (R-237) takes the card next; R3a is dropped (R-248); then the T6 and T4 blend (R-245).
