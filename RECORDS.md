@@ -9518,3 +9518,11 @@ read. Ten rows fewer (0.4% of the set), which also reorders the rows each traini
 each line. R2c's pass of seed 82's lines (45 at a floor of 44, 4 at a ceiling of 4) and of Demo2 (one item over) sat
 inside that variation; R2c's results are a fragile pass, not a robust one, and are reported as such. K1.3 stays the
 pick. The blend grid (R-237) takes the card next; R3a is dropped (R-248); then the T6 and T4 blend (R-245).
+
+## R-250 · 2026-11-14 · REOPENED · The K1.3 and T4 blend grid on hard_dev; w = 0.67 reads Demo2
+
+R-237's grid, seed 82 hard_dev (never_told / false retrieval; each a rank-64 exact blend, `blend_adapters.py`):
+**w 0.33: 46 / 2, pass; w 0.5: 44 / 5, fail (false retrieval); w 0.67: 44 / 4, pass** (04:05 to 04:30). The
+results are not monotonic in w (0.5 fails between two passes), which shows hard_dev's lines sit inside its own
+variation at these margins (as R-249 found for R2c); disclosed. By the registered rule the highest w passing both
+lines, **0.67**, reads Demo2 once (its 21st reading), then Demo3 if it passes.
