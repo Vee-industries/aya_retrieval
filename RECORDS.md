@@ -10072,3 +10072,25 @@ hard_dev reading-error rate, and the training draw has none.
 **By R-274's rule (6)** the day's tries end, no retry. **K1.3 stays the pick** (pick recall 742). The card is idle
 (10:16). Reported to Kevin in chat. Weekly usage at the end of this stage: 91% (all models, 10:17; 90% at its start,
 R-273). Nothing pushed.
+
+## R-276 · 2026-11-14 · REOPENED · Kevin: the standard is beating K1.3; C1 is tested against K1.3 on every reading
+
+Kevin (about 10:35, in chat), told that C1 beats K1.3 on every reading both took but fails Demo5's fixed line: "it
+does beat 1.3.. but okay..", then "i said that was the standard a while ago". His words in R-240 were "keep trying
+until we beat it or run out of time"; R-240's line that "beat" means every fixed gate plus higher pooled recall was
+the recording session's reading, not his word. **His ruling, as recorded now:** a candidate beats K1.3 when it does
+at least as well as K1.3 on each demo line on the same demo and seed (in place of the fixed 3 of 6 and 3 of 4), passes
+every screening line as before (hard_dev never_told at least 44 and false retrieval at most the reference's + 3, and
+`decide_r191.py`'s lines on seeds 82 and 83), and has higher pooled pick recall over seeds 82, 83 and 94 (R-192).
+Only the demo lines change, the part his words name. Disclosed: this is set after C1's Demo4 and Demo5 results exist;
+it is Kevin's ruling on what his own earlier word meant (STANDARD rule 2: any change of rule is the researcher's).
+
+**C1 against K1.3 on seed 82 so far:** hard_dev 46 / 0 / 68 against 46 / 2 / 52; Demo4 older 3 of 6 against 1, never-told
+3 of 4 against 2. Demo5: C1 2 of 6 and 3 of 4; **K1.3 has no Demo5 reading**. Order, registered now: (1) K1.3 seed 82
+on Demo5 (`results/demo2/branches_k1_3_r200_82_demo5.json`; Demo5's second reading, chosen knowing C1's), two fresh
+blind Sonnet judges who read `sheet.md` themselves, the orchestrator not reading it. (2) C1 beats K1.3 on Demo5 if its
+older count is at least K1.3's and its never-told count at least K1.3's; otherwise C1 does not beat K1.3, and K1.3
+stays the pick. (3) If it does, C1's recipe on seeds 83 and 94 (OP's start adapters trained as OP was, then C1's stage
+on OP's seed set; `qtry6.sh` with `INIT` k13op_r253, the set `k13op_SEED_r253`), then the whole screening and
+`decide_r191.py`; C1 is the pick only if its pooled pick recall is above K1.3's 742 and every screening line holds.
+C1's earlier read file (`bomb`, R-270) is kept as `k13opc1_r263_read3_r270.txt` beside the queue.
