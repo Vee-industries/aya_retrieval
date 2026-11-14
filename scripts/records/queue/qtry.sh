@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# R-229 one try of the stage ladder: a stage on each seed's K1.3 adapter, then Demo2, then Demo3 (held out), then
-# screening, modeled on q227.sh. Run under the card lock by qtry_lock.py; no push.
+# R-229 one try of the stage ladder: a stage on each seed's K1.3 (or INIT) adapter, then seed 82's hard_dev (R-237),
+# Demo2, Demo3 (held out), then the rest of screening, modeled on q227.sh. Run under the card lock by qtry_lock.py; no push.
 # Usage: qtry.sh LABEL LR EPOCHS DATA [INIT]
 #   LABEL  results label, e.g. k13t2_r229 (adapters/screens/LABEL_SEED)
 # After each Demo run the queue prints DEMO2 READY or DEMO3 READY and waits for a read file beside the log:
@@ -79,9 +79,9 @@ CC="--kinds statement --chat-check data/check/chat_check.json"
 candidate() {  # seed
   local AD="$W/adapters/screens/${LABEL}_$1"
   train "$1"
-  [ "$1" = 82 ] && { demo 2; demo 3; }
   evalrun hard_dev 73157 "hd_${LABEL}_$1" "$AD"
-  hdgate "$1"
+  hdgate "$1"  # R-237: hard_dev first, so a try that fails it spends no Demo read
+  [ "$1" = 82 ] && { demo 2; demo 3; }
   [ "$1" = 82 ] && evalrun probe 51203 "screen_${LABEL}_82" "$AD"
   evalrun probe 73157 "probe_${LABEL}_$1" "$AD"
   stress "st_cc_${LABEL}_$1" probe $CC --adapter "$AD"

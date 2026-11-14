@@ -9297,3 +9297,31 @@ seed 83 adapter) and 94. Later round-1 tries (T5, T6) and round 2 wait; they run
 **38** of 48 (floor 44), false retrieval **12** (ceiling 4), recall 59 (K1.3 52), in_view 43. R-222's early stop ended
 the try. The same trade as K4.6e2 (39 and 10, R-221): the try that answers more Demo older items also names other
 people's same-type facts on hard_dev. By R-229 the ladder resumes: T5 (1e-4, 3 epochs, K4.8 whole) took the card.
+
+## R-237 · 2026-11-13 · REOPENED · Two levers on the Demo-versus-hard_dev trade registered; hard_dev before Demo reads
+
+Kevin (about 19:00), after T4: "can we thread that needle?" Every candidate that reaches 3 Demo2 older items fails
+hard_dev never_told and false retrieval (K4.6 epoch 2: 39 and 10; T4: 38 and 12), and every one that passes hard_dev
+stays at 2 or fewer. Two levers, to an against lane (Opus; `results/panels/R-237/needle_brief.md`,
+`needle_against.md`): **neither more likely than not to pass** (its judgment, unsourced: lever 2 about 35%, the
+blend about 20%); lever 2 is the better, as the only one that changes the cause.
+
+**Lever 2, `k13nt_r237`**: a stage on K1.3 at T4's setting (3e-4, 1 epoch) on `k4_8nt_r237`
+(`scripts/records/build_k4_8nt.py`: K4.8's 1,393 natural rows, T4's set, plus K1.3's 160 never_told rows unchanged;
+T4 had dropped every K1.3 row). Runs **once, right after T5**, ahead of T6 and round 2 (it delays them by about 45
+minutes). The lane's warning: the 160 scripted rows may teach "decline on scripted-looking input" and not reach
+hard_dev; if they do help, they may pull Demo older back toward K1.3's 0.
+
+**The blend, last** (after round 2; `scripts/records/blend_adapters.py`): one rank-64 adapter whose change is exactly
+(1 - w) times K1.3's plus w times T4's, per seed (shown exact on every layer at w = 0 and 1, gap 0; a planted w = 0.1
+against K1.3 shows a gap of 0.0018). Since T4 is a stage on K1.3, the blend is K1.3 plus w times T4's stage. **A fixed
+grid, w = 0.33, 0.5, 0.67** (the lane's; no data picks w); each runs hard_dev on seed 82; the highest w that passes
+both hard_dev lines reads Demo2 once, and only it; then Demo3; then screening (T4's stage trained on seeds 83 and 94
+first, as T4). Every w's numbers are reported, and that w was not chosen from data.
+
+**Gate order, from this record on**: every try runs seed 82's hard_dev before any Demo read and stops on a failed
+line (`qtry.sh`, run as `qtry2.sh`), so a try that fails hard_dev spends no Demo2 or Demo3 read. The pass rule is
+unchanged (all gates). T5, already running, keeps the old order. Demo2 readings so far: 17; Demo3: 1.
+
+Predictions (lane), seed 82: lever 2 Demo2 older 2 (1 to 3), never-told 4, hard_dev never_told 43 (40 to 46), false
+retrieval 5 (3 to 8); blend at 0.5 Demo2 older 2, never-told 4, hard_dev 43 and 5.
