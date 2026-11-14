@@ -10227,3 +10227,16 @@ decides (R-154). Weekly usage 94% (all models, 17:26). The queue reached C1 seed
 `score_s3.py`'s `arms` now leaves out a report arm (K1, K1.3, K2.1) whose two runs are not both written, so the ship
 rule can be read when C1's runs land, before the report arms end (about 21:30). No panel, because report arms enter no
 line of the rule (R-281) and every line's inputs are unchanged; the five tests pass unchanged.
+
+## R-286 · 2026-11-14 · REOPENED · S3 coherence: judge 1 marks C1 97 of 120 and base 95; the line holds
+
+Three fresh judges (17:28 to 17:30), each 240 lines, `results/s3/coherence/judge_N/marks.json`; transcripts checked:
+each read only its brief, the rubric and the sheet, wrote only its marks file (two also ran a grep counting their own
+marks); `freeze_r154.py judges` on the three transcripts exits 0, every reply from `claude-sonnet-5-5`, Claude Code
+2.1.309 (R-128's version; `results/s3/coherence/judges_check.txt`). `score_s3.py tally`: coherent of 120, base with the
+tool / C1 seed 82: **judge 1 (deciding) 95 / 97**; judge 2 97 / 100; judge 3 99 / 98. By R-281's reading (base's rate
+times 0.95, 0.752), **C1's 0.808 holds line (a)'s coherence part** under judge 1, and under judges 2 and 3 as well.
+
+**Disclosed.** The judges' hand-back reports to the orchestrator quoted short pieces of some S3 replies and the names
+in them, as reasons for their 0 marks; the marks were final when they arrived. The orchestrator has not opened the
+sheet or any `results/s3/` run file. Weekly usage 94% (all models, 17:31).

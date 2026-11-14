@@ -1,0 +1,23 @@
+{
+ "judge_1": {
+  "base_coherent": 95,
+  "pick_coherent": 97,
+  "pairs": 120,
+  "base_rate": 0.7916666666666666,
+  "pick_rate": 0.8083333333333333
+ },
+ "judge_2": {
+  "base_coherent": 97,
+  "pick_coherent": 100,
+  "pairs": 120,
+  "base_rate": 0.8083333333333333,
+  "pick_rate": 0.8333333333333334
+ },
+ "judge_3": {
+  "base_coherent": 99,
+  "pick_coherent": 98,
+  "pairs": 120,
+  "base_rate": 0.825,
+  "pick_rate": 0.8166666666666667
+ }
+}

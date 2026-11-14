@@ -1,0 +1,30 @@
+W1114 17:29:48.391000 69140 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+[
+ {
+  "file": "agent-a9c9d75551daf5c16.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-ab1a8b9e064b09b78.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ },
+ {
+  "file": "agent-a6e36817a3a4502f4.jsonl",
+  "models": [
+   "claude-sonnet-5-5"
+  ],
+  "versions": [
+   "2.1.309"
+  ]
+ }
+]
