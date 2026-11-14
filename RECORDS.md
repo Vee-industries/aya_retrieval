@@ -9420,3 +9420,10 @@ labels `t6t4bNNN_r245`). It runs after `chain_r240.sh` ends (`chain2_r245.sh` wa
 for the card at once. T6 is at both hard_dev lines exactly (44 and 4), so any w that moves toward T4 may fail them;
 disclosed. Seeds 83 and 94, if it clears seed 82, need T6's stage (about 80 minutes a seed) and T4's (about 25) first,
 so it must clear seed 82 by about Saturday 12:00 to have both seeds by 20:00 (R-243).
+
+## R-246 · 2026-11-13 · REOPENED · R2a fails seed 82's hard_dev; R2b next
+
+**R2a seed 82** (`k13r2a_r235`: merged first query set, 1e-4, 1 epoch, from K1.3;
+`results/recall_eval/hd_k13r2a_r235_82_seed_73157.json`, 22:44): hard_dev never_told **42** (floor 44), false retrieval
+**6** (ceiling 4), recall 68, in_view 46. **Fails both**; no Demo read. The lane's stated risk (category words bring the other person's
+same-type fact into the top 5) is what the numbers show. R2b (a stage from K4.6 epoch 3 on K1.3's set) runs next.
