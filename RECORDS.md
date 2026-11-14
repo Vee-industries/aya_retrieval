@@ -10192,3 +10192,13 @@ stricter reading is taken and named.
 - **Pass = (a), (b) and (c) all hold.** C1 seed 82 then replaces 6.37 as shipped; otherwise 6.37 seed 82 stays shipped
   and S3's numbers on 6.37 are its measured weakness (R-178). Every arm is reported, baselines first (code that searches
   every turn, base with the whole chat, base with the tool, 6.37, C1, then K1, K1.3 and K2.1).
+
+## R-282 · 2026-11-14 · REOPENED · The S3 scorer, written to R-281 and shown failing planted results first
+
+`scripts/records/score_s3.py` (steps `sheet --final`, `tally`, `rule`) computes R-281 exactly: the six measures, the
+chat-resampled lower bounds (10,000 draws, seed 0, 2.5th percentile), lines (a), (b) and (c), and the coherence sheet
+and tally (judge 1 decides). Written before any S3 file was read. `tests/test_score_s3.py` (5 tests, synthetic rows,
+no S3 data): a planted pass passes; a pick that copies as often as 6.37 fails on line (b) alone; a pick whose judge-1
+coherence (0.85) is under base's 0.9 times 0.95 fails, and so does a rule with no tally; a gain carried by one chat of
+20 gives a bound not above 0; a judge missing a line is refused. No panel, because it implements a rule registered in
+R-178, R-191 and R-281 and changes no registered line.
