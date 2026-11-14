@@ -1,0 +1,1720 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-14T15:40:30+00:00",
+  "command": [
+   "scripts/run_demo2.py",
+   "--demo-dir",
+   "demo5",
+   "--adapter",
+   "k1_3_r200=C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/k1_3_r200_82",
+   "--out",
+   "results/demo2/branches_k1_3_r200_82_demo5.json"
+  ],
+  "git_commit": "671f97254f25e9228c04c26cad27e084d954bde9",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "record": "R-201",
+ "adapters": {
+  "k1_3_r200": {
+   "path": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\screens\\k1_3_r200_82",
+   "sha256": "80cc213da9e0e6c73aa2ac5e6695cd8b5d9f2f470f885dbf0abc150899e09389"
+  }
+ },
+ "demo_dir": "demo5",
+ "chat_sha256": "0fe71e06ad6031324518c06beb36f238f05261dd972a3e3dae3cd7585dc129a7",
+ "questions_sha256": "c4506d116baedae0c55e68632dbb9e80dde5a890008a271d8af8e8323ac39dcc",
+ "arms": {
+  "base": {
+   "prefix": [
+    {
+     "message": "hey long day. i just started at the Hargrove pharmacy and my feet are dead",
+     "queries": [
+      "how to relieve dead feet at pharmacy"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It sounds like you might be experiencing dry or cracked skin on your feet, which can be uncomfortable. At a pharmacy, you could ask for a moisturizing cream or lotion to help hydrate and soothe your feet. If the issue persists, a pharmacist might also recommend a foot bath with E"
+    },
+    {
+     "message": "my sister tamsin is moving to Yellowknife in the spring, still cant believe it",
+     "queries": [
+      "Yellowknife spring moving tips"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It sounds like your sister Tamsin is excited about her upcoming move to Yellowknife in the spring. If you're looking for tips on preparing for a move to Yellowknife, I can help with that. For example, she might want to research local resources, plan for the colder weather,"
+    },
+    {
+     "message": "also i picked up the cornet last month, the neighbours already hate me",
+     "queries": [
+      "how to deal with neighbors who hate you"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It seems like your neighbors might not be used to having a cornet in the neighborhood, so it’s possible they’re not used to the sound or the noise. You could try playing at a quiet time, like early in the morning or late at night, to minimize disruption. If the issue persists"
+    },
+    {
+     "message": "hendrik covered my shift today, he has a cat, Mango, and talks about him nonstop",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Hendrik’s cat, Mango, is a major part of his life, and he’s clearly passionate about talking about him. If you’re looking for ways to address this, you could suggest a fun, lighthearted conversation about Mango, like asking for his favorite treats or how he"
+    },
+    {
+     "message": "took the bus in again, such a slog",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like the bus ride was particularly long and tiring. If you’re looking for ways to make the journey more comfortable, you could suggest bringing a small snack or a book to pass the time, or even recommend a podcast or audiobook to listen to during the ride. Let me know if"
+    },
+    {
+     "message": "my brother joss still drives an ancient Saab, it makes a noise like a kettle dying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like your brother’s Saab is making quite the noise! If the sound is persistent and bothering you, you could suggest having it checked by a mechanic to see if it’s something simple like a loose part or a worn-out component that needs attention. Alternatively, if the noise is particularly annoying,"
+    },
+    {
+     "message": "i cant eat rhubarb, one bite and i feel awful. found out at tamsins birthday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a bit unfair! Rhubarb can be quite bitter, and it’s understandable to feel uncomfortable after eating it. If you’re looking for alternatives, you could try berries, strawberries, or raspberries, which have a similar tartness but are often more palatable. Let me know"
+    },
+    {
+     "message": "hendrik is obsessed with the Kraken, wears the jersey to work evne in summer",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hendrik’s Kraken obsession is quite unique! If he’s wearing the jersey year-round, it might be a fun conversation starter at work. You could suggest he keeps it in his car or a hidden spot at home to avoid any awkwardness. Let me know if you’d like to brainstorm more"
+    },
+    {
+     "message": "bea finally booked her wedding at Foxglove, the garden venue near the lake",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a beautiful choice for Bea’s wedding! Foxglove by the lake sounds like the perfect setting for a romantic and serene celebration. If you’d like, I can help you brainstorm ideas for the wedding, from decor to activities, to make it unforgettable. Let me know how I can"
+    },
+    {
+     "message": "lenka lives out in Dunnville now so i never see her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It’s a bit sad to hear that you don’t see Lenka often, but it’s great that she’s living in Dunnville now. If you’d like, I can help you think of ways to stay connected, whether it’s through regular video calls, sending care packages, or even planning"
+    },
+    {
+     "message": "tamsin has gone all in on running, signed up for a race and everything",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Tamsin’s dedication to running is inspiring! If you’d like, I can help you brainstorm ways to support her, whether it’s cheering her on, helping her prepare, or even joining her in a fun activity. Let me know how I can"
+    },
+    {
+     "message": "joss made me sit thru his favourite band Slowdive, the whole album in the car",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a unique way to experience music! Slowdive is a great band with a rich sound. If you’d like, I can help you explore more of their music or suggest similar bands you might enjoy. Let me know how I can"
+    },
+    {
+     "message": "i bought a rice cooker yesterday and honestly its the best thing in my flat",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s fantastic news! A rice cooker can truly be a game-changer for cooking. If you’d like, I can help you figure out how to use it to its fullest potential or suggest some other kitchen gadgets that might make your life easier. Let me know how I can"
+    },
+    {
+     "message": "my sister-in-law odile is moving to Moncton for a job, so thats two of them leaving",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a significant change! If you’d like, I can help you brainstorm ways to support your sister-in-law as she settles into her new life in Moncton. Let me know how I can assist."
+    },
+    {
+     "message": "odile is learning Welsh for no reason i can figure out",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s quite an interesting situation! If you’d like, I can help you explore the reasons behind Odile’s decision to learn Welsh. Let me know how I can assist."
+    },
+    {
+     "message": "hendrik brought a giant thermos of coffee in again, saved my life",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a relief! A giant thermos of coffee can be a lifesaver, especially when you’re in need of a quick energy boost. If you’d like, I can help you figure out how to make the most of that coffee or suggest some other ways to stay energized. Let me"
+    },
+    {
+     "message": "odile swears by the Birdsong cafe near her flat, i went with her on sunday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Birdsong Cafe sounds like a great spot to enjoy a coffee break. If you’d like, I can help you explore more about the cafe, its atmosphere, or suggest other places in Moncton that might be similar. Let me know how I can assist!"
+    },
+    {
+     "message": "i have been rewatching Shetland all week, cant stop",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Shetland is a fantastic show! If you’d like, I can help you find more shows like it, recommend similar series, or discuss the themes and characters that make it so engaging. Let me know how I can assist!"
+    },
+    {
+     "message": "finished the book about the lighthouse keeper, so good",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a wonderful read! Lighthouse keepers often have such rich, atmospheric stories. If you’d like, I can recommend more books about lighthouses or coastal life, or help you explore the themes and settings that make those stories so compelling. Let me know how I can assist!"
+    },
+    {
+     "message": "lenka is a vet tech btw, she texted me from a night shift",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a cool twist! If you’d like, I can help you brainstorm ways to respond to her, whether it’s a casual check-in or something more specific. Let me know how you’d like to connect!"
+    },
+    {
+     "message": "mum rang to ask if i was eating properly, i am mum",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a classic! If you’d like, I can help you come up with a thoughtful way to respond to your mum. Let me know how you’d like to handle it!"
+    },
+    {
+     "message": "pottery got moved to Thursday evenings so i can still go after the pharmacy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a great arrangement! If you’d like, I can help you plan your Thursday evening pottery sessions or suggest ways to make the most of your time there. Let me know how I can assist!"
+    },
+    {
+     "message": "my brother joss just booked flights to Tallinn for his break",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s exciting! If you’d like, I can help you brainstorm ways to support your brother or suggest fun things to do in Tallinn. Let me know how I can assist!"
+    },
+    {
+     "message": "ok i should sleep, bus is super early tomorrow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good luck on your bus tomorrow! If you need anything else, feel free to ask. Sweet dreams!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where is my sister relocating to",
+     "source_message": 2,
+     "key": "Yellowknife",
+     "same_meaning": [
+      "Yellowknife"
+     ],
+     "category": "C01",
+     "person": "Tamsin",
+     "other_value": "Moncton",
+     "message": "where is my sister relocating to",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Your sister is relocating to Tallinn, Estonia.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "which instrument do i have now",
+     "source_message": 3,
+     "key": "cornet",
+     "same_meaning": [
+      "cornet"
+     ],
+     "category": "C22",
+     "person": "me",
+     "message": "which instrument do i have now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You have a piano.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what did hendrik name his kitty",
+     "source_message": 4,
+     "key": "Mango",
+     "same_meaning": [
+      "Mango"
+     ],
+     "category": "C09",
+     "person": "Hendrik",
+     "message": "what did hendrik name his kitty",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hendrik named his kitty \"Pip\"",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which food do i avoid, it makes me ill",
+     "source_message": 7,
+     "key": "rhubarb",
+     "same_meaning": [
+      "rhubarb"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which food do i avoid, it makes me ill",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "If you’re avoiding certain foods that make you ill, it’s important to identify what they are. Could you share which foods cause the issue? This will help me provide more specific advice.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "which hockey team does hendrik cheer for",
+     "source_message": 8,
+     "key": "Kraken",
+     "same_meaning": [
+      "Kraken",
+      "Seattle Kraken"
+     ],
+     "category": "C20",
+     "person": "Hendrik",
+     "message": "which hockey team does hendrik cheer for",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about a person named Hendrik associated with a hockey team. If you meant someone else, could you provide more details?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "where is bea getting hitched",
+     "source_message": 9,
+     "key": "Foxglove",
+     "same_meaning": [
+      "Foxglove",
+      "the garden venue near the lake"
+     ],
+     "category": "C28",
+     "person": "Bea",
+     "message": "where is bea getting hitched",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I'm not aware of any specific location for Bea's wedding. If you have more context or details, I can try to help with that.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which weekday am i making clay stuff now",
+     "source_message": 22,
+     "key": "Thursday",
+     "same_meaning": [
+      "Thursday",
+      "Thursdays",
+      "Thursday evenings"
+     ],
+     "category": "C38",
+     "person": "me",
+     "message": "which weekday am i making clay stuff now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’re making clay stuff on a Thursday evening.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "where is my brother off to for his holiday",
+     "source_message": 23,
+     "key": "Tallinn",
+     "same_meaning": [
+      "Tallinn"
+     ],
+     "category": "C15",
+     "person": "Joss",
+     "message": "where is my brother off to for his holiday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Your brother is off to Tallinn, Estonia.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "which town does hendrik call home",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C04",
+     "person": "Hendrik",
+     "message": "which town does hendrik call home",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hendrik calls Tallinn home."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "what wheels does lenka roll up in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "Lenka",
+     "message": "what wheels does lenka roll up in",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Lenka, the character from *The Sims*, rolls up on a **bicycle**."
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what music does tamsin put on while out running",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C23",
+     "person": "Tamsin",
+     "overlap_message": 11,
+     "message": "what music does tamsin put on while out running",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have access to specific information about Tamsin's music preferences, as I don't have access to personal data. However, I can suggest some popular running playlist ideas that people often enjoy, such as upbeat electronic music, jazz, or instrumental tracks. Let me know if you'd like some suggestions"
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where does hendrik grab his coffee",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C26",
+     "person": "Hendrik",
+     "overlap_message": 16,
+     "message": "where does hendrik grab his coffee",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hendrik is known to grab his coffee at \"Kohvik Keldermägi,\" a popular spot in Tallinn."
+    }
+   ]
+  },
+  "base_no_search": {
+   "prefix": [
+    {
+     "message": "hey long day. i just started at the Hargrove pharmacy and my feet are dead",
+     "queries": [
+      "how to relieve dead feet at pharmacy"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It sounds like you might be experiencing dry or cracked skin on your feet, which can be uncomfortable. At a pharmacy, you could ask for a moisturizing cream or lotion to help hydrate and soothe your feet. If the issue persists, a pharmacist might also recommend a foot bath with E"
+    },
+    {
+     "message": "my sister tamsin is moving to Yellowknife in the spring, still cant believe it",
+     "queries": [
+      "Yellowknife spring moving tips"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It sounds like your sister Tamsin is excited about her upcoming move to Yellowknife in the spring. If you're looking for tips on preparing for a move to Yellowknife, I can help with that. For example, she might want to research local resources, plan for the colder weather,"
+    },
+    {
+     "message": "also i picked up the cornet last month, the neighbours already hate me",
+     "queries": [
+      "how to deal with neighbors who hate you"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It seems like your neighbors might not be used to having a cornet in the neighborhood, so it’s possible they’re not used to the sound or the noise. You could try playing at a quiet time, like early in the morning or late at night, to minimize disruption. If the issue persists"
+    },
+    {
+     "message": "hendrik covered my shift today, he has a cat, Mango, and talks about him nonstop",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Hendrik’s cat, Mango, is a major part of his life, and he’s clearly passionate about talking about him. If you’re looking for ways to address this, you could suggest a fun, lighthearted conversation about Mango, like asking for his favorite treats or how he"
+    },
+    {
+     "message": "took the bus in again, such a slog",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like the bus ride was particularly long and tiring. If you’re looking for ways to make the journey more comfortable, you could suggest bringing a small snack or a book to pass the time, or even recommend a podcast or audiobook to listen to during the ride. Let me know if"
+    },
+    {
+     "message": "my brother joss still drives an ancient Saab, it makes a noise like a kettle dying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like your brother’s Saab is making quite the noise! If the sound is persistent and bothering you, you could suggest having it checked by a mechanic to see if it’s something simple like a loose part or a worn-out component that needs attention. Alternatively, if the noise is particularly annoying,"
+    },
+    {
+     "message": "i cant eat rhubarb, one bite and i feel awful. found out at tamsins birthday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a bit unfair! Rhubarb can be quite bitter, and it’s understandable to feel uncomfortable after eating it. If you’re looking for alternatives, you could try berries, strawberries, or raspberries, which have a similar tartness but are often more palatable. Let me know"
+    },
+    {
+     "message": "hendrik is obsessed with the Kraken, wears the jersey to work evne in summer",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hendrik’s Kraken obsession is quite unique! If he’s wearing the jersey year-round, it might be a fun conversation starter at work. You could suggest he keeps it in his car or a hidden spot at home to avoid any awkwardness. Let me know if you’d like to brainstorm more"
+    },
+    {
+     "message": "bea finally booked her wedding at Foxglove, the garden venue near the lake",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a beautiful choice for Bea’s wedding! Foxglove by the lake sounds like the perfect setting for a romantic and serene celebration. If you’d like, I can help you brainstorm ideas for the wedding, from decor to activities, to make it unforgettable. Let me know how I can"
+    },
+    {
+     "message": "lenka lives out in Dunnville now so i never see her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It’s a bit sad to hear that you don’t see Lenka often, but it’s great that she’s living in Dunnville now. If you’d like, I can help you think of ways to stay connected, whether it’s through regular video calls, sending care packages, or even planning"
+    },
+    {
+     "message": "tamsin has gone all in on running, signed up for a race and everything",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Tamsin’s dedication to running is inspiring! If you’d like, I can help you brainstorm ways to support her, whether it’s cheering her on, helping her prepare, or even joining her in a fun activity. Let me know how I can"
+    },
+    {
+     "message": "joss made me sit thru his favourite band Slowdive, the whole album in the car",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a unique way to experience music! Slowdive is a great band with a rich sound. If you’d like, I can help you explore more of their music or suggest similar bands you might enjoy. Let me know how I can"
+    },
+    {
+     "message": "i bought a rice cooker yesterday and honestly its the best thing in my flat",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s fantastic news! A rice cooker can truly be a game-changer for cooking. If you’d like, I can help you figure out how to use it to its fullest potential or suggest some other kitchen gadgets that might make your life easier. Let me know how I can"
+    },
+    {
+     "message": "my sister-in-law odile is moving to Moncton for a job, so thats two of them leaving",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a significant change! If you’d like, I can help you brainstorm ways to support your sister-in-law as she settles into her new life in Moncton. Let me know how I can assist."
+    },
+    {
+     "message": "odile is learning Welsh for no reason i can figure out",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s quite an interesting situation! If you’d like, I can help you explore the reasons behind Odile’s decision to learn Welsh. Let me know how I can assist."
+    },
+    {
+     "message": "hendrik brought a giant thermos of coffee in again, saved my life",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a relief! A giant thermos of coffee can be a lifesaver, especially when you’re in need of a quick energy boost. If you’d like, I can help you figure out how to make the most of that coffee or suggest some other ways to stay energized. Let me"
+    },
+    {
+     "message": "odile swears by the Birdsong cafe near her flat, i went with her on sunday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Birdsong Cafe sounds like a great spot to enjoy a coffee break. If you’d like, I can help you explore more about the cafe, its atmosphere, or suggest other places in Moncton that might be similar. Let me know how I can assist!"
+    },
+    {
+     "message": "i have been rewatching Shetland all week, cant stop",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Shetland is a fantastic show! If you’d like, I can help you find more shows like it, recommend similar series, or discuss the themes and characters that make it so engaging. Let me know how I can assist!"
+    },
+    {
+     "message": "finished the book about the lighthouse keeper, so good",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a wonderful read! Lighthouse keepers often have such rich, atmospheric stories. If you’d like, I can recommend more books about lighthouses or coastal life, or help you explore the themes and settings that make those stories so compelling. Let me know how I can assist!"
+    },
+    {
+     "message": "lenka is a vet tech btw, she texted me from a night shift",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a cool twist! If you’d like, I can help you brainstorm ways to respond to her, whether it’s a casual check-in or something more specific. Let me know how you’d like to connect!"
+    },
+    {
+     "message": "mum rang to ask if i was eating properly, i am mum",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a classic! If you’d like, I can help you come up with a thoughtful way to respond to your mum. Let me know how you’d like to handle it!"
+    },
+    {
+     "message": "pottery got moved to Thursday evenings so i can still go after the pharmacy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a great arrangement! If you’d like, I can help you plan your Thursday evening pottery sessions or suggest ways to make the most of your time there. Let me know how I can assist!"
+    },
+    {
+     "message": "my brother joss just booked flights to Tallinn for his break",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s exciting! If you’d like, I can help you brainstorm ways to support your brother or suggest fun things to do in Tallinn. Let me know how I can assist!"
+    },
+    {
+     "message": "ok i should sleep, bus is super early tomorrow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good luck on your bus tomorrow! If you need anything else, feel free to ask. Sweet dreams!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where is my sister relocating to",
+     "source_message": 2,
+     "key": "Yellowknife",
+     "same_meaning": [
+      "Yellowknife"
+     ],
+     "category": "C01",
+     "person": "Tamsin",
+     "other_value": "Moncton",
+     "message": "where is my sister relocating to",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Your sister is relocating to Tallinn, Estonia.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "which instrument do i have now",
+     "source_message": 3,
+     "key": "cornet",
+     "same_meaning": [
+      "cornet"
+     ],
+     "category": "C22",
+     "person": "me",
+     "message": "which instrument do i have now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You have a piano.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what did hendrik name his kitty",
+     "source_message": 4,
+     "key": "Mango",
+     "same_meaning": [
+      "Mango"
+     ],
+     "category": "C09",
+     "person": "Hendrik",
+     "message": "what did hendrik name his kitty",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hendrik named his kitty \"Pip\"",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which food do i avoid, it makes me ill",
+     "source_message": 7,
+     "key": "rhubarb",
+     "same_meaning": [
+      "rhubarb"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which food do i avoid, it makes me ill",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "If you’re avoiding certain foods that make you ill, it’s important to identify what they are. Could you share which foods cause the issue? This will help me provide more specific advice.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "which hockey team does hendrik cheer for",
+     "source_message": 8,
+     "key": "Kraken",
+     "same_meaning": [
+      "Kraken",
+      "Seattle Kraken"
+     ],
+     "category": "C20",
+     "person": "Hendrik",
+     "message": "which hockey team does hendrik cheer for",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I couldn't find any information about a person named Hendrik associated with a hockey team. If you meant someone else, could you provide more details?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "where is bea getting hitched",
+     "source_message": 9,
+     "key": "Foxglove",
+     "same_meaning": [
+      "Foxglove",
+      "the garden venue near the lake"
+     ],
+     "category": "C28",
+     "person": "Bea",
+     "message": "where is bea getting hitched",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I'm not aware of any specific location for Bea's wedding. If you have more context or details, I can try to help with that.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which weekday am i making clay stuff now",
+     "source_message": 22,
+     "key": "Thursday",
+     "same_meaning": [
+      "Thursday",
+      "Thursdays",
+      "Thursday evenings"
+     ],
+     "category": "C38",
+     "person": "me",
+     "message": "which weekday am i making clay stuff now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’re making clay stuff on a Thursday evening.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "where is my brother off to for his holiday",
+     "source_message": 23,
+     "key": "Tallinn",
+     "same_meaning": [
+      "Tallinn"
+     ],
+     "category": "C15",
+     "person": "Joss",
+     "message": "where is my brother off to for his holiday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Your brother is off to Tallinn, Estonia.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "which town does hendrik call home",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C04",
+     "person": "Hendrik",
+     "message": "which town does hendrik call home",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hendrik calls Tallinn home."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "what wheels does lenka roll up in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "Lenka",
+     "message": "what wheels does lenka roll up in",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Lenka, the character from *The Sims*, rolls up on a **bicycle**."
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what music does tamsin put on while out running",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C23",
+     "person": "Tamsin",
+     "overlap_message": 11,
+     "message": "what music does tamsin put on while out running",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "I don't have access to specific information about Tamsin's music preferences, as I don't have access to personal data. However, I can suggest some popular running playlist ideas that people often enjoy, such as upbeat electronic music, jazz, or instrumental tracks. Let me know if you'd like some suggestions"
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where does hendrik grab his coffee",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C26",
+     "person": "Hendrik",
+     "overlap_message": 16,
+     "message": "where does hendrik grab his coffee",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hendrik is known to grab his coffee at \"Kohvik Keldermägi,\" a popular spot in Tallinn."
+    }
+   ]
+  },
+  "k1_3_r200": {
+   "prefix": [
+    {
+     "message": "hey long day. i just started at the Hargrove pharmacy and my feet are dead",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a long day. It's common for feet to feel tired or sore after a long shift, especially if you're standing or walking a lot. Here are a few tips that might help:\n\n1. **Rest and Relaxation**: Take a break and sit down for a while. You can stretch"
+    },
+    {
+     "message": "my sister tamsin is moving to Yellowknife in the spring, still cant believe it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a big change. Yellowknife is a beautiful city with a unique culture and way of life. It's known for its stunning landscapes, outdoor activities, and vibrant community. It's a great place to move to if you're looking for a new adventure."
+    },
+    {
+     "message": "also i picked up the cornet last month, the neighbours already hate me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That can be a bit of a challenge. Neighbors can be sensitive to changes in their environment, especially if it's something that might disrupt their peace or comfort. If you're feeling overwhelmed by the neighbors' reactions, it might be helpful to talk to them about it or see if there's a way to make"
+    },
+    {
+     "message": "hendrik covered my shift today, he has a cat, Mango, and talks about him nonstop",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you're dealing with a bit of a situation. If you're feeling overwhelmed by your neighbor's constant talk about their cat, Mango, it might be helpful to talk to them about it or see if there's a way to make them more comfortable."
+    },
+    {
+     "message": "took the bus in again, such a slog",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That can be a bit of a slog, especially if you're feeling tired or stressed."
+    },
+    {
+     "message": "my brother joss still drives an ancient Saab, it makes a noise like a kettle dying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like your brother is driving a very old Saab, and it's making a noise that might be a bit of a nuisance. If you're feeling overwhelmed by the noise, it might be helpful to talk to your brother about it or see if there's a way to make him more comfortable."
+    },
+    {
+     "message": "i cant eat rhubarb, one bite and i feel awful. found out at tamsins birthday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That can be a bit of a surprise, especially if you didn't know that you had an aversion to rhubarb. It's always good to be aware of your dietary restrictions and preferences."
+    },
+    {
+     "message": "hendrik is obsessed with the Kraken, wears the jersey to work evne in summer",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Hendrik has a unique obsession with the Kraken. Wearing a Kraken jersey even in summer can be a bit of a statement, but it's clear that he has a strong connection to the Kraken."
+    },
+    {
+     "message": "bea finally booked her wedding at Foxglove, the garden venue near the lake",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a beautiful wedding venue. Foxglove is a lovely place, and it's great that Bea has found a venue that she loves."
+    },
+    {
+     "message": "lenka lives out in Dunnville now so i never see her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you might be feeling a bit left out or missing out on something with Lenka's new move to Dunnville. It's always nice to catch up with friends and see how they're doing, especially when they move to a new place."
+    },
+    {
+     "message": "tamsin has gone all in on running, signed up for a race and everything",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great way to stay active and healthy. Running is a fantastic way to stay fit and enjoy the outdoors. It's a great feeling to be signed up for a race and feeling motivated to participate."
+    },
+    {
+     "message": "joss made me sit thru his favourite band Slowdive, the whole album in the car",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun way to spend a car ride. Slowdive is a great band, and it's great that Joss got you into their music."
+    },
+    {
+     "message": "i bought a rice cooker yesterday and honestly its the best thing in my flat",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great find! A rice cooker can be a really convenient addition to a flat, especially if you live with others and want to cook something quick and easy."
+    },
+    {
+     "message": "my sister-in-law odile is moving to Moncton for a job, so thats two of them leaving",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a big change for your family."
+    },
+    {
+     "message": "odile is learning Welsh for no reason i can figure out",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That might be a unique way to learn a language. Maybe she's interested in Welsh culture or history, or maybe she's just curious about the language itself."
+    },
+    {
+     "message": "hendrik brought a giant thermos of coffee in again, saved my life",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great story! A giant thermos of coffee can be a lifesaver, especially when you're feeling tired or need a quick energy boost."
+    },
+    {
+     "message": "odile swears by the Birdsong cafe near her flat, i went with her on sunday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a nice day out. Birdsong is a great choice for a coffee shop, and it's good to hear that Odile has a favorite there."
+    },
+    {
+     "message": "i have been rewatching Shetland all week, cant stop",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great way to spend your weekend. Shetland is a beautiful series, and it's great to get lost in the world of the islands."
+    },
+    {
+     "message": "finished the book about the lighthouse keeper, so good",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great read. Lighthouse keepers are fascinating characters, and it's great to hear that you enjoyed the book."
+    },
+    {
+     "message": "lenka is a vet tech btw, she texted me from a night shift",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a busy vet tech."
+    },
+    {
+     "message": "mum rang to ask if i was eating properly, i am mum",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a common concern for parents."
+    },
+    {
+     "message": "pottery got moved to Thursday evenings so i can still go after the pharmacy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great way to balance your schedule."
+    },
+    {
+     "message": "my brother joss just booked flights to Tallinn for his break",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun trip."
+    },
+    {
+     "message": "ok i should sleep, bus is super early tomorrow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good night!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where is my sister relocating to",
+     "source_message": 2,
+     "key": "Yellowknife",
+     "same_meaning": [
+      "Yellowknife"
+     ],
+     "category": "C01",
+     "person": "Tamsin",
+     "other_value": "Moncton",
+     "message": "where is my sister relocating to",
+     "queries": [
+      "sister moving city"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=5.953]\nUser: my sister tamsin is moving to Yellowknife in the spring, still cant believe it\nAssistant: That sounds like a big change. Yellowknife is a beautiful city with a unique culture and way of life. It's known for its stunning landscapes, outdoor activities, and vibrant community. It's a great place to move to if you're looking for a new adventure.\n\n[chunk_id=exchange_0013::0 doc_id=exchange_0013 score=4.846]\nUser: my sister-in-law odile is moving to Moncton for a job, so thats two of them leaving\nAssistant: That sounds like a big change for your family."
+     ],
+     "reply": "Your sister Tamsin is moving to Yellowknife.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "which instrument do i have now",
+     "source_message": 3,
+     "key": "cornet",
+     "same_meaning": [
+      "cornet"
+     ],
+     "category": "C22",
+     "person": "me",
+     "message": "which instrument do i have now",
+     "queries": [
+      "new instrument"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=2.649]\nUser: lenka lives out in Dunnville now so i never see her\nAssistant: It sounds like you might be feeling a bit left out or missing out on something with Lenka's new move to Dunnville. It's always nice to catch up with friends and see how they're doing, especially when they move to a new place.\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=1.819]\nUser: my sister tamsin is moving to Yellowknife in the spring, still cant believe it\nAssistant: That sounds like a big change. Yellowknife is a beautiful city with a unique culture and way of life. It's known for its stunning landscapes, outdoor activities, and vibrant community. It's a great place to move to if you're looking for a new adventure."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what did hendrik name his kitty",
+     "source_message": 4,
+     "key": "Mango",
+     "same_meaning": [
+      "Mango"
+     ],
+     "category": "C09",
+     "person": "Hendrik",
+     "message": "what did hendrik name his kitty",
+     "queries": [
+      "Hendrik kitten"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=2.206]\nUser: hendrik is obsessed with the Kraken, wears the jersey to work evne in summer\nAssistant: It sounds like Hendrik has a unique obsession with the Kraken. Wearing a Kraken jersey even in summer can be a bit of a statement, but it's clear that he has a strong connection to the Kraken.\n\n[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=1.773]\nUser: hendrik brought a giant thermos of coffee in again, saved my life\nAssistant: That's a great story! A giant thermos of coffee can be a lifesaver, especially when you're feeling tired or need a quick energy boost.\n\n[chunk_id=exchange_0003::0 doc_id=exchange_0003 score=1.443]\nUser: hendrik covered my shift today, he has a cat, Mango, and talks about him nonstop\nAssistant: It sounds like you're dealing with a bit of a situation. If you're feeling overwhelmed by your neighbor's constant talk about their cat, Mango, it might be helpful to talk to them about it or see if there's a way to make them more comfortable."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which food do i avoid, it makes me ill",
+     "source_message": 7,
+     "key": "rhubarb",
+     "same_meaning": [
+      "rhubarb"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which food do i avoid, it makes me ill",
+     "queries": [
+      "illness food"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I checked and you haven't told me that.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "which hockey team does hendrik cheer for",
+     "source_message": 8,
+     "key": "Kraken",
+     "same_meaning": [
+      "Kraken",
+      "Seattle Kraken"
+     ],
+     "category": "C20",
+     "person": "Hendrik",
+     "message": "which hockey team does hendrik cheer for",
+     "queries": [
+      "Hendrik hockey team"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=2.206]\nUser: hendrik is obsessed with the Kraken, wears the jersey to work evne in summer\nAssistant: It sounds like Hendrik has a unique obsession with the Kraken. Wearing a Kraken jersey even in summer can be a bit of a statement, but it's clear that he has a strong connection to the Kraken.\n\n[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=1.773]\nUser: hendrik brought a giant thermos of coffee in again, saved my life\nAssistant: That's a great story! A giant thermos of coffee can be a lifesaver, especially when you're feeling tired or need a quick energy boost.\n\n[chunk_id=exchange_0003::0 doc_id=exchange_0003 score=1.443]\nUser: hendrik covered my shift today, he has a cat, Mango, and talks about him nonstop\nAssistant: It sounds like you're dealing with a bit of a situation. If you're feeling overwhelmed by your neighbor's constant talk about their cat, Mango, it might be helpful to talk to them about it or see if there's a way to make them more comfortable."
+     ],
+     "reply": "Hendrik is obsessed with the Kraken, wears the jersey to work even in summer.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "where is bea getting hitched",
+     "source_message": 9,
+     "key": "Foxglove",
+     "same_meaning": [
+      "Foxglove",
+      "the garden venue near the lake"
+     ],
+     "category": "C28",
+     "person": "Bea",
+     "message": "where is bea getting hitched",
+     "queries": [
+      "Bea wedding venue"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0008::0 doc_id=exchange_0008 score=11.752]\nUser: bea finally booked her wedding at Foxglove, the garden venue near the lake\nAssistant: That sounds like a beautiful wedding venue. Foxglove is a lovely place, and it's great that Bea has found a venue that she loves."
+     ],
+     "reply": "Bea is getting hitched at Foxglove, the garden venue near the lake.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which weekday am i making clay stuff now",
+     "source_message": 22,
+     "key": "Thursday",
+     "same_meaning": [
+      "Thursday",
+      "Thursdays",
+      "Thursday evenings"
+     ],
+     "category": "C38",
+     "person": "me",
+     "message": "which weekday am i making clay stuff now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You are making clay stuff on a Thursday.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "where is my brother off to for his holiday",
+     "source_message": 23,
+     "key": "Tallinn",
+     "same_meaning": [
+      "Tallinn"
+     ],
+     "category": "C15",
+     "person": "Joss",
+     "message": "where is my brother off to for his holiday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "He is off to Tallinn, which is a beautiful city in Estonia. It's known for its historic architecture, cultural events, and delicious cuisine. It's a great choice for a break.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "which town does hendrik call home",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C04",
+     "person": "Hendrik",
+     "message": "which town does hendrik call home",
+     "queries": [
+      "Hendrik city"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=2.315]\nUser: my sister tamsin is moving to Yellowknife in the spring, still cant believe it\nAssistant: That sounds like a big change. Yellowknife is a beautiful city with a unique culture and way of life. It's known for its stunning landscapes, outdoor activities, and vibrant community. It's a great place to move to if you're looking for a new adventure.\n\n[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=2.206]\nUser: hendrik is obsessed with the Kraken, wears the jersey to work evne in summer\nAssistant: It sounds like Hendrik has a unique obsession with the Kraken. Wearing a Kraken jersey even in summer can be a bit of a statement, but it's clear that he has a strong connection to the Kraken.\n\n[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=1.773]\nUser: hendrik brought a giant thermos of coffee in again, saved my life\nAssistant: That's a great story! A giant thermos of coffee can be a lifesaver, especially when you're feeling tired or need a quick energy boost.\n\n[chunk_id=exchange_0003::0 doc_id=exchange_0003 score=1.443]\nUser: hendrik covered my shift today, he has a cat, Mango, and talks about him nonstop\nAssistant: It sounds like you're dealing with a bit of a situation. If you're feeling overwhelmed by your neighbor's constant talk about their cat, Mango, it might be helpful to talk to them about it or see if there's a way to make them more comfortable."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "what wheels does lenka roll up in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "Lenka",
+     "message": "what wheels does lenka roll up in",
+     "queries": [
+      "lenka rides bike work"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=2.649]\nUser: lenka lives out in Dunnville now so i never see her\nAssistant: It sounds like you might be feeling a bit left out or missing out on something with Lenka's new move to Dunnville. It's always nice to catch up with friends and see how they're doing, especially when they move to a new place.\n\n[chunk_id=exchange_0019::0 doc_id=exchange_0019 score=2.601]\nUser: lenka is a vet tech btw, she texted me from a night shift\nAssistant: That sounds like a busy vet tech.\n\n[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=2.479]\nUser: hendrik is obsessed with the Kraken, wears the jersey to work evne in summer\nAssistant: It sounds like Hendrik has a unique obsession with the Kraken. Wearing a Kraken jersey even in summer can be a bit of a statement, but it's clear that he has a strong connection to the Kraken."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what music does tamsin put on while out running",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C23",
+     "person": "Tamsin",
+     "overlap_message": 11,
+     "message": "what music does tamsin put on while out running",
+     "queries": [
+      "tamsin running playlist"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0010::0 doc_id=exchange_0010 score=5.345]\nUser: tamsin has gone all in on running, signed up for a race and everything\nAssistant: That sounds like a great way to stay active and healthy. Running is a fantastic way to stay fit and enjoy the outdoors. It's a great feeling to be signed up for a race and feeling motivated to participate.\n\n[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=1.819]\nUser: my sister tamsin is moving to Yellowknife in the spring, still cant believe it\nAssistant: That sounds like a big change. Yellowknife is a beautiful city with a unique culture and way of life. It's known for its stunning landscapes, outdoor activities, and vibrant community. It's a great place to move to if you're looking for a new adventure."
+     ],
+     "reply": "Tamsin has gone all in on running, signed up for a race and everything."
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where does hendrik grab his coffee",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C26",
+     "person": "Hendrik",
+     "overlap_message": 16,
+     "message": "where does hendrik grab his coffee",
+     "queries": [
+      "Hendrik usual order cafe"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0016::0 doc_id=exchange_0016 score=2.668]\nUser: odile swears by the Birdsong cafe near her flat, i went with her on sunday\nAssistant: That sounds like a nice day out. Birdsong is a great choice for a coffee shop, and it's good to hear that Odile has a favorite there.\n\n[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=2.206]\nUser: hendrik is obsessed with the Kraken, wears the jersey to work evne in summer\nAssistant: It sounds like Hendrik has a unique obsession with the Kraken. Wearing a Kraken jersey even in summer can be a bit of a statement, but it's clear that he has a strong connection to the Kraken.\n\n[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=1.773]\nUser: hendrik brought a giant thermos of coffee in again, saved my life\nAssistant: That's a great story! A giant thermos of coffee can be a lifesaver, especially when you're feeling tired or need a quick energy boost.\n\n[chunk_id=exchange_0003::0 doc_id=exchange_0003 score=1.443]\nUser: hendrik covered my shift today, he has a cat, Mango, and talks about him nonstop\nAssistant: It sounds like you're dealing with a bit of a situation. If you're feeling overwhelmed by your neighbor's constant talk about their cat, Mango, it might be helpful to talk to them about it or see if there's a way to make them more comfortable."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    }
+   ]
+  },
+  "k1_3_r200_no_search": {
+   "prefix": [
+    {
+     "message": "hey long day. i just started at the Hargrove pharmacy and my feet are dead",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a long day. It's common for feet to feel tired or sore after a long shift, especially if you're standing or walking a lot. Here are a few tips that might help:\n\n1. **Rest and Relaxation**: Take a break and sit down for a while. You can stretch"
+    },
+    {
+     "message": "my sister tamsin is moving to Yellowknife in the spring, still cant believe it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a big change. Yellowknife is a beautiful city with a unique culture and way of life. It's known for its stunning landscapes, outdoor activities, and vibrant community. It's a great place to move to if you're looking for a new adventure."
+    },
+    {
+     "message": "also i picked up the cornet last month, the neighbours already hate me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That can be a bit of a challenge. Neighbors can be sensitive to changes in their environment, especially if it's something that might disrupt their peace or comfort. If you're feeling overwhelmed by the neighbors' reactions, it might be helpful to talk to them about it or see if there's a way to make"
+    },
+    {
+     "message": "hendrik covered my shift today, he has a cat, Mango, and talks about him nonstop",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you're dealing with a bit of a situation. If you're feeling overwhelmed by your neighbor's constant talk about their cat, Mango, it might be helpful to talk to them about it or see if there's a way to make them more comfortable."
+    },
+    {
+     "message": "took the bus in again, such a slog",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That can be a bit of a slog, especially if you're feeling tired or stressed."
+    },
+    {
+     "message": "my brother joss still drives an ancient Saab, it makes a noise like a kettle dying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like your brother is driving a very old Saab, and it's making a noise that might be a bit of a nuisance. If you're feeling overwhelmed by the noise, it might be helpful to talk to your brother about it or see if there's a way to make him more comfortable."
+    },
+    {
+     "message": "i cant eat rhubarb, one bite and i feel awful. found out at tamsins birthday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That can be a bit of a surprise, especially if you didn't know that you had an aversion to rhubarb. It's always good to be aware of your dietary restrictions and preferences."
+    },
+    {
+     "message": "hendrik is obsessed with the Kraken, wears the jersey to work evne in summer",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like Hendrik has a unique obsession with the Kraken. Wearing a Kraken jersey even in summer can be a bit of a statement, but it's clear that he has a strong connection to the Kraken."
+    },
+    {
+     "message": "bea finally booked her wedding at Foxglove, the garden venue near the lake",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a beautiful wedding venue. Foxglove is a lovely place, and it's great that Bea has found a venue that she loves."
+    },
+    {
+     "message": "lenka lives out in Dunnville now so i never see her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you might be feeling a bit left out or missing out on something with Lenka's new move to Dunnville. It's always nice to catch up with friends and see how they're doing, especially when they move to a new place."
+    },
+    {
+     "message": "tamsin has gone all in on running, signed up for a race and everything",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great way to stay active and healthy. Running is a fantastic way to stay fit and enjoy the outdoors. It's a great feeling to be signed up for a race and feeling motivated to participate."
+    },
+    {
+     "message": "joss made me sit thru his favourite band Slowdive, the whole album in the car",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun way to spend a car ride. Slowdive is a great band, and it's great that Joss got you into their music."
+    },
+    {
+     "message": "i bought a rice cooker yesterday and honestly its the best thing in my flat",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great find! A rice cooker can be a really convenient addition to a flat, especially if you live with others and want to cook something quick and easy."
+    },
+    {
+     "message": "my sister-in-law odile is moving to Moncton for a job, so thats two of them leaving",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a big change for your family."
+    },
+    {
+     "message": "odile is learning Welsh for no reason i can figure out",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That might be a unique way to learn a language. Maybe she's interested in Welsh culture or history, or maybe she's just curious about the language itself."
+    },
+    {
+     "message": "hendrik brought a giant thermos of coffee in again, saved my life",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great story! A giant thermos of coffee can be a lifesaver, especially when you're feeling tired or need a quick energy boost."
+    },
+    {
+     "message": "odile swears by the Birdsong cafe near her flat, i went with her on sunday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a nice day out. Birdsong is a great choice for a coffee shop, and it's good to hear that Odile has a favorite there."
+    },
+    {
+     "message": "i have been rewatching Shetland all week, cant stop",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great way to spend your weekend. Shetland is a beautiful series, and it's great to get lost in the world of the islands."
+    },
+    {
+     "message": "finished the book about the lighthouse keeper, so good",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great read. Lighthouse keepers are fascinating characters, and it's great to hear that you enjoyed the book."
+    },
+    {
+     "message": "lenka is a vet tech btw, she texted me from a night shift",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a busy vet tech."
+    },
+    {
+     "message": "mum rang to ask if i was eating properly, i am mum",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a common concern for parents."
+    },
+    {
+     "message": "pottery got moved to Thursday evenings so i can still go after the pharmacy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great way to balance your schedule."
+    },
+    {
+     "message": "my brother joss just booked flights to Tallinn for his break",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a fun trip."
+    },
+    {
+     "message": "ok i should sleep, bus is super early tomorrow",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Good night!"
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where is my sister relocating to",
+     "source_message": 2,
+     "key": "Yellowknife",
+     "same_meaning": [
+      "Yellowknife"
+     ],
+     "category": "C01",
+     "person": "Tamsin",
+     "other_value": "Moncton",
+     "message": "where is my sister relocating to",
+     "queries": [
+      "sister moving city"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "which instrument do i have now",
+     "source_message": 3,
+     "key": "cornet",
+     "same_meaning": [
+      "cornet"
+     ],
+     "category": "C22",
+     "person": "me",
+     "message": "which instrument do i have now",
+     "queries": [
+      "new instrument"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what did hendrik name his kitty",
+     "source_message": 4,
+     "key": "Mango",
+     "same_meaning": [
+      "Mango"
+     ],
+     "category": "C09",
+     "person": "Hendrik",
+     "message": "what did hendrik name his kitty",
+     "queries": [
+      "Hendrik kitten"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I checked and you haven't told me that.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which food do i avoid, it makes me ill",
+     "source_message": 7,
+     "key": "rhubarb",
+     "same_meaning": [
+      "rhubarb"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which food do i avoid, it makes me ill",
+     "queries": [
+      "illness food"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I checked and you haven't told me that.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "which hockey team does hendrik cheer for",
+     "source_message": 8,
+     "key": "Kraken",
+     "same_meaning": [
+      "Kraken",
+      "Seattle Kraken"
+     ],
+     "category": "C20",
+     "person": "Hendrik",
+     "message": "which hockey team does hendrik cheer for",
+     "queries": [
+      "Hendrik hockey team"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I checked and you haven't told me that.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "where is bea getting hitched",
+     "source_message": 9,
+     "key": "Foxglove",
+     "same_meaning": [
+      "Foxglove",
+      "the garden venue near the lake"
+     ],
+     "category": "C28",
+     "person": "Bea",
+     "message": "where is bea getting hitched",
+     "queries": [
+      "Bea wedding venue"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I checked and you haven't told me that.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "which weekday am i making clay stuff now",
+     "source_message": 22,
+     "key": "Thursday",
+     "same_meaning": [
+      "Thursday",
+      "Thursdays",
+      "Thursday evenings"
+     ],
+     "category": "C38",
+     "person": "me",
+     "message": "which weekday am i making clay stuff now",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You are making clay stuff on a Thursday.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "where is my brother off to for his holiday",
+     "source_message": 23,
+     "key": "Tallinn",
+     "same_meaning": [
+      "Tallinn"
+     ],
+     "category": "C15",
+     "person": "Joss",
+     "message": "where is my brother off to for his holiday",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "He is off to Tallinn, which is a beautiful city in Estonia. It's known for its historic architecture, cultural events, and delicious cuisine. It's a great choice for a break.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "which town does hendrik call home",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C04",
+     "person": "Hendrik",
+     "message": "which town does hendrik call home",
+     "queries": [
+      "Hendrik city"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "what wheels does lenka roll up in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "Lenka",
+     "message": "what wheels does lenka roll up in",
+     "queries": [
+      "lenka rides bike work"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I searched and there's nothing on that."
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what music does tamsin put on while out running",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C23",
+     "person": "Tamsin",
+     "overlap_message": 11,
+     "message": "what music does tamsin put on while out running",
+     "queries": [
+      "tamsin running playlist"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I searched and there's nothing on that."
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "where does hendrik grab his coffee",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C26",
+     "person": "Hendrik",
+     "overlap_message": 16,
+     "message": "where does hendrik grab his coffee",
+     "queries": [
+      "Hendrik usual order cafe"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    }
+   ]
+  }
+ }
+}
