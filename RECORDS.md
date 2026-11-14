@@ -9450,3 +9450,8 @@ RIGHT_INVENTED, counted right either way; `results/demo2/judge_k13r2c_82_demo3/`
 Demo2, Demo3). By R-242 its seeds 83 and 94 train now (from K1.3's seed 83 and 94 adapters, as seed 82), then the rest
 of screening on 82, 83 and 94, then `decide_r191.py` against K1.3. `decide_r191.py` gets `"R2c": "k13r2c_r235"`. By
 R-240 the chain's later tries run after R2c's queue ends, to try to beat whichever is the pick then.
+
+**R2c screening so far** (`decide_r191.py`, 01:40 Saturday): every seed 82 line passes (probe recall 93, hard_dev
+recall 63, outside-writer recall 133 against K1.3's 89, T2 other-facts recall 155, probe in_view 45, statement 48,
+hard_dev never_told 45, probe false retrieval 0, hard_dev false retrieval 4). Seed 83: hard_dev never_told **47**,
+false retrieval **2** (ceiling 5), recall 71: R-222's early stop passed; the rest of seed 83 and seed 94 are running.
