@@ -9385,3 +9385,12 @@ ends before 18:00. A try that starts from K4.6 (R2b, R3a, R3b) needs K4.6's own 
 `qtry.sh` now trains a missing K4.6 start adapter exactly as K4.6 was (3e-4, 3 epochs from base, epoch 2 saved; about
 80 minutes a seed), so those tries must clear seed 82 by about 11:30. No gate or line changes. R2a's waiter started
 before this change and runs the earlier order; if R2a clears seed 82's gates, its seeds 83 and 94 are started by hand.
+
+## R-243 · 2026-11-13 · REOPENED · Kevin pushes R-194's Saturday deadlines by 4 hours
+
+Kevin (about 21:05): "just push the deadline by 4 hours". R-194's schedule becomes: every seed of a candidate trained
+by **Saturday 14 November 20:00 ET** (was 16:00), the pick by **22:00** (was 18:00), the sealed S3 run started by
+**23:00** (was 19:00; `qs3.sh PICK`). R-242's 14:00 cutoff for a try to clear seed 82 stays, now with slack: a K1.3
+stage clearing at 14:00 has seeds 83 and 94 trained by about 15:20; a K4.6-based try clearing at 14:00 has them by
+about 17:30. R-242's order (seeds 83 and 94 trained right after seed 82's gates) is kept. The form is due 15 November
+Anywhere on Earth (16 November 07:59 ET), after the S3 run.
