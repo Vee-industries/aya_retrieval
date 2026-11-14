@@ -8,6 +8,12 @@ Usage: python scripts/records/build_onpolicy_rows.py SEED [START]
          Or ``op`` (OP3, R-263: OP's eval ``op_op_SEED``, a second round whose rehearsal is OP's
          whole seed set, round 1's corrections included; out
          ``data/screens/k13op3_SEED_r263.jsonl``).
+         Or ``op4`` (OP4, R-267: OP's eval ``op_op_SEED``, OP's whole seed set as rehearsal, out
+         ``data/screens/k13op4_SEED_r267.jsonl``): second-search rows. The first call is the
+         model's own first query cut to the rule, the second the item's ``second_query``; an
+         answer row needs the source absent from the first output and present in the second, a
+         decline row the trap's value the same way. Rows are marked ``loss_from_second_call``
+         (R-223), so the first call carries no loss.
          An item that already has a row in the base set gets no second row (R-263).
 
 Reads ``results/recall_eval/op_k13_SEED_seed_0.json`` (K1.3's seed adapter on the items in
@@ -47,7 +53,10 @@ STARTS = {  # start: (record, rehearsal set, output stem)
     "k13": ("R-253", Path("data/screens/k1_3_r200.jsonl"), "k13op_{seed}_r253"),
     "t6": ("R-256", Path("data/screens/k4_8_r220.jsonl"), "k4_8op2_{seed}_r256"),
     "op": ("R-263", Path("data/screens/k13op_{seed}_r253.jsonl"), "k13op3_{seed}_r263"),
+    "op4": ("R-267", Path("data/screens/k13op_{seed}_r253.jsonl"), "k13op4_{seed}_r267"),
 }
+EVALS = {"op4": "op"}  # R-267: OP4 reads OP's eval, as OP3
+SECOND = {"op4"}  # R-267: second-search rows
 CHECKED = Path("data/screens/k4_8_r220.jsonl")  # K4.8, checked (R-220): its check_false rows
 FALSE_SHARE = 0.15  # R-207's line
 GATE_CHATS = ("data/blind_dev/chats", "data/blind_dev2/chats", "demo2", "demo3")
@@ -127,7 +136,8 @@ def main(seed: int, start: str = "k13") -> None:
         json.loads(line)["id"] for line in base_path.read_text(encoding="utf-8").splitlines()
     }
     provenance = run_metadata()
-    eval_path = f"results/recall_eval/op_{start}_{seed}_seed_0.json"
+    eval_path = f"results/recall_eval/op_{EVALS.get(start, start)}_{seed}_seed_0.json"
+    second = start in SECOND
     result = json.loads(Path(eval_path).read_text(encoding="utf-8"))
     meta_q = json.loads(META.read_text(encoding="utf-8"))
     rows_by_kind, dropped = {"answer": [], "decline": [], "correct_decline": []}, Counter()
@@ -152,6 +162,8 @@ def main(seed: int, start: str = "k13") -> None:
             if not queries:
                 dropped["no query left after the rule"] += 1
                 continue
+            if second:  # R-267: its own first query, then the item's second query
+                queries = [queries[0], q["second_query"]]
             tool = build_search_tool(
                 exchanges[: K3.IN_VIEW_FROM - 1], Path(tmp) / f"{r['id']}.sqlite", False
             )
@@ -162,11 +174,17 @@ def main(seed: int, start: str = "k13") -> None:
                 if correct or source not in outputs[-1][1] + "\n":
                     dropped["older right, or source not returned"] += 1
                     continue
+                if second and source in outputs[0][1] + "\n":
+                    dropped["source in the first output"] += 1
+                    continue
                 side, reply, names_value = "answer", q["reply"], True
             else:
                 trap = chat["questions"][int(r["id"].rsplit("_q", 1)[1])]["wrong"][0].casefold()
                 if trap not in outputs[-1][1].casefold():
                     dropped["trap value not returned"] += 1
+                    continue
+                if second and trap in outputs[0][1].casefold():
+                    dropped["trap value in the first output"] += 1
                     continue
                 side = "correct_decline" if correct else "decline"
                 reply, names_value = K3.unknown_reply(f"op{seed}_{r['id']}"), False
@@ -195,9 +213,10 @@ def main(seed: int, start: str = "k13") -> None:
                 "passages": K3.passages(outputs[-1][1]),
             }
             record = {**q, "kind": m["kind"], "query": queries[0]}
-            rows_by_kind[side].append(
-                {"id": rid, "kind": kind, "turns": turns, "meta": m, "q": record}
-            )
+            row = {"id": rid, "kind": kind, "turns": turns, "meta": m, "q": record}
+            if second:
+                row["loss_from_second_call"] = True  # R-223's mask
+            rows_by_kind[side].append(row)
     key = lambda row: hashlib.sha256(f"{tag}|{seed}|{row['id']}".encode()).digest()  # noqa: E731
     answers = sorted(rows_by_kind["answer"], key=key)
     # R-205's user share: cut answer rows about someone else, in hashed order, to a third

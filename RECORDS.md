@@ -9830,3 +9830,61 @@ Session 06875f70 hands off at the SOP's context limit (about 300k tokens) with t
 step: one lever, put to an against lane with the facts in HANDOFF, registered before it runs, seed 82's gates by
 14:00; or, if no lever is worth the card, a report to Kevin with K1.3 as the pick. Weekly usage at the end of this
 stage: 89% (all models, 07:45; 88% at its start, R-260). Nothing pushed.
+
+## R-267 · 2026-11-14 · REOPENED · OP4 registered: on-policy second-search rows from OP; against lane; C1 beside it
+
+Session b661dc83 takes over from 06875f70 (R-266). Weekly usage at the start of this stage: 89% (all models;
+`get_usage`, 07:58).
+
+**Why this lever (counts, 08:00, CPU only; `results/panels/R-267/reach2.py`, `pools2.py`).** OP seed 82 on its 375
+items (`op_op_82`, R-265), older questions, tool loop: about the user 128 (11 right, 117 wrong), about someone else 122
+(57 right, 65 wrong). Of the 117 user errors, **106 had the fact absent from OP's own search output** (`found_fact`), 9
+had it there, 2 made no search; of the 65 others, 49 had it there. OP's user-fact errors are search misses, a class
+the on-policy rounds could not reach (R-265). Each item carries its writer's `second_query` (other words for the
+fact; for example "music practice" for "which instrument am i playing these days", "studying degree" for "remind me
+what my major is"). With OP's first query cut to R-205's rule, the source is absent from the first output and present
+in the second query's real output for **86 older items (75 about the user)**; 11 more have no first call. Traps, the
+same shape (the trap's wrong value absent from the first output, present in the second): **16** (14 about others; 15
+of them OP's own correct declines). In those 86, the second queries' words that match the source never appear in the
+question (98 matched words, 0 in the question), which is the point of a second query; a sample of 14 user items shows
+category words a model can guess from the question, not values (R-205's no-value line holds for every one).
+
+**The against lane** (Opus; brief and answer `results/panels/R-267/op4_brief.md`, `op4_against.md`, 08:01 to 08:03),
+first line: "run OP4 changed: decline rows must have the same shape as answer rows (first cut search misses, the
+second search returns the trap's wrong value, then a decline), drop rows with no first call, count both pools and stop
+before training if either side is under 10, run C1 (OP's seed adapter, the same stage on OP's own seed set) in the
+same window, and log second-search and cut-reply counts on every gate." It judged OP4 a different lever from K4.9 and
+R2d (R-224, R-248): K4.9 taught a miss with the writer's words then a hit with the question's, a case that does not
+occur at test time; OP4 teaches a miss with the question's words then other words, the measured class above. The
+risk is R2d's (from K1.3, 46 / 2 to 42 / 6) at a larger dose; R2d's shift from OP's 48 / 1 lands at 44 / 5, on both
+lines (its estimate). Of OP's four Demo4 older misses only question 5 (a search with no result) is a direct target;
+questions 1 and 4 are reading errors. **All its changes adopted**; its three unchecked points, checked: (a) the second
+queries are guessable category words (above), not source-only words; (b) every trap item carries a `second_query`
+(125 of 125); (c) a second call does not shorten the answer: the tool loop generates each turn with its own token
+budget and allows 3 calls (`harness.py` `MAX_CALLS`), so its worry about replies cut at length by a second call does
+not hold; `ran_out_of_calls` is logged instead.
+
+**OP4** (`k13op4_r267`). From OP's seed adapter, one stage at 1e-4 x 1 (as OP and OP3), on OP's whole seed set
+(`k13op_SEED_r253`) plus the new rows. `build_onpolicy_rows.py SEED op4` (R-253's build with one branch): reads
+`op_op_SEED`; first call = the model's own first query cut to the rule (no first call: dropped), second call = the
+item's `second_query`; an answer row needs the source absent from the first output and present in the second, reply
+the writer's; a decline row needs the trap's value absent from the first output and present in the second, reply a
+decline (the model's wrong and correct trap answers both, as OP); every row marked `loss_from_second_call` (R-223's
+mask, the first call carries no loss); then OP's steps exactly: dedupe by item against the base set (R-263), K3.1's
+drops, the user-fact share, one-to-one balance hashed with SHA-256("R-267|SEED|id"), check_false to 15%; out
+`data/screens/k13op4_SEED_r267.jsonl`. Code check: with the new code OP's seed 82 set rebuilds byte for byte (SHA-256
+479c9379...). **Stop rule (registered now):** fewer than 10 rows kept on either side, after every cut, means OP4 does
+not train for that seed. **0 FAIL on `check_k3.py`** before training. Every gate as before: seed 82 hard_dev
+(never_told at least 44, false retrieval at most the reference's + 3), Demo4 (3 of 6 older, 3 of 4 never-told, two
+fresh blind Sonnet judges), Demo5, seeds 83 and 94 (OP's start adapters trained as OP was, then OP's eval on the items
+and the build), screening, `decide_r191.py`. **Reported beside each gate, not gates:** second searches made, false
+retrievals after a second search, and `ran_out_of_calls`, on hard_dev and Demo4. **C1** (`k13opc1_r263`, R-263: OP's
+seed adapter, the same stage on OP's own set, no new rows) runs after OP4 if OP4 trained, under the same rules; if C1
+passes as well, the record cannot credit OP4's rows. **If OP4 fails hard_dev, no smaller-dose retry today**; with
+C1's result, K1.3 is reported as the pick. Demo5 stays unread until a try clears Demo4.
+
+**Disclosed.** The 375 items hold no plain never-told question (only near-miss and wrong-person traps), so a
+never-told question that searches twice and finds unrelated text gets no row; hard_dev's false retrieval line is
+where that shows. Demo4 has been read 3 times to choose levers, and this lever aims at one of its misses. Seed 82's
+dose is set by the decline side (about 16 a side, estimate from the counts above, before the cuts). Prediction
+(lane, estimate): hard_dev at or near the lines; Demo4 older 2 or 3 of 6.
