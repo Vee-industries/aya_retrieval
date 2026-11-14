@@ -9999,3 +9999,36 @@ the lane's estimate (44 to 46, recall about 70 to 74) missed on both.
 **By R-271's stop rule:** C2 failed hard_dev, so no C3, no smaller retry, and no OPT (it carries C2's dose). No try is
 registered; **K1.3 stays the pick** (pick recall 742). The card is idle (09:45). Reported to Kevin in chat. Weekly
 usage at the end of this stage: 90% (all models; 90% at its start, R-271). Nothing pushed.
+
+## R-273 · 2026-11-14 · REOPENED · OPO put to an against lane and not run; K1.3 stays the pick
+
+Session e01413cc takes over from b661dc83 (R-272), on Kevin's word at about 09:50: "Fresh session, keep trying".
+Weekly usage at the start of this stage: 90% (all models; `get_usage`, 10:03). Card idle, no try registered.
+
+**The one lever considered: OPO.** R-271's OPT (rows from a model's own reading errors on a fresh draw of the training
+template pool, `--pool train --seed 271071 --items-per-kind 24`, older, confirm and never_told) with one change: the
+eval, the rows and the stage start from **OP's** seed adapter instead of C1's, so its training is C1's (OP plus one
+stage on OP's set) plus the rows, and C1 (R-269, R-270) is its exact control. It does not add C2's extra stage, the dose
+R-272 failed. Code: `build_onpolicy_template.py SEED op` (eval `opt_op_SEED`, hashed with "R-273", out
+`data/screens/k13opo_SEED_r273.jsonl`); the default `c1` is R-271's OPT unchanged. Never run; no eval, no set, no
+training.
+
+**The against lane** (Opus; `results/panels/R-273/opo_brief.md`, `opo_against.md`, 10:04 to 10:05), first line: "do
+not run OPO; report K1.3 as the pick." Its reasons, and my check of each: (1) R-271's stop rule ("no OPT") covers
+OPO. **Answered:** the brief left out Kevin's 09:50 word; as in R-271, his "keep trying" lifts a stop set by a session,
+not a gate. (2) The dose: about 13 answer rows from 48 older and confirm items (an estimate), against OP's 18, which
+did not beat a plain epoch on reading errors (32 to 27 with rows, 27 to 23 with none). **Carried.** (3) never_told:
+OP's never-told items are almost all right, so the decline side is its own correct declines and the new pressure is
+toward answering, on top of C1's 46 (2 above the line). **Carried.** (4) **The load-bearing point, checked in the
+code:** template items name no person (`build_onpolicy_template.py`, the `person` field and the balance comment), so
+no OPO row can hold the demo misses' shape, a passage about someone else ranked above the source (Demo4 Q1 and Q4,
+R-269), and the answer check is a substring of the last output, not "in a passage about the right person". A gain
+from template rows would show on hard_dev (the training template family) and not reach the demos. (5) Demo5 would
+be read a second time, chosen with C1's first read known, aimed at C1's misses. **Adopted: OPO is not run.** If Kevin
+names it, the lane's changes would bind: at least 18 answer rows after every cut, a stop when no row has the source
+not first, Demo5 recorded as read 2, no retry after any failed gate.
+
+**State.** No lever left that the lane finds worth the card before 14:00. **K1.3 stays the pick** (pick recall 742;
+seed 82 hard_dev 46 / 2 / 52, Demo4 older 1 of 6, never-told 2 of 4). The closest try remains C1 (46 / 0 / 68, Demo4
+3 / 3, Demo5 2 / 3). Reported to Kevin in chat. Demo4 readings: 4; Demo5 readings: 1. Weekly usage at the end of this
+stage: 90% (all models, 10:06). Card idle. Nothing pushed.

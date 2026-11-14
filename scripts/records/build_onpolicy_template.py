@@ -1,6 +1,10 @@
 """R-271: one seed's OPT set: OP's seed set plus corrections from C1's own turns on pool items.
 
-Usage: python scripts/records/build_onpolicy_template.py SEED
+Usage: python scripts/records/build_onpolicy_template.py SEED [c1|op]
+
+R-273 (OPO): with ``op`` the eval read is OP's seed adapter (``opt_op_SEED``), the hashed order is
+SHA-256("R-273|SEED|id") and the output is ``data/screens/k13opo_SEED_r273.jsonl``; every other
+step is the same. ``c1`` (the default) is R-271's OPT as written.
 
 Reads ``results/recall_eval/opt_c1_SEED_seed_271071.json`` (C1's seed adapter on the training
 pool, ``--pool train --seed 271071 --items-per-kind 24 --kinds older confirm never_told``) and
@@ -41,14 +45,16 @@ sys.path.insert(0, str(HERE))
 OPR = importlib.import_module("build_onpolicy_rows")  # OP's helpers and its check_false line
 K31 = OPR.K31
 K3 = OPR.K3
-TAG = "R-271"
 PROBE_SEED = 271071  # the eval's --seed
 BASE = "data/screens/k13op_{seed}_r253.jsonl"
-STEM = "k13opt_{seed}_r271"
+STARTS = {  # start adapter: (record, output stem); R-271's OPT from C1, R-273's OPO from OP
+    "c1": ("R-271", "k13opt_{seed}_r271"),
+    "op": ("R-273", "k13opo_{seed}_r273"),
+}
 
 
-def eval_label(seed: int) -> str:
-    return f"opt_c1_{seed}"
+def eval_label(seed: int, start: str = "c1") -> str:
+    return f"opt_{start}_{seed}"
 
 
 def source_first(answer: str, output: str) -> bool:
@@ -57,8 +63,9 @@ def source_first(answer: str, output: str) -> bool:
     return bool(found) and answer.casefold() in found[0].casefold()
 
 
-def main(seed: int) -> None:
-    eval_path = EVAL_DIR / f"{eval_label(seed)}_seed_{PROBE_SEED}.json"
+def main(seed: int, start: str = "c1") -> None:
+    TAG, STEM = STARTS[start]  # noqa: N806
+    eval_path = EVAL_DIR / f"{eval_label(seed, start)}_seed_{PROBE_SEED}.json"
     if not eval_path.exists():
         sys.exit(f"no eval file {eval_path}")
     provenance = run_metadata()
@@ -67,7 +74,7 @@ def main(seed: int) -> None:
     rows_by_kind, dropped = {"answer": [], "decline": [], "correct_decline": []}, Counter()
     dev_runs, s3 = OPR.gate_runs()
     with tempfile.TemporaryDirectory(dir=Path("..").resolve(), ignore_cleanup_errors=True) as tmp:
-        for r in eval_rows(eval_label(seed), PROBE_SEED):
+        for r in eval_rows(eval_label(seed, start), PROBE_SEED):
             if r["kind"] not in (OLDER, CONFIRM, NEVER_TOLD):
                 dropped["kind not used"] += 1
                 continue
@@ -167,6 +174,9 @@ def main(seed: int) -> None:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2 or not sys.argv[1].isdigit():
+    start = sys.argv[2:3]
+    if len(sys.argv) > 3 or not sys.argv[1:2] or not sys.argv[1].isdigit():
         sys.exit(__doc__.split("\n\n")[1])
-    main(int(sys.argv[1]))
+    if start not in ([], ["c1"], ["op"]):
+        sys.exit(__doc__.split("\n\n")[1])
+    main(int(sys.argv[1]), *start)
