@@ -1,0 +1,48 @@
+1 | RIGHT | says no information found, names no value
+2 | RIGHT | says it has no information, names no value
+3 | RIGHT | says it has no information, names no value
+4 | RIGHT | kayak
+5 | WRONG | names raw meat, fish, eggs instead of sesame
+6 | ABSTAINED | says nothing found
+7 | RIGHT | you haven't told me, no value
+8 | WRONG | explains dev drive as a term, no saab
+9 | ABSTAINED | does not see it
+10 | RIGHT | nothing found, no value named
+11 | RIGHT | no information found, no value named
+12 | RIGHT | khruangbin
+13 | WRONG | pottery project, not aquarium
+14 | ABSTAINED | could not find information
+15 | ABSTAINED | nothing found
+16 | WRONG | explains dev drive as a term, no saab
+17 | ABSTAINED | could not find information
+18 | ABSTAINED | says it does not know
+19 | ABSTAINED | could not find information
+20 | WRONG | gives dress advice, no venue named
+21 | RIGHT | says it does not have it, no value named
+22 | RIGHT | does not know, no value named
+23 | RIGHT | brackenfield
+24 | RIGHT | kayak
+25 | RIGHT | no information found, no value named
+26 | RIGHT | kayak
+27 | ABSTAINED | says it does not know
+28 | RIGHT | no information found, no value named
+29 | ABSTAINED | could not find information
+30 | RIGHT | kayak
+31 | ABSTAINED | nothing found
+32 | WRONG | names Oaxaca, not Tbilisi
+33 | RIGHT | does not have it, no value named
+34 | RIGHT | no information, no value named
+35 | ABSTAINED | nothing found
+36 | RIGHT | does not have it, no value named
+37 | ABSTAINED | nothing found
+38 | ABSTAINED | nothing found
+39 | ABSTAINED | could not find information
+40 | ABSTAINED | nothing found
+41 | RIGHT | khruangbin
+42 | RIGHT | you haven't told me, no value
+43 | ABSTAINED | could not find information, asks for context
+44 | WRONG | pottery project, not aquarium
+45 | RIGHT | whippet
+46 | RIGHT | no information, no value named
+47 | RIGHT | does not have it, no value named
+48 | WRONG | names raw meat, fish, eggs instead of sesame

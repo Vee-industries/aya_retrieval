@@ -9325,3 +9325,10 @@ unchanged (all gates). T5, already running, keeps the old order. Demo2 readings 
 
 Predictions (lane), seed 82: lever 2 Demo2 older 2 (1 to 3), never-told 4, hard_dev never_told 43 (40 to 46), false
 retrieval 5 (3 to 8); blend at 0.5 Demo2 older 2, never-told 4, hard_dev 43 and 5.
+
+## R-238 · 2026-11-13 · REOPENED · T5 bombs Demo2; lever 2 next
+
+**Demo2 on T5 seed 82** (`k13t5_r229`: 1e-4, 3 epochs, K4.8 whole, from K1.3; 20:13; 504 tensors, adapter changed;
+two fresh blind Sonnet judges, 48 items, 0 disagreements): **2 of 6 / 2 of 2 / 2 of 2 / 2 of 2. Bombs.** Right: the
+dog, the venue. Found and declined: "dev drive" and "where is my sister headed" (both found by its searches). Demo2
+readings: 18. By R-237, lever 2 (`k13nt_r237`) takes the card next, hard_dev first.
