@@ -1,0 +1,48 @@
+1 | WRONG | Names Maya for a never-told fact.
+2 | WRONG | Lists car options instead of saying it does not know.
+3 | WRONG | Lists car options instead of saying it does not know.
+4 | RIGHT | Says Circe.
+5 | WRONG | Talks about a TV show; does not give Latvian.
+6 | ABSTAINED | Says it cannot see the fact.
+7 | RIGHT | Says it does not have that from you; names no value.
+8 | WRONG | Says Labrador Retriever, not Samoyed.
+9 | ABSTAINED | Says you may not have mentioned it.
+10 | WRONG | Tool call only; no statement of not knowing.
+11 | WRONG | Names Cleo for a never-told fact.
+12 | RIGHT_INVENTED | Suzuki hatchback correct; adds Swift/Baleno guesses.
+13 | WRONG | Says New York City, not Timmins.
+14 | WRONG | Irrelevant trip list; no ukulele.
+15 | ABSTAINED | Says it does not have that from you.
+16 | WRONG | Says Labrador Retriever, not Samoyed.
+17 | WRONG | Irrelevant trip list; no ukulele.
+18 | RIGHT | Says Samoyed.
+19 | WRONG | Says avocados, not papaya.
+20 | WRONG | Says English, not Icelandic.
+21 | RIGHT | Says it does not have that; names no value.
+22 | RIGHT | Says it does not have that; names no value.
+23 | RIGHT | Says Icelandic.
+24 | WRONG | Tool call only; no answer.
+25 | WRONG | Names Maya for a never-told fact.
+26 | WRONG | Tool call only; no answer.
+27 | ABSTAINED | Says you have not told it.
+28 | WRONG | Names Cleo for a never-told fact.
+29 | WRONG | Says Toyota Corolla, not Suzuki.
+30 | RIGHT | Says Circe.
+31 | WRONG | Tool call only; no answer.
+32 | WRONG | Says avocados, not papaya.
+33 | WRONG | States a breed; neither says it does not know nor gives a name.
+34 | WRONG | Names New York City for a never-told fact.
+35 | WRONG | Tool call only; no answer.
+36 | RIGHT | Says it does not have that; names no value.
+37 | ABSTAINED | Says it does not have that from you.
+38 | RIGHT | Says Latvian.
+39 | WRONG | Says English, not Icelandic.
+40 | ABSTAINED | Says it does not have that from you.
+41 | RIGHT_INVENTED | Suzuki hatchback correct; adds Swift/Baleno guesses.
+42 | RIGHT | Says you have not told it; names no value.
+43 | WRONG | Says Toyota Corolla, not Suzuki.
+44 | WRONG | Says New York City, not Timmins.
+45 | WRONG | Tool call only; no answer.
+46 | WRONG | Names New York City for a never-told fact.
+47 | RIGHT | Says it does not have that; names no value.
+48 | WRONG | Talks about a TV show; does not give Latvian.

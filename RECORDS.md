@@ -9905,3 +9905,24 @@ right with one search). The rows taught a second search, and on never-told quest
 it found; older did not move (28 and 28). The lane's estimate (44 / 5, on the lines) held for false retrieval and
 missed never_told by 11. By R-267, no smaller-dose retry today. **C1** (`k13opc1_r263`) took the card at 08:34, as
 registered (OP4 trained).
+
+## R-269 · 2026-11-14 · REOPENED · C1 passes seed 82's hard_dev and Demo4; Demo5 next
+
+**C1 seed 82** (`k13opc1_r263`, R-263: OP's seed adapter plus 1e-4 x 1 on OP's own set `k13op_82_r253`, no new rows;
+08:34 to 08:57): hard_dev never_told **46** (at least 44), false retrieval **0** (at most 4), older 32, confirm 36,
+recall 68, in_view 36 (OP: 48 / 1, older 28, confirm 32, recall 60, in_view 39; K1.3: 46 / 2 / 52 / 41). Passes.
+
+**Demo4 on C1 seed 82** (`results/demo2/branches_k13opc1_r263_82_demo4.json`, 09:04; two fresh blind Sonnet judges
+given the sheet text only, one tool call each (the hand-back), 48 lines each, **0 disagreements**;
+`results/demo2/judge_k13opc1_82_demo4/`), with search, older / in view / never told plain / shared word: **3 of 6 / 1
+of 2 / 2 of 2 / 1 of 2. Passes** both lines (3 of 6 older, 3 of 4 never-told), at the line on each. Without search:
+0 / 1 / 2 / 1. Against K1.3 (1 / 2 / 2 / 0), C0 (2 / 1 / 2 / 0) and OP (2 / 1 / 2 / 1). Older items right: 2, 5 and
+6; questions 1 and 4 are still declines with the source in its own search output; question 3 searched 4 times and
+ran out of calls. Never-told item 11 named a value.
+
+**Read with this.** Demo4 readings: 4 (K1.3, C0, OP, C1); C1 meets each line with no item to spare, and a later read
+of the same chat is a weaker test than the first. C1 is the same stage as OP run a second time on OP's own set (in
+effect OP's 36 corrections and K1.3's rows at 1e-4 for two epochs). It was registered (R-263) as the control that
+explains a gain; under R-263 it runs under every rule as a try, so its pass counts as a try's pass. **Demo5 (held
+out, read 0 times) decides next**, with the same line; then seeds 83 and 94 (OP's start adapters trained as OP was),
+the whole screening and `decide_r191.py`. Weekly usage 90% (all models, 09:05).
