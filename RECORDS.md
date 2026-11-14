@@ -9536,3 +9536,15 @@ next.
 minute later, before a step that saved anything (no adapter, no result; its partial folder removed). It ran beside
 the start of the T6 and T4 grid for about a minute, while that grid built its first blend on the CPU; the grid's first
 hard_dev run started after. The T6 and T4 grid (R-245) runs now.
+
+## R-251 · 2026-11-14 · REOPENED · Lane: stop after the T6 and T4 blend; put to Kevin
+
+The against lane (Opus; `results/panels/R-251/round4_brief.md`, `round4_against.md`), asked whether further tries find
+real gains or redraw from the same variation: **stop after the running T6 and T4 blend; no lever is worth the card
+before 14:00.** Its reasons, checked against this file: the recall gain is real (hard_dev recall 52 for K1.3, 59 to 72
+for seven tries; R2c 868 against 742 over three seeds); the gate crossings are mostly redraws (R2c 45 / 4 to R2cf 41 /
+7 from a 10-row edit, R-249; the K1.3 and T4 grid pass, fail, pass, R-250; every pass at a line); every try that names
+a third Demo2 older item sits at or past false retrieval 4, a trade no lever has moved in 12 tries; Demo2 has been read
+21 times on its 10 items. It asks for no exception to the check R2c's set failed. This conflicts with Kevin's
+standing order (R-240), so it is put to him (04:46): stop after the blend and keep K1.3, or keep trying. The running
+blend finishes either way (registered).
