@@ -10032,3 +10032,28 @@ not first, Demo5 recorded as read 2, no retry after any failed gate.
 seed 82 hard_dev 46 / 2 / 52, Demo4 older 1 of 6, never-told 2 of 4). The closest try remains C1 (46 / 0 / 68, Demo4
 3 / 3, Demo5 2 / 3). Reported to Kevin in chat. Demo4 readings: 4; Demo5 readings: 1. Weekly usage at the end of this
 stage: 90% (all models, 10:06). Card idle. Nothing pushed.
+
+## R-274 · 2026-11-14 · REOPENED · Kevin: run OPO anyway; registered with the lane's rules before any result
+
+Kevin (10:08, in chat, answering R-273's question): "Run OPO anyway". His word overrides the lane's advice (a panel
+advises; he did not say "panel it"). Weekly usage 90% (all models, 10:06). Registered now, before any OPO eval, set or
+result.
+
+**OPO** (`k13opo_r273`), as R-273 describes: OP's seed adapter (`k13op_r253_SEED`) runs `run_recall_eval.py --pool
+train --seed 271071 --items-per-kind 24 --kinds older confirm never_told --arms tool_loop` (label `opt_op_SEED`);
+`build_onpolicy_template.py SEED op` builds the rows (out `data/screens/k13opo_SEED_r273.jsonl`, hashed with
+"R-273"); one stage from OP's seed adapter at 1e-4 x 1 on OP's seed set plus the rows (`qtry6.sh`, `INIT` k13op_r253,
+`PREP` `opo_prep.sh`). **Control: C1** (OP plus the same stage on OP's set, no rows; R-269, R-270), already measured.
+
+**Stop rules (the lane's changes, R-273, all adopted):** (1) fewer than **18** answer rows after every cut
+(`new_answer_rows`; OP's dose, the only measured one) means no training for that seed; (2) **0** answer rows with the
+source not first (`source_not_first`) means no training, since then no row touches the demo misses' rank shape;
+(3) `check_k3.py` 0 FAIL before training; (4) every gate as before on seed 82: hard_dev never_told at least 44 and
+false retrieval at most the reference's + 3 (`hd_gate.py`), Demo4 at least 3 of 6 older and 3 of 4 never-told, Demo5
+the same, each Demo judged by two fresh blind Sonnet judges; (5) **Demo5's reading is its second** (C1's was the
+first), chosen with the first known; (6) OPO fails any gate or stop rule: the day's tries end, no retry, K1.3 stays the
+pick. A pass on seed 82 by 14:00 runs seeds 83 and 94 (OP's start adapters trained as OP was, then the same eval and
+build) and the whole screening; `decide_r191.py` lists OPO. **Logged beside each gate:** built rows by type, kept each
+side, dropped counts, `source_not_first`; on hard_dev, reading errors / not found / ran out of calls, never_told and
+false retrieval. Prediction (lane, R-273, estimate): about 13 answer rows before drops, so stop rule (1) may fire;
+never_told at or below 46.
