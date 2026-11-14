@@ -9435,3 +9435,10 @@ rows) runs next.
 
 **R2c seed 82** (`k13r2c_r235`: K5's third-search set, 1e-4, 1 epoch, from K1.3; 23:37): hard_dev never_told **45**,
 false retrieval **4**, recall 63, in_view 43. **Passes both lines.** Demo2 runs next.
+
+**Demo2 on R2c seed 82** (23:41; two fresh blind Sonnet judges, 48 items, 0 disagreements;
+`results/demo2/judge_k13r2c_82_demo2/`): older / in view / never told plain / shared word **3 of 6 / 2 of 2 / 2 of 2 /
+2 of 2. Passes.** First try to pass seed 82's hard_dev and Demo2 together. Right: the dog, the venue, and the
+ingredient ("You should stay away from sesame seeds"; no earlier try named it). Misses: "where do i work" and the
+sister (never found), "dev drive" (found, declined). Demo2 readings: 20; the pass is one item over the line.
+By R-229 and R-242, Demo3 runs next (its second reading).
