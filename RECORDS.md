@@ -9663,3 +9663,18 @@ blind Sonnet judges, 48 items; `results/demo2/judge_k1_3_82_demo4/`), with searc
 shared word: **K1.3 1 of 6 / 2 of 2 / 2 of 2 / 0 of 2**; base 0 / 1 / 0 / 0; K1.3 with an empty index 0 / 2 / 2 / 1.
 The pick itself would bomb Demo4 on both lines (older under 3, never-told 2 of 4). This is the baseline every try's
 Demo4 reading is compared with. Demo4 readings: 1.
+
+**OP's seed 82 set** (`build_onpolicy_rows.py 82` from `results/recall_eval/op_k13_82_seed_0.json`, K1.3 on the 375
+items, 05:33). K1.3's own results: older wrong 178 of 250 (48 with the fact returned by its own search, 130 never
+returned), traps wrong 19 of 125 (it named the stored value). Built as registered, the set held 10 rows: 293 rows
+dropped on R-205's first-query rule, since K1.3's own queries mostly break it (words not in the question, filler, more
+than 4 words). **Fix that keeps the rule**: each of the model's queries is cut to the rule (the question's words, no
+filler, at most 4) and the real search reruns on it; a row is kept only if the cut search still returns the source
+(answer rows) or the trap's value (decline rows), so the decision is the model's own in nearly its own context
+(disclosed: the search text differs from what it ran). The first check of that set failed 4 lines; fixed by the
+build steps that already keep them, nothing invented: K3.1's dev and Demo2 question-run drop and S3 six-word drop (3
+and 3 rows); R-205's user share by a hashed cut of answer rows about someone else to a third; R-207's check_false line
+by K4.8's own natural check_false rows (checked in R-220), in hashed order, to 15%. **Result: 36 corrections (18 answer,
+18 decline, of which 13 are its own correct trap declines) and 7 check_false rows, beside K1.3's 1,094; check 0 FAIL**
+(`results/panels/R-253/check_k13op_82.txt`); item chats sharing a gate answer run 0. Disclosed: a small dose (43 rows
+against 1,094), about the size the lane warned sits inside the gates' variation.
