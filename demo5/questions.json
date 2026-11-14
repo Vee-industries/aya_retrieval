@@ -1,0 +1,14 @@
+{"questions": [
+  {"kind": "older", "question": "where is my sister relocating to", "source_message": 2, "key": "Yellowknife", "same_meaning": ["Yellowknife"], "category": "C01", "person": "Tamsin", "other_value": "Moncton"},
+  {"kind": "older", "question": "which instrument do i have now", "source_message": 3, "key": "cornet", "same_meaning": ["cornet"], "category": "C22", "person": "me"},
+  {"kind": "older", "question": "what did hendrik name his kitty", "source_message": 4, "key": "Mango", "same_meaning": ["Mango"], "category": "C09", "person": "Hendrik"},
+  {"kind": "older", "question": "which food do i avoid, it makes me ill", "source_message": 7, "key": "rhubarb", "same_meaning": ["rhubarb"], "category": "C19", "person": "me"},
+  {"kind": "older", "question": "which hockey team does hendrik cheer for", "source_message": 8, "key": "Kraken", "same_meaning": ["Kraken", "Seattle Kraken"], "category": "C20", "person": "Hendrik"},
+  {"kind": "older", "question": "where is bea getting hitched", "source_message": 9, "key": "Foxglove", "same_meaning": ["Foxglove", "the garden venue near the lake"], "category": "C28", "person": "Bea"},
+  {"kind": "in_view", "question": "which weekday am i making clay stuff now", "source_message": 22, "key": "Thursday", "same_meaning": ["Thursday", "Thursdays", "Thursday evenings"], "category": "C38", "person": "me"},
+  {"kind": "in_view", "question": "where is my brother off to for his holiday", "source_message": 23, "key": "Tallinn", "same_meaning": ["Tallinn"], "category": "C15", "person": "Joss"},
+  {"kind": "never_told", "question": "which town does hendrik call home", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C04", "person": "Hendrik"},
+  {"kind": "never_told", "question": "what wheels does lenka roll up in", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C17", "person": "Lenka"},
+  {"kind": "never_told", "question": "what music does tamsin put on while out running", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C23", "person": "Tamsin", "overlap_message": 11},
+  {"kind": "never_told", "question": "where does hendrik grab his coffee", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C26", "person": "Hendrik", "overlap_message": 16}
+]}

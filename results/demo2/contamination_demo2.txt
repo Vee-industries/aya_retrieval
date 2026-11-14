@@ -1,0 +1,5 @@
+FAIL  keys that are a training fact value: [1, 2, 3, 4, 7, 8]
+FAIL  keys in a shared six-word run: [7, 8]
+report: keys found anywhere in training text as a whole word: [1, 2, 3, 4, 7, 8]
+report: six-word runs shared with training text: 10
+== demo2 contamination check: 2 FAIL

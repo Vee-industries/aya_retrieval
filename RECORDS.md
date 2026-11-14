@@ -9611,3 +9611,30 @@ the training chats (their writers were the same kind of agent; R-205's "natural 
 answers" line measured values, not runs). T4's and R2c's Demo3 passes (4 of 6) are read with that in mind. **For the
 on-policy items, those three chats are excluded** (`build_onpolicy_items.py`, `data/onpolicy/excluded.json`): 125 chats,
 375 items, 0 dropped by the loader; `build_onpolicy_rows.py` reports the answer-bearing count (must be 0).
+
+## R-254 · 2026-11-14 · REOPENED · Kevin: fix the demos; Demo2 and Demo3 replaced by Demo4 and Demo5
+
+Kevin (about 05:00): "fix the demos write up why". The write-up: `docs/demos/WHY.md`. In short: a demo measures
+retrieval only if its answers are reachable only through the chat. **A check against all training data**
+(`scripts/records/demo_contamination.py`: every row of every set under `data/screens/`, every writer chat, and K1.3's
+template values, `TRAIN.facts`; 847 fact values) finds Demo2's keys 1, 2, 3, 4, 7 and 8 and Demo3's 2, 3, 7 and 8 to
+be training fact values, and Demo2's 7, 8 and Demo3's 8 inside a six-word run shared with training text
+(`results/demo2/contamination_demo2.txt`, `_demo3.txt`). The writers of the demos and of the training chats were the
+same kind of agent and chose the same "uncommon" values. **Every Demo2 and Demo3 result above is read with this**:
+every candidate trained on the writer chats had seen some Demo answers as training answers; screening and the pick
+are unaffected. The check's lines were set on Demo2 and Demo3 before Demo4 and Demo5 were checked: a key that is a
+training fact value fails; a key inside a shared six-word run fails; a key found anywhere as an ordinary word is
+reported, not failed (a first, stricter version failed nearly every key of both, on ordinary words).
+
+**Demo4 (the screening demo) and Demo5 (held out).** Two fresh Sonnet writers, Demo2's brief word for word but for
+the output paths (`docs/demo4/BRIEF.md`, `docs/demo5/BRIEF.md`). First drafts: both 0 FAIL on `demo2_check.py`'s brief
+rules; contamination 1 FAIL each (Demo4 keys 2, 3, 7, 8; Demo5 keys 1, 2, 3, 4, 6 are training fact values). By R-201's
+one rewrite, each writer was told the question numbers and given the list of training fact values
+(`docs/demo4/forbidden_values.txt`, training data, not test data); each read its brief, the list and its own two files
+and rewrote them. **Second drafts: both 0 FAIL on the brief rules and 0 FAIL on contamination**
+(`results/demo4/contamination.txt`, `results/demo5/contamination.txt`); keys found anywhere as an ordinary word:
+Demo4 3, 8; Demo5 3, 4, 7 (reported). Nobody has read either chat. **From now on every try reads Demo4 then Demo5**
+(`qtry.sh`'s two demo steps; output `branches_LABEL_82_demo4.json` and `_demo5.json`; read files `LABEL_read2.txt`
+and `LABEL_read3.txt` as before), with Demo2's pass line. K1.3 (the pick) reads Demo4 once first, as the baseline, at
+the head of the on-policy eval queue. The T6 and T4 grid, already running, keeps R-245's Demo2 rule; if a w of it
+passes hard_dev, its Demo read is moved to Demo4 by hand.

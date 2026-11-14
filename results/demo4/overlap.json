@@ -1,0 +1,79 @@
+{
+ "record": "R-201",
+ "rows": [
+  {
+   "number": 1,
+   "shared_with_any_message_besides_person": [
+    "sister"
+   ],
+   "shared_with_source": [
+    "sister"
+   ]
+  },
+  {
+   "number": 2,
+   "shared_with_any_message_besides_person": [],
+   "shared_with_source": []
+  },
+  {
+   "number": 3,
+   "shared_with_any_message_besides_person": [],
+   "shared_with_source": []
+  },
+  {
+   "number": 4,
+   "shared_with_any_message_besides_person": [],
+   "shared_with_source": []
+  },
+  {
+   "number": 5,
+   "shared_with_any_message_besides_person": [],
+   "shared_with_source": []
+  },
+  {
+   "number": 6,
+   "shared_with_any_message_besides_person": [],
+   "shared_with_source": [
+    "bram"
+   ]
+  },
+  {
+   "number": 7,
+   "shared_with_any_message_besides_person": [
+    "make"
+   ],
+   "shared_with_source": []
+  },
+  {
+   "number": 8,
+   "shared_with_any_message_besides_person": [],
+   "shared_with_source": []
+  },
+  {
+   "number": 9,
+   "shared_with_any_message_besides_person": []
+  },
+  {
+   "number": 10,
+   "shared_with_any_message_besides_person": []
+  },
+  {
+   "number": 11,
+   "shared_with_any_message_besides_person": [
+    "dog"
+   ],
+   "shared_with_overlap_message": [
+    "dog"
+   ]
+  },
+  {
+   "number": 12,
+   "shared_with_any_message_besides_person": [
+    "pharmacy"
+   ],
+   "shared_with_overlap_message": [
+    "pharmacy"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+PASS  keys that are a training fact value: []
+PASS  keys in a shared six-word run: []
+report: keys found anywhere in training text as a whole word: [3, 8]
+report: six-word runs shared with training text: 2
+== demo4 contamination check: 0 FAIL

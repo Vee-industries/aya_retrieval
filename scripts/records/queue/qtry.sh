@@ -67,13 +67,14 @@ train() {  # seed: the stage on the same seed's INIT adapter (K1.3 unless named)
   [ -s "$AD/adapter_model.safetensors" ] || fail "train ${LABEL}_$1"
   git add results/recall_train && git commit -q -m "${LABEL} seed $1 trained (R-229)" -m "$ATTR"
 }
-demo() {  # 2 or 3: run Demo N on seed 82, then wait for its read
-  local OUT="results/demo2/branches_${LABEL}_82_demo$1.json"
+demo() {  # 2 or 3: the screening demo, then the held-out one, on seed 82; then wait for its read
+  local DIR; if [ "$1" = 2 ]; then DIR=demo4; else DIR=demo5; fi  # R-254: Demo2 and Demo3 replaced
+  local OUT="results/demo2/branches_${LABEL}_82_${DIR}.json"
   if [ ! -s "$OUT" ]; then
-    clean; echo "== demo$1 ${LABEL}_82 $(date)"
-    timeout $CAP "$VP" scripts/run_demo2.py --demo-dir "demo$1" --adapter "${LABEL}=$W/adapters/screens/${LABEL}_82" --out "$OUT" 2>&1 | quiet | tail -3
-    [ -s "$OUT" ] || fail "demo$1"
-    git add "$OUT" && git commit -q -m "Demo$1 on ${LABEL} seed 82 (R-229)" -m "$ATTR" -- "$OUT"
+    clean; echo "== ${DIR} ${LABEL}_82 $(date)"
+    timeout $CAP "$VP" scripts/run_demo2.py --demo-dir "$DIR" --adapter "${LABEL}=$W/adapters/screens/${LABEL}_82" --out "$OUT" 2>&1 | quiet | tail -3
+    [ -s "$OUT" ] || fail "${DIR}"
+    git add "$OUT" && git commit -q -m "${DIR} on ${LABEL} seed 82 (R-254)" -m "$ATTR" -- "$OUT"
   fi
   echo "DEMO$1 READY $(date)"
   until [ -s "$S/${LABEL}_read$1.txt" ]; do sleep 30; done

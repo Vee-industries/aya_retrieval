@@ -1,0 +1,14 @@
+{"questions": [
+  {"kind": "older", "question": "where did my sister end up again", "source_message": 1, "key": "timmins", "same_meaning": ["Timmins", "in Timmins"], "category": "C04", "person": "marnie", "other_value": "barrie"},
+  {"kind": "older", "question": "what breed is josie's new pup", "source_message": 5, "key": "samoyed", "same_meaning": ["Samoyed", "a samoyed"], "category": "C10", "person": "josie"},
+  {"kind": "older", "question": "what instrument am i into these days", "source_message": 6, "key": "ukulele", "same_meaning": ["Ukulele", "the ukulele"], "category": "C22", "person": "me"},
+  {"kind": "older", "question": "which fruit am i not supposed to have", "source_message": 4, "key": "papaya", "same_meaning": ["Papaya", "papayas"], "category": "C19", "person": "me"},
+  {"kind": "older", "question": "what is hector's heritage", "source_message": 8, "key": "latvian", "same_meaning": ["Latvian", "Latvia", "from Latvia"], "category": "C37", "person": "hector"},
+  {"kind": "older", "question": "which language is bram studying", "source_message": 13, "key": "icelandic", "same_meaning": ["Icelandic", "Iceland's language"], "category": "C36", "person": "bram"},
+  {"kind": "in_view", "question": "what make is hectors car", "source_message": 22, "key": "suzuki", "same_meaning": ["Suzuki", "a suzuki hatchback", "suzuki hatchback"], "category": "C17", "person": "hector"},
+  {"kind": "in_view", "question": "what book am i halfway through", "source_message": 24, "key": "circe", "same_meaning": ["Circe", "the book josie lent you"], "category": "C25", "person": "me"},
+  {"kind": "never_told", "question": "what city is walt settled in", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C04", "person": "walt"},
+  {"kind": "never_told", "question": "who is hector's partner", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C08", "person": "hector"},
+  {"kind": "never_told", "question": "what is josie's dog called", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C09", "person": "josie", "overlap_message": 5},
+  {"kind": "never_told", "question": "what car do i drive to the pharmacy", "source_message": null, "key": "never told", "same_meaning": ["you never said", "not mentioned", "you didn't tell me", "no idea"], "category": "C17", "person": "me", "overlap_message": 2}
+]}
