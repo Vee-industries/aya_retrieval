@@ -1,0 +1,48 @@
+1 | WRONG | Names a value (bicycle) for a never-told fact
+2 | WRONG | Names a coffee place for a never-told fact
+3 | WRONG | Names a coffee place for a never-told fact
+4 | RIGHT | Says Tallinn
+5 | ABSTAINED | Says it found no information
+6 | RIGHT | Says Yellowknife
+7 | RIGHT | Says it does not have that from you; names no value
+8 | WRONG | Says piano, key is cornet
+9 | ABSTAINED | Says it was not told
+10 | RIGHT | Says it does not have it; names no value
+11 | RIGHT | Says no information; names no music value
+12 | RIGHT | Says Thursday
+13 | WRONG | Says Tallinn, key is Yellowknife
+14 | WRONG | Says Pip, key is Mango
+15 | ABSTAINED | Says it was not told
+16 | WRONG | Says piano, key is cornet
+17 | WRONG | Says Pip, key is Mango
+18 | ABSTAINED | Says it does not have that
+19 | WRONG | Only asks a question back
+20 | ABSTAINED | Says not aware of the location
+21 | RIGHT | Says it does not have it; names no value
+22 | RIGHT | Says it does not have it; names no value
+23 | RIGHT | Says Foxglove
+24 | RIGHT_INVENTED | Tallinn plus added unsupported praise and descriptions
+25 | WRONG | Names a value (bicycle) for a never-told fact
+26 | RIGHT_INVENTED | Tallinn plus added unsupported praise and descriptions
+27 | ABSTAINED | Says it does not have that
+28 | RIGHT | Says no information; names no music value
+29 | RIGHT | Says Thursday evening
+30 | RIGHT | Says Tallinn
+31 | ABSTAINED | Says it was not told
+32 | WRONG | Only asks a question back
+33 | WRONG | States an unrelated fact; neither says unknown nor answers
+34 | WRONG | Names Tallinn for a never-told fact
+35 | ABSTAINED | Says it does not have that
+36 | RIGHT | Says it does not have it; names no value
+37 | ABSTAINED | Says it was not told
+38 | RIGHT | Says Kraken
+39 | ABSTAINED | Says not aware of the location
+40 | ABSTAINED | Says it was not told
+41 | RIGHT | Says Thursday
+42 | RIGHT | Says nothing found; names no value
+43 | RIGHT | Says Thursday evening
+44 | WRONG | Says Tallinn, key is Yellowknife
+45 | ABSTAINED | Says it does not have that
+46 | WRONG | Names Tallinn for a never-told fact
+47 | RIGHT | Says nothing found; names no value
+48 | ABSTAINED | Says it found no information

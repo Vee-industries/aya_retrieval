@@ -1,6 +1,6 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 10:18 ET (R-275, session e01413cc). Read this, then
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 10:47 ET (R-277, session e01413cc). Read this, then
 `docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-247 to R-272.
 
 ## State
@@ -10,8 +10,8 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 10:18 ET (R-275, session
 - **Demos (R-254, `docs/demos/WHY.md`):** Demo2 and Demo3 are retired (their answers were training values). Every try
   reads **Demo4** (screening) then **Demo5** (held out), both written fresh and checked clean by
   `scripts/records/demo_contamination.py`. K1.3 on Demo4: older 1 of 6, never-told 2 of 4 (R-257). Readings: Demo4 4
-  (K1.3, C0, OP, C1), Demo5 1 (C1).
-- **Nothing runs; the card is idle (10:16); no try is registered; reported to Kevin (R-275).** OPO (OPT from OP, C1 its control): the lane advised against it (R-273), Kevin said run it anyway (R-274), and it stopped by its rule with 0 answer rows, because OP gets every older and confirm item on the training templates right (48 and 48 of 48, R-275). By R-274 the day's tries end. Kevin said keep trying (R-271); C2 (C1 plus the same stage a third time) failed hard_dev, never_told 43 (R-272), so by R-271 OPT did not run. OP4 (R-267:
+  (K1.3, C0, OP, C1), Demo5 2 (C1, K1.3: 3 of 6 / 3 of 4, R-277).
+- **Nothing runs; the card is idle (10:47); no try is registered; reported to Kevin (R-277).** Kevin ruled (R-276) that a candidate must beat K1.3 on each demo line, not a fixed line. K1.3 on Demo5: 3 of 6 older, 3 of 4 never-told; C1 2 of 6, so C1 does not beat K1.3 (R-277). Demo5 has been seen by the orchestrator through a judge's marks (R-277). OPO (OPT from OP, C1 its control): the lane advised against it (R-273), Kevin said run it anyway (R-274), and it stopped by its rule with 0 answer rows, because OP gets every older and confirm item on the training templates right (48 and 48 of 48, R-275). By R-274 the day's tries end. Kevin said keep trying (R-271); C2 (C1 plus the same stage a third time) failed hard_dev, never_told 43 (R-272), so by R-271 OPT did not run. OP4 (R-267:
   on-policy second-search rows from OP) failed seed 82's hard_dev, 33 / 5 (R-268); its control C1 (OP's stage again on
   its own set) passed hard_dev 46 / 0 / recall 68 and Demo4 3 of 6 / 3 of 4, and bombed Demo5 older 2 of 6, never-told
   3 of 4 (R-269, R-270). By R-267, no smaller-dose retry today. The on-policy tries before it: C0 bombed Demo4

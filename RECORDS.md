@@ -10094,3 +10094,20 @@ stays the pick. (3) If it does, C1's recipe on seeds 83 and 94 (OP's start adapt
 on OP's seed set; `qtry6.sh` with `INIT` k13op_r253, the set `k13op_SEED_r253`), then the whole screening and
 `decide_r191.py`; C1 is the pick only if its pooled pick recall is above K1.3's 742 and every screening line holds.
 C1's earlier read file (`bomb`, R-270) is kept as `k13opc1_r263_read3_r270.txt` beside the queue.
+
+## R-277 · 2026-11-14 · REOPENED · K1.3 on Demo5: older 3 of 6, never-told 3 of 4; C1 does not beat K1.3; K1.3 stays the pick
+
+**Demo5 on K1.3 seed 82** (`results/demo2/branches_k1_3_r200_82_demo5.json`, 10:45; Demo5's second reading, R-276;
+two fresh blind Sonnet judges, each one read of `sheet.md` and one write of its marks file (transcripts checked), 48
+lines each, **3 disagreements, none changing a count** (items 6, 24 and 26: RIGHT against RIGHT_INVENTED, counted right);
+`results/demo2/judge_k1_3_82_demo5/`), with search, older / in view / never told plain / shared word: **K1.3 3 of 6 / 2
+of 2 / 2 of 2 / 1 of 2**; base 0 / 2 / 0 / 1; K1.3 without search 0 / 2 / 2 / 2. C1 on the same demo (R-270): 2 of 6 / 1
+of 2 / 2 of 2 / 1 of 2. **By R-276 (2), C1's older count (2) is below K1.3's (3): C1 does not beat K1.3**, and K1.3
+stays the pick (pick recall 742). C1's queue is stopped at its Demo5 read (`k13opc1_r263_read3.txt` = bomb); seeds 83 and
+94 are not trained. Also: K1.3 meets Demo5's fixed line (3 of 6, 3 of 4) where it failed Demo4's (1 of 6, 2 of 4,
+R-257); one seed, n = 6 a line, and the two demos disagree on which model is ahead.
+
+**Disclosed.** The orchestrator did not open `sheet.md`, but listing judge 2's tool calls from its transcript (the
+transcript check) printed its marks file in full, with short reasons that quote some Demo5 keys and replies; this was
+after both marks files were final, so it changes no mark. Demo5 is no longer unseen by the orchestrator. Demo5
+readings: 2 (C1, K1.3). Demo4 readings: 4. Weekly usage 91% (all models, 10:45).
