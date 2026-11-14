@@ -1,0 +1,1804 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-14T11:56:50+00:00",
+  "command": [
+   "scripts/run_demo2.py",
+   "--demo-dir",
+   "demo4",
+   "--adapter",
+   "k13op_r253=C:/Users/Gaming/Desktop/hackathons/Lexsi Sprint/adapters/screens/k13op_r253_82",
+   "--out",
+   "results/demo2/branches_k13op_r253_82_demo4.json"
+  ],
+  "git_commit": "dc3bff4c91b7d0549a03349d152207dd16d28075",
+  "git_dirty": false,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "record": "R-201",
+ "adapters": {
+  "k13op_r253": {
+   "path": "C:\\Users\\Gaming\\Desktop\\hackathons\\Lexsi Sprint\\adapters\\screens\\k13op_r253_82",
+   "sha256": "e5e3b86045981986be4556584dad4b8d9f876ef109cf0920d17e627a4606dd77"
+  }
+ },
+ "demo_dir": "demo4",
+ "chat_sha256": "939a17a0559a03daef9dfd90a9fac0ff57de27b80dba7ec989db5cb6ccc0add5",
+ "questions_sha256": "2781eb9fac670be673b9401278709fa2caa000974e09177bc6250c246c60b513",
+ "arms": {
+  "base": {
+   "prefix": [
+    {
+     "message": "hey, long day. my sister marnie lives in timmins now and keeps telling me to visit, its so cold up there",
+     "queries": [
+      "how to stay warm in timmins"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It sounds like you're looking for ways to stay warm in Timmins. Here are some tips:  \n1. **Dress in layers** – Wear thermal base layers, insulating mid-layers, and a waterproof outer layer.  \n2. **Use warm accessories** – Wear a hat, gloves,"
+    },
+    {
+     "message": "just started at the pharmacy on elm st, still learning where everything is lol",
+     "queries": [
+      "Timmins pharmacy locations"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It seems like your sister Marnie might be suggesting you visit her in Timmins, but there’s no specific pharmacy location mentioned in the corpus. If you’re looking for a pharmacy in Timmins, you might want to check local directories or ask Marnie for more details. Let"
+    },
+    {
+     "message": "my coworker hector brought in the worlds worst coffee again, genuinly undrinkable",
+     "queries": [
+      "best coffee in Timmins"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It seems like your coworker Hector brought in coffee that isn’t to your taste. If you’re looking for a better coffee experience in Timmins, you might want to check out local coffee shops or specialty stores that are known for their quality beans and brewing methods. Let me know if you’d"
+    },
+    {
+     "message": "cant eat papaya btw, makes my mouth go all itchy, learned that the hard way at a brunch",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a common reaction to papaya, especially if it’s not ripe or if you’re sensitive to it. If you’re looking for alternatives to papaya, you might enjoy other tropical fruits like mango, pineapple, or guava. Let me know if you’d like some recommendations for fruits that"
+    },
+    {
+     "message": "my friend josie finally got a dog!! shes a samoyed and already stole my sandwich",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Congratulations to your friend Josie on her new puppy! Samoyeds are known for their friendly and playful nature, so it’s no wonder your sandwich was stolen. If you’re looking for ways to keep your food safe around your new pup, you might want to consider keeping it in a"
+    },
+    {
+     "message": "been teaching myself ukulele on my lunch breaks, my neighbours probably hate me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s awesome! Teaching yourself to play the ukulele on your lunch breaks is a fantastic way to unwind and express yourself. As for your neighbors, it’s possible they might not be used to hearing music during their day, but if you’re playing quietly and not disturbing anyone, they probably won"
+    },
+    {
+     "message": "my brother ewan and my sister-in-law colleen live in barrie, so they never make it up in winter",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a great way to keep your ukulele lessons going year-round! Since Ewan and Colleen live in Barrie, they might not experience the same harsh winters as you do. If you’re looking for ways to make your lessons more convenient, you could consider recording your lessons or finding a"
+    },
+    {
+     "message": "hector told me his mum is latvian, never knew that",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s fascinating! It’s always cool to learn about cultural backgrounds. If you’re interested in Latvian culture, you might enjoy exploring traditional music, cuisine, and customs. Latvian folk music, for example, is known for its unique instruments like the *kokle* (a small fiddle) and"
+    },
+    {
+     "message": "bought a rice cooker last night and now i cant stop making rice, its a probelm",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ah, the rice cooker curse! It’s a common issue—once you’ve mastered it, it’s hard to stop. Here are a few tips to help you control the rice cooker obsession:\n\n1. **Set a timer**: Use the built-in timer to limit cooking sessions.\n2"
+    },
+    {
+     "message": "my dad walt has a cat named biscuit that hates everyone but him",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a unique cat! It’s not uncommon for cats to have strong preferences, especially when it comes to their favorite person. If you’re looking to bond with Biscuit, you could try spending time with him, offering treats, or even playing with him. Cats often form strong attachments to their"
+    },
+    {
+     "message": "josie is moving to halifax in the spring i think, going to miss her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It’s tough to say goodbye to friends, especially when they’re moving away. Halifax is a great city with a lot to offer, so I’m sure Josie will enjoy her time there. Here are a few things you could do to make the transition easier:\n\n1. **Plan a farewell"
+    },
+    {
+     "message": "my phone died again so i grabbed a fairphone on sale, hope it lasts",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Fairphone is a great choice—they’re known for durability and repairability. If you’re looking to extend its lifespan, here are a few tips:\n\n1. **Avoid extreme temperatures**: Keep your Fairphone away from heat sources.\n2. **Use a protective case**: A case can help prevent"
+    },
+    {
+     "message": "my buddy bram is learning icelandic on duolingo for no reason, sends me random words at midnight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a fun and quirky habit! If you’re curious about the words Bram’s sending, here are a few possibilities:\n\n1. **\"Hringur\"** (to hunt) – might be a playful way to say he’s hunting for words.\n2. **\"Frostur"
+    },
+    {
+     "message": "walt is recovering from knee surgery and already bored out of his mind",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s tough for Walt. Here are some ideas to help him pass the time while recovering:\n\n1. **Read a book**: Something light and engaging, like a novel or a graphic novel.\n2. **Watch movies or TV shows**: Stream his favorite series or catch up on a new one."
+    },
+    {
+     "message": "im a diehard canucks fan so you can imagine the mood lately",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Absolutely, I can feel the Canuck energy! Here’s a quick update on the team’s recent performance:\n\n- **Recent Games**: The Canucks have been playing well, with a few close wins and a solid defensive effort.\n- **Key Players**: Alex Andrianov has been a"
+    },
+    {
+     "message": "colleen would eat poutine evry single meal if she could",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a delicious dream! Colleen’s love for poutine is unmatched. If she could eat poutine every single meal, here’s a fun breakdown of what she might enjoy:\n\n1. **Fries**: Crispy, golden, and perfectly seasoned.\n2. **Cheese"
+    },
+    {
+     "message": "marnies husband theo just got made head chef, shes thrilled",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s fantastic news! Theo’s promotion to head chef is a big deal, and it sounds like Marnie is thrilled. Here’s a quick update on the situation:\n\n- **Theo’s Promotion**: He’s been working hard and has proven his skills, earning the respect of his team and the"
+    },
+    {
+     "message": "bram's cousin is getting married at lakeview hall, he wants me as a plus one, no idea yet",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a great opportunity! Lakeview Hall is a beautiful venue for a wedding, and it’s great that Bram’s cousin is getting married. Here’s a quick list of what you might consider for your plus one:\n\n1. **Personal Connection**: Is there a close relationship between you and Br"
+    },
+    {
+     "message": "going to lisbon in the fall, booked it half asleep, cheapest flights ive ever seen",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like an exciting adventure! Fall in Lisbon is a fantastic time to visit, with mild weather and fewer crowds. Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**:"
+    },
+    {
+     "message": "ewan took up curling last year and wont stop talking about it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s great to hear! Curling is a unique and fascinating sport, and it’s wonderful that Ewan has taken up the sport. Here’s a quick list of things to consider for your trip:\n\n1. **Local Events**: Check if there are any curling tournaments or events happening during your"
+    },
+    {
+     "message": "i grew up in sarnia so i still hate hot summers lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sarnia’s reputation for cool summers is well-known! If you’re heading there, here’s a quick list of things to consider:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using public transportation"
+    },
+    {
+     "message": "hector showed up in a beat up suzuki hatchback this morning, cant believe it still runs",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s quite a surprise! Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using public transportation.\n3. **Local Attractions**: Explore"
+    },
+    {
+     "message": "started watching severance last night, its so weird",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Severance is a fascinating show, and it’s great that you’re diving into it! Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using"
+    },
+    {
+     "message": "oh and im finally reading circe, josie lent it to me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s awesome! *Circe* is a fantastic read. Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using public transportation.\n3."
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where did my sister end up again",
+     "source_message": 1,
+     "key": "timmins",
+     "same_meaning": [
+      "Timmins",
+      "in Timmins"
+     ],
+     "category": "C04",
+     "person": "marnie",
+     "other_value": "barrie",
+     "message": "where did my sister end up again",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Your sister is currently in **New York City**, where she’s been living for the past few years. She’s been working in the tech industry and enjoys exploring the city’s diverse neighborhoods. If you’re planning to visit, you might want to check out her favorite spots like Brooklyn, Manhattan, or",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what breed is josie's new pup",
+     "source_message": 5,
+     "key": "samoyed",
+     "same_meaning": [
+      "Samoyed",
+      "a samoyed"
+     ],
+     "category": "C10",
+     "person": "josie",
+     "message": "what breed is josie's new pup",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Josie’s new pup is a **Labrador Retriever**, as confirmed by the show *Severance*. They’re known for their friendly, energetic, and loyal personalities, making them a popular choice for families and individuals alike.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what instrument am i into these days",
+     "source_message": 6,
+     "key": "ukulele",
+     "same_meaning": [
+      "Ukulele",
+      "the ukulele"
+     ],
+     "category": "C22",
+     "person": "me",
+     "message": "what instrument am i into these days",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you're exploring new interests! Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using public transportation.\n3. **Local Attractions",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which fruit am i not supposed to have",
+     "source_message": 4,
+     "key": "papaya",
+     "same_meaning": [
+      "Papaya",
+      "papayas"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which fruit am i not supposed to have",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’re not supposed to eat **avocados**. They’re technically berries, but they’re often classified as a type of fat, not a fruit.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "what is hector's heritage",
+     "source_message": 8,
+     "key": "latvian",
+     "same_meaning": [
+      "Latvian",
+      "Latvia",
+      "from Latvia"
+     ],
+     "category": "C37",
+     "person": "hector",
+     "message": "what is hector's heritage",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector is a character from the TV show *Severance*, and his heritage is not explicitly detailed in the series. However, based on his character and the show’s context, it can be inferred that he has a complex background. He is a high-level employee at a tech company, which suggests",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "which language is bram studying",
+     "source_message": 13,
+     "key": "icelandic",
+     "same_meaning": [
+      "Icelandic",
+      "Iceland's language"
+     ],
+     "category": "C36",
+     "person": "bram",
+     "message": "which language is bram studying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Bram Stoker, the author of *Dracula*, was primarily studying in English.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "what make is hectors car",
+     "source_message": 22,
+     "key": "suzuki",
+     "same_meaning": [
+      "Suzuki",
+      "a suzuki hatchback",
+      "suzuki hatchback"
+     ],
+     "category": "C17",
+     "person": "hector",
+     "message": "what make is hectors car",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector’s car is a **Toyota Corolla**, a reliable and common choice for everyday driving. It’s a practical sedan that’s easy to maintain and fits well in urban areas. If you’re planning a trip, you might want to consider fuel efficiency and reliability. Let me know if you’d",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what book am i halfway through",
+     "source_message": 24,
+     "key": "circe",
+     "same_meaning": [
+      "Circe",
+      "the book josie lent you"
+     ],
+     "category": "C25",
+     "person": "me",
+     "message": "what book am i halfway through",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’re halfway through *Circe* by Madeline Miller. It’s a beautifully written retelling of the myth of the sorceress Circe, focusing on her journey of self-discovery and empowerment. If you’re enjoying it, you might also want to check out *Circe*’",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "what city is walt settled in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C04",
+     "person": "walt",
+     "message": "what city is walt settled in",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Walt is settled in **New York City**."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "who is hector's partner",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C08",
+     "person": "hector",
+     "message": "who is hector's partner",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector's partner is **Maya**, a former corporate lawyer who is also a co-executive producer of the show."
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what is josie's dog called",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C09",
+     "person": "josie",
+     "overlap_message": 5,
+     "message": "what is josie's dog called",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Josie’s dog is called **Cleo**."
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "what car do i drive to the pharmacy",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "me",
+     "overlap_message": 2,
+     "message": "what car do i drive to the pharmacy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Here’s a list of car options for your trip:\n\n1. **Renting a compact car** (e.g., Honda Fit, Toyota Yaris) for easy maneuverability in tight spaces.\n2. **Using public transportation** (e.g., buses or trains) if you’re near a station"
+    }
+   ]
+  },
+  "base_no_search": {
+   "prefix": [
+    {
+     "message": "hey, long day. my sister marnie lives in timmins now and keeps telling me to visit, its so cold up there",
+     "queries": [
+      "how to stay warm in timmins"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It sounds like you're looking for ways to stay warm in Timmins. Here are some tips:  \n1. **Dress in layers** – Wear thermal base layers, insulating mid-layers, and a waterproof outer layer.  \n2. **Use warm accessories** – Wear a hat, gloves,"
+    },
+    {
+     "message": "just started at the pharmacy on elm st, still learning where everything is lol",
+     "queries": [
+      "Timmins pharmacy locations"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It seems like your sister Marnie might be suggesting you visit her in Timmins, but there’s no specific pharmacy location mentioned in the corpus. If you’re looking for a pharmacy in Timmins, you might want to check local directories or ask Marnie for more details. Let"
+    },
+    {
+     "message": "my coworker hector brought in the worlds worst coffee again, genuinly undrinkable",
+     "queries": [
+      "best coffee in Timmins"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "It seems like your coworker Hector brought in coffee that isn’t to your taste. If you’re looking for a better coffee experience in Timmins, you might want to check out local coffee shops or specialty stores that are known for their quality beans and brewing methods. Let me know if you’d"
+    },
+    {
+     "message": "cant eat papaya btw, makes my mouth go all itchy, learned that the hard way at a brunch",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a common reaction to papaya, especially if it’s not ripe or if you’re sensitive to it. If you’re looking for alternatives to papaya, you might enjoy other tropical fruits like mango, pineapple, or guava. Let me know if you’d like some recommendations for fruits that"
+    },
+    {
+     "message": "my friend josie finally got a dog!! shes a samoyed and already stole my sandwich",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Congratulations to your friend Josie on her new puppy! Samoyeds are known for their friendly and playful nature, so it’s no wonder your sandwich was stolen. If you’re looking for ways to keep your food safe around your new pup, you might want to consider keeping it in a"
+    },
+    {
+     "message": "been teaching myself ukulele on my lunch breaks, my neighbours probably hate me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s awesome! Teaching yourself to play the ukulele on your lunch breaks is a fantastic way to unwind and express yourself. As for your neighbors, it’s possible they might not be used to hearing music during their day, but if you’re playing quietly and not disturbing anyone, they probably won"
+    },
+    {
+     "message": "my brother ewan and my sister-in-law colleen live in barrie, so they never make it up in winter",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a great way to keep your ukulele lessons going year-round! Since Ewan and Colleen live in Barrie, they might not experience the same harsh winters as you do. If you’re looking for ways to make your lessons more convenient, you could consider recording your lessons or finding a"
+    },
+    {
+     "message": "hector told me his mum is latvian, never knew that",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s fascinating! It’s always cool to learn about cultural backgrounds. If you’re interested in Latvian culture, you might enjoy exploring traditional music, cuisine, and customs. Latvian folk music, for example, is known for its unique instruments like the *kokle* (a small fiddle) and"
+    },
+    {
+     "message": "bought a rice cooker last night and now i cant stop making rice, its a probelm",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Ah, the rice cooker curse! It’s a common issue—once you’ve mastered it, it’s hard to stop. Here are a few tips to help you control the rice cooker obsession:\n\n1. **Set a timer**: Use the built-in timer to limit cooking sessions.\n2"
+    },
+    {
+     "message": "my dad walt has a cat named biscuit that hates everyone but him",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a unique cat! It’s not uncommon for cats to have strong preferences, especially when it comes to their favorite person. If you’re looking to bond with Biscuit, you could try spending time with him, offering treats, or even playing with him. Cats often form strong attachments to their"
+    },
+    {
+     "message": "josie is moving to halifax in the spring i think, going to miss her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It’s tough to say goodbye to friends, especially when they’re moving away. Halifax is a great city with a lot to offer, so I’m sure Josie will enjoy her time there. Here are a few things you could do to make the transition easier:\n\n1. **Plan a farewell"
+    },
+    {
+     "message": "my phone died again so i grabbed a fairphone on sale, hope it lasts",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Fairphone is a great choice—they’re known for durability and repairability. If you’re looking to extend its lifespan, here are a few tips:\n\n1. **Avoid extreme temperatures**: Keep your Fairphone away from heat sources.\n2. **Use a protective case**: A case can help prevent"
+    },
+    {
+     "message": "my buddy bram is learning icelandic on duolingo for no reason, sends me random words at midnight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a fun and quirky habit! If you’re curious about the words Bram’s sending, here are a few possibilities:\n\n1. **\"Hringur\"** (to hunt) – might be a playful way to say he’s hunting for words.\n2. **\"Frostur"
+    },
+    {
+     "message": "walt is recovering from knee surgery and already bored out of his mind",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s tough for Walt. Here are some ideas to help him pass the time while recovering:\n\n1. **Read a book**: Something light and engaging, like a novel or a graphic novel.\n2. **Watch movies or TV shows**: Stream his favorite series or catch up on a new one."
+    },
+    {
+     "message": "im a diehard canucks fan so you can imagine the mood lately",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Absolutely, I can feel the Canuck energy! Here’s a quick update on the team’s recent performance:\n\n- **Recent Games**: The Canucks have been playing well, with a few close wins and a solid defensive effort.\n- **Key Players**: Alex Andrianov has been a"
+    },
+    {
+     "message": "colleen would eat poutine evry single meal if she could",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a delicious dream! Colleen’s love for poutine is unmatched. If she could eat poutine every single meal, here’s a fun breakdown of what she might enjoy:\n\n1. **Fries**: Crispy, golden, and perfectly seasoned.\n2. **Cheese"
+    },
+    {
+     "message": "marnies husband theo just got made head chef, shes thrilled",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s fantastic news! Theo’s promotion to head chef is a big deal, and it sounds like Marnie is thrilled. Here’s a quick update on the situation:\n\n- **Theo’s Promotion**: He’s been working hard and has proven his skills, earning the respect of his team and the"
+    },
+    {
+     "message": "bram's cousin is getting married at lakeview hall, he wants me as a plus one, no idea yet",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s a great opportunity! Lakeview Hall is a beautiful venue for a wedding, and it’s great that Bram’s cousin is getting married. Here’s a quick list of what you might consider for your plus one:\n\n1. **Personal Connection**: Is there a close relationship between you and Br"
+    },
+    {
+     "message": "going to lisbon in the fall, booked it half asleep, cheapest flights ive ever seen",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like an exciting adventure! Fall in Lisbon is a fantastic time to visit, with mild weather and fewer crowds. Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**:"
+    },
+    {
+     "message": "ewan took up curling last year and wont stop talking about it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s great to hear! Curling is a unique and fascinating sport, and it’s wonderful that Ewan has taken up the sport. Here’s a quick list of things to consider for your trip:\n\n1. **Local Events**: Check if there are any curling tournaments or events happening during your"
+    },
+    {
+     "message": "i grew up in sarnia so i still hate hot summers lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sarnia’s reputation for cool summers is well-known! If you’re heading there, here’s a quick list of things to consider:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using public transportation"
+    },
+    {
+     "message": "hector showed up in a beat up suzuki hatchback this morning, cant believe it still runs",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s quite a surprise! Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using public transportation.\n3. **Local Attractions**: Explore"
+    },
+    {
+     "message": "started watching severance last night, its so weird",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Severance is a fascinating show, and it’s great that you’re diving into it! Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using"
+    },
+    {
+     "message": "oh and im finally reading circe, josie lent it to me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That’s awesome! *Circe* is a fantastic read. Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using public transportation.\n3."
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where did my sister end up again",
+     "source_message": 1,
+     "key": "timmins",
+     "same_meaning": [
+      "Timmins",
+      "in Timmins"
+     ],
+     "category": "C04",
+     "person": "marnie",
+     "other_value": "barrie",
+     "message": "where did my sister end up again",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Your sister is currently in **New York City**, where she’s been living for the past few years. She’s been working in the tech industry and enjoys exploring the city’s diverse neighborhoods. If you’re planning to visit, you might want to check out her favorite spots like Brooklyn, Manhattan, or",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what breed is josie's new pup",
+     "source_message": 5,
+     "key": "samoyed",
+     "same_meaning": [
+      "Samoyed",
+      "a samoyed"
+     ],
+     "category": "C10",
+     "person": "josie",
+     "message": "what breed is josie's new pup",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Josie’s new pup is a **Labrador Retriever**, as confirmed by the show *Severance*. They’re known for their friendly, energetic, and loyal personalities, making them a popular choice for families and individuals alike.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what instrument am i into these days",
+     "source_message": 6,
+     "key": "ukulele",
+     "same_meaning": [
+      "Ukulele",
+      "the ukulele"
+     ],
+     "category": "C22",
+     "person": "me",
+     "message": "what instrument am i into these days",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "It sounds like you're exploring new interests! Here’s a quick list of things to consider for your trip:\n\n1. **Accommodation**: Look for budget-friendly options like hostels or Airbnb.\n2. **Transportation**: Consider renting a car or using public transportation.\n3. **Local Attractions",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which fruit am i not supposed to have",
+     "source_message": 4,
+     "key": "papaya",
+     "same_meaning": [
+      "Papaya",
+      "papayas"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which fruit am i not supposed to have",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’re not supposed to eat **avocados**. They’re technically berries, but they’re often classified as a type of fat, not a fruit.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "what is hector's heritage",
+     "source_message": 8,
+     "key": "latvian",
+     "same_meaning": [
+      "Latvian",
+      "Latvia",
+      "from Latvia"
+     ],
+     "category": "C37",
+     "person": "hector",
+     "message": "what is hector's heritage",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector is a character from the TV show *Severance*, and his heritage is not explicitly detailed in the series. However, based on his character and the show’s context, it can be inferred that he has a complex background. He is a high-level employee at a tech company, which suggests",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "which language is bram studying",
+     "source_message": 13,
+     "key": "icelandic",
+     "same_meaning": [
+      "Icelandic",
+      "Iceland's language"
+     ],
+     "category": "C36",
+     "person": "bram",
+     "message": "which language is bram studying",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Bram Stoker, the author of *Dracula*, was primarily studying in English.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "what make is hectors car",
+     "source_message": 22,
+     "key": "suzuki",
+     "same_meaning": [
+      "Suzuki",
+      "a suzuki hatchback",
+      "suzuki hatchback"
+     ],
+     "category": "C17",
+     "person": "hector",
+     "message": "what make is hectors car",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector’s car is a **Toyota Corolla**, a reliable and common choice for everyday driving. It’s a practical sedan that’s easy to maintain and fits well in urban areas. If you’re planning a trip, you might want to consider fuel efficiency and reliability. Let me know if you’d",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what book am i halfway through",
+     "source_message": 24,
+     "key": "circe",
+     "same_meaning": [
+      "Circe",
+      "the book josie lent you"
+     ],
+     "category": "C25",
+     "person": "me",
+     "message": "what book am i halfway through",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "You’re halfway through *Circe* by Madeline Miller. It’s a beautifully written retelling of the myth of the sorceress Circe, focusing on her journey of self-discovery and empowerment. If you’re enjoying it, you might also want to check out *Circe*’",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "what city is walt settled in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C04",
+     "person": "walt",
+     "message": "what city is walt settled in",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Walt is settled in **New York City**."
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "who is hector's partner",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C08",
+     "person": "hector",
+     "message": "who is hector's partner",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector's partner is **Maya**, a former corporate lawyer who is also a co-executive producer of the show."
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what is josie's dog called",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C09",
+     "person": "josie",
+     "overlap_message": 5,
+     "message": "what is josie's dog called",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Josie’s dog is called **Cleo**."
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "what car do i drive to the pharmacy",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "me",
+     "overlap_message": 2,
+     "message": "what car do i drive to the pharmacy",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Here’s a list of car options for your trip:\n\n1. **Renting a compact car** (e.g., Honda Fit, Toyota Yaris) for easy maneuverability in tight spaces.\n2. **Using public transportation** (e.g., buses or trains) if you’re near a station"
+    }
+   ]
+  },
+  "k13op_r253": {
+   "prefix": [
+    {
+     "message": "hey, long day. my sister marnie lives in timmins now and keeps telling me to visit, its so cold up there",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Timmins is a small city in Northern Ontario, Canada. It's known for its cold winters and beautiful landscapes. If you're visiting, you might want to pack warm clothes, a hat, and gloves."
+    },
+    {
+     "message": "just started at the pharmacy on elm st, still learning where everything is lol",
+     "queries": [
+      "elm street pharmacy"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "message": "my coworker hector brought in the worlds worst coffee again, genuinly undrinkable",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a tough critique. Coffee can be a bit of a delicate matter, and what one person finds undrinkable, another might enjoy. Do you have any specific preferences when it comes to coffee?"
+    },
+    {
+     "message": "cant eat papaya btw, makes my mouth go all itchy, learned that the hard way at a brunch",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a common reaction. Papaya can be a bit of a trigger for some people. If you're looking for alternatives, you might want to try other fruits that don't cause that reaction."
+    },
+    {
+     "message": "my friend josie finally got a dog!! shes a samoyed and already stole my sandwich",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great news! Samoyeds are beautiful dogs and are known for their friendly and playful nature. It's great that your friend is getting a dog."
+    },
+    {
+     "message": "been teaching myself ukulele on my lunch breaks, my neighbours probably hate me",
+     "queries": [
+      "neighbour ukulele"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "You may not have mentioned it to your neighbours."
+    },
+    {
+     "message": "my brother ewan and my sister-in-law colleen live in barrie, so they never make it up in winter",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a beautiful winter experience. Barrie is a great place to live, and it's great that your brother and sister-in-law are enjoying it."
+    },
+    {
+     "message": "hector told me his mum is latvian, never knew that",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fascinating piece of information. Latvia is a beautiful country with a rich history and culture. It's known for its stunning architecture, delicious cuisine, and vibrant arts scene. It's great that Hector's mother is Latvian."
+    },
+    {
+     "message": "bought a rice cooker last night and now i cant stop making rice, its a probelm",
+     "queries": [
+      "rice cooker"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "You may not have mentioned it to your neighbours."
+    },
+    {
+     "message": "my dad walt has a cat named biscuit that hates everyone but him",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a unique family dynamic. It's not uncommon for cats to be quite independent and even a bit aloof. It's great that your dad and his cat, Biscuit, have a special bond."
+    },
+    {
+     "message": "josie is moving to halifax in the spring i think, going to miss her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a loss. Halifax is a beautiful city with a lot to offer. It's known for its stunning architecture, vibrant arts scene, and delicious cuisine. It's great that you're feeling a bit of a loss about Josie's move."
+    },
+    {
+     "message": "my phone died again so i grabbed a fairphone on sale, hope it lasts",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great choice. Fairphone is a great option for those who want a more sustainable and repairable phone. It's great that you're making an eco-friendly decision."
+    },
+    {
+     "message": "my buddy bram is learning icelandic on duolingo for no reason, sends me random words at midnight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a unique way to learn a language. It's not uncommon for people to use language learning apps like Duolingo in unconventional ways. It's great that Bram is using the app to learn Icelandic."
+    },
+    {
+     "message": "walt is recovering from knee surgery and already bored out of his mind",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a challenging time for Walt. Knee surgery can be a tough recovery, and it's not uncommon for people to feel bored or restless during this period. It's great that you're checking in on him and offering support."
+    },
+    {
+     "message": "im a diehard canucks fan so you can imagine the mood lately",
+     "queries": [
+      "canucks"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "message": "colleen would eat poutine evry single meal if she could",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun way to imagine Colleen's diet. Poutine is a popular Canadian dish, and it's not uncommon for people to have a strong affinity for it. It's great that you're using this as a way to imagine Colleen's lifestyle."
+    },
+    {
+     "message": "marnies husband theo just got made head chef, shes thrilled",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great news! Theo's new role as head chef sounds exciting. It's always nice to see someone you're close to achieve their goals and success."
+    },
+    {
+     "message": "bram's cousin is getting married at lakeview hall, he wants me as a plus one, no idea yet",
+     "queries": [
+      "cousin lakeview"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "message": "going to lisbon in the fall, booked it half asleep, cheapest flights ive ever seen",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great adventure. Lisbon is a beautiful city with a rich history and culture. It's known for its stunning architecture, delicious cuisine, and vibrant nightlife. It's a great way to spend a fall season."
+    },
+    {
+     "message": "ewan took up curling last year and wont stop talking about it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Curling can be a bit of a niche sport, but it's definitely gaining popularity. It's a great way to stay active and have fun with friends. Ewan's enthusiasm is contagious, and it's great to see him enjoying a new hobby."
+    },
+    {
+     "message": "i grew up in sarnia so i still hate hot summers lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sarnia is a great place to grow up. It's a beautiful city with a rich history and culture. It's known for its stunning architecture, delicious cuisine, and vibrant nightlife. It's a great way to spend a summer."
+    },
+    {
+     "message": "hector showed up in a beat up suzuki hatchback this morning, cant believe it still runs",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a surprise. I can imagine being a bit shocked to see Hector in a beat up Suzuki hatchback. It's not every day you see someone driving a car like that."
+    },
+    {
+     "message": "started watching severance last night, its so weird",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Severance is a great show. It's a bit of a unique blend of comedy and drama, and it's definitely worth watching. I can see why you'd be drawn to it."
+    },
+    {
+     "message": "oh and im finally reading circe, josie lent it to me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great book. I'm glad you have it."
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where did my sister end up again",
+     "source_message": 1,
+     "key": "timmins",
+     "same_meaning": [
+      "Timmins",
+      "in Timmins"
+     ],
+     "category": "C04",
+     "person": "marnie",
+     "other_value": "barrie",
+     "message": "where did my sister end up again",
+     "queries": [
+      "sister"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0006::0 doc_id=exchange_0006 score=2.775]\nUser: my brother ewan and my sister-in-law colleen live in barrie, so they never make it up in winter\nAssistant: That sounds like a beautiful winter experience. Barrie is a great place to live, and it's great that your brother and sister-in-law are enjoying it.\n\n[chunk_id=exchange_0000::0 doc_id=exchange_0000 score=1.894]\nUser: hey, long day. my sister marnie lives in timmins now and keeps telling me to visit, its so cold up there\nAssistant: Timmins is a small city in Northern Ontario, Canada. It's known for its cold winters and beautiful landscapes. If you're visiting, you might want to pack warm clothes, a hat, and gloves."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what breed is josie's new pup",
+     "source_message": 5,
+     "key": "samoyed",
+     "same_meaning": [
+      "Samoyed",
+      "a samoyed"
+     ],
+     "category": "C10",
+     "person": "josie",
+     "message": "what breed is josie's new pup",
+     "queries": [
+      "josie dog"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=5.723]\nUser: my friend josie finally got a dog!! shes a samoyed and already stole my sandwich\nAssistant: That's a great news! Samoyeds are beautiful dogs and are known for their friendly and playful nature. It's great that your friend is getting a dog.\n\n[chunk_id=exchange_0010::0 doc_id=exchange_0010 score=2.585]\nUser: josie is moving to halifax in the spring i think, going to miss her\nAssistant: That sounds like a bit of a loss. Halifax is a beautiful city with a lot to offer. It's known for its stunning architecture, vibrant arts scene, and delicious cuisine. It's great that you're feeling a bit of a loss about Josie's move."
+     ],
+     "reply": "Your friend Josie got a Samoyed.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what instrument am i into these days",
+     "source_message": 6,
+     "key": "ukulele",
+     "same_meaning": [
+      "Ukulele",
+      "the ukulele"
+     ],
+     "category": "C22",
+     "person": "me",
+     "message": "what instrument am i into these days",
+     "queries": [
+      "instrument",
+      "instrument",
+      "instrument",
+      "instrument"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"instrument\"}}]",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which fruit am i not supposed to have",
+     "source_message": 4,
+     "key": "papaya",
+     "same_meaning": [
+      "Papaya",
+      "papayas"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which fruit am i not supposed to have",
+     "queries": [
+      "not eat fruit"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0015::0 doc_id=exchange_0015 score=2.675]\nUser: colleen would eat poutine evry single meal if she could\nAssistant: That's a fun way to imagine Colleen's diet. Poutine is a popular Canadian dish, and it's not uncommon for people to have a strong affinity for it. It's great that you're using this as a way to imagine Colleen's lifestyle.\n\n[chunk_id=exchange_0003::0 doc_id=exchange_0003 score=1.924]\nUser: cant eat papaya btw, makes my mouth go all itchy, learned that the hard way at a brunch\nAssistant: That's a common reaction. Papaya can be a bit of a trigger for some people. If you're looking for alternatives, you might want to try other fruits that don't cause that reaction.\n\n[chunk_id=exchange_0005::0 doc_id=exchange_0005 score=1.075]\nUser: been teaching myself ukulele on my lunch breaks, my neighbours probably hate me\nAssistant: You may not have mentioned it to your neighbours.\n\n[chunk_id=exchange_0008::0 doc_id=exchange_0008 score=1.043]\nUser: bought a rice cooker last night and now i cant stop making rice, its a probelm\nAssistant: You may not have mentioned it to your neighbours.\n\n[chunk_id=exchange_0009::0 doc_id=exchange_0009 score=0.840]\nUser: my dad walt has a cat named biscuit that hates everyone but him\nAssistant: That sounds like a unique family dynamic. It's not uncommon for cats to be quite independent and even a bit aloof. It's great that your dad and his cat, Biscuit, have a special bond."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "what is hector's heritage",
+     "source_message": 8,
+     "key": "latvian",
+     "same_meaning": [
+      "Latvian",
+      "Latvia",
+      "from Latvia"
+     ],
+     "category": "C37",
+     "person": "hector",
+     "message": "what is hector's heritage",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector's heritage is not explicitly stated in the text. However, it can be inferred that Hector is of a specific ethnic or cultural background, as he is driving a Suzuki hatchback, which is a Japanese car.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "which language is bram studying",
+     "source_message": 13,
+     "key": "icelandic",
+     "same_meaning": [
+      "Icelandic",
+      "Iceland's language"
+     ],
+     "category": "C36",
+     "person": "bram",
+     "message": "which language is bram studying",
+     "queries": [
+      "bram"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0012::0 doc_id=exchange_0012 score=2.641]\nUser: my buddy bram is learning icelandic on duolingo for no reason, sends me random words at midnight\nAssistant: That's a bit of a unique way to learn a language. It's not uncommon for people to use language learning apps like Duolingo in unconventional ways. It's great that Bram is using the app to learn Icelandic.\n\n[chunk_id=exchange_0017::0 doc_id=exchange_0017 score=2.369]\nUser: bram's cousin is getting married at lakeview hall, he wants me as a plus one, no idea yet\nAssistant: I don't have that from you. What is it?"
+     ],
+     "reply": "My buddy Bram is learning Icelandic on Duolingo.",
+     "found_source": true,
+     "source_in_view": false,
+     "key_in_reply": true,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "what make is hectors car",
+     "source_message": 22,
+     "key": "suzuki",
+     "same_meaning": [
+      "Suzuki",
+      "a suzuki hatchback",
+      "suzuki hatchback"
+     ],
+     "category": "C17",
+     "person": "hector",
+     "message": "what make is hectors car",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector's car is a Suzuki hatchback.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what book am i halfway through",
+     "source_message": 24,
+     "key": "circe",
+     "same_meaning": [
+      "Circe",
+      "the book josie lent you"
+     ],
+     "category": "C25",
+     "person": "me",
+     "message": "what book am i halfway through",
+     "queries": [
+      "book",
+      "book",
+      "book",
+      "book"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"book\"}}]",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "what city is walt settled in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C04",
+     "person": "walt",
+     "message": "what city is walt settled in",
+     "queries": [
+      "walter"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "who is hector's partner",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C08",
+     "person": "hector",
+     "message": "who is hector's partner",
+     "queries": [
+      "hector"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0007::0 doc_id=exchange_0007 score=2.744]\nUser: hector told me his mum is latvian, never knew that\nAssistant: That's a fascinating piece of information. Latvia is a beautiful country with a rich history and culture. It's known for its stunning architecture, delicious cuisine, and vibrant arts scene. It's great that Hector's mother is Latvian.\n\n[chunk_id=exchange_0002::0 doc_id=exchange_0002 score=2.035]\nUser: my coworker hector brought in the worlds worst coffee again, genuinly undrinkable\nAssistant: That's a tough critique. Coffee can be a bit of a delicate matter, and what one person finds undrinkable, another might enjoy. Do you have any specific preferences when it comes to coffee?"
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what is josie's dog called",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C09",
+     "person": "josie",
+     "overlap_message": 5,
+     "message": "what is josie's dog called",
+     "queries": [
+      "josie dog name"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0004::0 doc_id=exchange_0004 score=5.723]\nUser: my friend josie finally got a dog!! shes a samoyed and already stole my sandwich\nAssistant: That's a great news! Samoyeds are beautiful dogs and are known for their friendly and playful nature. It's great that your friend is getting a dog.\n\n[chunk_id=exchange_0010::0 doc_id=exchange_0010 score=2.585]\nUser: josie is moving to halifax in the spring i think, going to miss her\nAssistant: That sounds like a bit of a loss. Halifax is a beautiful city with a lot to offer. It's known for its stunning architecture, vibrant arts scene, and delicious cuisine. It's great that you're feeling a bit of a loss about Josie's move."
+     ],
+     "reply": "Your friend Josie's dog is a Samoyed."
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "what car do i drive to the pharmacy",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "me",
+     "overlap_message": 2,
+     "message": "what car do i drive to the pharmacy",
+     "queries": [
+      "pharmacy car auction"
+     ],
+     "search_outputs": [
+      "[chunk_id=exchange_0001::0 doc_id=exchange_0001 score=3.169]\nUser: just started at the pharmacy on elm st, still learning where everything is lol\nAssistant: I don't have that from you. What is it?"
+     ],
+     "reply": "I don't have that from you. What is it?"
+    }
+   ]
+  },
+  "k13op_r253_no_search": {
+   "prefix": [
+    {
+     "message": "hey, long day. my sister marnie lives in timmins now and keeps telling me to visit, its so cold up there",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Timmins is a small city in Northern Ontario, Canada. It's known for its cold winters and beautiful landscapes. If you're visiting, you might want to pack warm clothes, a hat, and gloves."
+    },
+    {
+     "message": "just started at the pharmacy on elm st, still learning where everything is lol",
+     "queries": [
+      "elm street pharmacy"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "message": "my coworker hector brought in the worlds worst coffee again, genuinly undrinkable",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a tough critique. Coffee can be a bit of a delicate matter, and what one person finds undrinkable, another might enjoy. Do you have any specific preferences when it comes to coffee?"
+    },
+    {
+     "message": "cant eat papaya btw, makes my mouth go all itchy, learned that the hard way at a brunch",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a common reaction. Papaya can be a bit of a trigger for some people. If you're looking for alternatives, you might want to try other fruits that don't cause that reaction."
+    },
+    {
+     "message": "my friend josie finally got a dog!! shes a samoyed and already stole my sandwich",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great news! Samoyeds are beautiful dogs and are known for their friendly and playful nature. It's great that your friend is getting a dog."
+    },
+    {
+     "message": "been teaching myself ukulele on my lunch breaks, my neighbours probably hate me",
+     "queries": [
+      "neighbour ukulele"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "You may not have mentioned it to your neighbours."
+    },
+    {
+     "message": "my brother ewan and my sister-in-law colleen live in barrie, so they never make it up in winter",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a beautiful winter experience. Barrie is a great place to live, and it's great that your brother and sister-in-law are enjoying it."
+    },
+    {
+     "message": "hector told me his mum is latvian, never knew that",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fascinating piece of information. Latvia is a beautiful country with a rich history and culture. It's known for its stunning architecture, delicious cuisine, and vibrant arts scene. It's great that Hector's mother is Latvian."
+    },
+    {
+     "message": "bought a rice cooker last night and now i cant stop making rice, its a probelm",
+     "queries": [
+      "rice cooker"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "You may not have mentioned it to your neighbours."
+    },
+    {
+     "message": "my dad walt has a cat named biscuit that hates everyone but him",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a unique family dynamic. It's not uncommon for cats to be quite independent and even a bit aloof. It's great that your dad and his cat, Biscuit, have a special bond."
+    },
+    {
+     "message": "josie is moving to halifax in the spring i think, going to miss her",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a bit of a loss. Halifax is a beautiful city with a lot to offer. It's known for its stunning architecture, vibrant arts scene, and delicious cuisine. It's great that you're feeling a bit of a loss about Josie's move."
+    },
+    {
+     "message": "my phone died again so i grabbed a fairphone on sale, hope it lasts",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great choice. Fairphone is a great option for those who want a more sustainable and repairable phone. It's great that you're making an eco-friendly decision."
+    },
+    {
+     "message": "my buddy bram is learning icelandic on duolingo for no reason, sends me random words at midnight",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a unique way to learn a language. It's not uncommon for people to use language learning apps like Duolingo in unconventional ways. It's great that Bram is using the app to learn Icelandic."
+    },
+    {
+     "message": "walt is recovering from knee surgery and already bored out of his mind",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a challenging time for Walt. Knee surgery can be a tough recovery, and it's not uncommon for people to feel bored or restless during this period. It's great that you're checking in on him and offering support."
+    },
+    {
+     "message": "im a diehard canucks fan so you can imagine the mood lately",
+     "queries": [
+      "canucks"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "message": "colleen would eat poutine evry single meal if she could",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a fun way to imagine Colleen's diet. Poutine is a popular Canadian dish, and it's not uncommon for people to have a strong affinity for it. It's great that you're using this as a way to imagine Colleen's lifestyle."
+    },
+    {
+     "message": "marnies husband theo just got made head chef, shes thrilled",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a great news! Theo's new role as head chef sounds exciting. It's always nice to see someone you're close to achieve their goals and success."
+    },
+    {
+     "message": "bram's cousin is getting married at lakeview hall, he wants me as a plus one, no idea yet",
+     "queries": [
+      "cousin lakeview"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "message": "going to lisbon in the fall, booked it half asleep, cheapest flights ive ever seen",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great adventure. Lisbon is a beautiful city with a rich history and culture. It's known for its stunning architecture, delicious cuisine, and vibrant nightlife. It's a great way to spend a fall season."
+    },
+    {
+     "message": "ewan took up curling last year and wont stop talking about it",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Curling can be a bit of a niche sport, but it's definitely gaining popularity. It's a great way to stay active and have fun with friends. Ewan's enthusiasm is contagious, and it's great to see him enjoying a new hobby."
+    },
+    {
+     "message": "i grew up in sarnia so i still hate hot summers lol",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Sarnia is a great place to grow up. It's a beautiful city with a rich history and culture. It's known for its stunning architecture, delicious cuisine, and vibrant nightlife. It's a great way to spend a summer."
+    },
+    {
+     "message": "hector showed up in a beat up suzuki hatchback this morning, cant believe it still runs",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That's a bit of a surprise. I can imagine being a bit shocked to see Hector in a beat up Suzuki hatchback. It's not every day you see someone driving a car like that."
+    },
+    {
+     "message": "started watching severance last night, its so weird",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Severance is a great show. It's a bit of a unique blend of comedy and drama, and it's definitely worth watching. I can see why you'd be drawn to it."
+    },
+    {
+     "message": "oh and im finally reading circe, josie lent it to me",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "That sounds like a great book. I'm glad you have it."
+    }
+   ],
+   "answers": [
+    {
+     "number": 1,
+     "kind": "older",
+     "question": "where did my sister end up again",
+     "source_message": 1,
+     "key": "timmins",
+     "same_meaning": [
+      "Timmins",
+      "in Timmins"
+     ],
+     "category": "C04",
+     "person": "marnie",
+     "other_value": "barrie",
+     "message": "where did my sister end up again",
+     "queries": [
+      "sister"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 2,
+     "kind": "older",
+     "question": "what breed is josie's new pup",
+     "source_message": 5,
+     "key": "samoyed",
+     "same_meaning": [
+      "Samoyed",
+      "a samoyed"
+     ],
+     "category": "C10",
+     "person": "josie",
+     "message": "what breed is josie's new pup",
+     "queries": [
+      "josie dog"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 3,
+     "kind": "older",
+     "question": "what instrument am i into these days",
+     "source_message": 6,
+     "key": "ukulele",
+     "same_meaning": [
+      "Ukulele",
+      "the ukulele"
+     ],
+     "category": "C22",
+     "person": "me",
+     "message": "what instrument am i into these days",
+     "queries": [
+      "instrument",
+      "instrument",
+      "instrument",
+      "instrument"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"instrument\"}}]",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 4,
+     "kind": "older",
+     "question": "which fruit am i not supposed to have",
+     "source_message": 4,
+     "key": "papaya",
+     "same_meaning": [
+      "Papaya",
+      "papayas"
+     ],
+     "category": "C19",
+     "person": "me",
+     "message": "which fruit am i not supposed to have",
+     "queries": [
+      "not eat fruit"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "You may not have mentioned it to me.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 5,
+     "kind": "older",
+     "question": "what is hector's heritage",
+     "source_message": 8,
+     "key": "latvian",
+     "same_meaning": [
+      "Latvian",
+      "Latvia",
+      "from Latvia"
+     ],
+     "category": "C37",
+     "person": "hector",
+     "message": "what is hector's heritage",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector's heritage is not explicitly stated in the text. However, it can be inferred that Hector is of a specific ethnic or cultural background, as he is driving a Suzuki hatchback, which is a Japanese car.",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 6,
+     "kind": "older",
+     "question": "which language is bram studying",
+     "source_message": 13,
+     "key": "icelandic",
+     "same_meaning": [
+      "Icelandic",
+      "Iceland's language"
+     ],
+     "category": "C36",
+     "person": "bram",
+     "message": "which language is bram studying",
+     "queries": [
+      "bram"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?",
+     "found_source": false,
+     "source_in_view": false,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 7,
+     "kind": "in_view",
+     "question": "what make is hectors car",
+     "source_message": 22,
+     "key": "suzuki",
+     "same_meaning": [
+      "Suzuki",
+      "a suzuki hatchback",
+      "suzuki hatchback"
+     ],
+     "category": "C17",
+     "person": "hector",
+     "message": "what make is hectors car",
+     "queries": [],
+     "search_outputs": [],
+     "reply": "Hector's car is a Suzuki hatchback.",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": true,
+     "key_in_view_replies": true
+    },
+    {
+     "number": 8,
+     "kind": "in_view",
+     "question": "what book am i halfway through",
+     "source_message": 24,
+     "key": "circe",
+     "same_meaning": [
+      "Circe",
+      "the book josie lent you"
+     ],
+     "category": "C25",
+     "person": "me",
+     "message": "what book am i halfway through",
+     "queries": [
+      "book",
+      "book",
+      "book",
+      "book"
+     ],
+     "search_outputs": [
+      "No results found.",
+      "No results found.",
+      "No results found."
+     ],
+     "reply": "[{\"tool_name\": \"search_corpus\", \"parameters\": {\"query\": \"book\"}}]",
+     "found_source": false,
+     "source_in_view": true,
+     "key_in_reply": false,
+     "key_in_view_replies": false
+    },
+    {
+     "number": 9,
+     "kind": "never_told",
+     "question": "what city is walt settled in",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C04",
+     "person": "walt",
+     "message": "what city is walt settled in",
+     "queries": [
+      "walter"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 10,
+     "kind": "never_told",
+     "question": "who is hector's partner",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C08",
+     "person": "hector",
+     "message": "who is hector's partner",
+     "queries": [
+      "hector"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 11,
+     "kind": "never_told",
+     "question": "what is josie's dog called",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C09",
+     "person": "josie",
+     "overlap_message": 5,
+     "message": "what is josie's dog called",
+     "queries": [
+      "josie dog name"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    },
+    {
+     "number": 12,
+     "kind": "never_told",
+     "question": "what car do i drive to the pharmacy",
+     "source_message": null,
+     "key": "never told",
+     "same_meaning": [
+      "you never said",
+      "not mentioned",
+      "you didn't tell me",
+      "no idea"
+     ],
+     "category": "C17",
+     "person": "me",
+     "overlap_message": 2,
+     "message": "what car do i drive to the pharmacy",
+     "queries": [
+      "pharmacy car auction"
+     ],
+     "search_outputs": [
+      "No results found."
+     ],
+     "reply": "I don't have that from you. What is it?"
+    }
+   ]
+  }
+ }
+}
