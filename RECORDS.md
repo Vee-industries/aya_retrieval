@@ -9551,7 +9551,7 @@ blend finishes either way (registered).
 
 ## R-252 · 2026-11-14 · REOPENED · Kevin: keep trying; round 5 registered before any round-5 result
 
-Kevin (04:48), asked R-251's question: "Keep trying". His standing order (R-240) holds over the lane's stop; the
+Kevin (about 04:45), asked R-251's question: "Keep trying". His standing order (R-240) holds over the lane's stop; the
 lane's finding is kept in front of every result below: on these lines a pass is partly a redraw, and only full
 screening on seeds 83 and 94 (never skipped for time) says more. No new lane: R-251's lane judged every remaining kind
 of lever a redraw, and Kevin ruled to go on.
