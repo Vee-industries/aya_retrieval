@@ -9804,3 +9804,21 @@ method, so its training process was stopped about 40 seconds after it started, b
 result). Stricter reading while Kevin is away; no gate was read. **OP2 is not a try** and gives no result. chain6 ended,
 and chain7 started OP3 (R-263) at 07:27. OP3's rule already stops on fewer than 10 new answer rows; OP's start was
 not trained on the item chats (K1.3's rows are templates; OP added only its 36 corrections, which round 2 dedupes).
+
+## R-265 · 2026-11-14 · REOPENED · OP3 stops by its rule: 0 new answer rows; C1 not run
+
+**OP seed 82 on the 375 items** (`results/recall_eval/op_op_82_seed_0.json`, 07:27 to 07:44), tool_loop, by kind,
+fact about the user or not, right or wrong: older about the user 11 right / 117 wrong; older about someone else 57 /
+65; traps about the user 11 / 6; traps about someone else 103 / 5 (K1.3 on the same items, R-257: older 72 / 178,
+traps 106 / 19). **Round 2's build** (`results/panels/R-263/stopped_k13op3_82_r263.provenance.json`): 41 answer rows
+built, 2 decline rows, 30 correct trap declines; dropped 188 older items as right or with the source not returned, 25
+as corrected in round 1, 68 traps with the value not returned. **All 41 answer rows are about someone else**, so OP's
+user-fact cut (answer rows about someone else cut until user facts are a third of them) leaves 0, the balance keeps 0
+a side, and **R-263's stop rule fires: 0 new answer rows (at least 10)**. OP3 does not train; C1 does not run (it
+follows only an OP3 that trained). chain7 ended at 07:44.
+
+**What the counts say, not a new rule.** OP's remaining errors on its training chats that its own search can reach are
+about other people; its errors on facts about the user are almost all ones its search does not reach (the source is
+not in the output of its queries cut to the question's words). A whole-set user share would not change the stop:
+OP's round-1 set holds 13 user facts of 25 fact rows, so at most about 14 more rows about someone else fit under
+R-205's third before any balance. No on-policy try is left registered. Demo4 readings: 3.
