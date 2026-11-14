@@ -10111,3 +10111,15 @@ R-257); one seed, n = 6 a line, and the two demos disagree on which model is ahe
 transcript check) printed its marks file in full, with short reasons that quote some Demo5 keys and replies; this was
 after both marks files were final, so it changes no mark. Demo5 is no longer unseen by the orchestrator. Demo5
 readings: 2 (C1, K1.3). Demo4 readings: 4. Weekly usage 91% (all models, 10:45).
+
+## R-278 · 2026-11-14 · REOPENED · Kevin: the demo test is the total over both demos; C1 goes on to seeds 83 and 94
+
+Kevin (about 10:50, in chat), on R-277: "hmm it has a higher point spread". Asked whether to judge by the totals across
+the two demos, so that C1 trains seeds 83 and 94 and runs the full screening: "yes". **His ruling:** R-276's demo test
+is read as the totals over Demo4 and Demo5 on seed 82, not each demo alone. With search: older **C1 5 of 12** (3 + 2)
+against **K1.3 4 of 12** (1 + 3); never-told **C1 6 of 8** (3 + 3) against **K1.3 5 of 8** (2 + 3). C1 is above K1.3 on
+both totals, so it passes however the totals are read. Disclosed: set after both models' Demo4 and Demo5 readings
+exist; it is Kevin's ruling (STANDARD rule 2). Everything else in R-276 stands: C1's recipe on seeds 83 and 94 (OP's
+start adapters trained as OP was, then C1's stage on OP's seed set), every screening line on seeds 82 and 83, and C1 is
+the pick only if its pooled pick recall over 82, 83 and 94 is above K1.3's 742 (`decide_r191.py`). Weekly usage 91%
+(all models, 10:45).
