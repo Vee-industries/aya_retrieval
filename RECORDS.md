@@ -9352,3 +9352,24 @@ its result; Demo3 read only after a Demo2 pass; hard_dev before any Demo read (R
 rule (R-194): every seed of a candidate trained by Saturday 16:00 ET, so a try must clear seed 82's gates by about
 Saturday 10:00 to train and screen seeds 83 and 94 in time. New levers come from lanes, each registered here before
 it runs.
+
+## R-241 · 2026-11-13 · REOPENED · Round 3 registered before any round-3 result
+
+Under R-240. **The lane** (design, against-minded, Opus; `results/panels/R-241/round3_brief.md`, `round3_lane.md`)
+ranked four levers; three are candidates and are registered here, to run after round 2 and the blend, in this order,
+under R-229's and R-237's rules (hard_dev first):
+
+| Try | Label | Starts from | Rows | Rate, epochs |
+|---|---|---|---|---|
+| R3a | `k46r3a_r241` | K4.6 epoch 3 | `k4_6tw_r241`: K4.6's rows with 2 searches that name the value (101) | 1e-4, 1 |
+| R3b | `k46t4b_r241` | blend of K4.6 epoch 3 and T4, w = 0.5 | none (no training) | - |
+| R3c | `k13t4r3c_r241` | T4 | K4.8's K4.4 other_person and contrast rows (paired) | 1e-4, 1 |
+
+R3a (`scripts/records/build_k4_6tw.py`): 101 rows; in 81 the first search returned nothing, so only 20 teach a second
+search after a first that returned text without the fact, the lane's target. A small stage (about 50 steps).
+**R3b runs only if some w of the K1.3 and T4 blend passes hard_dev** (the lane's condition); it is one w, 0.5, the
+blend's middle point, not chosen from data. **R3c**'s rows are to be counted before it is built: if K4.4's rows are
+already all inside T4's 1,393 rows, R3c repeats data T4 trained on and is dropped (the lane's own doubt). Not run:
+the lane's fourth lever (fresh K4.6 with the second never_told search off), a cause test, not a candidate. K4.6 has
+seed 82 only; a K4.6-based try that clears seed 82 trains K4.6's seeds 83 and 94 first (3 epochs from base), and that
+is disclosed.
