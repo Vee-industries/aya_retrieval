@@ -9734,3 +9734,19 @@ has the same SHA-256 (479c9379...), and only the run metadata in its provenance 
 otherwise it holds for a decision by hand. `qtry4.sh` is `qtry3.sh` with one hook: before a seed's stage, if that
 seed's set is missing, `op2_prep.sh SEED` runs T6's seed adapter over the items, builds the set and checks it (0 FAIL
 or the try stops). For seeds 83 and 94, T6's start adapter is first trained exactly as T6 was (R-252's `init`).
+
+## R-261 · 2026-11-14 · REOPENED · OP passes seed 82's hard_dev and bombs Demo4 on the older line; OP2 next
+
+**OP seed 82** (`k13op_r253`: K1.3 plus 1e-4 x 1 on `k13op_82_r253`, 36 balanced corrections and 7 check_false rows
+beside K1.3's 1,094; 06:56): hard_dev never_told **48**, false retrieval **1**, recall **60**, in_view 39 (K1.3: 46 /
+2 / 52 / 41; C0: 48 / 0 / 54 / 39). Passes.
+
+**Demo4 on OP seed 82** (`results/demo2/branches_k13op_r253_82_demo4.json`, 07:03; two fresh blind Sonnet judges given
+the sheet text only, each 48 lines, one tool call each (the hand-back), **0 disagreements**;
+`results/demo2/judge_k13op_82_demo4/`), with search, older / in view / never told plain / shared word: **2 of 6 / 1 of
+2 / 2 of 2 / 1 of 2. Bombs** on the older line (3 needed); never-told 3 of 4 meets its line. Without search: 0 / 1 / 2
+/ 2. Against K1.3 (1 / 2 / 2 / 0) and C0 (2 / 1 / 2 / 0): one more older item than K1.3, the same as C0, and one more
+shared-word never-told item than either. Its older misses: two declines ("I don't have that from you") after search,
+two wrong values, and two replies that are only a search call (cut at the reply length). Demo4 readings: 3. The lane's
+prediction for OP (R-253: Demo older about 2) held. By R-256, **OP2 runs next** (`chain6_r256.sh`, code R-260).
+Weekly usage 89% (07:04).
