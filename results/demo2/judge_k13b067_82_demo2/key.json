@@ -1,0 +1,290 @@
+[
+ {
+  "item": 1,
+  "arm": "base_no_search",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 2,
+  "arm": "base",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 3,
+  "arm": "base_no_search",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 4,
+  "arm": "base_no_search",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 5,
+  "arm": "base_no_search",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 6,
+  "arm": "k13b067_r237",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 7,
+  "arm": "k13b067_r237_no_search",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 8,
+  "arm": "base",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 9,
+  "arm": "k13b067_r237",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 10,
+  "arm": "k13b067_r237_no_search",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 11,
+  "arm": "base",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 12,
+  "arm": "k13b067_r237_no_search",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 13,
+  "arm": "base_no_search",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 14,
+  "arm": "base_no_search",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 15,
+  "arm": "k13b067_r237_no_search",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 16,
+  "arm": "base_no_search",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 17,
+  "arm": "base",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 18,
+  "arm": "k13b067_r237",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 19,
+  "arm": "base_no_search",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 20,
+  "arm": "base",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 21,
+  "arm": "k13b067_r237",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 22,
+  "arm": "k13b067_r237",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 23,
+  "arm": "k13b067_r237",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 24,
+  "arm": "k13b067_r237",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 25,
+  "arm": "base",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 26,
+  "arm": "k13b067_r237_no_search",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 27,
+  "arm": "k13b067_r237_no_search",
+  "number": 2,
+  "kind": "older"
+ },
+ {
+  "item": 28,
+  "arm": "base_no_search",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 29,
+  "arm": "base",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 30,
+  "arm": "base",
+  "number": 8,
+  "kind": "in_view"
+ },
+ {
+  "item": 31,
+  "arm": "k13b067_r237_no_search",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 32,
+  "arm": "base",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 33,
+  "arm": "k13b067_r237",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 34,
+  "arm": "base",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 35,
+  "arm": "k13b067_r237_no_search",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 36,
+  "arm": "k13b067_r237",
+  "number": 12,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 37,
+  "arm": "k13b067_r237_no_search",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 38,
+  "arm": "k13b067_r237",
+  "number": 5,
+  "kind": "older"
+ },
+ {
+  "item": 39,
+  "arm": "base_no_search",
+  "number": 6,
+  "kind": "older"
+ },
+ {
+  "item": 40,
+  "arm": "k13b067_r237_no_search",
+  "number": 4,
+  "kind": "older"
+ },
+ {
+  "item": 41,
+  "arm": "k13b067_r237",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 42,
+  "arm": "k13b067_r237_no_search",
+  "number": 11,
+  "kind": "never_told_shared_word"
+ },
+ {
+  "item": 43,
+  "arm": "base_no_search",
+  "number": 7,
+  "kind": "in_view"
+ },
+ {
+  "item": 44,
+  "arm": "base",
+  "number": 1,
+  "kind": "older"
+ },
+ {
+  "item": 45,
+  "arm": "k13b067_r237",
+  "number": 3,
+  "kind": "older"
+ },
+ {
+  "item": 46,
+  "arm": "base_no_search",
+  "number": 9,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 47,
+  "arm": "k13b067_r237_no_search",
+  "number": 10,
+  "kind": "never_told_plain"
+ },
+ {
+  "item": 48,
+  "arm": "base",
+  "number": 5,
+  "kind": "older"
+ }
+]

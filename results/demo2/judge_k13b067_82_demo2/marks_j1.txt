@@ -1,0 +1,48 @@
+1 | RIGHT | says no information found, names no town
+2 | RIGHT | says it has no information, names no value
+3 | RIGHT | says it has no information, names no value
+4 | RIGHT | says kayak
+5 | WRONG | names raw meat, fish, eggs, not sesame
+6 | ABSTAINED | says it does not have it
+7 | RIGHT | says it does not have it, names no value
+8 | WRONG | explains dev drive term, no saab
+9 | WRONG | says geology, not Tbilisi
+10 | RIGHT | says it does not have it, names no value
+11 | RIGHT | says no information found, names no place
+12 | RIGHT | says khruangbin
+13 | WRONG | talks about pottery, no aquarium
+14 | ABSTAINED | says it found no information
+15 | ABSTAINED | says it does not have it
+16 | WRONG | explains dev drive term, no saab
+17 | ABSTAINED | says it found no information
+18 | ABSTAINED | says it does not know
+19 | ABSTAINED | says it found no information
+20 | WRONG | suggests dress advice, no brackenfield
+21 | RIGHT | says it does not have it, names no value
+22 | RIGHT | says it does not have it, names no value
+23 | RIGHT | says brackenfield
+24 | RIGHT | says kayak
+25 | RIGHT | says no information found, names no town
+26 | RIGHT | says kayak
+27 | ABSTAINED | says it does not know
+28 | RIGHT | says no information found, names no place
+29 | ABSTAINED | says it found no information
+30 | RIGHT | says kayak
+31 | ABSTAINED | says it does not know
+32 | WRONG | names Oaxaca, not Tbilisi
+33 | WRONG | names geology as a value for the asked fact
+34 | RIGHT | says it has no information, names no value
+35 | ABSTAINED | says it does not have it
+36 | RIGHT | says it does not have it, names no value
+37 | ABSTAINED | says it does not see it
+38 | ABSTAINED | says it does not see it
+39 | ABSTAINED | says it found no information
+40 | ABSTAINED | says it does not have it
+41 | RIGHT | says khruangbin
+42 | RIGHT | says it does not have it, names no value
+43 | ABSTAINED | says it found no information
+44 | WRONG | talks about pottery, no aquarium
+45 | RIGHT | says whippet
+46 | RIGHT | says it has no information, names no value
+47 | RIGHT | says it does not have it, names no value
+48 | WRONG | names raw meat, fish, eggs, not sesame

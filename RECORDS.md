@@ -9526,3 +9526,8 @@ R-237's grid, seed 82 hard_dev (never_told / false retrieval; each a rank-64 exa
 results are not monotonic in w (0.5 fails between two passes), which shows hard_dev's lines sit inside its own
 variation at these margins (as R-249 found for R2c); disclosed. By the registered rule the highest w passing both
 lines, **0.67**, reads Demo2 once (its 21st reading), then Demo3 if it passes.
+
+**Demo2 on the w 0.67 blend** (04:35; two fresh blind Sonnet judges, 48 items, 0 disagreements;
+`results/demo2/judge_k13b067_82_demo2/`): **2 of 6 / 2 of 2 / 2 of 2 / 1 of 2. Bombs.** The grid is done (Kevin
+declined a second read for w 0.33, 04:33). Demo2 readings: 21. R3a is dropped (R-248); the T6 and T4 grid (R-245) runs
+next.
