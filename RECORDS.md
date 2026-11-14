@@ -10123,3 +10123,23 @@ exist; it is Kevin's ruling (STANDARD rule 2). Everything else in R-276 stands: 
 start adapters trained as OP was, then C1's stage on OP's seed set), every screening line on seeds 82 and 83, and C1 is
 the pick only if its pooled pick recall over 82, 83 and 94 is above K1.3's 742 (`decide_r191.py`). Weekly usage 91%
 (all models, 10:45).
+
+## R-279 · 2026-11-14 · REOPENED · C1 passes all 20 screening lines and beats K1.3: pick recall 775 to 742; C1 is the pick
+
+**C1's try ran to the end** (`k13opc1_r263`, chain12, 10:54 to 14:08; R-278): OP's start adapters for seeds 83 and 94
+trained as OP was, then C1's stage on OP's seed sets (all three seeds trained by 11:43); seed 83 hard_dev never_told
+**48**, false retrieval **2** (at most 5), PASS; the whole screening on 82 and 83 and the pick sets on 94.
+**`decide_r191.py`** (14:09; `results/panels/R-279/decide_r191.txt`): **C1 0 FAIL of 20 lines, pooled dev recall 537
+(K1.3 501), pick recall over seeds 82, 83 and 94: 775 (K1.3 742; +4.4%). The script names C1 the shippable arm for S3.**
+C1's lines beside K1.3's (seed 82 / 83): probe recall 95 / 96 (K1.3 90 / 94), hard_dev recall 68 / 66 (52 / 72),
+outside-writer 110 / 102 (89 / 104), T2 other-facts recall 157 / 158 (135 / 159), hard_dev never_told 46 / 48 (46 / 48),
+hd false retrieval 0 / 2 (2 / 1); T3 copies 69 (68); **T2 false answers 19 (K1.3 9; the line is at most half of
+6.37's 53)**. Demos on seed 82 (R-278's totals): older 5 of 12 against 4, never-told 6 of 8 against 5.
+
+**Read with this.** The pick-recall lead, 33, is under two seeds' spread (sd about 19 a seed, R-203); C1 was chosen
+among 24 candidates listed in `decide_r191.py` on reused development sets, so its development numbers are optimistic
+(R-194); its demo pass rests on Kevin's rulings R-276 and R-278, made after both models' demo readings existed; C1 is
+behind K1.3 on seed 83's hard_dev recall (66 against 72) and doubles T2's false answers (19 against 9) while staying
+under that line. S3 (sealed, R-179) is the measure. **Next: S3 on C1**, by 23:00 (R-243), on Kevin's go; `qs3.sh` names
+only K1, K1.3 and K2.1 as picks, so it needs C1 added before it runs. Weekly usage 92% (all models, 14:10). Nothing
+pushed.

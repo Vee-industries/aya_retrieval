@@ -66,6 +66,15 @@ diagnostic, not eligible for the pick), against K1.3's 89 and K4.1's 122 (R-214)
 from 8 new writers, passed its check and is training (R-215). The shipped model stays 6.37 unless a candidate passes
 the registered rule on S3, which runs once, by 19:00 Eastern on 14 November (R-194, R-202).
 
+Since then (R-216 to R-279, 13 and 14 November). More candidates trained on later stages and on the model's own
+corrections; `decide_r191.py` lists 24. Demo2 and Demo3 were retired because their answers were training values
+(R-254); Demo4 and Demo5 replaced them. Kevin ruled that a candidate must beat K1.3, with the demos judged on their
+totals (R-276, R-278, set after the demo readings existed). C1, K1.3 with two stages of on-policy corrections, recalled
+5 of 12 older facts over the two demos against K1.3's 4, and 6 of 8 never-told against 5 (seed 82). It passed all 20
+screening lines and leads the pick on pooled recall over three seeds, 775 against K1.3's 742 (R-279); the lead is
+under two seeds' spread. C1 is the pick for S3, which runs once, by 23:00 Eastern on 14 November (R-243). The shipped
+model stays 6.37 unless C1 passes the registered rule there.
+
 ## Submission summary
 
 **Title and claim.** Teaching a 3B model to search a long chat it can no longer see: a LoRA adapter trained with

@@ -1,17 +1,21 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 10:47 ET (R-277, session e01413cc). Read this, then
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 14:10 ET (R-279, session e01413cc). Read this, then
 `docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-247 to R-272.
 
 ## State
 
-- **Shippable pick: K1.3** (`decide_r191.py`, pick recall 742). R2c beat it (868) but is not eligible: its set failed
-  a check line (R-247); its fixed set failed hard_dev (R-249). `decide_r191.py` lists R2c in `NOT_ELIGIBLE`.
+- **Shippable pick: C1** (`k13opc1_r263`; `decide_r191.py` 0 FAIL of 20, pick recall 775 against K1.3's 742, R-279).
+  C1 is OP's stage run twice from K1.3 (1e-4 x 1 on OP's set, twice). It beat K1.3 by Kevin's rulings: a candidate must
+  beat K1.3 (R-276), with the demos judged on their totals over Demo4 and Demo5 (R-278): older 5 of 12 against 4,
+  never-told 6 of 8 against 5. **Next: S3 on C1 by 23:00 (R-243), on Kevin's go.** `qs3.sh` (in the scratchpad of spare
+  session 3f7d989b) knows only K1, K1.3 and K2.1 as picks and needs C1 added. Before R-279 the pick was K1.3 (742); R2c
+  (868) is not eligible (R-247, R-249; `NOT_ELIGIBLE` in `decide_r191.py`).
 - **Demos (R-254, `docs/demos/WHY.md`):** Demo2 and Demo3 are retired (their answers were training values). Every try
   reads **Demo4** (screening) then **Demo5** (held out), both written fresh and checked clean by
   `scripts/records/demo_contamination.py`. K1.3 on Demo4: older 1 of 6, never-told 2 of 4 (R-257). Readings: Demo4 4
   (K1.3, C0, OP, C1), Demo5 2 (C1, K1.3: 3 of 6 / 3 of 4, R-277).
-- **Nothing runs; the card is idle (10:47); no try is registered; reported to Kevin (R-277).** Kevin ruled (R-276) that a candidate must beat K1.3 on each demo line, not a fixed line. K1.3 on Demo5: 3 of 6 older, 3 of 4 never-told; C1 2 of 6, so C1 does not beat K1.3 (R-277). Demo5 has been seen by the orchestrator through a judge's marks (R-277). OPO (OPT from OP, C1 its control): the lane advised against it (R-273), Kevin said run it anyway (R-274), and it stopped by its rule with 0 answer rows, because OP gets every older and confirm item on the training templates right (48 and 48 of 48, R-275). By R-274 the day's tries end. Kevin said keep trying (R-271); C2 (C1 plus the same stage a third time) failed hard_dev, never_told 43 (R-272), so by R-271 OPT did not run. OP4 (R-267:
+- **Nothing runs; the card is idle (14:08); C1's try ran to the end and C1 is the pick (R-279).** Earlier today: Kevin ruled (R-276) that a candidate must beat K1.3 on each demo line, not a fixed line. K1.3 on Demo5: 3 of 6 older, 3 of 4 never-told; C1 2 of 6, so C1 does not beat K1.3 (R-277). Demo5 has been seen by the orchestrator through a judge's marks (R-277). OPO (OPT from OP, C1 its control): the lane advised against it (R-273), Kevin said run it anyway (R-274), and it stopped by its rule with 0 answer rows, because OP gets every older and confirm item on the training templates right (48 and 48 of 48, R-275). By R-274 the day's tries end. Kevin said keep trying (R-271); C2 (C1 plus the same stage a third time) failed hard_dev, never_told 43 (R-272), so by R-271 OPT did not run. OP4 (R-267:
   on-policy second-search rows from OP) failed seed 82's hard_dev, 33 / 5 (R-268); its control C1 (OP's stage again on
   its own set) passed hard_dev 46 / 0 / recall 68 and Demo4 3 of 6 / 3 of 4, and bombed Demo5 older 2 of 6, never-told
   3 of 4 (R-269, R-270). By R-267, no smaller-dose retry today. The on-policy tries before it: C0 bombed Demo4
@@ -54,6 +58,6 @@ search). Write `pass` or `bomb` into the read file; commit the record first (the
 
 ## Seed 82 numbers (hard_dev never_told / false retrieval / recall; Demo2 older / never-told unless noted)
 
-K1.3 46 / 2 / 52, Demo2 0 / 4, Demo4 1 / 2. K4.6 46 / 4 / 72, 2 / 4. T4 38 / 12 / 59, 3 / 3. T6 44 / 4 / 72, 2 / 4.
-R2c 45 / 4 / 63, 3 / 4 (not eligible). C0 48 / 0 / 54, Demo4 2 / 2. OP 48 / 1 / 60, Demo4 2 / 3. OP4 33 / 5 (R-268). C1 46 / 0 / 68, Demo4 3 / 3, Demo5 2 / 3 (R-270). C2 43 / 2 / 66 (R-272). Every other try in
+K1.3 46 / 2 / 52, Demo2 0 / 4, Demo4 1 / 2, Demo5 3 / 3 (R-277). K4.6 46 / 4 / 72, 2 / 4. T4 38 / 12 / 59, 3 / 3. T6 44 / 4 / 72, 2 / 4.
+R2c 45 / 4 / 63, 3 / 4 (not eligible). C0 48 / 0 / 54, Demo4 2 / 2. OP 48 / 1 / 60, Demo4 2 / 3. OP4 33 / 5 (R-268). C1 46 / 0 / 68, Demo4 3 / 3, Demo5 2 / 3 (R-270); seed 83 48 / 2 / 66; pick recall 775 (R-279). C2 43 / 2 / 66 (R-272). Every other try in
 R-227 to R-272 failed a gate or did not train.
