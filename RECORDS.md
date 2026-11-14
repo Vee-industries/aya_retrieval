@@ -10158,3 +10158,37 @@ never_told each no more than 5 points below base's; coherence at or above base's
 rate in the wrong-reply view at most half of 6.37's and at least 10 points lower, bound above 0; (c) N-hit false
 answers at least 10 points lower than 6.37's, bound above 0, and not above base's. Weekly usage 92% (all models,
 14:10).
+
+## R-281 · 2026-11-14 · REOPENED · How S3 is scored, registered before any S3 result is read
+
+No ship-rule scorer existed when S3 started (R-280). This entry fixes how R-178's ship rule, as changed by R-191, is
+computed, before the orchestrator reads any file under `results/s3/` (the queue commits them as they land; none has
+been opened). Every choice below is taken from the record or the code; where the rule's words read two ways, the
+stricter reading is taken and named.
+
+- **Rows.** `results/s3/LABEL.json`, every row, both views (`right`, `wrong`). C1 is pooled over seeds 82, 83 and 94;
+  6.37 likewise; base with the tool (`s3_base_tool`) is one run. A row is right by its `item_correct` field (the
+  scorer of R-154, frozen; for never_told it is the fixed rubric's model-free part).
+- **Measures.** recall = `older` and `confirm` rows (the project's recall, `decide_r191.py`); in_view; statement;
+  plain never_told (`kind` never_told, `variant` plain); the copy rate = `copy` true over rows of the `wrong` view
+  whose `copy` is not None; N-hit false answers = `false_answer` true over never_told rows with `n_hit` true.
+- **Bounds.** "Chat-resampled 95% bound": 10,000 resamples of S3's chats with replacement (seed 0, the defaults of
+  `stats.bootstrap_gain_interval`), each keeping every row of every arm and seed on the drawn chats; the bound is the
+  2.5th percentile of the difference (the lower end of the two-sided 95% interval, the stricter of the one- and
+  two-sided readings).
+- **(a) against base (R-191):** C1's recall above base's with the bound above 0; in_view, statement and plain
+  never_told each no more than 5 points below base's, pooled; coherence at or above base's minus 5%, read as base's
+  rate times 0.95 (stricter than 5 points whenever base is under 100%).
+- **(b) against 6.37 (R-178):** C1's copy rate at most half of 6.37's and at least 10 points lower, the bound of
+  (6.37 minus C1) above 0.
+- **(c) against 6.37 and base (R-178):** C1's N-hit false-answer rate at least 10 points lower than 6.37's, the bound of
+  (6.37 minus C1) above 0, and not above base's.
+- **Coherence (R-154).** The 120 item ids drawn by `scripts/records/draw_s3_sample.py --final` (seed 178), every drawn
+  row of base with the tool and of C1 seed 82 (the shipped seed, R-178), on one blind sheet (R-090: one sheet for both),
+  shuffled by `heldout3.SHUFFLE_SEED` (1780), each line the in-view turns from the row's transcript, the newest message
+  and the reply, no model names. Three fresh judges, each its own folder, all `claude-sonnet-5-5` (checked by
+  `freeze_r154.py judges`), brief R-128 judge 1's changed only in folder path, sheet name and line count, rubric
+  `coherence.RUBRIC`; **judge 1 decides**, judges 2 and 3 reported.
+- **Pass = (a), (b) and (c) all hold.** C1 seed 82 then replaces 6.37 as shipped; otherwise 6.37 seed 82 stays shipped
+  and S3's numbers on 6.37 are its measured weakness (R-178). Every arm is reported, baselines first (code that searches
+  every turn, base with the whole chat, base with the tool, 6.37, C1, then K1, K1.3 and K2.1).
