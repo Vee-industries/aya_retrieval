@@ -1,7 +1,8 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 06:35 ET (R-258), at the SOP's context hand-off. Read this,
-then `docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-247 to R-258.
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 07:50 ET (R-266), at the SOP's context hand-off (session
+06875f70). Read this, then `docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-247 to
+R-266.
 
 ## State
 
@@ -9,17 +10,24 @@ then `docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and c
   a check line (R-247); its fixed set failed hard_dev (R-249). `decide_r191.py` lists R2c in `NOT_ELIGIBLE`.
 - **Demos (R-254, `docs/demos/WHY.md`):** Demo2 and Demo3 are retired (their answers were training values). Every try
   reads **Demo4** (screening) then **Demo5** (held out), both written fresh and checked clean by
-  `scripts/records/demo_contamination.py`. K1.3 on Demo4: older 1 of 6, never-told 2 of 4 (R-257). Readings: Demo4 2
-  (K1.3, C0), Demo5 0.
-- **Running (scratchpad of session 77d169a0,**
-  `C:\Users\Gaming\scratch\claude\C--Users-Gaming-Desktop-Claude-s-House\77d169a0-08a5-413f-bd51-6c88c27447de\scratchpad\`**):**
-  `chain5_r253.sh` (log `chain5_r253.log`). **C0** (`k13c0_r253`, the control: K1.3 + 1e-4 x 1 on its own rows)
-  passed seed 82's hard_dev (48 / 0 / 54) and has **Demo4 waiting to be judged** (`DEMO2 READY` in `k13c0_r253.log`;
-  its read file is `k13c0_r253_read2.txt`). Then **OP** (`k13op_r253`, K1.3 + 1e-4 x 1 on `k13op_SEED_r253.jsonl`:
-  K1.3's rows plus balanced corrections from its own mistakes on the training chats, R-253; all three seeds' sets
-  built, 0 FAIL).
-- **Registered next:** OP2 (R-256), the same method from T6, only if OP fails a gate; it needs code: `qop_eval.sh` and
-  `build_onpolicy_rows.py` take K1.3 only now (give them a start adapter and rehearsal set).
+  `scripts/records/demo_contamination.py`. K1.3 on Demo4: older 1 of 6, never-told 2 of 4 (R-257). Readings: Demo4 3
+  (K1.3, C0, OP), Demo5 0.
+- **Nothing runs; the card is idle (07:45); no try is registered.** The on-policy tries are done: C0 bombed Demo4
+  (R-259); OP passed hard_dev (48 / 1 / 60) and bombed Demo4 older 2 of 6, never-told 3 of 4 (R-261, R-262); OP2 was
+  stopped before training, its set held no corrections because T6 already gets its own training chats right (R-264);
+  OP3 stopped by its rule, 0 new answer rows, since every reachable error OP has left is about someone else and its
+  user-fact errors are ones its search does not reach (R-265). C1 did not run.
+- **Next step: one lever, with an against lane, registered before it runs, seed 82's gates by 14:00.** Facts for the
+  brief: OP's two Demo4 declines had the source second in its own search output, behind a passage about someone else
+  (`found_source` in `branches_k13op_r253_82_demo4.json`); its other two older misses were a search with no result
+  ("instrument" for "ukulele") and no search. The training chats hold 512 older questions (277 about the user); the
+  items used 250, so about 260 are unused (a wider item set could at most about double OP's 18 answer rows). If no
+  lever is worth the card, report to Kevin with K1.3 as the pick.
+- **Queue scripts** (scratchpad of session 77d169a0,
+  `C:\Users\Gaming\scratch\claude\C--Users-Gaming-Desktop-Claude-s-House\77d169a0-08a5-413f-bd51-6c88c27447de\scratchpad\`):
+  `qtry5.sh` / `qtry5_lock.py` (a try with an optional start adapter `INIT` and a per-seed `PREP` script; `init`
+  trains a missing K4.6, T6 or OP start adapter as it was), `op3_prep.sh` (eval, build, stop rule, check),
+  `wake.sh` (watcher; add a new try's log glob to its `logs=` line). `build_onpolicy_rows.py SEED [k13|t6|op]`.
 
 ## How a try runs (`scripts/records/queue/qtry.sh`, run as `qtry3.sh` from the scratchpad)
 
@@ -46,4 +54,5 @@ search). Write `pass` or `bomb` into the read file; commit the record first (the
 ## Seed 82 numbers (hard_dev never_told / false retrieval / recall; Demo2 older / never-told unless noted)
 
 K1.3 46 / 2 / 52, Demo2 0 / 4, Demo4 1 / 2. K4.6 46 / 4 / 72, 2 / 4. T4 38 / 12 / 59, 3 / 3. T6 44 / 4 / 72, 2 / 4.
-R2c 45 / 4 / 63, 3 / 4 (not eligible). C0 48 / 0 / 54, Demo4 pending. Every other try in R-227 to R-255 failed a gate.
+R2c 45 / 4 / 63, 3 / 4 (not eligible). C0 48 / 0 / 54, Demo4 2 / 2. OP 48 / 1 / 60, Demo4 2 / 3. Every other try in
+R-227 to R-265 failed a gate or did not train.

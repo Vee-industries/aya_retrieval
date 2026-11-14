@@ -9822,3 +9822,11 @@ about other people; its errors on facts about the user are almost all ones its s
 not in the output of its queries cut to the question's words). A whole-set user share would not change the stop:
 OP's round-1 set holds 13 user facts of 25 fact rows, so at most about 14 more rows about someone else fit under
 R-205's third before any balance. No on-policy try is left registered. Demo4 readings: 3.
+
+## R-266 · 2026-11-14 · REOPENED · Context hand-off; no try registered; next is one lever with a lane
+
+Session 06875f70 hands off at the SOP's context limit (about 300k tokens) with the card idle and no try registered
+(07:50). HANDOFF and PROJECT_MAP updated (the on-policy scripts, Demo4 and Demo5's check). The next session's first
+step: one lever, put to an against lane with the facts in HANDOFF, registered before it runs, seed 82's gates by
+14:00; or, if no lever is worth the card, a report to Kevin with K1.3 as the pick. Weekly usage at the end of this
+stage: 89% (all models, 07:45; 88% at its start, R-260). Nothing pushed.
