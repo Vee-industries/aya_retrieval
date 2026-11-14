@@ -10057,3 +10057,18 @@ build) and the whole screening; `decide_r191.py` lists OPO. **Logged beside each
 side, dropped counts, `source_not_first`; on hard_dev, reading errors / not found / ran out of calls, never_told and
 false retrieval. Prediction (lane, R-273, estimate): about 13 answer rows before drops, so stop rule (1) may fire;
 never_told at or below 46.
+
+## R-275 · 2026-11-14 · REOPENED · OPO stops by its rule: 0 answer rows; the day's tries end; K1.3 stays the pick
+
+**OP seed 82 on the training-pool draw** (`results/recall_eval/opt_op_82_seed_271071.json`, 10:10 to 10:16, 348 s,
+tool_loop; 48 rows a kind): older **48 right of 48**, confirm **48 of 48**, never_told **44 of 48** (4 named a value
+with nothing found). OP makes no reading error on the training templates; it was trained on them. **The build**
+(`results/panels/R-274/stopped_k13opo_82_r273.provenance.json`): 0 answer rows, 4 decline rows, 43 correct declines;
+dropped 96 as right or fact not found, 1 on K3.1's dev question run; kept 0 a side. **R-274's stop rules (1) and (2)
+fire: 0 answer rows (at least 18), 0 with the source not first (at least 1).** OPO does not train; no gate was read;
+Demo4 readings 4, Demo5 readings 1, unchanged. The lane's estimate (about 13 answer rows, R-273) missed: it took OP's
+hard_dev reading-error rate, and the training draw has none.
+
+**By R-274's rule (6)** the day's tries end, no retry. **K1.3 stays the pick** (pick recall 742). The card is idle
+(10:16). Reported to Kevin in chat. Weekly usage at the end of this stage: 91% (all models, 10:17; 90% at its start,
+R-273). Nothing pushed.
