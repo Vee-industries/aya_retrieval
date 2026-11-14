@@ -108,6 +108,40 @@ def truthy(value) -> bool:
     return value is True or value == "True"
 
 
+def gate_runs() -> tuple[set, set]:
+    """The dev and Demo2 question runs and the S3 six-word runs that K3.1's drops read (R-206)."""
+    dev_runs = set().union(*(K31.CHECK.runs(x) for x in K31.CHECK.dev_questions()))
+    s3 = set()
+    for path in sorted(K31.OVERLAP.CHATS.glob("*.json")):
+        s3 |= K31.runs(K31.OVERLAP.chat_text(json.loads(path.read_text(encoding="utf-8"))), 6)
+    return dev_runs, s3
+
+
+def check_false_fill(base_ids: set, base_meta: dict, new_natural: int, key) -> list[dict]:
+    """R-207's line: K4.8's natural check_false rows not already in the set, in hashed order,
+    until they are 15% of the set's natural rows (the base's plus ``new_natural`` new ones)."""
+    base_natural = sum(i.startswith("k3_") for i in base_ids)
+    base_false = sum((m or {}).get("kind") == "check_false" for m in base_meta.values())
+    checked = json.loads(CHECKED.with_suffix(".provenance.json").read_text(encoding="utf-8"))
+    falses = sorted(
+        (
+            json.loads(line)
+            for line in CHECKED.read_text(encoding="utf-8").splitlines()
+            if (checked["meta"].get(json.loads(line)["id"]) or {}).get("kind") == "check_false"
+            and json.loads(line)["id"] not in base_ids
+        ),
+        # the user's own first, so the user share line holds (R-205); hashed within each
+        key=lambda row: ((checked["meta"][row["id"]].get("person") or "me") != "me", key(row)),
+    )
+    added = []
+    while falses and base_false + len(added) < FALSE_SHARE * (
+        base_natural + new_natural + len(added)
+    ):
+        row = falses.pop(0)
+        added.append({**row, "meta": checked["meta"][row["id"]], "q": writer_question(row["id"])})
+    return added
+
+
 def gate_overlap() -> dict[str, int]:
     """Item chats sharing a six-word run with each chat-based gate set (0 expected; counts only)."""
 
@@ -141,10 +175,7 @@ def main(seed: int, start: str = "k13") -> None:
     result = json.loads(Path(eval_path).read_text(encoding="utf-8"))
     meta_q = json.loads(META.read_text(encoding="utf-8"))
     rows_by_kind, dropped = {"answer": [], "decline": [], "correct_decline": []}, Counter()
-    dev_runs = set().union(*(K31.CHECK.runs(x) for x in K31.CHECK.dev_questions()))
-    s3 = set()
-    for path in sorted(K31.OVERLAP.CHATS.glob("*.json")):
-        s3 |= K31.runs(K31.OVERLAP.chat_text(json.loads(path.read_text(encoding="utf-8"))), 6)
+    dev_runs, s3 = gate_runs()
     with tempfile.TemporaryDirectory(dir=Path("..").resolve(), ignore_cleanup_errors=True) as tmp:
         for r in result["rows"]:
             if r["arm"] != "tool_loop":
@@ -235,28 +266,7 @@ def main(seed: int, start: str = "k13") -> None:
     out_rows = [json.loads(line) for line in base_text.splitlines()]
     base_prov = json.loads(base_path.with_suffix(".provenance.json").read_text(encoding="utf-8"))
     base_meta, base_ids = base_prov.get("meta", {}), {r["id"] for r in out_rows}
-    base_natural = sum(i.startswith("k3_") for i in base_ids)
-    base_false = sum((m or {}).get("kind") == "check_false" for m in base_meta.values())
-    # R-207's line: K4.8's natural check_false rows not already in the set, in hashed order,
-    # until they are 15% of the set's natural rows
-    checked = json.loads(CHECKED.with_suffix(".provenance.json").read_text(encoding="utf-8"))
-    falses = sorted(
-        (
-            json.loads(line)
-            for line in CHECKED.read_text(encoding="utf-8").splitlines()
-            if (checked["meta"].get(json.loads(line)["id"]) or {}).get("kind") == "check_false"
-            and json.loads(line)["id"] not in base_ids
-        ),
-        # the user's own first, so the user share line holds (R-205); hashed within each
-        key=lambda row: ((checked["meta"][row["id"]].get("person") or "me") != "me", key(row)),
-    )
-    added = []
-    while falses and base_false + len(added) < FALSE_SHARE * (
-        base_natural + len(kept) + len(added)
-    ):
-        row = falses.pop(0)
-        added.append({**row, "meta": checked["meta"][row["id"]], "q": writer_question(row["id"])})
-    kept += added
+    kept += check_false_fill(base_ids, base_meta, len(kept), key)
     meta = {**base_meta, **{r["id"]: r.pop("meta") for r in kept}}
     questions = {
         **base_prov.get("k4_questions", {}),
