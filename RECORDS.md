@@ -9407,3 +9407,16 @@ R-237's order: hard_dev first).
 (dog, venue); "dev drive" found and declined. T6 sits where K4.6 at epoch 3 sits (hard_dev 46 / 4 / 72, Demo2 2 of 6):
 passes hard_dev, two older items. Demo2 readings: 19. Round 1 is done with no try reaching screening; the chain runs
 round 2 (R2a first).
+
+## R-245 · 2026-11-13 · REOPENED · A second blend grid registered: T6 and T4
+
+After round 1 (no try reached screening), the two stages on K1.3 sit at the two ends of the trade at seed 82: **T6**
+passes hard_dev (44 / 4 / 72) and scores Demo2 older 2; **T4** fails hard_dev (38 / 12 / 59) and passes Demo2 (3 / 3)
+and Demo3 (4 / 3). Both are stages on K1.3, so a blend of the two lies between a hard_dev pass and a Demo pass, a
+closer pair than R-237's K1.3 and T4 (K1.3: 46 / 2 / 52, Demo2 0). Registered before any result, **the same grid and
+rule as R-237**: w on T4 of 0.33, 0.5, 0.67 (`blend_adapters.py k13t6_r229 k13t4_r229 w`), hard_dev on each at seed
+82, then Demo2 once and Demo3 for the highest w that passes both hard_dev lines (`scripts/records/queue/qblend2.sh`,
+labels `t6t4bNNN_r245`). It runs after `chain_r240.sh` ends (`chain2_r245.sh` waits for it), so no two tries wait
+for the card at once. T6 is at both hard_dev lines exactly (44 and 4), so any w that moves toward T4 may fail them;
+disclosed. Seeds 83 and 94, if it clears seed 82, need T6's stage (about 80 minutes a seed) and T4's (about 25) first,
+so it must clear seed 82 by about Saturday 12:00 to have both seeds by 20:00 (R-243).
