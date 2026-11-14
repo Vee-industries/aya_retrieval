@@ -9599,3 +9599,15 @@ unless the balance holds (Demo2 older about 2, hard_dev false retrieval 4 to 6).
 Order (`chain5_r253.sh`, after the T6 and T4 grid): the three evals (about 25 minutes each), C0 (`k13c0_r253`), then
 OP (`k13op_r253`, per-seed sets `data/screens/k13op_SEED_r253.jsonl`). `qtry.sh` now reads `SEED` in a set's path as
 the seed. Both are full tries under every rule.
+
+**Overlap check (the lane's condition c), before any eval.** Six-word runs of the training chats' exchanges against
+each chat-based gate set (counts only; Demo3's text not printed): stock phrases are shared with every set (blind_dev
+23 runs, blind_dev2 24, Demo2 10, Demo3 6; for example "what should i make for dinner"). Runs that also hold one of
+that gate chat's answer words, as a whole word: blind_dev 0, blind_dev2 0, **Demo2 2** ("has been blasting
+khruangbin all week", "caved and bought a kayak its"), **Demo3 3** (not read). **Disclosed for every earlier
+candidate trained on the natural chats since K3** (all but K1.3): three training chats (`w3_01`, `w9_01`, `w9_03`) hold
+a sentence that also stands in Demo2 or Demo3 with its answer word, so Demo2 and Demo3 are not fully independent of
+the training chats (their writers were the same kind of agent; R-205's "natural answer values also dev or Demo2
+answers" line measured values, not runs). T4's and R2c's Demo3 passes (4 of 6) are read with that in mind. **For the
+on-policy items, those three chats are excluded** (`build_onpolicy_items.py`, `data/onpolicy/excluded.json`): 125 chats,
+375 items, 0 dropped by the loader; `build_onpolicy_rows.py` reports the answer-bearing count (must be 0).

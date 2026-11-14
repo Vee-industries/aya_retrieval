@@ -2846,45 +2846,6 @@
   "chat_file": "w3.json",
   "chat_index": 0
  },
- "w3_01_q0": {
-  "kind": "older",
-  "question": "hey whats my job title again",
-  "source_message": 2,
-  "value": "cartographer",
-  "category": "C03",
-  "person": "me",
-  "query": "job title",
-  "second_query": "work team role",
-  "reply": "You're a cartographer.",
-  "chat_file": "w3.json",
-  "chat_index": 1
- },
- "w3_01_q1": {
-  "kind": "older",
-  "question": "where'd mum spend her childhood",
-  "source_message": 8,
-  "value": "Ardmore",
-  "category": "C05",
-  "person": "mum",
-  "query": "mum childhood",
-  "second_query": "grew raised hometown",
-  "reply": "Your mum grew up in Ardmore.",
-  "chat_file": "w3.json",
-  "chat_index": 1
- },
- "w3_01_q2": {
-  "file": "w3.json",
-  "chat": 1,
-  "kind": "near_miss",
-  "question": "Priya lives where at the moment",
-  "person": "Priya",
-  "category": "C04",
-  "stored_category": "C01",
-  "query": "Priya lives",
-  "second_query": "home town house",
-  "chat_file": "w3.json",
-  "chat_index": 1
- },
  "w3_02_q0": {
   "kind": "older",
   "question": "what's that climbing thing i got into",
@@ -4718,45 +4679,6 @@
   "chat_file": "w9.json",
   "chat_index": 0
  },
- "w9_01_q0": {
-  "kind": "older",
-  "question": "car model teo has, remind me",
-  "source_message": 6,
-  "value": "miata",
-  "category": "C17",
-  "person": "teo",
-  "query": "car model teo",
-  "second_query": "drives vehicle",
-  "reply": "Teo drives a Miata.",
-  "chat_file": "w9.json",
-  "chat_index": 1
- },
- "w9_01_q1": {
-  "kind": "older",
-  "question": "hey which course am i doing these days",
-  "source_message": 2,
-  "value": "horticulture",
-  "category": "C13",
-  "person": "me",
-  "query": "course",
-  "second_query": "classes studying program",
-  "reply": "You're studying horticulture.",
-  "chat_file": "w9.json",
-  "chat_index": 1
- },
- "w9_01_q2": {
-  "file": "w9.json",
-  "chat": 1,
-  "kind": "near_miss",
-  "question": "what instrument does kofi play",
-  "person": "kofi",
-  "category": "C22",
-  "stored_category": "C23",
-  "query": "kofi instrument",
-  "second_query": "play music lessons",
-  "chat_file": "w9.json",
-  "chat_index": 1
- },
  "w9_02_q0": {
   "kind": "older",
   "question": "which sport am i into these days",
@@ -4795,45 +4717,6 @@
   "second_query": "home town house",
   "chat_file": "w9.json",
   "chat_index": 2
- },
- "w9_03_q0": {
-  "kind": "older",
-  "question": "that head bump i had, what did it turn out to be",
-  "source_message": 18,
-  "value": "concussion",
-  "category": "C30",
-  "person": "me",
-  "query": "head bump",
-  "second_query": "injury hurt doctor",
-  "reply": "It was a mild concussion.",
-  "chat_file": "w9.json",
-  "chat_index": 3
- },
- "w9_03_q1": {
-  "kind": "older",
-  "question": "what field is ines in for grad school",
-  "source_message": 6,
-  "value": "linguistics",
-  "category": "C13",
-  "person": "ines",
-  "query": "field ines grad school",
-  "second_query": "studying degree masters",
-  "reply": "Ines is studying linguistics.",
-  "chat_file": "w9.json",
-  "chat_index": 3
- },
- "w9_03_q2": {
-  "file": "w9.json",
-  "chat": 3,
-  "kind": "near_miss",
-  "question": "whats niall's job title",
-  "person": "niall",
-  "category": "C03",
-  "stored_category": "C02",
-  "query": "niall job title",
-  "second_query": "role position",
-  "chat_file": "w9.json",
-  "chat_index": 3
  },
  "w9_04_q0": {
   "kind": "older",
