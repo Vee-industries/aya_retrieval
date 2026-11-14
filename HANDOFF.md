@@ -1,7 +1,7 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 09:16 ET (R-270, session b661dc83). Read this, then
-`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-247 to R-270.
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 09:46 ET (R-272, session b661dc83). Read this, then
+`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-247 to R-272.
 
 ## State
 
@@ -11,7 +11,7 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 09:16 ET (R-270, session
   reads **Demo4** (screening) then **Demo5** (held out), both written fresh and checked clean by
   `scripts/records/demo_contamination.py`. K1.3 on Demo4: older 1 of 6, never-told 2 of 4 (R-257). Readings: Demo4 4
   (K1.3, C0, OP, C1), Demo5 1 (C1).
-- **Nothing runs; the card is idle (09:15); no try is registered; reported to Kevin (R-270).** OP4 (R-267:
+- **Nothing runs; the card is idle (09:45); no try is registered; reported to Kevin (R-272).** Kevin said keep trying (R-271); C2 (C1 plus the same stage a third time) failed hard_dev, never_told 43 (R-272), so by R-271 OPT did not run. OP4 (R-267:
   on-policy second-search rows from OP) failed seed 82's hard_dev, 33 / 5 (R-268); its control C1 (OP's stage again on
   its own set) passed hard_dev 46 / 0 / recall 68 and Demo4 3 of 6 / 3 of 4, and bombed Demo5 older 2 of 6, never-told
   3 of 4 (R-269, R-270). By R-267, no smaller-dose retry today. The on-policy tries before it: C0 bombed Demo4
@@ -28,7 +28,7 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 09:16 ET (R-270, session
   `qtry5.sh` / `qtry5_lock.py` (a try with an optional start adapter `INIT` and a per-seed `PREP` script; `init`
   trains a missing K4.6, T6 or OP start adapter as it was), `op3_prep.sh` and `op4_prep.sh` (eval, build, stop rule,
   check), `chain8_r267.sh` (OP4 then C1), `wake.sh` (watcher; add a new try's log glob to its `logs=` line).
-  `build_onpolicy_rows.py SEED [k13|t6|op|op4]`.
+  `build_onpolicy_rows.py SEED [k13|t6|op|op4]`; `build_onpolicy_template.py SEED` (OPT, R-271, never run). `qtry6.sh` adds a C1 start adapter.
 
 ## How a try runs (`scripts/records/queue/qtry.sh`, run as `qtry3.sh` from the scratchpad)
 
@@ -55,5 +55,5 @@ search). Write `pass` or `bomb` into the read file; commit the record first (the
 ## Seed 82 numbers (hard_dev never_told / false retrieval / recall; Demo2 older / never-told unless noted)
 
 K1.3 46 / 2 / 52, Demo2 0 / 4, Demo4 1 / 2. K4.6 46 / 4 / 72, 2 / 4. T4 38 / 12 / 59, 3 / 3. T6 44 / 4 / 72, 2 / 4.
-R2c 45 / 4 / 63, 3 / 4 (not eligible). C0 48 / 0 / 54, Demo4 2 / 2. OP 48 / 1 / 60, Demo4 2 / 3. OP4 33 / 5 (R-268). C1 46 / 0 / 68, Demo4 3 / 3, Demo5 2 / 3 (R-270). Every other try in
-R-227 to R-270 failed a gate or did not train.
+R2c 45 / 4 / 63, 3 / 4 (not eligible). C0 48 / 0 / 54, Demo4 2 / 2. OP 48 / 1 / 60, Demo4 2 / 3. OP4 33 / 5 (R-268). C1 46 / 0 / 68, Demo4 3 / 3, Demo5 2 / 3 (R-270). C2 43 / 2 / 66 (R-272). Every other try in
+R-227 to R-272 failed a gate or did not train.

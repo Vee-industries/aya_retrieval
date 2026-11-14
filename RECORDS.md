@@ -9979,3 +9979,23 @@ first. Logged: rows dropped, answer rows whose source was not the first passage.
 before C2's result. Logged on every gate for both: reading errors, not-found, ran out of calls, never_told, false
 retrieval. **The day stops** for seed 82 when C2 and OPT have both failed a gate, or at 14:00. Prediction (lane,
 estimate): C2 hard_dev never_told 44 to 46, recall about 70 to 74, Demo4 older 3, Demo5 older 2 or 3.
+
+## R-272 · 2026-11-14 · REOPENED · C2 fails seed 82's hard_dev; by R-271 the day's tries stop; K1.3 stays the pick
+
+**OPT's code** was committed at 09:35 (7f72511), before C2's result, as R-271 registered:
+`scripts/records/build_onpolicy_template.py` (written by an Opus builder from a brief, checked here). Its two steps
+shared with OP's build (K3.1's drop runs, R-207's check_false fill) are now functions in `build_onpolicy_rows.py`
+(`gate_runs`, `check_false_fill`), not copies; OPT counts its template rows as 0 new natural rows for R-207's fill, and
+has no user-share cut (template items name no person). Rebuilt with the refactored code, OP's and OP4's seed 82 sets
+are byte for byte the same (SHA-256 479c9379... and 64297688...). OPT never ran.
+
+**C2 seed 82** (`k13opc2_r271`: C1 plus 1e-4 x 1 on OP's set; 09:23 to 09:45): hard_dev never_told **43** (at least
+44), false retrieval **2** (at most 4), older 30, confirm 36, recall 66, in_view 39 (C1: 46 / 0 / 68, in_view 36).
+**Fails the never_told line by one item; no Demo read.** Reported lines: older and confirm right with the fact found
+66 / wrong with it found 24 / wrong with it not found 6 (C1 68 / 23 / 5); replies with two or more searches 10, ran
+out of calls 4 (C1 3 and 2). The third stage lowered never_told again (OP 48, C1 46, C2 43) and gave no recall back;
+the lane's estimate (44 to 46, recall about 70 to 74) missed on both.
+
+**By R-271's stop rule:** C2 failed hard_dev, so no C3, no smaller retry, and no OPT (it carries C2's dose). No try is
+registered; **K1.3 stays the pick** (pick recall 742). The card is idle (09:45). Reported to Kevin in chat. Weekly
+usage at the end of this stage: 90% (all models; 90% at its start, R-271). Nothing pushed.
