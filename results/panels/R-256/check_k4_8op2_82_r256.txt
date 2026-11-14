@@ -1,0 +1,19 @@
+W1114 07:26:59.227000 69856 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+report: S3 four-word runs shared, this set 408, K1.3 148
+PASS  first queries breaking the rule 0 []
+PASS  second queries holding the value 0 []
+PASS  replies not matching their side 0 []
+PASS  replies after an empty search 42, at least 1
+PASS  natural queries holding an apostrophe 0 of 1548
+PASS  passage gap, natural rows: 0.10 (value 1.65, decline 1.75)
+PASS  passage gap, whole set: 0.20 (value 2.24, decline 2.04)
+PASS  natural questions sharing a four-word run with dev or Demo2 0
+PASS  natural answer values also dev or Demo2 answers 8.2% (451 values)
+PASS  natural rows sharing a six-word run with S3 0
+PASS  facts about the user 38.8% of 743 natural fact rows, at least a third
+PASS  check_false rows 155 at least check_true rows 107
+PASS  longest row 1024 tokens, at most 1024
+report: natural rows by kind {('statement', None): 126, ('confirm', 'check_true'): 107, ('confirm', 'check_false'): 155, ('never_told', 'never_told'): 404, ('in_view', 'in_view'): 120, ('older', 'older'): 481}
+report: (names value, searches) {(True, 1): 501, (False, 2): 191, (True, 2): 210, (False, 1): 245}
+report: top score, value rows 3.01, declining rows 2.43
+== k3 check: 0 FAIL (R-205 lines)
