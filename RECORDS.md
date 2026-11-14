@@ -9495,3 +9495,17 @@ Check (`check_k3.py --set k5f_r247`): **0 FAIL** (user facts 263 of 789, 33.3%; 
 R2cf runs **next after R2d**, ahead of the blend, through every gate: seed 82 hard_dev, Demo2 (its 21st reading),
 Demo3 (its third), then seeds 83 and 94 and full screening. Disclosed: R2cf is chosen because R2c passed every gate on
 an unchecked set; its Demo2 and Demo3 readings are not fresh for this recipe, which differs from R2c by 10 rows.
+
+## R-248 · 2026-11-14 · REOPENED · R2d fails hard_dev; every queued try's set checked; R3a dropped
+
+**R2d seed 82** (`k13r2d_r235`: K4.9's set, 1e-4, 1 epoch, from K1.3; 03:32): hard_dev never_told **42**, false
+retrieval **6**. Fails; no Demo read. R2cf (R-247) took the card next.
+
+**Checks of the queued tries' sets** (after R-247's miss). The subset builders now carry their base set's `meta` and
+`k4_questions` for the kept rows, so `check_k3.py` can read them; the rows are byte for byte unchanged (SHA-256 of
+`k4_8n_r229` 3e2058ca..., `k4_6tw_r241` 0da5e72a..., before and after). **`k4_8n_r229`** (T4's set, inside both
+blends): **0 FAIL** (`results/panels/R-248/check_k4_8n_r229.txt`). **`k4_6tw_r241`** (R3a's): **2 FAIL**, replies after
+an empty search 0 (at least 1) and the natural passage gap 1.36 (it holds only value rows)
+(`results/panels/R-248/check_k4_6tw_r241.txt`). R3a could not be eligible, so **R3a is dropped**; its waiter is stopped
+when chain3 reaches it. The other sets in use were checked when built: K4.8 (R-220), K5 fixed (R-247), K4.9 (R-224),
+K4.8 merged (R-235), K1.3 (R-200). Lever 2's set (`k4_8nt_r237`) was never checked; lever 2 failed hard_dev anyway.

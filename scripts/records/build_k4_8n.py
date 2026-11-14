@@ -17,6 +17,16 @@ TEMPLATES = Path("data/screens/k1_3_r200.jsonl")
 OUT = Path("data/screens/k4_8n_r229.jsonl")
 
 
+def subset_meta(ids: list[str]) -> dict:
+    """K4.8's ``meta`` and ``k4_questions`` for the kept rows, as check_k3.py reads them (R-248)."""
+    base = json.loads(BASE.with_suffix(".provenance.json").read_text(encoding="utf-8"))
+    keep = set(ids)
+    return {
+        "meta": {i: m for i, m in base["meta"].items() if i in keep},
+        "k4_questions": {i: q for i, q in base.get("k4_questions", {}).items() if i in keep},
+    }
+
+
 def main() -> None:
     drop = {json.loads(line)["id"] for line in TEMPLATES.read_text(encoding="utf-8").splitlines()}
     lines = BASE.read_text(encoding="utf-8").splitlines()
@@ -29,6 +39,7 @@ def main() -> None:
         "dropped_template_rows": len(lines) - len(kept),
         "rows": len(kept),
         "out_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+        **subset_meta([json.loads(line)["id"] for line in kept]),  # R-248
     }
     OUT.with_suffix(".provenance.json").write_text(json.dumps(report, indent=1), encoding="utf-8")
     print(f"{OUT}: {len(kept)} rows ({report['dropped_template_rows']} template rows dropped)")

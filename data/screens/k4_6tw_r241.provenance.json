@@ -2,5 +2,814 @@
  "record": "R-241",
  "base_set": "data/screens/k4_6_r214.jsonl",
  "rows": 101,
- "out_sha256": "0da5e72adfc937ad314fb1bc84348eb3c20027682995cfbea07f593e1dd1d4f6"
+ "out_sha256": "0da5e72adfc937ad314fb1bc84348eb3c20027682995cfbea07f593e1dd1d4f6",
+ "meta": {
+  "k3_w5_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_05_02": {
+   "kind": "older",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_02_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_05_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_07_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_07_02": {
+   "kind": "older",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_07_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_03_04": {
+   "kind": "check_true",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_02_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_k4w1_05_02": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3,
+   "k4_kind": "contrast"
+  },
+  "k3_w5_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_07_02": {
+   "kind": "older",
+   "person": "grandma",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w7_05_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w4_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_00_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_07_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_04_02": {
+   "kind": "older",
+   "person": "my girlfriend",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_02_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_05_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_01_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_07_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w3_02_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_00_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_07_07": {
+   "kind": "check_false",
+   "person": "my sister",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w8_07_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_k4w8_07_02": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1,
+   "k4_kind": "contrast"
+  },
+  "k3_w1_05_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w4_02_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w3_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_01_02": {
+   "kind": "older",
+   "person": "my dad",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_02_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_02_02": {
+   "kind": "older",
+   "person": "my husband",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_01_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_03_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_04_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w5_02_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_05_02": {
+   "kind": "older",
+   "person": "sister",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w7_02_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w7_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_06_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_02_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w2_04_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w7_04_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w3_05_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_07_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_03_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_05_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_k4w5_05_02": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2,
+   "k4_kind": "contrast"
+  },
+  "k3_w2_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w4_03_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_04_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_k4w8_04_02": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1,
+   "k4_kind": "contrast"
+  },
+  "k3_w3_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w8_07_02": {
+   "kind": "older",
+   "person": "my bf",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w3_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w6_01_02": {
+   "kind": "older",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w1_03_07": {
+   "kind": "check_false",
+   "person": "my manager",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_02_07": {
+   "kind": "check_false",
+   "person": "my son",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_01_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_k4w3_04_02": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1,
+   "k4_kind": "contrast"
+  },
+  "k3_w7_04_03": {
+   "kind": "older",
+   "person": "my grandma",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w7_07_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_03_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_03_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_k4w6_06_02": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1,
+   "k4_kind": "contrast"
+  },
+  "k3_w7_02_03": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w2_02_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_07_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w5_06_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  },
+  "k3_w8_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_k4w4_04_02": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1,
+   "k4_kind": "contrast"
+  },
+  "k3_w5_06_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 2
+  },
+  "k3_w1_04_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w8_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w4_05_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_07_03": {
+   "kind": "older",
+   "person": "jen (cousin)",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_02_01": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 4
+  },
+  "k3_w7_05_00": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w2_02_03": {
+   "kind": "older",
+   "person": "my son",
+   "names_value": true,
+   "searches": 2,
+   "passages": 3
+  }
+ },
+ "k4_questions": {
+  "k3_k4w1_05_02": {
+   "file": "w1.json",
+   "chat": 5,
+   "kind": "older",
+   "question": "which town am i gonna be moving to",
+   "person": "me",
+   "category": "C01",
+   "source_message": 2,
+   "value": "harrowmere",
+   "query": "town moving",
+   "second_query": "relocating move new",
+   "reply": "You're moving to harrowmere."
+  },
+  "k3_k4w3_04_02": {
+   "file": "w3.json",
+   "chat": 4,
+   "kind": "older",
+   "question": "which breed did we get for our dog",
+   "person": "me",
+   "category": "C10",
+   "source_message": 15,
+   "value": "vizsla",
+   "query": "breed dog",
+   "second_query": "kind walks",
+   "reply": "Your dog is a vizsla."
+  },
+  "k3_k4w4_04_02": {
+   "file": "w4.json",
+   "chat": 4,
+   "kind": "older",
+   "question": "where are we gonna move to, which town",
+   "person": "me",
+   "category": "C01",
+   "source_message": 2,
+   "value": "kestrelby",
+   "query": "move town",
+   "second_query": "relocating moving",
+   "reply": "You're moving to kestrelby."
+  },
+  "k3_k4w5_05_02": {
+   "file": "w5.json",
+   "chat": 5,
+   "kind": "older",
+   "question": "the town i'm relocating to, name?",
+   "person": "me",
+   "category": "C01",
+   "source_message": 1,
+   "value": "eastmere",
+   "query": "town relocating",
+   "second_query": "moving move",
+   "reply": "You're moving to eastmere."
+  },
+  "k3_k4w6_06_02": {
+   "file": "w6.json",
+   "chat": 6,
+   "kind": "older",
+   "question": "the town i come from originally, name?",
+   "person": "me",
+   "category": "C05",
+   "source_message": 17,
+   "value": "kirkwall",
+   "query": "town originally",
+   "second_query": "grew hometown",
+   "reply": "You grew up in kirkwall."
+  },
+  "k3_k4w8_04_02": {
+   "file": "w8.json",
+   "chat": 4,
+   "kind": "older",
+   "question": "my employer, name?",
+   "person": "me",
+   "category": "C02",
+   "source_message": 2,
+   "value": "hatchery",
+   "query": "employer",
+   "second_query": "work job shift",
+   "reply": "You work at the hatchery."
+  },
+  "k3_k4w8_07_02": {
+   "file": "w8.json",
+   "chat": 7,
+   "kind": "older",
+   "question": "which college am i studying at",
+   "person": "me",
+   "category": "C14",
+   "source_message": 7,
+   "value": "calloway",
+   "query": "college studying",
+   "second_query": "school classes campus",
+   "reply": "You're at Calloway."
+  }
+ }
 }
