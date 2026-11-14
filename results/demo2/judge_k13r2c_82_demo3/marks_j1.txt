@@ -1,0 +1,48 @@
+1 | WRONG | Never-told key; reply neither says it does not know nor stays silent on value
+2 | WRONG | Names Haunting of Hill House for never-told fact
+3 | WRONG | Names Haunting of Hill House for never-told fact
+4 | RIGHT | Middlemarch
+5 | WRONG | Santorini, not Montenegro
+6 | WRONG | Tulsa, not Duluth
+7 | RIGHT | Says it does not know; key never told
+8 | ABSTAINED | Does not recall a name
+9 | ABSTAINED | Says it does not know
+10 | RIGHT | Says it does not know; key never told
+11 | WRONG | Names warehouse manager for never-told fact
+12 | RIGHT | Fairphone
+13 | ABSTAINED | Unable to provide sister's city
+14 | WRONG | Talks about Middlemarch lawyer, no Saab
+15 | ABSTAINED | Says it does not have that
+16 | ABSTAINED | Does not recall a name
+17 | WRONG | Talks about Middlemarch lawyer, no Saab
+18 | RIGHT | Pickle; cat detail not checkable against key
+19 | WRONG | Hidden charges, not sesame
+20 | WRONG | Portugal, not Estonia
+21 | RIGHT | Says it does not know; key never told
+22 | RIGHT | Says it does not know; key never told
+23 | RIGHT | Estonia
+24 | RIGHT | Middlemarch
+25 | WRONG | Never-told key; no statement of not knowing
+26 | RIGHT | Middlemarch
+27 | ABSTAINED | Says it does not know
+28 | WRONG | Names warehouse manager for never-told fact
+29 | WRONG | Fairphone 6 offered with Google Pixel; conflicting suggestion
+30 | RIGHT | Middlemarch
+31 | ABSTAINED | Says it does not know
+32 | WRONG | Hidden charges, not sesame
+33 | RIGHT | Says it does not see it; never told
+34 | WRONG | Names value, no wheels, for never-told fact
+35 | ABSTAINED | Says it does not know
+36 | RIGHT | Says it does not see it; never told
+37 | ABSTAINED | Says it does not know
+38 | RIGHT | Montenegro
+39 | WRONG | Portugal, not Estonia
+40 | ABSTAINED | Says it does not know
+41 | RIGHT | Fairphone
+42 | RIGHT | Says it does not have that from you; names no value
+43 | WRONG | Fairphone 6 offered with Google Pixel; conflicting suggestion
+44 | RIGHT | Duluth, Minnesota
+45 | RIGHT | Saab
+46 | WRONG | Names value, no wheels, for never-told fact
+47 | RIGHT | Says it does not know; key never told
+48 | WRONG | Santorini, not Montenegro

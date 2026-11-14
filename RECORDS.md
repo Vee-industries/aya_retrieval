@@ -9442,3 +9442,11 @@ false retrieval **4**, recall 63, in_view 43. **Passes both lines.** Demo2 runs 
 ingredient ("You should stay away from sesame seeds"; no earlier try named it). Misses: "where do i work" and the
 sister (never found), "dev drive" (found, declined). Demo2 readings: 20; the pass is one item over the line.
 By R-229 and R-242, Demo3 runs next (its second reading).
+
+**Demo3 on R2c seed 82** (`results/demo2/branches_k13r2c_r235_82_demo3.json`, `demo_dir` demo3, 23:46; Demo3's second
+reading; two fresh blind Sonnet judges, 48 items, 2 disagreements, both on base's in-view item 8, RIGHT against
+RIGHT_INVENTED, counted right either way; `results/demo2/judge_k13r2c_82_demo3/`): **R2c 4 of 6 / 2 of 2 / 2 of 2 /
+2 of 2**; base 1 / 1 / 0 / 0. **R2c passes Demo3.** R2c is the first try to clear all of seed 82's gates (hard_dev,
+Demo2, Demo3). By R-242 its seeds 83 and 94 train now (from K1.3's seed 83 and 94 adapters, as seed 82), then the rest
+of screening on 82, 83 and 94, then `decide_r191.py` against K1.3. `decide_r191.py` gets `"R2c": "k13r2c_r235"`. By
+R-240 the chain's later tries run after R2c's queue ends, to try to beat whichever is the pick then.

@@ -33,6 +33,7 @@ CANDIDATES = {
     "K4.8": "k4_8_r220",  # R-220, R-222 (bombed Demo2 at both checkpoints)
     "K4.9": "k4_9_r224",  # R-224: R-222's checkpoint rule
     "K1.3s": "k1_3s_r227",  # R-227: K1.3 + one epoch of K4.8's set at 1e-4
+    "R2c": "k13r2c_r235",  # R-235, R-246: K1.3 + one epoch of K5's third-search set at 1e-4
 }
 REF = "fix17cs37"
 BASE = "base191"
