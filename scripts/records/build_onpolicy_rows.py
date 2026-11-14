@@ -1,6 +1,10 @@
 """R-253: one seed's on-policy stage set: K1.3's rows plus balanced corrections from its own turns.
 
-Usage: python scripts/records/build_onpolicy_rows.py SEED
+Usage: python scripts/records/build_onpolicy_rows.py SEED [START]
+  START  ``k13`` (default, OP, R-253) or ``t6`` (OP2, R-256: T6's eval ``op_t6_SEED``, T6's own
+         set K4.8 whole as rehearsal, out ``data/screens/k4_8op2_SEED_r256.jsonl``, hashed with
+         "R-256"). The base set's ``meta`` and ``k4_questions`` are carried, and R-207's
+         check_false line counts the base's natural rows too (K1.3 has none, so OP is unchanged).
 
 Reads ``results/recall_eval/op_k13_SEED_seed_0.json`` (K1.3's seed adapter on the items in
 ``data/onpolicy/items``) and rebuilds each item's turns from the model's own queries, with the
@@ -35,7 +39,10 @@ from aya_retrieval.recall_tool import build_search_tool
 HERE = Path(__file__).resolve().parent
 ITEMS = Path("data/onpolicy/items")
 META = Path("data/onpolicy/meta.json")
-BASE = Path("data/screens/k1_3_r200.jsonl")
+STARTS = {  # start: (record, rehearsal set, output stem)
+    "k13": ("R-253", Path("data/screens/k1_3_r200.jsonl"), "k13op_{seed}_r253"),
+    "t6": ("R-256", Path("data/screens/k4_8_r220.jsonl"), "k4_8op2_{seed}_r256"),
+}
 CHECKED = Path("data/screens/k4_8_r220.jsonl")  # K4.8, checked (R-220): its check_false rows
 FALSE_SHARE = 0.15  # R-207's line
 GATE_CHATS = ("data/blind_dev/chats", "data/blind_dev2/chats", "demo2", "demo3")
@@ -108,11 +115,11 @@ def gate_overlap() -> dict[str, int]:
     return out
 
 
-def main(seed: int) -> None:
+def main(seed: int, start: str = "k13") -> None:
+    tag, base_path, stem = STARTS[start]
     provenance = run_metadata()
-    result = json.loads(
-        Path(f"results/recall_eval/op_k13_{seed}_seed_0.json").read_text(encoding="utf-8")
-    )
+    eval_path = f"results/recall_eval/op_{start}_{seed}_seed_0.json"
+    result = json.loads(Path(eval_path).read_text(encoding="utf-8"))
     meta_q = json.loads(META.read_text(encoding="utf-8"))
     rows_by_kind, dropped = {"answer": [], "decline": [], "correct_decline": []}, Counter()
     dev_runs = set().union(*(K31.CHECK.runs(x) for x in K31.CHECK.dev_questions()))
@@ -179,7 +186,7 @@ def main(seed: int) -> None:
             rows_by_kind[side].append(
                 {"id": rid, "kind": kind, "turns": turns, "meta": m, "q": record}
             )
-    key = lambda row: hashlib.sha256(f"R-253|{seed}|{row['id']}".encode()).digest()  # noqa: E731
+    key = lambda row: hashlib.sha256(f"{tag}|{seed}|{row['id']}".encode()).digest()  # noqa: E731
     answers = sorted(rows_by_kind["answer"], key=key)
     # R-205's user share: cut answer rows about someone else, in hashed order, to a third
     user = [r for r in answers if (r["meta"]["person"] or "me") == "me"]
@@ -192,37 +199,48 @@ def main(seed: int) -> None:
     )
     n = min(len(answers), len(declines))
     kept = K3.within_tokens(answers[:n] + declines[:n])
-    # R-207's line: K4.8's natural check_false rows, in hashed order, until they are 15%
+    base_text = base_path.read_text(encoding="utf-8")
+    out_rows = [json.loads(line) for line in base_text.splitlines()]
+    base_prov = json.loads(base_path.with_suffix(".provenance.json").read_text(encoding="utf-8"))
+    base_meta, base_ids = base_prov.get("meta", {}), {r["id"] for r in out_rows}
+    base_natural = sum(i.startswith("k3_") for i in base_ids)
+    base_false = sum((m or {}).get("kind") == "check_false" for m in base_meta.values())
+    # R-207's line: K4.8's natural check_false rows not already in the set, in hashed order,
+    # until they are 15% of the set's natural rows
     checked = json.loads(CHECKED.with_suffix(".provenance.json").read_text(encoding="utf-8"))
     falses = sorted(
         (
             json.loads(line)
             for line in CHECKED.read_text(encoding="utf-8").splitlines()
             if (checked["meta"].get(json.loads(line)["id"]) or {}).get("kind") == "check_false"
+            and json.loads(line)["id"] not in base_ids
         ),
         # the user's own first, so the user share line holds (R-205); hashed within each
         key=lambda row: ((checked["meta"][row["id"]].get("person") or "me") != "me", key(row)),
     )
     added = []
-    while falses and len(added) < FALSE_SHARE * (len(kept) + len(added)):
+    while falses and base_false + len(added) < FALSE_SHARE * (
+        base_natural + len(kept) + len(added)
+    ):
         row = falses.pop(0)
         added.append({**row, "meta": checked["meta"][row["id"]], "q": writer_question(row["id"])})
     kept += added
-    base_text = BASE.read_text(encoding="utf-8")
-    out_rows = [json.loads(line) for line in base_text.splitlines()]
-    meta = {r["id"]: r.pop("meta") for r in kept}
-    questions = {i: q for r in kept if (q := r.pop("q")) is not None for i in [r["id"]]}
+    meta = {**base_meta, **{r["id"]: r.pop("meta") for r in kept}}
+    questions = {
+        **base_prov.get("k4_questions", {}),
+        **{i: q for r in kept if (q := r.pop("q")) is not None for i in [r["id"]]},
+    }
     out = out_rows + kept
     text = "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in out)
-    path = Path(f"data/screens/k13op_{seed}_r253.jsonl")
+    path = Path(f"data/screens/{stem.format(seed=seed)}.jsonl")
     path.write_bytes(text.encode("utf-8"))
     report = {
         "provenance": provenance,
-        "record": "R-253",
+        "record": tag,
         "seed": seed,
-        "base_set": BASE.as_posix(),
+        "base_set": base_path.as_posix(),
         "base_sha256": hashlib.sha256(base_text.encode("utf-8")).hexdigest(),
-        "eval": f"results/recall_eval/op_k13_{seed}_seed_0.json",
+        "eval": eval_path,
         "out_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
         "rows": len(out),
         "built_by_type": {k: len(v) for k, v in rows_by_kind.items()},
@@ -248,4 +266,4 @@ def main(seed: int) -> None:
 
 
 if __name__ == "__main__":
-    main(int(sys.argv[1]))
+    main(int(sys.argv[1]), *sys.argv[2:3])

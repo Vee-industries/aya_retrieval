@@ -9711,3 +9711,26 @@ items, 3 disagreements, none changing a count (C0's item 6 RIGHT against RIGHT_I
 and its no-search item 5 ABSTAINED against WRONG, counted wrong); `results/demo2/judge_k13c0_82_demo4/`): older / in
 view / never told plain / shared word **2 of 6 / 1 of 2 / 2 of 2 / 0 of 2. Bombs** (K1.3 on Demo4: 1 / 2 / 2 / 0).
 Demo4 readings: 2. OP (`k13op_r253`) takes the card next. Session 77d169a0 hands off here to session 06875f70.
+
+## R-260 · 2026-11-14 · REOPENED · OP2's code, before OP's seed 82 result; session 06875f70 takes over
+
+Weekly usage at the start of this stage: 88% (all models; `get_usage`, 06:35). Session 06875f70 takes over the tries
+from session 77d169a0 (R-259) and checked R-259's tally by recomputing it from the two marks files (48 lines each;
+the same counts).
+
+**OP2's code (R-256 registered the method; this is the code it runs, written before any OP result).**
+`scripts/records/build_onpolicy_rows.py SEED t6`: the same steps as OP's build, with three settings from R-256: the
+eval read is `op_t6_SEED` (T6's seed adapter on the 375 items), the rehearsal set is T6's own set (K4.8 whole,
+`k4_8_r220`, 2,487 rows), and the hashed order is SHA-256("R-256|SEED|id"). The output is
+`data/screens/k4_8op2_SEED_r256.jsonl`, whose name gives it K4.8's checker lines and writer copies in `check_k3.py`.
+The base set's `meta` and `k4_questions` are carried into the provenance so the checker reads the whole set. R-207's
+check_false fill now counts the base set's own natural rows and check_false rows and never adds a row already in the
+set (no duplicates); K1.3 has no natural rows, so OP's build is unchanged: rebuilt with the new code, OP's seed 82 set
+has the same SHA-256 (479c9379...), and only the run metadata in its provenance differs. A set that fails
+`check_k3.py` stops the try (0 FAIL before any training, R-247).
+
+**The queue** (session scratchpad of 77d169a0, beside OP's): `chain6_r256.sh` waits for chain5 to end and runs OP2
+(`k136op2_r256`, 1e-4 x 1, start `k13t6_r229`) only if OP stopped at a gate (a Demo bomb or a failed hard_dev line);
+otherwise it holds for a decision by hand. `qtry4.sh` is `qtry3.sh` with one hook: before a seed's stage, if that
+seed's set is missing, `op2_prep.sh SEED` runs T6's seed adapter over the items, builds the set and checks it (0 FAIL
+or the try stops). For seeds 83 and 94, T6's start adapter is first trained exactly as T6 was (R-252's `init`).
