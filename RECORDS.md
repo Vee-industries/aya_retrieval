@@ -9332,3 +9332,12 @@ retrieval 5 (3 to 8); blend at 0.5 Demo2 older 2, never-told 4, hard_dev 43 and 
 two fresh blind Sonnet judges, 48 items, 0 disagreements): **2 of 6 / 2 of 2 / 2 of 2 / 2 of 2. Bombs.** Right: the
 dog, the venue. Found and declined: "dev drive" and "where is my sister headed" (both found by its searches). Demo2
 readings: 18. By R-237, lever 2 (`k13nt_r237`) takes the card next, hard_dev first.
+
+## R-239 · 2026-11-13 · REOPENED · Lever 2 fails hard_dev at seed 82; T6 next
+
+**Lever 2 seed 82** (`k13nt_r237`: 3e-4, 1 epoch, T4's natural rows plus K1.3's 160 never_told rows, from K1.3; 504
+tensors, adapter changed; `results/recall_eval/hd_k13nt_r237_82_seed_73157.json`, 20:41): hard_dev never_told **43**
+(floor 44), false retrieval **5** (ceiling 4), recall **27** (K1.3 52, T4 59), in_view 42. Fails both lines by one;
+the early stop ended it before any Demo read (Demo2 readings stay 18, Demo3 1). The recall fall means the added
+declines also took real facts: a move away from both ends of the trade, not between them. The lane's prediction (43,
+5) was right on both. T6 (3e-4, 3 epochs, K4.8 whole, hard_dev first) takes the card next.
