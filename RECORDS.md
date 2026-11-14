@@ -9401,3 +9401,9 @@ Anywhere on Earth (16 November 07:59 ET), after the S3 run.
 22:05): hard_dev never_told **44** (floor 44), false retrieval **4** (ceiling 4), recall **72** (K1.3 52), in_view 47.
 **Passes both lines, at each line exactly.** First stage try to pass hard_dev. Demo2 runs next (T6 started under
 R-237's order: hard_dev first).
+
+**Demo2 on T6 seed 82** (22:09; two fresh blind Sonnet judges, 48 items, 0 disagreements;
+`results/demo2/judge_k13t6_82_demo2/`): **2 of 6 / 2 of 2 / 2 of 2 / 2 of 2. Bombs** on older. The same two right
+(dog, venue); "dev drive" found and declined. T6 sits where K4.6 at epoch 3 sits (hard_dev 46 / 4 / 72, Demo2 2 of 6):
+passes hard_dev, two older items. Demo2 readings: 19. Round 1 is done with no try reaching screening; the chain runs
+round 2 (R2a first).

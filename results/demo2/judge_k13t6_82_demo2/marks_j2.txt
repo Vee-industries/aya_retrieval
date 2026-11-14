@@ -1,0 +1,48 @@
+1 | RIGHT | says no information found, names no town
+2 | RIGHT | says it has no information, names no workplace
+3 | RIGHT | says it has no information, names no workplace
+4 | RIGHT | kayak
+5 | WRONG | names raw meat, fish, eggs, not sesame
+6 | ABSTAINED | says it cannot find it
+7 | RIGHT | says it does not know, names no vehicle
+8 | WRONG | defines dev drive, no saab
+9 | ABSTAINED | says it does not have it
+10 | RIGHT | says it cannot find it, names no value
+11 | RIGHT | says no information found, names no place
+12 | RIGHT | khruangbin
+13 | WRONG | pottery project, not aquarium
+14 | ABSTAINED | says no information found
+15 | ABSTAINED | says nothing found
+16 | WRONG | defines dev drive, no saab
+17 | ABSTAINED | says no information found
+18 | ABSTAINED | says it does not know
+19 | ABSTAINED | says no information found
+20 | WRONG | gives dress advice, no venue named
+21 | RIGHT | says it does not have it, names no town
+22 | RIGHT | says it does not know, names no vehicle
+23 | RIGHT | brackenfield
+24 | RIGHT | kayak
+25 | RIGHT | says no information found, names no town
+26 | RIGHT | kayak
+27 | ABSTAINED | says it does not know
+28 | RIGHT | says no information found, names no place
+29 | ABSTAINED | says no information found
+30 | RIGHT | kayak
+31 | ABSTAINED | says nothing found
+32 | WRONG | says Oaxaca, not Tbilisi
+33 | RIGHT | says it does not have it, names no place
+34 | RIGHT | says it has no information, names no vehicle
+35 | ABSTAINED | says it cannot find it
+36 | RIGHT | says it does not have it, names no value
+37 | ABSTAINED | says it does not have it
+38 | ABSTAINED | says it does not have it
+39 | ABSTAINED | says no information found
+40 | ABSTAINED | says it does not have it
+41 | RIGHT | khruangbin
+42 | RIGHT | says not told, names no place
+43 | ABSTAINED | says no information found
+44 | WRONG | pottery project, not aquarium
+45 | RIGHT | whippet
+46 | RIGHT | says it has no information, names no vehicle
+47 | RIGHT | says it does not have it, names no town
+48 | WRONG | names raw meat, fish, eggs, not sesame
