@@ -9531,3 +9531,8 @@ lines, **0.67**, reads Demo2 once (its 21st reading), then Demo3 if it passes.
 `results/demo2/judge_k13b067_82_demo2/`): **2 of 6 / 2 of 2 / 2 of 2 / 1 of 2. Bombs.** The grid is done (Kevin
 declined a second read for w 0.33, 04:33). Demo2 readings: 21. R3a is dropped (R-248); the T6 and T4 grid (R-245) runs
 next.
+
+**R3a stopped** (04:36): chain3 started R3a before its waiter could be stopped; its training process was stopped a
+minute later, before a step that saved anything (no adapter, no result; its partial folder removed). It ran beside
+the start of the T6 and T4 grid for about a minute, while that grid built its first blend on the CPU; the grid's first
+hard_dev run started after. The T6 and T4 grid (R-245) runs now.
