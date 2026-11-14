@@ -9341,3 +9341,14 @@ tensors, adapter changed; `results/recall_eval/hd_k13nt_r237_82_seed_73157.json`
 the early stop ended it before any Demo read (Demo2 readings stay 18, Demo3 1). The recall fall means the added
 declines also took real facts: a move away from both ends of the trade, not between them. The lane's prediction (43,
 5) was right on both. T6 (3e-4, 3 epochs, K4.8 whole, hard_dev first) takes the card next.
+
+## R-240 · 2026-11-13 · REOPENED · Kevin: keep trying until a candidate beats K1.3 or time runs out, then beat that
+
+Kevin (about 20:45): "keep trying until we beat it or run out of time and if we beat it and still have time left try
+to beat that one". Standing order. "Beat" is the registered pick (R-192): a candidate passes every gate (Demo2, Demo3,
+every screening line on seeds 82 and 83) and has higher pooled recall over seeds 82, 83 and 94 than the current pick.
+After one beats K1.3, later tries are measured against it the same way. The rules stay: every lever registered before
+its result; Demo3 read only after a Demo2 pass; hard_dev before any Demo read (R-237); every reading counted. Time
+rule (R-194): every seed of a candidate trained by Saturday 16:00 ET, so a try must clear seed 82's gates by about
+Saturday 10:00 to train and screen seeds 83 and 94 in time. New levers come from lanes, each registered here before
+it runs.
