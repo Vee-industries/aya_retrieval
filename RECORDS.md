@@ -9888,3 +9888,20 @@ never-told question that searches twice and finds unrelated text gets no row; ha
 where that shows. Demo4 has been read 3 times to choose levers, and this lever aims at one of its misses. Seed 82's
 dose is set by the decline side (about 16 a side, estimate from the counts above, before the cuts). Prediction
 (lane, estimate): hard_dev at or near the lines; Demo4 older 2 or 3 of 6.
+
+## R-268 · 2026-11-14 · REOPENED · OP4 fails seed 82's hard_dev; C1 takes the card
+
+**OP4's seed 82 set** (`op4_prep.sh 82`, 08:08; `data/screens/k13op4_82_r267.provenance.json`): built 77 answer rows, 1
+decline, 14 correct trap declines; kept 15 a side, 14 a side after the token cut (stop rule: at least 10 a side,
+met); dropped 34 older items with the source already in the first output, 8 traps with the value there; 1,165 rows;
+**check 0 FAIL** (`results/panels/R-267/check_k13op4_82_r267.txt`).
+
+**OP4 seed 82** (`k13op4_r267`, 08:09 to 08:34): hard_dev never_told **33** (at least 44), false retrieval **5** (at
+most 4), older 28, in_view 32, confirm 35 (OP: 48 / 1, older 28, in_view 39, confirm 32). **Fails both lines; no
+Demo read.** R-267's reported lines (`results/panels/R-267/side_counts.py`, 240 replies): replies with two or more
+searches 39 (OP 0, K1.3 0), false retrievals after two or more searches 5 of 5, `ran_out_of_calls` 13 (OP 0). Of the
+48 never-told items: 14 right with one search, 19 right with two, 4 wrong after two, 11 wrong out of calls (OP: 48
+right with one search). The rows taught a second search, and on never-told questions it kept searching or named what
+it found; older did not move (28 and 28). The lane's estimate (44 / 5, on the lines) held for false retrieval and
+missed never_told by 11. By R-267, no smaller-dose retry today. **C1** (`k13opc1_r263`) took the card at 08:34, as
+registered (OP4 trained).
