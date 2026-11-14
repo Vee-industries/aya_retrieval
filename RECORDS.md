@@ -10143,3 +10143,18 @@ behind K1.3 on seed 83's hard_dev recall (66 against 72) and doubles T2's false 
 under that line. S3 (sealed, R-179) is the measure. **Next: S3 on C1**, by 23:00 (R-243), on Kevin's go; `qs3.sh` names
 only K1, K1.3 and K2.1 as picks, so it needs C1 added before it runs. Weekly usage 92% (all models, 14:10). Nothing
 pushed.
+
+## R-280 · 2026-11-14 · REOPENED · Kevin: run S3 on C1; the sealed run starts
+
+Kevin (about 14:12, in chat), asked whether to run the sealed S3 test on C1 now: "Yes, run S3". This is the
+researcher's go for S3's one opening (STANDARD rule 13; R-179's seal, R-243's 23:00 deadline). `results/s3/` did not
+exist before this run. **The queue** is R-194's `qs3.sh` unchanged but for one line, C1 added to its pick names
+(`[C1]=k13opc1_r263`), copied with `qs3_lock.py` into the queue scratchpad of session 77d169a0: base arms first
+(`always_search`, `whole_chat`, base with the tool), then 6.37 at seeds 82, 83 and 94, then the pick **C1** at 82, 83
+and 94, then the report arms K1, K1.3 and K2.1 at 82 and 83. `run_s3_eval.py --final` checks the seal manifest before
+loading the model and stops on any difference. The ship rule is R-178's as changed by R-191 (registered before S3
+was opened): (a) recall above base with the tool, the chat-resampled 95% bound above 0; in_view, statement and plain
+never_told each no more than 5 points below base's; coherence at or above base's minus 5% under judge 1; (b) the copy
+rate in the wrong-reply view at most half of 6.37's and at least 10 points lower, bound above 0; (c) N-hit false
+answers at least 10 points lower than 6.37's, bound above 0, and not above base's. Weekly usage 92% (all models,
+14:10).
