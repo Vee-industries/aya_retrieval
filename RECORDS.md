@@ -9687,3 +9687,6 @@ corrections (18 a side) and 7 check_false; seed 83, 18 corrections (9 a side) an
 smaller still: K1.3 seed 83 got more older items right on the items, so fewer answer rows exist.
 **Seed 94 built** (06:05): 24 corrections (12 a side) and its check_false rows, **0 FAIL**
 (`results/panels/R-253/check_k13op_94.txt`). All three OP sets exist; the control C0 has the card, then OP.
+
+**C0 seed 82** (`k13c0_r253`: K1.3 plus 1e-4 x 1 on its own 1,094 rows; 06:26): hard_dev never_told **48**, false
+retrieval **0**, recall 54, in_view 39 (K1.3: 46 / 2 / 52 / 41). Passes; Demo4 next.
