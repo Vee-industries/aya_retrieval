@@ -200,7 +200,8 @@ def main(seed: int) -> None:
             for line in CHECKED.read_text(encoding="utf-8").splitlines()
             if (checked["meta"].get(json.loads(line)["id"]) or {}).get("kind") == "check_false"
         ),
-        key=key,
+        # the user's own first, so the user share line holds (R-205); hashed within each
+        key=lambda row: ((checked["meta"][row["id"]].get("person") or "me") != "me", key(row)),
     )
     added = []
     while falses and len(added) < FALSE_SHARE * (len(kept) + len(added)):

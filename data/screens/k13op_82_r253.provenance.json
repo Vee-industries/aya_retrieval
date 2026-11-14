@@ -1,11 +1,11 @@
 {
  "provenance": {
-  "utc_time": "2026-11-14T10:37:21+00:00",
+  "utc_time": "2026-11-14T10:50:29+00:00",
   "command": [
    "scripts/records/build_onpolicy_rows.py",
    "82"
   ],
-  "git_commit": "63941ea5c199a0199103d70dd3f50f1e9d25e95a",
+  "git_commit": "53ab735085c47915c990cc131c561b0098a90058",
   "git_dirty": true,
   "toolkit_commits": {
    "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
@@ -29,7 +29,7 @@
  "base_set": "data/screens/k1_3_r200.jsonl",
  "base_sha256": "b3ff9316f01633ed9f3f07acba0043d9fd3c91c2462794d8b250a30525973f96",
  "eval": "results/recall_eval/op_k13_82_seed_0.json",
- "out_sha256": "606f63c74be43300a15afe1278572ef56c6554aad8d6625fdd7537e8cecaaec0",
+ "out_sha256": "479c937969163e6acfd18bd2e955d395d396fb22401d908e5aaf6566f299606c",
  "rows": 1137,
  "built_by_type": {
   "answer": 40,
@@ -310,13 +310,6 @@
    "searches": 1,
    "passages": 1
   },
-  "k3_w16_05_06": {
-   "kind": "check_false",
-   "person": "cleo next door",
-   "names_value": true,
-   "searches": 1,
-   "passages": 2
-  },
   "k3_w10_00_07": {
    "kind": "check_false",
    "person": "me",
@@ -331,13 +324,6 @@
    "searches": 2,
    "passages": 1
   },
-  "k3_w3_02_06": {
-   "kind": "check_false",
-   "person": "Marco next door",
-   "names_value": true,
-   "searches": 1,
-   "passages": 2
-  },
   "k3_w8_07_07": {
    "kind": "check_false",
    "person": "me",
@@ -345,19 +331,33 @@
    "searches": 2,
    "passages": 1
   },
-  "k3_w1_02_06": {
+  "k3_w5_04_07": {
    "kind": "check_false",
-   "person": "my mum",
-   "names_value": true,
-   "searches": 1,
-   "passages": 2
+   "person": "me",
+   "names_value": false,
+   "searches": 2,
+   "passages": 1
   },
-  "k3_w8_02_06": {
+  "k3_w7_04_07": {
    "kind": "check_false",
-   "person": "my brother",
+   "person": "me",
    "names_value": true,
-   "searches": 1,
-   "passages": 2
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w12_06_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w5_05_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
   }
  },
  "k4_questions": {
@@ -829,17 +829,6 @@
    "chat_file": "w10.json",
    "chat_index": 0
   },
-  "k3_w16_05_06": {
-   "kind": "check_false",
-   "question": "cleo next door got herself a kiln didnt she",
-   "source_message": 6,
-   "value": "canoe",
-   "category": "C40",
-   "person": "cleo next door",
-   "query": "cleo next door kiln",
-   "second_query": "bought",
-   "reply": "No, Cleo next door bought a canoe; the kiln is Cleo from book club's."
-  },
   "k3_w10_00_07": {
    "kind": "check_false",
    "question": "my hand injury was a sprain wasnt it",
@@ -862,17 +851,6 @@
    "second_query": "screen device",
    "reply": "No, you have a Fairphone."
   },
-  "k3_w3_02_06": {
-   "kind": "check_false",
-   "question": "isnt Marco next door at Fennimore now",
-   "source_message": 4,
-   "value": "Brightwater",
-   "category": "C02",
-   "person": "Marco next door",
-   "query": "Marco next door Fennimore",
-   "second_query": "job hired brewery",
-   "reply": "No, Marco next door is at Brightwater; Fennimore is Marco at the gym."
-  },
   "k3_w8_07_07": {
    "kind": "check_false",
    "question": "after we move in i'll be riding the bus, right?",
@@ -884,27 +862,49 @@
    "second_query": "commute neighbour",
    "reply": "No, you'll carpool with his neighbour."
   },
-  "k3_w1_02_06": {
+  "k3_w5_04_07": {
    "kind": "check_false",
-   "question": "my mum is from pentreath originally isnt she",
-   "source_message": 7,
-   "value": "kilbarra",
-   "category": "C05",
-   "person": "my mum",
-   "query": "mum originally",
-   "second_query": "grew raised childhood",
-   "reply": "No, your mum grew up in kilbarra, pentreath is your mother in law."
+   "question": "still employed at riverbend hospital yeah",
+   "source_message": 11,
+   "value": "ashgrove",
+   "category": "C02",
+   "person": "me",
+   "query": "employed riverbend hospital",
+   "second_query": "work job clinic",
+   "reply": "No, you work at ashgrove."
   },
-  "k3_w8_02_06": {
+  "k3_w7_04_07": {
    "kind": "check_false",
-   "question": "doesn't my brother drive a skoda",
-   "source_message": 9,
-   "value": "lada",
-   "category": "C17",
-   "person": "my brother",
-   "query": "brother drive skoda",
-   "second_query": "car pic proud",
-   "reply": "No, your brother has the Lada; the Skoda is your brother-in-law's."
+   "question": "remind me, was it a telescope i got used",
+   "source_message": 16,
+   "value": "microscope",
+   "category": "C40",
+   "person": "me",
+   "query": "telescope",
+   "second_query": "bought purchase",
+   "reply": "Not a telescope, you got a secondhand microscope."
+  },
+  "k3_w12_06_07": {
+   "kind": "check_false",
+   "question": "i take the bus in every morning right",
+   "source_message": 2,
+   "value": "tram",
+   "category": "C39",
+   "person": "me",
+   "query": "bus morning",
+   "second_query": "commute ride travel",
+   "reply": "No, you take the tram."
+  },
+  "k3_w5_05_07": {
+   "kind": "check_false",
+   "question": "got a samsung phone, correct?",
+   "source_message": 16,
+   "value": "motorola",
+   "category": "C35",
+   "person": "me",
+   "query": "samsung phone",
+   "second_query": "device mobile screen",
+   "reply": "No, you have a motorola."
   }
  }
 }

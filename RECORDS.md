@@ -9678,3 +9678,10 @@ by K4.8's own natural check_false rows (checked in R-220), in hashed order, to 1
 18 decline, of which 13 are its own correct trap declines) and 7 check_false rows, beside K1.3's 1,094; check 0 FAIL**
 (`results/panels/R-253/check_k13op_82.txt`); item chats sharing a gate answer run 0. Disclosed: a small dose (43 rows
 against 1,094), about the size the lane warned sits inside the gates' variation.
+
+**Seeds 82 and 83 built** (05:50): seed 83's first build failed R-205's user share (23.1% of 13 fact rows), because the
+check_false rows added for R-207's line were mostly about other people. Fix: K4.8's check_false rows are taken with
+the user's own first, hashed within each group (both lines kept, nothing invented). Both rebuilt with it: **seed 82, 36
+corrections (18 a side) and 7 check_false; seed 83, 18 corrections (9 a side) and 4 check_false; both 0 FAIL**
+(`results/panels/R-253/check_k13op_82.txt`, `_83.txt`); 0 item chats sharing a gate answer run. Seed 83's dose is
+smaller still: K1.3 seed 83 got more older items right on the items, so fewer answer rows exist.

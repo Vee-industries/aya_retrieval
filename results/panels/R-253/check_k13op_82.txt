@@ -1,17 +1,17 @@
-W1114 05:37:45.683000 71728 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
-report: S3 four-word runs shared, this set 203, K1.3 148
+W1114 05:50:54.157000 76036 Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+report: S3 four-word runs shared, this set 202, K1.3 148
 PASS  first queries breaking the rule 0 []
 PASS  second queries holding the value 0 []
 PASS  replies not matching their side 0 []
-PASS  passage gap, natural rows: 0.28 (value 1.72, decline 1.44)
-PASS  passage gap, whole set: 0.31 (value 2.92, decline 2.61)
+PASS  passage gap, natural rows: 0.16 (value 1.58, decline 1.42)
+PASS  passage gap, whole set: 0.32 (value 2.92, decline 2.60)
 PASS  natural questions sharing a four-word run with dev or Demo2 0
 PASS  natural answer values also dev or Demo2 answers 4.2% (24 values)
 PASS  natural rows sharing a six-word run with S3 0
-PASS  facts about the user 36.0% of 25 natural fact rows, at least a third
+PASS  facts about the user 52.0% of 25 natural fact rows, at least a third
 PASS  check_false 16.3% of 43 natural rows, at least 15%
 PASS  longest row 1024 tokens, at most 1024
 report: natural rows by kind {('older', 'older'): 18, ('never_told', 'never_told'): 18, ('confirm', 'check_false'): 7}
-report: (names value, searches) {(True, 1): 22, (False, 1): 18, (True, 2): 3}
-report: top score, value rows 2.92, declining rows 2.65
+report: (names value, searches) {(True, 1): 18, (False, 1): 18, (True, 2): 6, (False, 2): 1}
+report: top score, value rows 2.58, declining rows 2.67
 == k3 check: 0 FAIL (R-205 lines)

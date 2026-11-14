@@ -1,0 +1,496 @@
+{
+ "provenance": {
+  "utc_time": "2026-11-14T10:51:13+00:00",
+  "command": [
+   "scripts/records/build_onpolicy_rows.py",
+   "83"
+  ],
+  "git_commit": "53ab735085c47915c990cc131c561b0098a90058",
+  "git_dirty": true,
+  "toolkit_commits": {
+   "AgentTune": "d4db4c12d52342227c4113a70183d0f64aa2f345",
+   "AuditKIT": "71316da345784ff220d5ed59337441a59ab31526"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+   "aya-retrieval": "0.1.0",
+   "agenttune": "1.1.3",
+   "auditkit": "1.1.3",
+   "torch": "2.11.0+cu128",
+   "transformers": "5.22.1",
+   "trl": "1.7.1",
+   "peft": "0.21.2",
+   "huggingface_hub": "1.33.0"
+  }
+ },
+ "record": "R-253",
+ "seed": 83,
+ "base_set": "data/screens/k1_3_r200.jsonl",
+ "base_sha256": "b3ff9316f01633ed9f3f07acba0043d9fd3c91c2462794d8b250a30525973f96",
+ "eval": "results/recall_eval/op_k13_83_seed_0.json",
+ "out_sha256": "c775cddd852e0da9b2fe5e82be14a28d4bad98659ed9fdd308b375b7cf79e1ec",
+ "rows": 1116,
+ "built_by_type": {
+  "answer": 28,
+  "decline": 21,
+  "correct_decline": 26
+ },
+ "kept_each_side": 9,
+ "kept_by_kind": {
+  "older": 9,
+  "never_told": 9,
+  "check_false": 4
+ },
+ "dropped": {
+  "older right, or source not returned": 205,
+  "no query left after the rule": 20,
+  "trap value not returned": 65,
+  "no search": 3,
+  "dev or Demo2 question run": 4,
+  "S3 six-word run": 3
+ },
+ "gate_chat_overlap_six_word_runs": {
+  "data/blind_dev/chats": 23,
+  "data/blind_dev2/chats": 25,
+  "demo2": 5,
+  "demo3": 6
+ },
+ "item_chats_sharing_a_gate_answer_run": 0,
+ "meta": {
+  "k3_op83_w4_03_q0": {
+   "kind": "older",
+   "person": "linnea",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_op83_w10_06_q0": {
+   "kind": "older",
+   "person": "cyrene",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_op83_w1_02_q0": {
+   "kind": "older",
+   "person": "fenn",
+   "names_value": true,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_op83_w11_02_q1": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_op83_w11_04_q1": {
+   "kind": "older",
+   "person": "my brother",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_op83_w3_04_q1": {
+   "kind": "older",
+   "person": "Theo",
+   "names_value": true,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_op83_w3_06_q0": {
+   "kind": "older",
+   "person": "dad",
+   "names_value": true,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_op83_w2_00_q1": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_op83_w15_06_q1": {
+   "kind": "older",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_op83_w16_01_q2": {
+   "kind": "never_told",
+   "person": "my brother",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_op83_w2_07_q2": {
+   "kind": "never_told",
+   "person": "my boyfriend",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_op83_w16_07_q2": {
+   "kind": "never_told",
+   "person": "tobias",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_op83_w9_04_q2": {
+   "kind": "never_told",
+   "person": "hana",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_op83_w10_01_q2": {
+   "kind": "never_told",
+   "person": "ilse from book club",
+   "names_value": false,
+   "searches": 1,
+   "passages": 4
+  },
+  "k3_op83_w13_03_q2": {
+   "kind": "never_told",
+   "person": "my niece",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_op83_w8_06_q2": {
+   "kind": "never_told",
+   "person": "noor from choir",
+   "names_value": false,
+   "searches": 1,
+   "passages": 3
+  },
+  "k3_op83_w2_03_q2": {
+   "kind": "never_told",
+   "person": "kit (roommate)",
+   "names_value": false,
+   "searches": 1,
+   "passages": 2
+  },
+  "k3_op83_w3_05_q2": {
+   "kind": "never_told",
+   "person": "my flatmate",
+   "names_value": false,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w3_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w10_07_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  },
+  "k3_w14_04_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 1,
+   "passages": 1
+  },
+  "k3_w9_03_07": {
+   "kind": "check_false",
+   "person": "me",
+   "names_value": true,
+   "searches": 2,
+   "passages": 1
+  }
+ },
+ "k4_questions": {
+  "k3_op83_w4_03_q0": {
+   "kind": "older",
+   "question": "linnea is studying what again",
+   "source_message": 11,
+   "value": "horticulture",
+   "category": "C13",
+   "person": "linnea",
+   "query": "linnea",
+   "second_query": "masters degree course",
+   "reply": "She's doing a masters in horticulture.",
+   "chat_file": "w4.json",
+   "chat_index": 3
+  },
+  "k3_op83_w10_06_q0": {
+   "kind": "older",
+   "question": "cyrene has a new pet, which kind",
+   "source_message": 16,
+   "value": "axolotl",
+   "category": "C10",
+   "person": "cyrene",
+   "query": "cyrene",
+   "second_query": "animal",
+   "reply": "Cyrene has an axolotl.",
+   "chat_file": "w10.json",
+   "chat_index": 6
+  },
+  "k3_op83_w1_02_q0": {
+   "kind": "older",
+   "question": "where does fenn work",
+   "source_message": 15,
+   "value": "ostrander",
+   "category": "C02",
+   "person": "fenn",
+   "query": "fenn",
+   "second_query": "job employer yard",
+   "reply": "Fenn works at ostrander.",
+   "chat_file": "w1.json",
+   "chat_index": 2
+  },
+  "k3_op83_w11_02_q1": {
+   "kind": "older",
+   "question": "blanking on the name of my husband lol",
+   "source_message": 5,
+   "value": "caspian",
+   "category": "C08",
+   "person": "me",
+   "query": "husband name",
+   "second_query": "partner married",
+   "reply": "Your husband is Caspian.",
+   "chat_file": "w11.json",
+   "chat_index": 2
+  },
+  "k3_op83_w11_04_q1": {
+   "kind": "older",
+   "question": "where does my brother go to uni",
+   "source_message": 14,
+   "value": "dunhallow",
+   "category": "C14",
+   "person": "my brother",
+   "query": "brother",
+   "second_query": "school college university",
+   "reply": "Your brother is at Dunhallow.",
+   "chat_file": "w11.json",
+   "chat_index": 4
+  },
+  "k3_op83_w3_04_q1": {
+   "kind": "older",
+   "question": "who does Theo work for",
+   "source_message": 16,
+   "value": "Quillfeather",
+   "category": "C02",
+   "person": "Theo",
+   "query": "theo",
+   "second_query": "job employer remote",
+   "reply": "Theo works at Quillfeather.",
+   "chat_file": "w3.json",
+   "chat_index": 4
+  },
+  "k3_op83_w3_06_q0": {
+   "kind": "older",
+   "question": "that little critter dad has, whats it called",
+   "source_message": 5,
+   "value": "Horatio",
+   "category": "C09",
+   "person": "dad",
+   "query": "dad",
+   "second_query": "pet name garden",
+   "reply": "Your dad's pet is Horatio.",
+   "chat_file": "w3.json",
+   "chat_index": 6
+  },
+  "k3_op83_w2_00_q1": {
+   "kind": "older",
+   "question": "whats my cats name",
+   "source_message": 6,
+   "value": "pickwick",
+   "category": "C09",
+   "person": "me",
+   "query": "cats name",
+   "second_query": "pet kitty",
+   "reply": "Your cat is Pickwick.",
+   "chat_file": "w2.json",
+   "chat_index": 0
+  },
+  "k3_op83_w15_06_q1": {
+   "kind": "older",
+   "question": "that series i wrapped up, what was it called",
+   "source_message": 9,
+   "value": "driftline",
+   "category": "C24",
+   "person": "me",
+   "query": "series wrapped",
+   "second_query": "show finished watching",
+   "reply": "You just finished driftline.",
+   "chat_file": "w15.json",
+   "chat_index": 6
+  },
+  "k3_op83_w16_01_q2": {
+   "file": "w16.json",
+   "chat": 1,
+   "kind": "never_told",
+   "question": "where does my brother live right now",
+   "person": "my brother",
+   "category": "C04",
+   "stored_category": "C01",
+   "query": "brother",
+   "second_query": "town home",
+   "chat_file": "w16.json",
+   "chat_index": 1
+  },
+  "k3_op83_w2_07_q2": {
+   "file": "w2.json",
+   "chat": 7,
+   "kind": "never_told",
+   "question": "the bf's cat, whats her name",
+   "person": "my boyfriend",
+   "category": "C09",
+   "stored_category": "C10",
+   "query": "bf cat name",
+   "second_query": "called pet",
+   "chat_file": "w2.json",
+   "chat_index": 7
+  },
+  "k3_op83_w16_07_q2": {
+   "file": "w16.json",
+   "chat": 7,
+   "kind": "never_told",
+   "question": "what car does tobias have",
+   "person": "tobias",
+   "category": "C17",
+   "stored_category": "C39",
+   "query": "tobias car",
+   "second_query": "drives vehicle",
+   "chat_file": "w16.json",
+   "chat_index": 7
+  },
+  "k3_op83_w9_04_q2": {
+   "file": "w9.json",
+   "chat": 4,
+   "kind": "never_told",
+   "question": "where does hana work these days",
+   "person": "hana",
+   "category": "C02",
+   "stored_category": "C03",
+   "query": "hana",
+   "second_query": "employer company hired",
+   "chat_file": "w9.json",
+   "chat_index": 4
+  },
+  "k3_op83_w10_01_q2": {
+   "file": "w10.json",
+   "chat": 1,
+   "kind": "never_told",
+   "question": "where is the book club ilse based these days",
+   "person": "ilse from book club",
+   "category": "C04",
+   "stored_category": "C05",
+   "query": "ilse book club",
+   "second_query": "lives town home",
+   "chat_file": "w10.json",
+   "chat_index": 1
+  },
+  "k3_op83_w13_03_q2": {
+   "file": "w13.json",
+   "chat": 3,
+   "kind": "never_told",
+   "question": "my niece plans to major in what",
+   "person": "my niece",
+   "category": "C13",
+   "stored_category": "C14",
+   "query": "niece",
+   "second_query": "studying course",
+   "chat_file": "w13.json",
+   "chat_index": 3
+  },
+  "k3_op83_w8_06_q2": {
+   "file": "w8.json",
+   "chat": 6,
+   "kind": "never_told",
+   "question": "what's choir noor's job title",
+   "person": "noor from choir",
+   "category": "C03",
+   "stored_category": "C02",
+   "query": "choir noor job",
+   "second_query": "role position",
+   "chat_file": "w8.json",
+   "chat_index": 6
+  },
+  "k3_op83_w2_03_q2": {
+   "file": "w2.json",
+   "chat": 3,
+   "kind": "never_told",
+   "question": "what breed of dog does my old roommate kit have",
+   "person": "kit (roommate)",
+   "stored_person": "kit (soccer)",
+   "category": "C10",
+   "query": "roommate dog",
+   "second_query": "pup kind",
+   "chat_file": "w2.json",
+   "chat_index": 3
+  },
+  "k3_op83_w3_05_q2": {
+   "file": "w3.json",
+   "chat": 5,
+   "kind": "never_told",
+   "question": "my flatmate's uni, which one is it",
+   "person": "my flatmate",
+   "category": "C14",
+   "stored_category": "C13",
+   "query": "flatmate",
+   "second_query": "college school university",
+   "chat_file": "w3.json",
+   "chat_index": 5
+  },
+  "k3_w3_03_07": {
+   "kind": "check_false",
+   "question": "that workmate who saved me last week was Tobin wasnt it",
+   "source_message": 7,
+   "value": "Lennart",
+   "category": "C34",
+   "person": "me",
+   "query": "workmate Tobin",
+   "second_query": "coworker shift bookshop",
+   "reply": "No, that was Lennart."
+  },
+  "k3_w10_07_07": {
+   "kind": "check_false",
+   "question": "beloved is the book keeping me up isnt it",
+   "source_message": 14,
+   "value": "kindred",
+   "category": "C25",
+   "person": "me",
+   "query": "book",
+   "second_query": "reading novel",
+   "reply": "No, you're reading kindred."
+  },
+  "k3_w14_04_07": {
+   "kind": "check_false",
+   "question": "our go-to dinner spot is Saffron right",
+   "source_message": 18,
+   "value": "Tamarind",
+   "category": "C26",
+   "person": "me",
+   "query": "dinner spot",
+   "second_query": "restaurant favourite",
+   "reply": "No, your favourite restaurant is Tamarind."
+  },
+  "k3_w9_03_07": {
+   "kind": "check_false",
+   "question": "my favourite band would be radiohead, yeah?",
+   "source_message": 13,
+   "value": "portishead",
+   "category": "C23",
+   "person": "me",
+   "query": "favourite band radiohead",
+   "second_query": "music listening artist",
+   "reply": "No, it's Portishead for you."
+  }
+ }
+}
