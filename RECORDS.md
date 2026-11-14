@@ -9394,3 +9394,10 @@ by **Saturday 14 November 20:00 ET** (was 16:00), the pick by **22:00** (was 18:
 stage clearing at 14:00 has seeds 83 and 94 trained by about 15:20; a K4.6-based try clearing at 14:00 has them by
 about 17:30. R-242's order (seeds 83 and 94 trained right after seed 82's gates) is kept. The form is due 15 November
 Anywhere on Earth (16 November 07:59 ET), after the S3 run.
+
+## R-244 · 2026-11-13 · REOPENED · T6 passes seed 82's hard_dev; Demo2 runs
+
+**T6 seed 82** (`k13t6_r229`: 3e-4, 3 epochs, K4.8 whole set, from K1.3; `results/recall_eval/hd_k13t6_r229_82_seed_73157.json`,
+22:05): hard_dev never_told **44** (floor 44), false retrieval **4** (ceiling 4), recall **72** (K1.3 52), in_view 47.
+**Passes both lines, at each line exactly.** First stage try to pass hard_dev. Demo2 runs next (T6 started under
+R-237's order: hard_dev first).
