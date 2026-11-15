@@ -354,26 +354,10 @@ Every rule passes in every condition (R-163). Recall, `older` and `confirm`:
 *Figure 1. Recall with the last three exchanges in view: base against the eight training seeds pooled (small dots:
 each seed), on both outside-writer sets and the four sealed conditions; both sealed pools are generator-built.*
 
-False retrievals (rule 3):
-
-{{sealed_false_table}}
-
-Coherent replies (rule 4; judge 1 decides):
-
-{{sealed_coherence_table}}
-
-Recall of {{sealed_recall_n}} for each seed (82, 83, 94 to 99): {{sealed_per_seed}}. Seed 82 against base:
-{{sealed_ship_by_condition}}. It is the lowest of the eight on `independent`, mostly on `confirm`
-({{sealed_ship_confirm}}); it {{sealed_ship_found_cd}}, so most misses there are facts it found and did not use.
-
-**R-016's two references, run late on the same sealed chats** (R-167, R-168): left out of the sealed run and first
-disclosed in R-167; run afterwards on base only, registered before they ran.
-
-{{r168_table}}
-
-Seed 82 is above both references on these generated chats (largest p {{r168_p_max}}). Base reading the whole
-58-message chat ({{r168_wc_tokens}} tokens) answers {{r168_wc}} of {{r168_recall_n}} against seed 82's
-{{r168_ship58}}; at 419 messages the whole chat does not fit the 10 GB card (R-166).
+Decoy retrievals and coherence by condition, every seed's recall and R-016's two late references are in Appendix
+A. Seed 82 is above both references on these generated chats (largest p {{r168_p_max}}): at 58 messages
+{{r168_ship58}} of {{r168_recall_n}} against the whole chat's {{r168_wc}}; at {{long_size}} messages {{long_ship}}
+against code's {{long_code}}.
 
 ### 6.2 The outside-writer sets (exploratory)
 
@@ -404,12 +388,7 @@ and the tool, and each given the whole chat.*
 - **Two fixed prompts on base** (R-137, R-161) lower its recall on both sets; a search over prompts was not tried.
 - **Tag questions.** 6.37 corrects {{claims_82_corrected_1}} and {{claims_82_corrected_2}} of {{claims_false_n}}
   false claims in "..., right?" questions, about as often as base.
-- **Where its wrong answers go wrong**, by R-139's stages:
-
-{{ow_stage_table}}
-
-The leading stage is a search that missed the fact: a tag question does not trigger a search, queries reuse training
-wording and miss, and a fact told with a pronoun cannot be matched by a search for the relation (R-146).
+- **Where its wrong answers go wrong**: by R-139's stages, mostly a search that missed the fact (Appendix A).
 
 ### 6.3 LongMemEval-S, an outside check (exploratory)
 
@@ -418,13 +397,7 @@ real logs and partly simulated (Wu et al., 2025). Every arm sees the last three 
 prompt ("You are chatting with a friend") does not match these chats, and the official GPT-4o judge was not
 available, so these are not the official score (R-170).
 
-{{lme_table}}
-
-Judged with LongMemEval's own per-type prompts by three fresh Claude Sonnet judges, blind to the arm; judge 1 decides:
-
-{{lme_judged_table}}
-
-6.37 against base with the tool: {{lme_judged_vs_base}}; against code: {{lme_judged_vs_code}}. Split after reading the
+The arm-by-arm and judged tables are in Appendix A. 6.37 against base with the tool: {{lme_judged_vs_base}}; against code: {{lme_judged_vs_code}}. Split after reading the
 registered result, and disclosed as such: on the {{lme_judged_answerable_n}} answerable questions 6.37 ties code
 ({{lme_split_vs_code}}) and shows no measured difference from base ({{lme_split_vs_base}}); {{lme_lead_unans}} of its
 {{lme_lead}}-question lead over base come from the {{lme_unanswerable_n}} unanswerable questions. 6.37 declines
@@ -475,12 +448,7 @@ passed a checker before it trained (`check_k3.py`, 0 FAIL), and seed 82 had to c
 pooled recall over seeds 82, 83 and 94 (R-191, R-192). The candidate cap became a time cutoff (R-194), which I later moved
 (R-242, R-243); candidates were tried until one beat the pick or the time ran out (R-240).
 
-**Every candidate in `decide_r191.py`, in order** (numbers from R-279's screening output and the `hard_dev` files;
-"not read" lines are those a candidate never reached because it stopped at a gate):
-
-{{reopened_ledger}}
-
-Not listed there: sets registered and stopped by their set checks before training, K2, K1.1, K1.2, K3, K3.1 and K4
+**Every candidate** in `decide_r191.py`, with its screening lines, is in Appendix B. Not listed there: sets registered and stopped by their set checks before training, K2, K1.1, K1.2, K3, K3.1 and K4
 (R-186, R-197, R-200, R-205, R-206, R-208), and K5, built and never queued (R-226); K3.2, which failed Demo2 (R-208); and, stopped at seed 82's gates, the stage tries T2 to T6 and lever 2 (R-229 to R-239), R2a, R2b and
 R2d (R-235 to R-248), two blend grids (R-237, R-245, R-250, R-255) and the rehearsal control C0 (R-259).
 
@@ -548,27 +516,15 @@ planted results before use (R-282).
 
 {{s3_table}}
 
-**The lines** (`score_s3.py rule`, `results/s3/ship_rule.json`):
-
-{{s3_lines}}
-
 **The ship rule fails on one clause.** C1's false answers to never-told questions whose search returned text,
 {{s3_nhit_c1}}, are {{s3_gap_points}} points above base's {{s3_nhit_base}}. R-178 requires every clause to pass, so by R-178 **6.37 seed 82 stays shipped**, and S3's numbers on 6.37 are its measured weakness. The
 chat-resampled 95% interval of C1 minus base on this line is {{c1_gap_interval}}: S3 cannot tell C1 from base here, and
 C1 fails the rule as registered. By seed, C1 named a listed value on {{s3_seed_nhit_c1}} never-told questions (6.37:
-{{s3_seed_nhit_637}}). The rule pools three seeds and so judges the recipe; the shipped seed's own lines are in the
-table below. R-294 records my position that the aggregate should have decided; the registered rule was applied. The lines C1
+{{s3_seed_nhit_637}}). The rule pools three seeds and so judges the recipe; the shipped seed's own lines are in
+Appendix C. R-294 records my position that the aggregate should have decided; the registered rule was applied. The lines C1
 passed are as unresolved as the one it failed: C1 minus base, in view {{s3_a_int_iv}}, statements {{s3_a_int_st}},
 plain never-told {{s3_a_int_ntp}}. The published C1 seed 82 alone left only {{c1s82_st}} plain statements unsearched, below
 (a)'s line: {{c1s82_st_gap}} against base.
-
-| Shipped seed alone, S3 | 6.37 seed 82 | C1 seed 82 |
-|---|---|---|
-| Recall | {{s3_ship82_recall}} | {{c1s82_recall}} |
-| Names its in-view wrong value when answering another question | {{s3_ship82_copy}} | {{c1s82_copy}} |
-| Never told, search returned text: names a value listed for the chat | {{s3_ship82_nhit}} | {{c1s82_nhit}} |
-| Never told, plain: names no listed value | {{s3_ship82_ntp}} | {{c1s82_ntp}} |
-| Plain statement: no search | {{s3_ship82_st}} | {{c1s82_st}}, {{c1s82_st_line}} |
 
 ![S3 faults](../figures/s3_faults.png)
 
@@ -592,21 +548,10 @@ never-told declines: {{s3_ntp_637}} to {{s3_ntp_c1}} ({{s3_rel_ntp}}). Recall: {
 with the whole chat recalls {{s3_recall_wc}} and code that searches every turn {{s3_recall_as}}, both above 6.37's
 {{s3_recall_637}} and C1's {{s3_recall_c1}}: code minus 6.37 {{s3_code_vs_637}}, code minus C1 {{s3_code_vs_c1}}.
 Code is worse than base and C1 on the faults and the same as 6.37 on copies: it answers {{s3_iv_as}} in view, names
-its in-view wrong value in {{s3_copy_as}}, and a listed value on {{s3_nhit_as}} never-told questions. Asked the same
-question again with its own wrong answer in view (`re_ask`), right: base {{s3_reask_base}}, whole chat
-{{s3_reask_wc}}, code {{s3_reask_as}}, 6.37 {{s3_reask_637}}, C1 {{s3_reask_c1}}. On S3's outside chats that fit,
+its in-view wrong value in {{s3_copy_as}}, and a listed value on {{s3_nhit_as}} never-told questions. Appendix C gives the `re_ask` counts. On S3's outside chats that fit,
 show the chat whole; on the generator's chats the adapter is above it (section 6.1).
 
-**Where recall is lost.** Of C1's wrong recall answers, {{s3_missed_c1}} are searches that did not find the fact,
-and {{s3_misread_c1}} had the fact in its own search output (6.37: {{s3_missed_637}}, and {{s3_misread_637}}). The
-reopened work trained reading and declining; searches that never found the fact are its largest loss, and whether the
-query or the keyword tool is the cause was not separated.
-
-![S3 misses](../figures/s3_misses.png)
-
-*Figure 7. S3 recall questions by outcome, per arm with a tool, as shares of all recall questions (R-287); report arms as in Figure 5. Its intervals are Wilson intervals over rows, narrower than Figures 5 and 6's, which resample chats.*
-
-**Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): {{s3_report_arms}}.
+Where recall is lost and every report arm's runs, seed by seed, are in Appendix C.
 
 **What the report arms show (exploratory).** K1 and K2.1 meet every line measured for them (two seeds; coherence was
 not judged): N-hit false answers {{s3_nhit_k1}} and {{s3_nhit_k21}}, under base's {{s3_nhit_base}}. K1.3 fails (c)
@@ -641,7 +586,7 @@ directly gives the same loss and gradients bit for bit; on an early development 
 
 ![Training memory](../figures/training_memory.png)
 
-*Figure 8. Training memory on the early development runs of R-029, not 6.37's: TRL's loss against the lean loss.*
+*Figure 7. Training memory on the early development runs of R-029, not 6.37's: TRL's loss against the lean loss.*
 
 **CuratorKIT's grounding gate found faulty training answers the project's own checks missed:** it rejected
 {{curator_v6}} of an ancestor set's found-fact answers, {{curator_slip}} that pin a relation on the wrong person and
@@ -698,9 +643,7 @@ questions each, too few to rank close models (R-283). LongMemEval-S is judged by
 judge. S3's never-told and copy flags count only values of the asked category listed for the chat: a reply that invents a
 value, or gives another category's stored fact (the demo's first fault), counts as naming none. Both directions
 matter. The untrained model invents values, so its rates of naming a listed value are floors and its plain never-told
-rate a ceiling. The adapters give other stored facts: counting the chat's other stored values too (exploratory,
-R-298), N-hit questions answered with a value, base {{s3_off_base}}, 6.37 {{s3_off_637}}, C1 {{s3_off_c1}}, C1 seed 82
-{{s3_off_c182}}, K1 {{s3_off_k1}}, K2.1 {{s3_off_k21}}. The registered never-told rubric asks for a decline and S3 was
+rate a ceiling. The adapters give other stored facts, which the flag also misses (counts in Appendix C). The registered never-told rubric asks for a decline and S3 was
 scored on its model-free part only (deviation 20). Every arm's never-told counts on the first sealed test and the
 outside-writer sets are upper bounds. No person checked S3's flags; the human scorer check (R-144, R-145) used development lines only.
 The baselines ran in one setting each, while 6.37 came out of {{ledger_total}} trained candidate sets; simpler
@@ -804,7 +747,7 @@ Claude, which did the work described. No grant or funding is recorded.
   the candidate counts stated in full; the report arms of S3 filled in as they ran.
 - **15 November (R-290 to R-298), this version.** My decisions stated in my own voice; two review panels (R-294,
   R-295, R-298); C1 published beside 6.37; 6.37's S3 weakness stated in every document; what S3's flags count; code's
-  S3 recall lead; the short paper cut to its story and required items.
+  S3 recall lead; the short paper cut to its story and required items; the long paper's per-seed and per-arm detail moved to Appendices A to C (R-300).
 
 ## References
 
@@ -822,6 +765,84 @@ Claude, which did the work described. No grant or funding is recorded.
 - Zelikman, E., et al. (2022). STaR: Bootstrapping reasoning with reasoning. *NeurIPS*.
 - Zhang, T., et al. (2024). RAFT: Adapting language model to domain specific RAG. *COLM*.
 - Zheng, L., et al. (2023). Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. *NeurIPS*.
+
+## Appendix A. The first sealed test and the outside sets in detail
+
+False retrievals (rule 3):
+
+{{sealed_false_table}}
+
+Coherent replies (rule 4; judge 1 decides):
+
+{{sealed_coherence_table}}
+
+Recall of {{sealed_recall_n}} for each seed (82, 83, 94 to 99): {{sealed_per_seed}}. Seed 82 against base:
+{{sealed_ship_by_condition}}. It is the lowest of the eight on `independent`, mostly on `confirm`
+({{sealed_ship_confirm}}); it {{sealed_ship_found_cd}}, so most misses there are facts it found and did not use.
+
+**R-016's two references, run late on the same sealed chats** (R-167, R-168): left out of the sealed run and first
+disclosed in R-167; run afterwards on base only, registered before they ran.
+
+{{r168_table}}
+
+Seed 82 is above both references on these generated chats (largest p {{r168_p_max}}). Base reading the whole
+58-message chat ({{r168_wc_tokens}} tokens) answers {{r168_wc}} of {{r168_recall_n}} against seed 82's
+{{r168_ship58}}; at 419 messages the whole chat does not fit the 10 GB card (R-166).
+
+**Outside-writer sets, where the wrong answers go wrong**, by R-139's stages:
+
+{{ow_stage_table}}
+
+The leading stage is a search that missed the fact: a tag question does not trigger a search, queries reuse training
+wording and miss, and a fact told with a pronoun cannot be matched by a search for the relation (R-146).
+
+**LongMemEval-S (R-170).**
+
+{{lme_table}}
+
+Judged with LongMemEval's own per-type prompts by three fresh Claude Sonnet judges, blind to the arm; judge 1 decides:
+
+{{lme_judged_table}}
+
+## Appendix B. The candidate ledger
+
+**Every candidate in `decide_r191.py`, in order** (numbers from R-279's screening output and the `hard_dev` files;
+"not read" lines are those a candidate never reached because it stopped at a gate):
+
+{{reopened_ledger}}
+
+## Appendix C. S3 in detail
+
+**The lines** (`score_s3.py rule`, `results/s3/ship_rule.json`):
+
+{{s3_lines}}
+
+**The shipped seed alone.**
+
+| Shipped seed alone, S3 | 6.37 seed 82 | C1 seed 82 |
+|---|---|---|
+| Recall | {{s3_ship82_recall}} | {{c1s82_recall}} |
+| Names its in-view wrong value when answering another question | {{s3_ship82_copy}} | {{c1s82_copy}} |
+| Never told, search returned text: names a value listed for the chat | {{s3_ship82_nhit}} | {{c1s82_nhit}} |
+| Never told, plain: names no listed value | {{s3_ship82_ntp}} | {{c1s82_ntp}} |
+| Plain statement: no search | {{s3_ship82_st}} | {{c1s82_st}}, {{c1s82_st_line}} |
+
+**Asked the same question again** with its own wrong answer in view (`re_ask`), right: base {{s3_reask_base}}, whole chat
+{{s3_reask_wc}}, code {{s3_reask_as}}, 6.37 {{s3_reask_637}}, C1 {{s3_reask_c1}}.
+
+**Other stored facts on N-hit questions** (exploratory, R-298): counting the chat's other stored values too, N-hit questions answered with a value: base {{s3_off_base}}, 6.37 {{s3_off_637}}, C1 {{s3_off_c1}}, C1 seed 82
+{{s3_off_c182}}, K1 {{s3_off_k1}}, K2.1 {{s3_off_k21}}.
+
+**Where recall is lost.** Of C1's wrong recall answers, {{s3_missed_c1}} are searches that did not find the fact,
+and {{s3_misread_c1}} had the fact in its own search output (6.37: {{s3_missed_637}}, and {{s3_misread_637}}). The
+reopened work trained reading and declining; searches that never found the fact are its largest loss, and whether the
+query or the keyword tool is the cause was not separated.
+
+![S3 misses](../figures/s3_misses.png)
+
+*Figure 8 (Appendix C). S3 recall questions by outcome, per arm with a tool, as shares of all recall questions (R-287); report arms as in Figure 5. Its intervals are Wilson intervals over rows, narrower than Figures 5 and 6's, which resample chats.*
+
+**Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): {{s3_report_arms}}.
 
 *Built with AgentTune, AuditKIT and CuratorKIT from Lexsi Labs. Tiny Aya is CC-BY-NC-4.0, and the adapter carries that
 licence.*

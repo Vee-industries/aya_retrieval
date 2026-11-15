@@ -10629,3 +10629,16 @@ N-hit count are two generated measures that happen to match.
 privacy sweep of the unpushed commits; M6, the long paper's length (14,461 words), whether to move section 9's
 per-seed lists and section 12's counts to an appendix. Also carried: older README sections' hedge words. Checks in the
 clone: ruff, format, pytest 1,790 passed; short paper 2,441 words, abstract 465. Nothing pushed.
+
+## R-300 · 2026-11-15 · REOPENED · The long paper shortened: detail moved to three appendices
+
+Asked whether to move the long paper's per-seed lists into an appendix (the audit's M6, R-299: 14,461 words, up 25%
+from the 11,484 Kevin was shown), Kevin, in chat: "Yes, shorten it". In `docs/article_template.md`, with nothing
+removed: Appendix A (the first sealed test's decoy and coherence tables, every seed's recall, R-016's late
+references, the outside sets' wrong-answer stages, the LongMemEval-S tables), Appendix B (the 24-candidate ledger) and
+Appendix C (S3's rule lines, the shipped seed's table, `re_ask` counts, other stored facts on N-hit questions, where
+recall is lost with its figure, every report arm by seed). Each cut leaves a one-sentence pointer; section 6.1 keeps
+the 58- and 419-message reference numbers and section 12 keeps the flag's blind spot in both directions. Figures
+renumbered so they run in order (training memory 7; S3 misses 8, in Appendix C). The body is 11,832 words and the
+appendices 2,511 (the abstract and every number unchanged; `make_article.py` rebuilt the same values). Checks in the
+clone: ruff, format, pytest 1,790 passed. Nothing pushed.
