@@ -10926,3 +10926,28 @@ to its existing number and no number, rule or shipped model changes):
 Not changed: `docs/submission/ABSTRACT.md` (SHA-256 the same after the rebuild), the long paper's Abstract, the C1
 card. Next: Kevin's go for the push (R-310 and this entry) and the Hugging Face uploads (6.37's README and
 `ARTICLE.md`, `panels/R-311/`), then the desktop copy.
+
+## R-312 · 2026-11-15 · REOPENED · An outside editorial review checked: no change needed; an SOP breach recorded
+
+Kevin pasted a further review of both papers (an outside reviewer's five required checks and editorial checks,
+"targeted finishing instructions, not a request to restructure"). Checked by the orchestrator against the papers as of
+ae2f315 (R-311, committed, not pushed):
+1. C1's statistical reading: both papers keep 7.2% against 5.9%, the 1.3-point miss and the interval -3.1 to +5.7, and
+   say S3 cannot tell C1 from base; no sentence calls C1 worse than base (the only "worse than base" near C1 is about
+   code). Holds.
+2. S3's flags: the short paper's limits keep "What S3's flags count" (an invented value or another category's stored
+   fact passes) and the wider R-298 count, labelled exploratory. Holds.
+3. Retrieval against grounding: the short paper keeps 480 of 1,242 against 260 of 414 (what) and the 119 questions both
+   searches found, 65 against 84, p = 0.0026 (grounds). Holds.
+4. Report arms: "two seeds, no coherence judging", "Exploratory; none swapped in", K1 "has no sealed test of its own".
+   Holds.
+5. The shipping decision: "6.37 stays shipped because no replacement passed the rule, not because it passed S3".
+   Holds.
+Every number in the short paper was matched to the long paper by a script (99 number phrases, 174 plain numbers): each
+has a source there. No sentence claims real-world reliability; "the same as 6.37 on copies" (code) compares two equal
+rates, 21.8% each. No change made. The reviewer's research observation (finding text is not grounds to assert it)
+was offered to Kevin as an optional Future-work sentence; not added.
+
+SOP check item S22:toolu_01NvWZnf3RSpntbR2c37h7Kn (11:48): a shell command for R-310's added-line search held the
+desktop app's session-folder name as a search word. Breach of SOP section 3 (Folders, R-044). Fix: a search for that
+name goes in a file written with Write, never on a command line; no later command names it.
