@@ -148,8 +148,9 @@ searching when it is in view (against code): where the answer is in view the ada
 {{as_never_told_1}} and {{as_never_told_2}}. On plain statements it leaves {{ship_statement_1}} and
 {{ship_statement_2}} unsearched, below base's {{ow_base_statement_1}} and
 {{ow_base_statement_2}}; code searches every one. On the generated sealed pools this adapter is
-above both references on recall: {{r168_ship}} of {{r168_recall_n}} at each of 58 and {{long_size}} messages
-against code's {{r168_as}} (every sign test below 0.001; R-168). The code is faster on every set:
+above code on recall: {{r168_ship}} of {{r168_recall_n}} at each of 58 and {{long_size}} messages
+against code's {{r168_as}} (every sign test below 0.001; R-168); it is above the whole chat at 58 messages, the only
+size the whole chat ran at (table above). The code is faster on every set:
 {{speed_sealed_short}} on the sealed pools, {{speed_ow_short}} on the outside-writer sets.
 
 Not measured: the untrained model reading the whole chat at {{long_size}} messages ({{hd_419_tokens}}

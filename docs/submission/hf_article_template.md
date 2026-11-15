@@ -23,7 +23,7 @@ rule, not because it passed S3. C1 is published beside it, labelled.
   *Whole chat*: base with every message in view, no tool.
 - *Recall*: right `older` and `confirm` answers (section 1), "of {{sealed_recall_n}}" in a run. *Never told*: the chat
   never held the fact; right when the reply names no listed value. *N-hit* (S3): a never-told question whose fixed
-  keyword search returns passages; an N-hit false answer names a value of the asked category listed for the chat. *Copy* (S3): naming its
+  keyword search returns passages; an N-hit false answer names a value listed for the chat (of the asked category, or a writer's listed wrong value). *Copy* (S3): naming its
   own in-view wrong value when answering another question.
 - *K1, K1.3, C1*: reopened candidates, each built on the last; C1 trains on corrections of its own errors. *Demo2 to
   Demo5*: one-chat screening demos.
@@ -124,8 +124,8 @@ reverses:
 **LongMemEval-S (exploratory)**, histories past the window: judged right (Claude judges, not the official GPT-4o), 6.37 {{lme_j_ship}}, base with the tool {{lme_j_base}}, code {{lme_j_code}} of a stratified {{lme_judged_n}}.
 Registered H2 (R-170): code's first search finds more evidence, {{lme_h2_code}}, with no measured difference on
 answers. Split after reading that result: on the {{lme_judged_answerable_n}} answerable questions of the
-{{lme_judged_n}}, 6.37 ties code ({{lme_split_vs_code}}); its lead over code comes from the {{lme_unanswerable_n}}
-unanswerable ones. 6.37 declines {{lme_refuse_ship}} of {{lme_answerable_n}} answerable questions.
+{{lme_judged_n}}, 6.37 ties code ({{lme_split_vs_code}}); its higher count than code comes only from the {{lme_unanswerable_n}}
+unanswerable ones. Of all {{lme_answerable_n}} answerable questions, 6.37 declines {{lme_refuse_ship}}.
 
 ## 4. The faults, and S3
 
@@ -176,8 +176,8 @@ against {{pick_recall_k13}} of {{pick_recall_n}} (R-279), inside the seed spread
 | Never told, plain: names no listed value | {{s3_ntp_base}} | {{s3_ntp_637}} | {{s3_ship82_ntp}} | {{s3_ntp_c1}} | (a) pass |
 | False claim in a tag question: corrected | {{s3_fc_base}} | {{s3_fc_637}} | {{s3_fc_ship82}} | {{s3_fc_c1}} | none |
 
-`older` alone, with no answer cue in the question (exploratory): base {{s3_older_base}}, 6.37 {{s3_older_637}}, C1
-{{s3_older_c1}}.
+`older` alone, with no answer cue in the question (exploratory; 6.37 and C1 three seeds pooled): base
+{{s3_older_base}}, 6.37 {{s3_older_637}}, C1 {{s3_older_c1}}.
 
 ![6.37 above base on both faults](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/s3_faults.png)
 

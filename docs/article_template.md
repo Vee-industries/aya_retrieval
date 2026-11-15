@@ -135,7 +135,8 @@ November; GitHub's activity record of the 12 November creation still names the o
 - **Copy** (S3): in the "wrong view", the model's own earlier wrong answer to a question is in view; a copy names
   that wrong value when answering another question (`re_ask`, the same question asked again, is scored apart). **N-hit
   false answer** (S3): a never-told question whose fixed keyword search returns passages (an item property, not the
-  model's own search; {{s3_nhit_items}} of S3's {{s3_nt_all}} never-told items a run), answered with a value of the asked category listed for the chat. Both flags
+  model's own search; {{s3_nhit_items}} of S3's {{s3_nt_all}} never-told items a run), answered with a value listed for the chat: a value of the asked category in that chat, or one of the writers'
+  listed wrong values for the question. Both flags
   count only values listed for the chat; an invented value passes unseen (section 12).
 - **Confirmatory** claims rest on the two sealed tests, each opened once: the first sealed test and S3.
   **Exploratory** claims rest on development sets read many times, or on sets read after the decision they inform.
@@ -625,11 +626,11 @@ swapped in after the result; K1 has no sealed test of its own.
 
 **6.37 and C1 against the same lines.** C1's counts are better than 6.37's on copies ({{s3_copy_c1}} against
 {{s3_copy_637}}), N-hit false answers ({{s3_nhit_c1}} against {{s3_nhit_637}}) and plain never-told questions
-({{s3_ntp_c1}} against {{s3_ntp_637}}), with no measured change in recall; 6.37's are better on statements
-({{s3_st_637}} against {{s3_st_c1}}) and in view ({{s3_iv_637}} against {{s3_iv_c1}}). 6.37's plain never-told rate is
+({{s3_ntp_c1}} against {{s3_ntp_637}}), with no measured change in recall; 6.37's are higher on statements
+({{s3_st_637}} against {{s3_st_c1}}) and, by one item, in view ({{s3_iv_637}} against {{s3_iv_c1}}). 6.37's plain never-told rate is
 under base's {{s3_ntp_base}} by more than the 5 points clause (a) allows the pick. 6.37 stays shipped because no
 replacement passed the registered rule, not because it measures well on S3. On no outside set does 6.37 show a
-measured difference above the strongest simple baseline on recall or judged answers (sections 6.2, 6.3 and above).
+measured difference above the strongest simple baseline on recall or judged answers (sections 6.2, 6.3 and this one).
 
 ## 10. Cost and toolkit findings
 

@@ -135,7 +135,8 @@ November; GitHub's activity record of the 12 November creation still names the o
 - **Copy** (S3): in the "wrong view", the model's own earlier wrong answer to a question is in view; a copy names
   that wrong value when answering another question (`re_ask`, the same question asked again, is scored apart). **N-hit
   false answer** (S3): a never-told question whose fixed keyword search returns passages (an item property, not the
-  model's own search; 236 of S3's 240 never-told items a run), answered with a value of the asked category listed for the chat. Both flags
+  model's own search; 236 of S3's 240 never-told items a run), answered with a value listed for the chat: a value of the asked category in that chat, or one of the writers'
+  listed wrong values for the question. Both flags
   count only values listed for the chat; an invented value passes unseen (section 12).
 - **Confirmatory** claims rest on the two sealed tests, each opened once: the first sealed test and S3.
   **Exploratory** claims rest on development sets read many times, or on sets read after the decision they inform.
@@ -665,11 +666,11 @@ swapped in after the result; K1 has no sealed test of its own.
 
 **6.37 and C1 against the same lines.** C1's counts are better than 6.37's on copies (5 of 894 (0.6%) against
 195 of 894 (21.8%)), N-hit false answers (51 of 708 (7.2%) against 286 of 708 (40.4%)) and plain never-told questions
-(344 of 360 (95.6%) against 238 of 360 (66.1%)), with no measured change in recall; 6.37's are better on statements
-(180 of 180 (100.0%) against 166 of 180 (92.2%)) and in view (161 of 180 (89.4%) against 160 of 180 (88.9%)). 6.37's plain never-told rate is
+(344 of 360 (95.6%) against 238 of 360 (66.1%)), with no measured change in recall; 6.37's are higher on statements
+(180 of 180 (100.0%) against 166 of 180 (92.2%)) and, by one item, in view (161 of 180 (89.4%) against 160 of 180 (88.9%)). 6.37's plain never-told rate is
 under base's 111 of 120 (92.5%) by more than the 5 points clause (a) allows the pick. 6.37 stays shipped because no
 replacement passed the registered rule, not because it measures well on S3. On no outside set does 6.37 show a
-measured difference above the strongest simple baseline on recall or judged answers (sections 6.2, 6.3 and above).
+measured difference above the strongest simple baseline on recall or judged answers (sections 6.2, 6.3 and this one).
 
 ## 10. Cost and toolkit findings
 

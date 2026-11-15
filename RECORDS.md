@@ -10899,3 +10899,30 @@ Kevin, in chat, to "Push main to GitHub and upload the short paper to Hugging Fa
 
 The form abstract (`docs/submission/ABSTRACT.md`) did not change, so the text Kevin has for the form stands. Usage at
 the end of this stage: weekly, all models, 8% (11:52).
+
+## R-311 · 2026-11-15 · REOPENED · The audit of R-309 (b08ec7f); its findings fixed
+
+Kevin, in chat, sent R-309 to the audit session ("send it to the audit bot too") and held R-310's push for it ("Hold
+for the audit"). The audit session read `git diff ca1af5d b08ec7f`, R-309, `results/panels/R-309/`, the scorer's
+`false_answer` and the live Hugging Face copies (findings in `results/panels/R-311/`): 0 HIGH, 1 MEDIUM, 6 LOW, no
+wrong number. It recomputed every new number from the S3 run files with its own script, rebuilt the five documents
+byte for byte from `git archive b08ec7f`, and found the live copies equal to the repository.
+
+Checked by the orchestrator against the files, then fixed (no builder; no panel, because each fix narrows a sentence
+to its existing number and no number, rule or shipped model changes):
+- M1. `docs/MODEL_CARD.md` (6.37's Hugging Face README) said 6.37 is "above both references on recall ... at each of
+  58 and 419 messages"; the whole chat ran at 58 only (R-166, R-168), the claim R-309 fixed in the long paper. Now
+  "above code" at both sizes and "above the whole chat at 58 messages, the only size the whole chat ran at". The card
+  no longer matches its old bytes.
+- L1. Section 9: 6.37's counts are "higher" on statements and, "by one item", in view, not "better".
+- L2. The short paper's LongMemEval-S split: "its higher count than code comes only from the 15 unanswerable ones"
+  (53 against 40 is no measured difference), and "Of all 470 answerable questions, 6.37 declines 233", so the two
+  different 233s are not read as one.
+- L3. The N-hit term in both papers names both sets the scorer reads: a value of the asked category in that chat, or
+  one of the writers' listed wrong values for the question (as the C1 card says).
+- L4. "(sections 6.2, 6.3 and this one)" in place of "and above".
+- L5. Informational: the short paper is now 2,942 words (2,783 at ca1af5d); its length stays Kevin's call.
+- L6. `older` alone in the short paper says 6.37 and C1 pool three seeds.
+Not changed: `docs/submission/ABSTRACT.md` (SHA-256 the same after the rebuild), the long paper's Abstract, the C1
+card. Next: Kevin's go for the push (R-310 and this entry) and the Hugging Face uploads (6.37's README and
+`ARTICLE.md`, `panels/R-311/`), then the desktop copy.

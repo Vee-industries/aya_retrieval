@@ -23,7 +23,7 @@ rule, not because it passed S3. C1 is published beside it, labelled.
   *Whole chat*: base with every message in view, no tool.
 - *Recall*: right `older` and `confirm` answers (section 1), "of 120" in a run. *Never told*: the chat
   never held the fact; right when the reply names no listed value. *N-hit* (S3): a never-told question whose fixed
-  keyword search returns passages; an N-hit false answer names a value of the asked category listed for the chat. *Copy* (S3): naming its
+  keyword search returns passages; an N-hit false answer names a value listed for the chat (of the asked category, or a writer's listed wrong value). *Copy* (S3): naming its
   own in-view wrong value when answering another question.
 - *K1, K1.3, C1*: reopened candidates, each built on the last; C1 trains on corrections of its own errors. *Demo2 to
   Demo5*: one-chat screening demos.
@@ -124,8 +124,8 @@ reverses:
 **LongMemEval-S (exploratory)**, histories past the window: judged right (Claude judges, not the official GPT-4o), 6.37 53, base with the tool 34, code 40 of a stratified 248.
 Registered H2 (R-170): code's first search finds more evidence, 372 against 333 of 476, with no measured difference on
 answers. Split after reading that result: on the 233 answerable questions of the
-248, 6.37 ties code (40 against 40; 23 right only for 6.37 and 23 only for code that always searches, p = 1.0); its lead over code comes from the 15
-unanswerable ones. 6.37 declines 233 of 470 answerable questions.
+248, 6.37 ties code (40 against 40; 23 right only for 6.37 and 23 only for code that always searches, p = 1.0); its higher count than code comes only from the 15
+unanswerable ones. Of all 470 answerable questions, 6.37 declines 233.
 
 ## 4. The faults, and S3
 
@@ -176,8 +176,8 @@ against 742 of 1,296 (R-279), inside the seed spread.
 | Never told, plain: names no listed value | 111 of 120 (92.5%) | 238 of 360 (66.1%) | 76 of 120 (63.3%) | 344 of 360 (95.6%) | (a) pass |
 | False claim in a tag question: corrected | 1 of 28 | 0 of 84 | 0 of 28 | 32 of 84 | none |
 
-`older` alone, with no answer cue in the question (exploratory): base 30 of 356 (8.4%), 6.37 285 of 1,068 (26.7%), C1
-292 of 1,068 (27.3%).
+`older` alone, with no answer cue in the question (exploratory; 6.37 and C1 three seeds pooled): base
+30 of 356 (8.4%), 6.37 285 of 1,068 (26.7%), C1 292 of 1,068 (27.3%).
 
 ![6.37 above base on both faults](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/s3_faults.png)
 

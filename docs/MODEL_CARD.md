@@ -148,8 +148,9 @@ searching when it is in view (against code): where the answer is in view the ada
 31 and 24. On plain statements it leaves 37 and
 35 unsearched, below base's 38 and
 39; code searches every one. On the generated sealed pools this adapter is
-above both references on recall: 44 to 55 of 60 at each of 58 and 419 messages
-against code's 14 to 32 (every sign test below 0.001; R-168). The code is faster on every set:
+above code on recall: 44 to 55 of 60 at each of 58 and 419 messages
+against code's 14 to 32 (every sign test below 0.001; R-168); it is above the whole chat at 58 messages, the only
+size the whole chat ran at (table above). The code is faster on every set:
 1.01 to 1.23 s a conversation against 1.67 to 2.08 on the sealed pools, 1.45 to 1.48 s a question against 1.70 to 1.96 on the outside-writer sets.
 
 Not measured: the untrained model reading the whole chat at 419 messages (6,236
