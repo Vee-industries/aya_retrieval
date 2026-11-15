@@ -48,7 +48,7 @@ A scripted demo, run for 6.37 on 12 November, showed two faults: it answered que
 unrelated stored facts, and it repeated its own wrong answer while that answer was still in view (R-175, R-176). With
 the deadline extended, the project was reopened (R-177). A second sealed test, S3, was written by {{s3_writers}} blind
 writer agents and sealed before any new training row, and its ship rule was fixed before it opened (R-178, R-179,
-R-191). {{reopened_n}} candidates were listed for screening; C1 became the pick (R-279). On S3, against 6.37, C1's
+R-191). {{reopened_n}} candidates were listed for screening, {{reopened_full}} read on every line; C1 became the pick (R-279). On S3, against 6.37, C1's
 copies of a wrong answer in view went from {{s3_copy_637}} to {{s3_copy_c1}} and its false answers to never-told
 questions whose search returned text from {{s3_nhit_637}} to {{s3_nhit_c1}}. Those false answers had to be no higher
 than the untrained model's, {{s3_nhit_base}}, so C1 failed the rule on one clause and **this adapter, 6.37 seed 82,

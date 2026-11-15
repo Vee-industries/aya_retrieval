@@ -22,7 +22,15 @@ on) point into it. Adapter: [KevinVaillancourt/aya-retrieval-6.37](https://huggi
 collections: [models](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-models-6af35d3c521e8481db061df5)
 and [datasets](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-datasets-6af35d3cf9a91556f52af373).
 The adapter and datasets are public and not gated; the base model is gated, so accept its licence first. Every
-number below is filled from results files by `scripts/make_article.py`.
+table and result number below is filled from results files by `scripts/make_article.py`, except the few typed from the
+record that the long paper's section 15 lists.
+
+**Problem statement.** Track 3, Agentic Fine-tuning, problem statement 4: "Fine-tuning for retrieval-augmented
+generation: Train a model that decides when and what to retrieve, grounds its answers in the retrieved text and
+ignores distracting documents."
+
+**Who is who.** I am Kevin Vaillancourt, the author and the researcher. "Kevin" in a sentence names one of my
+recorded rulings, with my words quoted as the record holds them.
 
 **Claim labels.** *Confirmatory* claims rest on a sealed test opened once (the first sealed test, S3). *Exploratory*
 claims rest on development sets read many times or on sets read after the decision they inform.
@@ -39,7 +47,30 @@ decoys: the same kind of fact about other people.
 6.37 is a rank-32 LoRA on all attention and MLP projections, trained by supervised fine-tuning on
 {{training_rows}} rows. Targets are the untrained model's own replies where they pass the scorer, so the adapter keeps
 the model's voice; loss falls only on the taught turns (R-076). Eight training seeds; seed 82 was named to ship before
-most of them existed and frozen with the scorer and judge before the sealed run (R-141, R-160).
+most of them existed and frozen with the scorer and judge before the sealed run (R-141, R-160). Settings:
+{{training_setup}}. Base `CohereLabs/tiny-aya-global` at revision `af89d219b53ed9b13b8a4645f9c8028973510324`, in
+bfloat16, CC-BY-NC-4.0. No teacher model and no closed-model baseline; judges and writers are Claude agents.
+
+**How the Lexsi toolkits connect.** A build script writes the rows; CuratorKIT's grounding gate audited an ancestor
+set's found-fact answers and rejected {{curator_v6}}, and the replacements it passed are in 6.37's lineage.
+AgentTune's distillation trainer fits the LoRA, and AgentTune's SQLite search is the tool in every training row, test
+and demo. The harness runs the search loop and the project's scorer marks each reply. AuditKIT was a second scorer in
+development (agreed {{auditkit_agree}} on v3); its paired bootstrap does not centre its resamples (long paper, section
+10).
+
+**Data, splits and leak checks.** Training rows come only from the `train` and `wide` pools ({{training_rows}} rows in
+6.37's set). Development: `probe` and `hard_dev`, read many times. The first sealed test: `heldout` and `independent`,
+{{sealed_conversations}} chats a condition, run once. Outside-writer sets 1 and 2: {{ow_chats}} chats and {{ow_items}}
+questions a set, by fresh Claude Opus agents. S3: {{s3_chats}} chats and {{s3_items}} items, run once. No training row
+comes from a test set; every training step stops on a four-word run shared with `probe` or `hard_dev` (R-055, R-110);
+S3 shares {{s3_runs_shared}} four-word runs with 6.37's training lines, counted and not removed (R-179). No embedding
+or MinHash check was run, and the pretrained model was not probed for contamination. The long paper's section 3 has
+the leakage table by type and S3's flow table. English only. Every question's trajectory (the searches, what each
+returned, the reply and the verdict) is in the run files and the `aya-retrieval-eval-logs` dataset.
+
+**Metrics.** Higher is better for recall, `in_view`, `never_told`, statements left unsearched, right search decisions
+and coherence; lower is better for false retrieval, copies of a wrong answer in view, N-hit false answers and seconds a
+question (long paper, section 5).
 
 ## 2. What happened, in order
 
@@ -48,7 +79,7 @@ most of them existed and frozen with the scorer and judge before the sealed run 
 | 1 to 9 Nov | Test registered before any adapter; {{ledger_total}} candidate sets; 6.37 frozen | R-016 to R-160 |
 | 9 to 10 Nov | First sealed test passes; baselines run late; LongMemEval-S; published | R-162 to R-172 |
 | 12 Nov | Demo shows two faults; deadline extended; reopened; S3 written and sealed | R-173 to R-179 |
-| 12 to 14 Nov | {{reopened_n}} candidates listed for screening; K1.3 the pick, then C1 | R-180 to R-279 |
+| 12 to 14 Nov | {{reopened_n}} candidates listed for screening, {{reopened_full}} read on every line; K1.3 the pick, then C1 | R-180 to R-279 |
 | 14 Nov | S3 opened once; C1 fails one clause; 6.37 stays shipped | R-280 to R-287 |
 
 ## 3. 6.37's results
@@ -92,8 +123,8 @@ before they ran, 6.37 repeated its own wrong answer, still in view, on six (R-17
 The deadline was then extended. Kevin: "i re-opened because of the deadline. saw the results i missed and decided
 that with the extra day i had enough time to train further" (R-177). 6.37 and every result about it stayed published.
 
-**The test came before the training.** {{s3_writers}} fresh Claude Opus writers, given only a brief, wrote S3:
-{{s3_chats}} chats, {{s3_items}} items. Nobody read a chat; the set, loader, scorer and judge brief were hashed before
+**The test came before the training.** S3 was written by {{s3_writers}} fresh Claude Opus writers, given only a
+brief: {{s3_chats}} chats, {{s3_items}} items. Nobody read a chat; the set, loader, scorer and judge brief were hashed before
 any new training row existed (R-179, R-181). S3 measures the two faults directly: with the model's own earlier wrong
 answer placed in view, does it copy it; and on a never-told question whose search returns passages, does it name a
 value. **The ship rule, fixed before S3 opened** (R-178, R-191): the pick must (a) beat base on recall, with no more
@@ -121,7 +152,8 @@ Kevin's order from R-240: "keep trying until we beat it or run out of time".
    ![Demo contamination](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/demo_contamination.png)
 
 4. **The model's own mistakes.** OP trained K1.3 on corrections of its own errors; C1 is OP's stage run twice. Each
-   repeat declined fewer never-told questions (OP {{hd_nt_op}}, C1 {{hd_nt_c1}}, C2 {{hd_nt_c2}} of 48), and most of
+   repeat declined fewer never-told questions (OP {{hd_nt_op}}, C1 {{hd_nt_c1}}, C2 {{hd_nt_c2}} of 48; exploratory, one
+   run each at one seed, the 95% intervals overlap), and most of
    OP's remaining errors were searches that never found the fact, which corrections of reading cannot reach (R-267).
 
    ![Never-told slide](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/never_told_slide.png)
@@ -174,7 +206,7 @@ reopening trained reading and declining; the query, the fault left untrained, is
 - **Disclosed: every judge, writer and panel lane is a Claude model**, the same family as the assistant that did the
   work; the only human marker is Kevin, not blind to the hypotheses. The coherence judges were never checked against a
   person.
-- Development sets were read many times: {{reopened_n}} candidates in the reopened work alone, so development numbers
+- Development sets were read many times: {{reopened_n}} listed candidates ({{reopened_full}} read on every line) in the reopened work alone, so development numbers
   flatter what was chosen; the claims rest on the two sealed tests.
 - One model, one size, English only, greedy decoding, one 10 GB card; no chat from a real person; no second team has
   rerun it; contamination of the pretrained model was not probed.
@@ -186,7 +218,7 @@ whole chat on chats too long to fit; test instructions hidden in retrieved passa
 
 **Reproduce.** The README gives setup and every command; `scripts/make_article.py` builds both write-ups from results
 files, and `scripts/make_figures.py` draws every figure. Training takes {{train_minutes}} minutes a seed on an RTX
-3080. Tiny Aya Global is CC-BY-NC-4.0, and the adapter and data carry that licence; the code is Apache-2.0.
+3080; the run files hold {{gpu_total}} hours of GPU time in all, on my own card, so the compute cost is $0. Tiny Aya Global is CC-BY-NC-4.0, and the adapter and data carry that licence; the code is Apache-2.0.
 
 **Who did what.** Kevin Vaillancourt directed the work and made every decision in `RECORDS.md`. Claude (Anthropic)
 wrote the code, pools, training sets, tests and these write-ups and ran the experiments, as an executive-function
@@ -194,3 +226,30 @@ accommodation; other Claude agents wrote the outside-writer chats, S3, the natur
 judged coherence and LongMemEval-S. Teammates tagged: none. Work before 1 November: only the plan (R-001) and the
 author's chat engine LLE, none of which is in this repository. Thanks to Lexsi Labs for AgentTune, AuditKIT,
 CuratorKIT and the hackathon, and to Cohere Labs for Tiny Aya Global.
+
+**Changelog.** 10 November: the first published version, 6.37, both datasets and the write-up (R-171, R-172). 12 to
+14 November: reopened to fix two faults; S3 written and sealed;
+candidates screened; C1 picked and run on S3; C1 failed one clause and 6.37 stays shipped; both write-ups rebuilt from
+results files. The long paper's changelog has each step's records.
+
+**Where each required item is.**
+
+| Item | Here | Long paper |
+|---|---|---|
+| Claim, headline, base model and method | top, section 1 | summary |
+| Problem statement and why this problem | top | summary, section 1 |
+| Toolkits and how they connect | section 1 | sections 4 and 10 |
+| Data, sizes, splits, languages, leak checks | section 1 | section 3 |
+| Tool environment and trajectories | section 1 | section 3 |
+| Hyperparameters, models and licences | section 1 | section 4 |
+| Metrics and their direction | section 1 | section 5 |
+| Hypotheses and outcomes | sections 3, 4 and 6 | section 5 |
+| Results, seeds, intervals, baselines | sections 3 and 6 | sections 6 and 9 |
+| Ablations: every candidate | section 5 | section 8 |
+| Compute and cost | section 8 | section 10 |
+| Deviations | section 7, the disclosures | section 11 |
+| Limits | section 7 | section 12 |
+| Errors and negative results | sections 4 to 6 | sections 7, 8, 13 |
+| Future work | section 8 | section 14 |
+| Reproduce | section 8 | section 15 |
+| Declaration, contributions, LLM usage, team | section 8 | after section 15 |

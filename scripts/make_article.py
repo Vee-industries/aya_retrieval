@@ -40,7 +40,7 @@ from aya_retrieval.report_data import (
     records_script,
     train_report,
 )
-from aya_retrieval.stats import exact_sign_test
+from aya_retrieval.stats import exact_sign_test, wilson_interval
 
 DOCS = REPO_ROOT / "docs"
 RESULTS = REPO_ROOT / "results"
@@ -134,8 +134,9 @@ def status_numbers(out) -> None:
     out["status_line"] = (
         "6.37 (`fix17cs37` seed 82) is the shipped model. The reopened work's pick, C1, ran on "
         "the sealed S3 test and failed one clause of the ship rule registered before S3 opened "
-        "(R-287), so 6.37 stays shipped. Every number is computed from committed results files by "
-        "`scripts/make_article.py`; `RECORDS.md` holds the dated record behind each."
+        "(R-287), so 6.37 stays shipped. Every table and result number is computed from committed "
+        "results files by `scripts/make_article.py`, except the few typed from the record that "
+        "the long paper's section 15 lists; `RECORDS.md` holds the dated record behind each."
     )
 
 
@@ -1249,10 +1250,11 @@ def sealed_numbers(out) -> None:
     out["sealed_ship_confirm_top"] = str(
         max(runs[c]["per_kind_correct"]["confirm"][a] for c in ("C", "D") for a in ADAPTERS)
     )
-    out["sealed_ship_found_cd"] = " and ".join(
-        f"found the fact in {runs[c]['behaviour'][SHIP]['recall_found_fact']} and answered "
-        f"{runs[c]['behaviour'][SHIP]['recall_right_and_found']} right ({c})"
-        for c in ("C", "D")
+    found = [runs[c]["behaviour"][SHIP] for c in ("C", "D")]
+    out["sealed_ship_found_cd"] = (
+        f"found the fact in {found[0]['recall_found_fact']} (C) and {found[1]['recall_found_fact']}"
+        f" (D) and answered {found[0]['recall_right_and_found']} and "
+        f"{found[1]['recall_right_and_found']} of those right"
     )
     out["sealed_per_seed"] = "; ".join(
         f"{c}, " + ", ".join(str(recall_per_seed(runs[c])[a]) for a in ADAPTERS) for c in CONDITIONS
@@ -1317,6 +1319,16 @@ def cost_numbers(out) -> None:
     minutes = [r["train_seconds"] / 60 for r in reports]
     out["train_minutes"] = f"{min(minutes):.0f} to {max(minutes):.0f}"
     out["train_peak"] = span(f"{r['train_peak_vram_gib']:.2f}" for r in reports)
+    hours = {}  # GPU time the run files record (R-217's sum, carried to the newest run)
+    for key, pattern, field in (
+        ("train", "recall_train/*.json", "train_seconds"),
+        ("eval", "recall_eval/*.json", "seconds"),
+        ("s3", "s3/s3_*.json", "seconds"),
+    ):
+        files = sorted(RESULTS.glob(pattern))
+        hours[key] = (len(files), sum(load(f)[field] for f in files) / 3600)
+        out[f"gpu_{key}"] = f"{hours[key][1]:.1f} hours over {hours[key][0]:,} runs"
+    out["gpu_total"] = f"{sum(h for _, h in hours.values()):.0f}"
 
 
 # --- The outside-writer sets (R-146, R-157, R-164) ----------------------------------------------
@@ -2162,6 +2174,7 @@ def reopened_numbers(out) -> None:
     ]
     out["reopened_ledger"] = table(header, rows)
     out["reopened_n"] = str(len(REOPENED))
+    out["reopened_full"] = WORDS[sum(line["wait"] == "0" for line in lines.values())]
     out["pick_recall_c1"], out["pick_recall_k13"] = lines["C1"]["pick"], lines["K1.3"]["pick"]
     out["pick_recall_k1"] = lines["K1"]["pick"]
     r2c = RESULTS / "panels" / "R-247" / "decide_r191.txt"  # the screening that named R2c (R-247)
@@ -2179,6 +2192,9 @@ def reopened_numbers(out) -> None:
     for label, run in (("k13", "k1_3_r200"), ("op", "k13op_r253")):
         out[f"hd_nt_{label}"] = hd_never_told(run)
     out["hd_nt_c1"], out["hd_nt_c2"] = hd_never_told("k13opc1_r263"), hd_never_told("k13opc2_r271")
+    slide = [wilson_interval(int(out[f"hd_nt_{k}"]), 48) for k in ("op", "c1", "c2")]
+    if max(lo for lo, _ in slide) > min(hi for _, hi in slide):
+        raise SystemExit("the never-told slide's intervals no longer all overlap; update the text")
 
 
 def s3_numbers(out) -> None:
@@ -2241,18 +2257,29 @@ def s3_numbers(out) -> None:
     out["s3_lines"] = "\n".join(
         f"- {'PASS' if x['pass'] else 'FAIL'}: {x['line']}" for x in rule["lines"]
     )
-    report = [a for a in arms if a in scorer.REPORT]
-    out["s3_report_arms"] = (
-        "; ".join(
-            f"{scorer.ARM_NAMES[a].removesuffix(' (report)')} recall "
-            f"{arms[a]['recall']['hits']} of {arms[a]['recall']['n']}, copies "
-            f"{arms[a]['copy']['hits']} of {arms[a]['copy']['n']}, false answers "
-            f"{arms[a]['n_hit_false_answer']['hits']} of {arms[a]['n_hit_false_answer']['n']}"
-            for a in report
+    runs, waiting = [], []  # every report run written so far, one seed at a time (R-288)
+    for name in scorer.REPORT:
+        for seed in (82, 83):
+            label = f"s3_{name}_{seed}"
+            if not (S3_DIR / f"{label}.json").exists():
+                waiting.append(f"{scorer.ARM_NAMES[name].removesuffix(' (report)')} seed {seed}")
+                continue
+            rows, m = scorer.load(label), {}
+            for measure, counted in scorer.MEASURES.items():
+                hits = [h for h in map(counted, rows) if h is not None]
+                m[measure] = (sum(hits), len(hits))
+            runs.append(
+                f"{scorer.ARM_NAMES[name].removesuffix(' (report)')} seed {seed} recall "
+                f"{m['recall'][0]} of {m['recall'][1]}, copies {m['copy'][0]} of {m['copy'][1]}, "
+                f"false answers {m['n_hit_false_answer'][0]} of {m['n_hit_false_answer'][1]}"
+            )
+    text = "; ".join(runs) if runs else "none written"
+    if waiting:
+        text += (
+            f". Not yet run when this was built: {', '.join(waiting)} (the queue stopped after K1 "
+            "seed 82, R-288, and was restarted on Kevin's word, R-289)"
         )
-        if report
-        else "not yet run when this was built"
-    )
+    out["s3_report_arms"] = text
     tally = load(S3_DIR / "coherence" / "tally.json")
     out["s3_coh_n"] = str(tally["judge_1"]["pairs"])
     for j in (1, 2, 3):

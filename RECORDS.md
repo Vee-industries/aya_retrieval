@@ -10334,3 +10334,61 @@ committed S3 files: on S3, base with the whole chat recalls 274 of 414 and code 
 1,242) and C1 (364 of 1,242); of C1's wrong recall answers, 661 of 878 are searches that did not find the fact. The
 report arms are not yet in section 9; the next entry adds them. Checks: `ruff check`, `ruff format --check`, pytest
 1,790 passed. Weekly usage at the end of this stage: 96% (all models, read just after the clock showed 19:44). Nothing pushed.
+
+## R-289 · 2026-11-14 · REOPENED · S3's queue restarted on Kevin's word; the audit of b1abc06 fixed
+
+Session 3fe62a52 takes over from 3892334a (R-288), on its hand-off brief. Weekly usage at the start of this stage:
+96% (all models; `get_usage` 20:03). No agents were started. Every edit was drafted in a throwaway clone in this
+session's scratchpad and copied in for this commit.
+
+**The queue.** A relayed go from session 3892334a was not acted on (SOP section 1: a go relayed by another session
+never starts work). Kevin, in this session's chat at about 19:53: "go for it". At 19:53 nothing ran on the card (525
+of 10,240 MiB in use, under the 38% line); the old log was kept as `qs3_until_k1_82.log` beside `qs3.log` in session
+77d169a0's scratchpad; `qs3_lock.py C1` was started detached at BelowNormal and took the card lock; it skipped the
+ten runs already written and began K1 seed 83 at 19:53:27. A watcher (`watch_job.sh`, done `== qs3 done`, fail
+`^FAIL `, still 1,800 s, deadline 14,400 s, cmd `run_s3_eval.py`) runs beside it.
+
+**The audit** (session `local_62a27534`, findings on b1abc06: 5 high, 6 medium, 4 low), each fixed or answered:
+- H1, README: the stale present tenses of the R-179 to R-215 paragraphs put in the past (K4.7 trained and failed
+  Demo2, R-218); S3's result in the title-and-claim line; S3's strongest baselines and the report arms in "Reopened";
+  layout rows for `results/s3/`, `scripts/run_s3_eval.py` and `scripts/records/score_s3.py`; an S3 reproduce step;
+  a 14 November changelog entry.
+- H2, the short paper (`hf_article_template.md`): the problem statement, the settings (from the run file), base
+  revision and licence, no teacher model and no closed-model baseline, how the toolkits connect, data sizes, splits
+  and leak checks, trajectories, metric directions, a changelog and a table of where each required item is, here and
+  in the long paper. 2,340 words before, 3,118 after.
+- H3, the long paper: restored from the template before R-288 (commit f613357), each checked against the current
+  text so nothing is said twice: the trajectories paragraph (section 3), models and licences and the numbered
+  toolkit chain (section 4, replacing the shorter toolkit paragraph; the base revision moved there from the
+  training line), the metrics table with direction, two S3 rows added (section 5); and an Artifacts paragraph with
+  the repository, adapter, collections, datasets, Colab notebook, `docs/demo.md` and `docs/samples/`.
+- H4: `s3_report_arms` now lists every report run written, seed by seed, and names those not yet run with this
+  entry's restart; it no longer waits for both seeds of an arm.
+- H5: the generated status line (long paper and model card) and the short paper's line now say every table and
+  result number is filled from results files except those section 15 lists.
+- M1: each candidate count now reads 24 in R-279's screening list, six of them read on all 20 lines
+  (`reopened_full`, counted from `decide_r191.txt`: K1, K2.1, K1.3, K4.1, R2c, C1), over 12 to 14 November; the
+  ledger note names the sets stopped by their set checks before training (K2, K1.1, K1.2, K3, K3.1, K4; R-186,
+  R-197, R-200, R-205, R-206, R-208), K5 (built, never queued, R-226) and K3.2 (failed Demo2, R-208).
+- M2: one "Terms" line in each paper says I, the author and Kevin are one person, and "Kevin" names a recorded ruling.
+- M3: the doubled "(R-144, R-145)" and "of 50" removed from the templates; the C and D found-fact counts (111 and 111,
+  checked in `results/analysis/R-162/C.json` and `D.json`) now read as one sentence; the cost paragraph split in
+  three; the short paper's lower-case "six" after a bold lead fixed.
+- M4: the never-told slide is labelled exploratory, one run each at one seed, in both papers, Figure 4's caption and
+  the figure's subtitle; `make_article.py` stops if the three Wilson intervals (OP 48, C1 46, C2 43 of 48) stop
+  overlapping. Figure 3's caption says it is a count, not an estimate. Figure 5's axis starts at -3% so the 0% dots
+  and intervals show whole.
+- M5: GPU hours are summed by `make_article.py` from the run files: `results/recall_train/*.json` `train_seconds`
+  108.6 h over 186 runs, `results/recall_eval/*.json` `seconds` 100.0 h over 849 files, `results/s3/s3_*.json`
+  `seconds` 5.2 h over 10 runs, 214 h in all (R-217's 188 h to 13 November, carried on); demo runs record no time.
+  The GPU hours leave section 15's list of typed numbers.
+- M6: the form abstract's first paragraph now reads "On the first sealed test, every registered rule passed".
+- L1: the pre-freeze ledger is pointed to at commit 7b71a20, the version pushed on 10 November.
+- L2 (Kevin's words quoted as written) is Kevin's call; asked in chat. L3 is H5. L4 (whole-repo `ruff check .`, 327
+  errors in `results/panels/`) is not fixed here; the commit chain lints `src scripts tests`.
+
+No panel, because no registered line, result or result file changes: `make_article.py` and `make_figures.py` were
+rerun in the clone and every change in the four documents and two figures traces to the edits above.
+
+Checks: `ruff check`, `ruff format --check`, pytest 1,790 passed (clone). Weekly usage at the end of this stage: 96% (all
+models, 20:04). Nothing pushed.

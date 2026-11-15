@@ -41,10 +41,10 @@ speaker in training) was left untrained at first; the natural-chat rows from R-2
 whatever it shows.
 
 Since then (R-179 to R-215, 12 and 13 November). S3, the new test, was written by six writer agents and sealed before
-any training row (R-179). It stays closed until Saturday 14 November, and the pick for it is fixed by 18:00 Eastern
+any training row (R-179). It stayed closed until Saturday 14 November, with the pick fixed by 18:00 Eastern
 that day (R-202). Seventeen candidate sets were registered, K1 to K4.7 (R-194 asks that the count be stated; every
-candidate chosen among on reused development sets makes the winner's development numbers more optimistic). Nine
-finished training at seed 82 or more seeds, K4.7 is training, and four reached every screening line: K1, K2.1, K1.3
+candidate chosen among on reused development sets makes the winner's development numbers more optimistic). By R-215,
+nine had finished training at seed 82 or more seeds, K4.7 was training, and four had reached every screening line: K1, K2.1, K1.3
 and K4.1.
 
 K1 answered all 4 of the scripted demo's questions and 3 of the 8 registered ones (R-184). Against 6.37's gates it
@@ -63,8 +63,7 @@ failed Demo2's registered rule (at least 3 of 6 older facts and 3 of 4 never-tol
 were not trained (R-208, R-210, R-212, R-213, R-214). K4.1 passed Demo2 and failed 4 screening lines (R-210). K4.3 did
 not train (R-211). On the two outside-writer sets K4.6 recalled 132 older and confirm questions at seed 82 (a
 diagnostic, not eligible for the pick), against K1.3's 89 and K4.1's 122 (R-214). K4.7, K4.6 plus 64 natural chats
-from 8 new writers, passed its check and is training (R-215). The shipped model stays 6.37 unless a candidate passes
-the registered rule on S3, which runs once, by 19:00 Eastern on 14 November (R-194, R-202).
+from 8 new writers, passed its check, trained and failed Demo2 (R-215, R-218).
 
 Since then (R-216 to R-279, 13 and 14 November). More candidates trained on later stages and on the model's own
 corrections; `decide_r191.py` lists 24. Demo2 and Demo3 were retired because their answers were training values
@@ -79,13 +78,16 @@ ship rule on one clause, so 6.37 stays shipped.** Its rate of false answers on n
 returns text is 51 of 708 (7.2%), below 6.37's 286 of 708 (40.4%) but above base's 14 of 236 (5.9%), and the rule
 asks for both. Every other line passes. Against 6.37 on S3, C1 repeats an earlier wrong answer 5 times in 894 against
 195, declines a plain never-told question rightly 344 times in 360 against 238, and recalls 364 of 1,242 out-of-view
-facts against 347.
+facts against 347. On S3, code that searches every turn (161 of 414) and base shown the whole chat (274 of 414) both
+recall a larger share than either trained model (R-287, R-288). The report arms (K1, K1.3 and K2.1 at seeds 82 and 83)
+enter no line; their counts are in the long write-up's section 9.
 
 ## Submission summary
 
 **Title and claim.** Teaching a 3B model to search a long chat it can no longer see: a LoRA adapter trained with
 AgentTune (6.37) makes Tiny Aya Global recall 91 to 107 of 120 out-of-view facts on the sealed test, where the
-untrained model with the same tool recalls 13 to 32.
+untrained model with the same tool recalls 13 to 32. A replacement built to fix two of its faults failed the second
+sealed test (S3) on one clause, and 6.37 stays shipped.
 
 **Track and problem statement.**
 
@@ -470,6 +472,8 @@ weights instead. Nothing from that project's code or test sets is used here.
 | `RECORDS.md`, `HANDOFF.md`, `docs/PROJECT_MAP.md` | The dated log of every decision and result; where the project stands; what each part does and how the parts connect (R-216) |
 | `data/screens/` | Every candidate's training set and writer files, each with its provenance file; `data/heldout3/` holds S3, sealed and hashed (R-179), and is not opened before its run |
 | `results/demo2/`, `results/panels/` | Demo2 runs and judge folders; each panel's and count's output, by record |
+| `results/s3/` | S3, the second sealed test: one run file an arm and seed, the ship rule's result (`ship_rule.json`, R-287) and the coherence sheet, key and judges' marks (`coherence/`, R-284 to R-286) |
+| `scripts/run_s3_eval.py`, `scripts/records/score_s3.py` | S3's runner (`--final` checks the seal manifest before loading the model) and its scorer (`sheet`, `tally`, `rule`; registered R-281, shown failing planted results first, R-282) |
 | `docs/` | The write-up (`ARTICLE.md`) and model card (`MODEL_CARD.md`), both made from `results/` by `scripts/make_article.py` from their templates; sample rows in `docs/samples/` |
 
 ## Reproduce the results
@@ -500,6 +504,11 @@ revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
 6. The write-ups and figures: `PYTHONPATH=src python scripts/make_article.py` and `scripts/make_figures.py`; the long and short
    write-ups (`docs/ARTICLE.md`, `docs/submission/HF_ARTICLE.md`), the form abstract and `docs/MODEL_CARD.md` are filled
    from results files by their templates; the few numbers quoted from records are listed in the article's section 15.
+7. S3 (R-280): one run an arm and seed, base arms first, then 6.37 and C1 at seeds 82, 83 and 94, then the report arms
+   at 82 and 83 (the queue `qs3.sh` is in R-194 and R-280). Each run is
+   `scripts/run_s3_eval.py --final --index <sqlite> --label <label> --max-vram-fraction 0.85` with `--arm
+   always_search`, `--arm whole_chat` or `--arm tool [--adapter <adapter>]`. Then `scripts/records/draw_s3_sample.py
+   --final`, `scripts/records/score_s3.py sheet --final`, the three judges, `score_s3.py tally` and `score_s3.py rule`.
 
 ## Checks
 
@@ -534,12 +543,15 @@ other 24 test files.
 - **12 November (R-173 to R-178).** Write-ups reworked after a blind rubric read, with overstatements corrected
   (R-173); notebook, CI and demo block (R-174); the scripted demo and eight more registered questions, which showed
   two weaknesses of 6.37 (R-175, R-176); the project reopened with a new sealed test and ship rule (R-177, R-178).
-- **12 to 13 November (R-179 to R-217), this version.** The reopened work: the "Reopened" section added with S3's seal
+- **12 to 13 November (R-179 to R-217).** The reopened work: the "Reopened" section added with S3's seal
   (R-179) and updated through R-215, covering candidates K1 to K4.7 (R-180 to R-215). Added to match the submission
   checklist (R-217): a submission summary, the data, language, split and leak-check description, metric directions,
   the tool environment, a threat model, models and licences, compute and time per 1,000 replies, planned work, a
   declaration of work done outside the hackathon, an LLM usage statement and the team line. No number about 6.37
   changed, and 6.37 is still the shipped model.
+- **14 November (R-216 to R-289), this version.** The "Reopened" section carried through S3 (R-287: C1 fails one
+  clause, 6.37 stays shipped); the long and short write-ups and the form abstract rebuilt from templates by
+  `scripts/make_article.py` (R-288) and fixed after an audit (R-289); S3's layout rows and reproduce step added.
 
 ## Licences
 

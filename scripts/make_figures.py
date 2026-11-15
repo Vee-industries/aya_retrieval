@@ -352,7 +352,7 @@ def fig_s3_faults() -> None:
     )
     for ax, (measure, label) in zip(axes, panels, strict=True):
         arm_points(ax, measure, names, tables, chats)
-        ax.set_xlim(0, 75)
+        ax.set_xlim(-3, 75)  # a little below 0, so a 0% dot and its interval show whole
         ax.set_xticks(range(0, 61, 20), [f"{t}%" for t in range(0, 61, 20)])
         ax.set_xlabel(label, fontsize=9.5)
     axes[1].tick_params(axis="y", labelleft=False)
@@ -442,8 +442,8 @@ def fig_never_told_slide() -> None:
     titled(
         fig,
         "Each repeat of the same stage declined fewer never-told questions",
-        "hard_dev, training seed 82, 48 questions a run; Wilson 95% intervals; "
-        "grey: passes the gate.",
+        "Exploratory: one run each, hard_dev, training seed 82, 48 questions a run; Wilson 95% "
+        "intervals, which overlap; grey: passes the gate.",
     )
     save(fig, "never_told_slide")
 

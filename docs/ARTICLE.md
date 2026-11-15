@@ -6,7 +6,7 @@ This is the full write-up. The short version, about five pages, tells the same s
 evidence: [HF_ARTICLE.md](submission/HF_ARTICLE.md), also on Hugging Face as the model repository's article. Record
 ids (R-164 and so on) point into `RECORDS.md`, the dated record of every decision and run.
 
-> **6.37 (`fix17cs37` seed 82) is the shipped model. The reopened work's pick, C1, ran on the sealed S3 test and failed one clause of the ship rule registered before S3 opened (R-287), so 6.37 stays shipped. Every number is computed from committed results files by `scripts/make_article.py`; `RECORDS.md` holds the dated record behind each.**
+> **6.37 (`fix17cs37` seed 82) is the shipped model. The reopened work's pick, C1, ran on the sealed S3 test and failed one clause of the ship rule registered before S3 opened (R-287), so 6.37 stays shipped. Every table and result number is computed from committed results files by `scripts/make_article.py`, except the few typed from the record that the long paper's section 15 lists; `RECORDS.md` holds the dated record behind each.**
 
 ## Abstract
 
@@ -25,8 +25,8 @@ leaves answers in view alone.
 A scripted demo then showed two faults in 6.37: it gave an unrelated stored fact as the answer to questions it was
 never told, and it repeated its own wrong answer while that answer was still in view (R-175, R-176). With the deadline
 extended, the project was reopened (R-177). A new sealed test, S3, was written by six blind writer agents and sealed
-before any new training row existed, with a ship rule fixed before it opened (R-178, R-179, R-191). 24
-candidates were listed for screening over two days; C1 became the pick. On S3, C1 cut 6.37's copies of a wrong answer in view
+before any new training row existed, with a ship rule fixed before it opened (R-178, R-179, R-191). From 12 to 14
+November, 24 candidates in the screening list of R-279, six of them read on all 20 lines; C1 became the pick. On S3, C1 cut 6.37's copies of a wrong answer in view
 from 195 of 894 (21.8%) to 5 of 894 (0.6%), and its false answers to never-told questions from 286 of 708 (40.4%) to
 51 of 708 (7.2%). It failed one clause: those false answers had to be no higher than base's, 14 of 236 (5.9%). By the
 registered rule, 6.37 stays shipped (R-287). On S3 the whole chat (274 of 414 (66.2%)) and plain code
@@ -67,12 +67,27 @@ passages and answer, or decline when the chat never held the fact.
   the answer is out of view and not when it is in view.
 - Where it fails: 6.37 declines 233 of 470 answerable LongMemEval-S questions; it
   gives unrelated stored facts and copies its own wrong answers (section 7).
-- The reopening: 24 candidates in two days; the pick, C1, removed most of both faults and failed the ship
+- The reopening: 24 candidates in the screening list of R-279, six of them read on all 20 lines, 12 to 14 November; the pick, C1, removed most of both faults and failed the ship
   rule by 1.3 points on one clause. 6.37 stays shipped.
 - Where to look: `RECORDS.md`, the README (reproduction), and the two Hugging Face collections.
 
+**Artifacts.** Code, results files and records:
+[github.com/Vee-industries/aya_retrieval](https://github.com/Vee-industries/aya_retrieval). Adapter:
+[KevinVaillancourt/aya-retrieval-6.37](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37). Collections:
+[models](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-models-6af35d3c521e8481db061df5) and
+[datasets](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-datasets-6af35d3cf9a91556f52af373).
+Datasets: [aya-retrieval-chats](https://huggingface.co/datasets/KevinVaillancourt/aya-retrieval-chats) (the training
+and outside-writer chats) and [aya-retrieval-eval-logs](https://huggingface.co/datasets/KevinVaillancourt/aya-retrieval-eval-logs)
+(every trajectory). A notebook that runs 6.37 on a chat:
+[open in Colab](https://colab.research.google.com/github/Vee-industries/aya_retrieval/blob/main/notebooks/demo_6_37.ipynb).
+Sample inputs and outputs: the scripted demo, [`docs/demo.md`](demo.md), and [`docs/samples/`](samples/). The adapter
+and datasets are public and not gated; the base model is gated, so accept its licence first. S3's chats are sealed
+and not uploaded.
+
 **Terms.**
 
+- **I**, **the author** and **Kevin** are one person, Kevin Vaillancourt, the researcher. "Kevin" in a sentence names
+  one of my recorded rulings, with my words quoted as the record holds them.
 - **Base**: the untrained Tiny Aya Global. **Tool**: `search_corpus`, a full-text search over the messages older than
   the last three exchanges, top 5 passages, up to 3 searches a message.
 - **Code**: code that searches on every turn with the newest message as the query and hands base the passages;
@@ -136,7 +151,7 @@ The work ran in five stages. Each row names the records that hold its decisions 
 | 1 to 9 Nov | Build 6.37 | Test registered before any adapter; 40 candidate sets screened on development pools; 6.37 seed 82 named and frozen | R-016 to R-160 |
 | 9 to 10 Nov | First sealed test and outside checks | Sealed run, every rule passes; whole chat and code run late; LongMemEval-S; published | R-162 to R-172 |
 | 12 Nov | Faults found, reopened | Scripted demo shows two faults; deadline extended; project reopened; S3 written and sealed; ship rule fixed | R-173 to R-179 |
-| 12 to 14 Nov | The push to replace 6.37, then K1.3 | 24 candidates screened; K1.3 the pick from R-203; demos rewritten clean; on-policy tries; Kevin's demo rulings; C1 the pick | R-180 to R-279 |
+| 12 to 14 Nov | The push to replace 6.37, then K1.3 | 24 candidates listed, six read on every line; K1.3 the pick from R-203; demos rewritten clean; on-policy tries; Kevin's demo rulings; C1 the pick | R-180 to R-279 |
 | 14 Nov | S3 | S3 opened once on Kevin's go; scorer registered and tested before any S3 file was read; C1 fails one clause; 6.37 stays shipped | R-280 to R-287 |
 
 **Why the stages ran as they did.** Each stage was set off by a measured result, not by a plan made in advance. The
@@ -156,6 +171,12 @@ newest message is one of five kinds, each scored by a fixed rule (`src/aya_retri
 `confirm` are right when the reply names the answer and no listed wrong value; `in_view` the same; `never_told` when
 the reply names no value of that type; `statement` when the model makes no search. Every chat also holds **decoys**:
 the same type of fact about other people, so a search can return the wrong person's fact.
+
+**Trajectories.** Each run file stores the whole trajectory of every question: the searches the model wrote, what each
+returned, the reply and the verdict (`results/recall_eval/` and `results/s3/` here; the Hugging Face dataset
+`aya-retrieval-eval-logs`, folder `recall_eval/`). The Track 3 trajectory metrics map onto the measures of section 5:
+task success is recall and the other right-answer counts; tool-call accuracy is right search decisions, searches whose
+output holds the fact, and clean first calls; latency is seconds a question and tokens read a turn (section 10).
 
 **Threat model.** The adversary is the chat's own content: decoys, a wrong claim in a "..., right?" question, the
 model's own wrong answer in view, and a fact never told. Instructions hidden in retrieved passages are not tested. The
@@ -220,18 +241,34 @@ either outside-writer set or a sealed pool.
 **Training.** LoRA rank 32 on `q_proj`, `k_proj`, `v_proj`, `o_proj`, `gate_proj`, `up_proj`, `down_proj`; peak learning rate 3e-4, 3 epochs, batch 2, loss mode `chat_decision`, with TRL's chunked loss replaced by `lean_loss.lean_chunk`; trained from no adapter; 222 plain-chat rows carry loss only on the reply's first token and its end-of-turn marker, through AgentTune's distillation trainer (TRL underneath). Eight seeds (82, 83, 94
 to 99) on the same set; seed 82 was named to ship before seeds 94 to 99 or any outside-writer chat existed (R-114,
 R-141) and frozen (R-160). 33 to 35 minutes a seed, peak 7.81 to 7.84 GiB. Versions: AgentTune 1.1.3, TRL
-1.7.1, PEFT 0.21.2, Transformers 5.22.1, PyTorch 2.11.0+cu128, Python 3.12.10; base revision
-`af89d219b53ed9b13b8a4645f9c8028973510324`.
+1.7.1, PEFT 0.21.2, Transformers 5.22.1, PyTorch 2.11.0+cu128, Python 3.12.10.
 
-**The Lexsi toolkits.** AgentTune trained every adapter and supplies the search behind every test. CuratorKIT's
-grounding gate audited an ancestor set's found-fact answers and rejected 22 of 350; its replacements are in
-6.37's lineage, and the rest of 6.37's rows were never gated by it. AuditKIT was a second scorer in development
-(agreed 959 of 960 on v3) and was not run on 6.37. Section 10 has what each showed.
+**Models and licences.**
+
+- Base: `CohereLabs/tiny-aya-global`, 3.35B parameters, revision `af89d219b53ed9b13b8a4645f9c8028973510324`, loaded in
+  bfloat16 (`src/aya_retrieval/models.py`), CC-BY-NC-4.0, gated on Hugging Face (R-003).
+- Adapter: a LoRA on that revision, CC-BY-NC-4.0 (carried from the base). The code is Apache-2.0.
+- No teacher model: found-fact targets are the untrained model's own passing replies; the rest are vetted plain-chat
+  replies and scripted answers. No closed-model baseline was run.
+- Judges and writers: Claude Sonnet agents (`claude-sonnet-5-5`, pinned for both sealed runs, R-154, R-281) judged
+  coherence and LongMemEval-S answers; Claude Opus agents wrote the outside-writer chats and S3.
+
+**How the Lexsi toolkits connect.**
+
+1. A build script writes the training rows. On the ancestor set v6, CuratorKIT's grounding gate audited the
+   found-fact answers and rejected 22 of 350; the replacements it passed are in 6.37's lineage, and the rest of
+   6.37's rows were never gated by it.
+2. AgentTune's distillation trainer fits the LoRA on the rows, and AgentTune's SQLite full-text retrieval is the
+   search behind `search_corpus` in every training row, every test and the demo.
+3. The harness runs the model and the search loop on each test chat, and the project's scorer marks each reply.
+4. AuditKIT served as a second scorer in development (agreed 959 of 960 on v3). It was not run on 6.37, and
+   its bootstrap defect is reported (section 10).
 
 **How 6.37 was chosen.** `hard_dev` recall moves between training seeds alone (73 to 90 of 96 for 6.37,
 R-141) by more than most changes moved it. The 40 trained candidate sets before the freeze were screened
 on reused development pools; 6.37 is the only copy after v6 that passed every registered line (R-123 to R-127). The
-full ledger is in `RECORDS.md` (R-103 to R-160) and the earlier version of this article.
+full ledger is in `RECORDS.md` (R-103 to R-160) and in section 11 of the article as submitted on 10 November
+([commit 7b71a20](https://github.com/Vee-industries/aya_retrieval/blob/7b71a20/docs/ARTICLE.md#11-how-637-was-chosen-the-candidate-ledger)).
 
 ## 5. Evaluation protocol
 
@@ -249,7 +286,7 @@ check of that manifest and ended with a check of every judge's transcript (R-162
 sensible next turn" (`coherence.RUBRIC`). Each sheet shuffles every model's replies to the same chats with names
 removed. Three fresh judges mark each sheet; judge 1 decides. Measured spread: R-128's three judges split on
 13 of 576 lines. **The judges were never checked against a person.** The recall scorer was checked on
-50 development lines: I (the author, not an independent marker) agreed with the scorer on 47 of 50 lines (Cohen's kappa 0.88), and the scorer passed no reply I failed (R-144). A second, independent marker agreed with the scorer on 48 of 50 (kappa 0.92) and with me on 49 (kappa 0.96) (R-145) (R-144, R-145).
+50 development lines: I (the author, not an independent marker) agreed with the scorer on 47 of 50 lines (Cohen's kappa 0.88), and the scorer passed no reply I failed (R-144). A second, independent marker agreed with the scorer on 48 of 50 (kappa 0.92) and with me on 49 (kappa 0.96) (R-145).
 
 **Statistics.** Paired exact sign tests on the questions where two runs differ; 95% percentile bootstrap intervals
 that resample whole chats. Generated questions share fact templates (5 on `probe`,
@@ -257,6 +294,24 @@ that resample whole chats. Generated questions share fact templates (5 on `probe
 chats, 10,000 draws, seed 0 (R-281). S3's ship rule is one decision that needs every line to hold, so no
 multiple-test adjustment applies to it; the other p-values in this article are reported unadjusted, as a family of
 exploratory results.
+
+**Metrics, and which direction is better.**
+
+| Metric | Better | What it measures |
+|---|---|---|
+| Recall (`older` plus `confirm` right) | higher | the registered primary measure |
+| `in_view` and `never_told` right | higher | what should not get worse: answers in view left alone, a fact never told declined |
+| Plain statement left unsearched | higher | a plain chat line should cause no search |
+| Right search decisions | higher | searched exactly when the answer was out of view |
+| Found by the model's own query | higher | the search output holds the fact |
+| False retrieval | lower | a decoy's fact appears in the reply |
+| Copy, wrong view (S3) | lower | the model's own earlier wrong answer, in view, repeated |
+| N-hit false answer (S3) | lower | a never-told question answered with a value after the search returned passages |
+| Coherent replies (judge 1) | higher | what should not get worse: plain-chat quality |
+| Clean first calls | higher | format only: the reply is one whole `search_corpus` call |
+| Seconds a question, tokens read a turn | lower | cost on this machine |
+| LongMemEval-S: judged right, gold answer in reply, declines on unanswerable | higher | outside check |
+| LongMemEval-S: declines on answerable | lower | outside check |
 
 **Registered hypotheses and their outcomes.**
 
@@ -311,7 +366,7 @@ Coherent replies (rule 4; judge 1 decides):
 
 Recall of 120 for each seed (82, 83, 94 to 99): A, 106, 104, 104, 106, 101, 102, 107, 105; B, 107, 105, 105, 107, 102, 103, 108, 106; C, 92, 109, 99, 116, 108, 108, 120, 111; D, 91, 109, 98, 116, 108, 108, 119, 109. Seed 82 against base:
 106 against 32 (A), 107 against 29 (B), 92 against 21 (C), 91 against 13 (D). It is the lowest of the eight on `independent`, mostly on `confirm`
-(42 of 60 in C and 40 of 60 in D); it found the fact in 111 and answered 92 right (C) and found the fact in 111 and answered 91 right (D), so most misses there are facts it found and did not use.
+(42 of 60 in C and 40 of 60 in D); it found the fact in 111 (C) and 111 (D) and answered 92 and 91 of those right, so most misses there are facts it found and did not use.
 
 **R-016's two references, run late on the same sealed chats** (R-167, R-168): left out of the sealed run and first
 disclosed in R-167; run afterwards on base only, registered before they ran.
@@ -419,8 +474,8 @@ Judged with LongMemEval's own per-type prompts by three fresh Claude Sonnet judg
 registered result, and disclosed as such: on the 233 answerable questions 6.37 ties code
 (40 against 40; 23 right only for 6.37 and 23 only for code that always searches, p = 1.0) and shows no measured difference from base (40 against 32; 26 right only for 6.37 and 18 only for base with the tool, p = 0.29); 11 of its
 19-question lead over base come from the 15 unanswerable questions. 6.37 declines
-233 of the 470 questions it should answer; code declines 1. I (the
-author, not an independent marker) agree with each judge on 46 of 50 (kappa 0.78) of 50 blind lines.
+233 of the 470 questions it should answer; code declines 1. On 50
+blind lines, I (the author, not an independent marker) agree with each judge on 46 of 50 (kappa 0.78).
 
 ## 7. The faults the demo found, and the reopening (R-173 to R-179)
 
@@ -497,7 +552,8 @@ Kevin (R-242, R-243). Kevin's standing order from R-240: "keep trying until we b
 | OPT | rows from C1's own turns on the training templates | not run (C2 failed) | not run | not run | 0 (20 of 20 not read) |  | R-271, R-272 |
 | OPO | OPT's rows from OP | stopped: 0 answer rows | not run | not run | 0 (20 of 20 not read) |  | R-274, R-275 |
 
-Not listed there, and stopped at seed 82's gates: the stage tries T2 to T6 and lever 2 (R-229 to R-239), R2a, R2b and
+Not listed there: sets registered and stopped by their set checks before training, K2, K1.1, K1.2, K3, K3.1 and K4
+(R-186, R-197, R-200, R-205, R-206, R-208), and K5, built and never queued (R-226); K3.2, which failed Demo2 (R-208); and, stopped at seed 82's gates, the stage tries T2 to T6 and lever 2 (R-229 to R-239), R2a, R2b and
 R2d (R-235 to R-248), two blend grids (R-237, R-245, R-250, R-255) and the rehearsal control C0 (R-259).
 
 **The story in four turns.**
@@ -517,18 +573,21 @@ R2d (R-235 to R-248), two blend grids (R-237, R-245, R-250, R-255) and the rehea
    "fix the demos write up why". Demo4 (screening) and Demo5 (held out) were written fresh and rewritten until clean.
 4. **The model's own mistakes (R-253 to R-279).** OP trains K1.3 on corrections of its own errors on its training
    chats. OP passed `hard_dev` and failed Demo4's older line. C1 is OP's stage run a second time on the same set,
-   registered as a control. Repeating the stage lowered never-told declines each time (Figure 4): OP
-   48, C1 46, C2 43 of 48. Of OP's errors about the user on its own items, most had the
+   registered as a control. Exploratory, one run each at one seed: each repeat of the stage declined fewer
+   never-told questions (Figure 4), OP 48, C1 46, C2 43 of 48, and the three 95%
+   intervals overlap. Of OP's errors about the user on its own items, most had the
    fact absent from its own search output (R-267): search misses, which corrections of reading errors cannot reach.
 
 ![Demo contamination](../figures/demo_contamination.png)
 
-*Figure 3. Answer keys that are fact values in the training data, by demo (8 keyed questions each; R-254).*
+*Figure 3. Answer keys that are fact values in the training data, by demo (8 keyed questions each; R-254). A count
+of every key, not an estimate.*
 
 ![Never-told slide](../figures/never_told_slide.png)
 
 *Figure 4. `hard_dev` never-told declines at training seed 82, 48 questions a run, as OP's stage is repeated;
-Wilson 95% intervals; grey band: passes the gate (R-261, R-269, R-272).*
+Wilson 95% intervals; grey band: passes the gate (R-261, R-269, R-272). Exploratory: one run a candidate at one
+seed, and the intervals overlap.*
 
 **How C1 became the pick: Kevin's rulings on the demo test.** C1 passed Demo4 (3 of 6 older, 3 of 4 never-told) and
 failed Demo5's older line (2 of 6). Kevin then ruled that the standard was beating K1.3, not a fixed line (R-276),
@@ -544,7 +603,7 @@ Demo4 and 3 of 6 on Demo5, two demos written from one brief, and C1 and K1.3 swa
 one six-question demo cannot tell these models apart. **Disclosed: both rulings came after both models' readings of
 both demos existed.** C1 then trained seeds 83 and 94, passed all 20 screening lines, and led K1.3 on pick recall,
 775 against 742 (R-279). That lead is under two seeds' spread, and C1 was chosen among
-24 listed candidates on reused development sets, so S3 is the measure.
+24 listed candidates (six read on every line) on reused development sets, so S3 is the measure.
 
 ## 9. S3: the sealed test of the pick (confirmatory)
 
@@ -608,7 +667,7 @@ reopened work trained reading and declining; its largest loss is still the searc
 
 *Figure 7. S3 recall questions by outcome, per arm with a tool (R-287).*
 
-**Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): not yet run when this was built.
+**Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): K1 seed 82 recall 120 of 414, copies 0 of 298, false answers 4 of 236. Not yet run when this was built: K1 seed 83, K1.3 seed 82, K1.3 seed 83, K2.1 seed 82, K2.1 seed 83 (the queue stopped after K1 seed 82, R-288, and was restarted on Kevin's word, R-289).
 
 ## 10. Cost and toolkit findings
 
@@ -627,10 +686,14 @@ All training and evaluation ran on one RTX 3080 (10 GB), each run with the card 
 | Searches per conversation, base / eight adapters | 0.47 / 0.57 to 0.63 | 0.48 / 0.57 to 0.63 | 0.39 / 0.60 to 0.62 | 0.39 / 0.60 to 0.62 |
 
 Seed 82 reads 35 to 37% of the whole chat's tokens a turn; it takes longer than base because each search adds
-a model call. Code is faster than 6.37 on every set: sealed pools code that always searches 1.01 to 1.23 s a conversation, seed 82 1.67 to 2.08, base with the tool 1.27 to 1.45; outside-writer sets
-code 1.45 to 1.48 s a question, seed 82 1.70 to 1.96, base with the tool 1.21 to 1.31, base with the whole chat and no tool 1.02 to 1.06; LongMemEval-S code 3.09 s a question against 3.81 for 6.37. Training took 33 to 35 minutes a seed. Time per 1,000 replies is the seconds a question above times 1,000.
-The recorded run files to 13 November hold 188 hours of GPU time over every candidate and test (R-217); the reopened
-work's runs are in the results files and not summed here. The GPU is the author's own, so the compute cost is $0
+a model call. Time per 1,000 replies is the seconds a question times 1,000.
+
+Code is faster than 6.37 on every set: sealed pools code that always searches 1.01 to 1.23 s a conversation, seed 82 1.67 to 2.08, base with the tool 1.27 to 1.45; outside-writer sets code 1.45 to 1.48 s a question, seed 82 1.70 to 1.96, base with the tool 1.21 to 1.31, base with the whole chat and no tool 1.02 to 1.06;
+LongMemEval-S code 3.09 s a question against 3.81 for 6.37.
+
+Training took 33 to 35 minutes a seed. The run files hold 214 hours of GPU time: training 108.6 hours over 186 runs (`train_seconds` in
+`results/recall_train/`), evaluation 100.0 hours over 849 runs (`seconds` in `results/recall_eval/`) and S3 5.2 hours over 10 runs
+(R-217's sum, carried to the newest run). Stopped runs, demo runs and agent time are not in those files. The GPU is the author's own, so the compute cost is $0
 (Kevin, 13 November); the cost of the Claude agents is not recorded.
 
 **AuditKIT's paired bootstrap does not centre its resamples.** It reports a large gain as failing significance: on
@@ -676,7 +739,7 @@ and no answer it had passed before (R-098).
 generated from pools, with facts told in passing; one model, one size, greedy decoding, one 10 GB card. No chat is a
 real person's; LongMemEval-S mixes real and simulated sessions.
 
-**Internal validity.** Development pools were read many times to choose candidates (24 listed in the
+**Internal validity.** Development pools were read many times to choose candidates (24 candidates in R-279's screening list, six of them read on all 20 lines, in the
 reopened work alone), so every development number flatters what was chosen; the claims rest on the sealed runs. C1's
 pick rests on demo rulings made after the readings (deviation 11). Seed noise is large: 6.37's `hard_dev` recall spans
 73 to 90 of 96 by seed, and ten fewer training rows moved R2c's `hard_dev` lines by 4 (R-249). Training is not
@@ -737,7 +800,7 @@ file is not in the repository). This article, the short version and the model ca
 `PYTHONPATH=src python scripts/make_article.py`, from their templates; figures by `scripts/make_figures.py`. Every
 table and every result number is filled from results files, with these exceptions, typed from the records with
 their ids: the scripted demo's counts (R-175, R-176), Demo2's counts for K1 and K1.3 (R-204), R2cf's change of 10
-rows and 4 items (R-249), the GPU hours (R-217), and the dates.
+rows and 4 items (R-249), and the dates.
 
 ## Declaration of work done outside the hackathon
 
@@ -774,6 +837,9 @@ Claude, which did the work described. No grant or funding is recorded.
   flow tables and limits under STANDARD v3's headings; claims labelled confirmatory or exploratory; seven figures drawn
   from results files. The detailed tables on 6.37 that were cut are in the git history of this file and in the
   records. No number about 6.37 changed; 6.37 is still the shipped model.
+- **14 November, audit fixes (R-289).** Checklist items restored to the long paper (metrics, trajectories, models
+  and licences, how the toolkits connect, artifacts) and added to the short one; GPU hours summed from the run files;
+  the candidate counts stated in full; the report arms of S3 filled in as they ran.
 
 ## References
 

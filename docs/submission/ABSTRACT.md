@@ -4,7 +4,7 @@ Trained with Lexsi's AgentTune, a LoRA adapter (6.37) lets Tiny Aya Global (3.35
 exchanges of a chat, search the rest when the answer is out of view. On a sealed test registered before training
 (300 unseen generated chats in each of four conditions, run once), the shipped seed recalls
 91 to 107 of 120 facts; the untrained model with the same tool recalls
-13 to 32. Every registered rule passed: every right answer came from a search that found the fact,
+13 to 32. On the first sealed test, every registered rule passed: every right answer came from a search that found the fact,
 no adapter made more false retrievals than the untrained model, and three judges rated every adapter coherent more
 often.
 
@@ -18,7 +18,7 @@ is when to search: 6.37 leaves answers already in view alone (35 and 37 of
 A scripted demo then showed two faults: 6.37 answered never-told questions with unrelated stored facts and repeated
 its own wrong answer while it was in view. With the deadline extended, the project was reopened. A second sealed
 test, S3, was written by six blind writer agents and sealed before any new training row, with its ship
-rule fixed before it opened. 24 candidates were listed for screening on development sets; the pick, C1,
+rule fixed before it opened. 24 candidates were listed for screening on development sets, six read on every line; the pick, C1,
 cut copies of a wrong answer in view from 195 of 894 (21.8%) to 5 of 894 (0.6%), and false answers to never-told
 questions whose search returned text from 286 of 708 (40.4%) to 51 of 708 (7.2%). It failed one clause: those false
 answers had to be no higher than the untrained model's 14 of 236 (5.9%). By the registered rule, 6.37 stays shipped.
