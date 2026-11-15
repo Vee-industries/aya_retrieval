@@ -217,7 +217,7 @@ whole chat on chats too long to fit; test instructions hidden in retrieved passa
 
 **Reproduce.** The README gives setup and every command; `scripts/make_article.py` builds both write-ups from results
 files, and `scripts/make_figures.py` draws every figure. Training takes 33 to 35 minutes a seed on an RTX
-3080; the run files hold 215 hours of GPU time in all, on my own card, so the compute cost is $0. Tiny Aya Global is CC-BY-NC-4.0, and the adapter and data carry that licence; the code is Apache-2.0.
+3080; the run files hold 217 hours of GPU time in all, on my own card, so the compute cost is $0. Tiny Aya Global is CC-BY-NC-4.0, and the adapter and data carry that licence; the code is Apache-2.0.
 
 **Who did what.** I directed the work and made every decision in `RECORDS.md`. Claude (Anthropic)
 wrote the code, pools, training sets, tests and these write-ups and ran the experiments, as an executive-function

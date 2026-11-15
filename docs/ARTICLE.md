@@ -620,6 +620,9 @@ planted results before use (R-282).
 | Base, tool | 59/414 (10 to 18%) | 52/60 | 58/60 | 111/120 | 11/298 | 14/236 |
 | 6.37, shipped | 347/1242 (23 to 33%) | 161/180 | 180/180 | 238/360 | 195/894 | 286/708 |
 | C1, the pick | 364/1242 (24 to 34%) | 160/180 | 166/180 | 344/360 | 5/894 | 51/708 |
+| K1 (report) | 253/828 (25 to 37%) | 106/120 | 114/120 | 236/240 | 1/596 | 12/472 |
+| K1.3 (report) | 267/828 (27 to 38%) | 109/120 | 118/120 | 230/240 | 2/596 | 37/472 |
+| K2.1 (report) | 242/828 (24 to 35%) | 105/120 | 115/120 | 238/240 | 1/596 | 14/472 |
 
 **The lines** (`score_s3.py rule`, `results/s3/ship_rule.json`):
 
@@ -666,7 +669,7 @@ reopened work trained reading and declining; its largest loss is still the searc
 
 *Figure 7. S3 recall questions by outcome, per arm with a tool (R-287).*
 
-**Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): K1 seed 82 recall 120 of 414, copies 0 of 298, false answers 4 of 236; K1 seed 83 recall 133 of 414, copies 1 of 298, false answers 8 of 236; K1.3 seed 82 recall 122 of 414, copies 0 of 298, false answers 9 of 236. Not yet run when this was built: K1.3 seed 83, K2.1 seed 82, K2.1 seed 83 (the queue stopped after K1 seed 82, R-288, and was restarted, R-289).
+**Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): K1 seed 82 recall 120 of 414, copies 0 of 298, false answers 4 of 236; K1 seed 83 recall 133 of 414, copies 1 of 298, false answers 8 of 236; K1.3 seed 82 recall 122 of 414, copies 0 of 298, false answers 9 of 236; K1.3 seed 83 recall 145 of 414, copies 2 of 298, false answers 28 of 236; K2.1 seed 82 recall 129 of 414, copies 0 of 298, false answers 10 of 236; K2.1 seed 83 recall 113 of 414, copies 1 of 298, false answers 4 of 236.
 
 ## 10. Cost and toolkit findings
 
@@ -690,8 +693,8 @@ a model call. Time per 1,000 replies is the seconds a question times 1,000.
 Code is faster than 6.37 on every set: sealed pools code that always searches 1.01 to 1.23 s a conversation, seed 82 1.67 to 2.08, base with the tool 1.27 to 1.45; outside-writer sets code 1.45 to 1.48 s a question, seed 82 1.70 to 1.96, base with the tool 1.21 to 1.31, base with the whole chat and no tool 1.02 to 1.06;
 LongMemEval-S code 3.09 s a question against 3.81 for 6.37.
 
-Training took 33 to 35 minutes a seed. The run files hold 215 hours of GPU time: training 108.6 hours over 186 runs (`train_seconds` in
-`results/recall_train/`), evaluation 100.0 hours over 849 runs (`seconds` in `results/recall_eval/`) and S3 6.2 hours over 12 runs
+Training took 33 to 35 minutes a seed. The run files hold 217 hours of GPU time: training 108.6 hours over 186 runs (`train_seconds` in
+`results/recall_train/`), evaluation 100.0 hours over 849 runs (`seconds` in `results/recall_eval/`) and S3 7.9 hours over 15 runs
 (R-217's sum, carried to the newest run). Stopped runs, demo runs and agent time are not in those files. The GPU is my own, so the compute cost is $0; the cost of the Claude agents is not recorded.
 
 **AuditKIT's paired bootstrap does not centre its resamples.** It reports a large gain as failing significance: on

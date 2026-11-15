@@ -10426,3 +10426,32 @@ research decision is his, dated in `RECORDS.md`. The LLM usage statement is unch
 Claude wrote the code and the text under his direction. The model card's author line is unchanged. No panel, because
 no result, number or registered line changes; Kevin asked next for a voice, standard and submission-rule check and then
 a large adversarial panel (R-292 on). Checks in the clone: ruff, format, pytest 1,790 passed. Nothing pushed.
+
+## R-292 · 2026-11-14 · REOPENED · S3's report arms complete; the ship-rule verdict unchanged
+
+The S3 queue restarted in R-289 wrote and committed its last six runs, K1 seed 83, K1.3 and K2.1 at seeds 82 and 83,
+and printed `== qs3 done` at 22:38:53 (watcher DONE at 22:38:58; no FAIL line; the card back to 517 MiB). Kevin, in
+chat after R-291: "i'll wait until tomorrow morning. i'll hit you up", so the voice, standard and submit-rule checks
+and the adversarial panel wait for his message; only this queue's end steps ran tonight. The hand-off card of 21:0x was
+withdrawn when its 20-minute timer ended unclicked (SOP section 6).
+
+**`score_s3.py rule`** (run in a throwaway clone, copied in): every line and the verdict are equal to R-287's
+committed `ship_rule.json` (checked by comparing the two files' `lines` and every rule arm's counts): (a) and (b) PASS,
+(c) FAIL on "not above base's" alone, **the ship rule fails, 6.37 seed 82 stays shipped**. The file now also holds the
+three report arms (R-285: an arm enters once both seeds exist). They enter no line (R-281). Raw counts, seeds 82 and 83
+pooled, with seed 82 / seed 83 for the three counts the write-up lists:
+
+| Report arm | Recall (older, confirm) | In view | Statement | Never told, plain | Copy, wrong view | N-hit false answers |
+|---|---|---|---|---|---|---|
+| K1 | 253 / 828 (120 / 133 of 414) | 106 / 120 | 114 / 120 | 236 / 240 | 1 / 596 (0 / 1 of 298) | 12 / 472 (4 / 8 of 236) |
+| K1.3 | 267 / 828 (122 / 145) | 109 / 120 | 118 / 120 | 230 / 240 | 2 / 596 (0 / 2) | 37 / 472 (9 / 28) |
+| K2.1 | 242 / 828 (129 / 113) | 105 / 120 | 115 / 120 | 238 / 240 | 1 / 596 (0 / 1) | 14 / 472 (10 / 4) |
+
+For reading beside R-287 (base with the tool, one run: recall 59 / 414, copy 11 / 298, N-hit false answers 14 / 236;
+C1, three seeds: 364 / 1,242, 5 / 894, 51 / 708). These arms were registered as report arms before S3 opened (R-280)
+and were not candidates for the ship decision at S3; no claim rests on them.
+
+**Rebuilt** with `make_article.py` and `make_figures.py`: section 9's report-arm line now lists all six runs and no
+"not yet run" clause; Figures 5 to 7 (`s3_faults`, `s3_recall`, `s3_misses`) now draw the three report arms (checked
+by eye: every arm and count legible). Changed: `results/s3/ship_rule.json`, `docs/ARTICLE.md`,
+`docs/submission/HF_ARTICLE.md`, the three figures' PNG and SVG. Weekly usage 97% (all models, 22:41). Nothing pushed.
