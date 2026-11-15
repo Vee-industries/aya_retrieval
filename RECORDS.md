@@ -10455,3 +10455,9 @@ and were not candidates for the ship decision at S3; no claim rests on them.
 "not yet run" clause; Figures 5 to 7 (`s3_faults`, `s3_recall`, `s3_misses`) now draw the three report arms (checked
 by eye: every arm and count legible). Changed: `results/s3/ship_rule.json`, `docs/ARTICLE.md`,
 `docs/submission/HF_ARTICLE.md`, the three figures' PNG and SVG. Weekly usage 97% (all models, 22:41). Nothing pushed.
+
+## R-293 · 2026-11-14 · REOPENED · Correction to R-292's usage time; HANDOFF current
+
+R-292 gives its usage reading as "97% (all models, 22:41)". The reading was taken before the clock read 22:40:50, so
+its time is 22:40, not 22:41, which was typed rather than read. HANDOFF now says S3 is complete and that the voice,
+standard and submit-rule checks and the panel wait for Kevin's message tomorrow morning. Nothing pushed.
