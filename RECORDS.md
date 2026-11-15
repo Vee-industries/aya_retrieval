@@ -10998,3 +10998,35 @@ README and cards from fixes already made in the papers; no number, rule or shipp
 Not changed: `docs/submission/ABSTRACT.md` (SHA-256 the same), the long paper's Abstract, the C1 card. The short paper is
 2,962 words. Waiting on Kevin's go: the push of R-310 to R-314 and the Hugging Face uploads (6.37's README and
 `ARTICLE.md`; eval-logs `panels/R-311/`, `R-313/`, `R-314/`).
+
+## R-315 · 2026-11-15 · REOPENED · R-310 to R-314 published; R-310's sweep sentence reworded before the push
+
+Kevin, in chat, to "Push R-310 to R-314 to GitHub and upload the changed Hugging Face files?": "Yes, push and upload";
+then "update the desktop files too"; then, to "Reword that R-310 sentence in the unpushed commits, then push?": "Yes,
+reword then push". Successor session to the one that wrote R-309 to R-314.
+1. **Sweep** (before the push): `privacy_check.py` with the private names list, `--history origin/main..main`: planted
+   checks passed; 3,348 tracked files, 0 hits; 5 commits, 3,187 blobs, 0 hits. The 468 added lines were also searched
+   for the email address and a private word list kept outside the repository (written to a file, not a command line):
+   one hit, R-310's own sentence listing the words it had searched for.
+2. **Reword** (Kevin's yes above): that sentence now names "a private word list kept outside the repository", in all
+   five unpushed commits (`git filter-branch --index-filter`, RECORDS.md only, one match per commit; no other file and
+   no message changed). This edits a past entry, which rule 36 forbids; the commits were never public, and the clash
+   between rule 36 and the privacy rule already waits for the Model standards session (R-306). New ids: 0fe68b1 is
+   6cb0e8b (R-310), ae2f315 is 38b1a0b (R-311), 6c9b656 is e4129f7 (R-312), 9556c2f is 895653b (R-313), 463757d is
+   15d3604 (R-314). Ids cited in R-312 to R-314 and the file name `results/panels/R-314/audit_9556c2f_findings.md`
+   keep the old ids; this map reads them. After: 467 added lines, 0 hits; the full sweep again 0 hits.
+3. **Push** (12:31): `main` b08ec7f to 15d3604, a fast-forward.
+4. **Hugging Face** (before the push, uploading only files missing or different by SHA-256 of the bytes):
+   `aya-retrieval-6.37` `ARTICLE.md` = `docs/submission/HF_ARTICLE.md` (8648cd6) and `README.md` = `docs/MODEL_CARD.md`
+   (233afc5); `aya-retrieval-eval-logs` `panels/R-311/audit_b08ec7f_findings.md` (8f7d434), `panels/R-313/findings.md`
+   (dd09da0), `panels/R-314/audit_9556c2f_findings.md` (f75ead9). Already the same: the C1 card and both dataset cards;
+   no file the chats dataset holds changed. After: all eight compared files match.
+5. **Links**, logged out: 21 absolute links in README, ARTICLE, HF_ARTICLE, both model cards and both dataset cards,
+   and 16 relative links of README, ARTICLE and both model cards (those not already among the absolute ones) resolved
+   on GitHub `main`: 37, each 200.
+6. **Desktop copy:** `Desktop\Lexsi write-up 2026-11-15 (b08ec7f)` (30 files) refreshed from the repository and renamed
+   `... (15d3604)`; every file matches the repository byte for byte.
+
+Found, not changed: R-306 (pushed before b08ec7f) lists most of the same search words; removing it means rewriting
+public history, Kevin's call. `docs/submission/ABSTRACT.md` did not change (SHA-256 abab50c1...), so the form text
+stands. Usage at the end of this stage: weekly, all models, 9% (12:32).
