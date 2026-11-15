@@ -10951,3 +10951,28 @@ was offered to Kevin as an optional Future-work sentence; not added.
 SOP check item S22:toolu_01NvWZnf3RSpntbR2c37h7Kn (11:48): a shell command for R-310's added-line search held the
 desktop app's session-folder name as a search word. Breach of SOP section 3 (Folders, R-044). Fix: a search for that
 name goes in a file written with Write, never on a command line; no later command names it.
+
+## R-313 · 2026-11-15 · REOPENED · A final editorial check of 6c9b656; its findings fixed
+
+Kevin, in chat, of R-312's offer: leave the Future-work sentence out; and "send it to edit bot with your fixes", then
+chose a fresh reviewer agent (the first reviewer's session is closed). One Opus agent, read only, briefed with the
+outside reviewer's final checklist and the R-309 and R-311 fixes, not with the orchestrator's verdicts (report in
+`results/panels/R-313/findings.md`). Weekly usage before it: 9% (all models, 12:13). Result: the five required checks
+pass; four of five editorial checks pass; 2 MEDIUM, 6 LOW; every new number rechecked against the files.
+
+Checked by the orchestrator against the built lines, then fixed in the templates (no panel, because each fix labels or
+narrows a sentence to its existing number; no number, rule or shipped model changes):
+- M1. The short paper's S3 baseline sentence, under section 6's "(confirmatory)" heading, now says "(exploratory,
+  beside the rule, not part of it)", as the long paper does.
+- M2. Both flag sets named where only the asked category was: the short paper's "What S3's flags count", the long
+  paper's Construct validity sentence, and its Terms line ("an invented value on neither list passes unseen"). The
+  short paper's table row label is left, since its Terms line now defines it.
+- L1. The changelog (long paper and README) names R-311 and R-313 and says "the whole chat named as beaten only at 58
+  messages, the one size it ran at"; both stage tables run to R-313.
+- L2. "so I do not count the statement line as a gain over code".
+- L3. K1.3's third seed "to pass (c)".
+- L4. "no measured difference in recall" (the defined term; the Abstract's "no measured change" is left, Kevin's choice).
+- L5. The repeated "likeliest cause" sentence in Future work replaced by the pointer to Appendix C.
+- L6. "6.37 and code have the same count" in place of "6.37 ties code", in both papers.
+Not changed: `docs/submission/ABSTRACT.md` (SHA-256 the same after the rebuild), the long paper's Abstract, both model
+cards. The short paper is 2,961 words. Waiting on Kevin's go: the push of R-310 to R-313 and the Hugging Face uploads.

@@ -93,7 +93,7 @@ AuditKIT was a development scorer. S3 shares {{s3_runs_shared}} four-word runs w
 | 12 Nov | Demo shows two faults; reopened; S3 written and sealed | R-173 to R-179 |
 | 12 to 14 Nov | {{reopened_n}} candidates listed; K1.3 the pick, then C1 | R-180 to R-279 |
 | 14 Nov | S3 opened once; C1 misses one clause; 6.37 stays shipped | R-280 to R-293 |
-| 15 Nov | Review panels and audits; C1 published beside 6.37 | R-294 to R-309 |
+| 15 Nov | Review panels and audits; C1 published beside 6.37 | R-294 to R-313 |
 
 R-304: two private names that a sweep record had named were removed from the whole history; every commit from 10
 November on has a new id (map in `results/scrub/`).
@@ -124,7 +124,7 @@ reverses:
 **LongMemEval-S (exploratory)**, histories past the window: judged right (Claude judges, not the official GPT-4o), 6.37 {{lme_j_ship}}, base with the tool {{lme_j_base}}, code {{lme_j_code}} of a stratified {{lme_judged_n}}.
 Registered H2 (R-170): code's first search finds more evidence, {{lme_h2_code}}, with no measured difference on
 answers. Split after reading that result: on the {{lme_judged_answerable_n}} answerable questions of the
-{{lme_judged_n}}, 6.37 ties code ({{lme_split_vs_code}}); its higher count than code comes only from the {{lme_unanswerable_n}}
+{{lme_judged_n}}, 6.37 and code have the same count ({{lme_split_vs_code}}); its higher count than code comes only from the {{lme_unanswerable_n}}
 unanswerable ones. Of all {{lme_answerable_n}} answerable questions, 6.37 declines {{lme_refuse_ship}}.
 
 ## 4. The faults, and S3
@@ -192,7 +192,7 @@ shipped; R-294 records my position that the aggregate should have decided. The p
 on (c) but fails (a)'s statement line: it left {{c1s82_st}} plain statements unsearched, {{c1s82_st_gap}} against
 base.
 
-On S3, the whole chat recalls {{s3_recall_wc}} and code {{s3_recall_as}}: code recalls more than 6.37
+On S3 (exploratory, beside the rule, not part of it), the whole chat recalls {{s3_recall_wc}} and code {{s3_recall_as}}: code recalls more than 6.37
 ({{s3_code_vs_637}}) and C1 ({{s3_code_vs_c1}}). Query writing is the likeliest cause (exploratory; seed 82 ran
 at most one search an item, so its comparison is one search against one; C1 seed 82 ran more than one on
 {{s3_qw_multi_c1}} of {{s3_qw_items}}, so its counts do not isolate the query): where both searched, code's raw message found
@@ -207,7 +207,8 @@ that compared with 6.37, not with base (R-191); the development screen and the d
 
 ## 7. Limits and disclosures
 
-- **What S3's flags count.** Only values of the asked category listed for the chat; an invented value or another
+- **What S3's flags count.** Only values listed for the chat (of the asked category, or a writer's listed wrong
+  value); any other invented value or another
   category's stored fact passes, so the plain never-told rates of base, 6.37 and C1 are ceilings: replies with no
   value at all can be fewer (section 6 counts the other stored facts). S3 was scored on the never-told rubric's model-free part only (deviation 20).
 - **Rules set after readings** (deviations table, long paper): base replaced 6.37 as the standard of (a) after

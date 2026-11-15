@@ -5,6 +5,8 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-306, session 3fe62a52
 
 ## State
 
+- **State, 15 November (R-313): a final editorial check fixed** (2 medium, 6 low); R-310 to R-313 committed, not
+  pushed: waiting on Kevin's go to push and upload 6.37's README and `ARTICLE.md` and `panels/R-311/`, `R-313/`.
 - **State, 15 November (R-311): the audit of R-309 fixed** (0 high, 1 medium, 6 low); R-310 and R-311 committed,
   waiting on Kevin's go to push and upload 6.37's README and `ARTICLE.md` and `panels/R-311/`.
 - **State, 15 November (R-310): R-309 published** (GitHub b08ec7f, the short paper on Hugging Face, desktop copy

@@ -584,11 +584,12 @@ other test files.
   fixes (R-302). R-304: two private names that a sweep record had named were removed from the whole history; every
   commit from 10 November on has a new id (map in `results/scrub/`). An audit of R-303's write-up and its fixes
   (R-305).
-- **15 November, after publication (R-307, R-309), this version.** A last audit's fixes (R-307); an editorial
-  review's fixes (R-309): the whole chat at 419 messages named only where it ran, the N-hit term names the asked
+- **15 November, after publication (R-307, R-309, R-311, R-313), this version.** A last audit's fixes (R-307); an
+  editorial review's fixes (R-309): the whole chat named as beaten only at 58 messages, the one size it ran at, the N-hit term names the asked
   category, statements no longer counted as a gain over code, the K1.3 demo-change sentence limited to what is
   shown, 6.37 and C1 read against the same S3 lines, and in the short paper the S3 faults in the claim, the
-  LongMemEval-S split, `older` alone, the wider N-hit count and why C1 failed (c).
+  LongMemEval-S split, `older` alone, the wider N-hit count and why C1 failed (c); an audit of R-309 and a final
+  editorial check, and their fixes (R-311, R-313).
 
 ## Licences
 

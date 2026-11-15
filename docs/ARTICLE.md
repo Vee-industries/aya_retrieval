@@ -137,7 +137,7 @@ November; GitHub's activity record of the 12 November creation still names the o
   false answer** (S3): a never-told question whose fixed keyword search returns passages (an item property, not the
   model's own search; 236 of S3's 240 never-told items a run), answered with a value listed for the chat: a value of the asked category in that chat, or one of the writers'
   listed wrong values for the question. Both flags
-  count only values listed for the chat; an invented value passes unseen (section 12).
+  count only values listed for the chat; an invented value on neither list passes unseen (section 12).
 - **Confirmatory** claims rest on the two sealed tests, each opened once: the first sealed test and S3.
   **Exploratory** claims rest on development sets read many times, or on sets read after the decision they inform.
 - **No measured difference**: the 95% interval of the difference includes zero, or a sign test gives p of 0.05 or
@@ -178,7 +178,7 @@ agreements with a true claim in a tag question, made with no search.
 2. Measured answers to "why not show the whole chat" and "why not plain code": on outside writers' short chats the
    whole chat recalls more and code shows no measured difference; on S3 code recalls more; training's measured gain is,
    over code, leaving answers in view alone; over base, searching for facts out of view (sections 6 and 9). Code
-   searches on every statement by construction, so statements measure no gain over it.
+   searches on every statement by construction, so I do not count the statement line as a gain over code.
 3. A second sealed test (S3) written by blind writers and sealed before any new training row, with the ship rule fixed
    before it opened and its scorer before any S3 file was read, and its negative result reported as registered
    (section 9).
@@ -205,7 +205,7 @@ The work ran in six stages. Each row names the records that hold its decisions a
 | 9 to 10 Nov | First sealed test and outside checks | Sealed run, every rule passes; whole chat and code run late; LongMemEval-S; published | R-162 to R-172 |
 | 12 Nov | Faults found, reopened | Scripted demo shows two faults; deadline reported extended; project reopened; S3 written and sealed; ship rule fixed | R-173 to R-179 |
 | 12 to 14 Nov | The push to replace 6.37, then K1.3 | 24 candidates listed, six read on every line; K1.3 the pick from R-203; demos rewritten clean; on-policy tries; my change to the demo test; C1 the pick | R-180 to R-279 |
-| 14 to 15 Nov | S3, then review | S3 opened once; C1 fails one clause; 6.37 stays shipped; write-ups reviewed; C1 published | R-280 to R-309 |
+| 14 to 15 Nov | S3, then review | S3 opened once; C1 fails one clause; 6.37 stays shipped; write-ups reviewed; C1 published | R-280 to R-313 |
 
 In the last stage the scorer was registered and tested before any S3 file was read, and the write-ups were rebuilt,
 reviewed by panels and an audit, and fixed; C1 was published beside 6.37. R-304: two private names that a sweep
@@ -479,7 +479,7 @@ The arm-by-arm and judged tables are in Appendix A. Judged right, 6.37 against b
 53 against 34 of 248 (+7.7 points, 95% interval +2.0 to +13.3, p = 0.014); against code: 53 against 40 of 248 (+5.2 points, 95% interval -0.8 to +11.3, p = 0.12). Registered H2 (R-170): code and 6.37 show no measured
 difference on gold answers in the reply (63 against 51 of 411, p = 0.2); code's first search finds the evidence more often,
 372 against 333 of 476, p = 4.0 × 10<sup>-4</sup>. Split after reading the registered result, and disclosed as such: on the
-233 answerable questions of the judged 248, 6.37 ties code
+233 answerable questions of the judged 248, 6.37 and code have the same count
 (40 against 40; 23 right only for 6.37 and 23 only for code that always searches, p = 1.0) and shows no measured difference from base (40 against 32; 26 right only for 6.37 and 18 only for base with the tool, p = 0.29); 11 of its
 19-question lead over base come from the 15 unanswerable questions. 6.37 declines
 233 of the 470 questions it should answer; code declines 1. On 50
@@ -589,7 +589,7 @@ demo readings and K1.3's Demo4 reading, and it ordered K1.3's Demo5 reading know
 after all four readings.** C1 then trained seeds 83 and 94, passed all 20 screening lines, and led K1.3 on pick recall,
 775 against 742 (R-279). That lead is inside the seed-to-seed spread, and C1 was chosen among
 24 listed candidates (six read on every line) on reused development sets, so S3 is the measure. K1.3, the pick without the second change, also fails clause (c) on S3 as a report arm
-(37 of 472 (7.8%), two seeds). Had it been the pick, a third seed would have needed 5 or fewer of 236 to pass (the two
+(37 of 472 (7.8%), two seeds). Had it been the pick, a third seed would have needed 5 or fewer of 236 to pass (c) (the two
 run seeds: Appendix C). I did not run that seed, so it is not shown that what ships did not depend on the change.
 
 ## 9. S3: the sealed test of the pick (confirmatory)
@@ -666,7 +666,7 @@ swapped in after the result; K1 has no sealed test of its own.
 
 **6.37 and C1 against the same lines.** C1's counts are better than 6.37's on copies (5 of 894 (0.6%) against
 195 of 894 (21.8%)), N-hit false answers (51 of 708 (7.2%) against 286 of 708 (40.4%)) and plain never-told questions
-(344 of 360 (95.6%) against 238 of 360 (66.1%)), with no measured change in recall; 6.37's are higher on statements
+(344 of 360 (95.6%) against 238 of 360 (66.1%)), with no measured difference in recall; 6.37's are higher on statements
 (180 of 180 (100.0%) against 166 of 180 (92.2%)) and, by one item, in view (161 of 180 (89.4%) against 160 of 180 (88.9%)). 6.37's plain never-told rate is
 under base's 111 of 120 (92.5%) by more than the 5 points clause (a) allows the pick. 6.37 stays shipped because no
 replacement passed the registered rule, not because it measures well on S3. On no outside set does 6.37 show a
@@ -780,7 +780,7 @@ is above both (the whole chat at 58 messages only; section 6.1).
 only; it fails a reply that names the answer and a wrong value together. Coherence is judged by Claude Sonnet agents
 that see only the turns in view and were never checked against a person. The demos have 6 older and 4 never-told
 questions each, too few to rank close models (R-283). LongMemEval-S is judged by Claude, not the official GPT-4o
-judge. S3's never-told and copy flags count only values of the asked category listed for the chat: a reply that invents a
+judge. S3's never-told and copy flags count only values listed for the chat (of the asked category, or a writer's listed wrong value): a reply that invents any other
 value, or gives another category's stored fact (the demo's first fault), counts as naming none. The untrained model
 invents values, so its rates of naming a listed value are floors and its plain never-told rate a ceiling. The adapters
 give other stored facts, which the flag also misses, so 6.37's and C1's plain never-told rates on S3 are ceilings too
@@ -832,8 +832,8 @@ fail. Query writing trained on its own and judged the same way; LoCoMo and chats
 applying the full never-told rubric; the whole chat at 419 messages on a larger card.
 
 **K1's S3 report arm** (exploratory, two seeds) reads recall 253 of 828 (30.6%), copies 1 of 596 (0.2%) and a listed
-value named on 12 of 472 (2.5%) never-told questions, against base's 14 of 236 (5.9%). Query writing is the likeliest
-cause of lost recall; the counts, and what they do not isolate, are in Appendix C ("Where recall is lost").
+value named on 12 of 472 (2.5%) never-told questions, against base's 14 of 236 (5.9%). Appendix C ("Where recall is lost") gives
+the query-writing counts and what they do not isolate.
 
 Not done, each a gap in what this work establishes. Query writing was not trained on its own, and the reopening did
 not change it (R-178); on S3 it is the likeliest cause of lost recall, not isolated by the counts (exploratory,
@@ -914,11 +914,12 @@ Claude, which did the work described. No grant or funding is recorded.
   changes, "Use this when" against base, the answer cue in S3's tag questions and S3's false claims (R-303). R-304:
   two private names that a sweep record had named were removed from the whole history; every commit from 10 November
   on has a new id (map in `results/scrub/`). An audit of R-303's write-up and its fixes (R-305).
-- **15 November, after publication (R-307, R-309), this version.** A last audit's fixes (R-307); an editorial
-  review's fixes (R-309): the whole chat at 419 messages named only where it ran, the N-hit term names the asked
+- **15 November, after publication (R-307, R-309, R-311, R-313), this version.** A last audit's fixes (R-307); an
+  editorial review's fixes (R-309): the whole chat named as beaten only at 58 messages, the one size it ran at, the N-hit term names the asked
   category, statements no longer counted as a gain over code, the K1.3 demo-change sentence limited to what is
   shown, 6.37 and C1 read against the same S3 lines, and in the short paper the S3 faults in the claim, the
-  LongMemEval-S split, `older` alone, the wider N-hit count and why C1 failed (c).
+  LongMemEval-S split, `older` alone, the wider N-hit count and why C1 failed (c); an audit of R-309 and a final
+  editorial check, and their fixes (R-311, R-313).
 
 ## References
 
