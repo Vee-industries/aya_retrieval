@@ -331,9 +331,9 @@ def wilson(hits: int, n: int, z: float = 1.96) -> tuple[float, float]:
 
 
 def arm_label(name: str) -> str:
-    """The scorer's name for an arm; the pooled 6.37 arm is named by its seeds, not 'shipped', and
-    C1 by its state, published beside 6.37, not 'the pick' (6.37 stays shipped, R-287)."""
-    return S3.ARM_NAMES[name].replace("shipped", "three seeds").replace("the pick", "published")
+    """The scorer's name for an arm; the pooled 6.37 and C1 arms are named by their seeds, not
+    'shipped' or 'the pick': each pools seeds 82, 83 and 94; only seed 82 is published (R-287)."""
+    return S3.ARM_NAMES[name].replace("shipped", "three seeds").replace("the pick", "three seeds")
 
 
 def arm_points(

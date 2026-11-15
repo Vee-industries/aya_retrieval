@@ -199,6 +199,9 @@ of card memory at inference (R-163).
 ## How to use it
 
 When the chat is short enough to show whole, show base the whole chat and leave this adapter out.
+On S3 the whole chat has its own weakness: base with the whole chat names a listed value on
+{{s3_nhit_wc}} never-told N-hit questions, against {{s3_nhit_base}} for base with the tool, and names
+no listed value on {{s3_ntp_wc}} plain never-told questions, against {{s3_ntp_base}}.
 This adapter with the whole chat was measured only on the outside-writer chats, of a mean of
 {{ow_tokens_mean}} tokens (R-165, one seed), where it shows no measured difference from base with the
 whole chat (the test cannot show equality); it was not run on S3, where this adapter with the tool is

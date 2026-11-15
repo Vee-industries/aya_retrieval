@@ -199,6 +199,9 @@ of card memory at inference (R-163).
 ## How to use it
 
 When the chat is short enough to show whole, show base the whole chat and leave this adapter out.
+On S3 the whole chat has its own weakness: base with the whole chat names a listed value on
+57 of 236 (24.2%) never-told N-hit questions, against 14 of 236 (5.9%) for base with the tool, and names
+no listed value on 89 of 120 (74.2%) plain never-told questions, against 111 of 120 (92.5%).
 This adapter with the whole chat was measured only on the outside-writer chats, of a mean of
 1,400 tokens (R-165, one seed), where it shows no measured difference from base with the
 whole chat (the test cannot show equality); it was not run on S3, where this adapter with the tool is

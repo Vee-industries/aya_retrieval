@@ -10797,3 +10797,38 @@ done". Both steps before it are done (R-303, R-305). `docs/submission/PUBLISH.md
 
 Also: HANDOFF and PUBLISH.md updated to this state. Left: the form (Kevin, by 06:59 Eastern on 16 November); Kevin's
 request to GitHub Support to purge the pre-R-304 commits; his calls on the papers' lengths.
+
+## R-307 · 2026-11-15 · REOPENED · A last audit of the published version (a39473f); its findings fixed
+
+Kevin asked, after R-306, whether the audit session's last pass covered what was published; it did not (R-305's fixes
+and R-306's card edit came after it). Kevin, in chat: "yes please" to a check of only the changes. The audit session
+read `git diff 56db55d a39473f` and the live Hugging Face copies (findings in `results/panels/R-307/`): 0 HIGH, 3
+MEDIUM, 6 LOW, no wrong count; both HIGH findings of R-305 closed; the five built documents rebuild byte for byte; the
+live Hugging Face files match the repository byte for byte; every link opens logged out.
+
+Fixed by the orchestrator (no builder; each change checked by rebuild and the checks below):
+- M1. The S3 seal's outside timestamp (R-181) is GitHub's record of the `reopened` branch's creation at b771609, and
+  R-304 force-pushed that branch. The long paper now says so after the R-181 sentence and in deviation row 23. GitHub's
+  activity record as read at 11:10 (100 events, including the 12 November `branch_creation` of b771609 and both
+  15 November force pushes) is kept in `results/scrub/github_activity_2026-11-15.json`, so the record survives a
+  purge of the old commits.
+- M2. "(code runs one search, the adapter up to three)" was false for 6.37 seed 82, which ran at most one search on
+  every S3 item (572 one, 262 none). Replaced in both papers with generated counts (`s3_qw_multi_*`, `s3_qw_items`):
+  code ran more than one on 6 of 834 items, C1 seed 82 on 89, so for 6.37 the found-fact comparison is one search
+  against one, and for C1 the counts do not isolate the query. `make_article.py` stops if 6.37 seed 82 ever runs more
+  than one.
+- M3. The long paper's Abstract named two report arms and left out the one that failed: now "Of three report arms
+  (exploratory), K1 and K2.1 met every measured line; K1.3 failed (c) like C1" (K1.3: 37 of 472, 7.8%, against base's
+  14 of 236, 5.9%, from `ship_rule.json`).
+- L1. README and 6.37's card give the S3 whole-chat weakness (57 of 236 against 14 of 236 N-hit; 89 against 111 of 120
+  plain never-told); README's typed counts are checked against the generated keys by `make_article.py`, which caught a
+  line break inside one of them on the first build.
+- L2. "reported extended" at the three later mentions of the deadline in the long paper.
+- L3. `tests/test_r178.py`'s docstring: commit 8e73cf0 is aea532f after R-304.
+- L4. Informational (the demo-change order is in ABSTRACT.md and the long paper's section 8); no change.
+- L5. The eval-logs card: S3 "sealed in R-179, outside timestamp R-181, scored in R-287".
+- L6. Figures 5, 6 and 8 labelled C1's pooled arm "C1, published"; it pools seeds 82, 83 and 94 and only seed 82 is
+  published, so the label is now "C1, three seeds"; Figure 8's caption gives the seeds. The three S3 figures redrawn.
+
+Words: long paper Abstract 450 by whitespace, 494 by `\w+`; ABSTRACT.md 465 and 495; the short paper 2,783 (22 more, the
+search-count sentence). Next: the checks, the privacy sweep, the push, and Hugging Face uploads of the changed files.

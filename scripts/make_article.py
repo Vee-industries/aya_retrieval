@@ -2638,6 +2638,18 @@ def s3_round2_numbers(out) -> None:
         out[f"s3_gb_code_{key}"] = str(sum(bool(code[i]["item_correct"]) for i in both))
         out[f"s3_gb_p_{key}"] = p_text(exact_sign_test(only_code, only_own))
     out["s3_qw_n"] = str(len(code))
+    # Searches per S3 item: the found-fact comparison is one search against one only where both
+    # sides ran at most one, so the text says for which seed the counts isolate the query.
+    for key, label in (
+        ("as", "s3_always_search"),
+        ("637", "s3_fix17cs37_82"),
+        ("c1", "s3_k13opc1_r263_82"),
+    ):
+        counts = [len(r["queries"]) for r in scorer.load(label)]
+        out[f"s3_qw_multi_{key}"] = str(sum(c > 1 for c in counts))
+        out["s3_qw_items"] = str(len(counts))
+    if out["s3_qw_multi_637"] != "0":
+        raise SystemExit("6.37 seed 82 ran more than one search on an S3 item; the text says none")
     nhit = scorer.MEASURES["n_hit_false_answer"]
     c1_82_nhit = scorer.by_chat(scorer.load("s3_k13opc1_r263_82"), nhit)
     out["c1s82_nhit_gap"] = diff(c1_82_nhit, tables["base_tool"]["n_hit_false_answer"])
@@ -2721,10 +2733,15 @@ def main() -> None:
                     raise SystemExit(f"the abstract is {words} words, over {ABSTRACT_WORDS}")
         out.write_text(filled, encoding="utf-8")
         print(f"wrote {out.relative_to(REPO_ROOT)}")
-    # README is written by hand; its S3 ship-rule line must give the gap the papers give.
+    # README is written by hand; its S3 ship-rule line and its whole-chat S3 counts must give the
+    # numbers the papers give.
+    readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
     ship_line = f"(c) fail by {values['s3_gap_points']} points"
-    if ship_line not in (REPO_ROOT / "README.md").read_text(encoding="utf-8"):
+    if ship_line not in readme:
         raise SystemExit(f"README's S3 ship-rule line does not read {ship_line!r}")
+    for key in ("s3_nhit_wc", "s3_nhit_base", "s3_ntp_wc", "s3_ntp_base"):
+        if values[key] not in readme:
+            raise SystemExit(f"README's whole-chat S3 sentence lacks {key} = {values[key]!r}")
 
 
 if __name__ == "__main__":

@@ -313,7 +313,10 @@ two arms on a kind of 40 questions (the 95% half-width of a difference between t
 this test resolves, and the test is not powered to show equality (R-142). So when a chat fits, show base the whole
 chat and leave the adapter out. 6.37 with the whole chat was measured only on the outside-writer sets, where it
 shows no measured difference from base with the whole chat (one seed; the test cannot show equality); it was not run
-on S3, where 6.37 with the tool is worse than base on both faults. The whole-chat result holds on the outside-writer
+on S3, where 6.37 with the tool is worse than base on both faults. The whole chat has its own S3 weakness: base with
+the whole chat names a listed value on 57 of 236 (24.2%) never-told N-hit questions, against 14 of 236 (5.9%) for
+base with the tool, and names no listed value on 89 of 120 (74.2%) plain never-told questions, against
+111 of 120 (92.5%). The whole-chat result holds on the outside-writer
 chats, not on this project's generated chats:
 on the sealed pools, base with the whole chat got 21 to 33 of 60 recall questions against seed 82's
 46 to 55 (R-168).

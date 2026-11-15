@@ -184,8 +184,9 @@ on (c) but fails (a)'s statement line: it left 50 of 60 (83.3%) plain statements
 base.
 
 On S3, the whole chat recalls 274 of 414 (66.2%) and code 161 of 414 (38.9%): code recalls more than 6.37
-(+11.0 points, 95% interval +3.5 to +18.6) and C1 (+9.6 points, 95% interval +2.4 to +16.6). Query writing is the likeliest cause, not isolated by these
-counts (code runs one search, the adapter up to three; exploratory): where both searched, code's raw message found
+(+11.0 points, 95% interval +3.5 to +18.6) and C1 (+9.6 points, 95% interval +2.4 to +16.6). Query writing is the likeliest cause (exploratory; seed 82 ran
+at most one search an item, so its comparison is one search against one; C1 seed 82 ran more than one on
+89 of 834, so its counts do not isolate the query): where both searched, code's raw message found
 the fact where seed 82's queries did not on 88 recall questions, the reverse on
 22; of the 67 seed 82 did not search, code's search found it on
 53 (C1 seed 82: 100, 29, and 6 of

@@ -39,8 +39,7 @@ Of 24 candidates listed from 12 to 14 November, six were read on all 20 screenin
 false-answer rate had to be no higher than base's. The chat-resampled 95% interval of that difference,
 -3.1 to +5.7 points, cannot tell C1 from base; the registered rule requires every clause, so 6.37 stays shipped
 (R-287). C1 is published beside it, labelled. Code recalls more than both on S3
-(exploratory). Two report arms, K1 and K2.1 (earlier candidates run on S3 outside the rule; exploratory), met every
-measured line.
+(exploratory). Of three report arms (exploratory), K1 and K2.1 met every measured line; K1.3 failed (c) like C1.
 
 ## Submission summary
 
@@ -114,7 +113,10 @@ and outside-writer chats) and [aya-retrieval-eval-logs](https://huggingface.co/d
 Sample inputs and outputs: the scripted demo, [`docs/demo.md`](demo.md), and [`docs/samples/`](samples/). The adapter
 and datasets are public and not gated; the base model is gated, so accept its licence first. S3's chats are not on
 Hugging Face; they are public on the GitHub repository's `reopened` branch since 12 November, pushed as an outside
-timestamp of the seal before any result (R-181).
+timestamp of the seal before any result (R-181). R-304 rewrote the branch's commit ids and force-pushed it on 15
+November; GitHub's activity record of the 12 November creation still names the old id b771609, which is 52a872b in
+`results/scrub/R-304_commit_map.tsv` (every commit date is unchanged; a copy of that record, read 15 November, is in
+`results/scrub/`).
 
 **Terms.**
 
@@ -200,7 +202,7 @@ The work ran in six stages. Each row names the records that hold its decisions a
 | 20 Oct | Plan | Plan written before the hackathon (PRE-SPRINT) | R-001, R-002 |
 | 1 to 9 Nov | Build 6.37 | Test registered before any adapter; 40 candidate sets screened on development pools; 6.37 seed 82 named and frozen | R-016 to R-160 |
 | 9 to 10 Nov | First sealed test and outside checks | Sealed run, every rule passes; whole chat and code run late; LongMemEval-S; published | R-162 to R-172 |
-| 12 Nov | Faults found, reopened | Scripted demo shows two faults; deadline extended; project reopened; S3 written and sealed; ship rule fixed | R-173 to R-179 |
+| 12 Nov | Faults found, reopened | Scripted demo shows two faults; deadline reported extended; project reopened; S3 written and sealed; ship rule fixed | R-173 to R-179 |
 | 12 to 14 Nov | The push to replace 6.37, then K1.3 | 24 candidates listed, six read on every line; K1.3 the pick from R-203; demos rewritten clean; on-policy tries; my change to the demo test; C1 the pick | R-180 to R-279 |
 | 14 to 15 Nov | S3, then review | S3 opened once; C1 fails one clause; 6.37 stays shipped; write-ups reviewed; C1 published | R-280 to R-305 |
 
@@ -212,7 +214,7 @@ record had named were removed from the whole history; every commit from 10 Novem
 **Why the stages ran as they did.** Each stage was set off by a measured result, not by a plan made in advance. The
 first sealed test passed, so 6.37 shipped. The baselines run late (R-167 to R-169) then showed the adapter's recall
 gain does not hold against the whole chat or plain code on short outside-writer chats. The scripted demo, run so a
-judge could see the model work (R-173, R-175), showed the two faults. When the deadline was extended, I saw results I had
+judge could see the model work (R-173, R-175), showed the two faults. When the deadline was reported extended, I saw results I had
 missed and judged the extra time enough to train further, so I reopened the project to fix the weakness the demo
 showed (R-177); the push to replace 6.37 ran inside the time that remained. From then on the schedule (R-194, R-242, R-243) set how long each try
 could take, and every candidate was chosen among on reused development sets in a short window (section 12).
@@ -734,7 +736,7 @@ rules 1 to 12, the one rows 16 and 21 cite as "STANDARD rule".
 | 20 | Never-told rubric with a decline (R-178, the sealed judge brief) | The model-free part only (names no listed value); no judge read S3's never-told replies | R-281 took the scorer's model-free reading; the code was in place at the seal | R-178, R-281 |
 | 21 | Rules 20 and 21 of STANDARD v3; STANDARD rule 9 | Not computed: rule 21's effect, interval and n (section 6.2, hypotheses table); rule 20's family size and adjusted result; intervals on Figures 1 and 2 | not done; see the note below | STANDARD v3 rules 20, 21; STANDARD rule 9 |
 | 22 | Rules 28 and 30 of STANDARD v3 | No single total of everything scored on development pools (40 sets before the freeze, 24 listed after, and the named stops); no flow table for the first sealed test, the outside sets or LongMemEval-S | not done | STANDARD v3 rules 28, 30 |
-| 23 | Rules 23, 24, 34, 40, 41 of STANDARD v3 | Not applied as written: no per-file data manifest with hashes (only `results/freeze/sealed_manifest.json`), no fingerprint of every field, no source-kind check per number, time proof for S3 only (R-181) | not done | STANDARD v3 rules 23, 24, 34, 40, 41 |
+| 23 | Rules 23, 24, 34, 40, 41 of STANDARD v3 | Not applied as written: no per-file data manifest with hashes (only `results/freeze/sealed_manifest.json`), no fingerprint of every field, no source-kind check per number, time proof for S3 only (R-181), and that branch was force-pushed after a history scrub (R-304) | not done | STANDARD v3 rules 23, 24, 34, 40, 41 |
 
 Row 11's timing: the first change (R-276) came after both of C1's demo readings and K1.3's Demo4 reading, and it
 ordered K1.3's Demo5 reading knowing C1's; the second (R-278) came after all four readings.
@@ -822,7 +824,9 @@ applying the full never-told rubric; the whole chat at 419 messages on a larger 
 
 **K1's S3 report arm** (exploratory, two seeds) reads recall 253 of 828 (30.6%), copies 1 of 596 (0.2%) and a listed
 value named on 12 of 472 (2.5%) never-told questions, against base's 14 of 236 (5.9%). Query writing is the likeliest
-cause of lost recall; the counts do not isolate it (code runs one search, the adapter up to three). On the same
+cause of lost recall. 6.37 seed 82 ran at most one search on every S3 item and code more than one on
+6 of 834, so for 6.37 the comparison below is one search against one; C1 seed 82 ran
+more than one on 89, so for C1 the counts do not isolate the query. On the same
 414 S3 recall questions, where both searched, code's raw message found the fact where 6.37 seed 82's queries
 did not on 88, the reverse on 22; on 53 of the
 67 questions seed 82 did not search, code's search found the fact (C1 seed 82:
@@ -864,7 +868,7 @@ dates.
 Before the hackathon (PRE-SPRINT): the plan of 20 October (R-001) and LLE, my chat engine; none of LLE's
 code, test sets or chats is here. Everything else was made from 1 November 2026 (first commit 2026-11-01 11:17 EST).
 `RECORDS.md` marks each entry PRE-SPRINT, SPRINT or, from R-177, REOPENED; the reopened work (12 to 15 November) is
-before the extended deadline. Third-party work: Tiny Aya Global (Cohere Labs); AgentTune, AuditKIT and CuratorKIT
+before the deadline, reported extended (R-173). Third-party work: Tiny Aya Global (Cohere Labs); AgentTune, AuditKIT and CuratorKIT
 (Lexsi Labs); TRL, PEFT, Transformers, PyTorch; LongMemEval and its judge prompts.
 
 ## Author contributions and LLM usage statement
@@ -1069,8 +1073,10 @@ line pools C1's three seeds.
 **Where recall is lost** (exploratory; Figure 8). Of C1's wrong recall answers, 661 of 878 are searches that
 did not find the fact, 178 had the fact in its own search output, and 39 did not search
 (6.37: 549 of 895, 192 and 154). The reopened work trained reading and
-declining; searches that never found the fact are its largest loss. Query writing is the likeliest cause of it; the
-counts do not isolate it (code runs one search, the adapter up to three). On the same 414 recall questions,
+declining; searches that never found the fact are its largest loss. Query writing is the likeliest cause of it.
+6.37 seed 82 ran at most one search on every S3 item and code more than one on 6 of
+834, so for 6.37 the comparison is one search against one; C1 seed 82 ran more than one on
+89, so for C1 the counts do not isolate the query. On the same 414 recall questions,
 where both searched, code's raw message found the fact where 6.37 seed 82's queries did not on
 88, the reverse on 22 (sign test p = 1.6 × 10<sup>-10</sup>). Seed 82 did not
 search on 67 recall questions, a miss of when, not of what; code's search found the fact on
@@ -1080,7 +1086,7 @@ search.
 
 ![S3 misses](../figures/s3_misses.png)
 
-*Figure 8 (Appendix C). S3 recall questions by outcome, per arm with a tool, as shares of all recall questions (R-287); report arms as in Figure 5. The black dot marks the right share; its intervals are Wilson intervals over rows, narrower than Figures 5 and 6's, which resample chats.*
+*Figure 8 (Appendix C). S3 recall questions by outcome, per arm with a tool, as shares of all recall questions (R-287); 6.37 and C1 pool seeds 82, 83 and 94; report arms seeds 82 and 83, as in Figure 5. The black dot marks the right share; its intervals are Wilson intervals over rows, narrower than Figures 5 and 6's, which resample chats.*
 
 **Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): K1 seed 82 recall 120 of 414, copies 0 of 298, false answers 4 of 236; K1 seed 83 recall 133 of 414, copies 1 of 298, false answers 8 of 236; K1.3 seed 82 recall 122 of 414, copies 0 of 298, false answers 9 of 236; K1.3 seed 83 recall 145 of 414, copies 2 of 298, false answers 28 of 236; K2.1 seed 82 recall 129 of 414, copies 0 of 298, false answers 10 of 236; K2.1 seed 83 recall 113 of 414, copies 1 of 298, false answers 4 of 236.
 

@@ -1,7 +1,8 @@
 """R-178's options: facts of other types (F2), earlier answers in view (F3) and the dev stresses.
 
 Every default output must be byte for byte as before: the fingerprints below were made by
-``default_fingerprints.py`` on the code before these options existed (commit 8e73cf0).
+``default_fingerprints.py`` on the code before these options existed (commit aea532f; it was
+8e73cf0 before R-304's history rewrite).
 """
 
 import re

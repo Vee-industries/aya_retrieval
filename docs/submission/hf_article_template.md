@@ -184,8 +184,9 @@ on (c) but fails (a)'s statement line: it left {{c1s82_st}} plain statements uns
 base.
 
 On S3, the whole chat recalls {{s3_recall_wc}} and code {{s3_recall_as}}: code recalls more than 6.37
-({{s3_code_vs_637}}) and C1 ({{s3_code_vs_c1}}). Query writing is the likeliest cause, not isolated by these
-counts (code runs one search, the adapter up to three; exploratory): where both searched, code's raw message found
+({{s3_code_vs_637}}) and C1 ({{s3_code_vs_c1}}). Query writing is the likeliest cause (exploratory; seed 82 ran
+at most one search an item, so its comparison is one search against one; C1 seed 82 ran more than one on
+{{s3_qw_multi_c1}} of {{s3_qw_items}}, so its counts do not isolate the query): where both searched, code's raw message found
 the fact where seed 82's queries did not on {{s3_qw_code_only_637}} recall questions, the reverse on
 {{s3_qw_own_only_637}}; of the {{s3_qw_unsearched_637}} seed 82 did not search, code's search found it on
 {{s3_qw_nosearch_637}} (C1 seed 82: {{s3_qw_code_only_c1}}, {{s3_qw_own_only_c1}}, and {{s3_qw_nosearch_c1}} of
