@@ -72,7 +72,7 @@ except for base with the whole chat:
 |---|---|---|---|---|
 | Recall, of 120 | 26 / 27 | 42 / 47 | 71 / 65 (most) | 39 / 53 |
 | Answer already in view, of 40 | 36 / 34 | 13 / 16 | 35 / 32 | 35 / 37 |
-| Never told, of 40 | 34 / 32 | 31 / 24 | 31 / 28 | 37 / 36 |
+| Never told: names no listed value, of 40 | 34 / 32 | 31 / 24 | 31 / 28 | 37 / 36 |
 | Plain statement left unsearched, of 40 | 38 / 39 | 0 / 0 (searches every turn) | 40 / 40 (no tool) | 37 / 35 |
 
 Generated chats:
@@ -100,17 +100,20 @@ official GPT-4o judge):
 
 **Which to use when.**
 1. If the chat was written outside this project's generator and fits the context, show it whole: base with the
-   whole chat recalls most on outside-writer chats and S3, and needs no adapter. On S3 the whole chat names a listed
-   value on 57 of 236 (24.2%) never-told N-hit questions, against base with the tool's 14 of 236 (5.9%), and names no
-   listed value on 89 of 120 (74.2%) plain never-told questions, against 111 of 120 (92.5%).
+   whole chat recalls most on outside-writer chats and S3, and needs no adapter. On S3 it names a listed value more
+   often than base with the tool: on 57 of 236 (24.2%) never-told N-hit questions, against base's 14 of 236 (5.9%); and it
+   names no listed value on 89 of 120 (74.2%) plain never-told questions, against base's 111 of 120 (92.5%).
 2. If it is longer than the 8,192-token window, 6.37 and code that searches every turn show no
    measured difference on LongMemEval-S answers; code's first search finds the evidence more often,
    372 against 333 of 476 (registered H2, R-170), and code needs no training. 6.37 declines 233 of the
-   470 questions that have an answer there; code declines 1.
-3. If repeating a wrong answer or naming values for never-told questions matters, this adapter does both more often
-   than base on S3; C1 ([aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1)) measured
-   changes of -97% and -82% against this adapter, missed one registered clause and is not the
-   shipped model.
+   470 questions that have an answer there; code declines 1. On S3 code names its
+   in-view wrong value on 65 of 298 (21.8%) questions and a listed value on 121 of 236 (51.3%) N-hit questions, against
+   base's 11 of 298 (3.7%) and 14 of 236 (5.9%); neither fault was measured on chats past the window.
+3. If repeating a wrong answer or naming a listed value on never-told questions matters, do not use this adapter: on
+   S3 it does both more often than base. C1
+   ([aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1)) measured lower rates than this
+   adapter (-97% on copies, -82% on N-hit false answers) but is not below base on N-hit
+   (51 of 708 (7.2%) against 14 of 236 (5.9%)); it missed one registered clause and is not the shipped model.
 
 "Base" is the untrained Tiny Aya Global. "Code" is code that searches on every turn with the
 newest message as the query, then hands base the passages (nothing trained). Recall counts the
@@ -126,8 +129,9 @@ On two sets of chats by outside writers who never saw this project's generator (
 against 28 and 34 for this adapter with the tool and the last three
 exchanges (R-164). Given the whole chat and the tool, the adapter and the untrained model show
 no measured difference on every kind of message (one seed, two sets of 40 chats;
-differences under about 22 points between two arms on a kind of 40 questions are below
-what this test resolves, and the test is not powered to show equality; R-142, R-165). This holds on those
+differences under 22 points between two arms on a kind of 40 questions, the 95%
+half-width of a difference between two rates near 50%, are below what this test resolves, and the test is not
+powered to show equality; R-142, R-165). This holds on those
 outside-writer chats only. On the project's generated sealed chats of 58 messages, 1,105 to 1,332 tokens, the untrained
 model with the whole chat answers 21 to 33 of 60 recall questions against this
 adapter's 46 to 55 with the tool (R-168).
@@ -135,11 +139,12 @@ adapter's 46 to 55 with the tool (R-168).
 On the outside-writer chats, plain code that searches on every turn, with no training, shows no measured
 difference from this adapter on recall, both with the last three exchanges in view: 42 and
 47 of 120 against 39 and 53, no measured
-difference (p = 0.76 and 0.45; R-169). Base with the tool searches too little and code
+difference (p = 0.76 and 0.45; R-169). Base with the tool searches on
+54 and 42 of the 120 recall questions; code
 searches every turn. Training adds searching when the answer is out of view (against base) and not
 searching when it is in view (against code): where the answer is in view the adapter answers
 35 and 37 of 40 and code 13 and
-16; on facts never told 37 and 36 against
+16; on facts never told, no listed value named, 37 and 36 against
 31 and 24. On plain statements it leaves 37 and
 35 unsearched, below base's 38 and
 39; code searches every one. On the generated sealed pools this adapter is
@@ -160,7 +165,7 @@ of card memory at inference (R-163).
   intervals resampling chats; set 1's p = 0.047 is above the registered 0.01) (R-146, R-157).
   The gain is on direct questions; on "..., right?" questions with a false claim it corrects
   1 and 3 of 20 (R-164).
-- **The shipped seed is not the strongest.** Seed 82 is the lowest of the eight training seeds on
+- Seed 82, the shipped seed, is the lowest of the eight training seeds on
   the first outside-writer set, on sealed conditions C and D, and on `hard_dev`; the eight seeds
   pooled gain +18.0 and +20.8 points on the two sets
   (+9.7 to +26.1 and +12.9 to +28.3) (R-141, R-146, R-157, R-163).
@@ -202,11 +207,23 @@ When it does not, use the harness the adapter was trained in: a system prompt th
 `search_corpus` tool (`aya_retrieval.tool_prompt.system_prompt_with_tools`), the last three
 exchanges as chat turns, and the earlier exchanges indexed for search, one passage per exchange.
 `run_turn` in `src/aya_retrieval/harness.py` runs that loop: up to 3 searches a
-message, top 5 passages each. Decoding in every test was greedy.
+message, top 5 passages each. Decoding in every test was greedy. Loading it (not run in this
+form; the repository's `aya_retrieval.models.load_model` loads the same revision in bfloat16):
+
+```python
+import torch
+from peft import PeftModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+base, revision = "CohereLabs/tiny-aya-global", "af89d219b53ed9b13b8a4645f9c8028973510324"
+tokenizer = AutoTokenizer.from_pretrained(base, revision=revision)
+model = AutoModelForCausalLM.from_pretrained(base, revision=revision, dtype=torch.bfloat16)
+model = PeftModel.from_pretrained(model, "KevinVaillancourt/aya-retrieval-6.37")
+```
 
 ## Limitations
 
-- On S3 this adapter repeats its own in-view wrong value and names values on never-told questions more often than
+- On S3 this adapter repeats its own in-view wrong value and names listed values on never-told questions more often than
   the untrained model (above).
 - On the short outside-writer chats the whole chat beats the three-exchange view with search,
   and plain code that searches every turn shows no measured difference from this adapter and is faster (above).

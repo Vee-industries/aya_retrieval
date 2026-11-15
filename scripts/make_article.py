@@ -1084,6 +1084,7 @@ def sealed_numbers(out) -> None:
     split_rows, kind_rows, sources = [], [], []
     behaviour_rows: dict[str, list[str]] = {}  # one row a measure, one column a condition
     adapter_rates, base_rates, gains, ship_recall, base_recall = [], [], [], [], []
+    ship_p = []  # seed 82 alone against base, each condition (rule 1 pools eight seeds)
     for c, (pool, decoys) in CONDITIONS.items():
         d = runs[c]
         if not d["all_rules_pass"]:
@@ -1180,6 +1181,7 @@ def sealed_numbers(out) -> None:
         base_recall.append(d["shipped_seed_82"]["base_recall"])
         if d["shipped_seed_82"]["sign_test_p"] >= 0.01:
             raise SystemExit(f"condition {c}: seed 82's sign test is not below 0.01")
+        ship_p.append(d["shipped_seed_82"]["sign_test_p"])
     out["sealed_conversations"] = str(runs["A"]["conversations"])
     out["sealed_recall_n"] = str(runs["A"]["shipped_seed_82"]["questions"])
     out["sealed_per_kind_n"] = str(runs["A"]["conversations"] // len(KINDS))
@@ -1188,6 +1190,7 @@ def sealed_numbers(out) -> None:
     out["sealed_base_range"] = f"{min(base_rates)} to {max(base_rates)}"
     out["sealed_gain_range"] = f"{min(gains):.0f} to {max(gains):.0f}"
     out["sealed_ship_range"] = span(ship_recall)
+    out["sealed_ship_p_max"] = p_text(max(ship_p))
     out["sealed_shipbase_range"] = span(base_recall)
     out["sealed_ship_by_condition"] = ", ".join(
         f"{runs[c]['shipped_seed_82']['recall']} against "
@@ -1494,6 +1497,9 @@ def outside_writer_numbers(out) -> None:
             f"| {st['b_search_missed_the_fact']} | {st['c_named_a_wrong_value']} "
             f"| {st['d_found_but_wrong_otherwise']} |"
         )
+        if max(st, key=st.get) != "b_search_missed_the_fact":
+            raise SystemExit(f"set {n}: a missed search is no longer seed 82's largest stage")
+        out[f"ow_missed_{n}"] = f"{st['b_search_missed_the_fact']} of {sum(st.values())}"
         wv = blind["recall_on_questions_with_wrong_values"]
         out[f"ow_wrongvals_{n}"] = f"{wv['ship']} against {wv['base']} of {wv['items']}"
     set_columns = [f"Set {n}" for n in SETS]
@@ -2367,12 +2373,17 @@ def s3_numbers(out) -> None:
     ]
     shared, total = sum(len(c & train) for c in chat_runs), sum(len(c) for c in chat_runs)
     out["s3_runs_shared"] = f"{shared} of {total:,}"
+    # The same count for C1's training set (seed 82's set: K1.3's rows plus OP's corrections).
+    c1_train = overlap.training_runs(REPO_ROOT / train_report("k13opc1_r263_82")["data"])
+    out["s3_runs_shared_c1"] = f"{sum(len(c & c1_train) for c in chat_runs)}"
     rows = scorer.arms()
     for arm, key in (("6.37", "637"), ("pick", "c1")):
         wrong = [r for r in rows[arm] if r["kind"] in RECALL_KINDS and not r["item_correct"]]
         missed = sum(not r["found_fact"] and bool(r["queries"]) for r in wrong)
         out[f"s3_missed_{key}"] = f"{missed} of {len(wrong)}"
         out[f"s3_misread_{key}"] = f"{sum(bool(r['found_fact']) for r in wrong)}"
+        unsearched = sum(not r["found_fact"] and not r["queries"] for r in wrong)
+        out[f"s3_nosearch_{key}"] = str(unsearched)
 
 
 def c1_card_numbers(out) -> None:
@@ -2552,7 +2563,33 @@ def s3_round2_numbers(out) -> None:
         found = [r for r in runs[key] if r["kind"] in RECALL_KINDS and r["found_fact"]]
         out[f"s3_ground_{key}"] = frac(sum(bool(r["item_correct"]) for r in found), len(found))
     right = [r for r in runs["637"] if r["kind"] in RECALL_KINDS and r["item_correct"]]
-    out["s3_right_notfound_637"] = f"{sum(not r['found_fact'] for r in right)} of {len(right)}"
+    notfound = [r for r in right if not r["found_fact"]]
+    out["s3_right_notfound_637"] = f"{len(notfound)} of {len(right)}"
+    if any(r["kind"] != "confirm" or r["claim"] != "true" or r["queries"] for r in notfound):
+        raise SystemExit("6.37's right answers on rows marked not found are not all agreements")
+    # `confirm` on S3 is a tag question; a true claim holds the answer in the message, so
+    # agreeing with it is right with no memory. `older` alone carries no such cue.
+    confirm = [r for r in runs["base"] if r["kind"] == "confirm"]
+    true_claims = [r for r in confirm if r["claim"] == "true"]
+    older = [r for r in runs["base"] if r["kind"] == "older"]
+    if not all(r["answer"].casefold() in r["message"].casefold() for r in true_claims) or any(
+        r["answer"].casefold() in r["message"].casefold() for r in older
+    ):
+        raise SystemExit("S3's true claims no longer all hold the answer, or an older item does")
+    out["s3_conf_true"] = f"{len(true_claims)} of {len(confirm)}"
+    base_right = [r for r in runs["base"] if r["kind"] in RECALL_KINDS and r["item_correct"]]
+    agree = [r for r in base_right if r["kind"] == "confirm" and r["claim"] == "true"]
+    out["s3_agree_base"] = f"{len(agree)} of {len(base_right)}"
+    out["s3_agree_base_ns"] = str(sum(not r["queries"] for r in agree))
+    for key in ("base", "as", "wc", "637", "c1"):
+        asked = [r for r in runs[key] if r["kind"] == "older"]
+        out[f"s3_older_{key}"] = frac(sum(bool(r["item_correct"]) for r in asked), len(asked))
+    runs["ship82"] = scorer.load("s3_fix17cs37_82")
+    for key in ("base", "as", "wc", "637", "ship82", "c1", "c182", "k1", "k21"):
+        asked = [r for r in runs[key] if r["kind"] == "confirm" and r["claim"] == "false"]
+        out[f"s3_fc_{key}"] = f"{sum(bool(r['item_correct']) for r in asked)} of {len(asked)}"
+    if not out["s3_fc_637"].startswith("0 of"):
+        raise SystemExit("a 6.37 seed now corrects a false claim on S3; the text says none does")
     for key in ("base", "wc", "as", "637", "c1"):
         asked = [r for r in runs[key] if r["kind"] == "re_ask"]
         out[f"s3_reask_{key}"] = f"{sum(bool(r['item_correct']) for r in asked)} of {len(asked)}"
@@ -2575,17 +2612,33 @@ def s3_round2_numbers(out) -> None:
     for measure, short in (("recall", "recall"), ("copy", "copy")):
         out[f"s3_{short}_k1"] = frac(k1[measure]["hits"], k1[measure]["n"])
     # Query writing as a cause of lost recall (exploratory): on the same recall questions, did
-    # code's raw message find the fact where the seed's own queries did not, or the reverse?
-    code_found = {r["id"]: bool(r["found_fact"]) for r in runs["as"] if r["kind"] in RECALL_KINDS}
+    # code's raw message find the fact where the seed's own queries did not, or the reverse? A
+    # question the seed did not search is a "when" miss, not a query miss, so it is counted apart.
+    code = {r["id"]: r for r in runs["as"] if r["kind"] in RECALL_KINDS}
     for key, label in (("637", "s3_fix17cs37_82"), ("c1", "s3_k13opc1_r263_82")):
-        own = {
-            r["id"]: bool(r["found_fact"]) for r in scorer.load(label) if r["kind"] in RECALL_KINDS
-        }
-        if set(own) != set(code_found):
+        own = {r["id"]: r for r in scorer.load(label) if r["kind"] in RECALL_KINDS}
+        if set(own) != set(code):
             raise SystemExit(f"{label} and code do not hold the same S3 recall questions")
-        out[f"s3_qw_code_only_{key}"] = str(sum(code_found[i] and not own[i] for i in own))
-        out[f"s3_qw_own_only_{key}"] = str(sum(own[i] and not code_found[i] for i in own))
-    out["s3_qw_n"] = str(len(code_found))
+        code_only = [i for i in own if code[i]["found_fact"] and not own[i]["found_fact"]]
+        own_only = [i for i in own if own[i]["found_fact"] and not code[i]["found_fact"]]
+        searched = [i for i in code_only if own[i]["queries"]]
+        out[f"s3_qw_code_only_{key}"] = str(len(searched))
+        out[f"s3_qw_own_only_{key}"] = str(len(own_only))
+        out[f"s3_qw_nosearch_{key}"] = str(len(code_only) - len(searched))
+        out[f"s3_qw_p_{key}"] = p_text(exact_sign_test(len(searched), len(own_only)))
+        # Grounding on the questions both searches found: the seed's reply against base reading
+        # code's passages, the same questions (the pooled rates are over different questions).
+        both = [i for i in own if own[i]["found_fact"] and code[i]["found_fact"]]
+        only_code = sum(bool(code[i]["item_correct"]) and not own[i]["item_correct"] for i in both)
+        only_own = sum(bool(own[i]["item_correct"]) and not code[i]["item_correct"] for i in both)
+        out[f"s3_gb_n_{key}"] = str(len(both))
+        out[f"s3_gb_own_{key}"] = str(sum(bool(own[i]["item_correct"]) for i in both))
+        out[f"s3_gb_code_{key}"] = str(sum(bool(code[i]["item_correct"]) for i in both))
+        out[f"s3_gb_p_{key}"] = p_text(exact_sign_test(only_code, only_own))
+    out["s3_qw_n"] = str(len(code))
+    nhit = scorer.MEASURES["n_hit_false_answer"]
+    c1_82_nhit = scorer.by_chat(scorer.load("s3_k13opc1_r263_82"), nhit)
+    out["c1s82_nhit_gap"] = diff(c1_82_nhit, tables["base_tool"]["n_hit_false_answer"])
     base_rows = runs["base"]
     out["s3_nt_items"] = str(
         sum(r["kind"] == "never_told" and r["view"] == "right" for r in base_rows)

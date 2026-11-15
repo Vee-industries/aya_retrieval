@@ -43,8 +43,9 @@ TRL_LOSS_RUN = "hard_in_view_84"  # v3 data, TRL's loss (R-026)
 LEAN_LOSS_RUN = "screen_hard_in_view_lean_82"  # same data, lean loss (R-032)
 
 # One colour per model in every figure (R-301): the untrained base grey, 6.37 blue, C1 orange,
-# the other candidates and the report arms purple; Figure 8's outcomes use blues and oranges
-# only, so no outcome pair depends on telling red from green.
+# the other candidates and the report arms purple. Figure 8's outcomes use teals, ochre and a
+# light grey, hues no model uses, so an outcome's colour never reads as an arm's, and no outcome
+# pair depends on telling red from green.
 SURFACE = "#fcfcfb"
 INK = "#0b0b0b"
 INK_2 = "#52514e"
@@ -57,10 +58,10 @@ SEED_C = "#5b97dc"  # 6.37's single seeds
 C1_C = "#c4621a"  # C1
 REPORT_C = "#7a4fa3"  # K1, K1.3, K2.1, OP, C2
 CARD_C = "#d03b3b"
-OUTCOME_C = {  # Figure 8's outcomes: dark and light blue, orange, grey
-    "right": TUNED_C,
-    "misread": SEED_C,
-    "missed": C1_C,
+OUTCOME_C = {  # Figure 8's outcomes: dark and light teal, ochre, light grey
+    "right": "#17706a",
+    "misread": "#74bdb4",
+    "missed": "#b08a1e",
     "none": AXIS,
 }
 
@@ -330,8 +331,9 @@ def wilson(hits: int, n: int, z: float = 1.96) -> tuple[float, float]:
 
 
 def arm_label(name: str) -> str:
-    """The scorer's name for an arm; the pooled 6.37 arm is named by its seeds, not 'shipped'."""
-    return S3.ARM_NAMES[name].replace("shipped", "three seeds")
+    """The scorer's name for an arm; the pooled 6.37 arm is named by its seeds, not 'shipped', and
+    C1 by its state, published beside 6.37, not 'the pick' (6.37 stays shipped, R-287)."""
+    return S3.ARM_NAMES[name].replace("shipped", "three seeds").replace("the pick", "published")
 
 
 def arm_points(
@@ -399,7 +401,8 @@ def fig_s3_faults() -> None:
     """The two faults the reopening targeted, by arm on S3."""
     chats, tables = S3.measure_tables()
     names = list(tables)
-    fig, axes = plt.subplots(1, 2, figsize=(8.4, 0.42 * len(names) + 2.2), sharey=True)
+    # One x scale for both panels, so equal-looking intervals are equal.
+    fig, axes = plt.subplots(1, 2, figsize=(8.4, 0.42 * len(names) + 2.2), sharey=True, sharex=True)
     fig.subplots_adjust(
         left=0.25,
         right=0.97,
@@ -414,24 +417,28 @@ def fig_s3_faults() -> None:
             "Never told, search returned text:\nnames a value listed for the chat",
         ),
     )
+    tops = []
     for ax, (measure, label) in zip(axes, panels, strict=True):
         rule_line = measure == "n_hit_false_answer"  # R-178 (c): no higher than base's rate
-        top = arm_points(ax, measure, names, tables, chats, fontsize=10, base_line=rule_line)
-        step = 10 if top < 40 else 20
-        ticks = range(0, int(top) + 1, step)
-        # A little below 0, so a 0% dot and its interval show whole; room right for the counts.
-        ax.set_xlim(-0.05 * top, 1.3 * top)
-        ax.set_xticks(ticks, [f"{t}%" for t in ticks])
+        tops.append(arm_points(ax, measure, names, tables, chats, fontsize=10, base_line=rule_line))
         ax.tick_params(axis="x", labelsize=10)
         ax.set_xlabel(label, fontsize=10)
+    top = max(tops)
+    ticks = range(0, int(top) + 1, 20)
+    # A little below 0, so a 0% dot and its interval show whole; room right for the counts.
+    axes[0].set_xlim(-0.05 * top, 1.2 * top)
+    axes[0].set_xticks(ticks, [f"{t}%" for t in ticks])
     axes[1].tick_params(axis="y", labelleft=False)
+    m = "n_hit_false_answer"
+    c1_rate, base_rate = S3.rate(tables["pick"][m]), S3.rate(tables["base_tool"][m])
     titled(
         fig,
-        "C1 cuts 6.37's two faults; its false answers stay above base's",
+        f"C1 cuts 6.37's two faults; its false-answer rate ({100 * c1_rate:.1f}%) "
+        f"is above base's ({100 * base_rate:.1f}%)",
         "Lower is better. Grey band: base's 95% interval. Thin line on the right: base's rate, "
-        "the line C1 had to\n"
-        "be under (R-178 (c)). 95% intervals resample chats; 6.37 and C1 pool three seeds, "
-        "report arms two.",
+        "the line C1 had to be under\n"
+        "(R-178 (c)). 95% intervals resample chats; 6.37 and C1 pool three seeds; "
+        "report arms (K1, K1.3, K2.1) pool two seeds.",
     )
     save(fig, "s3_faults")
 
@@ -446,7 +453,7 @@ def fig_s3_misses() -> None:
         ("Searched, fact not found", OUTCOME_C["missed"]),
         ("No search", OUTCOME_C["none"]),
     )
-    fig, ax = plt.subplots(figsize=(8.6, 0.42 * len(names) + 2.2))
+    fig, ax = plt.subplots(figsize=(8.4, 0.42 * len(names) + 2.2))
     fig.subplots_adjust(left=0.27, right=0.97, top=1 - 1.45 / fig.get_figheight(), bottom=0.13)
     ys = list(range(len(names)))[::-1]
     for y, name in zip(ys, names, strict=True):
@@ -495,7 +502,7 @@ def fig_s3_misses() -> None:
 
 def fig_never_told_slide() -> None:
     """hard_dev never_told at seed 82 as OP's stage is repeated (R-261, R-269, R-272)."""
-    fig, ax = plt.subplots(figsize=(9, 3.6))
+    fig, ax = plt.subplots(figsize=(8.4, 3.6))
     fig.subplots_adjust(left=0.1, right=0.97, top=0.7, bottom=0.2)
     ax.axhspan(NEVER_TOLD_GATE - 0.5, 48.5, color=GRID, alpha=0.7, lw=0, zorder=0)
     counts = []
@@ -512,14 +519,14 @@ def fig_never_told_slide() -> None:
     ax.set_xlim(-0.4, len(STAGES) - 0.4)
     ax.set_ylim(35, 49.5)
     ax.set_yticks(range(36, 49, 2))
-    ax.set_ylabel("Never-told questions declined", fontsize=9.5)
+    ax.set_ylabel("Never told: no listed value named", fontsize=9.5)
     ax.grid(axis="x", visible=False)
     ax.text(
         0.5, NEVER_TOLD_GATE - 0.3, "the gate: at least 44", ha="center", color=INK_2, fontsize=9
     )
     titled(
         fig,
-        f"hard_dev never-told declines at seed 82: {', '.join(counts)} of {len(asked)}",
+        f"hard_dev never told, no listed value named, seed 82: {', '.join(counts)} of {len(asked)}",
         "Exploratory: one run each, hard_dev, seed 82; Wilson 95% intervals overlap;\n"
         "grey band: passes the gate.",
     )

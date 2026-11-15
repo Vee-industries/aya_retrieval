@@ -6,7 +6,7 @@ made its training chats: on the sealed test (300 unseen generated chats in each 
 shipped seed recalls 91 to 107 of 120 facts, against 13 to 32 for the untrained model with the same tool. It is weak
 on chats from outside writers: there the untrained model shown the whole chat recalls most (71 and 65 of 120), code
 that searches every turn shows no measured difference from 6.37, and on S3, a second sealed test from outside writers,
-code recalls more and 6.37 repeats its own wrong answers and names values for never-told questions more often than the
+code recalls more and 6.37 repeats its own wrong answers and names listed values on never-told questions more often than the
 untrained model. A replacement, C1, cut both faults and missed one clause of the rule fixed before S3 opened, so 6.37
 stays shipped and C1 is published beside it, labelled. The write-ups give every number with its record.
 
@@ -46,8 +46,8 @@ rate, 51 of 708 (7.2%), had to be no higher than the untrained model's 14 of 236
 (95% interval -3.1 to +5.7 points), but the rule requires every clause, so **6.37 stays shipped** (R-287, R-294). On
 S3, 6.37 itself does worse than the untrained model on both faults, and code that searches every turn (161 of 414)
 and the whole chat (274 of 414) recall more than either trained model. C1 seed 82 is published beside 6.37, labelled
-as failing one clause: [aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1) (R-296). Three
-review rounds checked the write-ups: two of ten reviewers (R-295, R-298) and one of thirteen (R-301). The long write-up, sections 7 to 9, gives every
+as failing one clause: [aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1) (R-296). Four
+review rounds checked the write-ups: two of ten reviewers (R-295, R-298) and two of thirteen (R-301, R-303). The long write-up, sections 7 to 9, gives every
 candidate, ruling and number.
 
 ## Submission summary
@@ -77,7 +77,8 @@ answer, or decline when the chat never held the fact.
 
 - Built: a LoRA adapter that makes a 3.35B model search an old chat with a keyword tool, answer from what it finds,
   trained to decline when the fact was never told. It is tested with only the last three exchanges in view. On
-  S3 it names a stored value on 402 of 708 (56.8%) never-told questions whose search returned text (R-298).
+  S3 it names a stored value on 402 of 708 (56.8%) never-told questions whose search returned text (exploratory,
+  R-298).
 - Strongest baselines first: on short outside-writer chats (a mean of 1,400 tokens), base shown the whole chat
   recalls most (71 and 65 of 120), and plain code that searches every turn shows no measured difference from 6.37 and
   runs faster. On S3 code recalls more than 6.37 (161 of 414 against 347 of 1,242). On LongMemEval-S, no measured
@@ -87,7 +88,7 @@ answer, or decline when the chat never held the fact.
   tool. On the outside-writer chats it searches when the answer is out of view and leaves answers in view alone, where
   code searches every turn.
 - Where it fails: on S3 it names its in-view wrong value on 21.8% of wrong-view questions (base 3.7%) and a listed value on
-  40.4% of never-told questions (base 5.9%); on LongMemEval-S it declines 233 of 470 answerable questions; on the
+  40.4% of never-told questions whose search returned text (base 5.9%); on LongMemEval-S it declines 233 of 470 answerable questions; on the
   scripted demo it gave an unrelated stored fact on 2 of 4 questions and repeated its own wrong answer on 6 of 8
   (R-175, R-176).
 - State: the project was reopened on 12 November to fix those two demo failures. The pick, C1, failed one clause of
@@ -213,11 +214,16 @@ its weights' SHA-256 matches the sealed manifest (`results/freeze/sealed_manifes
 ```
 
 To train the shipped one from
-scratch (about 35 minutes on an RTX 3080):
+scratch (about 35 minutes on an RTX 3080), into a folder apart from the downloaded weights and under a report name
+apart from the committed reports (without `--report-name` the run writes over `results/recall_train/seed_82.json`):
 
 ```bash
-../venv/Scripts/python scripts/run_recall_train.py --seed 82 --out-dir ../adapters/screens/fix17cs37_82 --data data/screens/fix17cs37.jsonl --lora-r 32 --lora-targets q_proj k_proj v_proj o_proj gate_proj up_proj down_proj --learning-rate 3e-4 --loss-on chat_decision --max-vram-fraction 0.85
+../venv/Scripts/python scripts/run_recall_train.py --seed 82 --out-dir ../adapters/retrain/fix17cs37_82 --report-name fix17cs37_82_retrain --data data/screens/fix17cs37.jsonl --lora-r 32 --lora-targets q_proj k_proj v_proj o_proj gate_proj up_proj down_proj --learning-rate 3e-4 --loss-on chat_decision --max-vram-fraction 0.85 --save-epochs 2
 ```
+
+The recorded command (`results/recall_train/fix17cs37_82.json`, provenance) is the same apart from the paths and
+report name; `--save-epochs 2` only saves an extra checkpoint after epoch 2. Retraining does not give the same
+weights bit for bit (R-029).
 
 ### What a chat looks like
 
@@ -299,9 +305,9 @@ too long to show. When a chat is short enough to show whole, that is the better 
 sets (chats of about 1,400 tokens), base with every message in view answers 58 and 52 of 80 `older`
 questions, against 28 and 34 for 6.37 seed 82 with the tool and the last three exchanges (R-164).
 Given the whole chat and the tool, 6.37 shows no measured difference from base given the whole chat,
-on any kind, on both sets (R-165). That is one seed and two sets of 40 chats, so differences under about
-22 points between two arms on a kind of 40 questions are below what this test resolves, and the test is not powered
-to show equality (R-142). So the design this supports is to
+on any kind, on both sets (R-165). That is one seed and two sets of 40 chats, so differences under 22 points between
+two arms on a kind of 40 questions (the 95% half-width of a difference between two rates near 50%) are below what
+this test resolves, and the test is not powered to show equality (R-142). So the design this supports is to
 show the trained model the whole chat when it fits, and let it search when it does not: no measured
 loss against base when the chat fits, and much better than base once only part of the chat can be
 shown. The whole-chat result holds on the outside-writer chats, not on this project's generated
@@ -311,9 +317,10 @@ on the sealed pools, base with the whole chat got 21 to 33 of 60 recall question
 
 **Code that searches every turn, with no training,** was registered as a reference in R-016 and run
 late (R-167). On the outside-writer chats it shows no measured difference from 6.37 (42 and 47 of 120 against 39 and 53;
-p = 0.76 and 0.45, R-169). Base searches too little and code searches every turn. Training adds searching when the
-answer is out of view (against base) and not searching when it is in view (against code): answers already on screen
-35 and 37 of 40 against code's 13 and 16; facts never told 37 and 36 against 31 and 24; plain statements left
+p = 0.76 and 0.45, R-169). Base with the tool searches on 54 and 42 of the 120 recall questions; code searches every
+turn. Training adds searching when the answer is out of view (against base) and not searching when it is in view
+(against code): answers already on screen 35 and 37 of 40 against code's 13 and 16; facts never told, answered with
+no listed value, 37 and 36 against 31 and 24; plain statements left
 unsearched 37 and 35 against code's 0 (by construction), and below base's 38 and 39. On the generated sealed pools the adapters are also far above
 code on recall (seed 82 44 to 55 of 60 against 14 to 32, R-168). The code is faster than 6.37: 1.0
 to 1.2 s a conversation against 1.7 to 2.1 s on the sealed pools (R-168), and 1.45 to 1.48 s a
@@ -400,7 +407,7 @@ writing from one brief (in the set's folder), frozen by SHA-256 before anyone re
 ## Known limits
 
 - On S3, written by outside writers, 6.37 names its own in-view wrong value on 21.8% of wrong-view questions (base 3.7%) and a
-  listed value on 40.4% of never-told questions (base 5.9%); code that searches every turn recalls more than it. S3's
+  listed value on 40.4% of never-told questions whose search returned text (base 5.9%); code that searches every turn recalls more than it. S3's
   flags see only listed values of the asked category, so invented values and other stored facts pass unseen (R-287,
   R-298).
 
@@ -510,7 +517,8 @@ revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
 5. LongMemEval-S: `scripts/run_longmemeval.py` (one arm a call; its data file is not in the repository, its SHA-256 is
    in R-170), then `scripts/records/score_r170.py` and, for judged accuracy, `judge_sheets_r170.py` and
    `score_judged_r170.py`.
-6. The write-ups and figures: `PYTHONPATH=src python scripts/make_article.py` and `scripts/make_figures.py`; the long and short
+6. The write-ups and figures: `PYTHONPATH=src ../venv/Scripts/python scripts/make_article.py` and
+   `PYTHONPATH=src ../venv/Scripts/python scripts/make_figures.py`; the long and short
    write-ups (`docs/ARTICLE.md`, `docs/submission/HF_ARTICLE.md`), the form abstract and `docs/MODEL_CARD.md` are filled
    from results files by their templates, and so is C1's card (`docs/MODEL_CARD_C1.md`); the few numbers quoted from
    records are listed in the article's section 15.
@@ -562,10 +570,11 @@ other test files.
 - **14 November (R-218 to R-289).** The "Reopened" section carried through S3 (R-287: C1 fails one
   clause, 6.37 stays shipped); the long and short write-ups and the form abstract rebuilt from templates by
   `scripts/make_article.py` (R-288) and fixed after an audit (R-289); S3's layout rows and reproduce step added.
-- **15 November (R-290 to R-301), this version.** Decisions stated in my own voice; two review panels (R-294, R-295,
+- **15 November (R-290 to R-303), this version.** Decisions stated in my own voice; two review panels (R-294, R-295,
   R-298); C1 published beside 6.37 (R-296); 6.37's S3 weakness and what S3's flags count stated in every document; the
   short paper cut to its story and required items; the audit of the write-ups (R-299); the long paper's detail moved
-  to three appendices (R-300); a third review round's fixes (R-301).
+  to three appendices (R-300); a third review round's fixes (R-301); an audit's fixes (R-302); a fourth review
+  round's fixes (R-303).
 
 ## Licences
 

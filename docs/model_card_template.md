@@ -72,7 +72,7 @@ except for base with the whole chat:
 |---|---|---|---|---|
 | Recall, of {{as_recall_n}} | {{ow_base_recall_1}} / {{ow_base_recall_2}} | {{as_recall_1}} / {{as_recall_2}} | {{wc_recall_1}} / {{wc_recall_2}} (most) | {{ow_82_recall_1}} / {{ow_82_recall_2}} |
 | Answer already in view, of {{as_kind_n}} | {{ow_base_in_view_1}} / {{ow_base_in_view_2}} | {{as_in_view_1}} / {{as_in_view_2}} | {{ow_wc_in_view_1}} / {{ow_wc_in_view_2}} | {{ship_in_view_1}} / {{ship_in_view_2}} |
-| Never told, of {{as_kind_n}} | {{ow_base_never_told_1}} / {{ow_base_never_told_2}} | {{as_never_told_1}} / {{as_never_told_2}} | {{ow_wc_never_told_1}} / {{ow_wc_never_told_2}} | {{ship_never_told_1}} / {{ship_never_told_2}} |
+| Never told: names no listed value, of {{as_kind_n}} | {{ow_base_never_told_1}} / {{ow_base_never_told_2}} | {{as_never_told_1}} / {{as_never_told_2}} | {{ow_wc_never_told_1}} / {{ow_wc_never_told_2}} | {{ship_never_told_1}} / {{ship_never_told_2}} |
 | Plain statement left unsearched, of {{as_kind_n}} | {{ow_base_statement_1}} / {{ow_base_statement_2}} | {{as_statement_1}} / {{as_statement_2}} (searches every turn) | {{ow_wc_statement_1}} / {{ow_wc_statement_2}} (no tool) | {{ship_statement_1}} / {{ship_statement_2}} |
 
 Generated chats:
@@ -100,17 +100,20 @@ official GPT-4o judge):
 
 **Which to use when.**
 1. If the chat was written outside this project's generator and fits the context, show it whole: base with the
-   whole chat recalls most on outside-writer chats and S3, and needs no adapter. On S3 the whole chat names a listed
-   value on {{s3_nhit_wc}} never-told N-hit questions, against base with the tool's {{s3_nhit_base}}, and names no
-   listed value on {{s3_ntp_wc}} plain never-told questions, against {{s3_ntp_base}}.
+   whole chat recalls most on outside-writer chats and S3, and needs no adapter. On S3 it names a listed value more
+   often than base with the tool: on {{s3_nhit_wc}} never-told N-hit questions, against base's {{s3_nhit_base}}; and it
+   names no listed value on {{s3_ntp_wc}} plain never-told questions, against base's {{s3_ntp_base}}.
 2. If it is longer than the {{model_max_tokens}}-token window, 6.37 and code that searches every turn show no
    measured difference on LongMemEval-S answers; code's first search finds the evidence more often,
    {{lme_h2_code}} (registered H2, R-170), and code needs no training. 6.37 declines {{lme_refuse_ship}} of the
-   {{lme_answerable_n}} questions that have an answer there; code declines {{lme_refuse_code}}.
-3. If repeating a wrong answer or naming values for never-told questions matters, this adapter does both more often
-   than base on S3; C1 ([aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1)) measured
-   changes of {{s3_rel_copy}} and {{s3_rel_nhit}} against this adapter, missed one registered clause and is not the
-   shipped model.
+   {{lme_answerable_n}} questions that have an answer there; code declines {{lme_refuse_code}}. On S3 code names its
+   in-view wrong value on {{s3_copy_as}} questions and a listed value on {{s3_nhit_as}} N-hit questions, against
+   base's {{s3_copy_base}} and {{s3_nhit_base}}; neither fault was measured on chats past the window.
+3. If repeating a wrong answer or naming a listed value on never-told questions matters, do not use this adapter: on
+   S3 it does both more often than base. C1
+   ([aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1)) measured lower rates than this
+   adapter ({{s3_rel_copy}} on copies, {{s3_rel_nhit}} on N-hit false answers) but is not below base on N-hit
+   ({{s3_nhit_c1}} against {{s3_nhit_base}}); it missed one registered clause and is not the shipped model.
 
 "Base" is the untrained Tiny Aya Global. "Code" is code that searches on every turn with the
 newest message as the query, then hands base the passages (nothing trained). Recall counts the
@@ -126,8 +129,9 @@ On two sets of chats by outside writers who never saw this project's generator (
 against {{tool82_older_1}} and {{tool82_older_2}} for this adapter with the tool and the last three
 exchanges (R-164). Given the whole chat and the tool, the adapter and the untrained model show
 no measured difference on every kind of message (one seed, two sets of {{ow_chats}} chats;
-differences under about {{kind_noise_diff}} points between two arms on a kind of {{kind_noise_n}} questions are below
-what this test resolves, and the test is not powered to show equality; R-142, R-165). This holds on those
+differences under {{kind_noise_diff}} points between two arms on a kind of {{kind_noise_n}} questions, the 95%
+half-width of a difference between two rates near 50%, are below what this test resolves, and the test is not
+powered to show equality; R-142, R-165). This holds on those
 outside-writer chats only. On the project's generated sealed chats of 58 messages, {{r168_wc_tokens}} tokens, the untrained
 model with the whole chat answers {{r168_wc}} of {{r168_recall_n}} recall questions against this
 adapter's {{r168_ship58}} with the tool (R-168).
@@ -135,11 +139,12 @@ adapter's {{r168_ship58}} with the tool (R-168).
 On the outside-writer chats, plain code that searches on every turn, with no training, shows no measured
 difference from this adapter on recall, both with the last three exchanges in view: {{as_recall_1}} and
 {{as_recall_2}} of {{as_recall_n}} against {{ow_82_recall_1}} and {{ow_82_recall_2}}, no measured
-difference (p = {{as_p_1}} and {{as_p_2}}; R-169). Base with the tool searches too little and code
+difference (p = {{as_p_1}} and {{as_p_2}}; R-169). Base with the tool searches on
+{{ow_base_recall_searched_1}} and {{ow_base_recall_searched_2}} of the {{as_recall_n}} recall questions; code
 searches every turn. Training adds searching when the answer is out of view (against base) and not
 searching when it is in view (against code): where the answer is in view the adapter answers
 {{ship_in_view_1}} and {{ship_in_view_2}} of {{as_kind_n}} and code {{as_in_view_1}} and
-{{as_in_view_2}}; on facts never told {{ship_never_told_1}} and {{ship_never_told_2}} against
+{{as_in_view_2}}; on facts never told, no listed value named, {{ship_never_told_1}} and {{ship_never_told_2}} against
 {{as_never_told_1}} and {{as_never_told_2}}. On plain statements it leaves {{ship_statement_1}} and
 {{ship_statement_2}} unsearched, below base's {{ow_base_statement_1}} and
 {{ow_base_statement_2}}; code searches every one. On the generated sealed pools this adapter is
@@ -160,7 +165,7 @@ of card memory at inference (R-163).
   intervals resampling chats; set 1's p = {{ow_82_p_1}} is above the registered 0.01) (R-146, R-157).
   The gain is on direct questions; on "..., right?" questions with a false claim it corrects
   {{claims_82_corrected_1}} and {{claims_82_corrected_2}} of {{claims_false_n}} (R-164).
-- **The shipped seed is not the strongest.** Seed 82 is the lowest of the eight training seeds on
+- Seed 82, the shipped seed, is the lowest of the eight training seeds on
   the first outside-writer set, on sealed conditions C and D, and on `hard_dev`; the eight seeds
   pooled gain {{ow_seeds_diff_1}} and {{ow_seeds_diff_2}} points on the two sets
   ({{ow_seeds_int_1}} and {{ow_seeds_int_2}}) (R-141, R-146, R-157, R-163).
@@ -202,11 +207,23 @@ When it does not, use the harness the adapter was trained in: a system prompt th
 `search_corpus` tool (`aya_retrieval.tool_prompt.system_prompt_with_tools`), the last three
 exchanges as chat turns, and the earlier exchanges indexed for search, one passage per exchange.
 `run_turn` in `src/aya_retrieval/harness.py` runs that loop: up to {{max_calls}} searches a
-message, top {{top_k}} passages each. Decoding in every test was greedy.
+message, top {{top_k}} passages each. Decoding in every test was greedy. Loading it (not run in this
+form; the repository's `aya_retrieval.models.load_model` loads the same revision in bfloat16):
+
+```python
+import torch
+from peft import PeftModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+base, revision = "CohereLabs/tiny-aya-global", "af89d219b53ed9b13b8a4645f9c8028973510324"
+tokenizer = AutoTokenizer.from_pretrained(base, revision=revision)
+model = AutoModelForCausalLM.from_pretrained(base, revision=revision, dtype=torch.bfloat16)
+model = PeftModel.from_pretrained(model, "KevinVaillancourt/aya-retrieval-6.37")
+```
 
 ## Limitations
 
-- On S3 this adapter repeats its own in-view wrong value and names values on never-told questions more often than
+- On S3 this adapter repeats its own in-view wrong value and names listed values on never-told questions more often than
   the untrained model (above).
 - On the short outside-writer chats the whole chat beats the three-exchange view with search,
   and plain code that searches every turn shows no measured difference from this adapter and is faster (above).

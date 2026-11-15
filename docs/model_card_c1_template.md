@@ -45,12 +45,14 @@ shows no measured difference.
 The rule (registered 12 November, before S3 opened): the pick replaces 6.37 only if (a) it beats base on recall, is
 no more than 5 points below base on in view, statements and plain never-told, and its coherent share is at least
 base's times 0.95, (b) its copy rate is at most half of 6.37's and at least 10 points lower, and (c) its rate of
-naming a listed value on never-told questions is at least 10 points below 6.37's and not above base's. C1 passed (a),
-(b) and the first two parts of (c). It failed "not above base's" by {{s3_gap_points}} points: {{s3_nhit_c1}} against
-{{s3_nhit_base}}. The chat-resampled 95% interval of that difference is {{c1_gap_interval}}, so S3 cannot tell C1 from
-base on this line; C1 fails the rule as registered. By seed: {{c1_nhit_seeds}}. This adapter, seed 82, is under base on
-that line on its own (counting the asked category only; counting the chat's other stored facts too, {{s3_off_c182}}
-against base's {{s3_off_base}}) and is {{c1s82_st_line}}: {{c1s82_st_gap}} against base.
+naming a listed value on never-told questions whose search returned text (N-hit) is at least 10 points below 6.37's,
+with the chat-resampled bound of that difference above 0, and not above base's. C1 passed (a), (b) and the first two
+parts of (c). It failed "not above base's" by {{s3_gap_points}} points: {{s3_nhit_c1}} against {{s3_nhit_base}}. The
+chat-resampled 95% interval of that difference is {{c1_gap_interval}}, so S3 cannot tell C1 from base on this line;
+C1 fails the rule as registered. By seed: {{c1_nhit_seeds}}. This adapter, seed 82, is under base on that line on its
+own, counting the asked category only ({{c1s82_nhit_gap}}, so S3 cannot tell it from base either; counting the
+chat's other stored facts too, {{s3_off_c182}} against base's {{s3_off_base}}) and is {{c1s82_st_line}}:
+{{c1s82_st_gap}} against base.
 
 ## What the measures count
 
@@ -68,15 +70,28 @@ own errors on its training chats ({{c1_set}}, {{c1_rows}} rows; {{c1_stage}} eac
 on an RTX 3080, training peak {{c1_peak}} GiB. C1 was chosen for S3 over K1.3 on the totals of two fresh demos (older
 facts {{demos_c1_older}} against {{demos_k13_older}}; never told {{demos_c1_never_told}} against
 {{demos_k13_never_told}}) and on pooled development recall over three seeds ({{pick_recall_c1}} against
-{{pick_recall_k13}}). The demo test was changed to totals after both models' demo readings existed; the long write-up
-discloses it.
+{{pick_recall_k13}}). I changed the demo test twice: the first change (R-276) came after both of C1's demo readings and
+K1.3's Demo4 reading, and it ordered K1.3's Demo5 reading knowing C1's; the second (R-278), to the totals, came after
+all four readings. The long write-up discloses both.
 
 ## How to use it
 
 The same harness as 6.37: a system prompt that describes the `search_corpus` tool
 (`aya_retrieval.tool_prompt.system_prompt_with_tools`), the last three exchanges as chat turns, and the earlier
 exchanges indexed for search, one passage per exchange; up to {{max_calls}} searches a message, top {{top_k}} passages
-each; greedy decoding. When the chat is short enough to show whole, show it whole.
+each; greedy decoding. When the chat is short enough to show whole, show it whole. Loading it (not run in this form;
+the repository's `aya_retrieval.models.load_model` loads the same revision in bfloat16):
+
+```python
+import torch
+from peft import PeftModel
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+base, revision = "CohereLabs/tiny-aya-global", "af89d219b53ed9b13b8a4645f9c8028973510324"
+tokenizer = AutoTokenizer.from_pretrained(base, revision=revision)
+model = AutoModelForCausalLM.from_pretrained(base, revision=revision, dtype=torch.bfloat16)
+model = PeftModel.from_pretrained(model, "KevinVaillancourt/aya-retrieval-c1")
+```
 
 ## Limits
 

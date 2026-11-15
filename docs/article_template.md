@@ -74,7 +74,7 @@ passages and answer, or decline when the chat never held the fact.
 
 - Built: an adapter that makes a 3.35B model search an old chat and answer from what it finds, trained to decline
   what it was never told. Tested with only the last three exchanges in view. On S3 it names a stored value on
-  {{s3_off_637}} never-told questions whose search returned text (sections 6.2 and 12, Appendix C; R-298).
+  {{s3_off_637}} never-told questions whose search returned text (exploratory; Appendix C, R-298).
 - Strongest baselines first: on outside writers' short chats (a mean of {{ow_tokens_mean}} tokens) the whole chat
   recalls most, and code that searches every turn shows no measured difference from 6.37 and is faster. On S3 code
   recalls more than 6.37 ({{s3_code_vs_637}}).
@@ -82,7 +82,7 @@ passages and answer, or decline when the chat never held the fact.
   could not be shown whole on this card), recall above base, code and the whole chat (R-168); leaving answers in view
   alone. On LongMemEval-S's chats past the window, no measured difference from code on answers; code's first search
   finds the evidence more often ({{lme_h2_code}}; registered H2, R-170).
-- Where it fails: on S3 it names its own in-view wrong value and values on never-told questions more often than the
+- Where it fails: on S3 it names its own in-view wrong value and listed values on never-told questions more often than the
   untrained model; it searched on {{s3_conf_637}} "did I tell you...?" questions by seed on S3; it declines
   {{lme_refuse_ship}} of {{lme_answerable_n}} answerable LongMemEval-S questions (sections 6, 7 and 9).
 - The reopening: {{reopened_n}} candidates in the screening list of R-279, {{reopened_full}} of them read on all 20 lines, 12 to 14 November; the pick, C1, cut both faults (copies {{s3_rel_copy}}, N-hit
@@ -91,13 +91,16 @@ passages and answer, or decline when the chat never held the fact.
 - Where to look: `RECORDS.md`, the README (reproduction), and the two Hugging Face collections.
 
 **Use this when.** If the chat was written outside the generator and fits the context, show it whole, with no
-adapter; on S3 the whole chat names a listed value on {{s3_nhit_wc}} never-told N-hit questions, against base with the
-tool's {{s3_nhit_base}}, and names no listed value on {{s3_ntp_wc}} plain never-told questions, against
-{{s3_ntp_base}}. If the chat is longer than the model's {{model_max_tokens}}-token window, 6.37 and code that searches
-every turn show no measured difference on LongMemEval-S answers, code's first search finds the evidence more often
-({{lme_h2_code}}; registered H2, R-170), and code needs no training. If both faults matter, C1's rates on S3 against
-6.37's changed by {{s3_rel_copy}} on copies and {{s3_rel_nhit}} on N-hit false answers. 6.37 is shipped by the
-registered rule, which C1 missed on one clause; for the two faults, C1 measured lower rates.
+adapter; on S3 the whole chat names a listed value more often than base with the tool: on {{s3_nhit_wc}} never-told
+N-hit questions, against base's {{s3_nhit_base}}; and it names no listed value on {{s3_ntp_wc}} plain never-told
+questions, against base's {{s3_ntp_base}}. If the chat is longer than the model's {{model_max_tokens}}-token window,
+6.37 and code that searches every turn show no measured difference on LongMemEval-S answers, code's first search finds
+the evidence more often ({{lme_h2_code}}; registered H2, R-170), and code needs no training; on S3 code names its
+in-view wrong value on {{s3_copy_as}} questions and a listed value on {{s3_nhit_as}} N-hit questions, against base's
+{{s3_copy_base}} and {{s3_nhit_base}}, and neither fault was measured on chats past the window. If both faults
+matter, do not use 6.37: on S3 it is worse than base on both. C1 measured lower rates than 6.37 ({{s3_rel_copy}} on
+copies, {{s3_rel_nhit}} on N-hit false answers) but is not below base on N-hit ({{s3_nhit_c1}} against
+{{s3_nhit_base}}). 6.37 is shipped by the registered rule, which C1 missed on one clause.
 
 **Artifacts.** Code, results files and records:
 [github.com/Vee-industries/aya_retrieval](https://github.com/Vee-industries/aya_retrieval). Adapters:
@@ -123,7 +126,8 @@ timestamp of the seal before any result (R-181).
 - **Code**: code that searches on every turn with the newest message as the query and hands base the passages;
   nothing is trained. **Whole chat**: base with every message in view and no tool.
 - **Recall**: right answers on `older` (a fact told long ago) and `confirm` ("did I tell you...?") questions, the
-  registered primary measure. **In view**: the answer is in the last three exchanges. **Never told**: the chat never
+  registered primary measure. On S3 the `confirm` items are tag questions ("..., right?"), and {{s3_conf_true}} make
+  a true claim that holds the answer in the message (section 12). **In view**: the answer is in the last three exchanges. **Never told**: the chat never
   held the fact; the right reply declines, and the scorer counts a reply right when it names no listed value (it
   does not check for a decline). **Statement**: a plain chat line, right when the model does not search.
 - **Seed 82**: the shipped seed of 6.37, one of eight training seeds of the same recipe.
@@ -132,8 +136,10 @@ timestamp of the seal before any result (R-181).
   false answer** (S3): a never-told question whose fixed keyword search returns passages (an item property, not the
   model's own search; {{s3_nhit_items}} of S3's {{s3_nt_all}} never-told items a run), answered with a value listed for the chat. Both flags
   count only values listed for the chat; an invented value passes unseen (section 12).
-- **Confirmatory** claims rest on a sealed test opened once (the first sealed test and S3). **Exploratory** claims rest
-  on development sets read many times, or on sets read after the decision they inform.
+- **Confirmatory** claims rest on the two sealed tests, each opened once: the first sealed test and S3.
+  **Exploratory** claims rest on development sets read many times, or on sets read after the decision they inform.
+- **No measured difference**: the 95% interval of the difference includes zero, or a sign test gives p of 0.05 or
+  more.
 
 ## 1. Introduction
 
@@ -151,11 +157,17 @@ The Track 3 statement maps to measures here:
 |---|---|---|
 | decides **when** to retrieve | right decisions: searched exactly when the answer was out of view | met for answers in view and plain statements; not for "did I tell you...?" questions (below the table) |
 | decides **what** to retrieve | the fact was found by the model's own query | met on generated chats only; on S3 its queries found the fact on {{s3_found_637}} recall questions, code's raw message on {{s3_found_as}} |
-| **grounds** its answers | recall, counted again on answers from a search that found the fact | met on the first sealed test (rule 2); on S3 it answered {{s3_ground_637}} of the recall questions its search found right, as often as base reading code's passages, {{s3_ground_as}}, and {{s3_right_notfound_637}} of its right answers are on rows marked not found |
+| **grounds** its answers | recall, counted again on answers from a search that found the fact | met on the first sealed test (rule 2); on S3, see below the table |
 | **ignores distracting documents** | false retrieval: a decoy's fact in the reply, one and four decoys a chat | met for decoys in generated chats; not met on S3, where it names its in-view wrong value and values listed for the chat on never-told questions more often than base (section 9) |
 
 On **when**, S3 by seed: 6.37 searched on {{s3_conf_637}} "did I tell you...?" questions; its right search decisions
-were {{s3_rd_637}}, against code's {{s3_rd_as}} and C1's {{s3_rd_c1}}.
+were {{s3_rd_637}}, against code's {{s3_rd_as}} and C1's {{s3_rd_c1}}. On **grounds**, S3 (exploratory): 6.37
+answered {{s3_ground_637}} of the recall questions its search found right, and base reading code's passages
+{{s3_ground_as}}; these are different questions, chosen by each arm's own search. On the {{s3_gb_n_637}} recall
+questions both seed 82's search and code's found, seed 82 answered {{s3_gb_own_637}} right and base on code's passages
+{{s3_gb_code_637}} (p = {{s3_gb_p_637}}); for C1 seed 82, {{s3_gb_own_c1}} and {{s3_gb_code_c1}} of {{s3_gb_n_c1}}
+(p = {{s3_gb_p_c1}}). {{s3_right_notfound_637}} of 6.37's right answers are on rows marked not found; all are
+agreements with a true claim in a tag question, made with no search.
 
 **Contributions.**
 
@@ -168,17 +180,17 @@ were {{s3_rd_637}}, against code's {{s3_rd_as}} and C1's {{s3_rd_c1}}.
 3. A second sealed test (S3) written by blind writers and sealed before any new training row, with the ship rule fixed
    before it opened and its scorer before any S3 file was read, and its negative result reported as registered
    (section 9).
-4. A full ledger of the reopened search for a replacement, every candidate with the line it failed (section 8), and
+4. A full ledger of the reopened search for a replacement, every candidate with the line it failed (section 8,
+   Appendix B), and
    three toolkit findings (section 10).
 
-**Related work.** Tool use can be learned from demonstrations of when a call helps (Toolformer, Schick et al., 2023)
-and interleaved with reasoning (ReAct, Yao et al., 2023). Adaptive retrieval asks when to retrieve at all (Mallen et
-al., 2023); Self-RAG trains a model to decide and to critique its retrievals (Asai et al., 2024); RAFT fine-tunes with
-distractor documents (Zhang et al., 2024), the role this project's decoys play inside a chat. MemGPT manages chat
-memory with an agent loop (Packer et al., 2023); LongMemEval measures long-term chat memory (Wu et al., 2025); models
-use the middle of long contexts poorly (Liu et al., 2024). Training on a model's own outputs that pass a check is STaR
-(Zelikman et al., 2022). Coherence is judged by a model (Zheng et al., 2023), blind to which model wrote each
-reply. Adapters are LoRA (Hu et al., 2022).
+**Related work.** Self-RAG trains a model to decide when to retrieve and to critique what it retrieved (Asai et al.,
+2024); 6.37 learns the decision by supervised fine-tuning on rows that show one clean call or none, with no critique
+step. RAFT
+fine-tunes with distractor documents (Zhang et al., 2024), the role this project's decoys play inside a chat. STaR
+trains on a model's own outputs that pass a check (Zelikman et al., 2022); 6.37's targets are the untrained model's
+own replies that pass the scorer. LongMemEval (Wu et al., 2025) supplies the outside check, LoRA (Hu et al., 2022) the
+adapter, and the coherence judge follows Zheng et al. (2023), blind to which model wrote each reply.
 
 ## 2. Chronology
 
@@ -191,7 +203,10 @@ The work ran in six stages. Each row names the records that hold its decisions a
 | 9 to 10 Nov | First sealed test and outside checks | Sealed run, every rule passes; whole chat and code run late; LongMemEval-S; published | R-162 to R-172 |
 | 12 Nov | Faults found, reopened | Scripted demo shows two faults; deadline extended; project reopened; S3 written and sealed; ship rule fixed | R-173 to R-179 |
 | 12 to 14 Nov | The push to replace 6.37, then K1.3 | {{reopened_n}} candidates listed, {{reopened_full}} read on every line; K1.3 the pick from R-203; demos rewritten clean; on-policy tries; my change to the demo test; C1 the pick | R-180 to R-279 |
-| 14 to 15 Nov | S3, then review | S3 opened once; scorer registered and tested before any S3 file was read; C1 fails one clause; 6.37 stays shipped; the write-ups rebuilt, reviewed by panels and an audit; C1 published beside 6.37 | R-280 to R-301 |
+| 14 to 15 Nov | S3, then review | S3 opened once; C1 fails one clause; 6.37 stays shipped; write-ups reviewed; C1 published | R-280 to R-303 |
+
+In the last stage the scorer was registered and tested before any S3 file was read, and the write-ups were rebuilt,
+reviewed by panels and an audit, and fixed; C1 was published beside 6.37.
 
 **Why the stages ran as they did.** Each stage was set off by a measured result, not by a plan made in advance. The
 first sealed test passed, so 6.37 shipped. The baselines run late (R-167 to R-169) then showed the adapter's recall
@@ -218,7 +233,8 @@ task success is recall and the other right-answer counts; tool-call accuracy is 
 output holds the fact, and clean first calls; latency is seconds a question and tokens read a turn (section 10).
 
 **Threat model.** The adversary is the chat's own content: decoys, a wrong claim in a "..., right?" question, the
-model's own wrong answer in view, and a fact never told. Instructions hidden in retrieved passages are not tested. The
+model's own wrong answer in view, and a fact never told. A value given as something the user said, when the user never
+said it, is a false memory, and the user can act on it. Instructions hidden in retrieved passages are not tested. The
 tool is read only.
 
 | Data | Written by | Size | Role | Claims |
@@ -245,13 +261,17 @@ base model's licence carries over); the code is Apache-2.0; LongMemEval-S is not
 |---|---|---|
 | No test set | not present | two sealed tests, each opened once (R-162, R-280) |
 | Preprocessing or feature selection on all data | not present for the model; present for the choice of model | no fitted preprocessing; but every candidate was chosen on development pools read many times, so the chosen model's development numbers are optimistic (R-194) |
-| Duplicates between train and test | checked, small overlap found | every training step since v5 stops on a four-word run shared with `probe` or `hard_dev` (R-055, R-110); S3 shares {{s3_runs_shared}} four-word runs with 6.37's training lines (R-179) |
+| Duplicates between train and test | checked, small overlap found | every training step since v5 stops on a four-word run shared with `probe` or `hard_dev` (R-055, R-110); S3 shares {{s3_runs_shared}} four-word runs with 6.37's training lines (R-179) and {{s3_runs_shared_c1}} with C1's seed 82 set; natural rows from K3.1 on and OP's corrections drop any row sharing a six-word run with S3 (R-206, R-253) |
 | Illegitimate features | found and reduced | the number of passages a search returned gave the answer away in training; decoy counts now vary per row (R-018, R-020); 6.37's set still returns more passages on found rows than on never-told rows (R-180) |
-| Test answers in training | found in two demos | Demo2 and Demo3 answer keys were training fact values (Figure 3, R-254); both were retired and replaced by Demo4 and Demo5, checked clean against training fact values; keys found as ordinary words are reported, not failed, and each writer saw the list of training fact values before rewriting (R-254) |
+| Answer in the question | present on S3's `confirm` items | {{s3_conf_true}} are true claims holding the answer in the message, so agreeing is right with no memory; `older` items hold none (section 12) |
+| Test answers in training | found in two demos | Demo2 and Demo3 answer keys were training fact values (Figure 3, R-254); both were retired and replaced by Demo4 and Demo5, checked clean (note below the table) |
 | Temporal | not present | S3 was written and sealed before any new training row existed (R-179, R-181) |
 | Non-independence | present | `train` and the first sealed pools come from one generator, so the first sealed test is a within-generator result; seeds share questions; generated questions share fact templates; the intervals resample chats, not templates or writers (R-039, R-141, R-164) |
 | Sampling bias | present | the first sealed test's pools are generator-built; every writer is a Claude agent; no chat is a real person's |
 | Contamination of the pretrained model | not probed | Tiny Aya's pretraining data is unpublished; the project's own chats were written after its release (its weights were downloaded on 1 November, R-003); LongMemEval-S predates it and can be in pretraining; no verbatim-completion probe was run (section 12) |
+
+Demo4's and Demo5's check: a key found as an ordinary word is reported, not failed, and each writer saw the list of
+training fact values before rewriting (R-254).
 
 ## 4. Method: 6.37
 
@@ -317,7 +337,10 @@ removed. Three fresh judges mark each sheet; judge 1 decides. Measured spread: R
 
 **Statistics.** Paired exact sign tests on the questions where two runs differ; 95% percentile bootstrap intervals
 that resample whole chats. Generated questions share fact templates ({{probe_templates}} on `probe`,
-{{hd_templates}} on `hard_dev`), so item-level p-values overstate the evidence (R-141). S3's bounds resample S3's
+{{hd_templates}} on `hard_dev`), so item-level p-values overstate the evidence (R-141). Rule 1's pooled sign test
+pairs each of the eight adapters with one base run, so each base row counts eight times and the pooled p-value
+overstates the evidence too; seed 82 alone is below 0.01 against base in every condition (largest p
+{{sealed_ship_p_max}}). S3's bounds resample S3's
 chats, 10,000 draws, seed 0 (R-281). S3's ship rule is one decision that needs every line to hold, so no
 multiple-test adjustment applies to it; the other p-values in this article are reported unadjusted, as a family of
 exploratory results.
@@ -327,7 +350,7 @@ exploratory results.
 | Metric | Better | What it measures |
 |---|---|---|
 | Recall (`older` plus `confirm` right) | higher | the registered primary measure |
-| `in_view` and `never_told` right | higher | what should not get worse: answers in view left alone, a fact never told declined |
+| `in_view` and `never_told` right | higher | what should not get worse: answers in view left alone; a fact never told answered with no listed value |
 | Plain statement left unsearched | higher | a plain chat line should cause no search |
 | Right search decisions | higher | searched exactly when the answer was out of view |
 | Found by the model's own query | higher | the search output holds the fact |
@@ -393,9 +416,9 @@ points apart are drawn one above the other.*
 
 - **The whole chat wins on these chats.** Base with every message in view beats 6.37 from the last three exchanges
   (set 1: {{wc_vs_tool_1}}; set 2: {{wc_vs_tool_2}}; R-164; Figure 2). Given the whole chat, 6.37 and base show no
-  measured difference on any kind (smallest p {{wc_min_p}}; one seed; differences under about {{kind_noise_diff}}
-  points between two arms on a kind of {{kind_noise_n}} are below what this test resolves, and the test is not
-  powered to show equality).
+  measured difference on any kind (smallest p {{wc_min_p}}; one seed; differences under {{kind_noise_diff}} points
+  between two arms on a kind of {{kind_noise_n}}, the 95% half-width of a difference between two rates near 50%
+  (R-142), are below what this test resolves, and the test is not powered to show equality).
 - **Code shows no measured difference from 6.37** ({{as_vs_82_1}} on set 1, {{as_vs_82_2}} on set 2). Set 1
   meets R-169's registered outcome: on these chats training adds nothing measured to recall over plain code.
 - **Training changes when it searches.** Code answers `in_view` worse ({{as_in_view_1}} and {{as_in_view_2}}
@@ -405,8 +428,10 @@ points apart are drawn one above the other.*
   recall. Plain statements left unsearched, 6.37 / base: {{ow_statement_1}}, {{ow_statement_2}}.
 - **Two fixed prompts on base** (R-137, R-161) lower its recall on both sets; a search over prompts was not tried.
 - **Tag questions.** 6.37 corrects {{claims_82_corrected_1}} and {{claims_82_corrected_2}} of {{claims_false_n}}
-  false claims in "..., right?" questions, about as often as base.
-- **Where its wrong answers go wrong**: by R-139's stages, mostly a search that missed the fact (Appendix A).
+  false claims in "..., right?" questions, base {{claims_base_corrected_1}} and {{claims_base_corrected_2}}; too few
+  to compare.
+- **Where its wrong answers go wrong**: by R-139's stages, a search that missed the fact is the largest stage
+  ({{ow_missed_1}} and {{ow_missed_2}} wrong recall answers; Appendix A).
 
 ### 6.3 LongMemEval-S, an outside check (exploratory)
 
@@ -426,6 +451,9 @@ difference on gold answers in the reply ({{lme_h2_answer_code}}); code's first s
 blind lines, I (not an independent marker) agree with each judge on {{lme_kevin}}.
 
 ## 7. The faults the demo found, and the reopening (R-173 to R-179)
+
+Every result in sections 7 and 8 is exploratory: demos, development sets and screening runs, read many times or
+after the decision they inform. S3's confirmatory result is in section 9.
 
 **How the faults were caught.** A blind rubric read of the write-ups asked for evidence a judge could see, so the
 scripted demo (`demo/chat.txt`, written 4 November, before 6.37 was trained) was run for 6.37 for the first time on
@@ -491,8 +519,8 @@ R2d (R-235 to R-248), two blend grids (R-237, R-245, R-250, R-255) and the rehea
    gives the detail. Demo4 (screening) and Demo5 (held out) were written fresh and rewritten until clean.
 4. **The model's own mistakes (R-253 to R-279).** OP trains K1.3 on corrections of its own errors on its training
    chats. OP passed `hard_dev` and failed Demo4's older line. C1 is OP's stage run a second time on the same set,
-   registered as a control. Exploratory, one run each at one seed: each repeat of the stage declined fewer
-   never-told questions (Figure 4), OP {{hd_nt_op}}, C1 {{hd_nt_c1}}, C2 {{hd_nt_c2}} of 48, and the three 95%
+   registered as a control. Exploratory, one run each at one seed: each repeat of the stage answered fewer
+   never-told questions with no listed value (Figure 4), OP {{hd_nt_op}}, C1 {{hd_nt_c1}}, C2 {{hd_nt_c2}} of 48, and the three 95%
    intervals overlap. 106 of OP's 117 errors about the user on its own items had the fact absent from its own search
    output (R-267): search misses, which corrections of reading errors cannot reach.
 
@@ -503,7 +531,8 @@ of every key, not an estimate.*
 
 ![Never-told slide](../figures/never_told_slide.png)
 
-*Figure 4. `hard_dev` never-told declines at training seed 82, 48 questions a run, as OP's stage is repeated;
+*Figure 4. `hard_dev` never-told questions answered with no listed value at training seed 82, 48 questions a run,
+as OP's stage is repeated;
 Wilson 95% intervals; grey band: passes the gate (R-261, R-269, R-272). Exploratory: one run a candidate at one
 seed, and the intervals overlap.*
 
@@ -520,8 +549,9 @@ seed 82, with search:
 
 My reason (R-283): one demo's six older questions are too few to rank these models. The same model, K1.3, scored {{demo4_k13_older}} on
 Demo4 and {{demo5_k13_older}} on Demo5, two demos written from one brief, and C1 and K1.3 swap places between them; a fixed line on
-one six-question demo cannot tell these models apart. **Disclosed: both changes came after both models' readings of
-both demos existed.** C1 then trained seeds 83 and 94, passed all 20 screening lines, and led K1.3 on pick recall,
+one six-question demo cannot tell these models apart. **Disclosed: the first change (R-276) came after both of C1's
+demo readings and K1.3's Demo4 reading, and it ordered K1.3's Demo5 reading knowing C1's; the second (R-278) came
+after all four readings.** C1 then trained seeds 83 and 94, passed all 20 screening lines, and led K1.3 on pick recall,
 {{pick_recall_c1}} against {{pick_recall_k13}} (R-279). That lead is inside the seed-to-seed spread, and C1 was chosen among
 {{reopened_n}} listed candidates ({{reopened_full}} read on every line) on reused development sets, so S3 is the measure. K1.3, the pick without the second change, also fails clause (c) on S3 as a report arm
 ({{s3_nhit_k13}}, two seeds; a third seed would have needed 5 or fewer of 236 to pass), so what ships did not
@@ -560,8 +590,12 @@ K2.1: seeds 82 and 83, entering no line of the rule.*
 never-told questions answered with no listed value: {{s3_ntp_637}} to {{s3_ntp_c1}} ({{s3_rel_ntp}}). Recall: {{s3_recall_637}} to
 {{s3_recall_c1}} ({{s3_rel_recall}}), no measured difference (Figure 6). On statements C1 searched more than 6.37
 ({{s3_st_c1}} left unsearched, against {{s3_st_637}}) and passed (a)'s statement line by {{s3_st_margin}} points. Coherence on
-{{s3_coh_n}} sampled items, coherent replies: judge 1 (deciding) {{s3_coh_j1}}; judge 2 {{s3_coh_j2}}; judge 3
+{{s3_coh_n}} sampled items, C1 seed 82 against base with the tool (the other lines pool three seeds), coherent replies: judge 1 (deciding) {{s3_coh_j1}}; judge 2 {{s3_coh_j2}}; judge 3
 {{s3_coh_j3}} (R-286).
+
+**False claims in S3's tag questions** (exploratory; no line of the rule): corrected, base {{s3_fc_base}}, code
+{{s3_fc_as}}, whole chat {{s3_fc_wc}}, 6.37 {{s3_fc_637}} (seed 82 {{s3_fc_ship82}}), C1 {{s3_fc_c1}} (seed 82
+{{s3_fc_c182}}), K1 {{s3_fc_k1}}, K2.1 {{s3_fc_k21}}. No 6.37 seed corrects a false claim on S3.
 
 ![S3 recall](../figures/s3_recall.png)
 
@@ -573,9 +607,10 @@ with the whole chat recalls {{s3_recall_wc}} and code that searches every turn {
 {{s3_recall_637}} and C1's {{s3_recall_c1}}: code minus 6.37 {{s3_code_vs_637}}, code minus C1 {{s3_code_vs_c1}}.
 Code is worse than base and C1 on the faults and the same as 6.37 on copies: it answers {{s3_iv_as}} in view, names
 its in-view wrong value in {{s3_copy_as}}, and a listed value on {{s3_nhit_as}} never-told questions. Appendix C gives the `re_ask` counts. On S3's outside chats that fit,
-show the chat whole; on the generator's chats the adapter is above it (section 6.1). The whole chat is not free of the
-first fault: it names a listed value on {{s3_nhit_wc}} never-told N-hit questions, against base with the tool's
-{{s3_nhit_base}}, and names no listed value on {{s3_ntp_wc}} plain never-told questions, against {{s3_ntp_base}}.
+show the chat whole; on the generator's chats the adapter is above it (section 6.1). The whole chat also gives N-hit
+false answers: it names a listed value on {{s3_nhit_wc}} never-told N-hit questions, against base with the tool's
+{{s3_nhit_base}}, and names no listed value on {{s3_ntp_wc}} plain never-told questions, against base's
+{{s3_ntp_base}}.
 
 Where recall is lost and every report arm's runs, seed by seed, are in Appendix C.
 
@@ -623,7 +658,7 @@ and no answer it had passed before (R-098).
 
 STANDARD v3, and every STANDARD rule number above 12 (rows 21 and 22, sections 12 and 13), refer to the author's
 research standard, version 3, which is not in this repository; `STANDARD.md` in the repository is an earlier version with
-rules 1 to 12, the one row 16 cites.
+rules 1 to 12, the one rows 16 and 21 cite as "STANDARD rule".
 
 | # | Registered | Done instead | Reason | Record |
 |---|---|---|---|---|
@@ -637,7 +672,7 @@ rules 1 to 12, the one row 16 cites.
 | 8 | S3's recall standard: 6.37 | Base | my decision, after K1's development results were read: 6.37 is the model whose weakness was found | R-191 |
 | 9 | A cap of three candidates | A time cutoff, any number | my decision | R-193, R-194 |
 | 10 | Schedule: training done Saturday 16:00 | Moved by 4 hours | my decision | R-242, R-243 |
-| 11 | Demo pass line: 3 of 6 older, 3 of 4 never-told on each demo | Beat K1.3 on the totals over Demo4 and Demo5 | my decision: one demo's six older questions are too few to rank these models; set after both models' readings existed | R-276, R-278, R-283 |
+| 11 | Demo pass line: 3 of 6 older, 3 of 4 never-told on each demo | Beat K1.3 on the totals over Demo4 and Demo5 | my decision: one demo's six older questions are too few to rank these models; timing in the note below | R-276, R-278, R-283 |
 | 12 | Demo5 held out until a try cleared Demo4 | Read twice; partly seen by the Claude session that ran the work, through a judge's marks | the second reading was K1.3's, for the comparison | R-277 |
 | 13 | S3's scorer registered before S3 | Written after S3 started, before any S3 file was read | none existed when S3 began | R-281, R-282 |
 | 14 | S3 replies unseen until scored | Short pieces quoted by coherence judges' reports | after the marks were final | R-286 |
@@ -647,12 +682,19 @@ rules 1 to 12, the one row 16 cites.
 | 18 | Demo2 as the screening gate | Retired with Demo3; Demo4 and Demo5 written fresh | their keys were training fact values | R-254 |
 | 19 | S3 reported baselines first | Baselines first in the table; the text gives the rule and C1 before them | layout of the papers | R-178, R-281 |
 | 20 | Never-told rubric with a decline (R-178, the sealed judge brief) | The model-free part only (names no listed value); no judge read S3's never-told replies | R-281 took the scorer's model-free reading; the code was in place at the seal | R-178, R-281 |
-| 21 | Rules 20 and 21 of STANDARD v3 | Rule 21's effect, interval and n on every section 6.2 row and the hypotheses table, and rule 20's family size and adjusted result: not computed | not done; every result they would cover is labelled exploratory | STANDARD v3 rules 20, 21 |
+| 21 | Rules 20 and 21 of STANDARD v3; STANDARD rule 9 | Not computed: rule 21's effect, interval and n (section 6.2, hypotheses table); rule 20's family size and adjusted result; intervals on Figures 1 and 2 | not done; see the note below | STANDARD v3 rules 20, 21; STANDARD rule 9 |
 | 22 | Rules 28 and 30 of STANDARD v3 | No single total of everything scored on development pools ({{ledger_total}} sets before the freeze, {{reopened_n}} listed after, and the named stops); no flow table for the first sealed test, the outside sets or LongMemEval-S | not done | STANDARD v3 rules 28, 30 |
+
+Row 11's timing: the first change (R-276) came after both of C1's demo readings and K1.3's Demo4 reading, and it
+ordered K1.3's Demo5 reading knowing C1's; the second (R-278) came after all four readings.
+
+Row 21: the results these rules would cover are labelled exploratory, and the captions of Figures 1 and 2 say they
+carry no interval.
 
 Row 16's reason: R-015's controls (three exchanges, at most 10% on `older`; whole chat, at least 50%) were not run in
 the sealed run; the whole chat at {{long_size}} messages failed on memory (R-014, R-017, R-166); S3's ship rule names
-none.
+none. STANDARD v3's rule 3 allows a run without a control only where the pre-registration says why and my quoted
+word allows it; this reason was written afterwards, and no record holds my word allowing it.
 
 ## 12. Limits
 
@@ -682,7 +724,11 @@ invents values, so its rates of naming a listed value are floors and its plain n
 give other stored facts, which the flag also misses, so 6.37's and C1's plain never-told rates on S3 are ceilings too
 (counts for N-hit questions in Appendix C). The registered never-told rubric asks for a decline and S3 was
 scored on its model-free part only (deviation 20). Every arm's never-told counts on the first sealed test and the
-outside-writer sets are upper bounds. No person checked S3's flags; the human scorer check (R-144, R-145) used development lines only.
+outside-writer sets are upper bounds. S3's `confirm` items are tag questions, and {{s3_conf_true}} make a true claim
+that holds the answer in the message, so agreeing scores right with no memory: for base with the tool,
+{{s3_agree_base}} right recall answers are agreements with a true claim, {{s3_agree_base_ns}} made with no search.
+`older` alone, which holds no such cue, gives base {{s3_older_base}}, code {{s3_older_as}}, whole chat {{s3_older_wc}},
+6.37 {{s3_older_637}} and C1 {{s3_older_c1}}: the same order as recall (exploratory). No person checked S3's flags; the human scorer check (R-144, R-145) used development lines only.
 The baselines ran in one setting each, while 6.37 came out of {{ledger_total}} trained candidate sets; simpler
 baselines that decide when to search (a question-shaped router, code with a score threshold) and a general-capability
 benchmark were not run.
@@ -693,8 +739,8 @@ Overlap between S3 and training text: {{s3_runs_shared}} shared four-word runs, 
 embedding similarity: no embedding or MinHash check was run. Sample size: S3's size was set by R-178's panel before
 STANDARD v3's rule 19 existed; no power calculation was made.
 
-**Not tested: instructions hidden in retrieved passages.** A value given as something the user said, when the user
-never said it, is a false memory the user may act on.
+**Not tested: instructions hidden in retrieved passages.** The threat model (section 3) covers the chat's own
+content only.
 
 **A second team.** No one else has rerun this work. The repeatability rerun from a clean clone (rule 27) was not
 done.
@@ -721,15 +767,14 @@ entry is rewritten (STANDARD rule 36).
 
 **With more credits.** A sealed test of K1 on a new set of outside chats under S3's rule; the rule decides pass or
 fail. Query writing trained on its own and judged the same way; LoCoMo and chats past the window against code; a judge
-applying the full never-told rubric; the whole chat at {{long_size}} messages on a larger card. The records hold no
-forecast of recall.
+applying the full never-told rubric; the whole chat at {{long_size}} messages on a larger card.
 
-**The expectation in hand** (exploratory). K1's S3 report arm (two seeds) reads recall {{s3_recall_k1}}, copies
-{{s3_copy_k1}} and a listed value named on {{s3_nhit_k1}} never-told questions, against base's {{s3_nhit_base}}; a
-sealed test of K1 passes or fails on S3's rule as registered. Query writing is a measured cause of lost recall: on the
-same {{s3_qw_n}} S3 recall questions, code's raw message found the fact where 6.37 seed 82's queries did not on
-{{s3_qw_code_only_637}}, the reverse on {{s3_qw_own_only_637}} (C1 seed 82: {{s3_qw_code_only_c1}} and
-{{s3_qw_own_only_c1}}; Appendix C).
+**K1's S3 report arm** (exploratory, two seeds) reads recall {{s3_recall_k1}}, copies {{s3_copy_k1}} and a listed
+value named on {{s3_nhit_k1}} never-told questions, against base's {{s3_nhit_base}}. Query writing is a measured
+cause of lost recall: on the same {{s3_qw_n}} S3 recall questions, where both searched, code's raw message found the
+fact where 6.37 seed 82's queries did not on {{s3_qw_code_only_637}}, the reverse on {{s3_qw_own_only_637}}, and on
+{{s3_qw_nosearch_637}} more seed 82 did not search (C1 seed 82: {{s3_qw_code_only_c1}}, {{s3_qw_own_only_c1}} and
+{{s3_qw_nosearch_c1}}; Appendix C).
 
 Not done, each a gap in what this work establishes. Query writing was not trained on its own, and the reopening did
 not change it (R-178); on S3 it is a measured cause of lost recall (exploratory, Appendix C). K1 meets every measured
@@ -755,8 +800,11 @@ by `scripts/make_figures.py`. Every table and every result number is filled from
 exceptions, typed from the records with their ids: the scripted demo's counts (R-175, R-176), Demo2's counts for K1
 and K1.3 (R-204), R2cf's change of 10 rows and 4 items (R-249), OP's 106 of 117 user errors with the fact absent from
 its search output (R-267), the hand read of 8 never-told replies (R-298), the 5 of 236 a third K1.3 seed would have
-needed (R-298), the 20 screening lines and the 60-token reply cap (both fixed in the code), the 58-message chat size,
-R-015's control lines, and the dates.
+needed (R-298), the 20 screening lines and the 60-token reply cap (both fixed in the code), the screening gates'
+thresholds (`hard_dev` never-told at least 44 of 48, false retrieval at most the reference's plus 3, a demo's 3 of 6
+older and 3 of 4 never-told; R-191), the 50 scorer lines each person marked and my 50 LongMemEval-S lines (R-144,
+R-145, R-170), `hard_dev`'s 96 recall questions a run, the 58-message chat size, R-015's control lines, and the
+dates.
 
 ## Declaration of work done outside the hackathon
 
@@ -796,11 +844,13 @@ Claude, which did the work described. No grant or funding is recorded.
 - **14 November, audit fixes (R-289).** Checklist items restored to the long paper (metrics, trajectories, models
   and licences, how the toolkits connect, artifacts) and added to the short one; GPU hours summed from the run files;
   the candidate counts stated in full; the report arms of S3 filled in as they ran.
-- **15 November (R-290 to R-301), this version.** My decisions stated in my own voice; two review panels (R-294,
+- **15 November (R-290 to R-303), this version.** My decisions stated in my own voice; two review panels (R-294,
   R-295, R-298); C1 published beside 6.37; 6.37's S3 weakness stated in every document; what S3's flags count; code's
   S3 recall lead; the short paper cut to its story and required items; the audit of the write-ups (R-299); the long
   paper's per-seed and per-arm detail moved to Appendices A to C (R-300); a third review round's fixes, among them
-  LongMemEval-S's registered H2, query writing as a measured cause and two more deviations (R-301).
+  LongMemEval-S's registered H2, query writing as a measured cause and two more deviations (R-301); an audit's fixes
+  (R-302); a fourth review round's fixes, among them the timing of the two demo-test changes, "Use this when" against
+  base, the answer cue in S3's tag questions and S3's false claims (R-303).
 
 ## References
 
@@ -808,13 +858,7 @@ Claude, which did the work described. No grant or funding is recorded.
 - Hu, E. J., et al. (2022). LoRA: Low-rank adaptation of large language models. *ICLR*.
 - Kapoor, S., and Narayanan, A. (2023). Leakage and the reproducibility crisis in machine-learning-based science.
   *Patterns*.
-- Liu, N. F., et al. (2024). Lost in the middle: How language models use long contexts. *TACL*.
-- Mallen, A., et al. (2023). When not to trust language models: Investigating effectiveness of parametric and
-  non-parametric memories. *ACL*.
-- Packer, C., et al. (2023). MemGPT: Towards LLMs as operating systems. *arXiv:2310.08560*.
-- Schick, T., et al. (2023). Toolformer: Language models can teach themselves to use tools. *NeurIPS*.
 - Wu, D., et al. (2025). LongMemEval: Benchmarking chat assistants on long-term interactive memory. *ICLR*.
-- Yao, S., et al. (2023). ReAct: Synergizing reasoning and acting in language models. *ICLR*.
 - Zelikman, E., et al. (2022). STaR: Bootstrapping reasoning with reasoning. *NeurIPS*.
 - Zhang, T., et al. (2024). RAFT: Adapting language model to domain specific RAG. *COLM*.
 - Zheng, L., et al. (2023). Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. *NeurIPS*.
@@ -873,6 +917,9 @@ ended" for the candidates eligible for the pick, is right recall answers of {{pi
 
 {{s3_lines}}
 
+The coherence line compares C1 seed 82 with base with the tool on {{s3_coh_n}} sampled items (R-286); every other
+line pools C1's three seeds.
+
 **The shipped seed alone.**
 
 | Shipped seed alone, S3 | 6.37 seed 82 | C1 seed 82 |
@@ -891,13 +938,15 @@ ended" for the candidates eligible for the pick, is right recall answers of {{pi
 **Other stored facts on N-hit questions** (exploratory, R-298): counting the chat's other stored values too, N-hit questions answered with a value: base {{s3_off_base}}, 6.37 {{s3_off_637}}, C1 {{s3_off_c1}}, C1 seed 82
 {{s3_off_c182}}, K1 {{s3_off_k1}}, K2.1 {{s3_off_k21}}.
 
-**Where recall is lost** (exploratory). Of C1's wrong recall answers, {{s3_missed_c1}} are searches that did not find
-the fact, and {{s3_misread_c1}} had the fact in its own search output (6.37: {{s3_missed_637}}, and
-{{s3_misread_637}}). The reopened work trained reading and declining; searches that never found the fact are its
-largest loss. Query writing is a measured cause of it: on the same {{s3_qw_n}} recall questions, code's raw message
-found the fact where 6.37 seed 82's queries did not on {{s3_qw_code_only_637}}, the reverse on
-{{s3_qw_own_only_637}}; for C1 seed 82, {{s3_qw_code_only_c1}} and {{s3_qw_own_only_c1}}. Both use the same keyword
-tool, so on those questions the query made the difference.
+**Where recall is lost** (exploratory; Figure 8). Of C1's wrong recall answers, {{s3_missed_c1}} are searches that
+did not find the fact, {{s3_misread_c1}} had the fact in its own search output, and {{s3_nosearch_c1}} did not search
+(6.37: {{s3_missed_637}}, {{s3_misread_637}} and {{s3_nosearch_637}}). The reopened work trained reading and
+declining; searches that never found the fact are its largest loss. Query writing is a measured cause of it: on the
+same {{s3_qw_n}} recall questions, where both searched, code's raw message found the fact where 6.37 seed 82's
+queries did not on {{s3_qw_code_only_637}}, the reverse on {{s3_qw_own_only_637}} (sign test p =
+{{s3_qw_p_637}}); on {{s3_qw_nosearch_637}} more seed 82 did not search, a miss of when, not of what. For C1 seed
+82: {{s3_qw_code_only_c1}} against {{s3_qw_own_only_c1}} (p = {{s3_qw_p_c1}}), and {{s3_qw_nosearch_c1}} not
+searched. Both use the same keyword tool, so on the questions both searched the query made the difference.
 
 ![S3 misses](../figures/s3_misses.png)
 

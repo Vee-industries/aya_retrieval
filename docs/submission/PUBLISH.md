@@ -42,7 +42,11 @@ Every step from 2 on is public and Kevin's call.
    - 6.37's model card (`docs/MODEL_CARD.md` as README) and the short paper (`docs/submission/HF_ARTICLE.md` as
      `ARTICLE.md`) to `aya-retrieval-6.37`;
    - C1's model card (`docs/MODEL_CARD_C1.md` as README) to `aya-retrieval-c1`;
-   - S3's run files (`results/s3/`) to `aya-retrieval-eval-logs`, with its card naming the S3 folder;
+   - `aya-retrieval-eval-logs` from every source its row in the table above names: all of `results/` except
+     `results/longmemeval/`, so every folder written since 10 November goes up, `results/s3/` among them, with its
+     card naming the S3 folder;
+   - `aya-retrieval-chats` from every source its row names, so the reopened candidates' training sets added to
+     `data/screens/` since 10 November go up;
    - both collections checked to list all four repos.
 4. Recheck every link in README, ARTICLE, HF_ARTICLE, both model cards and both dataset cards, from outside the
    clone, logged out: each must open, and each figure must load.
@@ -60,4 +64,4 @@ Every step from 2 on is public and Kevin's call.
 - 12 November (R-181): S3's chats and seal pushed to the GitHub repository's `reopened` branch.
 - 15 November (R-296): https://huggingface.co/KevinVaillancourt/aya-retrieval-c1, public and not gated, added to the
   models collection.
-- Not yet done: steps 1 to 5 above for the reopened work (R-173 to R-301).
+- Not yet done: steps 1 to 5 above for the reopened work (R-173 to R-303).

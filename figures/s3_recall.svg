@@ -1169,8 +1169,8 @@ z
     <g id="ytick_5">
      <g id="line2d_15"/>
      <g id="text_11">
-      <!-- C1, the pick -->
-      <g style="fill: #52514e" transform="translate(112.141562 215.35206) scale(0.1 -0.1)">
+      <!-- C1, published -->
+      <g style="fill: #52514e" transform="translate(103.765 215.35206) scale(0.1 -0.1)">
        <defs>
         <path id="SegoeUI-14" d="M 2263 0 
 L 1750 0 
@@ -1215,35 +1215,20 @@ Q 1575 2844 1303 2533
 Q 1031 2222 1031 1753 
 z
 " transform="scale(0.015625)"/>
-        <path id="SegoeUI-4e" d="M 3175 0 
-L 2456 0 
-L 1044 1538 
-L 1031 1538 
-L 1031 0 
-L 519 0 
-L 519 4738 
-L 1031 4738 
-L 1031 1734 
-L 1044 1734 
-L 2388 3200 
-L 3059 3200 
-L 1575 1656 
-L 3175 0 
-z
-" transform="scale(0.015625)"/>
        </defs>
        <use xlink:href="#SegoeUI-26"/>
        <use xlink:href="#SegoeUI-14" transform="translate(61.921875 0)"/>
        <use xlink:href="#SegoeUI-f" transform="translate(115.828125 0)"/>
        <use xlink:href="#SegoeUI-3" transform="translate(137.515625 0)"/>
-       <use xlink:href="#SegoeUI-57" transform="translate(164.90625 0)"/>
-       <use xlink:href="#SegoeUI-4b" transform="translate(198.796875 0)"/>
-       <use xlink:href="#SegoeUI-48" transform="translate(255.390625 0)"/>
-       <use xlink:href="#SegoeUI-3" transform="translate(307.6875 0)"/>
-       <use xlink:href="#SegoeUI-53" transform="translate(335.078125 0)"/>
-       <use xlink:href="#SegoeUI-4c" transform="translate(393.875 0)"/>
-       <use xlink:href="#SegoeUI-46" transform="translate(418.09375 0)"/>
-       <use xlink:href="#SegoeUI-4e" transform="translate(464.28125 0)"/>
+       <use xlink:href="#SegoeUI-53" transform="translate(164.90625 0)"/>
+       <use xlink:href="#SegoeUI-58" transform="translate(223.703125 0)"/>
+       <use xlink:href="#SegoeUI-45" transform="translate(280.296875 0)"/>
+       <use xlink:href="#SegoeUI-4f" transform="translate(339.09375 0)"/>
+       <use xlink:href="#SegoeUI-4c" transform="translate(363.3125 0)"/>
+       <use xlink:href="#SegoeUI-56" transform="translate(387.53125 0)"/>
+       <use xlink:href="#SegoeUI-4b" transform="translate(429.96875 0)"/>
+       <use xlink:href="#SegoeUI-48" transform="translate(486.5625 0)"/>
+       <use xlink:href="#SegoeUI-47" transform="translate(538.859375 0)"/>
       </g>
      </g>
     </g>

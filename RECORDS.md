@@ -10690,3 +10690,18 @@ the author's research standard, version 3, which is not in this repository.
 
 Kevin, after the audit report: "one final review then audit round then push it". Next: a final panel review, an audit
 round, then the privacy sweep, the GitHub push and the Hugging Face updates. Nothing pushed yet.
+
+## R-303 · 2026-11-15 · REOPENED · The final panel review (13 lanes); its fixes applied
+
+Kevin, in chat after R-302: "one final review then audit round then push it". Thirteen lanes on 125b902, each with its
+round-3 report; brief, reports, the consolidated fix list and the builder's report in `results/panels/R-303/`. Verdicts:
+the graphic designer "submit as is"; twelve "submit after fixes" (the cold reader "clear after fixes"); no wrong
+count. Checked by the orchestrator: R-276 (RECORDS line about 10089) shows K1.3 had no Demo5 reading when the first
+demo change was made, so "both changes came after both models' readings" was false for the first change; and the
+"Use this when" branch for users who care about the two faults put 6.37 forward although it is worse than base on both
+on S3. A builder agent (Opus) applied all 51 fix-list items in a throwaway clone (four only in part in the short paper,
+whose length was held at 2,761 words; the long paper carries each in full), with those two fixed as checked. The
+query-writing count now counts only recall questions the model searched (seed 82: 88 against the earlier 141; C1 seed
+82: 100 against 106), since a query is a cause only where one was written. Abstract 498 words; the long paper's
+Abstract 499. Checks: ruff, format, pytest 1,790 passed. Next: the audit round, then the privacy sweep, the push and
+the Hugging Face updates. Nothing pushed.
