@@ -11049,3 +11049,11 @@ in every commit from a39473f on, as R-315 did for R-310 (one match per commit, R
 `git push --force-with-lease origin main` (Kevin's go for a force push is asked first); an old-to-new id map in the next
 entry; the desktop copy renamed to its new id; links rechecked logged out. Kevin then adds the old commits to his
 GitHub Support request to purge (R-306's item 2), since they still open by id.
+
+## R-317 · 2026-11-15 · REOPENED · The form filed; R-316's rewrite started
+
+Kevin, in chat, at 12:47: "i filed it like an hour ago" (the Lexsi Track 3 form, from `docs/submission/ABSTRACT.md`,
+which has not changed since R-306; its SHA-256 is abab50c1...). So `docs/submission/PUBLISH.md` step 5 is done, by
+Kevin, about 11:47 by his word; the clock was not read when he filed. R-316's condition ("after the form") is met: the
+rewrite of R-306's search-word lines starts in the local history; the force push waits on Kevin's go. R-316's own
+scope paragraph, not yet pushed, quoted one of the words; the same rewrite replaces it with "use one of the words".
