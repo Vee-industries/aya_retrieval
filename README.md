@@ -67,7 +67,7 @@ from 8 new writers, passed its check, trained and failed Demo2 (R-215, R-218).
 
 Since then (R-216 to R-279, 13 and 14 November). More candidates trained on later stages and on the model's own
 corrections; `decide_r191.py` lists 24. Demo2 and Demo3 were retired because their answers were training values
-(R-254); Demo4 and Demo5 replaced them. Kevin ruled that a candidate must beat K1.3, with the demos judged on their
+(R-254); Demo4 and Demo5 replaced them. I changed the test: a candidate must beat K1.3, with the demos judged on their
 totals (R-276, R-278, set after the demo readings existed). C1, K1.3 with two stages of on-policy corrections, recalled
 5 of 12 older facts over the two demos against K1.3's 4, and 6 of 8 never-told against 5 (seed 82). It passed all 20
 screening lines and leads the pick on pooled recall over three seeds, 775 against K1.3's 742 (R-279); the lead is
@@ -529,7 +529,7 @@ other 24 test files.
   none of whose code, test sets or private chats is in this repository. Everything else was made from 1 November 2026
   (`RECORDS.md` marks each entry PRE-SPRINT, SPRINT or REOPENED).
 - AI use: Claude (Anthropic) wrote the code, the generated pools, the training sets, the tests and the write-ups and
-  ran the experiments, under Kevin's direction; every commit as of 13 November (1,362) carries a Claude co-author
+  ran the experiments, under my direction; every commit as of 13 November (1,362) carries a Claude co-author
   line. Claude Opus agents wrote the outside-writer chats and S3, Claude Sonnet agents judged. People marked 50 scorer
   lines (the author and a second, independent marker) and 50 LongMemEval-S lines (the author). No percentage of
   generated code or text is claimed; the records do not count it.

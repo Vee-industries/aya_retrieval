@@ -86,8 +86,8 @@ and not uploaded.
 
 **Terms.**
 
-- **I**, **the author** and **Kevin** are one person, Kevin Vaillancourt, the researcher. "Kevin" in a sentence names
-  one of my recorded rulings, in a paraphrase; the record holds my words as said.
+- **I**: Kevin Vaillancourt, the author and researcher. Every research decision here is mine; `RECORDS.md` dates
+  each one.
 - **Base**: the untrained Tiny Aya Global. **Tool**: `search_corpus`, a full-text search over the messages older than
   the last three exchanges, top 5 passages, up to 3 searches a message.
 - **Code**: code that searches on every turn with the newest message as the query and hands base the passages;
@@ -107,7 +107,7 @@ and not uploaded.
 A chat assistant keeps a long conversation, but a model attends to a limited window. Tiny Aya Global takes at most
 8,192 tokens, and 9 of its 36 layers attend to all of them; the
 others attend to the last 4,096 (the model's config). A fact told early is either out of the prompt or in
-a part most layers do not see. The author's local chat engine, Latent Lab Explorer (LLE), handles this with code
+a part most layers do not see. My local chat engine, Latent Lab Explorer (LLE), handles this with code
 around a Llama model: it searches only on real lookups, ignores instructions inside pasted text and does not deny what
 the user just said (R-001). This project asks whether the retrieval behaviour can be trained into the weights instead.
 Nothing from LLE's code, test sets or private chats is used (R-001, R-002).
@@ -151,14 +151,14 @@ The work ran in five stages. Each row names the records that hold its decisions 
 | 1 to 9 Nov | Build 6.37 | Test registered before any adapter; 40 candidate sets screened on development pools; 6.37 seed 82 named and frozen | R-016 to R-160 |
 | 9 to 10 Nov | First sealed test and outside checks | Sealed run, every rule passes; whole chat and code run late; LongMemEval-S; published | R-162 to R-172 |
 | 12 Nov | Faults found, reopened | Scripted demo shows two faults; deadline extended; project reopened; S3 written and sealed; ship rule fixed | R-173 to R-179 |
-| 12 to 14 Nov | The push to replace 6.37, then K1.3 | 24 candidates listed, six read on every line; K1.3 the pick from R-203; demos rewritten clean; on-policy tries; Kevin's demo rulings; C1 the pick | R-180 to R-279 |
-| 14 Nov | S3 | S3 opened once on Kevin's go; scorer registered and tested before any S3 file was read; C1 fails one clause; 6.37 stays shipped | R-280 to R-287 |
+| 12 to 14 Nov | The push to replace 6.37, then K1.3 | 24 candidates listed, six read on every line; K1.3 the pick from R-203; demos rewritten clean; on-policy tries; my change to the demo test; C1 the pick | R-180 to R-279 |
+| 14 Nov | S3 | S3 opened once; scorer registered and tested before any S3 file was read; C1 fails one clause; 6.37 stays shipped | R-280 to R-287 |
 
 **Why the stages ran as they did.** Each stage was set off by a measured result, not by a plan made in advance. The
 first sealed test passed, so 6.37 shipped. The baselines run late (R-167 to R-169) then showed the adapter's recall
 gain does not hold against the whole chat or plain code on short outside-writer chats. The scripted demo, run so a
-judge could see the model work (R-173, R-175), showed the two faults. Kevin reopened the project because the deadline
-was extended: he saw results he had missed and judged that the extra day gave enough time to train further. From then on the schedule (R-194, R-242, R-243) set how long each try
+judge could see the model work (R-173, R-175), showed the two faults. I reopened the project when the deadline
+was extended: the demo showed results I had missed, and the extra day gave enough time to train further. From then on the schedule (R-194, R-242, R-243) set how long each try
 could take, and every candidate was chosen among on reused development sets in a short window (section 12).
 
 ## 3. Task, data and leak checks
@@ -285,7 +285,7 @@ check of that manifest and ended with a check of every judge's transcript (R-162
 sensible next turn" (`coherence.RUBRIC`). Each sheet shuffles every model's replies to the same chats with names
 removed. Three fresh judges mark each sheet; judge 1 decides. Measured spread: R-128's three judges split on
 13 of 576 lines. **The judges were never checked against a person.** The recall scorer was checked on
-50 development lines: I (the author, not an independent marker) agreed with the scorer on 47 of 50 lines (Cohen's kappa 0.88), and the scorer passed no reply I failed (R-144). A second, independent marker agreed with the scorer on 48 of 50 (kappa 0.92) and with me on 49 (kappa 0.96) (R-145).
+50 development lines: I (not an independent marker) agreed with the scorer on 47 of 50 lines (Cohen's kappa 0.88), and the scorer passed no reply I failed (R-144). A second, independent marker agreed with the scorer on 48 of 50 (kappa 0.92) and with me on 49 (kappa 0.96) (R-145).
 
 **Statistics.** Paired exact sign tests on the questions where two runs differ; 95% percentile bootstrap intervals
 that resample whole chats. Generated questions share fact templates (5 on `probe`,
@@ -474,7 +474,7 @@ registered result, and disclosed as such: on the 233 answerable questions 6.37 t
 (40 against 40; 23 right only for 6.37 and 23 only for code that always searches, p = 1.0) and shows no measured difference from base (40 against 32; 26 right only for 6.37 and 18 only for base with the tool, p = 0.29); 11 of its
 19-question lead over base come from the 15 unanswerable questions. 6.37 declines
 233 of the 470 questions it should answer; code declines 1. On 50
-blind lines, I (the author, not an independent marker) agree with each judge on 46 of 50 (kappa 0.78).
+blind lines, I (not an independent marker) agree with each judge on 46 of 50 (kappa 0.78).
 
 ## 7. The faults the demo found, and the reopening (R-173 to R-179)
 
@@ -491,9 +491,8 @@ instead of "you never told me"; (2) a wrong answer of its own in view is repeate
 few fact templates falls back to a memorised query on an unfamiliar fact type. The third was left untrained at first
 (R-178) and targeted later by the natural-chat rows.
 
-**Why the project reopened.** The deadline was reported extended (R-173). Kevin, 14 November: he reopened it because of
-the deadline, having seen results he had missed, and judged that the extra day gave enough time to train further. His
-ruling on 12 November: fix the weakness the demo showed (R-177). 6.37 and every result about it stayed published as
+**Why the project reopened.** The deadline was reported extended (R-173). The demo showed results I had missed, and the extra
+day gave enough time to train further, so I reopened the project to fix the weakness the demo showed (R-177). 6.37 and every result about it stayed published as
 they were; nothing measured was rerun or replaced.
 
 **The new test came first.** Before any new training row existed, six fresh Claude Opus writers, each given only a
@@ -508,8 +507,9 @@ the tool, the chat-resampled bound above 0; in view, statement and plain never-t
 base's; coherence at or above base's minus 5%; (b) the copy rate at most half of 6.37's and at least 10 points lower,
 bound above 0; (c) N-hit false answers at least 10 points lower than 6.37's, bound above 0, and not above base's. A
 pick that passes all three replaces 6.37; otherwise 6.37 stays shipped and S3's numbers on it are its measured
-weakness. Disclosed: R-191 replaced 6.37 with base as the standard in (a) after K1's development results were read
-(Kevin ruled that base be the standard to beat).
+weakness. Disclosed: I replaced 6.37 with base as the standard in (a) after K1's development results were read (R-191),
+because 6.37 is the model whose weakness was found, a poor bar for recall, and the published comparison was always
+against base.
 
 ## 8. The push to replace 6.37, then K1.3 (R-180 to R-279)
 
@@ -518,8 +518,8 @@ passed a checker before it trained (`check_k3.py`, 0 FAIL), and seed 82 had to c
 `hard_dev` (never-told at least 44 of 48, false retrieval at most the reference's plus 3) and a demo (at least 3 of
 6 older facts and 3 of 4 never-told questions, judged by two fresh blind Sonnet judges). Survivors were screened on
 20 lines at seeds 82 and 83 against base (`decide_r191.py`), and the pick was the passing candidate with the highest
-pooled recall over seeds 82, 83 and 94 (R-191, R-192). The candidate cap became a time cutoff (R-194), later moved by
-Kevin (R-242, R-243). Kevin's standing order from R-240: keep trying until a candidate beats the pick or time runs out.
+pooled recall over seeds 82, 83 and 94 (R-191, R-192). The candidate cap became a time cutoff (R-194), which I later moved
+(R-242, R-243); candidates were tried until one beat the pick or the time ran out (R-240).
 
 **Every candidate in `decide_r191.py`, in order** (numbers from R-279's screening output and the `hard_dev` files;
 "not read" lines are those a candidate never reached because it stopped at a gate):
@@ -545,7 +545,7 @@ Kevin (R-242, R-243). Kevin's standing order from R-240: keep trying until a can
 | OP | a stage on K1.3's own mistakes on its training chats | failed Demo4's older line | 48 | 60 | 0 (17 of 20 not read) |  | R-253, R-261 |
 | OP2 | the same, from T6 | stopped: no corrections to train on | not run | not run | 0 (20 of 20 not read) |  | R-256, R-264 |
 | OP3 | a second on-policy round from OP | stopped: 0 new answer rows | not run | not run | 0 (20 of 20 not read) |  | R-263, R-265 |
-| C1 | OP's stage a second time on OP's own set (OP3's control) | passed every line under Kevin's demo rulings; the pick for S3 | 46 | 68 | 0 (every line read) | 775 | R-263, R-269, R-279 |
+| C1 | OP's stage a second time on OP's own set (OP3's control) | passed every line under my change to the demo test; the pick for S3 | 46 | 68 | 0 (every line read) | 775 | R-263, R-269, R-279 |
 | OP4 | second-search rows from OP | failed hard_dev | 33 | 63 | 2 (17 of 20 not read) |  | R-267, R-268 |
 | C2 | C1 plus the same stage a third time | failed hard_dev never_told by one | 43 | 66 | 1 (17 of 20 not read) |  | R-271, R-272 |
 | OPT | rows from C1's own turns on the training templates | not run (C2 failed) | not run | not run | 0 (20 of 20 not read) |  | R-271, R-272 |
@@ -564,12 +564,12 @@ R2d (R-235 to R-248), two blend grids (R-237, R-245, R-250, R-255) and the rehea
    raised recall on the outside-writer sets but every one that trained failed Demo2 or a screening line.
 2. **Stages on K1.3 (R-227 to R-252).** Small extra training on top of K1.3. R2c passed every line with pick recall
    868 (R-247), but its set had not passed the checker (not eligible), and R2cf, the same recipe on 10 fewer rows,
-   moved `hard_dev` by 4 on each line and failed it: R2c's passes sat inside run-to-run variation (R-249). Kevin ruled
-   that if these passes were lucky draws, a different approach be tried (R-253).
+   moved `hard_dev` by 4 on each line and failed it: R2c's passes sat inside run-to-run variation (R-249). Since
+   those passes could be lucky draws, I moved to a different approach (R-253).
 3. **The demos were contaminated (R-254).** A check of every demo key against all training data found Demo2's and
    Demo3's answers among the training fact values (Figure 3): the demo writers and the training-chat writers were the
-   same kind of agent and chose the same "uncommon" values. Every Demo2 and Demo3 result is read with this. Kevin
-   asked for the demos to be fixed and the reason written up. Demo4 (screening) and Demo5 (held out) were written fresh and rewritten until clean.
+   same kind of agent and chose the same "uncommon" values. Every Demo2 and Demo3 result is read with this; `docs/demos/WHY.md`
+   gives the detail. Demo4 (screening) and Demo5 (held out) were written fresh and rewritten until clean.
 4. **The model's own mistakes (R-253 to R-279).** OP trains K1.3 on corrections of its own errors on its training
    chats. OP passed `hard_dev` and failed Demo4's older line. C1 is OP's stage run a second time on the same set,
    registered as a control. Exploratory, one run each at one seed: each repeat of the stage declined fewer
@@ -588,25 +588,25 @@ of every key, not an estimate.*
 Wilson 95% intervals; grey band: passes the gate (R-261, R-269, R-272). Exploratory: one run a candidate at one
 seed, and the intervals overlap.*
 
-**How C1 became the pick: Kevin's rulings on the demo test.** C1 passed Demo4 (3 of 6 older, 3 of 4 never-told) and
-failed Demo5's older line (2 of 6). Kevin then ruled that the standard was beating K1.3, not a fixed line (R-276),
-and that the demo test is the total over both demos (R-278). On seed 82, with search:
+**How C1 became the pick: my change to the demo test.** C1 passed Demo4 (3 of 6 older, 3 of 4 never-told) and
+failed Demo5's older line (2 of 6). I then changed the standard to beating K1.3, not a fixed line (R-276),
+with the demo test the total over both demos (R-278). On seed 82, with search:
 
 | Model | Demo4 older | Demo4 never told | Demo5 older | Demo5 never told | Total older | Total never told |
 |---|---|---|---|---|---|---|
 | K1.3 | 1 of 6 | 2 of 4 | 3 of 6 | 3 of 4 | 4 of 12 | 5 of 8 |
 | C1 | 3 of 6 | 3 of 4 | 2 of 6 | 3 of 4 | 5 of 12 | 6 of 8 |
 
-Kevin's reason, for this write-up (R-283): the results on one demo were too poor to judge by. The same model, K1.3, scored 1 of 6 on
+My reason (R-283): one demo's results were too poor to judge by. The same model, K1.3, scored 1 of 6 on
 Demo4 and 3 of 6 on Demo5, two demos written from one brief, and C1 and K1.3 swap places between them; a fixed line on
-one six-question demo cannot tell these models apart. **Disclosed: both rulings came after both models' readings of
+one six-question demo cannot tell these models apart. **Disclosed: both changes came after both models' readings of
 both demos existed.** C1 then trained seeds 83 and 94, passed all 20 screening lines, and led K1.3 on pick recall,
 775 against 742 (R-279). That lead is under two seeds' spread, and C1 was chosen among
 24 listed candidates (six read on every line) on reused development sets, so S3 is the measure.
 
 ## 9. S3: the sealed test of the pick (confirmatory)
 
-Kevin gave the go to run S3 (R-280). `results/s3/` did not exist before the run. Base arms ran first, then 6.37 and C1 at
+I opened S3 once (R-280). `results/s3/` did not exist before the run. Base arms ran first, then 6.37 and C1 at
 seeds 82, 83 and 94, then the report arms K1, K1.3 and K2.1 at 82 and 83. No ship-rule scorer existed when S3
 started; R-281 fixed how each line is computed before any S3 file was read, and `score_s3.py` was shown failing
 planted results before use (R-282).
@@ -666,7 +666,7 @@ reopened work trained reading and declining; its largest loss is still the searc
 
 *Figure 7. S3 recall questions by outcome, per arm with a tool (R-287).*
 
-**Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): K1 seed 82 recall 120 of 414, copies 0 of 298, false answers 4 of 236; K1 seed 83 recall 133 of 414, copies 1 of 298, false answers 8 of 236. Not yet run when this was built: K1.3 seed 82, K1.3 seed 83, K2.1 seed 82, K2.1 seed 83 (the queue stopped after K1 seed 82, R-288, and was restarted on Kevin's word, R-289).
+**Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): K1 seed 82 recall 120 of 414, copies 0 of 298, false answers 4 of 236; K1 seed 83 recall 133 of 414, copies 1 of 298, false answers 8 of 236; K1.3 seed 82 recall 122 of 414, copies 0 of 298, false answers 9 of 236. Not yet run when this was built: K1.3 seed 83, K2.1 seed 82, K2.1 seed 83 (the queue stopped after K1 seed 82, R-288, and was restarted, R-289).
 
 ## 10. Cost and toolkit findings
 
@@ -690,10 +690,9 @@ a model call. Time per 1,000 replies is the seconds a question times 1,000.
 Code is faster than 6.37 on every set: sealed pools code that always searches 1.01 to 1.23 s a conversation, seed 82 1.67 to 2.08, base with the tool 1.27 to 1.45; outside-writer sets code 1.45 to 1.48 s a question, seed 82 1.70 to 1.96, base with the tool 1.21 to 1.31, base with the whole chat and no tool 1.02 to 1.06;
 LongMemEval-S code 3.09 s a question against 3.81 for 6.37.
 
-Training took 33 to 35 minutes a seed. The run files hold 214 hours of GPU time: training 108.6 hours over 186 runs (`train_seconds` in
-`results/recall_train/`), evaluation 100.0 hours over 849 runs (`seconds` in `results/recall_eval/`) and S3 5.7 hours over 11 runs
-(R-217's sum, carried to the newest run). Stopped runs, demo runs and agent time are not in those files. The GPU is the author's own, so the compute cost is $0
-(Kevin, 13 November); the cost of the Claude agents is not recorded.
+Training took 33 to 35 minutes a seed. The run files hold 215 hours of GPU time: training 108.6 hours over 186 runs (`train_seconds` in
+`results/recall_train/`), evaluation 100.0 hours over 849 runs (`seconds` in `results/recall_eval/`) and S3 6.2 hours over 12 runs
+(R-217's sum, carried to the newest run). Stopped runs, demo runs and agent time are not in those files. The GPU is my own, so the compute cost is $0; the cost of the Claude agents is not recorded.
 
 **AuditKIT's paired bootstrap does not centre its resamples.** It reports a large gain as failing significance: on
 this project's data, 57% → 88% over 240 paired cases (R-031). The defect, a reproduction and a proposed one-line fix, not
@@ -723,10 +722,10 @@ and no answer it had passed before (R-098).
 | 5 | LoCoMo as an outside check | Never run | deferred, then out of time | R-100, R-167 |
 | 6 | Outside-writer set 1 as report only | Became a development set | a candidate was designed from its failures | R-151 |
 | 7 | Sealed run's judge brief, audit and scorer fields | Four small changes, none to a rule | disclosed at the run | R-163 |
-| 8 | S3's recall standard: 6.37 | Base | Kevin, after K1's development results were read | R-191 |
-| 9 | A cap of three candidates | A time cutoff, any number | Kevin | R-193, R-194 |
-| 10 | Schedule: training done Saturday 16:00 | Moved by 4 hours | Kevin | R-242, R-243 |
-| 11 | Demo pass line: 3 of 6 older, 3 of 4 never-told on each demo | Beat K1.3 on the totals over Demo4 and Demo5 | Kevin: the results on one demo were too poor to judge by; set after both models' readings existed | R-276, R-278, R-283 |
+| 8 | S3's recall standard: 6.37 | Base | my decision, after K1's development results were read: 6.37 is a poor bar for recall | R-191 |
+| 9 | A cap of three candidates | A time cutoff, any number | my decision | R-193, R-194 |
+| 10 | Schedule: training done Saturday 16:00 | Moved by 4 hours | my decision | R-242, R-243 |
+| 11 | Demo pass line: 3 of 6 older, 3 of 4 never-told on each demo | Beat K1.3 on the totals over Demo4 and Demo5 | my decision: one demo's results were too poor to judge by; set after both models' readings existed | R-276, R-278, R-283 |
 | 12 | Demo5 held out until a try cleared Demo4 | Read twice; partly seen by the orchestrator through a judge's marks | the second reading was K1.3's, for the comparison | R-277 |
 | 13 | S3's scorer registered before S3 | Written after S3 started, before any S3 file was read | none existed when S3 began | R-281, R-282 |
 | 14 | S3 replies unseen until scored | Short pieces quoted by coherence judges' reports | after the marks were final | R-286 |
@@ -764,7 +763,7 @@ STANDARD v3's rule 19 existed; no power calculation was made.
 done.
 
 **Who judged.** Every blind reader, judge, writer and panel lane is a Claude model, the same family as the assistant
-that did the work, so agreement among them is not independent confirmation. The only human marker is Kevin, who was
+that did the work, so agreement among them is not independent confirmation. The only human marker is me, and I was
 not blind to the hypotheses; one independent second marker checked 50 scorer lines (R-145).
 
 ## 13. Errors and corrections
@@ -803,7 +802,7 @@ rows and 4 items (R-249), and the dates.
 
 ## Declaration of work done outside the hackathon
 
-Before the hackathon (PRE-SPRINT): the plan of 20 October (R-001) and LLE, the author's chat engine; none of LLE's
+Before the hackathon (PRE-SPRINT): the plan of 20 October (R-001) and LLE, my chat engine; none of LLE's
 code, test sets or chats is here. Everything else was made from 1 November 2026 (first commit 2026-11-01 11:17 EST).
 `RECORDS.md` marks each entry PRE-SPRINT, SPRINT or, from R-177, REOPENED; the reopened work (12 to 14 November) is
 before the extended deadline. Third-party work: Tiny Aya Global (Cohere Labs); AgentTune, AuditKIT and CuratorKIT
@@ -816,13 +815,13 @@ decided. It was carried out with Claude (Anthropic) as an executive-function acc
 the generated pools, the training sets, the tests and these write-ups, and ran the experiments; every commit carries
 a Claude co-author line. Other Claude agents filled separate roles: Opus agents wrote the outside-writer chats and S3;
 fresh writer agents wrote the natural training chats and the demos; Sonnet agents judged coherence, the demos and
-LongMemEval-S; Opus agents served as panel lanes. People wrote none of those chats. The only human marking is Kevin's
+LongMemEval-S; Opus agents served as panel lanes. People wrote none of those chats. The only human marking is my
 50 scorer lines (R-144) and 50 LongMemEval-S lines (R-170), and one independent marker's 50 scorer lines (R-145). The
 records do not count how much text was generated, so no percentage is claimed.
 
 ## Team and acknowledgements
 
-Teammates tagged: none; the project is Kevin Vaillancourt's alone (R-002). Thanks to Lexsi Labs for AgentTune,
+Teammates tagged: none; the project is mine alone (R-002). Thanks to Lexsi Labs for AgentTune,
 AuditKIT, CuratorKIT and the hackathon; Cohere Labs for Tiny Aya Global; the LongMemEval authors; and Anthropic's
 Claude, which did the work described. No grant or funding is recorded.
 

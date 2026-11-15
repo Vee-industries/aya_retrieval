@@ -29,8 +29,7 @@ record that the long paper's section 15 lists.
 generation: Train a model that decides when and what to retrieve, grounds its answers in the retrieved text and
 ignores distracting documents."
 
-**Who is who.** I am Kevin Vaillancourt, the author and the researcher. "Kevin" in a sentence names one of my
-recorded rulings, in a paraphrase; the record holds my words as said.
+**Author.** I am Kevin Vaillancourt. Every research decision here is mine; `RECORDS.md` dates each one.
 
 **Claim labels.** *Confirmatory* claims rest on a sealed test opened once (the first sealed test, S3). *Exploratory*
 claims rest on development sets read many times or on sets read after the decision they inform.
@@ -120,8 +119,8 @@ the first time on 12 November (R-173, R-175). On two of its four questions 6.37 
 training set and answered with an unrelated stored fact. On eight more questions, written blind and registered
 before they ran, 6.37 repeated its own wrong answer, still in view, on six (R-176).
 
-The deadline was then extended. Kevin reopened the project because of the deadline: he saw results he had missed
-and judged that the extra day gave enough time to train further (R-177). 6.37 and every result about it stayed published.
+The deadline was then extended. I reopened the project: the demo showed results I had missed, and the extra day
+gave enough time to train further (R-177). 6.37 and every result about it stayed published.
 
 **The test came before the training.** S3 was written by {{s3_writers}} fresh Claude Opus writers, given only a
 brief: {{s3_chats}} chats, {{s3_items}} items. Nobody read a chat; the set, loader, scorer and judge brief were hashed before
@@ -137,14 +136,14 @@ than 5 points lost on in-view, statement and plain never-told questions and cohe
 Each candidate was registered before it was built and checked before it trained. Seed 82 had to clear `hard_dev`
 (never-told at least 44 of 48) and a demo, a fresh chat with 12 blind questions, before more seeds trained; survivors
 were screened on 20 lines against base, and the pick had the highest pooled recall over three seeds (R-191, R-192).
-Kevin's order from R-240: keep trying until a candidate beats the pick or time runs out.
+Candidates were tried until one beat the pick or the time ran out (R-240).
 
 1. **Rows written ahead of time** (K1 to K4.9). K1.3, K1 with each fact in other wordings, passed every line and
    became the pick (pick recall {{pick_recall_k13}}, R-203). Natural chats from writer agents raised outside-writer
    recall, but every one that trained failed a demo or a screening line.
 2. **Small stages on K1.3.** R2c beat K1.3 ({{pick_recall_r2c}}), but its set had skipped the checker, and the same
-   recipe on 10 fewer rows failed: its passes were inside run-to-run variation (R-247, R-249). Kevin ruled that
-   if these passes were lucky draws, a different approach be tried.
+   recipe on 10 fewer rows failed: its passes were inside run-to-run variation (R-247, R-249). Since those
+   passes could be lucky draws, I moved to a different approach (R-253).
 3. **The demos were contaminated.** Demo2's and Demo3's answers turned out to be fact values in the training chats:
    the demo writers and the training-chat writers chose the same "uncommon" values (R-254). Both were retired; Demo4
    and Demo5 were rewritten until a check against all training data came back clean.
@@ -158,16 +157,16 @@ Kevin's order from R-240: keep trying until a candidate beats the pick or time r
 
    ![Never-told slide](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/never_told_slide.png)
 
-**How C1 became the pick.** C1 passed Demo4 and failed Demo5's fixed older line. Kevin ruled that a candidate must beat
+**How C1 became the pick.** C1 passed Demo4 and failed Demo5's fixed older line. I changed the test: a candidate must beat
 K1.3, judged on the totals over both demos (R-276, R-278): older {{demos_c1_older}} for C1 against
-{{demos_k13_older}} for K1.3, never-told {{demos_c1_never_told}} against {{demos_k13_never_told}}. His reason (R-283):
+{{demos_k13_older}} for K1.3, never-told {{demos_c1_never_told}} against {{demos_k13_never_told}}. My reason (R-283):
 the results on one demo were too poor to judge by; K1.3 alone scored {{demo4_k13_older}} on Demo4 and {{demo5_k13_older}} on Demo5,
 two demos from one brief. C1 then passed all 20 screening lines and led K1.3 on pick recall, {{pick_recall_c1}}
 against {{pick_recall_k13}} (R-279), a lead under two seeds' spread.
 
 ## 6. S3: C1 fails one clause, and 6.37 stays shipped (confirmatory)
 
-S3 ran once on Kevin's go (R-280); its scorer was fixed and tested on planted results before any S3 file was read
+S3 ran once (R-280); its scorer was fixed and tested on planted results before any S3 file was read
 (R-281, R-282). Raw counts, {{s3_chats}} chats, 6.37 and C1 pooled over three seeds:
 
 | Measure | Base, tool | 6.37 | C1 | Line |
@@ -197,14 +196,14 @@ reopening trained reading and declining; the query, the fault left untrained, is
 
 ## 7. Limits and disclosures
 
-- **Disclosed: the demo rule changed after the readings.** Kevin's rulings R-276 and R-278 were made after both
-  models' Demo4 and Demo5 readings existed; his reason is R-283.
+- **Disclosed: the demo rule changed after the readings.** I made the changes of R-276 and R-278 after both
+  models' Demo4 and Demo5 readings existed; my reason is R-283.
 - **Disclosed: Demo5 was read twice** (C1, then K1.3) and partly seen by the orchestrator through a judge's marks
   (R-277).
 - **Disclosed: S3 replies were partly seen** through short quotes in the coherence judges' reports, after the marks
   were final (R-286).
 - **Disclosed: every judge, writer and panel lane is a Claude model**, the same family as the assistant that did the
-  work; the only human marker is Kevin, not blind to the hypotheses. The coherence judges were never checked against a
+  work; the only human marker is me, not blind to the hypotheses. The coherence judges were never checked against a
   person.
 - Development sets were read many times: {{reopened_n}} listed candidates ({{reopened_full}} read on every line) in the reopened work alone, so development numbers
   flatter what was chosen; the claims rest on the two sealed tests.
@@ -220,11 +219,11 @@ whole chat on chats too long to fit; test instructions hidden in retrieved passa
 files, and `scripts/make_figures.py` draws every figure. Training takes {{train_minutes}} minutes a seed on an RTX
 3080; the run files hold {{gpu_total}} hours of GPU time in all, on my own card, so the compute cost is $0. Tiny Aya Global is CC-BY-NC-4.0, and the adapter and data carry that licence; the code is Apache-2.0.
 
-**Who did what.** Kevin Vaillancourt directed the work and made every decision in `RECORDS.md`. Claude (Anthropic)
+**Who did what.** I directed the work and made every decision in `RECORDS.md`. Claude (Anthropic)
 wrote the code, pools, training sets, tests and these write-ups and ran the experiments, as an executive-function
 accommodation; other Claude agents wrote the outside-writer chats, S3, the natural training chats and the demos, and
 judged coherence and LongMemEval-S. Teammates tagged: none. Work before 1 November: only the plan (R-001) and the
-author's chat engine LLE, none of which is in this repository. Thanks to Lexsi Labs for AgentTune, AuditKIT,
+my chat engine LLE, none of which is in this repository. Thanks to Lexsi Labs for AgentTune, AuditKIT,
 CuratorKIT and the hackathon, and to Cohere Labs for Tiny Aya Global.
 
 **Changelog.** 10 November: the first published version, 6.37, both datasets and the write-up (R-171, R-172). 12 to

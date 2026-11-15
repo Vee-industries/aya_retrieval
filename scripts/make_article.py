@@ -1554,7 +1554,7 @@ def protocol_numbers(out) -> None:
     agree = load(RESULTS / "human_check" / "R-139" / "agreement.json")
     second = agree["second_marker"]
     out["human_check"] = (
-        f"I (the author, not an independent marker) agreed with the scorer on {agree['agree']} "
+        f"I (not an independent marker) agreed with the scorer on {agree['agree']} "
         f"of {agree['n']} lines (Cohen's kappa {agree['kappa']}), and the scorer passed no reply "
         f"I failed (R-144). A second, independent marker agreed with the scorer on "
         f"{second['agree_with_scorer']} of {agree['n']} (kappa {second['kappa_with_scorer']}) "
@@ -2087,7 +2087,7 @@ REOPENED = [  # name in decide_r191.py, run label, what it changed, how it ended
         "C1",
         "k13opc1_r263",
         "OP's stage a second time on OP's own set (OP3's control)",
-        "passed every line under Kevin's demo rulings; the pick for S3",
+        "passed every line under my change to the demo test; the pick for S3",
         "R-263, R-269, R-279",
     ),
     ("OP4", "k13op4_r267", "second-search rows from OP", "failed hard_dev", "R-267, R-268"),
@@ -2277,7 +2277,7 @@ def s3_numbers(out) -> None:
     if waiting:
         text += (
             f". Not yet run when this was built: {', '.join(waiting)} (the queue stopped after K1 "
-            "seed 82, R-288, and was restarted on Kevin's word, R-289)"
+            "seed 82, R-288, and was restarted, R-289)"
         )
     out["s3_report_arms"] = text
     tally = load(S3_DIR / "coherence" / "tally.json")

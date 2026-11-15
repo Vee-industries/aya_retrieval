@@ -10406,3 +10406,23 @@ said. The README, model card and form abstract held no quote of Kevin. Rebuilt w
 built documents finds none of the quoted phrases, and 0 hits for "we", "our" or dashes. The rebuild also fills K1
 seed 83's report-arm counts (committed by the queue as `S3 s3_k1_r178_83`; they enter no line). No panel, because no
 result, number or registered line changes. Weekly usage 96% (all models, 20:51). Nothing pushed.
+
+## R-291 · 2026-11-14 · REOPENED · Kevin: the papers state his decisions in his own voice
+
+Kevin, in chat after R-290 (clock 20:51 to 20:57): "i don't like you quoting me on those it literally looks like all i
+did was call on you to do more..", then, on the proposal to write each ruling as his research decision with its reason
+and cut the lines that are only instructions: "yeah man like i wrote this not you". R-290's paraphrases still read as
+orders to the assistant. Now, in `docs/article_template.md`, `docs/submission/hf_article_template.md`, `README.md` and
+the generated strings of `scripts/make_article.py`, every ruling is a first-person decision ("I reopened", "I replaced
+6.37 with base", "I changed the standard to beating K1.3", "I moved to a different approach", "I opened S3 once"),
+with the reason from its record: R-177 (results missed, time to train further), R-191 (6.37 is the model whose
+weakness was found, a poor bar for recall; the published comparison was always against base), R-283 (one demo's
+results were too poor to judge by). Cut as instructions only: the standing order to keep trying (now the method fact
+that candidates were tried until one beat the pick or time ran out, R-240), the request to fix the demos and write up
+why (now a pointer to `docs/demos/WHY.md`), the go for S3. Every disclosure stays: base replaced 6.37 as the standard
+after K1's development results were read; the demo test changed after both models' readings existed. The deviations
+table's reason column reads "my decision". The Terms line in each paper now says "I" is Kevin Vaillancourt and every
+research decision is his, dated in `RECORDS.md`. The LLM usage statement is unchanged in substance (STANDARD rule 7):
+Claude wrote the code and the text under his direction. The model card's author line is unchanged. No panel, because
+no result, number or registered line changes; Kevin asked next for a voice, standard and submission-rule check and then
+a large adversarial panel (R-292 on). Checks in the clone: ruff, format, pytest 1,790 passed. Nothing pushed.
