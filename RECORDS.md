@@ -11030,3 +11030,22 @@ reword then push". Successor session to the one that wrote R-309 to R-314.
 Found, not changed: R-306 (pushed before b08ec7f) lists most of the same search words; removing it means rewriting
 public history, Kevin's call. `docs/submission/ABSTRACT.md` did not change (SHA-256 abab50c1...), so the form text
 stands. Usage at the end of this stage: weekly, all models, 9% (12:32).
+
+## R-316 · 2026-11-15 · REOPENED · Decision: remove R-306's list of search words from the public history, after the form
+
+Kevin, in chat, to "Remove R-306's search-word list from the public history after you file the form?": "Yes, after
+the form". Why after: a history rewrite changes commit ids from R-306 on, and nothing under the form's links should
+move while the form is open (due 06:59 Eastern, 16 November). Rejected: leaving the list public; rewriting before the
+form.
+
+Scope (checked 2026-11-15, read only): RECORDS.md lines 10783 and 10784 (R-306's sweep step) name the search words;
+they entered in a39473f (R-306), and 10 commits from a39473f to this one carry them. Only `origin/main` holds
+a39473f. Not in scope: line 7162 (R-273's sweep, which says "health and benefit words" and names no word list) and the
+model replies on generated chats that use one of the words (made-up people, R-172). The link to 3a2754e in the papers is older than
+a39473f and keeps its id.
+
+Plan, on Kevin's word that the form is filed: reword those lines to "a private word list kept outside the repository"
+in every commit from a39473f on, as R-315 did for R-310 (one match per commit, RECORDS.md only); the privacy sweep;
+`git push --force-with-lease origin main` (Kevin's go for a force push is asked first); an old-to-new id map in the next
+entry; the desktop copy renamed to its new id; links rechecked logged out. Kevin then adds the old commits to his
+GitHub Support request to purge (R-306's item 2), since they still open by id.
