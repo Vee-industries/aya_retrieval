@@ -1,7 +1,7 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 (R-289, session 3fe62a52). Read this, then
-`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-289.
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 (R-290, session 3fe62a52). Read this, then
+`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-290.
 
 ## State
 
@@ -25,7 +25,7 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 (R-289, session 3fe62a52
   requirements (16:45): two complementary papers, the short one about 5 pages pointing to the long one, a chronology,
   "the dash to try to get a replacement" told well, every STANDARD v3 section, kv_voice_v2, figures from results.
   The audit's 15 findings on b1abc06 are fixed or answered (R-289). **Left:** when the queue ends, the steps above
-  and the report-arm record entry; Kevin's answer on quoting his words as written (L2). Form due 16 November 07:59 ET.
+  and the report-arm record entry. Kevin's words are paraphrased in the papers, not quoted (R-290). Form due 16 November 07:59 ET.
 - **Pick before S3: C1** (`k13opc1_r263`; `decide_r191.py` 0 FAIL of 20, pick recall 775 against K1.3's 742, R-279).
   C1 is OP's stage run twice from K1.3 (1e-4 x 1 on OP's set, twice). It beat K1.3 by Kevin's rulings: a candidate must
   beat K1.3 (R-276), with the demos judged on their totals over Demo4 and Demo5 (R-278): older 5 of 12 against 4,

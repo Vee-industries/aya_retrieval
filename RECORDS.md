@@ -10392,3 +10392,17 @@ rerun in the clone and every change in the four documents and two figures traces
 
 Checks: `ruff check`, `ruff format --check`, pytest 1,790 passed (clone). Weekly usage at the end of this stage: 96% (all
 models, 20:04). Nothing pushed.
+
+## R-290 · 2026-11-14 · REOPENED · Kevin: his words paraphrased in the papers, not quoted
+
+Asked whether the papers should quote his words as written (the audit's L2, R-289), Kevin, in chat (after 20:05, before the clock read 20:51):
+"No, paraphrase them". Every quote of Kevin in `docs/article_template.md` (10) and `docs/submission/hf_article_template.md`
+(5) is now a plain paraphrase with the same meaning and record id: the reason for reopening (R-177), "fix the weakness"
+(R-177), base as the standard to beat (R-191), the standing order to keep trying until a candidate beats the pick or
+time runs out (R-240), try a different approach if R2c's passes were lucky draws (R-253), fix the demos and write up
+why (R-254), the reason for the demo rulings, that the results on one demo were too poor to judge by (R-283), and the
+go for S3 (R-280). The "Terms" line in each paper now says rulings are paraphrased and the record holds the words as
+said. The README, model card and form abstract held no quote of Kevin. Rebuilt with `make_article.py`; a grep of the four
+built documents finds none of the quoted phrases, and 0 hits for "we", "our" or dashes. The rebuild also fills K1
+seed 83's report-arm counts (committed by the queue as `S3 s3_k1_r178_83`; they enter no line). No panel, because no
+result, number or registered line changes. Weekly usage 96% (all models, 20:51). Nothing pushed.
