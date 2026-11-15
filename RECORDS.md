@@ -10705,3 +10705,43 @@ query-writing count now counts only recall questions the model searched (seed 82
 82: 100 against 106), since a query is a cause only where one was written. Abstract 498 words; the long paper's
 Abstract 499. Checks: ruff, format, pytest 1,790 passed. Next: the audit round, then the privacy sweep, the push and
 the Hugging Face updates. Nothing pushed.
+
+## R-304 · 2026-11-15 · REOPENED · Two private names scrubbed from the whole history; both public branches force-pushed
+
+Found 09:25, by a trial run of the pre-push privacy sweep (`privacy_check.py` with the private names list, `--history
+origin/main..main`): planted checks passed; 2 hits on disk and 360 in history, all in one RECORDS.md line. R-172 (commit
+3e22ff2, 10 November) records the sweep made before the repository went public and names, in brackets, the two family
+names it searched for. 3e22ff2 was on `origin/main` and `origin/reopened`, so the two names had been public on GitHub
+since 10 November. No Hugging Face repository holds RECORDS.md (file lists of all four read 09:27).
+
+Decision: Kevin, in chat at about 09:28, chose "Yes, scrub them" over "Push as is", after being told that the scrub
+rewrites every commit since 3e22ff2, needs a force push of both branches, and changes a past record entry, which rule
+36 (append-only records) forbids. Rejected: pushing as is (no new exposure, since the names were already public, but
+it breaks the privacy rule's exactly-0 count and leaves the names up). No panel: Kevin's direct choice of a privacy fix.
+This record is the disclosure of the rule 36 breach; the clash between rule 36 and the privacy rule goes to the Model
+standards session with a plan.
+
+Done: a bundle of every ref was kept first (outside the repository, in the session's working folder). `git
+filter-branch --index-filter` over `main` and `reopened` (09:33 to 09:43) replaced the bracketed two names in R-172
+with "(not named here)" in every commit whose RECORDS.md held them (477 of 1,629 commits). Nothing else changed: for
+each of the 1,629 commit pairs, old against new, the only file that differs is RECORDS.md, and author, email, date and
+message are the same. After: the sweep reads 0 hits on disk and 0 in the full history of `main` (1,629 commits, 4,305
+blobs) and of `reopened` (1,163 commits, 2,841 blobs), planted checks passed. Pushed at 09:49 with
+`--force-with-lease`: `main` from 7b71a20 to 3a2754e (the rewritten copy of the same commit, so nothing new was
+published) and `reopened` from b771609 to 52a872b. The public RECORDS.md on both branches now holds 0 of the two names.
+
+Commit ids: every commit from 3e22ff2 on has a new id, so ids cited in past entries, in results files' commit fields
+and in the panel and audit files (for example 809855c, now 56db55d) name the old history. `results/scrub/R-304_commit_map.tsv`
+lists each of the 477 changed ids, old then new. Commits before 3e22ff2 (1,152) keep their ids.
+
+Not done, Kevin's step: GitHub still serves the old commits to anyone with their id (commit 3e22ff2 returned 200 at
+09:49). Only GitHub Support can remove them; the request text is given to Kevin in chat.
+
+Also answered here, two SOP-check items from 14 November (S8:toolu_015mVJV2mgoDr5hvRZdxaAHK at 19:53 and
+S8:toolu_01AQg1vTjvtKR654sgx8HMD6 at 20:03): two background jobs started with no `watch_job.sh` watcher. Both ended the
+same evening with their results read. Fix: background jobs get `watch_job.sh`. Today the audit-file wait had one
+(DONE). The history rewrite's watcher, started with the command match `filter-branch`, was refused with BADARGS (exit
+64, "no running process has 'filter-branch' in its command line"), so the rewrite was followed by its own exit notice and
+log only; a later job uses no command match where the process is a Git Bash script.
+
+Usage at the start of this stage: weekly, all models, 7% (09:21).
