@@ -10499,3 +10499,28 @@ November** (hackathon.lexsi.ai, read by the orchestrator), not 07:59 as R-217 on
 `scratch\standards\breaches\disputes\3fe62a52-...jsonl`, since the watcher was armed in the next call and exited DONE.
 S8:toolu_01AQg1vTjvtKR654sgx8HMD6 (the 20:03 background pytest run in the clone): a real breach, no watcher was armed;
 every background job from here gets `watch_job.sh`. Nothing pushed.
+
+## R-296 · 2026-11-15 · REOPENED · C1 seed 82 published beside 6.37, labelled as failing one clause; 6.37 stays shipped
+
+Asked "what about both?" after R-294, and offered C1 seed 82 on Hugging Face beside 6.37, labelled as the candidate that
+failed one clause of the ship rule, Kevin, in chat this morning: "Yes, publish both". This changes no rule: R-294 keeps
+6.37 seed 82 as the model put forward and named on the form; C1 is published as a second, labelled model, and nothing
+calls it shipped or says it passed S3. Seed 82 is the seed the rules named to ship (R-178).
+
+**Published** (05:38 to 05:41): https://huggingface.co/KevinVaillancourt/aya-retrieval-c1, public and not gated, commit
+b4c98d5: `adapter_model.safetensors` (SHA-256 4edde044...fad, equal to `adapters/screens/k13opc1_r263_82`, checked
+against the Hub's LFS hash), `adapter_config.json` (the local file with `base_model_name_or_path` set to
+`CohereLabs/tiny-aya-global` and `revision` pinned to af89d219, the same two changes as 6.37's published config and no
+other), and `README.md` = `docs/MODEL_CARD_C1.md`. Added to the models collection with a note that C1 failed one clause
+and 6.37 stays shipped. Privacy check (`Claude's House/scripts/privacy_check.py` on a throwaway repo of the card and
+config): planted checks found, 0 hits.
+
+**The card** is built by `scripts/make_article.py` from the new template `docs/model_card_c1_template.md`; every number
+comes from results files through the new `c1_card_numbers` (C1's lineage from the two training reports, stopping if it
+changes; seed 82's S3 lines through `score_s3.py`'s measures; the N-hit seeds; C1 minus base on N-hit, chat-resampled
+as R-281, 10,000 draws, seed 0: -3.1 to +5.7 points). It names the measures by what they count (R-295 B), states the
+ship rule and the miss, and that seed 82 alone is under base on N-hit (11 of 236) and below (a)'s statement line (50 of
+60 against 91.7%). Voice scan of the card: 0 hits. No panel, because no result or registered line changes.
+
+**Correction to R-295.** It gives the ten-reviewer panel's end as "about 05:50"; the clock read 05:34 when R-295 was
+written, so that time was typed, not read; the panel ran from about 05:03 to before 05:34. Nothing else pushed.

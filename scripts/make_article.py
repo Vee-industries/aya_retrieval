@@ -21,6 +21,7 @@ functions).
 from __future__ import annotations
 
 import json
+import random
 import re
 import statistics
 from collections import Counter
@@ -50,6 +51,7 @@ TEMPLATES = {
     DOCS / "model_card_template.md": DOCS / "MODEL_CARD.md",
     DOCS / "submission" / "hf_article_template.md": DOCS / "submission" / "HF_ARTICLE.md",
     DOCS / "submission" / "abstract_template.md": DOCS / "submission" / "ABSTRACT.md",
+    DOCS / "model_card_c1_template.md": DOCS / "MODEL_CARD_C1.md",
 }
 ABSTRACT_WORDS = 500  # the form's limit (R-171)
 SHIP = "fix17cs37_82"
@@ -2321,6 +2323,63 @@ def s3_numbers(out) -> None:
         out[f"s3_misread_{key}"] = f"{sum(bool(r['found_fact']) for r in wrong)}"
 
 
+def c1_card_numbers(out) -> None:
+    """C1 seed 82's own numbers for its model card (R-296): lineage, S3 lines, the gap to base."""
+    op, c1 = train_report("k13op_r253_82"), train_report("k13opc1_r263_82")
+    lineage = (op["init_adapter"], c1["init_adapter"])
+    if not (lineage[0].endswith("k1_3_r200_82") and lineage[1].endswith("k13op_r253_82")):
+        raise SystemExit("C1's lineage is no longer K1.3, OP's stage, then the same stage again")
+    if op["data"] != c1["data"]:
+        raise SystemExit("C1's second stage no longer uses OP's set; update the card")
+    out["c1_set"] = f"`{c1['data']}`"
+    out["c1_rows"] = f"{c1['rows']:,}"
+    out["c1_stage"] = (
+        f"learning rate {c1['learning_rate']:g}, {c1['epochs']:g} epoch, batch {c1['batch_size']}"
+    )
+    out["c1_minutes"] = f"{(op['train_seconds'] + c1['train_seconds']) / 60:.0f}"
+    out["c1_peak"] = f"{max(op['train_peak_vram_gib'], c1['train_peak_vram_gib']):.2f}"
+    scorer = records_script("score_s3")
+    rows = scorer.load("s3_k13opc1_r263_82")
+    counts = {}
+    for measure, counted in scorer.MEASURES.items():
+        hits = [h for h in map(counted, rows) if h is not None]
+        counts[measure] = (sum(hits), len(hits))
+    for measure, short in (
+        ("recall", "recall"),
+        ("in_view", "iv"),
+        ("statement", "st"),
+        ("never_told_plain", "ntp"),
+        ("copy", "copy"),
+        ("n_hit_false_answer", "nhit"),
+    ):
+        out[f"c1s82_{short}"] = frac(*counts[measure])
+    base = scorer.measure_tables()[1]["base_tool"]["statement"]
+    line = scorer.rate(base) - scorer.POINTS
+    st = counts["statement"][0] / counts["statement"][1]
+    out["c1s82_st_line"] = (
+        f"{'below' if st < line else 'at or above'} (a)'s statement line, base's rate minus 5 "
+        f"points ({100 * line:.1f}%)"
+    )
+    seeds = []
+    for seed in (82, 83, 94):
+        flag = scorer.MEASURES["n_hit_false_answer"]
+        got = [h for h in map(flag, scorer.load(f"s3_k13opc1_r263_{seed}")) if h is not None]
+        seeds.append(f"{sum(got)} of {len(got)} (seed {seed})")
+    out["c1_nhit_seeds"] = ", ".join(seeds)
+    chats, tables = scorer.measure_tables()
+    pick, base_t = tables["pick"]["n_hit_false_answer"], tables["base_tool"]["n_hit_false_answer"]
+    rng = random.Random(scorer.BOOT_SEED)  # R-281's resampling: chats with replacement
+    diffs = []
+    for _ in range(scorer.N_RESAMPLES):
+        drawn = [rng.choice(chats) for _ in chats]
+        diffs.append(scorer.rate(pick, drawn) - scorer.rate(base_t, drawn))
+    diffs = sorted(d for d in diffs if d == d)
+    lo, hi = diffs[int(0.025 * len(diffs))], diffs[min(int(0.975 * len(diffs)), len(diffs) - 1)]
+    if lo > 0:
+        raise SystemExit("C1 minus base on N-hit now has its lower bound above 0; update the card")
+    out["c1_gap_interval"] = f"{100 * lo:+.1f} to {100 * hi:+.1f} points"
+
+
 def numbers() -> dict[str, str]:
     out: dict[str, str] = {}
     for part in (
@@ -2342,6 +2401,7 @@ def numbers() -> dict[str, str]:
         toolkit_numbers,
         reopened_numbers,
         s3_numbers,
+        c1_card_numbers,
     ):
         part(out)
     return out
