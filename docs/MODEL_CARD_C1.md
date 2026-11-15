@@ -37,7 +37,7 @@ against 6.37, each pooled over seeds 82, 83 and 94:
 | Answer in view: right | 52 of 60 (86.7%) | 161 of 180 (89.4%) | 160 of 180 (88.9%) | 55 of 60 (91.7%) |
 | Plain statement: no search | 58 of 60 (96.7%) | 180 of 180 (100.0%) | 166 of 180 (92.2%) | 50 of 60 (83.3%) |
 
-Relative to 6.37, C1's rate changes by -97% on the first fault and -82% on the second; recall
+Relative to 6.37, C1's rate changes by -97% on copies and -82% on N-hit false answers; recall
 shows no measured difference.
 
 ## Where it missed the rule
@@ -57,7 +57,7 @@ against base's 17 of 236 (7.2%)) and is below (a)'s statement line, base's rate 
 The never-told and copy measures check for values listed for the chat (the asked category's values in that chat and the
 writers' listed wrong values). A reply that invents a new value, or gives an unrelated fact of another category, is not
 counted; C1 still gives such unrelated stored facts (exploratory: 99 of 708 (14.0%) of its N-hit questions answered with
-a value when they are counted). The untrained model invents many values on S3, so its rate of naming a listed value is a floor and its rate of naming
+a value when they are counted). The untrained model invents values on S3, so its rate of naming a listed value is a floor and its rate of naming
 no listed value a ceiling. Coherence (three blind Claude Sonnet judges; the first decides), out of 120 lines
 each: C1 97, base 95.
 

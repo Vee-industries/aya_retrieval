@@ -10642,3 +10642,31 @@ the 58- and 419-message reference numbers and section 12 keeps the flag's blind 
 renumbered so they run in order (training memory 7; S3 misses 8, in Appendix C). The body is 11,832 words and the
 appendices 2,511 (the abstract and every number unchanged; `make_article.py` rebuilt the same values). Checks in the
 clone: ruff, format, pytest 1,790 passed. Nothing pushed.
+
+## R-301 · 2026-11-15 · REOPENED · Panel round 3 (13 lanes, three new); its fixes applied in one pass
+
+Kevin, in chat after R-300: "i'm not pushing til it's done so i dont' ahve to do it a bunch of times.. send it to the
+panel again.. add a graphic designer and another bot to judge the layout as well as a cold reader". Thirteen lanes on
+48c6586: the ten earlier lanes and a graphic designer, a layout judge and a cold reader (the last briefed with no
+project history). Brief, lanes, reports, the consolidated fix list, the builder's report and the synthesis are in
+`results/panels/R-301/`. Verdicts: twelve "submit after fixes", the cold reader "clear after fixes"; no wrong count.
+
+**Checked by the orchestrator:** R-170's registered H2 on LongMemEval-S (code ahead on evidence, 372 against 333 of 476,
+p = 0.0004; no measured difference on answers, so "no measured difference" without "on answers" overstated);
+found-fact counts on the same S3 recall questions, code alone against seed 82 alone 141 and 22 (C1 seed 82: 106 and
+29), so query writing is a measured cause of missed facts, not "not separated"; the 6.2 label "base / 6.37" written in
+R-297 was reversed (the generator puts seed 82 first), an error of R-297; R-145 records a second, independent marker,
+so "the only human marker is me" was false.
+
+**Applied** by one builder agent (Opus) in a throwaway clone, 33 fix-list items and the voice and practitioner wording
+(55 items), then checked by the orchestrator (ruff, format, pytest 1,790 passed; every field filled; short paper 2,665
+words; abstract 497; the short paper's opening and the S3 faults figure read by eye). Among them: the short paper gains
+a terms block, the ship rule's clauses as a list, the problem statement's clauses with outcomes, the datasets and
+collection links, figure captions, and "Use this when" with the whole chat's own S3 rates (57 of 236 N-hit, base 14)
+and LongMemEval-S's evidence result; query writing as a measured cause; two people marked the 50 scorer lines; S3's
+adapter never-told rates named as ceilings too; deviation rows 21 (rule 20 and 21 numbers not computed) and 22 (no
+single total of tries; flow tables for S3 only); Appendix B without its empty column; changelogs through R-301; one
+colour per model in every figure, intervals no longer hidden, the first figure's two kinds of chat separated.
+
+**Carried:** the push and the Hugging Face uploads (Kevin pushes once, when done); the scorer's report-arm names (the
+captions name the seeds). Weekly usage 5% (all models, read before the builder started). Nothing pushed.

@@ -24,6 +24,7 @@ from aya_retrieval.provenance import REPO_ROOT  # noqa: E402
 from aya_retrieval.report_data import (  # noqa: E402
     RECALL_KINDS,
     eval_rows,
+    recall,
     records_script,
     train_report,
     weights_gib,
@@ -41,17 +42,26 @@ CONDITIONS["D"] = "independent, 4 decoys"
 TRL_LOSS_RUN = "hard_in_view_84"  # v3 data, TRL's loss (R-026)
 LEAN_LOSS_RUN = "screen_hard_in_view_lean_82"  # same data, lean loss (R-032)
 
-# Reference palette (dataviz skill): one hue, two shades for before -> after, validated --ordinal.
+# One colour per model in every figure (R-301): the untrained base grey, 6.37 blue, C1 orange,
+# the other candidates and the report arms purple; Figure 8 has its own outcome palette.
 SURFACE = "#fcfcfb"
 INK = "#0b0b0b"
 INK_2 = "#52514e"
 MUTED = "#898781"
 GRID = "#e1e0d9"
 AXIS = "#c3c2b7"
-BASE_C = "#86b6ef"
-TUNED_C = "#1c5cab"
-SEED_C = "#2a78d6"
+BASE_C = "#6f6e69"  # base, every figure
+TUNED_C = "#1c5cab"  # 6.37
+SEED_C = "#5b97dc"  # 6.37's single seeds
+C1_C = "#c4621a"  # C1
+REPORT_C = "#7a4fa3"  # K1, K1.3, K2.1, OP, C2
 CARD_C = "#d03b3b"
+OUTCOME_C = {  # Figure 8's outcomes, apart from the model colours
+    "right": "#2f7d4a",
+    "misread": "#e2a63b",
+    "missed": "#c23b3b",
+    "none": "#c3c2b7",
+}
 
 plt.rcParams.update(
     {
@@ -62,7 +72,7 @@ plt.rcParams.update(
         "savefig.facecolor": SURFACE,
         "axes.edgecolor": AXIS,
         "axes.labelcolor": INK_2,
-        "xtick.color": MUTED,
+        "xtick.color": INK_2,
         "ytick.color": INK_2,
         "axes.spines.top": False,
         "axes.spines.right": False,
@@ -115,9 +125,14 @@ def legend(ax, base_label: str, tuned_label: str) -> None:
     )
 
 
-def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None, xmax=100) -> None:
-    """Rows top to bottom; a hairline from base to adapter, value labels at both ends."""
+def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None, xmax=100, split=None) -> None:
+    """Rows top to bottom; a hairline from base to adapter, value labels at both ends.
+
+    ``split``: the number of top rows set apart from the rest by a rule.
+    """
     ys = list(range(len(labels)))[::-1]
+    if split:
+        ax.axhline(len(labels) - split - 0.5, color=AXIS, lw=1, zorder=0)
     pad = 0.022 * xmax
     for y, b, t in zip(ys, base_vals, tuned_vals, strict=True):
         ax.plot([b, t], [y, y], color=AXIS, lw=2, solid_capstyle="round", zorder=1)
@@ -159,7 +174,9 @@ def fig_whole_chat_or_search() -> None:
     """`older` on the outside-writer sets: three exchanges and search, or the whole chat."""
     labels, base, tuned, tokens = [], [], [], []
     for n, prefix in SETS.items():
-        tokens += [r["whole_chat_tokens"] for r in eval_rows(f"{prefix}_base", 0)]
+        rows = eval_rows(f"{prefix}_base", 0)
+        tokens += [r["whole_chat_tokens"] for r in rows]
+        older_n = sum(r["kind"] == "older" for r in rows)
         labels += [f"Set {n}: last 3 exchanges, search", f"Set {n}: whole chat"]
         base += [
             right(eval_rows(f"{prefix}_base", 0), "older"),
@@ -179,42 +196,46 @@ def fig_whole_chat_or_search() -> None:
     titled(
         fig,
         "When the chat fits, the whole chat wins",
-        f"Outside-writer sets, a mean of {round(sum(tokens) / len(tokens), -2):,.0f} tokens a chat "
-        "(R-164).\nWith the whole chat, 6.37 and base show no measured difference.",
+        f"Outside-writer sets, a mean of {round(sum(tokens) / len(tokens), -2):,.0f} tokens "
+        f"a chat; {older_n} older-fact questions a set.\n"
+        "One run of each arm, one seed of 6.37 (R-164, R-165).",
     )
     save(fig, "whole_chat_or_search")
 
 
 def fig_recall_out_of_view() -> None:
     """Recall with the last three exchanges in view: outside-writer sets and the sealed run."""
-    labels, base, pooled, seeds = [], [], [], []
-    for n in SETS:
+    labels, base, pooled, seeds, whole = [], [], [], [], []
+    for n, prefix in SETS.items():
         blind = load(SET_FILES[n])
         per = blind["recall_per_seed"]
         items = blind["primary"]["items"]
-        labels.append(f"Outside-writer set {n}")
+        labels.append(f"Outside-writer set {n} ({items})")
         base.append(100 * blind["primary"]["base"] / items)
         pooled.append(100 * sum(per[str(s)] for s in SEEDS) / (items * len(SEEDS)))
         seeds.append([100 * per[str(s)] / items for s in SEEDS])
+        whole.append(recall(eval_rows(f"wca_{prefix}_base", 0, "whole_chat_all")))
     for c, name in CONDITIONS.items():
         d = load(ANALYSIS / "R-162" / f"{c}.json")
         kinds = d["per_kind_correct"]
         items = d["shipped_seed_82"]["questions"]
         per = {a: sum(kinds[k][a] for k in RECALL_KINDS) for a in ("base", *ADAPTERS)}
-        labels.append(f"Sealed {c}: {name}")
+        labels.append(f"Sealed {c}: {name} ({items})")
         base.append(100 * per["base"] / items)
         pooled.append(100 * sum(per[a] for a in ADAPTERS) / (items * len(ADAPTERS)))
         seeds.append([100 * per[a] / items for a in ADAPTERS])
-    fig, ax = plt.subplots(figsize=(8, 4.6))
-    fig.subplots_adjust(left=0.33, right=0.97, top=0.78, bottom=0.12)
-    dumbbell(ax, labels, base, pooled, seeds)
+    fig, ax = plt.subplots(figsize=(8, 4.8))
+    fig.subplots_adjust(left=0.36, right=0.97, top=0.75, bottom=0.12)
+    dumbbell(ax, labels, base, pooled, seeds, split=len(SETS))
     ax.set_xlabel("Recall (older and confirm questions), last 3 exchanges in view")
     legend(ax, "Tiny Aya, untrained", "6.37, eight seeds pooled")
+    whole_text = " and ".join(f"{h} of {n}" for h, n in whole)
     titled(
         fig,
         "Recall out of view, untrained and trained",
-        "Small dots: each training seed. Outside-writer sets R-146, R-157; "
-        "sealed run R-163, both pools generator-built.",
+        "Small dots: each training seed; row labels give the questions a run. Outside-writer sets\n"
+        f"R-146, R-157 (base shown the whole chat: {whole_text}); "
+        "sealed run R-163 (both pools generator-built).",
     )
     save(fig, "recall_out_of_view")
 
@@ -227,13 +248,13 @@ def fig_memory() -> None:
     fig.subplots_adjust(left=0.15, right=0.97, top=0.66, bottom=0.18)
     rows = [("TRL's loss", before), ("Lean loss", after)]
     for y, (_, peak) in zip((1, 0), rows, strict=True):
-        ax.barh(y, weights, height=0.42, color=TUNED_C, edgecolor=SURFACE, linewidth=2)
+        ax.barh(y, weights, height=0.42, color=INK_2, edgecolor=SURFACE, linewidth=2)
         ax.barh(
             y,
             peak - weights,
             left=weights,
             height=0.42,
-            color=BASE_C,
+            color=AXIS,
             edgecolor=SURFACE,
             linewidth=2,
         )
@@ -256,9 +277,9 @@ def fig_memory() -> None:
     ax.spines["left"].set_visible(False)
     handles = [
         Line2D(
-            [], [], marker="s", ls="", ms=10, mfc=TUNED_C, mec=TUNED_C, label="Model weights (bf16)"
+            [], [], marker="s", ls="", ms=10, mfc=INK_2, mec=INK_2, label="Model weights (bf16)"
         ),
-        Line2D([], [], marker="s", ls="", ms=10, mfc=BASE_C, mec=BASE_C, label="Training on top"),
+        Line2D([], [], marker="s", ls="", ms=10, mfc=AXIS, mec=AXIS, label="Training on top"),
     ]
     ax.legend(
         handles=handles,
@@ -280,8 +301,8 @@ def fig_memory() -> None:
 # --- The reopened work: S3, the on-policy stages, the demos (R-254, R-272, R-287) ----------------
 
 S3 = records_script("score_s3")
-ARM_COLOURS = {"always_search": MUTED, "whole_chat": MUTED, "base_tool": INK_2, "6.37": BASE_C}
-ARM_COLOURS |= {"pick": TUNED_C}
+ARM_COLOURS = {"always_search": MUTED, "whole_chat": MUTED, "base_tool": BASE_C, "6.37": TUNED_C}
+ARM_COLOURS |= {"pick": C1_C}  # every other arm is a report arm: REPORT_C
 STAGES = (  # hard_dev seed 82: K1.3, then OP's stage once, twice (C1) and three times (C2)
     ("K1.3, the start", "k1_3_r200"),
     ("OP: one stage", "k13op_r253"),
@@ -301,24 +322,41 @@ def wilson(hits: int, n: int, z: float = 1.96) -> tuple[float, float]:
     return centre - half, centre + half
 
 
-def arm_points(ax, measure: str, names: list[str], tables: dict, chats: list[str]) -> None:
-    """One row an arm: the pooled rate and its chat-resampled 95% interval; base's as a band."""
+def arm_label(name: str) -> str:
+    """The scorer's name for an arm; the pooled 6.37 arm is named by its seeds, not 'shipped'."""
+    return S3.ARM_NAMES[name].replace("shipped", "three seeds")
+
+
+def arm_points(
+    ax, measure: str, names: list[str], tables: dict, chats: list[str], fontsize: float = 9
+) -> float:
+    """One row an arm: the pooled rate and its chat-resampled 95% interval; base's as a band.
+
+    Returns the largest upper bound drawn, in percent, so a caller can fit the x-axis.
+    """
     ys = list(range(len(names)))[::-1]
     lo, hi = S3.interval(tables["base_tool"][measure], chats)
     ax.axvspan(100 * lo, 100 * hi, color=GRID, alpha=0.7, lw=0, zorder=0)
+    top = 100 * hi
     for y, name in zip(ys, names, strict=True):
         table = tables[name][measure]
         rate, (lo, hi) = S3.rate(table), S3.interval(table, chats)
+        top = max(top, 100 * hi)
         hits, n = sum(c[0] for c in table.values()), sum(c[1] for c in table.values())
-        colour = ARM_COLOURS.get(name, SEED_C)
+        colour = ARM_COLOURS.get(name, REPORT_C)
         ax.plot([100 * lo, 100 * hi], [y, y], color=colour, lw=2.2, solid_capstyle="round")
-        ax.scatter([100 * rate], [y], s=90, color=colour, edgecolor=SURFACE, linewidth=2, zorder=3)
-        ax.text(100 * hi + 1.5, y, f"{hits}/{n}", va="center", color=INK_2, fontsize=9)
-    ax.set_yticks(ys, [S3.ARM_NAMES[n] for n in names])
+        ax.scatter(
+            [100 * rate], [y], s=70, color=colour, edgecolor=SURFACE, linewidth=0.8, zorder=3
+        )
+        # End ticks above the dot, so an interval narrower than the dot still shows.
+        ax.scatter([100 * lo, 100 * hi], [y, y], marker="|", s=60, color=INK, lw=1.1, zorder=4)
+        ax.text(100 * hi + 1.5, y, f"{hits}/{n}", va="center", color=INK_2, fontsize=fontsize)
+    ax.set_yticks(ys, [arm_label(n) for n in names])
     ax.tick_params(axis="y", length=0, labelsize=10)
     ax.set_ylim(-0.6, len(names) - 0.4)
     ax.grid(axis="y", visible=False)
     ax.spines["left"].set_visible(False)
+    return top
 
 
 def fig_s3_recall() -> None:
@@ -335,7 +373,8 @@ def fig_s3_recall() -> None:
         fig,
         "The sealed S3 test: recall by arm",
         f"{len(chats)} chats; 95% intervals resample chats; grey band: base with the tool. "
-        "6.37 and C1 pool seeds 82, 83, 94 (R-287).",
+        "6.37 and C1 pool seeds 82, 83, 94;\n"
+        "the report arms pool seeds 82 and 83 and enter no line of the rule (R-287).",
     )
     save(fig, "s3_recall")
 
@@ -344,9 +383,13 @@ def fig_s3_faults() -> None:
     """The two faults the reopening targeted, by arm on S3."""
     chats, tables = S3.measure_tables()
     names = list(tables)
-    fig, axes = plt.subplots(1, 2, figsize=(9.6, 0.42 * len(names) + 2.4), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(8.4, 0.42 * len(names) + 2.2), sharey=True)
     fig.subplots_adjust(
-        left=0.22, right=0.93, top=1 - 0.95 / fig.get_figheight(), bottom=0.22, wspace=0.3
+        left=0.25,
+        right=0.97,
+        top=1 - 1.05 / fig.get_figheight(),
+        bottom=0.75 / fig.get_figheight(),
+        wspace=0.18,
     )
     panels = (
         ("copy", "Names its in-view wrong value\nwhen answering another question"),
@@ -356,16 +399,21 @@ def fig_s3_faults() -> None:
         ),
     )
     for ax, (measure, label) in zip(axes, panels, strict=True):
-        arm_points(ax, measure, names, tables, chats)
-        ax.set_xlim(-3, 75)  # a little below 0, so a 0% dot and its interval show whole
-        ax.set_xticks(range(0, 61, 20), [f"{t}%" for t in range(0, 61, 20)])
-        ax.set_xlabel(label, fontsize=9.5)
+        top = arm_points(ax, measure, names, tables, chats, fontsize=10)
+        step = 10 if top < 40 else 20
+        ticks = range(0, int(top) + 1, step)
+        # A little below 0, so a 0% dot and its interval show whole; room right for the counts.
+        ax.set_xlim(-0.05 * top, 1.3 * top)
+        ax.set_xticks(ticks, [f"{t}%" for t in ticks])
+        ax.tick_params(axis="x", labelsize=10)
+        ax.set_xlabel(label, fontsize=10)
     axes[1].tick_params(axis="y", labelleft=False)
     titled(
         fig,
-        "C1 removes most of 6.37's two faults; its false answers stay above base's",
+        "C1 cuts 6.37's two faults; its false answers stay above base's",
         "Lower is better. Grey band: base with the tool, the line C1 had to be under on the right "
-        "(R-178 (c)). 95% intervals resample chats.",
+        "(R-178 (c)).\n"
+        "95% intervals resample chats; 6.37 and C1 pool three seeds, report arms two.",
     )
     save(fig, "s3_faults")
 
@@ -375,10 +423,10 @@ def fig_s3_misses() -> None:
     rows = S3.arms()
     names = [n for n in rows if n != "whole_chat"]
     parts = (
-        ("Right", TUNED_C),
-        ("Fact in its own search output, answered wrong", BASE_C),
-        ("Searched, fact not found", CARD_C),
-        ("No search", AXIS),
+        ("Right", OUTCOME_C["right"]),
+        ("Fact in its own search output, answered wrong", OUTCOME_C["misread"]),
+        ("Searched, fact not found", OUTCOME_C["missed"]),
+        ("No search", OUTCOME_C["none"]),
     )
     fig, ax = plt.subplots(figsize=(8.6, 0.42 * len(names) + 2.2))
     fig.subplots_adjust(left=0.27, right=0.97, top=1 - 1.45 / fig.get_figheight(), bottom=0.13)
@@ -399,8 +447,10 @@ def fig_s3_misses() -> None:
             left += width
         lo, hi = wilson(counts[0], len(asked))
         ax.plot([100 * lo, 100 * hi], [y + 0.36, y + 0.36], color=INK, lw=1.2)
+        estimate = 100 * counts[0] / len(asked)
+        ax.scatter([estimate], [y + 0.36], s=16, color=INK, lw=0, zorder=4)
         ax.text(101, y, f"n = {len(asked)}", va="center", color=INK_2, fontsize=9)
-    ax.set_yticks(ys, [S3.ARM_NAMES[n] for n in names])
+    ax.set_yticks(ys, [arm_label(n) for n in names])
     ax.tick_params(axis="y", length=0, labelsize=10)
     ax.set_xlim(0, 110)
     ax.set_xticks(range(0, 101, 25), [f"{t}%" for t in range(0, 101, 25)])
@@ -420,7 +470,7 @@ def fig_s3_misses() -> None:
     titled(
         fig,
         "Where recall is lost on S3",
-        "Black line: 95% Wilson interval of the right share (rows, not chats). R-287.",
+        "Black dot and line: the right share and its 95% Wilson interval (rows, not chats). R-287.",
     )
     save(fig, "s3_misses")
 
@@ -430,12 +480,15 @@ def fig_never_told_slide() -> None:
     fig, ax = plt.subplots(figsize=(9, 3.6))
     fig.subplots_adjust(left=0.1, right=0.97, top=0.7, bottom=0.2)
     ax.axhspan(NEVER_TOLD_GATE - 0.5, 48.5, color=GRID, alpha=0.7, lw=0, zorder=0)
-    for x, (_, run) in enumerate(STAGES):
+    counts = []
+    for x, (label, run) in enumerate(STAGES):
         asked = [r for r in eval_rows(f"hd_{run}_82", 73157) if r["kind"] == "never_told"]
         hits = sum(bool(r["correct"]) for r in asked)
+        counts.append(f"{label.split(':')[0].split(',')[0]} {hits}")
+        colour = C1_C if run == "k13opc1_r263" else REPORT_C
         lo, hi = wilson(hits, len(asked))
-        ax.plot([x, x], [lo * len(asked), hi * len(asked)], color=TUNED_C, lw=2.2)
-        ax.scatter([x], [hits], s=100, color=TUNED_C, edgecolor=SURFACE, linewidth=2, zorder=3)
+        ax.plot([x, x], [lo * len(asked), hi * len(asked)], color=colour, lw=2.2)
+        ax.scatter([x], [hits], s=100, color=colour, edgecolor=SURFACE, linewidth=0.8, zorder=3)
         ax.text(x + 0.08, hits, f"{hits} of {len(asked)}", va="center", color=INK, fontsize=10)
     ax.set_xticks(range(len(STAGES)), [s[0] for s in STAGES])
     ax.set_xlim(-0.4, len(STAGES) - 0.4)
@@ -443,12 +496,14 @@ def fig_never_told_slide() -> None:
     ax.set_yticks(range(36, 49, 2))
     ax.set_ylabel("Never-told questions declined", fontsize=9.5)
     ax.grid(axis="x", visible=False)
-    ax.text(0.1, 43.3, "the gate: at least 44", va="top", color=INK_2, fontsize=9)
+    ax.text(
+        0.5, NEVER_TOLD_GATE - 0.3, "the gate: at least 44", ha="center", color=INK_2, fontsize=9
+    )
     titled(
         fig,
-        "From OP on, each repeat of the stage declined fewer never-told questions",
-        "Exploratory: one run each, hard_dev, seed 82, 48 a run; Wilson 95% intervals overlap;\n"
-        "grey: passes the gate.",
+        f"hard_dev never-told declines at seed 82: {', '.join(counts)} of {len(asked)}",
+        "Exploratory: one run each, hard_dev, seed 82; Wilson 95% intervals overlap;\n"
+        "grey band: passes the gate.",
     )
     save(fig, "never_told_slide")
 

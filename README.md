@@ -79,11 +79,13 @@ answer, or decline when the chat never held the fact.
   outside chats it mostly answers a never-told question with another stored fact (R-298).
 - Strongest baselines first: on short outside-writer chats (a mean of 1,400 tokens), base shown the whole chat
   recalls most (71 and 65 of 120), and plain code that searches every turn shows no measured difference from 6.37 and
-  runs faster. On S3 code recalls more than 6.37 (161 of 414 against 347 of 1,242).
+  runs faster. On S3 code recalls more than 6.37 (161 of 414 against 347 of 1,242). On LongMemEval-S, no measured
+  difference from code on answers; code's first search finds the evidence more often, 372 against 333 of 476
+  (registered H2, R-170).
 - Where training helps: on the sealed generated chats 6.37 recalls 91 to 107 of 120 against 13 to 32 for base with the
   tool. On the outside-writer chats it searches when the answer is out of view and leaves answers in view alone, where
   code searches every turn.
-- Where it fails: on S3 it names its in-view wrong value on 21.8% of questions (base 3.7%) and a listed value on
+- Where it fails: on S3 it names its in-view wrong value on 21.8% of wrong-view questions (base 3.7%) and a listed value on
   40.4% of never-told questions (base 5.9%); on LongMemEval-S it declines 233 of 470 answerable questions; on the
   scripted demo it gave an unrelated stored fact on 2 of 4 questions and repeated its own wrong answer on 6 of 8
   (R-175, R-176).
@@ -283,8 +285,9 @@ too long to show. When a chat is short enough to show whole, that is the better 
 sets (chats of about 1,400 tokens), base with every message in view answers 58 and 52 of 80 `older`
 questions, against 28 and 34 for 6.37 seed 82 with the tool and the last three exchanges (R-164).
 Given the whole chat and the tool, 6.37 shows no measured difference from base given the whole chat,
-on any kind, on both sets (R-165). That is one seed and two sets of 40 chats, so gaps under about
-15 points on a kind of 40 questions are below what this test resolves (R-142). So the design this supports is to
+on any kind, on both sets (R-165). That is one seed and two sets of 40 chats, so differences under about
+22 points between two arms on a kind of 40 questions are below what this test resolves, and the test is not powered
+to show equality (R-142). So the design this supports is to
 show the trained model the whole chat when it fits, and let it search when it does not: no measured
 loss against base when the chat fits, and much better than base once only part of the chat can be
 shown. The whole-chat result holds on the outside-writer chats, not on this project's generated
@@ -382,7 +385,7 @@ writing from one brief (in the set's folder), frozen by SHA-256 before anyone re
 
 ## Known limits
 
-- On S3, written by outside writers, 6.37 names its own in-view wrong value on 21.8% of questions (base 3.7%) and a
+- On S3, written by outside writers, 6.37 names its own in-view wrong value on 21.8% of wrong-view questions (base 3.7%) and a
   listed value on 40.4% of never-told questions (base 5.9%); code that searches every turn recalls more than it. S3's
   flags see only listed values of the asked category, so invented values and other stored facts pass unseen (R-287,
   R-298).
@@ -464,8 +467,8 @@ weights instead. Nothing from that project's code or test sets is used here.
 ## Reproduce the results
 
 Every run and training file under `results/` carries its provenance (command, commit, package versions); the
-record that registered each analysis in `RECORDS.md` names the script that writes it, and the Layout table names the
-main ones. The confirmatory
+Reproduce steps below and the Layout table name the script that writes each analysis, except the pre-repository
+first run. The confirmatory
 results can be rescored from the committed run files (`score_r162.py`, `score_s3.py`); they cannot be rerun from
 scratch by someone else, because only 6.37 seed 82 and C1 seed 82 are published and retraining does not give the same
 weights (R-029). Training is not bit-reproducible on this card (R-029); generation is: a repeated run of
@@ -480,7 +483,9 @@ revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
 ../venv/Scripts/python scripts/run_recall_eval.py --pool hard_dev --seed 73157 --items-per-kind 24 --index ../scratch/eval_hard_dev.sqlite --label hd_fix17cs37_82 --arms tool_loop --max-vram-fraction 0.85 --adapter ../adapters/screens/fix17cs37_82
 ```
 
-3. The sealed run (R-162): `scripts/records/queue/final.sh`, which starts with `scripts/records/freeze_r154.py check
+3. The sealed run (R-162): `scripts/records/queue/final.sh`, sourced by `scripts/records/queue/runner2.sh`; both
+   queues (this one and S3's `qs3.sh`) are kept as run, with the author's paths and a Windows-only lock. `final.sh`
+   starts with `scripts/records/freeze_r154.py check
    results/freeze/sealed_manifest.json` and stops unless every frozen file and value matches. The sealed pools are
    read only with `--final`; the run is scored by `scripts/records/score_r162.py` into `results/analysis/R-162/`, with
    sheets from `sheets_r162.py`, briefs from `briefs_r162.py` and judge transcripts checked by `audit_judge_r162.py`.
@@ -542,9 +547,10 @@ other test files.
 - **14 November (R-218 to R-289).** The "Reopened" section carried through S3 (R-287: C1 fails one
   clause, 6.37 stays shipped); the long and short write-ups and the form abstract rebuilt from templates by
   `scripts/make_article.py` (R-288) and fixed after an audit (R-289); S3's layout rows and reproduce step added.
-- **15 November (R-290 to R-298), this version.** Decisions stated in my own voice; two review panels (R-294, R-295,
+- **15 November (R-290 to R-301), this version.** Decisions stated in my own voice; two review panels (R-294, R-295,
   R-298); C1 published beside 6.37 (R-296); 6.37's S3 weakness and what S3's flags count stated in every document; the
-  short paper cut to its story and required items.
+  short paper cut to its story and required items; the audit of the write-ups (R-299); the long paper's detail moved
+  to three appendices (R-300); a third review round's fixes (R-301).
 
 ## Licences
 

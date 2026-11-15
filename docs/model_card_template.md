@@ -24,9 +24,12 @@ by Claude Opus agents, a mean of {{ow_tokens_mean}} tokens), the untrained model
 recalls most ({{wc_recall_1}} and {{wc_recall_2}} of {{as_recall_n}}), and code that searches every
 turn shows no measured difference from 6.37 ({{as_recall_1}} and {{as_recall_2}} against {{ow_82_recall_1}} and
 {{ow_82_recall_2}}) and runs faster. There, training's measured gain is when to search: 6.37
-searches for facts out of view, which base rarely does, and leaves answers already in view alone
+searches on {{ow_82_recall_searched_1}} and {{ow_82_recall_searched_2}} of the {{as_recall_n}} recall questions,
+base on {{ow_base_recall_searched_1}} and {{ow_base_recall_searched_2}}, and leaves answers already in view alone
 ({{ship_in_view_1}} and {{ship_in_view_2}} of {{as_kind_n}} right), where code searches every turn
-({{as_in_view_1}} and {{as_in_view_2}}).
+({{as_in_view_1}} and {{as_in_view_2}}). On S3, a second sealed test from outside writers, 6.37 shows two faults more
+often than the untrained model: it names its own in-view wrong value on {{s3_copy_637}} questions against
+{{s3_copy_base}}, and a listed value on {{s3_nhit_637}} never-told questions against {{s3_nhit_base}}.
 
 The shipped adapter is 6.37 (`fix17cs37` seed 82):
 [aya-retrieval-6.37](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37). The training and
@@ -76,7 +79,7 @@ Generated chats:
 | Measure | Base, tool | Code | Base, whole chat | 6.37, tool |
 |---|---|---|---|---|
 | Sealed test recall, of {{sealed_recall_n}}, four conditions | {{sealed_shipbase_range}} | not in the sealed run | not in the sealed run | {{sealed_ship_range}} |
-| Recall, of {{r168_recall_n}}, sealed pools after the run (R-168) | {{r168_tool}} | {{r168_as}} | {{r168_wc}} (58 messages only; 419 messages does not fit 10 GB) | {{r168_ship}} ({{r168_ship58}} at 58 messages) |
+| Recall, of {{r168_recall_n}}, sealed pools after the run (R-168) | {{r168_tool}} | {{r168_as}} | {{r168_wc}} (58 messages only; {{long_size}} messages does not fit 10 GB) | {{r168_ship}} ({{r168_ship58}} at 58 messages) |
 | Right search decisions, of {{sealed_conversations}} (sealed; `heldout`, `independent`) | {{sealed_decisions_base}} | not run | not run | {{sealed_decisions_ship}} |
 | Clean first calls (sealed; of the turns that searched; format only, unclean calls still ran) | {{sealed_clean_base}} | scripted | no tool | {{sealed_clean_ship}} |
 
@@ -96,13 +99,17 @@ official GPT-4o judge):
 
 **Which to use when.**
 1. If the chat was written outside this project's generator and fits the context, show it whole: base with the
-   whole chat recalls most on outside-writer chats and S3, and needs no adapter.
+   whole chat recalls most on outside-writer chats and S3, and needs no adapter. On S3 the whole chat names a listed
+   value on {{s3_nhit_wc}} never-told N-hit questions, against base with the tool's {{s3_nhit_base}}, and names no
+   listed value on {{s3_ntp_wc}} plain never-told questions, against {{s3_ntp_base}}.
 2. If it is longer than the {{model_max_tokens}}-token window, 6.37 and code that searches every turn show no
-   measured difference on LongMemEval-S; code is simpler and trains nothing. 6.37 declines {{lme_refuse_ship}} of the
+   measured difference on LongMemEval-S answers; code's first search finds the evidence more often,
+   {{lme_h2_code}} (registered H2, R-170), and code needs no training. 6.37 declines {{lme_refuse_ship}} of the
    {{lme_answerable_n}} questions that have an answer there; code declines {{lme_refuse_code}}.
 3. If repeating a wrong answer or naming values for never-told questions matters, this adapter does both more often
-   than base on S3; C1 ([aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1)) measured far
-   lower rates, missed one registered clause and is not the shipped model.
+   than base on S3; C1 ([aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1)) measured
+   changes of {{s3_rel_copy}} and {{s3_rel_nhit}} against this adapter, missed one registered clause and is not the
+   shipped model.
 
 "Base" is the untrained Tiny Aya Global. "Code" is code that searches on every turn with the
 newest message as the query, then hands base the passages (nothing trained). Recall counts the
@@ -117,10 +124,10 @@ On two sets of chats by outside writers who never saw this project's generator (
 {{wc_base_older_1}} and {{wc_base_older_2}} of {{older_n}} questions about facts told earlier,
 against {{tool82_older_1}} and {{tool82_older_2}} for this adapter with the tool and the last three
 exchanges (R-164). Given the whole chat and the tool, the adapter and the untrained model show
-no measured difference on every kind of message (one seed, two sets of {{ow_chats}} chats; gaps
-under about {{kind_noise}} points on a kind of {{kind_noise_n}} questions are below what this test
-resolves; R-142, R-165). This holds on those outside-writer chats only. On the project's generated
-sealed chats of about the same length (58 messages, {{r168_wc_tokens}} tokens), the untrained
+no measured difference on every kind of message (one seed, two sets of {{ow_chats}} chats;
+differences under about {{kind_noise_diff}} points between two arms on a kind of {{kind_noise_n}} questions are below
+what this test resolves, and the test is not powered to show equality; R-142, R-165). This holds on those
+outside-writer chats only. On the project's generated sealed chats of 58 messages, {{r168_wc_tokens}} tokens, the untrained
 model with the whole chat answers {{r168_wc}} of {{r168_recall_n}} recall questions against this
 adapter's {{r168_ship58}} with the tool (R-168).
 
@@ -135,11 +142,11 @@ searching when it is in view (against code): where the answer is in view the ada
 {{as_never_told_1}} and {{as_never_told_2}}. On plain statements it leaves {{ship_statement_1}} and
 {{ship_statement_2}} unsearched, below base's {{ow_base_statement_1}} and
 {{ow_base_statement_2}}; code searches every one. On the generated sealed pools this adapter is
-above both references on recall: {{r168_ship}} of {{r168_recall_n}} at each of 58 and 419 messages
+above both references on recall: {{r168_ship}} of {{r168_recall_n}} at each of 58 and {{long_size}} messages
 against code's {{r168_as}} (every sign test below 0.001; R-168). The code is faster on every set:
 {{speed_sealed_short}} on the sealed pools, {{speed_ow_short}} on the outside-writer sets.
 
-Not measured: the untrained model reading the whole chat at 419 messages ({{hd_419_tokens}}
+Not measured: the untrained model reading the whole chat at {{long_size}} messages ({{hd_419_tokens}}
 tokens on `hard_dev`, inside the window). Those runs ran out of card memory under the {{oom_allowed}} GiB cap on a
 10 GB card (R-166); every three-exchange run in the sealed run peaked at {{sealed_peak_range}} GiB
 of card memory at inference (R-163).
@@ -167,7 +174,8 @@ of card memory at inference (R-163).
   the untrained model; every seed was judged coherent more often by all three judges.
 - **LongMemEval-S, an outside check** (R-170): a third kind of chat, user-to-assistant chats, partly
   real logs and partly model-simulated, never pooled with the sets above. The adapter's system
-  prompt ("You are chatting with a friend") does not fit them. Every arm answers few questions.
+  prompt ("You are chatting with a friend") does not fit them. No arm is judged right on more than
+  {{lme_j_max}} of {{lme_judged_n}}.
   This adapter finds the evidence more often than the untrained model with the tool only because it
   searches more often; code that always searches finds it more often still ({{lme_found_code}}
   against {{lme_found_ship}} of {{lme_evidence_n}}), with no measured difference in gold answers
@@ -205,7 +213,7 @@ message, top {{top_k}} passages each. Decoding in every test was greedy.
   recalls more than this adapter ({{s3_recall_as}} against {{s3_recall_637}}; {{s3_code_vs_637}}), and the whole
   chat {{s3_recall_wc}}.
 - On LongMemEval-S it declines {{lme_refuse_ship}} of {{lme_answerable_n}} questions it should
-  answer, and every arm answers few (R-170). Replies are capped at {{lme_cap}} tokens in every
+  answer, and no arm is judged right on more than {{lme_j_max}} of {{lme_judged_n}} (R-170). Replies are capped at {{lme_cap}} tokens in every
   test, and the longest LongMemEval-S views run out of memory on a 10 GB card.
 - It corrects {{claims_82_corrected_1}} and {{claims_82_corrected_2}} of {{claims_false_n}} false claims in tag questions ("..., right?").
 - When the friend is just chatting it should not search; on the outside-writer sets it searched

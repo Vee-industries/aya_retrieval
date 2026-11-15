@@ -24,9 +24,12 @@ by Claude Opus agents, a mean of 1,400 tokens), the untrained model shown the wh
 recalls most (71 and 65 of 120), and code that searches every
 turn shows no measured difference from 6.37 (42 and 47 against 39 and
 53) and runs faster. There, training's measured gain is when to search: 6.37
-searches for facts out of view, which base rarely does, and leaves answers already in view alone
+searches on 89 and 90 of the 120 recall questions,
+base on 54 and 42, and leaves answers already in view alone
 (35 and 37 of 40 right), where code searches every turn
-(13 and 16).
+(13 and 16). On S3, a second sealed test from outside writers, 6.37 shows two faults more
+often than the untrained model: it names its own in-view wrong value on 195 of 894 (21.8%) questions against
+11 of 298 (3.7%), and a listed value on 286 of 708 (40.4%) never-told questions against 14 of 236 (5.9%).
 
 The shipped adapter is 6.37 (`fix17cs37` seed 82):
 [aya-retrieval-6.37](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37). The training and
@@ -96,13 +99,17 @@ official GPT-4o judge):
 
 **Which to use when.**
 1. If the chat was written outside this project's generator and fits the context, show it whole: base with the
-   whole chat recalls most on outside-writer chats and S3, and needs no adapter.
+   whole chat recalls most on outside-writer chats and S3, and needs no adapter. On S3 the whole chat names a listed
+   value on 57 of 236 (24.2%) never-told N-hit questions, against base with the tool's 14 of 236 (5.9%), and names no
+   listed value on 89 of 120 (74.2%) plain never-told questions, against 111 of 120 (92.5%).
 2. If it is longer than the 8,192-token window, 6.37 and code that searches every turn show no
-   measured difference on LongMemEval-S; code is simpler and trains nothing. 6.37 declines 233 of the
+   measured difference on LongMemEval-S answers; code's first search finds the evidence more often,
+   372 against 333 of 476 (registered H2, R-170), and code needs no training. 6.37 declines 233 of the
    470 questions that have an answer there; code declines 1.
 3. If repeating a wrong answer or naming values for never-told questions matters, this adapter does both more often
-   than base on S3; C1 ([aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1)) measured far
-   lower rates, missed one registered clause and is not the shipped model.
+   than base on S3; C1 ([aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1)) measured
+   changes of -97% and -82% against this adapter, missed one registered clause and is not the
+   shipped model.
 
 "Base" is the untrained Tiny Aya Global. "Code" is code that searches on every turn with the
 newest message as the query, then hands base the passages (nothing trained). Recall counts the
@@ -117,10 +124,10 @@ On two sets of chats by outside writers who never saw this project's generator (
 58 and 52 of 80 questions about facts told earlier,
 against 28 and 34 for this adapter with the tool and the last three
 exchanges (R-164). Given the whole chat and the tool, the adapter and the untrained model show
-no measured difference on every kind of message (one seed, two sets of 40 chats; gaps
-under about 15 points on a kind of 40 questions are below what this test
-resolves; R-142, R-165). This holds on those outside-writer chats only. On the project's generated
-sealed chats of about the same length (58 messages, 1,105 to 1,332 tokens), the untrained
+no measured difference on every kind of message (one seed, two sets of 40 chats;
+differences under about 22 points between two arms on a kind of 40 questions are below
+what this test resolves, and the test is not powered to show equality; R-142, R-165). This holds on those
+outside-writer chats only. On the project's generated sealed chats of 58 messages, 1,105 to 1,332 tokens, the untrained
 model with the whole chat answers 21 to 33 of 60 recall questions against this
 adapter's 46 to 55 with the tool (R-168).
 
@@ -167,7 +174,8 @@ of card memory at inference (R-163).
   the untrained model; every seed was judged coherent more often by all three judges.
 - **LongMemEval-S, an outside check** (R-170): a third kind of chat, user-to-assistant chats, partly
   real logs and partly model-simulated, never pooled with the sets above. The adapter's system
-  prompt ("You are chatting with a friend") does not fit them. Every arm answers few questions.
+  prompt ("You are chatting with a friend") does not fit them. No arm is judged right on more than
+  53 of 248.
   This adapter finds the evidence more often than the untrained model with the tool only because it
   searches more often; code that always searches finds it more often still (372
   against 333 of 476), with no measured difference in gold answers
@@ -205,7 +213,7 @@ message, top 5 passages each. Decoding in every test was greedy.
   recalls more than this adapter (161 of 414 (38.9%) against 347 of 1,242 (27.9%); +11.0 points, 95% interval +3.5 to +18.6), and the whole
   chat 274 of 414 (66.2%).
 - On LongMemEval-S it declines 233 of 470 questions it should
-  answer, and every arm answers few (R-170). Replies are capped at 60 tokens in every
+  answer, and no arm is judged right on more than 53 of 248 (R-170). Replies are capped at 60 tokens in every
   test, and the longest LongMemEval-S views run out of memory on a 10 GB card.
 - It corrects 1 and 3 of 20 false claims in tag questions ("..., right?").
 - When the friend is just chatting it should not search; on the outside-writer sets it searched

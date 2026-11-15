@@ -371,9 +371,10 @@ def reference_numbers(out) -> None:
         for kind in ("in_view", "statement"):
             asked = [r for r in rows if r["kind"] == kind]
             out[f"r017_{arm}_{kind}"] = f"{sum(bool(r['correct']) for r in asked)} of {len(asked)}"
-    # R-142: the noise of a kind with about 40 questions, as a 95% half-width at a 50% rate.
+    # R-142: the noise of a kind with about 40 questions: the 95% half-width of the difference
+    # between two arms' rates near 50% (variance 0.25 / n each).
     n = load(SET_FILES[1])["per_kind_correct"]["confirm"]["items"]
-    out["kind_noise"] = f"{100 * 1.96 * (0.25 / n) ** 0.5:.0f}"
+    out["kind_noise_diff"] = f"{100 * 1.96 * (2 * 0.25 / n) ** 0.5:.0f}"
     out["kind_noise_n"] = str(n)
     # Tag questions among each outside-writer set's `confirm` messages.
     for n_set, prefix in SETS.items():
@@ -853,6 +854,15 @@ def longmemeval_numbers(out) -> None:
     any_search = h2["any_search_turn"]["failures_wrong"]
     out["lme_h2_any"] = f"{any_search['first']} against {any_search['second']}"
     out["lme_h2_answer"] = diff_text(answer)
+    # Registered H2 told from code's side: code first, then 6.37 (R-170).
+    h2_evidence = h2["first_search_turn"]["failures_wrong"]
+    out["lme_h2_code"] = (
+        f"{h2_evidence['second']} against {h2_evidence['first']} of {h2_evidence['n']}"
+    )
+    out["lme_h2_code_p"] = p_text(h2_evidence["p"])
+    out["lme_h2_answer_code"] = (
+        f"{answer['second']} against {answer['first']} of {answer['n']}, p = {p_text(answer['p'])}"
+    )
     out["lme_h3"] = diff_text(abstain)
     out["lme_h3_refuse"] = diff_text(refuse)
     for a, short in (("637_tool", "ship"), ("base_tool", "base"), ("always_search", "code")):
@@ -926,6 +936,7 @@ def longmemeval_numbers(out) -> None:
     out["lme_judged_n"] = str(vs_base["failures_wrong"]["n"])
     for a, short in (("637_tool", "ship"), ("base_tool", "base"), ("always_search", "code")):
         out[f"lme_j_{short}"] = str(j["j1"][a]["all_248"]["hits"])
+    out["lme_j_max"] = str(max(j["j1"][a]["all_248"]["hits"] for a in LME_ARMS))
     out["lme_judged_vs_base"] = diff_text(vs_base["failures_wrong"])
     out["lme_judged_vs_code"] = diff_text(vs_code["failures_wrong"])
     out["lme_judged_p_base"] = p_text(vs_base["failures_wrong"]["p"])
@@ -1171,6 +1182,7 @@ def sealed_numbers(out) -> None:
     out["sealed_conversations"] = str(runs["A"]["conversations"])
     out["sealed_recall_n"] = str(runs["A"]["shipped_seed_82"]["questions"])
     out["sealed_per_kind_n"] = str(runs["A"]["conversations"] // len(KINDS))
+    out["sealed_kind_size_n"] = str(runs["A"]["conversations"] // len(KINDS) // len(SIZES))
     out["sealed_adapters_range"] = f"{min(adapter_rates)} to {max(adapter_rates)}"
     out["sealed_base_range"] = f"{min(base_rates)} to {max(base_rates)}"
     out["sealed_gain_range"] = f"{min(gains):.0f} to {max(gains):.0f}"
@@ -1273,6 +1285,16 @@ def sealed_numbers(out) -> None:
         f" (D) and answered {found[0]['recall_right_and_found']} and "
         f"{found[1]['recall_right_and_found']} of those right"
     )
+    misses, found_wrong = [], []
+    for c, f in zip(("C", "D"), found, strict=True):
+        n = runs[c]["shipped_seed_82"]["questions"]
+        missed = n - recall_per_seed(runs[c])[SHIP]
+        confirm_n = runs[c]["conversations"] // len(KINDS)
+        missed_confirm = confirm_n - runs[c]["per_kind_correct"]["confirm"][SHIP]
+        misses.append(f"{missed_confirm} of its {missed} misses in {c}")
+        found_wrong.append(f["recall_found_fact"] - f["recall_right_and_found"])
+    out["sealed_ship_misses_cd"] = " and ".join(misses)
+    out["sealed_ship_found_wrong"] = f"{found_wrong[0]} and {found_wrong[1]}"
     out["sealed_per_seed"] = "; ".join(
         f"{c}, " + ", ".join(str(recall_per_seed(runs[c])[a]) for a in ADAPTERS) for c in CONDITIONS
     )
@@ -1383,6 +1405,9 @@ def outside_writer_numbers(out) -> None:
         statement = blind["per_kind_right_decision"]["statement"]
         out[f"ow_82_stmt_searched_{n}"] = str(statement["items"] - statement["82"])
         out[f"ow_base_stmt_searched_{n}"] = str(statement["items"] - statement[base_key])
+        for who, label in (("82", SHIP), ("base", "base")):  # recall questions that searched
+            asked = [r for r in eval_rows(f"{prefix}_{label}", 0) if r["kind"] in RECALL_KINDS]
+            out[f"ow_{who}_recall_searched_{n}"] = str(sum(bool(r["queries"]) for r in asked))
         order = sorted(seeds.values())
         out[f"ow_82_place_{n}"] = (
             "the lowest of the eight"
@@ -2176,9 +2201,11 @@ def reopened_numbers(out) -> None:
     for name, run, change, end, rec in REOPENED:
         line = lines[name]
         screened = "every line read" if line["wait"] == "0" else f"{line['wait']} of 20 not read"
+        if line["pick"]:
+            end = f"{end}; pick recall {line['pick']}"
         rows.append(
             f"| {name} | {change} | {end} | {hd_never_told(run)} | {hard_dev(run)} "
-            f"| {line['fail']} ({screened}) | {line['pick'] or ''} | {rec} |"
+            f"| {line['fail']} ({screened}) | {rec} |"
         )
     header = [
         "Candidate",
@@ -2187,10 +2214,18 @@ def reopened_numbers(out) -> None:
         "`hard_dev` never-told, seed 82 (of 48)",
         "`hard_dev` recall, seed 82 (of 96)",
         "Lines failed of 20",
-        "Pick recall, seeds 82, 83, 94",
         "Record",
     ]
     out["reopened_ledger"] = table(header, rows)
+    # Pick recall's denominator: recall questions of probe, hard_dev and both outside-writer sets
+    # at each of the three pick seeds (decide_r191.pick_recall, R-192).
+    pick_n = 0
+    for s in (82, 83, 94):
+        for stem, seed in (("probe", 73157), ("hd", 73157), ("blind", 0), ("blind2", 0)):
+            pick_n += sum(
+                r["kind"] in RECALL_KINDS for r in eval_rows(f"{stem}_k13opc1_r263_{s}", seed)
+            )
+    out["pick_recall_n"] = f"{pick_n:,}"
     out["reopened_n"] = str(len(REOPENED))
     out["reopened_full"] = WORDS[sum(line["wait"] == "0" for line in lines.values())]
     out["pick_recall_c1"], out["pick_recall_k13"] = lines["C1"]["pick"], lines["K1.3"]["pick"]
@@ -2430,6 +2465,8 @@ def s3_panel_numbers(out) -> None:
     for run, key in (("fix17cs37", "637"), ("k13opc1_r263", "c1")):
         per = [counts(f"s3_{run}_{seed}")["n_hit_false_answer"] for seed in (82, 83, 94)]
         out[f"s3_seed_nhit_{key}"] = f"{per[0][0]}, {per[1][0]} and {per[2][0]} of {per[0][1]}"
+        per = [counts(f"s3_{run}_{seed}")["recall"] for seed in (82, 83, 94)]
+        out[f"s3_seed_recall_{key}"] = f"{per[0][0]}, {per[1][0]} and {per[2][0]} of {per[0][1]}"
         found = [r for seed in (82, 83, 94) for r in scorer.load(f"s3_{run}_{seed}")]
         recall_rows = [r for r in found if r["kind"] in RECALL_KINDS]
         out[f"s3_found_{key}"] = frac(
@@ -2536,10 +2573,23 @@ def s3_round2_numbers(out) -> None:
     k1 = load(S3_DIR / "ship_rule.json")["arms"]["k1_r178"]
     for measure, short in (("recall", "recall"), ("copy", "copy")):
         out[f"s3_{short}_k1"] = frac(k1[measure]["hits"], k1[measure]["n"])
+    # Query writing as a cause of lost recall (exploratory): on the same recall questions, did
+    # code's raw message find the fact where the seed's own queries did not, or the reverse?
+    code_found = {r["id"]: bool(r["found_fact"]) for r in runs["as"] if r["kind"] in RECALL_KINDS}
+    for key, label in (("637", "s3_fix17cs37_82"), ("c1", "s3_k13opc1_r263_82")):
+        own = {
+            r["id"]: bool(r["found_fact"]) for r in scorer.load(label) if r["kind"] in RECALL_KINDS
+        }
+        if set(own) != set(code_found):
+            raise SystemExit(f"{label} and code do not hold the same S3 recall questions")
+        out[f"s3_qw_code_only_{key}"] = str(sum(code_found[i] and not own[i] for i in own))
+        out[f"s3_qw_own_only_{key}"] = str(sum(own[i] and not code_found[i] for i in own))
+    out["s3_qw_n"] = str(len(code_found))
     base_rows = runs["base"]
     out["s3_nt_items"] = str(
         sum(r["kind"] == "never_told" and r["view"] == "right" for r in base_rows)
     )
+    out["s3_nt_all"] = str(sum(r["kind"] == "never_told" for r in base_rows))
     out["s3_nhit_items"] = str(
         sum(
             r["kind"] == "never_told" and r["n_hit"] and r["false_answer"] is not None
