@@ -10461,3 +10461,41 @@ by eye: every arm and count legible). Changed: `results/s3/ship_rule.json`, `doc
 R-292 gives its usage reading as "97% (all models, 22:41)". The reading was taken before the clock read 22:40:50, so
 its time is 22:40, not 22:41, which was typed rather than read. HANDOFF now says S3 is complete and that the voice,
 standard and submit-rule checks and the panel wait for Kevin's message tomorrow morning. Nothing pushed.
+
+## R-294 · 2026-11-15 · REOPENED · Panel: Kevin's aggregate ruling does not put C1 forward; 6.37 seed 82 stays
+
+Kevin, in chat this morning, after reading R-287's S3 comparison: "yeah panel it.. i think that my call about aggregate
+winning still holds and i made that call before seeing these results and we can run 6.37 on the other demos for the
+full comparison". Under SOP section 3 ("panel it"), the panel's recommendation is the call unless he overrides it.
+Three lanes: method (Sonnet), against (Opus, told to build the strongest case for Kevin's position, since the
+orchestrator leaned to keeping 6.37), sources (Sonnet); brief, reports and synthesis in `results/panels/R-294/`.
+**Recommendation, all three lanes: put forward 6.37 seed 82.** R-278 decided which candidate entered S3; the ship rule
+(R-178, R-191, R-281, all before S3 opened) decides what ships, and C1 failed (c) (R-287). Putting C1 forward now would
+change (c) after its result, which STANDARD rule 2 does not allow; the three readings that would admit C1 without a
+change each fail as written. Running 6.37 on Demo4 and Demo5 is allowed only as a report row registered to decide
+nothing. Both papers give C1's full comparison with 6.37, the interval showing S3 cannot tell C1 from base on the failed
+clause, 6.37's fault rates above base's, and Kevin's view, stated and not applied. Strongest objection, carried in the
+synthesis: on substance C1 is the better model for users. Checked by the orchestrator: commit times of R-277 and R-278,
+the interval and per-seed counts (rerun). Weekly usage at the start of this stage: 0% (all models, 05:01, after the
+weekly reset at 05:00); at this entry 2%.
+
+## R-295 · 2026-11-15 · REOPENED · Ten-reviewer panel on the write-up: submit after fixes
+
+Kevin, in chat: "alright so panel it.. i want a bigger panel like at least 6 maybe 10.. mostly hostile reviewers made up
+of walks of the field". Ten lanes on commit 0e8b421, two in flight at a time (05:0x to about 05:50): retrieval and
+tool-use researcher, statistician, evaluation and leakage, reproducibility, AI safety, against (Opus, hostile);
+hackathon judge, STANDARD v3 auditor, voice editor, practitioner (Sonnet). Brief, lanes, ten reports and the synthesis
+are in `results/panels/R-295/`. Verdicts: one "do not submit as is; submit after fixes", nine "submit after fixes". No
+lane found a wrong number. **The recommendation (binding unless Kevin overrides): submit after the fixes listed in the
+synthesis**, groups A (headline and claims, including Kevin's point that the claim is long chats: generated 419-message
+chats seed 82 52, 52, 46, 44 against code's 32, 30, 17, 14 of 60; LongMemEval-S 53 against code's 40 of 248, p = 0.12),
+B (what the measures count: the never-told and N-hit flags pass invented values; copy is measured on other questions),
+C (STANDARD v3 items), D (short paper), E (figures), F (reproducibility) and G (voice). Carried: the public repository
+is 465 commits behind (a push is Kevin's call); LoCoMo not run (Kevin: not needed); untested simple baselines and a
+general-capability benchmark named as not run. The form deadline is 15 November 11:59 PM AoE, **06:59 Eastern on 16
+November** (hackathon.lexsi.ai, read by the orchestrator), not 07:59 as R-217 on and HANDOFF stated.
+
+**SOP sweep items (R-059).** S8:toolu_015mVJV2mgoDr5hvRZdxaAHK (the 19:53 queue start, R-289): disputed in
+`scratch\standards\breaches\disputes\3fe62a52-...jsonl`, since the watcher was armed in the next call and exited DONE.
+S8:toolu_01AQg1vTjvtKR654sgx8HMD6 (the 20:03 background pytest run in the clone): a real breach, no watcher was armed;
+every background job from here gets `watch_job.sh`. Nothing pushed.
