@@ -11057,3 +11057,27 @@ which has not changed since R-306; its SHA-256 is abab50c1...). So `docs/submiss
 Kevin, about 11:47 by his word; the clock was not read when he filed. R-316's condition ("after the form") is met: the
 rewrite of R-306's search-word lines starts in the local history; the force push waits on Kevin's go. R-316's own
 scope paragraph, not yet pushed, quoted one of the words; the same rewrite replaces it with "use one of the words".
+
+## R-318 · 2026-11-15 · REOPENED · R-306's search-word lines removed from the public history
+
+Kevin, in chat, to "Force-push the reworded history to GitHub?" (after asking what "force" means and being told):
+"yes". Done as R-316 planned, R-317 started:
+1. **Rewrite** (local, before the push): RECORDS.md only, in the 12 commits from R-306 to R-317 (`git filter-branch
+   --index-filter`; R-306's two sweep lines matched once in every commit; R-316's quote once in R-316 and R-317). R-306
+   now reads "the email address and a private word list kept outside the repository: one hit, in a model reply on a
+   generated chat (as R-172 found)". Rule 36 forbids this edit of past entries; it is done on Kevin's word, as R-304
+   was, and the clash waits for the Model standards session.
+2. **Sweep** of `a39473f^..main` (2dc6a40, unchanged, to R-317): `privacy_check.py`, planted checks passed, 3,348
+   tracked files, 0 hits; 12 commits, 3,224 blobs, 0 hits. The 4,264 added lines of the range searched for the email
+   address and the private word list (in a file, not on a command line): 0 hits.
+3. **Force push** (12:50): `git push --force-with-lease=main:d1c49c0 origin main`, d1c49c0 to c9f6335. `reopened`
+   does not hold R-306 and was not touched.
+4. **Id map**, old to new (R-306 to R-317): a39473f ef0139a; df8f383 172564c; ca1af5d b25ec04; b08ec7f 5db523e;
+   6cb0e8b 6e68841; 38b1a0b 2fe8843; e4129f7 dc3acac; 895653b a3c3d4a; 15d3604 b7570b8; d1c49c0 3e77d6c; 0fb9602
+   470427c; bf54ca4 c9f6335. With R-315's map, this reads every id cited in R-306 to R-317 and in panel file names.
+   The ten old ids from a39473f to d1c49c0 were public and still open by id until GitHub Support purges them; Kevin
+   adds them to R-306's purge request.
+5. **After:** the live RECORDS.md on GitHub holds none of the search words but one: line 7162 (R-273's sweep) names the
+   one word it found, in a fictional outside-writer chat; left, as R-316's scope says. 37 links in the seven public
+   documents, each 200 logged out. The desktop copy renamed `Lexsi write-up 2026-11-15 (b7570b8)`; its 30 files are
+   the same at b7570b8 as at 15d3604. Hugging Face holds no RECORDS.md and did not change.

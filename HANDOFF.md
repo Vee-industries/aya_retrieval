@@ -5,6 +5,9 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-306, session 3fe62a52
 
 ## State
 
+- **State, 15 November (R-318): the form filed (Kevin, R-317); R-306's search-word lines removed from the public
+  history** (force push d1c49c0 to c9f6335; id map in R-318; desktop copy `(b7570b8)`; 37 links 200). Waiting on
+  Kevin: adding the ten old ids in R-318 to his GitHub Support purge request (with R-304's).
 - **State, 15 November (R-315): R-310 to R-314 published** (GitHub 15d3604 after R-310's sweep sentence was reworded
   in the unpushed commits; 6.37's README and `ARTICLE.md` and eval-logs `panels/R-311/`, `R-313/`, `R-314/` on Hugging
   Face; 37 links 200 logged out; desktop copy `(15d3604)`). R-316: Kevin, "Yes, after the form": R-306's list of
