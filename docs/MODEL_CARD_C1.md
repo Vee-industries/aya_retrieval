@@ -24,7 +24,7 @@ the seed the rules named to ship.
 ## Why it is published
 
 The project reopened after 6.37 shipped, to fix two faults a scripted demo showed: 6.37 repeats its own wrong answer
-when that answer is in view, and it answers questions it was never told with values from passages its search returned.
+when that answer is in view, and it answers questions it was never told with unrelated stored facts.
 On S3 (60 chats written by blind Claude Opus writers and sealed before any new training row, run once), C1
 against 6.37, each pooled over seeds 82, 83 and 94:
 
@@ -49,13 +49,15 @@ naming a listed value on never-told questions is at least 10 points below 6.37's
 (b) and the first two parts of (c). It failed "not above base's" by 1.3 points: 51 of 708 (7.2%) against
 14 of 236 (5.9%). The chat-resampled 95% interval of that difference is -3.1 to +5.7 points, so S3 cannot tell C1 from
 base on this line; C1 fails the rule as registered. By seed: 11 of 236 (seed 82), 29 of 236 (seed 83), 11 of 236 (seed 94). This adapter, seed 82, is under base on
-that line on its own and is below (a)'s statement line, base's rate minus 5 points (91.7%).
+that line on its own (counting the asked category only; counting the chat's other stored facts too, 25 of 236 (10.6%)
+against base's 17 of 236 (7.2%)) and is below (a)'s statement line, base's rate minus 5 points (91.7%): -13.3 points, 95% interval -23.3 to -3.3 against base.
 
 ## What the measures count
 
 The never-told and copy measures check for values listed for the chat (the asked category's values in that chat and the
 writers' listed wrong values). A reply that invents a new value, or gives an unrelated fact of another category, is not
-counted. The untrained model invents many values on S3, so its rate of naming a listed value is a floor and its rate of naming
+counted; C1 still gives such unrelated stored facts (exploratory: 99 of 708 (14.0%) of its N-hit questions answered with
+a value when they are counted). The untrained model invents many values on S3, so its rate of naming a listed value is a floor and its rate of naming
 no listed value a ceiling. Coherence (three blind Claude Sonnet judges; the first decides), out of 120 lines
 each: C1 97, base 95.
 

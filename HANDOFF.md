@@ -1,7 +1,7 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-297, session 3fe62a52). Read this, then
-`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-297, and `results/panels/R-294/` and `R-295/`.
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-298, session 3fe62a52). Read this, then
+`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-298, and `results/panels/R-294/`, `R-295/` and `R-298/`.
 
 ## State
 
@@ -9,8 +9,9 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-297, session 3fe62a52
   rule, and a panel Kevin asked for upheld it over his aggregate ruling (R-294; his view is stated in the papers, not
   applied). C1 seed 82 is published beside it, labelled as failing one clause:
   https://huggingface.co/KevinVaillancourt/aya-retrieval-c1 (R-296). A ten-reviewer panel on the write-up (R-295)
-  listed fixes; R-297 applied them to both papers, the abstract (481 words), both model cards, the README and three
-  figures. Every decision is first person, Kevin's (R-291). **Form due 06:59 Eastern on 16 November** (15 November
+  listed fixes; R-297 applied them. A second round (R-298, Kevin: "send them to panel again") found more; R-298
+  applied them: the short paper rewritten to 2,363 words, the abstract 465, both cards and the README in line. C1's
+  card changed, so its Hugging Face copy waits for re-upload with 6.37's pages. Every decision is first person, Kevin's (R-291). **Form due 06:59 Eastern on 16 November** (15 November
   11:59 PM AoE, read on hackathon.lexsi.ai; earlier records said 07:59).
 - **Waiting on Kevin.** (1) A push to the public GitHub repo, 465+ commits behind: the short paper's figures and links,
   the README and CI depend on it (run the privacy check with full output first). (2) Re-uploading 6.37's Hugging Face

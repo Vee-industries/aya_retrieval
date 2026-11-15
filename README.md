@@ -3,9 +3,9 @@
 Trained with Lexsi's AgentTune, a LoRA adapter (6.37) lets Tiny Aya Global (3.35B), shown only the last three
 exchanges of a chat, search the rest when the answer is out of view. On the sealed test (300 unseen generated chats
 in each of four conditions, run once), the shipped seed recalls 91 to 107 of 120 facts; the untrained model with
-the same tool recalls 13 to 32. On chats from outside writers (written by Claude Opus agents, about 1,400 tokens),
-the untrained model shown the whole chat does best (71 and 65 of 120), and code that searches every turn recalls as
-well as 6.37 (42 and 47 against 39 and 53) and runs faster. There, training's measured gain is when to search:
+the same tool recalls 13 to 32. On chats from outside writers (written by Claude Opus agents, a mean of 1,400 tokens),
+the untrained model shown the whole chat recalls most (71 and 65 of 120), and code that searches every turn shows no
+measured difference from 6.37 (42 and 47 against 39 and 53) and runs faster. There, training's measured gain is when to search:
 6.37 searches for facts out of view, which base rarely does, and leaves answers already in view alone (35 and 37 of
 40 right), where code searches every turn (13 and 16).
 
@@ -71,15 +71,19 @@ corrections; `decide_r191.py` lists 24. Demo2 and Demo3 were retired because the
 totals (R-276, R-278, set after the demo readings existed). C1, K1.3 with two stages of on-policy corrections, recalled
 5 of 12 older facts over the two demos against K1.3's 4, and 6 of 8 never-told against 5 (seed 82). It passed all 20
 screening lines and leads the pick on pooled recall over three seeds, 775 against K1.3's 742 (R-279); the lead is
-under two seeds' spread. C1 was the pick for S3.
+inside the seed-to-seed spread. C1 was the pick for S3.
 
-S3 (R-280 to R-287, 14 November), run once and scored by a rule and scorer fixed before it opened: **C1 fails the
+S3 (R-280 to R-287, 14 November), run once and scored by a rule fixed before it opened and a scorer written before any S3 file was read: **C1 fails the
 ship rule on one clause, so 6.37 stays shipped.** Its rate of false answers on never-told questions whose search
 returns text is 51 of 708 (7.2%), below 6.37's 286 of 708 (40.4%) but above base's 14 of 236 (5.9%), and the rule
-asks for both. Every other line passes. Against 6.37 on S3, C1 repeats an earlier wrong answer 5 times in 894 against
-195, declines a plain never-told question rightly 344 times in 360 against 238, and recalls 364 of 1,242 out-of-view
-facts against 347. On S3, code that searches every turn (161 of 414) and base shown the whole chat (274 of 414) both
-recall a larger share than either trained model (R-287, R-288). The report arms (K1, K1.3 and K2.1 at seeds 82 and 83)
+asks for both. Every other line passes. On S3, 6.37 does worse than base on both faults:
+it names its in-view wrong value on 195 of 894 questions (21.8%) against base's 11 of 298 (3.7%), and a listed value
+on 286 of 708 never-told questions (40.4%) against 14 of 236 (5.9%). C1 cut these to 5 of 894 and 51 of 708, names no
+listed value on 344 plain never-told questions of 360 against 6.37's 238, and recalls 364 of 1,242 against 347. On S3,
+code that searches every turn (161 of 414) and base shown the whole chat (274 of 414) both recall more than either
+trained model (R-287, R-288, R-298). S3's flags see only listed values of the asked category, so invented values and
+other stored facts pass unseen (R-298). C1 seed 82 is published beside 6.37, labelled as failing one clause:
+[aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1) (R-296). The report arms (K1, K1.3 and K2.1 at seeds 82 and 83)
 enter no line; their counts are in the long write-up's section 9.
 
 ## Submission summary
@@ -108,14 +112,18 @@ answer, or decline when the chat never held the fact.
 **For judges: one minute.**
 
 - Built: a LoRA adapter that makes a 3.35B model search an old chat with a keyword tool, answer from what it finds,
-  and decline when the fact was never told. It is tested with only the last three exchanges in view.
-- Strongest baselines first: on short outside-writer chats (about 1,400 tokens), base shown the whole chat recalls
-  best (71 and 65 of 120), and plain code that searches every turn recalls as well as 6.37 and runs faster.
+  trained to decline when the fact was never told. It is tested with only the last three exchanges in view. On
+  outside chats it mostly answers a never-told question with another stored fact (R-298).
+- Strongest baselines first: on short outside-writer chats (a mean of 1,400 tokens), base shown the whole chat
+  recalls most (71 and 65 of 120), and plain code that searches every turn shows no measured difference from 6.37 and
+  runs faster. On S3 code recalls more than 6.37 (161 of 414 against 347 of 1,242).
 - Where training helps: on the sealed generated chats 6.37 recalls 91 to 107 of 120 against 13 to 32 for base with the
   tool. On the outside-writer chats it searches when the answer is out of view and leaves answers in view alone, where
   code searches every turn.
-- Where it fails: on LongMemEval-S it declines 233 of 470 answerable questions; on the scripted demo it gave an
-  unrelated stored fact on 2 of 4 questions and repeated its own wrong answer on 6 of 8 (R-175, R-176).
+- Where it fails: on S3 it names its in-view wrong value on 21.8% of questions (base 3.7%) and a listed value on
+  40.4% of never-told questions (base 5.9%); on LongMemEval-S it declines 233 of 470 answerable questions; on the
+  scripted demo it gave an unrelated stored fact on 2 of 4 questions and repeated its own wrong answer on 6 of 8
+  (R-175, R-176).
 - State: the project was reopened on 12 November to fix those two demo failures. The pick, C1, failed one clause of
   the S3 ship rule (R-287), so 6.37 is still the shipped model (see "Reopened").
 - Where to look: `RECORDS.md` (every decision and number), the README (reproduction), and the two Hugging Face
@@ -133,7 +141,7 @@ Outside-writer chats, two sets (set 1 / set 2), one run each:
 |---|---|---|---|---|
 | Recall, of 120 | 26 / 27 | 42 / 47 | 71 / 65 (best) | 39 / 53 |
 | Answer already in view, of 40 | 36 / 34 | 13 / 16 | 35 / 32 | 35 / 37 |
-| Never told, of 40 | 34 / 32 | 31 / 24 | 31 / 28 | 37 / 36 |
+| Never told, names no listed value, of 40 | 34 / 32 | 31 / 24 | 31 / 28 | 37 / 36 |
 | Plain statement left unsearched, of 40 | 38 / 39 | 0 / 0 (searches every turn) | 40 / 40 (no tool) | 37 / 35 |
 
 Generated chats:
@@ -222,6 +230,7 @@ its weights' SHA-256 matches the sealed manifest (`results/freeze/sealed_manifes
 
 ```bash
 ../venv/Scripts/hf download KevinVaillancourt/aya-retrieval-6.37 --local-dir ../adapters/screens/fix17cs37_82
+../venv/Scripts/hf download KevinVaillancourt/aya-retrieval-c1 --local-dir ../adapters/screens/k13opc1_r263_82
 ```
 
 To train the shipped one from
@@ -321,7 +330,7 @@ on the sealed pools, base with the whole chat got 21 to 33 of 60 recall question
 46 to 55 (R-168).
 
 **Code that searches every turn, with no training,** was registered as a reference in R-016 and run
-late (R-167). On the outside-writer chats it recalls as well as 6.37 (42 and 47 of 120 against 39 and 53;
+late (R-167). On the outside-writer chats it shows no measured difference from 6.37 (42 and 47 of 120 against 39 and 53;
 p = 0.76 and 0.45, R-169). Base searches too little and code searches every turn. Training adds searching when the
 answer is out of view (against base) and not searching when it is in view (against code): answers already on screen
 35 and 37 of 40 against code's 13 and 16; facts never told 37 and 36 against 31 and 24; plain statements left
@@ -486,8 +495,9 @@ weights instead. Nothing from that project's code or test sets is used here.
 
 ## Reproduce the results
 
-Every run and training file under `results/` carries its provenance (command, commit, package versions); each
-analysis file names the script that writes it, and `RECORDS.md` names the record that registered it. The confirmatory
+Every run and training file under `results/` carries its provenance (command, commit, package versions); the
+results table above names the script that writes each analysis folder, and `RECORDS.md` names the record that
+registered it. The confirmatory
 results can be rescored from the committed run files (`score_r162.py`, `score_s3.py`); they cannot be rerun from
 scratch by someone else, because only 6.37 seed 82 and C1 seed 82 are published and retraining does not give the same
 weights (R-029). Training is not bit-reproducible on this card (R-029); generation is: a repeated run of
@@ -517,7 +527,7 @@ revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
    from results files by their templates, and so is C1's card (`docs/MODEL_CARD_C1.md`); the few numbers quoted from
    records are listed in the article's section 15.
 7. S3 (R-280): one run an arm and seed, base arms first, then 6.37 and C1 at seeds 82, 83 and 94, then the report arms
-   at 82 and 83 (the queue, `scripts/records/queue/qs3.sh` with `qs3_lock.py`, kept as run; R-280). Each run is
+   at 82 and 83 (the queue, `scripts/records/queue/qs3.sh`, run as `qs3_lock.py C1`, kept as run; R-280). Each run is
    `scripts/run_s3_eval.py --final --index <sqlite> --label <label> --max-vram-fraction 0.85` with `--arm
    always_search`, `--arm whole_chat` or `--arm tool [--adapter <adapter>]`. Then `scripts/records/draw_s3_sample.py
    --final`, `scripts/records/score_s3.py sheet --final`, the three judges, `score_s3.py tally` and `score_s3.py rule`.
@@ -561,9 +571,12 @@ other test files.
   the tool environment, a threat model, models and licences, compute and time per 1,000 replies, planned work, a
   declaration of work done outside the hackathon, an LLM usage statement and the team line. No number about 6.37
   changed, and 6.37 is still the shipped model.
-- **14 November (R-216 to R-289), this version.** The "Reopened" section carried through S3 (R-287: C1 fails one
+- **14 November (R-216 to R-289).** The "Reopened" section carried through S3 (R-287: C1 fails one
   clause, 6.37 stays shipped); the long and short write-ups and the form abstract rebuilt from templates by
   `scripts/make_article.py` (R-288) and fixed after an audit (R-289); S3's layout rows and reproduce step added.
+- **15 November (R-290 to R-298), this version.** Decisions stated in my own voice; two review panels (R-294, R-295,
+  R-298); C1 published beside 6.37 (R-296); 6.37's S3 weakness and what S3's flags count stated in every document; the
+  short paper cut to its story and required items.
 
 ## Licences
 

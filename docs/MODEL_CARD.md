@@ -95,12 +95,14 @@ official GPT-4o judge):
 | Seconds a question | 3.47 | 3.09 | 3.81 |
 
 **Which to use when.**
-1. If the whole chat fits in the context, show it whole: base with the whole chat recalls most on
-   outside-writer chats, and needs no adapter.
-2. If it does not fit, code that searches every turn shows no measured difference from 6.37 on outside-writer
-   chats and is faster. 6.37 adds leaving in-view answers alone and fewer needless searches.
-3. On very long histories (LongMemEval-S), 6.37 declines half the questions that have an answer
-   (233 of 470); code declines 1.
+1. If the chat was written outside this project's generator and fits the context, show it whole: base with the
+   whole chat recalls most on outside-writer chats and S3, and needs no adapter.
+2. If it is longer than the 8,192-token window, 6.37 and code that searches every turn show no
+   measured difference on LongMemEval-S; code is simpler and trains nothing. 6.37 declines 233 of the
+   470 questions that have an answer there; code declines 1.
+3. If repeating a wrong answer or naming values for never-told questions matters, this adapter does both more often
+   than base on S3; C1 ([aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1)) measured far
+   lower rates, missed one registered clause and is not the shipped model.
 
 "Base" is the untrained Tiny Aya Global. "Code" is code that searches on every turn with the
 newest message as the query, then hands base the passages (nothing trained). Recall counts the
@@ -108,9 +110,9 @@ newest message as the query, then hands base the passages (nothing trained). Rec
 a reply that parses whole as one `search_corpus` call with nothing before or after it, counted of
 the replies that searched; an unclean call still ran its search, so the count is a format measure.
 
-## First: when the chat fits, give it the whole chat; and plain code recalls as well
+## First: when an outside chat fits, give it the whole chat; and plain code shows no measured difference
 
-On two sets of chats by outside writers who never saw this project's generator (about
+On two sets of chats by outside writers who never saw this project's generator (a mean of
 1,400 tokens a chat), the untrained model with every message in view answers
 58 and 52 of 80 questions about facts told earlier,
 against 28 and 34 for this adapter with the tool and the last three
@@ -122,8 +124,8 @@ sealed chats of about the same length (58 messages, 1,105 to 1,332 tokens), the 
 model with the whole chat answers 21 to 33 of 60 recall questions against this
 adapter's 46 to 55 with the tool (R-168).
 
-On the outside-writer chats, plain code that searches on every turn, with no training, recalls as
-well as this adapter, both with the last three exchanges in view: 42 and
+On the outside-writer chats, plain code that searches on every turn, with no training, shows no measured
+difference from this adapter on recall, both with the last three exchanges in view: 42 and
 47 of 120 against 39 and 53, no measured
 difference (p = 0.76 and 0.45; R-169). Base with the tool searches too little and code
 searches every turn. Training adds searching when the answer is out of view (against base) and not
@@ -132,13 +134,13 @@ searching when it is in view (against code): where the answer is in view the ada
 16; on facts never told 37 and 36 against
 31 and 24. On plain statements it leaves 37 and
 35 unsearched, below base's 38 and
-39; code searches every one. On the generated sealed pools this adapter is far
+39; code searches every one. On the generated sealed pools this adapter is
 above both references on recall: 44 to 55 of 60 at each of 58 and 419 messages
 against code's 14 to 32 (every sign test below 0.001; R-168). The code is faster on every set:
 1.01 to 1.23 s a conversation against 1.67 to 2.08 on the sealed pools, 1.45 to 1.48 s a question against 1.70 to 1.96 on the outside-writer sets.
 
-Not measured: the untrained model reading the whole chat at 419 messages (about 6,236
-tokens on `hard_dev`). Those runs ran out of card memory under the 8.50 GiB cap on a
+Not measured: the untrained model reading the whole chat at 419 messages (6,236
+tokens on `hard_dev`, inside the window). Those runs ran out of card memory under the 8.50 GiB cap on a
 10 GB card (R-166); every three-exchange run in the sealed run peaked at 6.71 to 7.02 GiB
 of card memory at inference (R-163).
 
@@ -149,8 +151,7 @@ of card memory at inference (R-163).
   26 and 27 (gain +2.5 to +19.2 and +13.3 to +30.0 points, 95%
   intervals resampling chats; set 1's p = 0.047 is above the registered 0.01) (R-146, R-157).
   The gain is on direct questions; on "..., right?" questions with a false claim it corrects
-  1 and 3 of 20 and goes along with
-  the rest (R-164).
+  1 and 3 of 20 (R-164).
 - **The shipped seed is not the strongest.** Seed 82 is the lowest of the eight training seeds on
   the first outside-writer set, on sealed conditions C and D, and on `hard_dev`; the eight seeds
   pooled gain +18.0 and +20.8 points on the two sets
@@ -185,7 +186,7 @@ of card memory at inference (R-163).
 
 When the chat is short enough to show whole, show it the whole chat; the tool can stay in the
 prompt (R-165). This was measured on the outside-writer chats, of a mean of 1,400 tokens;
-on the generated chats the untrained model with the whole chat was far below this adapter with the
+on the generated chats the untrained model with the whole chat was below this adapter with the
 tool (R-168), and this adapter with the whole chat was not run there. Whole chats near the model's
 8,192-token limit were not measured.
 When it does not, use the harness the adapter was trained in: a system prompt that describes the
@@ -200,11 +201,13 @@ message, top 5 passages each. Decoding in every test was greedy.
   the untrained model (above).
 - On the short outside-writer chats the whole chat beats the three-exchange view with search,
   and plain code that searches every turn shows no measured difference from this adapter and is faster (above).
-  The adapter's recall gain over plain code is shown on the generated sealed pools only (R-168).
+  The adapter's recall gain over plain code is shown on the generated sealed pools only (R-168). On S3, code
+  recalls more than this adapter (161 of 414 (38.9%) against 347 of 1,242 (27.9%); +11.0 points, 95% interval +3.5 to +18.6), and the whole
+  chat 274 of 414 (66.2%).
 - On LongMemEval-S it declines 233 of 470 questions it should
   answer, and every arm answers few (R-170). Replies are capped at 60 tokens in every
   test, and the longest LongMemEval-S views run out of memory on a 10 GB card.
-- It goes along with most false claims in tag questions ("..., right?").
+- It corrects 1 and 3 of 20 false claims in tag questions ("..., right?").
 - When the friend is just chatting it should not search; on the outside-writer sets it searched
   3 and 5 of 40 such lines, more than
   base (2 and 1) on both sets (R-146, R-157).

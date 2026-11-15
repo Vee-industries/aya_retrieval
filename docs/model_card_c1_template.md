@@ -24,7 +24,7 @@ the seed the rules named to ship.
 ## Why it is published
 
 The project reopened after 6.37 shipped, to fix two faults a scripted demo showed: 6.37 repeats its own wrong answer
-when that answer is in view, and it answers questions it was never told with values from passages its search returned.
+when that answer is in view, and it answers questions it was never told with unrelated stored facts.
 On S3 ({{s3_chats}} chats written by blind Claude Opus writers and sealed before any new training row, run once), C1
 against 6.37, each pooled over seeds 82, 83 and 94:
 
@@ -49,13 +49,15 @@ naming a listed value on never-told questions is at least 10 points below 6.37's
 (b) and the first two parts of (c). It failed "not above base's" by {{s3_gap_points}} points: {{s3_nhit_c1}} against
 {{s3_nhit_base}}. The chat-resampled 95% interval of that difference is {{c1_gap_interval}}, so S3 cannot tell C1 from
 base on this line; C1 fails the rule as registered. By seed: {{c1_nhit_seeds}}. This adapter, seed 82, is under base on
-that line on its own and is {{c1s82_st_line}}.
+that line on its own (counting the asked category only; counting the chat's other stored facts too, {{s3_off_c182}}
+against base's {{s3_off_base}}) and is {{c1s82_st_line}}: {{c1s82_st_gap}} against base.
 
 ## What the measures count
 
 The never-told and copy measures check for values listed for the chat (the asked category's values in that chat and the
 writers' listed wrong values). A reply that invents a new value, or gives an unrelated fact of another category, is not
-counted. The untrained model invents many values on S3, so its rate of naming a listed value is a floor and its rate of naming
+counted; C1 still gives such unrelated stored facts (exploratory: {{s3_off_c1}} of its N-hit questions answered with
+a value when they are counted). The untrained model invents many values on S3, so its rate of naming a listed value is a floor and its rate of naming
 no listed value a ceiling. Coherence (three blind Claude Sonnet judges; the first decides), out of {{s3_coh_n}} lines
 each: {{s3_coh_j1}}.
 

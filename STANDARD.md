@@ -10,8 +10,8 @@ Every results file records the UTC time, the exact command, the git commit, whet
 tree had uncommitted changes, the package versions, the seeds, and the model revisions used.
 Work is committed after every step. Experiments run only from a committed, clean tree.
 
-*Here:* `src/aya_retrieval/provenance.py` writes this record into every file under
-`results/`. Models are pinned to exact Hugging Face commits and load only from the local cache.
+*Here:* `src/aya_retrieval/provenance.py` writes this record into every run and training file
+under `results/`; the README's results table names the script that writes each analysis folder. Models are pinned to exact Hugging Face commits and load only from the local cache.
 
 ## 2. The goalposts are set before the data exists
 

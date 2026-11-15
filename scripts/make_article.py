@@ -2460,6 +2460,102 @@ def s3_panel_numbers(out) -> None:
         raise SystemExit(f"the report arms meeting every measured S3 line are now {passing}")
 
 
+def s3_round2_numbers(out) -> None:
+    """S3 numbers the second review round asked for (R-298); exploratory, beside the rule."""
+    scorer = records_script("score_s3")
+    chats, tables = scorer.measure_tables()
+
+    def diff(a: dict, b: dict) -> str:  # rate(a) - rate(b), chats resampled as R-281
+        rng, got = random.Random(scorer.BOOT_SEED), []
+        for _ in range(scorer.N_RESAMPLES):
+            drawn = [rng.choice(chats) for _ in chats]
+            got.append(scorer.rate(a, drawn) - scorer.rate(b, drawn))
+        got = sorted(d for d in got if d == d)
+        lo, hi = got[int(0.025 * len(got))], got[min(int(0.975 * len(got)), len(got) - 1)]
+        return (
+            f"{100 * (scorer.rate(a) - scorer.rate(b)):+.1f} points, 95% interval "
+            f"{100 * lo:+.1f} to {100 * hi:+.1f}"
+        )
+
+    code = tables["always_search"]["recall"]
+    out["s3_code_vs_637"] = diff(code, tables["6.37"]["recall"])
+    out["s3_code_vs_c1"] = diff(code, tables["pick"]["recall"])
+    for measure, short in (("in_view", "iv"), ("statement", "st"), ("never_told_plain", "ntp")):
+        out[f"s3_a_int_{short}"] = diff(tables["pick"][measure], tables["base_tool"][measure])
+    c1_82 = scorer.by_chat(scorer.load("s3_k13opc1_r263_82"), scorer.MEASURES["statement"])
+    out["c1s82_st_gap"] = diff(c1_82, tables["base_tool"]["statement"])
+
+    runs = {
+        "base": scorer.load("s3_base_tool"),
+        "as": scorer.load("s3_always_search"),
+        "wc": scorer.load("s3_whole_chat"),
+        "637": [r for seed in (82, 83, 94) for r in scorer.load(f"s3_fix17cs37_{seed}")],
+        "c1": [r for seed in (82, 83, 94) for r in scorer.load(f"s3_k13opc1_r263_{seed}")],
+        "c182": scorer.load("s3_k13opc1_r263_82"),
+        "k1": [r for seed in (82, 83) for r in scorer.load(f"s3_k1_r178_{seed}")],
+        "k21": [r for seed in (82, 83) for r in scorer.load(f"s3_k2_1_r187_{seed}")],
+    }
+    for key in (
+        "637",
+        "as",
+    ):  # grounding: right answers among recall rows whose search found the fact
+        found = [r for r in runs[key] if r["kind"] in RECALL_KINDS and r["found_fact"]]
+        out[f"s3_ground_{key}"] = frac(sum(bool(r["item_correct"]) for r in found), len(found))
+    right = [r for r in runs["637"] if r["kind"] in RECALL_KINDS and r["item_correct"]]
+    out["s3_right_notfound_637"] = f"{sum(not r['found_fact'] for r in right)} of {len(right)}"
+    for key in ("base", "wc", "as", "637", "c1"):
+        asked = [r for r in runs[key] if r["kind"] == "re_ask"]
+        out[f"s3_reask_{key}"] = f"{sum(bool(r['item_correct']) for r in asked)} of {len(asked)}"
+    for key, labels in (
+        ("as", ["s3_always_search"]),
+        ("637", [f"s3_fix17cs37_{seed}" for seed in (82, 83, 94)]),
+        ("c1", [f"s3_k13opc1_r263_{seed}" for seed in (82, 83, 94)]),
+    ):  # right search decisions, each run of 834 items
+        got = [sum(bool(r["right_decision"]) for r in scorer.load(label)) for label in labels]
+        n = len(scorer.load(labels[0]))
+        out[f"s3_rd_{key}"] = (
+            ", ".join(str(g) for g in got[:-1])
+            + (" and " if len(got) > 1 else "")
+            + f"{got[-1]} of {n}"
+        )
+    st82 = [scorer.MEASURES["statement"](r) for r in scorer.load("s3_fix17cs37_82")]
+    st82 = [h for h in st82 if h is not None]
+    out["s3_ship82_st"] = frac(sum(st82), len(st82))
+    base_rows = runs["base"]
+    out["s3_nt_items"] = str(
+        sum(r["kind"] == "never_told" and r["view"] == "right" for r in base_rows)
+    )
+    out["s3_nhit_items"] = str(
+        sum(
+            r["kind"] == "never_told" and r["n_hit"] and r["false_answer"] is not None
+            for r in base_rows
+        )
+    )
+    # Another category's stored value named on an N-hit never-told question, unseen by the flag
+    # (R-298): a chat's stored values are the answers of its other S3 items, four letters or more.
+    stored: dict[str, dict[str, str]] = {}
+    for path in sorted(S3_DIR.glob("s3_*.json")):
+        for r in load(path)["rows"]:
+            if r.get("answer") and r["kind"] != "never_told":
+                stored.setdefault(r["chat"], {})[r["answer"].casefold()] = r["category"]
+
+    def other(r: dict) -> bool:
+        text = r["reply"].casefold()
+        return any(
+            cat != r["category"] and len(v) >= 4 and re.search(r"\b" + re.escape(v) + r"\b", text)
+            for v, cat in stored.get(r["chat"], {}).items()
+        )
+
+    for key in ("base", "637", "c1", "c182", "k1", "k21"):
+        rows = [
+            r
+            for r in runs[key]
+            if r["kind"] == "never_told" and r["n_hit"] and r["false_answer"] is not None
+        ]
+        named = sum(bool(r["false_answer"]) or other(r) for r in rows)
+        out[f"s3_off_{key}"] = frac(named, len(rows))
+
+
 def numbers() -> dict[str, str]:
     out: dict[str, str] = {}
     for part in (
@@ -2483,6 +2579,7 @@ def numbers() -> dict[str, str]:
         s3_numbers,
         c1_card_numbers,
         s3_panel_numbers,
+        s3_round2_numbers,
     ):
         part(out)
     return out
