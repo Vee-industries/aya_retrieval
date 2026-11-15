@@ -156,6 +156,7 @@ def model_numbers(out) -> None:
     out["model_layers"] = str(len(layers))
     out["model_vocab"] = f"{config['vocab_size']:,}"
     out["model_full_layers"] = str(layers.count("full_attention"))
+    out["model_revision"] = MODEL_REVISION
     out["top_k"] = str(TOP_K)
     out["chunk_size"] = str(CHUNK_SIZE)
     out["max_calls"] = str(MAX_CALLS)

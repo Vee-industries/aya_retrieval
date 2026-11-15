@@ -45,11 +45,12 @@ model `CohereLabs/tiny-aya-global` is gated: accept its licence on Hugging Face 
 
 6.37 (`fix17cs37` seed 82) is the shipped model. The reopened work's pick, C1, ran on the sealed S3 test and failed one clause of the ship rule registered before S3 opened (R-287), so 6.37 stays shipped. Every table and result number is computed from committed results files by `scripts/make_article.py`, except the items typed from the record that the long paper's section 15 lists; `RECORDS.md` holds the dated record behind each.
 
-## Reopened, 12 to 14 November
+## Reopened, 12 to 15 November
 
 A scripted demo, run for 6.37 on 12 November, showed two faults: it answered questions it was never told with
 unrelated stored facts, and it repeated its own wrong answer while that answer was still in view (R-175, R-176). With
-the deadline extended, I reopened the project (R-177). A second sealed test, S3, was written by six blind
+the deadline extended, I saw results I had missed and judged the extra time enough to train further, so I reopened the
+project (R-177); the push to replace 6.37 ran inside the time that remained. A second sealed test, S3, was written by six blind
 writer agents and sealed before any new training row, and its ship rule was fixed before it opened (R-178, R-179,
 R-191). 24 candidates were listed for screening, six read on every line; C1 became the pick (R-279). On S3, 6.37 does worse than the untrained
 model on both faults: it names its in-view wrong value when answering another question on 195 of 894 (21.8%) questions

@@ -32,8 +32,9 @@ CohereLabs/tiny-aya-global is gated: accept its licence on Hugging Face first.
 
 On 12 November the scripted demo, run for 6.37 for the first time, showed two faults: it answered questions it was
 never told with unrelated stored facts (2 of 4 demo questions), and it repeated its own wrong answer while that answer
-was in view (6 of 8 further questions, registered before they ran) (R-175, R-176). The deadline had been extended, and
-I reopened the project to fix them (R-177). A second sealed test, S3, was written by six blind writer agents and sealed
+was in view (6 of 8 further questions, registered before they ran) (R-175, R-176). With the deadline extended, I saw
+results I had missed and judged the extra time enough to train further, so I reopened the project to fix them
+(R-177); the push to replace 6.37 ran inside the time that remained. A second sealed test, S3, was written by six blind writer agents and sealed
 before any new training row, with its ship rule fixed before it opened (R-178, R-179, R-191). From 12 to 14 November
 24 candidates were listed for screening on development sets, each registered before it was built; C1, K1.3 trained
 twice on corrections of its own errors, became the pick after I changed the demo test twice (R-276 to R-279; disclosed
@@ -45,8 +46,8 @@ rate, 51 of 708 (7.2%), had to be no higher than the untrained model's 14 of 236
 (95% interval -3.1 to +5.7 points), but the rule requires every clause, so **6.37 stays shipped** (R-287, R-294). On
 S3, 6.37 itself does worse than the untrained model on both faults, and code that searches every turn (161 of 414)
 and the whole chat (274 of 414) recall more than either trained model. C1 seed 82 is published beside 6.37, labelled
-as failing one clause: [aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1) (R-296). Two
-review panels of ten reviewers checked the write-ups (R-295, R-298). The long write-up, sections 7 to 9, gives every
+as failing one clause: [aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1) (R-296). Three
+review rounds checked the write-ups: two of ten reviewers (R-295, R-298) and one of thirteen (R-301). The long write-up, sections 7 to 9, gives every
 candidate, ruling and number.
 
 ## Submission summary
@@ -76,7 +77,7 @@ answer, or decline when the chat never held the fact.
 
 - Built: a LoRA adapter that makes a 3.35B model search an old chat with a keyword tool, answer from what it finds,
   trained to decline when the fact was never told. It is tested with only the last three exchanges in view. On
-  outside chats it mostly answers a never-told question with another stored fact (R-298).
+  S3 it names a stored value on 402 of 708 (56.8%) never-told questions whose search returned text (R-298).
 - Strongest baselines first: on short outside-writer chats (a mean of 1,400 tokens), base shown the whole chat
   recalls most (71 and 65 of 120), and plain code that searches every turn shows no measured difference from 6.37 and
   runs faster. On S3 code recalls more than 6.37 (161 of 414 against 347 of 1,242). On LongMemEval-S, no measured
@@ -118,7 +119,7 @@ Generated chats:
 | Right search decisions, of 300 (sealed) | 180, 193 | not run | not run | 298, 296 |
 | Clean first calls (sealed; of the turns that searched; format only, unclean calls still ran) | 52 of 136, 49 of 107 | scripted | no tool | 180 of 180, 184 of 184 |
 
-LongMemEval-S (500 questions; history about 115,000 tokens, so no whole-chat arm fits; judged by three Claude
+LongMemEval-S (500 questions; history of 244 exchanges at the median, past the model's window, so no whole-chat arm fits; judged by three Claude
 Sonnet judges with LongMemEval's prompts, not the official GPT-4o judge):
 
 | Measure | Base, tool | Code | 6.37, tool |
@@ -131,11 +132,24 @@ Sonnet judges with LongMemEval's prompts, not the official GPT-4o judge):
 | Clean first calls (of questions that searched) | 146 of 328 | scripted | 441 of 441 |
 | Seconds a question | 3.47 | 3.09 | 3.81 |
 
+S3, the second sealed test (60 chats from six blind writer agents, run once; 6.37 and C1 pool seeds 82, 83 and 94,
+the other arms one run each; recall intervals resample chats; R-287):
+
+| Measure | Base, tool | Code | Base, whole chat | 6.37, tool | C1, tool |
+|---|---|---|---|---|---|
+| Recall (older and confirm) | 59 of 414 (10 to 18%) | 161 of 414 (32 to 46%) | 274 of 414 (61 to 72%, best) | 347 of 1,242 (23 to 33%) | 364 of 1,242 (24 to 34%) |
+| Copies: names its in-view wrong value when answering another question (lower is better) | 11 of 298 (3.7%) | 65 of 298 (21.8%) | 2 of 298 (0.7%) | 195 of 894 (21.8%) | 5 of 894 (0.6%) |
+| N-hit false answers: never told, search returned text, names a value listed for the chat (lower is better) | 14 of 236 (5.9%) | 121 of 236 (51.3%) | 57 of 236 (24.2%) | 286 of 708 (40.4%) | 51 of 708 (7.2%) |
+
+The report arms, earlier candidates run on S3 at seeds 82 and 83 outside the ship rule (exploratory): K1 and K2.1 met
+every measured line (N-hit false answers 12 and 14 of 472; coherence not judged); K1.3 failed clause (c) like C1 (37
+of 472, 7.8%, against base's 5.9%).
+
 The shipped adapter is 6.37 (`fix17cs37`, seed 82), frozen on 9 November (RECORDS R-160) with the scorer and judge
 (`results/freeze/sealed_manifest.json`, R-154). The sealed run is R-162, with results in R-163
 (`results/analysis/R-162/`). The write-up and model card in `docs/` are built from these results and R-164 to R-170
 by `scripts/make_article.py`. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run and result, each
-marked PRE-SPRINT or SPRINT. [`STANDARD.md`](STANDARD.md) is the standard this repository is built to.
+marked PRE-SPRINT, SPRINT or REOPENED. [`STANDARD.md`](STANDARD.md) is the standard this repository is built to.
 
 ## Setup
 
@@ -316,7 +330,7 @@ training pool, uncapped.
 ## Outside check: LongMemEval-S
 
 A third kind of chat: LongMemEval-S (Wu et al., ICLR 2025), 500 questions, each over its own
-user-to-assistant history of about 115,000 tokens, partly real logs and partly model-simulated (R-170).
+user-to-assistant history (244 exchanges at the median), partly real logs and partly model-simulated (R-170).
 Every arm sees the last three exchanges. This is a mechanical score, not the official one (that uses
 a GPT-4o judge), and it is never pooled with the other sets. Of 476 questions with marked evidence,
 counting a failure or no search as not found:
@@ -404,7 +418,8 @@ The holes a reviewer will look for first, each measured and recorded where it wa
   generator, 6.37 seed 82 gets recall 39 of 120 against base's 26 on the first set (+50%, sign test
   p = 0.047; whole-chat bootstrap +2.5 to +19.2 points; R-146) and 53 of 120 against 27 on the second
   (+96%, p = 0.0001; +13.3 to +30.0 points; R-157). On the generated `hard_dev` set the same adapter
-  goes from 20 to 73 of 96 (+265%). The +50% and +96% are the figures to read as generalization.
+  goes from 20 to 73 of 96 (+265%). The +50% and +96% are the figures to read as generalization (against base;
+  code shows no measured difference from 6.37, and the whole chat recalls more).
   The sealed run's two pools both use this project's conversation generator, so its larger gains
   (R-163) show the result holds on unseen people, facts and small talk. They do not show it holds on
   chats with a different structure.
@@ -458,11 +473,11 @@ weights instead. Nothing from that project's code or test sets is used here.
 | `notebooks/` | The demo notebook (Colab); `tests/test_notebook.py` keeps its pins equal to CI's |
 | `figures/` | The write-up's figures, drawn from `results/` by `scripts/make_figures.py` |
 | `RECORDS.md`, `HANDOFF.md`, `docs/PROJECT_MAP.md` | The dated log of every decision and result; where the project stands; what each part does and how the parts connect (R-216) |
-| `data/screens/` | Every candidate's training set and writer files, each with its provenance file; `data/heldout3/` holds S3, sealed and hashed (R-179), and is not opened before its run |
+| `data/screens/` | Every candidate's training set and writer files, each with its provenance file; `data/heldout3/` holds S3, sealed and hashed (R-179) and opened once for its run on 14 November (R-280) |
 | `results/demo2/`, `results/panels/` | Demo2 runs and judge folders; each panel's and count's output, by record |
 | `results/s3/` | S3, the second sealed test: one run file an arm and seed, the ship rule's result (`ship_rule.json`, R-287) and the coherence sheet, key and judges' marks (`coherence/`, R-284 to R-286) |
 | `scripts/run_s3_eval.py`, `scripts/records/score_s3.py` | S3's runner (`--final` checks the seal manifest before loading the model) and its scorer (`sheet`, `tally`, `rule`; registered R-281, shown failing planted results first, R-282) |
-| `docs/` | The write-up (`ARTICLE.md`) and model card (`MODEL_CARD.md`), both made from `results/` by `scripts/make_article.py` from their templates; sample rows in `docs/samples/` |
+| `docs/` | The long write-up (`ARTICLE.md`), 6.37's and C1's model cards (`MODEL_CARD.md`, `MODEL_CARD_C1.md`), and in `docs/submission/` the short paper (`HF_ARTICLE.md`), the form abstract (`ABSTRACT.md`) and the publishing plan (`PUBLISH.md`); every built file made from `results/` by `scripts/make_article.py` from its template; sample rows in `docs/samples/` |
 
 ## Reproduce the results
 
@@ -524,7 +539,7 @@ other test files.
   none of whose code, test sets or private chats is in this repository. Everything else was made from 1 November 2026
   (`RECORDS.md` marks each entry PRE-SPRINT, SPRINT or REOPENED).
 - AI use: Claude (Anthropic) wrote the code, the generated pools, the training sets, the tests and the write-ups and
-  ran the experiments, under my direction; every commit as of 13 November (1,362) carries a Claude co-author
+  ran the experiments, under my direction; every commit through R-301 (1,627) carries a Claude co-author
   line. Claude Opus agents wrote the outside-writer chats and S3, Claude Sonnet agents judged. People marked 50 scorer
   lines (the author and a second, independent marker) and 50 LongMemEval-S lines (the author). No percentage of
   generated code or text is claimed; the records do not count it.

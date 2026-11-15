@@ -10670,3 +10670,23 @@ colour per model in every figure, intervals no longer hidden, the first figure's
 
 **Carried:** the push and the Hugging Face uploads (Kevin pushes once, when done); the scorer's report-arm names (the
 captions name the seeds). Weekly usage 5% (all models, read before the builder started). Nothing pushed.
+
+## R-302 · 2026-11-15 · REOPENED · The audit of b10eb2a; its findings fixed except the author's three calls
+
+Kevin, in chat after R-301: "do audit bot". The audit session audited b10eb2a: 3 high, 8 medium, 7 low; S3 numbers
+recomputed from the 15 run files all match; voice and privacy scans 0 (`side-session-notes/local_d20a8ae1-.../
+audit_b10eb2a_findings.md`). A builder agent (Opus) applied every finding but H1 (the push), M1 (the long paper's
+length) and L6 (the short paper's length), which are Kevin's calls, in a throwaway clone
+(`results/panels/R-301/BUILD_REPORT_AUDIT.md`); the orchestrator checked it (ruff, format, pytest 1,790 passed; every
+field filled) and removed one pairing the builder made: R-170's "about 115,000 tokens" was measured beside the first,
+wrong exchange count and never re-measured, so the README now gives only the 244-exchange median. Applied: the long
+paper's Abstract to 499 words; an S3 table in the README's results; the reopening reason in Kevin's terms (the deadline
+was extended, results he had missed, the extra time enough to train further, the push inside the remaining time);
+Figure 5's base line and band named, Figure 2's overlapping dots offset, point-count captions, Figure 8 without a
+red-green pair, PDF copies of every figure (`save()` writes them without a timestamp); first-use definitions in both
+abstracts (ABSTRACT.md 495 words); PUBLISH.md brought to the current publish steps; two overstated lines; stale README
+lines; the base revision and a one-line claim in the short paper (2,761 words); one sentence that the rule numbers are
+the author's research standard, version 3, which is not in this repository.
+
+Kevin, after the audit report: "one final review then audit round then push it". Next: a final panel review, an audit
+round, then the privacy sweep, the GitHub push and the Hugging Face updates. Nothing pushed yet.

@@ -45,11 +45,12 @@ model `CohereLabs/tiny-aya-global` is gated: accept its licence on Hugging Face 
 
 {{status_line}}
 
-## Reopened, 12 to 14 November
+## Reopened, 12 to 15 November
 
 A scripted demo, run for 6.37 on 12 November, showed two faults: it answered questions it was never told with
 unrelated stored facts, and it repeated its own wrong answer while that answer was still in view (R-175, R-176). With
-the deadline extended, I reopened the project (R-177). A second sealed test, S3, was written by {{s3_writers}} blind
+the deadline extended, I saw results I had missed and judged the extra time enough to train further, so I reopened the
+project (R-177); the push to replace 6.37 ran inside the time that remained. A second sealed test, S3, was written by {{s3_writers}} blind
 writer agents and sealed before any new training row, and its ship rule was fixed before it opened (R-178, R-179,
 R-191). {{reopened_n}} candidates were listed for screening, {{reopened_full}} read on every line; C1 became the pick (R-279). On S3, 6.37 does worse than the untrained
 model on both faults: it names its in-view wrong value when answering another question on {{s3_copy_637}} questions

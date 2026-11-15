@@ -43,7 +43,8 @@ TRL_LOSS_RUN = "hard_in_view_84"  # v3 data, TRL's loss (R-026)
 LEAN_LOSS_RUN = "screen_hard_in_view_lean_82"  # same data, lean loss (R-032)
 
 # One colour per model in every figure (R-301): the untrained base grey, 6.37 blue, C1 orange,
-# the other candidates and the report arms purple; Figure 8 has its own outcome palette.
+# the other candidates and the report arms purple; Figure 8's outcomes use blues and oranges
+# only, so no outcome pair depends on telling red from green.
 SURFACE = "#fcfcfb"
 INK = "#0b0b0b"
 INK_2 = "#52514e"
@@ -56,11 +57,11 @@ SEED_C = "#5b97dc"  # 6.37's single seeds
 C1_C = "#c4621a"  # C1
 REPORT_C = "#7a4fa3"  # K1, K1.3, K2.1, OP, C2
 CARD_C = "#d03b3b"
-OUTCOME_C = {  # Figure 8's outcomes, apart from the model colours
-    "right": "#2f7d4a",
-    "misread": "#e2a63b",
-    "missed": "#c23b3b",
-    "none": "#c3c2b7",
+OUTCOME_C = {  # Figure 8's outcomes: dark and light blue, orange, grey
+    "right": TUNED_C,
+    "misread": SEED_C,
+    "missed": C1_C,
+    "none": AXIS,
 }
 
 plt.rcParams.update(
@@ -100,11 +101,12 @@ def titled(fig, title: str, subtitle: str) -> None:
 
 def save(fig, name: str) -> None:
     OUT.mkdir(exist_ok=True)
-    for ext in ("png", "svg"):
-        meta = {"Date": None} if ext == "svg" else {"Software": None}
+    # No timestamps in the files, so a rebuild from the same results writes the same bytes.
+    metadata = {"png": {"Software": None}, "svg": {"Date": None}, "pdf": {"CreationDate": None}}
+    for ext, meta in metadata.items():
         fig.savefig(OUT / f"{name}.{ext}", dpi=200, metadata=meta)
     plt.close(fig)
-    print(f"wrote figures/{name}.png and .svg")
+    print(f"wrote figures/{name}.png, .svg and .pdf")
 
 
 def legend(ax, base_label: str, tuned_label: str) -> None:
@@ -125,24 +127,29 @@ def legend(ax, base_label: str, tuned_label: str) -> None:
     )
 
 
-def dumbbell(ax, labels, base_vals, tuned_vals, seed_vals=None, xmax=100, split=None) -> None:
+def dumbbell(
+    ax, labels, base_vals, tuned_vals, seed_vals=None, xmax=100, split=None, close=0.0
+) -> None:
     """Rows top to bottom; a hairline from base to adapter, value labels at both ends.
 
-    ``split``: the number of top rows set apart from the rest by a rule.
+    ``split``: the number of top rows set apart from the rest by a rule. ``close``: two dots
+    fewer than this many points apart are drawn one above the other, so neither hides the other.
     """
     ys = list(range(len(labels)))[::-1]
     if split:
         ax.axhline(len(labels) - split - 0.5, color=AXIS, lw=1, zorder=0)
     pad = 0.022 * xmax
     for y, b, t in zip(ys, base_vals, tuned_vals, strict=True):
-        ax.plot([b, t], [y, y], color=AXIS, lw=2, solid_capstyle="round", zorder=1)
-        ax.scatter([b], [y], s=110, color=BASE_C, edgecolor=SURFACE, linewidth=2, zorder=3)
-        ax.scatter([t], [y], s=130, color=TUNED_C, edgecolor=SURFACE, linewidth=2, zorder=4)
+        shift = 0.17 if abs(b - t) < close else 0.0
+        yb, yt = y + shift, y - shift
+        ax.plot([b, t], [yb, yt], color=AXIS, lw=2, solid_capstyle="round", zorder=1)
+        ax.scatter([b], [yb], s=110, color=BASE_C, edgecolor=SURFACE, linewidth=2, zorder=3)
+        ax.scatter([t], [yt], s=130, color=TUNED_C, edgecolor=SURFACE, linewidth=2, zorder=4)
         for value, tuned in ((b, False), (t, True)):
             on_right = value > (t if not tuned else b) or (value == b == t and tuned)
             ax.text(
                 value + pad if on_right else value - pad,
-                y,
+                yt if tuned else yb,
                 f"{value:.0f}%",
                 ha="left" if on_right else "right",
                 va="center",
@@ -188,7 +195,7 @@ def fig_whole_chat_or_search() -> None:
         ]
     fig, ax = plt.subplots(figsize=(8, 4.1))
     fig.subplots_adjust(left=0.33, right=0.97, top=0.7, bottom=0.14)
-    dumbbell(ax, labels, base, tuned)
+    dumbbell(ax, labels, base, tuned, close=6)
     ax.set_xlabel(
         "Older-fact questions answered right (not confirm questions; the tables give recall)"
     )
@@ -198,7 +205,7 @@ def fig_whole_chat_or_search() -> None:
         "When the chat fits, the whole chat wins",
         f"Outside-writer sets, a mean of {round(sum(tokens) / len(tokens), -2):,.0f} tokens "
         f"a chat; {older_n} older-fact questions a set.\n"
-        "One run of each arm, one seed of 6.37 (R-164, R-165).",
+        "One run of each arm, one seed of 6.37; point counts, no intervals (R-164, R-165).",
     )
     save(fig, "whole_chat_or_search")
 
@@ -328,15 +335,24 @@ def arm_label(name: str) -> str:
 
 
 def arm_points(
-    ax, measure: str, names: list[str], tables: dict, chats: list[str], fontsize: float = 9
+    ax,
+    measure: str,
+    names: list[str],
+    tables: dict,
+    chats: list[str],
+    fontsize: float = 9,
+    base_line: bool = False,
 ) -> float:
     """One row an arm: the pooled rate and its chat-resampled 95% interval; base's as a band.
 
+    ``base_line``: also a thin line at base's own rate, for a rule line drawn at that rate.
     Returns the largest upper bound drawn, in percent, so a caller can fit the x-axis.
     """
     ys = list(range(len(names)))[::-1]
     lo, hi = S3.interval(tables["base_tool"][measure], chats)
     ax.axvspan(100 * lo, 100 * hi, color=GRID, alpha=0.7, lw=0, zorder=0)
+    if base_line:
+        ax.axvline(100 * S3.rate(tables["base_tool"][measure]), color=BASE_C, lw=0.9, zorder=1)
     top = 100 * hi
     for y, name in zip(ys, names, strict=True):
         table = tables[name][measure]
@@ -399,7 +415,8 @@ def fig_s3_faults() -> None:
         ),
     )
     for ax, (measure, label) in zip(axes, panels, strict=True):
-        top = arm_points(ax, measure, names, tables, chats, fontsize=10)
+        rule_line = measure == "n_hit_false_answer"  # R-178 (c): no higher than base's rate
+        top = arm_points(ax, measure, names, tables, chats, fontsize=10, base_line=rule_line)
         step = 10 if top < 40 else 20
         ticks = range(0, int(top) + 1, step)
         # A little below 0, so a 0% dot and its interval show whole; room right for the counts.
@@ -411,9 +428,10 @@ def fig_s3_faults() -> None:
     titled(
         fig,
         "C1 cuts 6.37's two faults; its false answers stay above base's",
-        "Lower is better. Grey band: base with the tool, the line C1 had to be under on the right "
-        "(R-178 (c)).\n"
-        "95% intervals resample chats; 6.37 and C1 pool three seeds, report arms two.",
+        "Lower is better. Grey band: base's 95% interval. Thin line on the right: base's rate, "
+        "the line C1 had to\n"
+        "be under (R-178 (c)). 95% intervals resample chats; 6.37 and C1 pool three seeds, "
+        "report arms two.",
     )
     save(fig, "s3_faults")
 

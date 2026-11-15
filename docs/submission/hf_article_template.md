@@ -2,6 +2,10 @@
 
 *Kevin Vaillancourt · Lexsi AI Safety and Alignment Hackathon, Track 3 (Agentic Fine-tuning) · November 2026*
 
+**Claim.** On a sealed test of chats from its training generator, 6.37 makes Tiny Aya Global recall
+{{sealed_ship_range}} of {{sealed_recall_n}} out-of-view facts, against the untrained model's
+{{sealed_shipbase_range}}; on chats from outside writers it does not beat the strongest simple baselines.
+
 **Result first.** 6.37, a LoRA adapter trained with Lexsi's AgentTune, lets Tiny Aya Global (3.35B) search the part
 of a chat it can no longer see. On a sealed test of chats from the generator that made its training chats, the shipped
 seed recalls {{sealed_ship_range}} of {{sealed_recall_n}} facts, against {{sealed_shipbase_range}} for the untrained
@@ -47,7 +51,8 @@ difference includes zero.
 
 Track 3, problem statement 4: "Fine-tuning for retrieval-augmented generation: Train a model that decides when and
 what to retrieve, grounds its answers in the retrieved text and ignores distracting documents." The use: a chat
-assistant on a small model that must recall what a user said long ago. Tiny Aya Global takes at most
+assistant on a small model that must recall what a user said long ago. The base model is
+`CohereLabs/tiny-aya-global`, revision `{{model_revision}}`. Tiny Aya Global takes at most
 {{model_max_tokens}} tokens, and {{model_full_layers}} of its {{model_layers}} layers attend to all of them.
 
 The model sees the system prompt, the last three exchanges and the newest message. Everything older is reachable
@@ -92,8 +97,8 @@ the fact; no adapter made more decoy retrievals than base; three judges rated ev
 
 ![Recall out of view](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/recall_out_of_view.png)
 
-*Figure 1. Recall with three exchanges in view, base against 6.37's eight seeds pooled (small dots: each seed); the
-table below gives the shipped seed alone.*
+*Figure 1. Recall with three exchanges in view, base against 6.37's eight seeds pooled (small dots: each seed); point
+counts with no interval; the table below gives the shipped seed alone.*
 
 **The strongest baselines (exploratory, registered and run late).** On the generator's chats seed 82 is above both
 code and the whole chat: at 58 messages, {{r168_ship58}} of {{r168_recall_n}} against the whole chat's {{r168_wc}};
@@ -117,8 +122,9 @@ often, {{lme_h2_code}}. 6.37 declines {{lme_refuse_ship}} of {{lme_answerable_n}
 ## 4. The faults, and S3
 
 The scripted demo, run for 6.37 on 12 November (R-175, R-176), showed two faults: asked something it was never told,
-it answered with an unrelated stored fact; and it repeated its own wrong answer while that answer was in view. The
-deadline was then extended, and I reopened the project to fix the faults (R-177).
+it answered with an unrelated stored fact; and it repeated its own wrong answer while that answer was in view. With
+the deadline extended, I saw results I had missed and judged the extra time enough to train further, so I reopened the
+project to fix the faults (R-177); the push to replace 6.37 ran inside the time that remained.
 
 **The test came before the training.** S3 was written by {{s3_writers}} fresh Claude Opus writers given only a brief:
 {{s3_chats}} chats, {{s3_items}} items, hashed before any new training row (R-179). **The ship rule, fixed before S3
@@ -161,7 +167,8 @@ models. Both changes came after both models' readings existed. C1 then led K1.3 
 
 ![S3 faults](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/s3_faults.png)
 
-*Figure 3. The two faults on S3 by arm, lower is better, with 95% intervals over chats; grey band: base with the tool.
+*Figure 3. The two faults on S3 by arm, lower is better, with 95% intervals over chats; grey band: base with the tool's 95% interval; thin line on the right panel: base's
+rate, the line of clause (c).
 6.37 and C1 pool three seeds; report arms pool seeds 82 and 83.*
 
 C1 missed (c) by {{s3_gap_points}} points; the chat-resampled 95% interval of C1 minus base is {{c1_gap_interval}},
