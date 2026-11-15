@@ -20,9 +20,9 @@ shown only the last three exchanges of a chat, search the rest when the answer i
 the sealed test (300 unseen generated chats in each of four conditions, run
 once), the shipped seed recalls 91 to 107 of 120 facts; the untrained
 model with the same tool recalls 13 to 32. On chats from outside writers (written
-by Claude Opus agents, about 1,400 tokens), the untrained model shown the whole chat
-does best (71 and 65 of 120), and code that searches every
-turn recalls as well as 6.37 (42 and 47 against 39 and
+by Claude Opus agents, a mean of 1,400 tokens), the untrained model shown the whole chat
+recalls most (71 and 65 of 120), and code that searches every
+turn shows no measured difference from 6.37 (42 and 47 against 39 and
 53) and runs faster. There, training's measured gain is when to search: 6.37
 searches for facts out of view, which base rarely does, and leaves answers already in view alone
 (35 and 37 of 40 right), where code searches every turn
@@ -40,19 +40,23 @@ in two collections
 The adapter and both datasets are public and un-gated (checked 2026-11-12, no login). The base
 model `CohereLabs/tiny-aya-global` is gated: accept its licence on Hugging Face first.
 
-6.37 (`fix17cs37` seed 82) is the shipped model. The reopened work's pick, C1, ran on the sealed S3 test and failed one clause of the ship rule registered before S3 opened (R-287), so 6.37 stays shipped. Every table and result number is computed from committed results files by `scripts/make_article.py`, except the few typed from the record that the long paper's section 15 lists; `RECORDS.md` holds the dated record behind each.
+6.37 (`fix17cs37` seed 82) is the shipped model. The reopened work's pick, C1, ran on the sealed S3 test and failed one clause of the ship rule registered before S3 opened (R-287), so 6.37 stays shipped. Every table and result number is computed from committed results files by `scripts/make_article.py`, except the items typed from the record that the long paper's section 15 lists; `RECORDS.md` holds the dated record behind each.
 
 ## Reopened, 12 to 14 November
 
 A scripted demo, run for 6.37 on 12 November, showed two faults: it answered questions it was never told with
 unrelated stored facts, and it repeated its own wrong answer while that answer was still in view (R-175, R-176). With
-the deadline extended, the project was reopened (R-177). A second sealed test, S3, was written by six blind
+the deadline extended, I reopened the project (R-177). A second sealed test, S3, was written by six blind
 writer agents and sealed before any new training row, and its ship rule was fixed before it opened (R-178, R-179,
-R-191). 24 candidates were listed for screening, six read on every line; C1 became the pick (R-279). On S3, against 6.37, C1's
-copies of a wrong answer in view went from 195 of 894 (21.8%) to 5 of 894 (0.6%) and its false answers to never-told
-questions whose search returned text from 286 of 708 (40.4%) to 51 of 708 (7.2%). Those false answers had to be no higher
-than the untrained model's, 14 of 236 (5.9%), so C1 failed the rule on one clause and **this adapter, 6.37 seed 82,
-stays shipped** (R-287). S3's numbers on 6.37 are its measured weakness. The full account is in the write-up,
+R-191). 24 candidates were listed for screening, six read on every line; C1 became the pick (R-279). On S3, 6.37 does worse than the untrained
+model on both faults: it names its in-view wrong value when answering another question on 195 of 894 (21.8%) questions
+against 11 of 298 (3.7%), and names a value listed for the chat on 286 of 708 (40.4%) never-told questions against
+14 of 236 (5.9%) (this seed alone: 62 of 298 (20.8%) and 100 of 236 (42.4%)). C1 cut these to 5 of 894 (0.6%) and
+51 of 708 (7.2%). The second had to be no higher than the untrained model's, so C1 failed the rule on one clause (95%
+interval of the difference -3.1 to +5.7 points) and **this adapter, 6.37 seed 82, stays shipped** (R-287) because no
+replacement passed, not because it passed S3. C1 seed 82 is published beside it, labelled:
+[aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1). The S3 measures count only values
+listed for the chat; invented values pass unseen. The full account is in the write-up,
 sections 7 to 9.
 
 ## Results at a glance
@@ -62,7 +66,7 @@ except for base with the whole chat:
 
 | Measure | Base, tool | Code | Base, whole chat | 6.37, tool |
 |---|---|---|---|---|
-| Recall, of 120 | 26 / 27 | 42 / 47 | 71 / 65 (best) | 39 / 53 |
+| Recall, of 120 | 26 / 27 | 42 / 47 | 71 / 65 (most) | 39 / 53 |
 | Answer already in view, of 40 | 36 / 34 | 13 / 16 | 35 / 32 | 35 / 37 |
 | Never told, of 40 | 34 / 32 | 31 / 24 | 31 / 28 | 37 / 36 |
 | Plain statement left unsearched, of 40 | 38 / 39 | 0 / 0 (searches every turn) | 40 / 40 (no tool) | 37 / 35 |
@@ -91,9 +95,9 @@ official GPT-4o judge):
 | Seconds a question | 3.47 | 3.09 | 3.81 |
 
 **Which to use when.**
-1. If the whole chat fits in the context, show it whole: base with the whole chat recalls best on
+1. If the whole chat fits in the context, show it whole: base with the whole chat recalls most on
    outside-writer chats, and needs no adapter.
-2. If it does not fit, code that searches every turn recalls as well as 6.37 on outside-writer
+2. If it does not fit, code that searches every turn shows no measured difference from 6.37 on outside-writer
    chats and is faster. 6.37 adds leaving in-view answers alone and fewer needless searches.
 3. On very long histories (LongMemEval-S), 6.37 declines half the questions that have an answer
    (233 of 470); code declines 1.
@@ -180,7 +184,7 @@ of card memory at inference (R-163).
 ## How to use it
 
 When the chat is short enough to show whole, show it the whole chat; the tool can stay in the
-prompt (R-165). This was measured on the outside-writer chats, of about 1,400 tokens;
+prompt (R-165). This was measured on the outside-writer chats, of a mean of 1,400 tokens;
 on the generated chats the untrained model with the whole chat was far below this adapter with the
 tool (R-168), and this adapter with the whole chat was not run there. Whole chats near the model's
 8,192-token limit were not measured.
@@ -192,8 +196,10 @@ message, top 5 passages each. Decoding in every test was greedy.
 
 ## Limitations
 
+- On S3 this adapter repeats its own in-view wrong value and names values on never-told questions more often than
+  the untrained model (above).
 - On the short outside-writer chats the whole chat beats the three-exchange view with search,
-  and plain code that searches every turn recalls as well as this adapter and is faster (above).
+  and plain code that searches every turn shows no measured difference from this adapter and is faster (above).
   The adapter's recall gain over plain code is shown on the generated sealed pools only (R-168).
 - On LongMemEval-S it declines 233 of 470 questions it should
   answer, and every arm answers few (R-170). Replies are capped at 60 tokens in every

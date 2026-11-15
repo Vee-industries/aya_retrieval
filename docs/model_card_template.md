@@ -20,9 +20,9 @@ shown only the last three exchanges of a chat, search the rest when the answer i
 the sealed test ({{sealed_conversations}} unseen generated chats in each of four conditions, run
 once), the shipped seed recalls {{sealed_ship_range}} of {{sealed_recall_n}} facts; the untrained
 model with the same tool recalls {{sealed_shipbase_range}}. On chats from outside writers (written
-by Claude Opus agents, about {{ow_tokens_mean}} tokens), the untrained model shown the whole chat
-does best ({{wc_recall_1}} and {{wc_recall_2}} of {{as_recall_n}}), and code that searches every
-turn recalls as well as 6.37 ({{as_recall_1}} and {{as_recall_2}} against {{ow_82_recall_1}} and
+by Claude Opus agents, a mean of {{ow_tokens_mean}} tokens), the untrained model shown the whole chat
+recalls most ({{wc_recall_1}} and {{wc_recall_2}} of {{as_recall_n}}), and code that searches every
+turn shows no measured difference from 6.37 ({{as_recall_1}} and {{as_recall_2}} against {{ow_82_recall_1}} and
 {{ow_82_recall_2}}) and runs faster. There, training's measured gain is when to search: 6.37
 searches for facts out of view, which base rarely does, and leaves answers already in view alone
 ({{ship_in_view_1}} and {{ship_in_view_2}} of {{as_kind_n}} right), where code searches every turn
@@ -46,13 +46,17 @@ model `CohereLabs/tiny-aya-global` is gated: accept its licence on Hugging Face 
 
 A scripted demo, run for 6.37 on 12 November, showed two faults: it answered questions it was never told with
 unrelated stored facts, and it repeated its own wrong answer while that answer was still in view (R-175, R-176). With
-the deadline extended, the project was reopened (R-177). A second sealed test, S3, was written by {{s3_writers}} blind
+the deadline extended, I reopened the project (R-177). A second sealed test, S3, was written by {{s3_writers}} blind
 writer agents and sealed before any new training row, and its ship rule was fixed before it opened (R-178, R-179,
-R-191). {{reopened_n}} candidates were listed for screening, {{reopened_full}} read on every line; C1 became the pick (R-279). On S3, against 6.37, C1's
-copies of a wrong answer in view went from {{s3_copy_637}} to {{s3_copy_c1}} and its false answers to never-told
-questions whose search returned text from {{s3_nhit_637}} to {{s3_nhit_c1}}. Those false answers had to be no higher
-than the untrained model's, {{s3_nhit_base}}, so C1 failed the rule on one clause and **this adapter, 6.37 seed 82,
-stays shipped** (R-287). S3's numbers on 6.37 are its measured weakness. The full account is in the write-up,
+R-191). {{reopened_n}} candidates were listed for screening, {{reopened_full}} read on every line; C1 became the pick (R-279). On S3, 6.37 does worse than the untrained
+model on both faults: it names its in-view wrong value when answering another question on {{s3_copy_637}} questions
+against {{s3_copy_base}}, and names a value listed for the chat on {{s3_nhit_637}} never-told questions against
+{{s3_nhit_base}} (this seed alone: {{s3_ship82_copy}} and {{s3_ship82_nhit}}). C1 cut these to {{s3_copy_c1}} and
+{{s3_nhit_c1}}. The second had to be no higher than the untrained model's, so C1 failed the rule on one clause (95%
+interval of the difference {{c1_gap_interval}}) and **this adapter, 6.37 seed 82, stays shipped** (R-287) because no
+replacement passed, not because it passed S3. C1 seed 82 is published beside it, labelled:
+[aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1). The S3 measures count only values
+listed for the chat; invented values pass unseen. The full account is in the write-up,
 sections 7 to 9.
 
 ## Results at a glance
@@ -62,7 +66,7 @@ except for base with the whole chat:
 
 | Measure | Base, tool | Code | Base, whole chat | 6.37, tool |
 |---|---|---|---|---|
-| Recall, of {{as_recall_n}} | {{ow_base_recall_1}} / {{ow_base_recall_2}} | {{as_recall_1}} / {{as_recall_2}} | {{wc_recall_1}} / {{wc_recall_2}} (best) | {{ow_82_recall_1}} / {{ow_82_recall_2}} |
+| Recall, of {{as_recall_n}} | {{ow_base_recall_1}} / {{ow_base_recall_2}} | {{as_recall_1}} / {{as_recall_2}} | {{wc_recall_1}} / {{wc_recall_2}} (most) | {{ow_82_recall_1}} / {{ow_82_recall_2}} |
 | Answer already in view, of {{as_kind_n}} | {{ow_base_in_view_1}} / {{ow_base_in_view_2}} | {{as_in_view_1}} / {{as_in_view_2}} | {{ow_wc_in_view_1}} / {{ow_wc_in_view_2}} | {{ship_in_view_1}} / {{ship_in_view_2}} |
 | Never told, of {{as_kind_n}} | {{ow_base_never_told_1}} / {{ow_base_never_told_2}} | {{as_never_told_1}} / {{as_never_told_2}} | {{ow_wc_never_told_1}} / {{ow_wc_never_told_2}} | {{ship_never_told_1}} / {{ship_never_told_2}} |
 | Plain statement left unsearched, of {{as_kind_n}} | {{ow_base_statement_1}} / {{ow_base_statement_2}} | {{as_statement_1}} / {{as_statement_2}} (searches every turn) | {{ow_wc_statement_1}} / {{ow_wc_statement_2}} (no tool) | {{ship_statement_1}} / {{ship_statement_2}} |
@@ -91,9 +95,9 @@ official GPT-4o judge):
 | Seconds a question | {{lme_secs_base}} | {{lme_secs_code}} | {{lme_secs_ship}} |
 
 **Which to use when.**
-1. If the whole chat fits in the context, show it whole: base with the whole chat recalls best on
+1. If the whole chat fits in the context, show it whole: base with the whole chat recalls most on
    outside-writer chats, and needs no adapter.
-2. If it does not fit, code that searches every turn recalls as well as 6.37 on outside-writer
+2. If it does not fit, code that searches every turn shows no measured difference from 6.37 on outside-writer
    chats and is faster. 6.37 adds leaving in-view answers alone and fewer needless searches.
 3. On very long histories (LongMemEval-S), 6.37 declines half the questions that have an answer
    ({{lme_refuse_ship}} of {{lme_answerable_n}}); code declines {{lme_refuse_code}}.
@@ -180,7 +184,7 @@ of card memory at inference (R-163).
 ## How to use it
 
 When the chat is short enough to show whole, show it the whole chat; the tool can stay in the
-prompt (R-165). This was measured on the outside-writer chats, of about {{ow_tokens_mean}} tokens;
+prompt (R-165). This was measured on the outside-writer chats, of a mean of {{ow_tokens_mean}} tokens;
 on the generated chats the untrained model with the whole chat was far below this adapter with the
 tool (R-168), and this adapter with the whole chat was not run there. Whole chats near the model's
 {{model_max_tokens}}-token limit were not measured.
@@ -192,8 +196,10 @@ message, top {{top_k}} passages each. Decoding in every test was greedy.
 
 ## Limitations
 
+- On S3 this adapter repeats its own in-view wrong value and names values on never-told questions more often than
+  the untrained model (above).
 - On the short outside-writer chats the whole chat beats the three-exchange view with search,
-  and plain code that searches every turn recalls as well as this adapter and is faster (above).
+  and plain code that searches every turn shows no measured difference from this adapter and is faster (above).
   The adapter's recall gain over plain code is shown on the generated sealed pools only (R-168).
 - On LongMemEval-S it declines {{lme_refuse_ship}} of {{lme_answerable_n}} questions it should
   answer, and every arm answers few (R-170). Replies are capped at {{lme_cap}} tokens in every

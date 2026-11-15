@@ -189,7 +189,15 @@ on v3 and was not run on 6.37. CuratorKIT's grounding gate audited v6's 350 foun
 installed by the line before, so nothing else in the environment changes.
 
 Tiny Aya is gated: accept the licence on its [model page](https://huggingface.co/CohereLabs/tiny-aya-global),
-then log in to Hugging Face.
+then log in to Hugging Face and download the pinned revision, which every script loads from the local cache only:
+
+```bash
+../venv/Scripts/hf download CohereLabs/tiny-aya-global --revision af89d219b53ed9b13b8a4645f9c8028973510324
+```
+
+On Linux the paths are `../venv/bin/` in place of `../venv/Scripts/`. The package versions every result was made with
+are recorded in each run file's provenance and pinned in CI's install step (`.github/workflows/ci.yml`); a local
+install that resolves newer versions is not the tested one.
 
 ## Chat with it
 
@@ -478,12 +486,15 @@ weights instead. Nothing from that project's code or test sets is used here.
 
 ## Reproduce the results
 
-Every results file under `results/` carries its provenance (command, commit, package versions), and `RECORDS.md` names
-the record that registered it. Training is not bit-reproducible on this card (R-029); generation is: a repeated run of
+Every run and training file under `results/` carries its provenance (command, commit, package versions); each
+analysis file names the script that writes it, and `RECORDS.md` names the record that registered it. The confirmatory
+results can be rescored from the committed run files (`score_r162.py`, `score_s3.py`); they cannot be rerun from
+scratch by someone else, because only 6.37 seed 82 and C1 seed 82 are published and retraining does not give the same
+weights (R-029). Training is not bit-reproducible on this card (R-029); generation is: a repeated run of
 seed 82 gave the same reply on 240 of 240 questions (R-156). Runs need the card to themselves. The base is pinned to
 revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
 
-1. Train the shipped adapter (about 34 minutes; the command is under "Chat with it").
+1. Train the shipped adapter (34 minutes on an RTX 3080; the command is under "Chat with it").
 2. Score it on a development pool. This command reproduces `results/recall_eval/hd_fix17cs37_82_seed_73157.json`;
    `probe` runs the same way with `--pool probe`.
 
@@ -503,9 +514,10 @@ revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
    `score_judged_r170.py`.
 6. The write-ups and figures: `PYTHONPATH=src python scripts/make_article.py` and `scripts/make_figures.py`; the long and short
    write-ups (`docs/ARTICLE.md`, `docs/submission/HF_ARTICLE.md`), the form abstract and `docs/MODEL_CARD.md` are filled
-   from results files by their templates; the few numbers quoted from records are listed in the article's section 15.
+   from results files by their templates, and so is C1's card (`docs/MODEL_CARD_C1.md`); the few numbers quoted from
+   records are listed in the article's section 15.
 7. S3 (R-280): one run an arm and seed, base arms first, then 6.37 and C1 at seeds 82, 83 and 94, then the report arms
-   at 82 and 83 (the queue `qs3.sh` is in R-194 and R-280). Each run is
+   at 82 and 83 (the queue, `scripts/records/queue/qs3.sh` with `qs3_lock.py`, kept as run; R-280). Each run is
    `scripts/run_s3_eval.py --final --index <sqlite> --label <label> --max-vram-fraction 0.85` with `--arm
    always_search`, `--arm whole_chat` or `--arm tool [--adapter <adapter>]`. Then `scripts/records/draw_s3_sample.py
    --final`, `scripts/records/score_s3.py sheet --final`, the three judges, `score_s3.py tally` and `score_s3.py rule`.
@@ -521,7 +533,7 @@ revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
 CI (`.github/workflows/ci.yml`) runs the same three on a CPU runner on every push, with AgentTune and AuditKIT at
 the commits every result was made with and no model weights. `tests/test_inference.py` needs Tiny Aya's gated
 tokenizer, so CI runs it only when the repository has an `HF_TOKEN` secret; without one, CI says so and runs the
-other 24 test files.
+other test files.
 
 ## Declaration, AI use and team
 

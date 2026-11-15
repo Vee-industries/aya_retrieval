@@ -10524,3 +10524,41 @@ ship rule and the miss, and that seed 82 alone is under base on N-hit (11 of 236
 
 **Correction to R-295.** It gives the ten-reviewer panel's end as "about 05:50"; the clock read 05:34 when R-295 was
 written, so that time was typed, not read; the panel ran from about 05:03 to before 05:34. Nothing else pushed.
+
+## R-297 · 2026-11-15 · REOPENED · R-295's write-up fixes applied; 6.37's S3 weakness stated in every document
+
+The fixes R-295 recommended, binding under Kevin's "panel it", applied to the templates and code; every number filled
+from results files by `scripts/make_article.py` (new `s3_panel_numbers`; long-chat and code-of-120 numbers added to
+`sealed_reference_numbers`; base's tag-question counts). Drafted in a throwaway clone and copied in.
+
+- **Headline (A).** Abstract, short paper, summary and both cards now lead with what holds where: on the first sealed
+  test's 419-message generated chats seed 82 recalls 52, 52, 46 and 44 of 60 against code's 32, 30, 17 and 14
+  (exploratory, R-168); on LongMemEval-S no measured difference from code; on chats that fit, the whole chat recalls
+  most. The 419-message chats are named for what they are: inside the model's 8,192-token window, too large to show
+  whole under the 10 GB memory cap (R-166), a fact the voice lane found. 6.37's S3 rates against base are stated in
+  every document, and that it ships because no replacement passed, not because it passed S3. S3 per seed for 6.37 and
+  C1, the shipped seed's own lines, the interval of C1 minus base on (c), the report arms read (K1 and K2.1 meet every
+  measured line; exploratory), the problem statement's clauses each with an outcome, the demo change in its two steps
+  with K1.3 also failing (c), the LongMemEval-S split, code of 120 (29 to 64), "no measured difference" in place of "as
+  well as". Kevin's view that the aggregate should have decided is stated, not applied (R-294).
+- **Measures (B).** S3's never-told and copy measures are named by what they count, with a limits paragraph: invented
+  values pass unseen, so base's rates of naming a value are floors.
+- **Standard items (C).** Deviation rows 16 to 19 (no control arm; R-016's amendments; Demo2's retirement; baselines
+  after the trained arms); leakage rows for non-independence (one generator), illegitimate features (reduced, R-180),
+  the demos (R-254's caveats) and contamination (LongMemEval-S predates the model); limits name the baselines' single
+  setting, untested simple baselines, no general-capability benchmark and no person checking S3's flags.
+- **Short paper (D).** Why this problem, threat model, a "use this when" box, measure definitions, the tag-question
+  result with base's counts, section 5 cut, "not done" as facts, changelog. 3,957 words; the 5 pages asked are
+  exceeded by the checklist items.
+- **Figures (E).** `whole_chat_or_search` axis says older questions only and the subtitle no longer clips;
+  `never_told_slide` subtitle wrapped, axis 36 to 48; `s3_faults` panel names follow the measures; Figure 5 and 7
+  captions explain the report arms. Each checked by eye.
+- **Reproducibility (F).** README: the base-model download, the provenance sentence corrected, the confirmatory results
+  rescorable but not rerunnable from scratch, the Linux path, CI's pins as the tested versions; `qs3.sh` and
+  `qs3_lock.py` committed as run to `scripts/records/queue/`; section 15 cites `MAX_TOKENS` where it is defined.
+- **Voice (G).** "best" to "most", metaphors and luck framing removed, future work stated as facts, the status line's
+  "few typed" to "items typed".
+
+Checks in the clone: ruff, format, pytest 1,790 passed; abstract 481 words. C1's published card is unchanged by this
+rebuild. Not done here and waiting on Kevin: a push to GitHub; re-uploading 6.37's Hugging Face card and article and
+S3's run files. No panel for the text beyond R-295, whose recommendation it applies. Nothing pushed.

@@ -137,7 +137,7 @@ def status_numbers(out) -> None:
         "6.37 (`fix17cs37` seed 82) is the shipped model. The reopened work's pick, C1, ran on "
         "the sealed S3 test and failed one clause of the ship rule registered before S3 opened "
         "(R-287), so 6.37 stays shipped. Every table and result number is computed from committed "
-        "results files by `scripts/make_article.py`, except the few typed from the record that "
+        "results files by `scripts/make_article.py`, except the items typed from the record that "
         "the long paper's section 15 lists; `RECORDS.md` holds the dated record behind each."
     )
 
@@ -448,6 +448,10 @@ def sealed_reference_numbers(out) -> None:
     rows: dict[str, list[str]] = {}
     seen = {k: [] for k in ("wc", "as", "ship58", "ship", "as_in_view", "ship_in_view")}
     seen |= {"wc_in_view": [], "tool_in_view": [], "tool": []}
+    longest, code_120 = (
+        {"ship": [], "code": [], "tool": []},
+        [],
+    )  # 419-message chats; code over both sizes
     for c in CONDITIONS:
         whole, code = refs[c]["whole_chat"], refs[c]["always_search"]
         # Base with the tool and seed 82 here are R-162's runs, re-read; they must agree.
@@ -479,6 +483,11 @@ def sealed_reference_numbers(out) -> None:
         seen["as"] += [r["reference"] for r in by_size.values()]
         seen["ship"] += [r["seed_82"] for r in by_size.values()]
         seen["tool"] += [r["base_tool"] for r in by_size.values()]
+        big = by_size[max(SIZES)]
+        longest["ship"].append(big["seed_82"])
+        longest["code"].append(big["reference"])
+        longest["tool"].append(big["base_tool"])
+        code_120.append(sum(r["reference"] for r in by_size.values()))
         for s in SIZES:
             view = code["sizes"][str(s)]["kinds"]["in_view"]
             seen["as_in_view"].append(view["reference"])
@@ -514,6 +523,12 @@ def sealed_reference_numbers(out) -> None:
     for name, values in seen.items():
         out[f"r168_{name}"] = span(values)
     out["r168_wc_tokens"] = f"{min(tokens):,.0f} to {max(tokens):,.0f}"
+    for name, values in longest.items():  # by condition, A to D, of r168_recall_n a size
+        out[f"long_{name}"] = ", ".join(str(v) for v in values[:-1]) + f" and {values[-1]}"
+    out["long_size"] = str(max(SIZES))
+    if min(longest["ship"]) <= max(longest["code"]):
+        raise SystemExit("seed 82 is no longer above code on every 419-message condition")
+    out["r168_code_120"] = span(code_120)
     out["r168_kind_n"] = str(refs["A"]["always_search"]["sizes"]["58"]["kinds"]["in_view"]["of"])
     false = [runs[c]["rule_3_false_retrieval"]["counts"][a] for c in CONDITIONS for a in ADAPTERS]
     out["r168_false_adapters"] = span(false)
@@ -1416,6 +1431,7 @@ def outside_writer_numbers(out) -> None:
             f"| {span(corrected)} | {cb['searched']} / {c82['searched']} |"
         )
         out[f"claims_82_corrected_{n}"] = str(c82["corrected_false"])
+        out[f"claims_base_corrected_{n}"] = str(cb["corrected_false"])
         out[f"claims_82_true_{n}"] = str(c82["right_on_true"])
         out["claims_false_n"] = str(c82["false_claims"])
         out["claims_true_n"] = str(c82["true_claims"])
@@ -2239,9 +2255,9 @@ def s3_numbers(out) -> None:
         "Recall (95% interval)",
         "In view",
         "Statement",
-        "Never told, plain",
-        "Copies wrong answer in view",
-        "Names a value, never told, search returned text",
+        "Never told, plain: names no listed value",
+        "Names its in-view wrong value when answering another question",
+        "Never told, search returned text: names a value listed for the chat",
     ]
     rows = []
     for arm, measures in arms.items():
@@ -2380,6 +2396,70 @@ def c1_card_numbers(out) -> None:
     out["c1_gap_interval"] = f"{100 * lo:+.1f} to {100 * hi:+.1f} points"
 
 
+def s3_panel_numbers(out) -> None:
+    """S3 numbers R-295 asked for: per seed, the shipped seed, report arms, search measures."""
+    scorer = records_script("score_s3")
+
+    def counts(label: str) -> dict[str, tuple[int, int]]:
+        rows, got = scorer.load(label), {}
+        for measure, counted in scorer.MEASURES.items():
+            hits = [h for h in map(counted, rows) if h is not None]
+            got[measure] = (sum(hits), len(hits))
+        return got
+
+    ship = counts("s3_fix17cs37_82")
+    for measure, short in (
+        ("recall", "recall"),
+        ("copy", "copy"),
+        ("n_hit_false_answer", "nhit"),
+        ("never_told_plain", "ntp"),
+    ):
+        out[f"s3_ship82_{short}"] = frac(*ship[measure])
+    for run, key in (("fix17cs37", "637"), ("k13opc1_r263", "c1")):
+        per = [counts(f"s3_{run}_{seed}")["n_hit_false_answer"] for seed in (82, 83, 94)]
+        out[f"s3_seed_nhit_{key}"] = f"{per[0][0]}, {per[1][0]} and {per[2][0]} of {per[0][1]}"
+        found = [r for seed in (82, 83, 94) for r in scorer.load(f"s3_{run}_{seed}")]
+        recall_rows = [r for r in found if r["kind"] in RECALL_KINDS]
+        out[f"s3_found_{key}"] = frac(
+            sum(bool(r["found_fact"]) for r in recall_rows), len(recall_rows)
+        )
+        conf = [
+            [r for r in scorer.load(f"s3_{run}_{seed}") if r["kind"] == "confirm"]
+            for seed in (82, 83, 94)
+        ]
+        searched = [sum(bool(r["queries"]) for r in c) for c in conf]
+        out[f"s3_conf_{key}"] = f"{searched[0]}, {searched[1]} and {searched[2]} of {len(conf[0])}"
+    code = [r for r in scorer.load("s3_always_search") if r["kind"] in RECALL_KINDS]
+    out["s3_found_as"] = frac(sum(bool(r["found_fact"]) for r in code), len(code))
+    arms = load(S3_DIR / "ship_rule.json")["arms"]
+    chats, tables = scorer.measure_tables()
+    base, old = tables["base_tool"], tables["6.37"]
+    passing = []
+    for arm, key in (("k1_r178", "k1"), ("k2_1_r187", "k21"), ("k1_3_r200", "k13")):
+        m = arms[arm]
+        out[f"s3_nhit_{key}"] = frac(m["n_hit_false_answer"]["hits"], m["n_hit_false_answer"]["n"])
+        t = tables[arm]
+        ok = (
+            scorer.rate(t["recall"]) > scorer.rate(base["recall"])
+            and scorer.lower_bound(t["recall"], base["recall"], chats) > 0
+            and all(
+                scorer.rate(t[x]) >= scorer.rate(base[x]) - scorer.POINTS
+                for x in ("in_view", "statement", "never_told_plain")
+            )
+            and scorer.rate(t["copy"]) <= scorer.rate(old["copy"]) / 2
+            and scorer.rate(old["copy"]) - scorer.rate(t["copy"]) >= scorer.GAP
+            and scorer.lower_bound(old["copy"], t["copy"], chats) > 0
+            and scorer.rate(old["n_hit_false_answer"]) - scorer.rate(t["n_hit_false_answer"])
+            >= scorer.GAP
+            and scorer.lower_bound(old["n_hit_false_answer"], t["n_hit_false_answer"], chats) > 0
+            and scorer.rate(t["n_hit_false_answer"]) <= scorer.rate(base["n_hit_false_answer"])
+        )
+        if ok:
+            passing.append(arm)
+    if passing != ["k1_r178", "k2_1_r187"]:
+        raise SystemExit(f"the report arms meeting every measured S3 line are now {passing}")
+
+
 def numbers() -> dict[str, str]:
     out: dict[str, str] = {}
     for part in (
@@ -2402,6 +2482,7 @@ def numbers() -> dict[str, str]:
         reopened_numbers,
         s3_numbers,
         c1_card_numbers,
+        s3_panel_numbers,
     ):
         part(out)
     return out

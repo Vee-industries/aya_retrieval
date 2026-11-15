@@ -169,16 +169,18 @@ def fig_whole_chat_or_search() -> None:
             right(eval_rows(f"{prefix}_{SHIP}", 0), "older"),
             right(eval_rows(f"wc_{prefix}_{SHIP}", 0, "whole_chat"), "older"),
         ]
-    fig, ax = plt.subplots(figsize=(8, 3.9))
-    fig.subplots_adjust(left=0.33, right=0.97, top=0.75, bottom=0.14)
+    fig, ax = plt.subplots(figsize=(8, 4.1))
+    fig.subplots_adjust(left=0.33, right=0.97, top=0.7, bottom=0.14)
     dumbbell(ax, labels, base, tuned)
-    ax.set_xlabel("Questions about facts told earlier answered right")
+    ax.set_xlabel(
+        "Older-fact questions answered right (not confirm questions; the tables give recall)"
+    )
     legend(ax, "Tiny Aya, untrained", "6.37, seed 82")
     titled(
         fig,
         "When the chat fits, the whole chat wins",
-        f"Outside-writer sets, about {round(sum(tokens) / len(tokens), -2):,.0f} tokens a chat "
-        "(R-164). Whole chat: no measured difference.",
+        f"Outside-writer sets, a mean of {round(sum(tokens) / len(tokens), -2):,.0f} tokens a chat "
+        "(R-164).\nWith the whole chat, 6.37 and base show no measured difference.",
     )
     save(fig, "whole_chat_or_search")
 
@@ -347,8 +349,11 @@ def fig_s3_faults() -> None:
         left=0.22, right=0.93, top=1 - 0.95 / fig.get_figheight(), bottom=0.22, wspace=0.3
     )
     panels = (
-        ("copy", "Copies the wrong answer in view"),
-        ("n_hit_false_answer", "Names a value when never told,\nthe search having returned text"),
+        ("copy", "Names its in-view wrong value\nwhen answering another question"),
+        (
+            "n_hit_false_answer",
+            "Never told, search returned text:\nnames a value listed for the chat",
+        ),
     )
     for ax, (measure, label) in zip(axes, panels, strict=True):
         arm_points(ax, measure, names, tables, chats)
@@ -422,8 +427,8 @@ def fig_s3_misses() -> None:
 
 def fig_never_told_slide() -> None:
     """hard_dev never_told at seed 82 as OP's stage is repeated (R-261, R-269, R-272)."""
-    fig, ax = plt.subplots(figsize=(8, 3.4))
-    fig.subplots_adjust(left=0.1, right=0.97, top=0.72, bottom=0.2)
+    fig, ax = plt.subplots(figsize=(9, 3.6))
+    fig.subplots_adjust(left=0.1, right=0.97, top=0.7, bottom=0.2)
     ax.axhspan(NEVER_TOLD_GATE - 0.5, 48.5, color=GRID, alpha=0.7, lw=0, zorder=0)
     for x, (_, run) in enumerate(STAGES):
         asked = [r for r in eval_rows(f"hd_{run}_82", 73157) if r["kind"] == "never_told"]
@@ -434,16 +439,16 @@ def fig_never_told_slide() -> None:
         ax.text(x + 0.08, hits, f"{hits} of {len(asked)}", va="center", color=INK, fontsize=10)
     ax.set_xticks(range(len(STAGES)), [s[0] for s in STAGES])
     ax.set_xlim(-0.4, len(STAGES) - 0.4)
-    ax.set_ylim(34, 49)
-    ax.set_yticks(range(35, 49, 3))
+    ax.set_ylim(35, 49.5)
+    ax.set_yticks(range(36, 49, 2))
     ax.set_ylabel("Never-told questions declined", fontsize=9.5)
     ax.grid(axis="x", visible=False)
     ax.text(0.1, 43.3, "the gate: at least 44", va="top", color=INK_2, fontsize=9)
     titled(
         fig,
-        "Each repeat of the same stage declined fewer never-told questions",
-        "Exploratory: one run each, hard_dev, training seed 82, 48 questions a run; Wilson 95% "
-        "intervals, which overlap; grey: passes the gate.",
+        "From OP on, each repeat of the stage declined fewer never-told questions",
+        "Exploratory: one run each, hard_dev, seed 82, 48 a run; Wilson 95% intervals overlap;\n"
+        "grey: passes the gate.",
     )
     save(fig, "never_told_slide")
 

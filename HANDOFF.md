@@ -1,35 +1,22 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 (R-293, session 3fe62a52). Read this, then
-`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-293.
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-297, session 3fe62a52). Read this, then
+`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-297, and `results/panels/R-294/` and `R-295/`.
 
 ## State
 
-- **S3 is run and scored (R-287): C1 fails the ship rule on one clause, so 6.37 seed 82 stays shipped.** C1 passes (a)
-  and (b) and two of (c)'s three parts; its N-hit false-answer rate, 51 of 708 (7.2%), is above base's 14 of 236
-  (5.9%). Against 6.37 on S3: copies 195 to 5 of 894, N-hit false answers 286 to 51 of 708, plain never-told 238 to 344
-  of 360, recall 347 to 364 of 1,242. Scored by `scripts/records/score_s3.py` (registered R-281, tested R-282);
-  coherence by three judges (R-286). The queue (`qs3.sh`, scratchpad of session 77d169a0, log `qs3.log`) stopped
-  after K1 seed 82 (R-288), was restarted on Kevin's word at 19:53 (R-289) and finished at 22:38: **S3 is complete**.
-  `score_s3.py rule` rerun with the report arms: verdict and every line unchanged (R-292); the report arms' raw counts
-  are in R-292 and section 9 (they enter no line). Nothing pushed (public repo: no push without Kevin's yes).
-- **Write-up rebuilt (R-288), with the audit session `local_62a27534` checking it against the submit checklist.**
-  Four documents now come from templates filled by `scripts/make_article.py` from results files: the long paper
-  `docs/ARTICLE.md` (about 11,500 words, from about 20,800), the short paper `docs/submission/HF_ARTICLE.md` (about
-  2,300 words, from about 8,400; template `docs/submission/hf_article_template.md`), the form abstract
-  `docs/submission/ABSTRACT.md` (template `abstract_template.md`, refused over 500 words) and the model card. The long
-  paper has a dated chronology (section 2), the reopening (7), the push to replace 6.37 then K1.3 with every candidate
-  (8), S3 (9), and hypotheses, deviations, leakage, flow and limits tables. `scripts/make_figures.py` draws five new
-  figures: S3 recall by arm, the two faults, S3 misses, the never-told slide and the demo contamination. Kevin's
-  requirements (16:45): two complementary papers, the short one about 5 pages pointing to the long one, a chronology,
-  "the dash to try to get a replacement" told well, every STANDARD v3 section, kv_voice_v2, figures from results.
-  The audit's 15 findings on b1abc06 are fixed or answered (R-289). The papers state Kevin's decisions in his own first-person voice, no quotes (R-290,
-  R-291). **Kevin's next ask (20:5x):** check both papers against kv_voice_v2, STANDARD v3 and the hackathon's submit
-  rules, then a large adversarial panel on the write-up. Kevin (R-292): "i'll wait until tomorrow morning. i'll hit you
-  up"; weekly usage resets at 05:00 ET on 15 November. **Left:** those checks and the panel, on his message. A voice
-  scanner (shown catching a planted line) and its hits by line are in the notes folder
-  `side-session-notes\local_f171c9ff-2a22-4e72-96cd-efd7d112faef\` (`voice_scan.py`, `voice_hits_27f6906.md`); none
-  is judged or fixed yet. Form due 16 November 07:59 ET.
+- **State, 15 November (R-294 to R-297).** S3 is complete; 6.37 seed 82 stays the shipped model by the registered
+  rule, and a panel Kevin asked for upheld it over his aggregate ruling (R-294; his view is stated in the papers, not
+  applied). C1 seed 82 is published beside it, labelled as failing one clause:
+  https://huggingface.co/KevinVaillancourt/aya-retrieval-c1 (R-296). A ten-reviewer panel on the write-up (R-295)
+  listed fixes; R-297 applied them to both papers, the abstract (481 words), both model cards, the README and three
+  figures. Every decision is first person, Kevin's (R-291). **Form due 06:59 Eastern on 16 November** (15 November
+  11:59 PM AoE, read on hackathon.lexsi.ai; earlier records said 07:59).
+- **Waiting on Kevin.** (1) A push to the public GitHub repo, 465+ commits behind: the short paper's figures and links,
+  the README and CI depend on it (run the privacy check with full output first). (2) Re-uploading 6.37's Hugging Face
+  card and article, now older than the repo, and S3's run files to the eval-logs dataset. (3) Filing the form.
+- **Not done (R-295 carried):** LoCoMo (Kevin: not needed), simpler baselines, a general-capability benchmark, a
+  contamination probe; the short paper is about 3,950 words, over the 5 pages asked, because of the checklist items.
 - **Pick before S3: C1** (`k13opc1_r263`; `decide_r191.py` 0 FAIL of 20, pick recall 775 against K1.3's 742, R-279).
   C1 is OP's stage run twice from K1.3 (1e-4 x 1 on OP's set, twice). It beat K1.3 by Kevin's rulings: a candidate must
   beat K1.3 (R-276), with the demos judged on their totals over Demo4 and Demo5 (R-278): older 5 of 12 against 4,
