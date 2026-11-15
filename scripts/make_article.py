@@ -799,12 +799,12 @@ def longmemeval_numbers(out) -> None:
             False,
         ),
         (
-            f"Declines, {abstain_n} unanswerable",
+            f"Declines, {abstain_n} unanswerable (a failed run counts as no decline)",
             lambda a: str(m[a]["abstention"]["hits"]),
             False,
         ),
         (
-            f"Declines, {answerable_n} answerable",
+            f"Declines, {answerable_n} answerable (a failed run counts as no decline)",
             lambda a: str(m[a]["refusal_on_answerable"]["hits"]),
             False,
         ),
@@ -2622,9 +2622,11 @@ def s3_round2_numbers(out) -> None:
         code_only = [i for i in own if code[i]["found_fact"] and not own[i]["found_fact"]]
         own_only = [i for i in own if own[i]["found_fact"] and not code[i]["found_fact"]]
         searched = [i for i in code_only if own[i]["queries"]]
+        unsearched = [i for i in own if not own[i]["queries"]]
         out[f"s3_qw_code_only_{key}"] = str(len(searched))
         out[f"s3_qw_own_only_{key}"] = str(len(own_only))
         out[f"s3_qw_nosearch_{key}"] = str(len(code_only) - len(searched))
+        out[f"s3_qw_unsearched_{key}"] = str(len(unsearched))
         out[f"s3_qw_p_{key}"] = p_text(exact_sign_test(len(searched), len(own_only)))
         # Grounding on the questions both searches found: the seed's reply against base reading
         # code's passages, the same questions (the pooled rates are over different questions).
@@ -2712,10 +2714,17 @@ def main() -> None:
         if missing:
             raise SystemExit(f"unfilled in {template.name}: {missing}")
         filled = re.sub(r"\{\{(\w+)\}\}", lambda m: values[m.group(1)], text)
-        if out.name == "ABSTRACT.md" and len(filled.split()) > ABSTRACT_WORDS:
-            raise SystemExit(f"the abstract is {len(filled.split())} words, over {ABSTRACT_WORDS}")
+        if out.name == "ABSTRACT.md":
+            # Two counts: by spaces, and by word characters, which splits "6.37" and "of-view".
+            for words in (len(filled.split()), len(re.findall(r"\w+", filled))):
+                if words > ABSTRACT_WORDS:
+                    raise SystemExit(f"the abstract is {words} words, over {ABSTRACT_WORDS}")
         out.write_text(filled, encoding="utf-8")
         print(f"wrote {out.relative_to(REPO_ROOT)}")
+    # README is written by hand; its S3 ship-rule line must give the gap the papers give.
+    ship_line = f"(c) fail by {values['s3_gap_points']} points"
+    if ship_line not in (REPO_ROOT / "README.md").read_text(encoding="utf-8"):
+        raise SystemExit(f"README's S3 ship-rule line does not read {ship_line!r}")
 
 
 if __name__ == "__main__":

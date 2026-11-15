@@ -60,8 +60,8 @@ The never-told and copy measures check for values listed for the chat (the asked
 writers' listed wrong values). A reply that invents a new value, or gives an unrelated fact of another category, is not
 counted; C1 still gives such unrelated stored facts (exploratory: 99 of 708 (14.0%) of its N-hit questions answered with
 a value when they are counted). The untrained model invents values on S3, so its rate of naming a listed value is a floor and its rate of naming
-no listed value a ceiling. Coherence (three blind Claude Sonnet judges; the first decides), out of 120 lines
-each: C1 97, base 95.
+no listed value a ceiling. Coherence, C1 seed 82 against base (three blind Claude Sonnet judges; the first decides), out of
+120 lines each: C1 97, base 95.
 
 ## How it was trained and chosen
 

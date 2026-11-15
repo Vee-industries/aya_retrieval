@@ -43,9 +43,9 @@ TRL_LOSS_RUN = "hard_in_view_84"  # v3 data, TRL's loss (R-026)
 LEAN_LOSS_RUN = "screen_hard_in_view_lean_82"  # same data, lean loss (R-032)
 
 # One colour per model in every figure (R-301): the untrained base grey, 6.37 blue, C1 orange,
-# the other candidates and the report arms purple. Figure 8's outcomes use teals, ochre and a
-# light grey, hues no model uses, so an outcome's colour never reads as an arm's, and no outcome
-# pair depends on telling red from green.
+# the other candidates and the report arms purple. Figure 8's outcomes use teal, a muted rose,
+# ochre and a light grey, hues no model uses, so an outcome's colour never reads as an arm's, and
+# no outcome pair depends on telling red from green.
 SURFACE = "#fcfcfb"
 INK = "#0b0b0b"
 INK_2 = "#52514e"
@@ -58,9 +58,9 @@ SEED_C = "#5b97dc"  # 6.37's single seeds
 C1_C = "#c4621a"  # C1
 REPORT_C = "#7a4fa3"  # K1, K1.3, K2.1, OP, C2
 CARD_C = "#d03b3b"
-OUTCOME_C = {  # Figure 8's outcomes: dark and light teal, ochre, light grey
+OUTCOME_C = {  # Figure 8's outcomes: teal, muted rose, ochre, light grey (four hues)
     "right": "#17706a",
-    "misread": "#74bdb4",
+    "misread": "#b5739d",
     "missed": "#b08a1e",
     "none": AXIS,
 }

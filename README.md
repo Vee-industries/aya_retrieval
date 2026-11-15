@@ -4,7 +4,7 @@ Trained with Lexsi's AgentTune, a LoRA adapter (6.37) lets Tiny Aya Global (3.35
 exchanges of a chat, search the rest when the answer is out of view. It is strong on chats from the generator that
 made its training chats: on the sealed test (300 unseen generated chats in each of four conditions, run once) the
 shipped seed recalls 91 to 107 of 120 facts, against 13 to 32 for the untrained model with the same tool. It is weak
-on chats from outside writers: there the untrained model shown the whole chat recalls most (71 and 65 of 120), code
+on chats from outside writers (Claude agents): there the untrained model shown the whole chat recalls most (71 and 65 of 120), code
 that searches every turn shows no measured difference from 6.37, and on S3, a second sealed test from outside writers,
 code recalls more and 6.37 repeats its own wrong answers and names listed values on never-told questions more often than the
 untrained model. A replacement, C1, cut both faults and missed one clause of the rule fixed before S3 opened, so 6.37
@@ -32,7 +32,7 @@ CohereLabs/tiny-aya-global is gated: accept its licence on Hugging Face first.
 
 On 12 November the scripted demo, run for 6.37 for the first time, showed two faults: it answered questions it was
 never told with unrelated stored facts (2 of 4 demo questions), and it repeated its own wrong answer while that answer
-was in view (6 of 8 further questions, registered before they ran) (R-175, R-176). With the deadline extended, I saw
+was in view (6 of 8 further questions, registered before they ran) (R-175, R-176). With the deadline reported extended (R-173), I saw
 results I had missed and judged the extra time enough to train further, so I reopened the project to fix them
 (R-177); the push to replace 6.37 ran inside the time that remained. A second sealed test, S3, was written by six blind writer agents and sealed
 before any new training row, with its ship rule fixed before it opened (R-178, R-179, R-191). From 12 to 14 November
@@ -142,6 +142,8 @@ the other arms one run each; recall intervals resample chats; R-287):
 | Copies: names its in-view wrong value when answering another question (lower is better) | 11 of 298 (3.7%) | 65 of 298 (21.8%) | 2 of 298 (0.7%) | 195 of 894 (21.8%) | 5 of 894 (0.6%) |
 | N-hit false answers: never told, search returned text, names a value listed for the chat (lower is better) | 14 of 236 (5.9%) | 121 of 236 (51.3%) | 57 of 236 (24.2%) | 286 of 708 (40.4%) | 51 of 708 (7.2%) |
 
+Ship rule for C1 (R-287): (a) pass, (b) pass, (c) fail by 1.3 points (C1's N-hit false-answer rate above base's).
+
 The report arms, earlier candidates run on S3 at seeds 82 and 83 outside the ship rule (exploratory): K1 and K2.1 met
 every measured line (N-hit false answers 12 and 14 of 472; coherence not judged); K1.3 failed clause (c) like C1 (37
 of 472, 7.8%, against base's 5.9%).
@@ -150,7 +152,8 @@ The shipped adapter is 6.37 (`fix17cs37`, seed 82), frozen on 9 November (RECORD
 (`results/freeze/sealed_manifest.json`, R-154). The sealed run is R-162, with results in R-163
 (`results/analysis/R-162/`). The write-up and model card in `docs/` are built from these results and R-164 to R-170
 by `scripts/make_article.py`. [`RECORDS.md`](RECORDS.md) is the dated log of every decision, run and result, each
-marked PRE-SPRINT, SPRINT or REOPENED. [`STANDARD.md`](STANDARD.md) is the standard this repository is built to.
+marked PRE-SPRINT, SPRINT or REOPENED. [`STANDARD.md`](STANDARD.md) is an earlier version of the author's research
+standard (rules 1 to 12); the rule numbers above 12 in the papers refer to version 3, which is not in this repository.
 
 ## Setup
 
@@ -298,7 +301,7 @@ judges' own brief would count as right. Every answer: [`docs/demo.md`](docs/demo
 
 </details>
 
-## When the chat fits: give it the whole chat
+## When the chat fits: give base the whole chat
 
 The sealed test and the outside-writer runs show the model only the last three exchanges, as a stand-in for a chat
 too long to show. When a chat is short enough to show whole, that is the better choice. On the outside-writer
@@ -307,11 +310,11 @@ questions, against 28 and 34 for 6.37 seed 82 with the tool and the last three e
 Given the whole chat and the tool, 6.37 shows no measured difference from base given the whole chat,
 on any kind, on both sets (R-165). That is one seed and two sets of 40 chats, so differences under 22 points between
 two arms on a kind of 40 questions (the 95% half-width of a difference between two rates near 50%) are below what
-this test resolves, and the test is not powered to show equality (R-142). So the design this supports is to
-show the trained model the whole chat when it fits, and let it search when it does not: no measured
-loss against base when the chat fits, and much better than base once only part of the chat can be
-shown. The whole-chat result holds on the outside-writer chats, not on this project's generated
-chats:
+this test resolves, and the test is not powered to show equality (R-142). So when a chat fits, show base the whole
+chat and leave the adapter out. 6.37 with the whole chat was measured only on the outside-writer sets, where it
+shows no measured difference from base with the whole chat (one seed; the test cannot show equality); it was not run
+on S3, where 6.37 with the tool is worse than base on both faults. The whole-chat result holds on the outside-writer
+chats, not on this project's generated chats:
 on the sealed pools, base with the whole chat got 21 to 33 of 60 recall questions against seed 82's
 46 to 55 (R-168).
 
@@ -321,7 +324,7 @@ p = 0.76 and 0.45, R-169). Base with the tool searches on 54 and 42 of the 120 r
 turn. Training adds searching when the answer is out of view (against base) and not searching when it is in view
 (against code): answers already on screen 35 and 37 of 40 against code's 13 and 16; facts never told, answered with
 no listed value, 37 and 36 against 31 and 24; plain statements left
-unsearched 37 and 35 against code's 0 (by construction), and below base's 38 and 39. On the generated sealed pools the adapters are also far above
+unsearched 37 and 35 against code's 0 (by construction), and below base's 38 and 39. On the generated sealed pools the adapters are also above
 code on recall (seed 82 44 to 55 of 60 against 14 to 32, R-168). The code is faster than 6.37: 1.0
 to 1.2 s a conversation against 1.7 to 2.1 s on the sealed pools (R-168), and 1.45 to 1.48 s a
 question against 1.70 to 1.96 s on the outside-writer sets (R-169).
@@ -357,8 +360,8 @@ counting a failure or no search as not found:
   more often: on the 294 questions both searched, each found it on 226.
 - Code that always searches finds evidence more often than 6.37 (372 against 333, p = 0.0004) and is
   faster. Gold answers in the reply show no measured difference (63 against 51, p = 0.20).
-- 6.37 declines far more than base: on 21 of the 30 questions that should be declined, and on 233 of
-  the 470 that should be answered.
+- 6.37 declines more than base: on 21 of the 30 questions that should be declined (base 2), and on 233 of
+  the 470 that should be answered (base 22).
 - Every arm that ran all 500 answers few (8 to 16%). Base reading only the evidence sessions gets 63 of 114 on
   the short questions it can fit.
 - **Judged accuracy** (LongMemEval's own judge prompts, three Claude Sonnet judges, labelled not the official score):
@@ -567,14 +570,17 @@ other test files.
   the tool environment, a threat model, models and licences, compute and time per 1,000 replies, planned work, a
   declaration of work done outside the hackathon, an LLM usage statement and the team line. No number about 6.37
   changed, and 6.37 is still the shipped model.
-- **14 November (R-218 to R-289).** The "Reopened" section carried through S3 (R-287: C1 fails one
+- **14 November (R-218 to R-293).** The "Reopened" section carried through S3 (R-287: C1 fails one
   clause, 6.37 stays shipped); the long and short write-ups and the form abstract rebuilt from templates by
-  `scripts/make_article.py` (R-288) and fixed after an audit (R-289); S3's layout rows and reproduce step added.
-- **15 November (R-290 to R-303), this version.** Decisions stated in my own voice; two review panels (R-294, R-295,
-  R-298); C1 published beside 6.37 (R-296); 6.37's S3 weakness and what S3's flags count stated in every document; the
-  short paper cut to its story and required items; the audit of the write-ups (R-299); the long paper's detail moved
-  to three appendices (R-300); a third review round's fixes (R-301); an audit's fixes (R-302); a fourth review
-  round's fixes (R-303).
+  `scripts/make_article.py` (R-288) and fixed after an audit (R-289); S3's layout rows and reproduce step added;
+  decisions stated in my own voice (R-290, R-291); S3's report arms completed (R-292).
+- **15 November (R-294 to R-305), this version.** A three-lane panel on the ship choice (R-294); two ten-lane review
+  rounds (R-295, R-298); C1 published beside 6.37 (R-296); 6.37's S3 weakness and what S3's flags count stated in
+  every document; the short paper cut to its story and required items; the audit of the write-ups (R-299); the long
+  paper's detail moved to three appendices (R-300); two thirteen-lane review rounds' fixes (R-301, R-303); an audit's
+  fixes (R-302). R-304: two private names that a sweep record had named were removed from the whole history; every
+  commit from 10 November on has a new id (map in `results/scrub/`). An audit of R-303's write-up and its fixes
+  (R-305).
 
 ## Licences
 

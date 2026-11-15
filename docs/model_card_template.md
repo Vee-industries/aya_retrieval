@@ -49,7 +49,7 @@ model `CohereLabs/tiny-aya-global` is gated: accept its licence on Hugging Face 
 
 A scripted demo, run for 6.37 on 12 November, showed two faults: it answered questions it was never told with
 unrelated stored facts, and it repeated its own wrong answer while that answer was still in view (R-175, R-176). With
-the deadline extended, I saw results I had missed and judged the extra time enough to train further, so I reopened the
+the deadline reported extended (R-173), I saw results I had missed and judged the extra time enough to train further, so I reopened the
 project (R-177); the push to replace 6.37 ran inside the time that remained. A second sealed test, S3, was written by {{s3_writers}} blind
 writer agents and sealed before any new training row, and its ship rule was fixed before it opened (R-178, R-179,
 R-191). {{reopened_n}} candidates were listed for screening, {{reopened_full}} read on every line; C1 became the pick (R-279). On S3, 6.37 does worse than the untrained
@@ -198,10 +198,12 @@ of card memory at inference (R-163).
 
 ## How to use it
 
-When the chat is short enough to show whole, show it the whole chat; the tool can stay in the
-prompt (R-165). This was measured on the outside-writer chats, of a mean of {{ow_tokens_mean}} tokens;
-on the generated chats the untrained model with the whole chat was below this adapter with the
-tool (R-168), and this adapter with the whole chat was not run there. Whole chats near the model's
+When the chat is short enough to show whole, show base the whole chat and leave this adapter out.
+This adapter with the whole chat was measured only on the outside-writer chats, of a mean of
+{{ow_tokens_mean}} tokens (R-165, one seed), where it shows no measured difference from base with the
+whole chat (the test cannot show equality); it was not run on S3, where this adapter with the tool is
+worse than base on both faults, nor on the generated chats, where the untrained model with the whole
+chat was below this adapter with the tool (R-168). Whole chats near the model's
 {{model_max_tokens}}-token limit were not measured.
 When it does not, use the harness the adapter was trained in: a system prompt that describes the
 `search_corpus` tool (`aya_retrieval.tool_prompt.system_prompt_with_tools`), the last three

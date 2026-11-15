@@ -14,41 +14,40 @@ A LoRA adapter on Tiny Aya Global (3.35B), trained with Lexsi's AgentTune, lets 
 exchanges, search the older part of a chat. The shipped adapter, 6.37, passed every rule of a sealed test registered
 before training (confirmatory): on {{sealed_conversations}} unseen chats in each of four conditions, from the training
 chats' generator, seed 82 recalls {{sealed_ship_range}} of {{sealed_recall_n}} out-of-view facts, against
-{{sealed_shipbase_range}} for the untrained model with the same tool. On that test's {{long_size}}-message chats it
+{{sealed_shipbase_range}} for the untrained model (base) with the same tool. On that test's {{long_size}}-message chats it
 recalls {{long_ship}} of {{r168_recall_n}}, against {{long_code}} for code that searches every turn (registered, run
 late: exploratory).
 
 The strongest simple baselines change the reading on chats from outside the generator (exploratory). When the chat
-fits, the untrained model shown the whole chat recalls more than 6.37 ({{wc_recall_1}} and {{wc_recall_2}} of
+fits, base shown the whole chat recalls more than 6.37 ({{wc_recall_1}} and {{wc_recall_2}} of
 {{as_recall_n}}, against {{ow_82_recall_1}} and {{ow_82_recall_2}}), and code that searches every turn shows no
 measured difference. On LongMemEval-S's long outside histories, 6.37 shows no measured difference from code on answers
 ({{lme_j_ship}} against {{lme_j_code}} of {{lme_judged_n}}); code's first search finds the evidence more often,
 {{lme_h2_code}} (registered H2, R-170).
 
 A scripted demo then showed two faults: 6.37 answered never-told questions with an unrelated stored fact and repeated
-its own wrong answer in view (R-175, R-176). With the deadline extended, I saw results I had missed and judged the
-extra time enough to train further, so I reopened the project (R-177); the push ran in the time that remained. A new
+its own wrong answer in view (R-175, R-176). With the deadline reported extended (R-173), I saw results I had missed and judged the
+extra time enough to train further, so I reopened the project (R-177). A new
 sealed test, S3, by {{s3_writers}} blind writer agents, was sealed before any new training row, its ship rule fixed
-before it opened (R-178, R-179, R-191). On S3, 6.37 does worse than the untrained model on both faults: it names its in-view
+before it opened (R-178, R-179, R-191). On S3, 6.37 does worse than base on both faults: it names its in-view
 wrong value on {{s3_copy_637}} questions against {{s3_copy_base}}, and a value listed for the chat on {{s3_nhit_637}}
 never-told questions whose search returned text (N-hit false answers) against {{s3_nhit_base}}.
 
 Of {{reopened_n}} candidates listed from 12 to 14 November, {{reopened_full}} were read on all 20 screening lines
 (R-279); the pick, C1, trained on corrections of its own errors. On S3, C1 cut both rates to {{s3_copy_c1}} and
-{{s3_nhit_c1}} with no measured change in recall, and failed clause (c): its N-hit false-answer rate had to be no
-higher than base's. The chat-resampled 95% interval of that difference, {{c1_gap_interval}}, cannot tell C1 from base;
-the registered rule requires every clause, so 6.37 stays shipped (R-287). C1 is published beside it, labelled. Code
-that searches every turn recalls more than both on S3 (exploratory). Report arms (earlier candidates run on S3 outside
-the rule, two seeds; exploratory): K1 (other fact types in every chat) and K2.1 (K1 with other never-told traps) met
-every measured line; K1.3 (K1 with facts reworded, C1's starting point) failed (c) like C1. S3's flags count only
-values of the asked category listed for the chat.
+{{s3_nhit_c1}} with no measured change in recall, and failed clause (c) by {{s3_gap_points}} points: its N-hit
+false-answer rate had to be no higher than base's. The chat-resampled 95% interval of that difference,
+{{c1_gap_interval}}, cannot tell C1 from base; the registered rule requires every clause, so 6.37 stays shipped
+(R-287). C1 is published beside it, labelled. Code recalls more than both on S3
+(exploratory). Two report arms, K1 and K2.1 (earlier candidates run on S3 outside the rule; exploratory), met every
+measured line.
 
 ## Submission summary
 
 **Title and claim.** Teaching a 3B model to search a long chat it can no longer see: a LoRA adapter trained with
 AgentTune (6.37) makes Tiny Aya Global recall {{sealed_ship_range}} of {{sealed_recall_n}} out-of-view facts on the
 generator-built sealed test, where the untrained model with the same tool recalls {{sealed_shipbase_range}}. On S3, a
-second sealed test from outside writers, 6.37 does worse than the untrained model on both faults it was reopened to
+second sealed test from outside writers (Claude agents), 6.37 does worse than the untrained model on both faults it was reopened to
 fix; the replacement built to fix them failed S3 on one clause, so 6.37 stays shipped and the replacement is published
 beside it, labelled.
 
@@ -203,10 +202,12 @@ The work ran in six stages. Each row names the records that hold its decisions a
 | 9 to 10 Nov | First sealed test and outside checks | Sealed run, every rule passes; whole chat and code run late; LongMemEval-S; published | R-162 to R-172 |
 | 12 Nov | Faults found, reopened | Scripted demo shows two faults; deadline extended; project reopened; S3 written and sealed; ship rule fixed | R-173 to R-179 |
 | 12 to 14 Nov | The push to replace 6.37, then K1.3 | {{reopened_n}} candidates listed, {{reopened_full}} read on every line; K1.3 the pick from R-203; demos rewritten clean; on-policy tries; my change to the demo test; C1 the pick | R-180 to R-279 |
-| 14 to 15 Nov | S3, then review | S3 opened once; C1 fails one clause; 6.37 stays shipped; write-ups reviewed; C1 published | R-280 to R-303 |
+| 14 to 15 Nov | S3, then review | S3 opened once; C1 fails one clause; 6.37 stays shipped; write-ups reviewed; C1 published | R-280 to R-305 |
 
 In the last stage the scorer was registered and tested before any S3 file was read, and the write-ups were rebuilt,
-reviewed by panels and an audit, and fixed; C1 was published beside 6.37.
+reviewed by panels and an audit, and fixed; C1 was published beside 6.37. R-304: two private names that a sweep
+record had named were removed from the whole history; every commit from 10 November on has a new id (map in
+`results/scrub/`).
 
 **Why the stages ran as they did.** Each stage was set off by a measured result, not by a plan made in advance. The
 first sealed test passed, so 6.37 shipped. The baselines run late (R-167 to R-169) then showed the adapter's recall
@@ -315,7 +316,7 @@ R-141) and frozen (R-160). {{train_minutes}} minutes a seed, peak {{train_peak}}
 R-141) by more than most changes moved it. The {{ledger_total}} trained candidate sets before the freeze were screened
 on reused development pools; 6.37 is the only copy after v6 that passed every registered line (R-123 to R-127). The
 full ledger is in `RECORDS.md` (R-103 to R-160) and in section 11 of the article as submitted on 10 November
-([commit 7b71a20](https://github.com/Vee-industries/aya_retrieval/blob/7b71a20/docs/ARTICLE.md#11-how-637-was-chosen-the-candidate-ledger)).
+([commit 3a2754e](https://github.com/Vee-industries/aya_retrieval/blob/3a2754e/docs/ARTICLE.md#11-how-637-was-chosen-the-candidate-ledger)).
 
 ## 5. Evaluation protocol
 
@@ -656,7 +657,7 @@ and no answer it had passed before (R-098).
 
 ## 11. Deviations from the registered plans
 
-STANDARD v3, and every STANDARD rule number above 12 (rows 21 and 22, sections 12 and 13), refer to the author's
+STANDARD v3, and every STANDARD rule number above 12 (rows 21 to 23, sections 12 and 13), refer to the author's
 research standard, version 3, which is not in this repository; `STANDARD.md` in the repository is an earlier version with
 rules 1 to 12, the one rows 16 and 21 cite as "STANDARD rule".
 
@@ -684,6 +685,7 @@ rules 1 to 12, the one rows 16 and 21 cite as "STANDARD rule".
 | 20 | Never-told rubric with a decline (R-178, the sealed judge brief) | The model-free part only (names no listed value); no judge read S3's never-told replies | R-281 took the scorer's model-free reading; the code was in place at the seal | R-178, R-281 |
 | 21 | Rules 20 and 21 of STANDARD v3; STANDARD rule 9 | Not computed: rule 21's effect, interval and n (section 6.2, hypotheses table); rule 20's family size and adjusted result; intervals on Figures 1 and 2 | not done; see the note below | STANDARD v3 rules 20, 21; STANDARD rule 9 |
 | 22 | Rules 28 and 30 of STANDARD v3 | No single total of everything scored on development pools ({{ledger_total}} sets before the freeze, {{reopened_n}} listed after, and the named stops); no flow table for the first sealed test, the outside sets or LongMemEval-S | not done | STANDARD v3 rules 28, 30 |
+| 23 | Rules 23, 24, 34, 40, 41 of STANDARD v3 | Not applied as written: no per-file data manifest with hashes (only `results/freeze/sealed_manifest.json`), no fingerprint of every field, no source-kind check per number, time proof for S3 only (R-181) | not done | STANDARD v3 rules 23, 24, 34, 40, 41 |
 
 Row 11's timing: the first change (R-276) came after both of C1's demo readings and K1.3's Demo4 reading, and it
 ordered K1.3's Demo5 reading knowing C1's; the second (R-278) came after all four readings.
@@ -770,14 +772,16 @@ fail. Query writing trained on its own and judged the same way; LoCoMo and chats
 applying the full never-told rubric; the whole chat at {{long_size}} messages on a larger card.
 
 **K1's S3 report arm** (exploratory, two seeds) reads recall {{s3_recall_k1}}, copies {{s3_copy_k1}} and a listed
-value named on {{s3_nhit_k1}} never-told questions, against base's {{s3_nhit_base}}. Query writing is a measured
-cause of lost recall: on the same {{s3_qw_n}} S3 recall questions, where both searched, code's raw message found the
-fact where 6.37 seed 82's queries did not on {{s3_qw_code_only_637}}, the reverse on {{s3_qw_own_only_637}}, and on
-{{s3_qw_nosearch_637}} more seed 82 did not search (C1 seed 82: {{s3_qw_code_only_c1}}, {{s3_qw_own_only_c1}} and
-{{s3_qw_nosearch_c1}}; Appendix C).
+value named on {{s3_nhit_k1}} never-told questions, against base's {{s3_nhit_base}}. Query writing is the likeliest
+cause of lost recall; the counts do not isolate it (code runs one search, the adapter up to three). On the same
+{{s3_qw_n}} S3 recall questions, where both searched, code's raw message found the fact where 6.37 seed 82's queries
+did not on {{s3_qw_code_only_637}}, the reverse on {{s3_qw_own_only_637}}; on {{s3_qw_nosearch_637}} of the
+{{s3_qw_unsearched_637}} questions seed 82 did not search, code's search found the fact (C1 seed 82:
+{{s3_qw_code_only_c1}}, {{s3_qw_own_only_c1}}, and {{s3_qw_nosearch_c1}} of {{s3_qw_unsearched_c1}}; Appendix C).
 
 Not done, each a gap in what this work establishes. Query writing was not trained on its own, and the reopening did
-not change it (R-178); on S3 it is a measured cause of lost recall (exploratory, Appendix C). K1 meets every measured
+not change it (R-178); on S3 it is the likeliest cause of lost recall, not isolated by the counts (exploratory,
+Appendix C). K1 meets every measured
 S3 line as a report arm and has no sealed test of its own. The whole chat at {{long_size}} messages is not measured;
 it ran out of memory on the 10 GB card (R-166). LoCoMo (R-100) and other outside long-chat sets are not run.
 Instructions hidden in retrieved passages are not tested. Reward-based training on the checkable search decision is
@@ -841,16 +845,19 @@ Claude, which did the work described. No grant or funding is recorded.
   flow tables and limits under STANDARD v3's headings; claims labelled confirmatory or exploratory; seven figures drawn
   from results files. The detailed tables on 6.37 that were cut are in the git history of this file and in the
   records. No number about 6.37 changed; 6.37 is still the shipped model.
-- **14 November, audit fixes (R-289).** Checklist items restored to the long paper (metrics, trajectories, models
-  and licences, how the toolkits connect, artifacts) and added to the short one; GPU hours summed from the run files;
-  the candidate counts stated in full; the report arms of S3 filled in as they ran.
-- **15 November (R-290 to R-303), this version.** My decisions stated in my own voice; two review panels (R-294,
-  R-295, R-298); C1 published beside 6.37; 6.37's S3 weakness stated in every document; what S3's flags count; code's
-  S3 recall lead; the short paper cut to its story and required items; the audit of the write-ups (R-299); the long
-  paper's per-seed and per-arm detail moved to Appendices A to C (R-300); a third review round's fixes, among them
-  LongMemEval-S's registered H2, query writing as a measured cause and two more deviations (R-301); an audit's fixes
-  (R-302); a fourth review round's fixes, among them the timing of the two demo-test changes, "Use this when" against
-  base, the answer cue in S3's tag questions and S3's false claims (R-303).
+- **14 November, audit fixes (R-289 to R-293).** Checklist items restored to the long paper (metrics, trajectories,
+  models and licences, how the toolkits connect, artifacts) and added to the short one; GPU hours summed from the run
+  files; the candidate counts stated in full; my decisions stated in my own voice (R-290, R-291); the report arms of
+  S3 filled in as they ran (R-292).
+- **15 November (R-294 to R-305), this version.** A three-lane panel on the ship choice (R-294); two ten-lane review
+  rounds (R-295, R-298); C1 published beside 6.37 (R-296); 6.37's S3 weakness stated in every document; what S3's
+  flags count; code's S3 recall lead; the short paper cut to its story and required items; the audit of the
+  write-ups (R-299); the long paper's per-seed and per-arm detail moved to Appendices A to C (R-300); a thirteen-lane
+  review round's fixes, among them LongMemEval-S's registered H2, the query-writing counts and two more deviations
+  (R-301); an audit's fixes (R-302); a second thirteen-lane round's fixes, among them the timing of the two demo-test
+  changes, "Use this when" against base, the answer cue in S3's tag questions and S3's false claims (R-303). R-304:
+  two private names that a sweep record had named were removed from the whole history; every commit from 10 November
+  on has a new id (map in `results/scrub/`). An audit of R-303's write-up and its fixes (R-305).
 
 ## References
 
@@ -941,12 +948,14 @@ line pools C1's three seeds.
 **Where recall is lost** (exploratory; Figure 8). Of C1's wrong recall answers, {{s3_missed_c1}} are searches that
 did not find the fact, {{s3_misread_c1}} had the fact in its own search output, and {{s3_nosearch_c1}} did not search
 (6.37: {{s3_missed_637}}, {{s3_misread_637}} and {{s3_nosearch_637}}). The reopened work trained reading and
-declining; searches that never found the fact are its largest loss. Query writing is a measured cause of it: on the
-same {{s3_qw_n}} recall questions, where both searched, code's raw message found the fact where 6.37 seed 82's
-queries did not on {{s3_qw_code_only_637}}, the reverse on {{s3_qw_own_only_637}} (sign test p =
-{{s3_qw_p_637}}); on {{s3_qw_nosearch_637}} more seed 82 did not search, a miss of when, not of what. For C1 seed
-82: {{s3_qw_code_only_c1}} against {{s3_qw_own_only_c1}} (p = {{s3_qw_p_c1}}), and {{s3_qw_nosearch_c1}} not
-searched. Both use the same keyword tool, so on the questions both searched the query made the difference.
+declining; searches that never found the fact are its largest loss. Query writing is the likeliest cause of it; the
+counts do not isolate it (code runs one search, the adapter up to three). On the same {{s3_qw_n}} recall questions,
+where both searched, code's raw message found the fact where 6.37 seed 82's queries did not on
+{{s3_qw_code_only_637}}, the reverse on {{s3_qw_own_only_637}} (sign test p = {{s3_qw_p_637}}). Seed 82 did not
+search on {{s3_qw_unsearched_637}} recall questions, a miss of when, not of what; code's search found the fact on
+{{s3_qw_nosearch_637}} of them. For C1 seed 82: {{s3_qw_code_only_c1}} against {{s3_qw_own_only_c1}} (p =
+{{s3_qw_p_c1}}), and code's search found the fact on {{s3_qw_nosearch_c1}} of the {{s3_qw_unsearched_c1}} it did not
+search.
 
 ![S3 misses](../figures/s3_misses.png)
 

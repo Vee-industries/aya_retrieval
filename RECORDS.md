@@ -10745,3 +10745,31 @@ same evening with their results read. Fix: background jobs get `watch_job.sh`. T
 log only; a later job uses no command match where the process is a Git Bash script.
 
 Usage at the start of this stage: weekly, all models, 7% (09:21).
+
+## R-305 · 2026-11-15 · REOPENED · The audit of R-303's write-up (809855c, now 56db55d); its fixes applied
+
+Kevin's plan, in chat after R-302: "one final review then audit round then push it". The audit session read commit
+809855c (renamed 56db55d by R-304) from about 09:20 to 10:10; its findings, the fix list and the builder's report are in
+`results/panels/R-305/`. Result: 2 HIGH, 6 MEDIUM, 6 LOW, no wrong count. It rebuilt the five built documents byte for
+byte from templates and results, recomputed every S3 count per arm and seed from the 15 run files, and confirmed the
+query-writing count's new definition (88 and 22; C1 seed 82, 100 and 29; "where both searched" in all three places).
+
+HIGH: H1, links point at copies that do not hold this write-up until the push (carried to the push, R-306); H2, the
+README told readers to show 6.37 the whole chat, "much better than base", against every other document and S3.
+A builder agent (Opus) applied a 15-item fix list in a throwaway clone: H2 in README and the 6.37 card (show base the
+whole chat; 6.37 with the whole chat was measured only on the outside-writer sets, never on S3); both abstracts cut to
+under 500 by a `\w+` count as well as by whitespace (long paper 452 and 495, ABSTRACT.md 465 and 495; `make_article.py`
+now refuses ABSTRACT.md over 500 by either count); "outside writers (Claude agents)" at first use; "reported extended
+(R-173)" at the first mention of the deadline in each document; README's STANDARD.md sentence and a deviation row for
+v3 rules 23, 24, 34, 40 and 41; the query-writing sentences (67 questions seed 82 did not search, code found the fact
+on 53; C1 seed 82, 11 and 6; "the likeliest cause, not isolated by the counts"); a ship-rule line in README's S3 table,
+checked against the generated gap by `make_article.py`; LongMemEval-S decline row labels; README's "far" lines given
+counts (base 2 of 30 and 22 of 470, checked against `results/analysis/R-170/scores.json`); changelog ranges; the C1
+card's coherence sample named; Figure 8's "answered wrong" colour a different hue from "Right"; the long paper's link
+to commit 7b71a20 changed to its rewritten id 3a2754e; R-304 named in the changelogs. Short paper held at 2,761 words.
+Checked by the orchestrator: the H2 text, the abstract diff (the demo-change order, the 1.3-point gap and both S3 fault
+rates kept), the README counts. Checks: ruff, format, pytest 1,790 passed.
+
+Carried, Kevin's calls: the long paper's length (body about 13,500 words); the short paper's length (2,761).
+Usage at the end of this stage: weekly, all models, 7% (10:11). Next: R-306, the privacy sweep, the push and the
+Hugging Face updates.

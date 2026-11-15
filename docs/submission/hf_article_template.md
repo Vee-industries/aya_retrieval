@@ -4,12 +4,12 @@
 
 **Claim.** On a sealed test of chats from its training generator, 6.37 makes Tiny Aya Global recall
 {{sealed_ship_range}} of {{sealed_recall_n}} out-of-view facts, against the untrained model's
-{{sealed_shipbase_range}}; on chats from outside writers it does not beat the strongest simple baselines.
+{{sealed_shipbase_range}}; on chats from outside writers (Claude agents) it does not beat the strongest simple baselines.
 
 **Result first.** 6.37, a LoRA adapter trained with Lexsi's AgentTune, lets Tiny Aya Global (3.35B) search the part
 of a chat it can no longer see. On two sets of chats from outside writers it recalls {{ow_82_recall_1}} and
-{{ow_82_recall_2}} of {{as_recall_n}}; the whole chat recalls more than 6.37, and code that searches every turn
-shows no measured difference from it. On S3, a second sealed test
+{{ow_82_recall_2}} of {{as_recall_n}}; the whole chat recalls more than 6.37, and code shows no measured difference
+from it. On S3, a second sealed test
 from outside writers, code recalls more, and 6.37 repeats its own wrong answers and names listed values on never-told
 questions more often than the untrained model. C1 cut both faults. It missed one clause of a rule fixed before S3
 opened, by {{s3_gap_points}} points, a gap S3 cannot resolve. **6.37 stays shipped** because no replacement passed the
@@ -54,7 +54,7 @@ each opened once; *exploratory* ones on sets read many times or after the decisi
 
 Track 3, problem statement 4: "Fine-tuning for retrieval-augmented generation: Train a model that decides when and
 what to retrieve, grounds its answers in the retrieved text and ignores distracting documents." The use: a small-model chat
-assistant that must recall what a user said long ago. The base model is
+assistant recalling what a user said long ago. The base model is
 `CohereLabs/tiny-aya-global`, revision `{{model_revision}}`.
 
 The model sees the system prompt, the last three exchanges and the newest message. Everything older is reachable
@@ -63,8 +63,7 @@ turn). The newest message asks for a fact told long ago (`older`), asks "did I t
 {{s3_conf_true}} a true claim holding the answer), or is a fact in view, a fact never
 told or plain chat. Each chat holds decoys: the same kind of fact about others. **Threat model:** the
 adversary is the chat's own content (decoys, a false claim in a "..., right?" question, the model's own wrong answer
-in view, a fact never told). A value the user never said, given as the user's, is a false memory the user can act
-on.
+in view, a fact never told). A value the user never said, given as the user's, is a false memory.
 
 The statement's four clauses, for 6.37:
 
@@ -92,23 +91,26 @@ AuditKIT was a development scorer. S3 shares {{s3_runs_shared}} four-word runs w
 | 12 Nov | Demo shows two faults; reopened; S3 written and sealed | R-173 to R-179 |
 | 12 to 14 Nov | {{reopened_n}} candidates listed; K1.3 the pick, then C1 | R-180 to R-279 |
 | 14 Nov | S3 opened once; C1 misses one clause; 6.37 stays shipped | R-280 to R-293 |
-| 15 Nov | Review panels and audits; C1 published beside 6.37 | R-294 to R-303 |
+| 15 Nov | Review panels and audits; C1 published beside 6.37 | R-294 to R-305 |
+
+R-304: two private names that a sweep record had named were removed from the whole history; every commit from 10
+November on has a new id (map in `results/scrub/`).
 
 ## 3. 6.37's results
 
 **First sealed test (confirmatory).** {{sealed_conversations}} unseen chats from the generator in each of four
-conditions (Figure 1, rows A to D), run once on base and all eight seeds. Every registered rule passes: pooled recall
+conditions (Figure 1), run once on base and all eight seeds. Every registered rule passes: pooled recall
 {{sealed_adapters_range}}% against base's {{sealed_base_range}}%; every right answer came from a search that found
 the fact; no adapter made more decoy retrievals than base; three judges rated every adapter coherent more often.
 
 ![6.37 above base on every row](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/recall_out_of_view.png)
 
 *Figure 1. Recall, three exchanges in view: base against 6.37's eight seeds pooled (small dots: each seed); point
-counts, no interval; the table below: seed 82.*
+counts, no interval.*
 
 **The strongest baselines (exploratory, registered and run late).** On the generator's chats seed 82 is above both
 code and the whole chat: at 58 messages, {{r168_ship58}} of {{r168_recall_n}} against the whole chat's {{r168_wc}};
-at {{long_size}} messages (too long to show whole on the 10 GB card, R-166), {{long_ship}} against
+at {{long_size}} messages (too long for the 10 GB card, R-166), {{long_ship}} against
 code's {{long_code}}. On two sets of chats by outside writers (a mean of {{ow_tokens_mean}} tokens), the reading
 reverses:
 
@@ -124,9 +126,9 @@ answers. 6.37 declines {{lme_refuse_ship}} of {{lme_answerable_n}} answerable qu
 ## 4. The faults, and S3
 
 The scripted demo, run for 6.37 on 12 November (R-175, R-176), showed two faults: asked something it was never told,
-it gave an unrelated stored fact; and it repeated its own wrong answer while it was in view. With
-the deadline extended, I saw results I had missed and judged the extra time enough to train further, so I reopened the
-project to fix the faults (R-177); the push to replace 6.37 ran inside the time that remained.
+it gave an unrelated stored fact; and it repeated its own wrong answer while in view. With
+the deadline reported extended (R-173), I saw results I had missed and judged the extra time enough to train further,
+so I reopened the project to fix the faults (R-177).
 
 **The test came before the training.** S3 was written by {{s3_writers}} fresh Claude Opus writers given only a brief:
 {{s3_chats}} chats, {{s3_items}} items, hashed before any new training row (R-179). **The ship rule, fixed before S3
@@ -137,7 +139,7 @@ opened** (R-178, R-191). The pick must:
 - (b) copy at most half as often as 6.37 and at least 10 points less than it;
 - (c) give at least 10 points fewer N-hit false answers than 6.37, and no more than base.
 
-Its scorer was written after S3 started and before any S3 file was read (R-281).
+Its scorer was written after S3 started, before any S3 file was read (R-281).
 
 ## 5. The push to replace 6.37
 
@@ -173,7 +175,7 @@ against {{pick_recall_k13}} of {{pick_recall_n}} (R-279), inside the seed spread
 ![6.37 above base on both faults](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/s3_faults.png)
 
 *Figure 3. The two faults on S3 by arm, lower is better; 95% intervals resample chats; grey band: base's interval;
-thin line (right): base's rate, clause (c)'s line. 6.37 and C1 pool three seeds, report arms seeds 82 and 83.*
+thin line (right): base's rate, clause (c)'s line. Report arms: seeds 82 and 83.*
 
 C1 missed (c) by {{s3_gap_points}} points (Figure 3); the chat-resampled 95% interval of C1 minus base is {{c1_gap_interval}}.
 The rule requires every clause, so 6.37 stays
@@ -182,10 +184,12 @@ on (c) but fails (a)'s statement line: it left {{c1s82_st}} plain statements uns
 base.
 
 On S3, the whole chat recalls {{s3_recall_wc}} and code {{s3_recall_as}}: code recalls more than 6.37
-({{s3_code_vs_637}}) and C1 ({{s3_code_vs_c1}}). Query writing is a
-measured cause (exploratory): where both searched, code's raw message found the fact where seed 82's queries did
-not on {{s3_qw_code_only_637}} recall questions, the reverse on {{s3_qw_own_only_637}}; on {{s3_qw_nosearch_637}} more
-seed 82 did not search (C1 seed 82: {{s3_qw_code_only_c1}}, {{s3_qw_own_only_c1}} and {{s3_qw_nosearch_c1}}). Report
+({{s3_code_vs_637}}) and C1 ({{s3_code_vs_c1}}). Query writing is the likeliest cause, not isolated by these
+counts (code runs one search, the adapter up to three; exploratory): where both searched, code's raw message found
+the fact where seed 82's queries did not on {{s3_qw_code_only_637}} recall questions, the reverse on
+{{s3_qw_own_only_637}}; of the {{s3_qw_unsearched_637}} seed 82 did not search, code's search found it on
+{{s3_qw_nosearch_637}} (C1 seed 82: {{s3_qw_code_only_c1}}, {{s3_qw_own_only_c1}}, and {{s3_qw_nosearch_c1}} of
+{{s3_qw_unsearched_c1}}). Report
 arms K1 and K2.1 (two seeds, no coherence judging) meet every measured line,
 naming a listed value on {{s3_nhit_k1}} and {{s3_nhit_k21}}; K1.3, the pick before C1, fails (c) on
 {{s3_nhit_k13}}. Exploratory; none swapped in.
@@ -213,8 +217,7 @@ naming a listed value on {{s3_nhit_k1}} and {{s3_nhit_k21}}; K1.3, the pick befo
 
 **With more credits.** A sealed test of K1 on a new set of outside chats under S3's rule; query writing trained on its
 own and judged the same way; LoCoMo and chats past the window against code; a judge applying the full never-told
-rubric; the whole chat at {{long_size}} messages on a larger card. K1's S3 report arm (section 6) is the
-before-and-after reading in hand.
+rubric; the whole chat at {{long_size}} messages on a larger card.
 
 **Reproduce.** The README gives 6.37's commands; every other run's command is in its run file's provenance.
 `scripts/make_article.py` fills the write-ups from results files, except what the long paper's section 15 lists. Training takes {{train_minutes}} minutes a seed on an RTX 3080;
