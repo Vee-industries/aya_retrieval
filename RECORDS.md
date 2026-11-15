@@ -10773,3 +10773,27 @@ rates kept), the README counts. Checks: ruff, format, pytest 1,790 passed.
 Carried, Kevin's calls: the long paper's length (body about 13,500 words); the short paper's length (2,761).
 Usage at the end of this stage: weekly, all models, 7% (10:11). Next: R-306, the privacy sweep, the push and the
 Hugging Face updates.
+
+## R-306 · 2026-11-15 · REOPENED · Published: the push and the Hugging Face updates
+
+Kevin, in chat after R-302: "one final review then audit round then push it"; earlier, "i'm not pushing til it's
+done". Both steps before it are done (R-303, R-305). `docs/submission/PUBLISH.md` steps 1 to 4:
+1. **Sweep** (just before the push; the clock was not read for it): `privacy_check.py` with the private names list, `--history origin/main..main`: planted checks
+   passed; 3,341 tracked files, 0 hits; 476 commits, 3,673 blobs, 0 hits. The added lines of the same range were also
+   searched for the email address and a private word list kept outside the repository: one hit, in a model reply
+   on a generated chat (as R-172 found); "vaillancourt" only as the author's name.
+2. **Push** (10:14): `main` 3a2754e to 2dc6a40, a fast-forward.
+3. **Hugging Face** (10:15 to 10:18, as KevinVaillancourt): only files missing from each repo were added; every file
+   already there matched the repository byte for byte (git blob or LFS SHA-256), so nothing was replaced or deleted.
+   `aya-retrieval-eval-logs`: 651 files (`s3/`, `demo/` to `demo5/`, `freeze/`, `panels/`, `recall_eval/`,
+   `recall_train/`, `scrub/`) and its card, which now names `s3/`, the demo folders and `scrub/` and covers C1
+   (commit aef0358). `aya-retrieval-chats`: 252 files in `screens/` (the reopened candidates' training sets) and its
+   card (1a302bc). `aya-retrieval-6.37`: README = `docs/MODEL_CARD.md`, `ARTICLE.md` = `docs/submission/HF_ARTICLE.md`
+   (2444562). `aya-retrieval-c1`: README = `docs/MODEL_CARD_C1.md` (5b3f09b). All four public, not gated; the models
+   collection lists 6.37, the base model and C1, the datasets collection both datasets.
+4. **Links**, logged out: every link and image in README, ARTICLE, HF_ARTICLE, both model cards and both dataset cards,
+   37 distinct, each 200; the audit's 404s (R-305, H1: `s3_faults.png`, `demo_contamination.png`, `docs/demo.md`, the
+   notebook, `MODEL_CARD_C1.md`) now open; `figures/s3_misses.png` on GitHub matches the committed file's SHA-256.
+
+Also: HANDOFF and PUBLISH.md updated to this state. Left: the form (Kevin, by 06:59 Eastern on 16 November); Kevin's
+request to GitHub Support to purge the pre-R-304 commits; his calls on the papers' lengths.

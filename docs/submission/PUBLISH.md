@@ -64,4 +64,9 @@ Every step from 2 on is public and Kevin's call.
 - 12 November (R-181): S3's chats and seal pushed to the GitHub repository's `reopened` branch.
 - 15 November (R-296): https://huggingface.co/KevinVaillancourt/aya-retrieval-c1, public and not gated, added to the
   models collection.
-- Not yet done: steps 1 to 5 above for the reopened work (R-173 to R-303).
+- 15 November (R-304): two private names that R-172's sweep record had named were removed from the whole history;
+  `main` and `reopened` force-pushed.
+- 15 November (R-306): steps 1 to 4 for the reopened work (R-173 to R-305): the sweep (0 hits over 476 unpushed
+  commits), the push of `main`, the four Hugging Face uploads (eval-logs with `s3/`, chats with the reopened
+  training sets, 6.37's card and `ARTICLE.md`, C1's card), both collections checked, every link opened logged out.
+- Not yet done: step 5, the form (Kevin).

@@ -12,7 +12,7 @@ pretty_name: aya_retrieval evaluation logs
 
 # aya_retrieval: evaluation logs and judge marks
 
-Every recorded run behind the numbers in the write-up for the 6.37 adapter (Tiny Aya Global), with the judges'
+Every recorded run behind the numbers in the write-up for the 6.37 and C1 adapters (Tiny Aya Global), with the judges'
 marks and the analysis files. Code, method and the dated log of every run are in
 [github.com/Vee-industries/aya_retrieval](https://github.com/Vee-industries/aya_retrieval); record ids (R-162 and so
 on) point into its `RECORDS.md`. The chats the runs read are in
@@ -33,6 +33,9 @@ The base model CohereLabs/tiny-aya-global is gated: accept its licence on Huggin
 | `freeze/` | The digests that froze the model, scorer and judge before the sealed run (R-154, R-160). |
 | `recall_train/` | Training logs per seed. |
 | `curator/`, `audit/` | CuratorKIT's grounding gate (R-096, R-098) and AuditKIT's second-scorer runs. |
+| `s3/` | S3, the second sealed test (sealed in R-181, scored in R-287): the 15 run files `s3_*.json`, one per arm (base with the tool, code, base with the whole chat, 6.37 seeds 82, 83 and 94, C1 seeds 82, 83 and 94, and the report arms K1, K1.3 and K2.1 on seeds 82 and 83), the ship rule's result `ship_rule.json`, and the blind coherence sample, key and three judges' marks (`coherence_sample.json`, `coherence/`). |
+| `demo2/` to `demo5/` | The demo tests of the reopened work: each candidate's demo replies (`demo2/branches_*.json`) and its judges' marks (`demo2/judge_*`), and the overlap and contamination checks of Demo3 to Demo5 (R-254). |
+| `scrub/` | The map of commit ids changed when two private names were removed from the repository's history (R-304). |
 | `control/`, `panels/`, `vet/`, `demo/` and the rest | The prompted baseline's prompts and run logs, each panel's messages, the judges' vetting of training answers, the scripted demo's transcripts, and the other runs their records name. |
 
 Each file names the record in `RECORDS.md` that registered it.

@@ -1,9 +1,19 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-298, session 3fe62a52). Read this, then
-`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-298, and `results/panels/R-294/`, `R-295/` and `R-298/`.
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-306, session 3fe62a52). Read this, then
+`docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-306, and `results/panels/R-294/` to `R-305/`.
 
 ## State
+
+- **State, 15 November (R-306): published.** GitHub `main` holds the final write-up; the four Hugging Face repos hold
+  the current cards, the short paper (6.37's `ARTICLE.md`), S3's run files and the reopened training sets; every link
+  in the seven public documents opened logged out (R-306). Before it: two thirteen-lane review rounds (R-301, R-303),
+  audits (R-299, R-302, R-305), and R-304, which removed two private names from the whole git history (every commit
+  from 10 November on has a new id; map in `results/scrub/`). **Waiting on Kevin:** (1) filing the form by 06:59
+  Eastern on 16 November (`docs/submission/ABSTRACT.md`, the links in `docs/submission/PUBLISH.md`); (2) asking GitHub
+  Support to purge the old commits, which still open by id; (3) his calls on the two papers' lengths. The clash between
+  STANDARD rule 36 and the privacy rule waits for the Model standards session (note in the session notes folder).
+- The bullets below are the state before publication, kept for the history.
 
 - **State, 15 November (R-294 to R-297).** S3 is complete; 6.37 seed 82 stays the shipped model by the registered
   rule, and a panel Kevin asked for upheld it over his aggregate ruling (R-294; his view is stated in the papers, not
