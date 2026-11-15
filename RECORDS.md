@@ -10976,3 +10976,25 @@ narrows a sentence to its existing number; no number, rule or shipped model chan
 - L6. "6.37 and code have the same count" in place of "6.37 ties code", in both papers.
 Not changed: `docs/submission/ABSTRACT.md` (SHA-256 the same after the rebuild), the long paper's Abstract, both model
 cards. The short paper is 2,961 words. Waiting on Kevin's go: the push of R-310 to R-313 and the Hugging Face uploads.
+
+## R-314 · 2026-11-15 · REOPENED · The audit of R-311 and R-313 (9556c2f); its findings fixed
+
+Kevin, in chat: "send it to auditbot". The audit session read `git diff b08ec7f 9556c2f`, R-311 to R-313, the R-313
+report and `false_answer` (findings in `results/panels/R-314/`): 0 HIGH, 0 MEDIUM, 6 LOW, no wrong number; every R-311
+and R-313 fix says what its finding asked, at or below its evidence; the five documents rebuild byte for byte from
+`git archive 9556c2f`; the new N-hit wording matches the scorer exactly.
+
+Checked by the orchestrator against the cited lines, then fixed (no panel, because each is wording carried to the
+README and cards from fixes already made in the papers; no number, rule or shipped model changes):
+- L1. "has the same count as code" in README and the 6.37 card (template), as in both papers.
+- L2. "a value listed for the chat" in the short paper's S3 row label and its wider-count sentence, and README's flag
+  sentence names both sets. Left: the C1 card's "counting the asked category only" (line 53), which names the narrow
+  measure beside the wider one, and the same card names both sets at line 59; the C1 card stays unchanged.
+- L3. README "no measured difference in recall".
+- L4. "(exploratory)" on S3's "code recalls more" in the short paper's Result first and README lines 9 and 84.
+- L5. The changelog (long paper and README): "6.37 named as beating the whole chat only at 58 messages, the one size the
+  whole chat ran at".
+- L6. The 6.37 card's heading: "when an outside chat fits, show base the whole chat" (no link points at the heading).
+Not changed: `docs/submission/ABSTRACT.md` (SHA-256 the same), the long paper's Abstract, the C1 card. The short paper is
+2,962 words. Waiting on Kevin's go: the push of R-310 to R-314 and the Hugging Face uploads (6.37's README and
+`ARTICLE.md`; eval-logs `panels/R-311/`, `R-313/`, `R-314/`).

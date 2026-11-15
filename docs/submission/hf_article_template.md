@@ -12,7 +12,7 @@ untrained model.
 of a chat it can no longer see. On two sets of chats from outside writers it recalls {{ow_82_recall_1}} and
 {{ow_82_recall_2}} of {{as_recall_n}}; the whole chat recalls more than 6.37, and code shows no measured difference
 from it. On S3, a second sealed test
-from outside writers, code recalls more, and 6.37 repeats its own wrong answers and names listed values on never-told
+from outside writers, code recalls more (exploratory), and 6.37 repeats its own wrong answers and names listed values on never-told
 questions more often than the untrained model. C1 cut both faults. It missed one clause of a rule fixed before S3
 opened, by {{s3_gap_points}} points, a gap S3 cannot resolve. **6.37 stays shipped** because no replacement passed the
 rule, not because it passed S3. C1 is published beside it, labelled.
@@ -172,7 +172,7 @@ against {{pick_recall_k13}} of {{pick_recall_n}} (R-279), inside the seed spread
 |---|---|---|---|---|---|
 | Recall | {{s3_recall_base}} | {{s3_recall_637}} | {{s3_ship82_recall}} | {{s3_recall_c1}} | (a) pass |
 | Copy: names its in-view wrong value | {{s3_copy_base}} | {{s3_copy_637}} | {{s3_ship82_copy}} | {{s3_copy_c1}} | (b) pass |
-| N-hit: names a listed value of the asked category | {{s3_nhit_base}} | {{s3_nhit_637}} | {{s3_ship82_nhit}} | {{s3_nhit_c1}} | (c) **fail**: above base |
+| N-hit: names a value listed for the chat | {{s3_nhit_base}} | {{s3_nhit_637}} | {{s3_ship82_nhit}} | {{s3_nhit_c1}} | (c) **fail**: above base |
 | Never told, plain: names no listed value | {{s3_ntp_base}} | {{s3_ntp_637}} | {{s3_ship82_ntp}} | {{s3_ntp_c1}} | (a) pass |
 | False claim in a tag question: corrected | {{s3_fc_base}} | {{s3_fc_637}} | {{s3_fc_ship82}} | {{s3_fc_c1}} | none |
 
@@ -185,7 +185,7 @@ against {{pick_recall_k13}} of {{pick_recall_n}} (R-279), inside the seed spread
 thin line (right): base's rate, clause (c)'s line. Report arms: seeds 82 and 83.*
 
 C1 missed (c) by {{s3_gap_points}} points (Figure 3); the chat-resampled 95% interval of C1 minus base is {{c1_gap_interval}}.
-Counting every stored value the chat holds, not only listed values of the asked category, N-hit questions answered
+Counting every stored value the chat holds, not only values listed for the chat, N-hit questions answered
 with a value (exploratory, R-298): base {{s3_off_base}}, 6.37 {{s3_off_637}}, C1 {{s3_off_c1}}.
 The rule requires every clause, so 6.37 stays
 shipped; R-294 records my position that the aggregate should have decided. The published C1, seed 82, is under base

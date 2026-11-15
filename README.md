@@ -6,7 +6,7 @@ made its training chats: on the sealed test (300 unseen generated chats in each 
 shipped seed recalls 91 to 107 of 120 facts, against 13 to 32 for the untrained model with the same tool. It is weak
 on chats from outside writers (Claude agents): there the untrained model shown the whole chat recalls most (71 and 65 of 120), code
 that searches every turn shows no measured difference from 6.37, and on S3, a second sealed test from outside writers,
-code recalls more and 6.37 repeats its own wrong answers and names listed values on never-told questions more often than the
+code recalls more (exploratory) and 6.37 repeats its own wrong answers and names listed values on never-told questions more often than the
 untrained model. A replacement, C1, cut both faults and missed one clause of the rule fixed before S3 opened, so 6.37
 stays shipped and C1 is published beside it, labelled. The write-ups give every number with its record.
 
@@ -41,7 +41,7 @@ twice on corrections of its own errors, became the pick after I changed the demo
 in the write-ups).
 
 S3 ran once on 14 November (R-280 to R-292). C1 cut 6.37's two faults on S3 (copies 195 to 5 of 894; listed values
-named on never-told questions 286 to 51 of 708) with no measured change in recall, and failed one clause: that second
+named on never-told questions 286 to 51 of 708) with no measured difference in recall, and failed one clause: that second
 rate, 51 of 708 (7.2%), had to be no higher than the untrained model's 14 of 236 (5.9%); S3 cannot tell the two apart
 (95% interval -3.1 to +5.7 points), but the rule requires every clause, so **6.37 stays shipped** (R-287, R-294). On
 S3, 6.37 itself does worse than the untrained model on both faults, and code that searches every turn (161 of 414)
@@ -81,7 +81,7 @@ answer, or decline when the chat never held the fact.
   R-298).
 - Strongest baselines first: on short outside-writer chats (a mean of 1,400 tokens), base shown the whole chat
   recalls most (71 and 65 of 120), and plain code that searches every turn shows no measured difference from 6.37 and
-  runs faster. On S3 code recalls more than 6.37 (161 of 414 against 347 of 1,242). On LongMemEval-S, no measured
+  runs faster. On S3 code recalls more than 6.37 (161 of 414 against 347 of 1,242; exploratory). On LongMemEval-S, no measured
   difference from code on answers; code's first search finds the evidence more often, 372 against 333 of 476
   (registered H2, R-170).
 - Where training helps: on the sealed generated chats 6.37 recalls 91 to 107 of 120 against 13 to 32 for base with the
@@ -370,7 +370,7 @@ counting a failure or no search as not found:
 - **Judged accuracy** (LongMemEval's own judge prompts, three Claude Sonnet judges, labelled not the official score):
   6.37 53 of 248 against base with the tool 34 (p = 0.014) and code that always searches 40 (p = 0.12, no
   measured difference). Of its 19-question lead over base, 11 come from the 15 unanswerable questions (13
-  against 2; code 0). On the 233 answerable ones it ties code (40 and 40) and shows no measured difference
+  against 2; code 0). On the 233 answerable ones it has the same count as code (40 and 40) and shows no measured difference
   from base (40 against 32, p = 0.29). The split into answerable and unanswerable questions was not registered; it
   was added after I read the registered result and is disclosed as such (R-170). The judges agree on 1,027 to 1,030
   of 1,035 lines; I (the author) agree with each on 46 of my 50 blind lines (kappa 0.78). Where I differ: on an
@@ -414,7 +414,7 @@ writing from one brief (in the set's folder), frozen by SHA-256 before anyone re
 
 - On S3, written by outside writers, 6.37 names its own in-view wrong value on 21.8% of wrong-view questions (base 3.7%) and a
   listed value on 40.4% of never-told questions whose search returned text (base 5.9%); code that searches every turn recalls more than it. S3's
-  flags see only listed values of the asked category, so invented values and other stored facts pass unseen (R-287,
+  flags see only values listed for the chat (of the asked category, or a writer's listed wrong value), so invented values and other stored facts pass unseen (R-287,
   R-298).
 
 The holes a reviewer will look for first, each measured and recorded where it was found:
@@ -585,7 +585,7 @@ other test files.
   commit from 10 November on has a new id (map in `results/scrub/`). An audit of R-303's write-up and its fixes
   (R-305).
 - **15 November, after publication (R-307, R-309, R-311, R-313), this version.** A last audit's fixes (R-307); an
-  editorial review's fixes (R-309): the whole chat named as beaten only at 58 messages, the one size it ran at, the N-hit term names the asked
+  editorial review's fixes (R-309): 6.37 named as beating the whole chat only at 58 messages, the one size the whole chat ran at, the N-hit term names the asked
   category, statements no longer counted as a gain over code, the K1.3 demo-change sentence limited to what is
   shown, 6.37 and C1 read against the same S3 lines, and in the short paper the S3 faults in the claim, the
   LongMemEval-S split, `older` alone, the wider N-hit count and why C1 failed (c); an audit of R-309 and a final

@@ -12,7 +12,7 @@ untrained model.
 of a chat it can no longer see. On two sets of chats from outside writers it recalls 39 and
 53 of 120; the whole chat recalls more than 6.37, and code shows no measured difference
 from it. On S3, a second sealed test
-from outside writers, code recalls more, and 6.37 repeats its own wrong answers and names listed values on never-told
+from outside writers, code recalls more (exploratory), and 6.37 repeats its own wrong answers and names listed values on never-told
 questions more often than the untrained model. C1 cut both faults. It missed one clause of a rule fixed before S3
 opened, by 1.3 points, a gap S3 cannot resolve. **6.37 stays shipped** because no replacement passed the
 rule, not because it passed S3. C1 is published beside it, labelled.
@@ -172,7 +172,7 @@ against 742 of 1,296 (R-279), inside the seed spread.
 |---|---|---|---|---|---|
 | Recall | 59 of 414 (14.3%) | 347 of 1,242 (27.9%) | 99 of 414 (23.9%) | 364 of 1,242 (29.3%) | (a) pass |
 | Copy: names its in-view wrong value | 11 of 298 (3.7%) | 195 of 894 (21.8%) | 62 of 298 (20.8%) | 5 of 894 (0.6%) | (b) pass |
-| N-hit: names a listed value of the asked category | 14 of 236 (5.9%) | 286 of 708 (40.4%) | 100 of 236 (42.4%) | 51 of 708 (7.2%) | (c) **fail**: above base |
+| N-hit: names a value listed for the chat | 14 of 236 (5.9%) | 286 of 708 (40.4%) | 100 of 236 (42.4%) | 51 of 708 (7.2%) | (c) **fail**: above base |
 | Never told, plain: names no listed value | 111 of 120 (92.5%) | 238 of 360 (66.1%) | 76 of 120 (63.3%) | 344 of 360 (95.6%) | (a) pass |
 | False claim in a tag question: corrected | 1 of 28 | 0 of 84 | 0 of 28 | 32 of 84 | none |
 
@@ -185,7 +185,7 @@ against 742 of 1,296 (R-279), inside the seed spread.
 thin line (right): base's rate, clause (c)'s line. Report arms: seeds 82 and 83.*
 
 C1 missed (c) by 1.3 points (Figure 3); the chat-resampled 95% interval of C1 minus base is -3.1 to +5.7 points.
-Counting every stored value the chat holds, not only listed values of the asked category, N-hit questions answered
+Counting every stored value the chat holds, not only values listed for the chat, N-hit questions answered
 with a value (exploratory, R-298): base 17 of 236 (7.2%), 6.37 402 of 708 (56.8%), C1 99 of 708 (14.0%).
 The rule requires every clause, so 6.37 stays
 shipped; R-294 records my position that the aggregate should have decided. The published C1, seed 82, is under base

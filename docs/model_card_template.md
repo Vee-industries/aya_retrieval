@@ -121,7 +121,7 @@ newest message as the query, then hands base the passages (nothing trained). Rec
 a reply that parses whole as one `search_corpus` call with nothing before or after it, counted of
 the replies that searched; an unclean call still ran its search, so the count is a format measure.
 
-## First: when an outside chat fits, give it the whole chat; and plain code shows no measured difference
+## First: when an outside chat fits, show base the whole chat; and plain code shows no measured difference
 
 On two sets of chats by outside writers who never saw this project's generator (a mean of
 {{ow_tokens_mean}} tokens a chat), the untrained model with every message in view answers
@@ -191,7 +191,7 @@ of card memory at inference (R-163).
   {{lme_refuse_ship}} of all {{lme_answerable_n}} answerable ones. Judged with LongMemEval's prompts
   by Claude judges (not the official score, which uses GPT-4o): {{lme_j_ship}} of {{lme_judged_n}}
   right, against {{lme_j_base}} for the untrained model with the tool and {{lme_j_code}} for code.
-  Split after reading, on the {{lme_judged_answerable_n}} answerable questions it ties code and shows
+  Split after reading, on the {{lme_judged_answerable_n}} answerable questions it has the same count as code and shows
   no measured difference from the untrained model ({{lme_split_vs_base_short}}); {{lme_lead_unans}}
   of its {{lme_lead}}-question lead come from the {{lme_unanswerable_n}} unanswerable ones. My blind
   check of 50 lines (the author, not an independent marker) agrees with each judge on
