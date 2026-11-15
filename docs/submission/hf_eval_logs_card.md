@@ -18,7 +18,7 @@ marks and the analysis files. Code, method and the dated log of every run are in
 on) point into its `RECORDS.md`. The chats the runs read are in
 [aya-retrieval-chats](https://huggingface.co/datasets/KevinVaillancourt/aya-retrieval-chats).
 
-**Access.** This dataset, the chats dataset and the adapter are public and un-gated (checked 2026-11-12, no login).
+**Access.** This dataset, the chats dataset and the adapter are public and un-gated (checked 2026-11-15, no login).
 The base model CohereLabs/tiny-aya-global is gated: accept its licence on Hugging Face first.
 
 ## Files

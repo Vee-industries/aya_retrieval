@@ -64,7 +64,7 @@ each: {{s3_coh_j1}}.
 ## How it was trained and chosen
 
 From K1.3 seed 82, the reopened work's earlier pick, the same stage ran twice: training on corrections of the model's
-own errors on its training chats ({{c1_set}}, {{c1_rows}} rows; {{c1_stage}} each time), {{c1_minutes}} minutes in all
+own errors on its training chats ({{c1_set}}, {{c1_rows}} rows; {{c1_stage}} each time; LoRA rank {{c1_rank}} on the same seven projections as 6.37), {{c1_minutes}} minutes in all
 on an RTX 3080, training peak {{c1_peak}} GiB. C1 was chosen for S3 over K1.3 on the totals of two fresh demos (older
 facts {{demos_c1_older}} against {{demos_k13_older}}; never told {{demos_c1_never_told}} against
 {{demos_k13_never_told}}) and on pooled development recall over three seeds ({{pick_recall_c1}} against

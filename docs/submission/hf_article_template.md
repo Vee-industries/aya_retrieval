@@ -12,10 +12,10 @@ questions it was never told more often than the untrained model. C1, built to fi
 missed one clause of a rule fixed before S3 opened by {{s3_gap_points}} points, a gap S3 cannot resolve. **6.37
 stays shipped** because no replacement passed the rule, not because it passed S3. C1 is published beside it, labelled.
 
-**Use this when.** The chat was written outside the generator and fits the context: show it whole, no adapter. It is
-longer than the model's {{model_max_tokens}}-token window: 6.37 and code that searches every turn show no measured
-difference on LongMemEval-S; code is simpler and trains nothing. Both faults matter: C1 measured far lower rates of
-both on S3, but missed one registered clause and is not the shipped model.
+**Use this when.** If the chat was written outside the generator and fits the context, show it whole, with no
+adapter. If the chat is longer than the model's {{model_max_tokens}}-token window, 6.37 and code that searches every
+turn show no measured difference on LongMemEval-S, and code is simpler and trains nothing. If both faults matter, C1
+measured far lower rates of both on S3, but it missed one registered clause and is not the shipped model.
 
 Adapters: [aya-retrieval-6.37](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37) (shipped) and
 [aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1). The full write-up,
@@ -44,7 +44,7 @@ instructions hidden in retrieved passages are not tested.
 6.37 is a rank-32 LoRA on all attention and MLP projections, trained on {{training_rows}} rows whose targets are the
 untrained model's own passing replies (no teacher model); settings in the long paper's section 4. AgentTune trains it
 and supplies the search; CuratorKIT's grounding gate audited an ancestor set ({{curator_v6}} rejected); AuditKIT was a
-second scorer in development. Training rows come only from the generator's `train` and `wide` pools; every training
+second scorer in development. Training rows come only from the generator's `train` pool (R-075); every training
 step stops on a four-word run shared with a development set, and S3 shares {{s3_runs_shared}} four-word runs with
 6.37's training lines (R-179). No embedding check and no probe of the pretrained model's contamination were run.
 
@@ -137,13 +137,13 @@ models. Both changes came after both models' readings existed. C1 then led K1.3 
 C1 missed (c) by {{s3_gap_points}} points; the chat-resampled 95% interval of C1 minus base is {{c1_gap_interval}},
 and the lines C1 passed are as unresolved (statements {{s3_a_int_st}}). The registered rule requires every clause, so
 6.37 stays shipped. R-294 records my position that the aggregate should have decided; the registered rule was
-applied. The published C1, seed 82, is under base on (c) alone but left only {{c1s82_st}} plain statements
-unsearched, below (a)'s line: {{c1s82_st_gap}} against base.
+applied. The published C1, seed 82, is under base on (c) but fails (a)'s statement line: it left only {{c1s82_st}} plain statements
+unsearched, {{c1s82_st_gap}} against base.
 
 On S3, the whole chat recalls {{s3_recall_wc}} and code {{s3_recall_as}}: code recalls more than 6.37
 ({{s3_code_vs_637}}) and C1 ({{s3_code_vs_c1}}), and is worse than base and C1 on both faults. Report arms K1 and
-K2.1 (two seeds, no coherence judging) meet every measured line ({{s3_nhit_k1}} and {{s3_nhit_k21}} on (c));
-exploratory, and no arm is swapped in.
+K2.1 (two seeds, no coherence judging) meet every measured line ({{s3_nhit_k1}} and {{s3_nhit_k21}} on (c)); K1.3,
+the pick before C1, fails (c) like C1 ({{s3_nhit_k13}}); exploratory, and no arm is swapped in.
 
 ## 7. Limits and disclosures
 
@@ -168,7 +168,7 @@ exploratory, and no arm is swapped in.
 **With more credits.** A sealed test of K1 on a new set of outside chats, under S3's rule, the result expected being
 that rule's pass or fail, not a forecast; query writing trained on its own and judged the same way; LoCoMo and chats
 past the window against code; a judge applying the full never-told rubric; the whole chat at {{long_size}} messages
-on a larger card. The records hold no forecast of recall.
+on a larger card. The records hold no forecast of recall. The expectation in hand, exploratory: K1's S3 report arm (two seeds) recalls {{s3_recall_k1}}, copies {{s3_copy_k1}} and names a listed value on {{s3_nhit_k1}} never-told questions, against base's {{s3_nhit_base}}; a sealed test of K1 is expected to read like that, and fails if its rate is above base's.
 
 **Reproduce.** The README gives setup and every command; `scripts/make_article.py` fills both write-ups from results
 files, except the items section 15 of the long paper lists. Training takes {{train_minutes}} minutes a seed on an RTX

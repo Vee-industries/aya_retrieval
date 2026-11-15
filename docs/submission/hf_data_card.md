@@ -23,7 +23,7 @@ outside-writer chats. Code, method and every result are in
 on) point into its `RECORDS.md`. The run logs are in
 [aya-retrieval-eval-logs](https://huggingface.co/datasets/KevinVaillancourt/aya-retrieval-eval-logs).
 
-**Access.** This dataset, the eval-logs dataset and the adapter are public and un-gated (checked 2026-11-12, no
+**Access.** This dataset, the eval-logs dataset and the adapter are public and un-gated (checked 2026-11-15, no
 login). The base model CohereLabs/tiny-aya-global is gated: accept its licence on Hugging Face first.
 
 ## Files

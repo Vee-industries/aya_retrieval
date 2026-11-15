@@ -37,7 +37,7 @@ against {{s3_copy_base}}, and a value listed for the chat on {{s3_nhit_637}} nev
 higher than base's. The chat-resampled 95% interval of that difference, {{c1_gap_interval}}, cannot tell C1 from base;
 the registered rule requires every clause, so 6.37 stays shipped (R-287). C1 is published beside it, labelled. On S3,
 code that searches every turn recalls more than both trained models (exploratory). Report arms K1 and K2.1 met every
-measured S3 line (two seeds; exploratory). S3's flags count only values of the asked category listed for the chat.
+measured S3 line, and K1.3, the pick before C1, failed (c) like C1 (two seeds; exploratory). S3's flags count only values of the asked category listed for the chat.
 
 ## Submission summary
 
@@ -85,10 +85,10 @@ passages and answer, or decline when the chat never held the fact.
   stays shipped; C1 is published beside it, labelled.
 - Where to look: `RECORDS.md`, the README (reproduction), and the two Hugging Face collections.
 
-**Use this when.** The chat was written outside the generator and fits the context: show it whole, no adapter. It
-is longer than the model's {{model_max_tokens}}-token window: 6.37 and code that searches every turn show no measured
-difference on LongMemEval-S; code is simpler and trains nothing. Both faults matter: C1 measured far lower rates of
-both on S3, but missed one registered clause and is not the shipped model.
+**Use this when.** If the chat was written outside the generator and fits the context, show it whole, with no
+adapter. If the chat is longer than the model's {{model_max_tokens}}-token window, 6.37 and code that searches every
+turn show no measured difference on LongMemEval-S, and code is simpler and trains nothing. If both faults matter, C1
+measured far lower rates of both on S3, but it missed one registered clause and is not the shipped model.
 
 **Artifacts.** Code, results files and records:
 [github.com/Vee-industries/aya_retrieval](https://github.com/Vee-industries/aya_retrieval). Adapters:
@@ -101,8 +101,9 @@ and outside-writer chats) and [aya-retrieval-eval-logs](https://huggingface.co/d
 (every trajectory). A notebook that runs 6.37 on a chat:
 [open in Colab](https://colab.research.google.com/github/Vee-industries/aya_retrieval/blob/main/notebooks/demo_6_37.ipynb).
 Sample inputs and outputs: the scripted demo, [`docs/demo.md`](demo.md), and [`docs/samples/`](samples/). The adapter
-and datasets are public and not gated; the base model is gated, so accept its licence first. S3's chats are sealed
-and not uploaded.
+and datasets are public and not gated; the base model is gated, so accept its licence first. S3's chats are not on
+Hugging Face; they are public on the GitHub repository's `reopened` branch since 12 November, pushed as an outside
+timestamp of the seal before any result (R-181).
 
 **Terms.**
 
@@ -208,7 +209,7 @@ tool is read only.
 
 | Data | Written by | Size | Role | Claims |
 |---|---|---|---|---|
-| `train`, `wide` pools | Claude; `wide` by a fresh agent | {{training_rows}} rows in 6.37's set | training | |
+| `train` pool | Claude | {{training_rows}} rows in 6.37's set; `wide` (R-069) trained fix 14, which failed, and is not in 6.37's lineage (R-073, R-075) | training | |
 | `probe`, `hard_dev` | Claude; `hard_dev` by a fresh agent from the sealed brief | 24 chats a kind and size, a run | development, read many times | exploratory |
 | `heldout`, `independent` | Claude; `independent` by a fresh agent, never read | {{sealed_conversations}} chats a condition | first sealed test, run once | confirmatory |
 | Outside-writer sets 1 and 2 | {{ow_writers}} fresh Claude Opus agents a set | {{ow_chats}} chats, {{ow_items}} questions a set | set 1 development, set 2 read by no decision on 6.37 | exploratory |
@@ -603,7 +604,7 @@ query or the keyword tool is the cause was not separated.
 
 ![S3 misses](../figures/s3_misses.png)
 
-*Figure 7. S3 recall questions by outcome, per arm with a tool, as shares of all recall questions (R-287); report arms as in Figure 5.*
+*Figure 7. S3 recall questions by outcome, per arm with a tool, as shares of all recall questions (R-287); report arms as in Figure 5. Its intervals are Wilson intervals over rows, narrower than Figures 5 and 6's, which resample chats.*
 
 **Report arms** (K1, K1.3, K2.1 at seeds 82 and 83; they enter no line): {{s3_report_arms}}.
 
@@ -737,7 +738,7 @@ entry is rewritten (STANDARD rule 36).
 **With more credits.** A sealed test of K1 on a new set of outside chats under S3's rule, its expected result being
 that rule's pass or fail, not a forecast; query writing trained on its own and judged the same way; LoCoMo and chats
 past the window against code; a judge applying the full never-told rubric; the whole chat at {{long_size}} messages on
-a larger card. The records hold no forecast of recall.
+a larger card. The records hold no forecast of recall. The expectation in hand, exploratory: K1's S3 report arm (two seeds) recalls {{s3_recall_k1}}, copies {{s3_copy_k1}} and names a listed value on {{s3_nhit_k1}} never-told questions, against base's {{s3_nhit_base}}; a sealed test of K1 is expected to read like that, and fails if its rate is above base's.
 
 Not done, each a gap in what this work establishes. Query writing was not trained on its own, and the reopening did not change it (R-178). K1 meets every measured S3 line as a report arm and has no sealed test of its own. The whole
 chat at {{long_size}} messages is not measured; it ran out of memory on the 10 GB card (R-166). LoCoMo (R-100) and other outside long-chat sets are not
@@ -747,8 +748,8 @@ recall with more compute.
 
 ## 15. Reproduce
 
-Every run and training file carries its provenance (command, commit, package versions); the README's results table
-names the script that writes each analysis folder. The confirmatory results can be rescored from the committed run files; they cannot be rerun
+Every run and training file carries its provenance (command, commit, package versions); the record that
+registered each analysis names the script that writes it, and the README's Layout table names the main ones. The confirmatory results can be rescored from the committed run files; they cannot be rerun
 from scratch by someone else, because only 6.37 seed 82 and C1 seed 82 are published and retraining does not give the
 same weights (R-029). The first sealed run: `scripts/records/queue/final.sh` with `freeze_r154.py check`, scored by
 `score_r162.py`. S3: `scripts/records/queue/qs3.sh` with `qs3_lock.py`, kept as run,

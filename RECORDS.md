@@ -10603,3 +10603,29 @@ further related work; a constraints file. One lane read GitHub's branch list (`g
 scope; read only; the `reopened` branch it flagged is the one Kevin approved on 12 November (R-178 era, line 7482).
 Checks in the clone: ruff, format, pytest 1,790 passed. Weekly usage 4% (all models, 06:3x; read just before the clock
 showed 06:32). Nothing pushed.
+
+## R-299 · 2026-11-15 · REOPENED · The audit of 7e847d0; its findings fixed or carried
+
+Kevin, in chat after R-298: "send it to audit". The audit session (`local_62a27534`) audited commit 7e847d0 against
+the submit checklist and Kevin's requirements: 4 high, 6 medium, 5 low; its 15 findings on b1abc06 checked fixed;
+voice scan 0 hits (`side-session-notes/local_d20a8ae1-.../audit_7e847d0_findings.md`). Checked by the orchestrator
+before use: `data/heldout3/` is tracked (60 files) and already public on the `reopened` branch since 12 November by
+Kevin's go (R-181), so the long paper's "S3's chats are sealed and not uploaded" was false; 6.37's lineage builders
+(`build_r102.py` to `build_r122.py`) never use the `wide` pool, and R-075 records that v5 stood after fix 14 (`wide`)
+failed, so "`train` and `wide` pools" was wrong; all four Hugging Face repositories are public and not gated (checked
+06:40 without login).
+
+**Fixed:** K1.3's failed (c) named beside K1 and K2.1 in the abstracts and the short paper (H1); S3's chats stated as
+public on the `reopened` branch since 12 November (H2's text part); the README's lead, "Reopened" (one past-tense
+account, 12 to 15 November) and Known limits now carry S3, 8,045 to 7,448 words (H3); the training pool is `train`
+in every document (H4); "Use this when" rewritten as three if-cases (M1); the pointer to a non-existent results table
+corrected (M2); "with more credits" gives the expectation in hand from K1's S3 report arm, exploratory (M3); Figure
+7's caption says its intervals are over rows, narrower than Figures 5 and 6 (M4); access dates rechecked and set to
+15 November (M5); "(c) alone" reworded (L2); README changelog ranges (L3); C1's rank and projections in its card,
+generated and checked against 6.37's (L4). L1 checked: K2.1's 37 of 472 other-stored-fact count and K1.3's 37 of 472
+N-hit count are two generated measures that happen to match.
+
+**Carried, Kevin's calls:** H2's push, Hugging Face uploads (6.37's card and article, C1's card, S3's run files) and a
+privacy sweep of the unpushed commits; M6, the long paper's length (14,461 words), whether to move section 9's
+per-seed lists and section 12's counts to an appendix. Also carried: older README sections' hedge words. Checks in the
+clone: ruff, format, pytest 1,790 passed; short paper 2,441 words, abstract 465. Nothing pushed.

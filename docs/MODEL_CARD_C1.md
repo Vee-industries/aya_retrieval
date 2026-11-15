@@ -64,7 +64,7 @@ each: C1 97, base 95.
 ## How it was trained and chosen
 
 From K1.3 seed 82, the reopened work's earlier pick, the same stage ran twice: training on corrections of the model's
-own errors on its training chats (`data/screens/k13op_82_r253.jsonl`, 1,137 rows; learning rate 0.0001, 1 epoch, batch 2 each time), 26 minutes in all
+own errors on its training chats (`data/screens/k13op_82_r253.jsonl`, 1,137 rows; learning rate 0.0001, 1 epoch, batch 2 each time; LoRA rank 32 on the same seven projections as 6.37), 26 minutes in all
 on an RTX 3080, training peak 7.87 GiB. C1 was chosen for S3 over K1.3 on the totals of two fresh demos (older
 facts 5 of 12 against 4 of 12; never told 6 of 8 against
 5 of 8) and on pooled development recall over three seeds (775 against

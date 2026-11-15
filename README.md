@@ -1,13 +1,14 @@
 # aya_retrieval
 
 Trained with Lexsi's AgentTune, a LoRA adapter (6.37) lets Tiny Aya Global (3.35B), shown only the last three
-exchanges of a chat, search the rest when the answer is out of view. On the sealed test (300 unseen generated chats
-in each of four conditions, run once), the shipped seed recalls 91 to 107 of 120 facts; the untrained model with
-the same tool recalls 13 to 32. On chats from outside writers (written by Claude Opus agents, a mean of 1,400 tokens),
-the untrained model shown the whole chat recalls most (71 and 65 of 120), and code that searches every turn shows no
-measured difference from 6.37 (42 and 47 against 39 and 53) and runs faster. There, training's measured gain is when to search:
-6.37 searches for facts out of view, which base rarely does, and leaves answers already in view alone (35 and 37 of
-40 right), where code searches every turn (13 and 16).
+exchanges of a chat, search the rest when the answer is out of view. It is strong on chats from the generator that
+made its training chats: on the sealed test (300 unseen generated chats in each of four conditions, run once) the
+shipped seed recalls 91 to 107 of 120 facts, against 13 to 32 for the untrained model with the same tool. It is weak
+on chats from outside writers: there the untrained model shown the whole chat recalls most (71 and 65 of 120), code
+that searches every turn shows no measured difference from 6.37, and on S3, a second sealed test from outside writers,
+code recalls more and 6.37 repeats its own wrong answers and names values for never-told questions more often than the
+untrained model. A replacement, C1, cut both faults and missed one clause of the rule fixed before S3 opened, so 6.37
+stays shipped and C1 is published beside it, labelled. The write-ups give every number with its record.
 
 The write-up is [`docs/ARTICLE.md`](docs/ARTICLE.md); a short version is
 [on Hugging Face](https://huggingface.co/KevinVaillancourt/aya-retrieval-6.37/blob/main/ARTICLE.md) (`docs/submission/HF_ARTICLE.md`).
@@ -24,67 +25,29 @@ in two collections
 ([models](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-models-6af35d3c521e8481db061df5),
 [datasets](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-datasets-6af35d3cf9a91556f52af373)).
 
-**Access.** The adapter and both datasets are public and un-gated (checked 2026-11-12, no login). The base model
+**Access.** The adapter and both datasets are public and un-gated (checked 2026-11-15, no login). The base model
 CohereLabs/tiny-aya-global is gated: accept its licence on Hugging Face first.
 
-## Reopened, 12 November
+## Reopened, 12 to 15 November
 
-After the freeze (9 November) and the sealed result, the scripted demo was run for 6.37 for the first time on
-12 November (R-175). It answered 2 of 4 questions; on the other two it searched with queries copied from its
-training set and gave an unrelated stored fact. Eight more questions, written by an agent that saw only the demo
-script and registered before they ran, gave the untrained model 2 and 6.37 0: 6.37 repeated its own wrong answer,
-still in view, on 6 of 8 (R-176). I reopened the project (R-177). A new test, written by six writer agents that
-never see the training data, the demo or these records, is sealed before any new training row exists (R-178). Candidates built to address the weaknesses (unrelated passages given as answers, and repeating a wrong answer in view)
-compete for one place on the new test. The pick replaces 6.37 only if it passes the rule registered before the sealed
-run (R-178, R-191 to R-194). The third weakness (queries learned from a few fact templates, and no facts about the
-speaker in training) was left untrained at first; the natural-chat rows from R-205 on target it. Every result about the frozen 6.37 below stands unchanged. This section will carry the new test's result,
-whatever it shows.
+On 12 November the scripted demo, run for 6.37 for the first time, showed two faults: it answered questions it was
+never told with unrelated stored facts (2 of 4 demo questions), and it repeated its own wrong answer while that answer
+was in view (6 of 8 further questions, registered before they ran) (R-175, R-176). The deadline had been extended, and
+I reopened the project to fix them (R-177). A second sealed test, S3, was written by six blind writer agents and sealed
+before any new training row, with its ship rule fixed before it opened (R-178, R-179, R-191). From 12 to 14 November
+24 candidates were listed for screening on development sets, each registered before it was built; C1, K1.3 trained
+twice on corrections of its own errors, became the pick after I changed the demo test twice (R-276 to R-279; disclosed
+in the write-ups).
 
-Since then (R-179 to R-215, 12 and 13 November). S3, the new test, was written by six writer agents and sealed before
-any training row (R-179). It stayed closed until Saturday 14 November, with the pick fixed by 18:00 Eastern
-that day (R-202). Seventeen candidate sets were registered, K1 to K4.7 (R-194 asks that the count be stated; every
-candidate chosen among on reused development sets makes the winner's development numbers more optimistic). By R-215,
-nine had finished training at seed 82 or more seeds, K4.7 was training, and four had reached every screening line: K1, K2.1, K1.3
-and K4.1.
-
-K1 answered all 4 of the scripted demo's questions and 3 of the 8 registered ones (R-184). Against 6.37's gates it
-failed three recall lines and passed both failure-mode targets (R-183); against the untrained model with the tool, the
-standard adopted in R-191, it passed all 20 screening lines at both screening seeds (R-198). K2 and K1.1 failed their
-training-set checks and never trained (R-186, R-197), K2.1 trained and failed one screening line (R-195), and K1.2
-failed its check on an uneven random draw (R-200). K1.3 is K1 with each fact restated in other wordings in fixed
-shares. It passed all 20 screening lines and leads the pick on pooled recall over three seeds, 742 against K1's 720
-(R-203); the lead is about one seed's spread, so the pick is provisional. On Demo2, a chat and 12 questions written by
-a fresh agent and read by nobody before the run (R-201), K1 and K1.3 each recalled 0 of the 6 facts told earlier, as
-many as declining everything, and 6.37 recalled 2 (R-204).
-
-From R-205 the candidates add natural training chats written by fresh writer agents. K3, K3.1 and K4 failed their
-training-set checks and did not train (R-205, R-206, R-208). K3.2, K4.2, K4.4, K4.5 and K4.6 trained at seed 82 and
-failed Demo2's registered rule (at least 3 of 6 older facts and 3 of 4 never-told questions), so their later seeds
-were not trained (R-208, R-210, R-212, R-213, R-214). K4.1 passed Demo2 and failed 4 screening lines (R-210). K4.3 did
-not train (R-211). On the two outside-writer sets K4.6 recalled 132 older and confirm questions at seed 82 (a
-diagnostic, not eligible for the pick), against K1.3's 89 and K4.1's 122 (R-214). K4.7, K4.6 plus 64 natural chats
-from 8 new writers, passed its check, trained and failed Demo2 (R-215, R-218).
-
-Since then (R-216 to R-279, 13 and 14 November). More candidates trained on later stages and on the model's own
-corrections; `decide_r191.py` lists 24. Demo2 and Demo3 were retired because their answers were training values
-(R-254); Demo4 and Demo5 replaced them. I changed the test: a candidate must beat K1.3, with the demos judged on their
-totals (R-276, R-278, set after the demo readings existed). C1, K1.3 with two stages of on-policy corrections, recalled
-5 of 12 older facts over the two demos against K1.3's 4, and 6 of 8 never-told against 5 (seed 82). It passed all 20
-screening lines and leads the pick on pooled recall over three seeds, 775 against K1.3's 742 (R-279); the lead is
-inside the seed-to-seed spread. C1 was the pick for S3.
-
-S3 (R-280 to R-287, 14 November), run once and scored by a rule fixed before it opened and a scorer written before any S3 file was read: **C1 fails the
-ship rule on one clause, so 6.37 stays shipped.** Its rate of false answers on never-told questions whose search
-returns text is 51 of 708 (7.2%), below 6.37's 286 of 708 (40.4%) but above base's 14 of 236 (5.9%), and the rule
-asks for both. Every other line passes. On S3, 6.37 does worse than base on both faults:
-it names its in-view wrong value on 195 of 894 questions (21.8%) against base's 11 of 298 (3.7%), and a listed value
-on 286 of 708 never-told questions (40.4%) against 14 of 236 (5.9%). C1 cut these to 5 of 894 and 51 of 708, names no
-listed value on 344 plain never-told questions of 360 against 6.37's 238, and recalls 364 of 1,242 against 347. On S3,
-code that searches every turn (161 of 414) and base shown the whole chat (274 of 414) both recall more than either
-trained model (R-287, R-288, R-298). S3's flags see only listed values of the asked category, so invented values and
-other stored facts pass unseen (R-298). C1 seed 82 is published beside 6.37, labelled as failing one clause:
-[aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1) (R-296). The report arms (K1, K1.3 and K2.1 at seeds 82 and 83)
-enter no line; their counts are in the long write-up's section 9.
+S3 ran once on 14 November (R-280 to R-292). C1 cut 6.37's two faults on S3 (copies 195 to 5 of 894; listed values
+named on never-told questions 286 to 51 of 708) with no measured change in recall, and failed one clause: that second
+rate, 51 of 708 (7.2%), had to be no higher than the untrained model's 14 of 236 (5.9%); S3 cannot tell the two apart
+(95% interval -3.1 to +5.7 points), but the rule requires every clause, so **6.37 stays shipped** (R-287, R-294). On
+S3, 6.37 itself does worse than the untrained model on both faults, and code that searches every turn (161 of 414)
+and the whole chat (274 of 414) recall more than either trained model. C1 seed 82 is published beside 6.37, labelled
+as failing one clause: [aya-retrieval-c1](https://huggingface.co/KevinVaillancourt/aya-retrieval-c1) (R-296). Two
+review panels of ten reviewers checked the write-ups (R-295, R-298). The long write-up, sections 7 to 9, gives every
+candidate, ruling and number.
 
 ## Submission summary
 
@@ -419,6 +382,11 @@ writing from one brief (in the set's folder), frozen by SHA-256 before anyone re
 
 ## Known limits
 
+- On S3, written by outside writers, 6.37 names its own in-view wrong value on 21.8% of questions (base 3.7%) and a
+  listed value on 40.4% of never-told questions (base 5.9%); code that searches every turn recalls more than it. S3's
+  flags see only listed values of the asked category, so invented values and other stored facts pass unseen (R-287,
+  R-298).
+
 The holes a reviewer will look for first, each measured and recorded where it was found:
 
 - **On short chats the whole chat beats the tool.** See the section above. R-016 registered
@@ -496,8 +464,8 @@ weights instead. Nothing from that project's code or test sets is used here.
 ## Reproduce the results
 
 Every run and training file under `results/` carries its provenance (command, commit, package versions); the
-results table above names the script that writes each analysis folder, and `RECORDS.md` names the record that
-registered it. The confirmatory
+record that registered each analysis in `RECORDS.md` names the script that writes it, and the Layout table names the
+main ones. The confirmatory
 results can be rescored from the committed run files (`score_r162.py`, `score_s3.py`); they cannot be rerun from
 scratch by someone else, because only 6.37 seed 82 and C1 seed 82 are published and retraining does not give the same
 weights (R-029). Training is not bit-reproducible on this card (R-029); generation is: a repeated run of
@@ -571,7 +539,7 @@ other test files.
   the tool environment, a threat model, models and licences, compute and time per 1,000 replies, planned work, a
   declaration of work done outside the hackathon, an LLM usage statement and the team line. No number about 6.37
   changed, and 6.37 is still the shipped model.
-- **14 November (R-216 to R-289).** The "Reopened" section carried through S3 (R-287: C1 fails one
+- **14 November (R-218 to R-289).** The "Reopened" section carried through S3 (R-287: C1 fails one
   clause, 6.37 stays shipped); the long and short write-ups and the form abstract rebuilt from templates by
   `scripts/make_article.py` (R-288) and fixed after an audit (R-289); S3's layout rows and reproduce step added.
 - **15 November (R-290 to R-298), this version.** Decisions stated in my own voice; two review panels (R-294, R-295,

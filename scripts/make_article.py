@@ -2347,6 +2347,18 @@ def c1_card_numbers(out) -> None:
         raise SystemExit("C1's lineage is no longer K1.3, OP's stage, then the same stage again")
     if op["data"] != c1["data"]:
         raise SystemExit("C1's second stage no longer uses OP's set; update the card")
+
+    def projections(cmd: list) -> set:
+        """The --lora-targets values of a training command."""
+        start = cmd.index("--lora-targets") + 1
+        end = next((i for i in range(start, len(cmd)) if cmd[i].startswith("--")), len(cmd))
+        return set(cmd[start:end])
+
+    ship = train_report("fix17cs37_82")
+    same = projections(c1["provenance"]["command"]) == projections(ship["provenance"]["command"])
+    if not same or c1["lora_r"] != ship["lora_r"]:
+        raise SystemExit("C1's rank or projections no longer match 6.37's; update the card")
+    out["c1_rank"] = str(c1["lora_r"])
     out["c1_set"] = f"`{c1['data']}`"
     out["c1_rows"] = f"{c1['rows']:,}"
     out["c1_stage"] = (
@@ -2521,6 +2533,9 @@ def s3_round2_numbers(out) -> None:
     st82 = [scorer.MEASURES["statement"](r) for r in scorer.load("s3_fix17cs37_82")]
     st82 = [h for h in st82 if h is not None]
     out["s3_ship82_st"] = frac(sum(st82), len(st82))
+    k1 = load(S3_DIR / "ship_rule.json")["arms"]["k1_r178"]
+    for measure, short in (("recall", "recall"), ("copy", "copy")):
+        out[f"s3_{short}_k1"] = frac(k1[measure]["hits"], k1[measure]["n"])
     base_rows = runs["base"]
     out["s3_nt_items"] = str(
         sum(r["kind"] == "never_told" and r["view"] == "right" for r in base_rows)

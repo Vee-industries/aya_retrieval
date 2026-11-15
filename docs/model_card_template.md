@@ -37,7 +37,7 @@ every evaluation log in
 in two collections
 ([models](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-models-6af35d3c521e8481db061df5),
 [datasets](https://huggingface.co/collections/KevinVaillancourt/aya-retrieval-datasets-6af35d3cf9a91556f52af373)).
-The adapter and both datasets are public and un-gated (checked 2026-11-12, no login). The base
+The adapter and both datasets are public and un-gated (checked 2026-11-15, no login). The base
 model `CohereLabs/tiny-aya-global` is gated: accept its licence on Hugging Face first.
 
 {{status_line}}
