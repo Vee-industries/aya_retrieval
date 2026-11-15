@@ -3,7 +3,8 @@
 Usage:
     python scripts/make_article.py
 
-Every ``{{name}}`` in ``docs/article_template.md`` and ``docs/model_card_template.md`` is computed
+Every ``{{name}}`` in ``docs/article_template.md``, ``docs/model_card_template.md`` and
+``docs/submission/hf_article_template.md`` (the short write-up) is computed
 here from files under ``results/`` (and, for the model's context limits, the pinned model's own
 config in the local cache), so no result number in either is typed by hand. A placeholder left
 unfilled stops the script, and so does any check below that finds two results files disagreeing
@@ -12,7 +13,9 @@ or a result that no longer matches what the text says about it.
 The numbers are final for the shipped model, 6.37 (``fix17cs37`` seed 82, frozen in R-160): the
 sealed run (R-162, R-163), the outside-writer sets (R-146, R-157, R-164), the whole-chat control
 (R-164, R-165), R-016's two references run late (R-168, R-169) and the LongMemEval-S outside
-check (R-170, from its committed aggregates only).
+check (R-170, from its committed aggregates only). The reopened work is read from R-279's screening
+output, the demo judges' tallies and the sealed S3 test (R-287, through ``score_s3.py``'s own
+functions).
 """
 
 from __future__ import annotations
@@ -32,7 +35,9 @@ from aya_retrieval.report_data import (
     RECALL_KINDS,
     SIZES,
     eval_rows,
+    pooled,
     recall,
+    records_script,
     train_report,
 )
 from aya_retrieval.stats import exact_sign_test
@@ -43,7 +48,10 @@ ANALYSIS = RESULTS / "analysis"
 TEMPLATES = {
     DOCS / "article_template.md": DOCS / "ARTICLE.md",
     DOCS / "model_card_template.md": DOCS / "MODEL_CARD.md",
+    DOCS / "submission" / "hf_article_template.md": DOCS / "submission" / "HF_ARTICLE.md",
+    DOCS / "submission" / "abstract_template.md": DOCS / "submission" / "ABSTRACT.md",
 }
+ABSTRACT_WORDS = 500  # the form's limit (R-171)
 SHIP = "fix17cs37_82"
 SEEDS = (82, 83, 94, 95, 96, 97, 98, 99)
 ADAPTERS = tuple(f"fix17cs37_{s}" for s in SEEDS)
@@ -124,11 +132,10 @@ def table(header: list[str], rows: list[str]) -> str:
 
 def status_numbers(out) -> None:
     out["status_line"] = (
-        "Final numbers for the shipped model, 6.37 (`fix17cs37` seed 82, frozen before the sealed "
-        "run): the sealed run, the two outside-writer sets, the whole-chat control, the two "
-        "registered references run late, and LongMemEval-S as an outside check. Every number is "
-        "computed from committed results files by `scripts/make_article.py`; `RECORDS.md` holds "
-        "the dated record behind each."
+        "6.37 (`fix17cs37` seed 82) is the shipped model. The reopened work's pick, C1, ran on "
+        "the sealed S3 test and failed one clause of the ship rule registered before S3 opened "
+        "(R-287), so 6.37 stays shipped. Every number is computed from committed results files by "
+        "`scripts/make_article.py`; `RECORDS.md` holds the dated record behind each."
     )
 
 
@@ -1954,6 +1961,339 @@ def toolkit_numbers(out) -> None:
     out["first_adapter"] = f"{sum(bool(r['correct']) for r in first_rows)} of {len(first_rows)}"
 
 
+# --- The reopened work: the candidates, the demos and S3 (R-177 to R-287) -----------------------
+
+S3_DIR = RESULTS / "s3"
+DATA_SCREENS = REPO_ROOT / "data" / "screens"
+DECIDE = RESULTS / "panels" / "R-279" / "decide_r191.txt"  # the screening that named C1 (R-279)
+DEMO_JUDGES = RESULTS / "demo2"
+REOPENED = [  # name in decide_r191.py, run label, what it changed, how it ended, records
+    (
+        "K1",
+        "k1_r178",
+        "earlier questions in view, facts of other types in every chat",
+        "passed every line",
+        "R-178, R-198",
+    ),
+    (
+        "K2.1",
+        "k2_1_r187",
+        "K1's never-told rows moved to other trap types",
+        "failed one line (probe in_view at seed 83)",
+        "R-187, R-195",
+    ),
+    (
+        "K1.3",
+        "k1_3_r200",
+        "K1 with each fact restated in other wordings",
+        "passed every line; the pick from R-203 to R-279 (R2c held it from R-247 to R-249)",
+        "R-200, R-203",
+    ),
+    (
+        "K4.1",
+        "k4_1_r209",
+        "natural chats by writer agents, near-miss and contrast rows",
+        "passed Demo2, failed 4 lines",
+        "R-209, R-210",
+    ),
+    ("K4.2", "k4_2_r210", "K4.1 plus declines after empty searches", "failed Demo2", "R-210"),
+    ("K4.3", "k4_3_r211", "K4.2, behind a diagnostic", "not trained", "R-211"),
+    ("K4.4", "k4_4_r212", "plus wrong-person and contrast rows", "failed Demo2", "R-212"),
+    ("K4.5", "k4_5_r213", "possessives out of every query", "failed Demo2", "R-213"),
+    ("K4.6", "k4_6_r214", "never-told rows search twice", "failed Demo2", "R-214"),
+    (
+        "K4.7",
+        "k4_7_r215",
+        "plus 64 natural chats from 8 new writers",
+        "failed Demo2",
+        "R-215, R-218",
+    ),
+    (
+        "K4.6e2",
+        "k4_6e2_r214",
+        "K4.6 read at its epoch-2 checkpoint",
+        "passed Demo2, failed screening",
+        "R-219, R-221",
+    ),
+    (
+        "K4.8",
+        "k4_8_r220",
+        "near-miss and wrong-person questions for the 64 chats",
+        "failed Demo2 at both checkpoints",
+        "R-220, R-225",
+    ),
+    (
+        "K4.9",
+        "k4_9_r224",
+        "plus miss-then-hit rows, first call out of the loss",
+        "stopped before Demo2",
+        "R-224, R-228",
+    ),
+    (
+        "K1.3s",
+        "k1_3s_r227",
+        "a stage on K1.3: one epoch of K4.8's set at 1e-4",
+        "failed Demo2",
+        "R-227, R-230",
+    ),
+    (
+        "R2c",
+        "k13r2c_r235",
+        "a stage on K1.3 on K5's third-search set",
+        "passed every line; not eligible (its set failed a check line), and fragile (R2cf)",
+        "R-235, R-247, R-249",
+    ),
+    (
+        "R2cf",
+        "k13r2cf_r247",
+        "R2c's recipe, K5's set less 10 rows",
+        "failed hard_dev",
+        "R-247, R-249",
+    ),
+    (
+        "OP",
+        "k13op_r253",
+        "a stage on K1.3's own mistakes on its training chats",
+        "failed Demo4's older line",
+        "R-253, R-261",
+    ),
+    (
+        "OP2",
+        "k136op2_r256",
+        "the same, from T6",
+        "stopped: no corrections to train on",
+        "R-256, R-264",
+    ),
+    (
+        "OP3",
+        "k13op3_r263",
+        "a second on-policy round from OP",
+        "stopped: 0 new answer rows",
+        "R-263, R-265",
+    ),
+    (
+        "C1",
+        "k13opc1_r263",
+        "OP's stage a second time on OP's own set (OP3's control)",
+        "passed every line under Kevin's demo rulings; the pick for S3",
+        "R-263, R-269, R-279",
+    ),
+    ("OP4", "k13op4_r267", "second-search rows from OP", "failed hard_dev", "R-267, R-268"),
+    (
+        "C2",
+        "k13opc2_r271",
+        "C1 plus the same stage a third time",
+        "failed hard_dev never_told by one",
+        "R-271, R-272",
+    ),
+    (
+        "OPT",
+        "k13opt_r271",
+        "rows from C1's own turns on the training templates",
+        "not run (C2 failed)",
+        "R-271, R-272",
+    ),
+    ("OPO", "k13opo_r273", "OPT's rows from OP", "stopped: 0 answer rows", "R-274, R-275"),
+]
+
+
+def frac(hits: int, n: int) -> str:
+    """Raw counts with the rate: '51 of 708 (7.2%)'."""
+    return f"{hits:,} of {n:,} ({100 * hits / n:.1f}%)"
+
+
+def relative(new: float, old: float) -> str:
+    """The relative change from ``old`` to ``new``, signed: '-82%'."""
+    return f"{100 * (new - old) / old:+.0f}%"
+
+
+def decide_lines() -> dict[str, dict[str, str]]:
+    """Each candidate's summary lines in R-279's screening output: fails, waits, pick recall."""
+    out: dict[str, dict[str, str]] = {}
+    for line in DECIDE.read_text(encoding="utf-8").splitlines():
+        found = re.match(r"== (\S+): (\d+) FAIL, (\d+) WAIT", line)
+        if found:
+            out[found[1]] = {"fail": found[2], "wait": found[3], "pick": ""}
+        found = re.match(r"== (\S+): pick recall over seeds .*: (\d+)", line)
+        if found:
+            out[found[1]]["pick"] = found[2]
+    return out
+
+
+def demo_tally(label: str, seed_label: str, demo: str) -> dict[str, tuple[int, int]]:
+    """With-search counts of one model on one demo: older, never told (plain and shared word)."""
+    per_arm = load(DEMO_JUDGES / f"judge_{label}_82_{demo}" / "tally.json")["per_arm"]
+    name = next(a for a in per_arm if a in (seed_label, label.upper().replace("_", ".")))
+    cells = {k: tuple(int(x) for x in v.split(" of ")) for k, v in per_arm[name].items()}
+    never = [cells["never_told_plain"], cells["never_told_shared_word"]]
+    return {"older": cells["older"], "never_told": pooled(never)}
+
+
+def hd_never_told(run: str) -> str:
+    """hard_dev never_told right of 48 at training seed 82, or 'not run'."""
+    path = EVAL_DIR / f"hd_{run}_82_seed_73157.json"
+    if not path.exists():
+        return "not run"
+    asked = [r for r in eval_rows(f"hd_{run}_82", 73157) if r["kind"] == "never_told"]
+    return f"{sum(bool(r['correct']) for r in asked)}"
+
+
+def reopened_numbers(out) -> None:
+    lines = decide_lines()
+    if [name for name, *_ in REOPENED] != list(lines):
+        raise SystemExit("the reopened ledger and R-279's screening list different candidates")
+    rows = []
+    for name, run, change, end, rec in REOPENED:
+        line = lines[name]
+        screened = "every line read" if line["wait"] == "0" else f"{line['wait']} of 20 not read"
+        rows.append(
+            f"| {name} | {change} | {end} | {hd_never_told(run)} | {hard_dev(run)} "
+            f"| {line['fail']} ({screened}) | {line['pick'] or ''} | {rec} |"
+        )
+    header = [
+        "Candidate",
+        "What it changed",
+        "How it ended",
+        "`hard_dev` never-told, seed 82 (of 48)",
+        "`hard_dev` recall, seed 82 (of 96)",
+        "Lines failed of 20",
+        "Pick recall, seeds 82, 83, 94",
+        "Record",
+    ]
+    out["reopened_ledger"] = table(header, rows)
+    out["reopened_n"] = str(len(REOPENED))
+    out["pick_recall_c1"], out["pick_recall_k13"] = lines["C1"]["pick"], lines["K1.3"]["pick"]
+    out["pick_recall_k1"] = lines["K1"]["pick"]
+    r2c = RESULTS / "panels" / "R-247" / "decide_r191.txt"  # the screening that named R2c (R-247)
+    found = re.search(r"== R2c: pick recall over seeds .*: (\d+)", r2c.read_text(encoding="utf-8"))
+    out["pick_recall_r2c"] = found[1]
+    totals = {}
+    for key, label, seed_label in (("c1", "k13opc1", "k13opc1_r263"), ("k13", "k1_3", "k1_3_r200")):
+        for demo in ("demo4", "demo5"):
+            for kind, (h, n) in demo_tally(label, seed_label, demo).items():
+                out[f"{demo}_{key}_{kind}"] = f"{h} of {n}"
+                total = totals.setdefault((key, kind), [0, 0])
+                total[0], total[1] = total[0] + h, total[1] + n
+    for (key, kind), (h, n) in totals.items():
+        out[f"demos_{key}_{kind}"] = f"{h} of {n}"
+    for label, run in (("k13", "k1_3_r200"), ("op", "k13op_r253")):
+        out[f"hd_nt_{label}"] = hd_never_told(run)
+    out["hd_nt_c1"], out["hd_nt_c2"] = hd_never_told("k13opc1_r263"), hd_never_told("k13opc2_r271")
+
+
+def s3_numbers(out) -> None:
+    rule = load(S3_DIR / "ship_rule.json")
+    passes = [x["pass"] for x in rule["lines"]]
+    if rule["pass"] or passes[-1] or not all(passes[:-1]):
+        raise SystemExit("S3's ship rule no longer fails on (c) alone, which the text says")
+    scorer = records_script("score_s3")
+    chats, tables = scorer.measure_tables()
+    if len(chats) != rule["chats"]:
+        raise SystemExit("S3's results files and ship_rule.json disagree on the chats")
+    arms = rule["arms"]
+    names = {"6.37": "637", "pick": "c1", "base_tool": "base", "whole_chat": "wc"}
+    names |= {"always_search": "as"}
+    for arm, key in names.items():
+        for measure, short in (
+            ("recall", "recall"),
+            ("copy", "copy"),
+            ("never_told_plain", "ntp"),
+            ("n_hit_false_answer", "nhit"),
+            ("in_view", "iv"),
+            ("statement", "st"),
+        ):
+            m = arms[arm][measure]
+            out[f"s3_{short}_{key}"] = frac(m["hits"], m["n"])
+    out["s3_chats"] = str(rule["chats"])
+    c1, old, base = arms["pick"], arms["6.37"], arms["base_tool"]
+    out["s3_gap_points"] = (
+        f"{100 * (c1['n_hit_false_answer']['rate'] - base['n_hit_false_answer']['rate']):.1f}"
+    )
+    for measure, short in (
+        ("copy", "copy"),
+        ("n_hit_false_answer", "nhit"),
+        ("never_told_plain", "ntp"),
+        ("recall", "recall"),
+    ):
+        out[f"s3_rel_{short}"] = relative(c1[measure]["rate"], old[measure]["rate"])
+    header = [
+        "Arm",
+        "Recall (95% interval)",
+        "In view",
+        "Statement",
+        "Never told, plain",
+        "Copies wrong answer in view",
+        "Names a value, never told, search returned text",
+    ]
+    rows = []
+    for arm, measures in arms.items():
+        lo, hi = scorer.interval(tables[arm]["recall"], chats)
+        cells = [
+            f"{measures['recall']['hits']}/{measures['recall']['n']} "
+            f"({100 * lo:.0f} to {100 * hi:.0f}%)"
+        ]
+        cells += [
+            f"{measures[m]['hits']}/{measures[m]['n']}"
+            for m in ("in_view", "statement", "never_told_plain", "copy", "n_hit_false_answer")
+        ]
+        rows.append(f"| {scorer.ARM_NAMES[arm]} | " + " | ".join(cells) + " |")
+    out["s3_table"] = table(header, rows)
+    out["s3_lines"] = "\n".join(
+        f"- {'PASS' if x['pass'] else 'FAIL'}: {x['line']}" for x in rule["lines"]
+    )
+    report = [a for a in arms if a in scorer.REPORT]
+    out["s3_report_arms"] = (
+        "; ".join(
+            f"{scorer.ARM_NAMES[a].removesuffix(' (report)')} recall "
+            f"{arms[a]['recall']['hits']} of {arms[a]['recall']['n']}, copies "
+            f"{arms[a]['copy']['hits']} of {arms[a]['copy']['n']}, false answers "
+            f"{arms[a]['n_hit_false_answer']['hits']} of {arms[a]['n_hit_false_answer']['n']}"
+            for a in report
+        )
+        if report
+        else "not yet run when this was built"
+    )
+    tally = load(S3_DIR / "coherence" / "tally.json")
+    out["s3_coh_n"] = str(tally["judge_1"]["pairs"])
+    for j in (1, 2, 3):
+        out[f"s3_coh_j{j}"] = (
+            f"C1 {tally[f'judge_{j}']['pick_coherent']}, "
+            f"base {tally[f'judge_{j}']['base_coherent']}"
+        )
+    run = load(S3_DIR / "s3_base_tool.json")
+    counts = Counter((r["view"], r["kind"]) for r in run["rows"])
+    flow = [f"| Chats written, checked by `check_s3.py` | {len(chats)} | none dropped |"]
+    flow.append(
+        f"| Questions dropped by the brief's rules | {len(run['dropped'])} | the answer is not a "
+        "current fact of that person and category |"
+    )
+    flow += [
+        f"| Items, {view} view, `{kind}` | {n} | |" for (view, kind), n in sorted(counts.items())
+    ]
+    flow.append(
+        f"| Items in every arm's run | {len(run['rows'])} | {len(run['batch_problems'])} "
+        "batch problems |"
+    )
+    out["s3_flow"] = table(["Step", "Count", "Reason"], flow)
+    out["s3_items"] = f"{len(run['rows']):,}"
+    out["s3_writers"] = WORDS[len({r["writer"] for r in run["rows"]})]
+    margin = c1["statement"]["rate"] - (base["statement"]["rate"] - scorer.POINTS)
+    out["s3_st_margin"] = f"{100 * margin:.1f}"
+    overlap = records_script("overlap_s3_training")  # R-179's count, recomputed
+    train = overlap.training_runs(DATA_SCREENS / "fix17cs37.jsonl")
+    chat_runs = [
+        overlap.runs(overlap.chat_text(load(path))) for path in sorted(overlap.CHATS.glob("*.json"))
+    ]
+    shared, total = sum(len(c & train) for c in chat_runs), sum(len(c) for c in chat_runs)
+    out["s3_runs_shared"] = f"{shared} of {total:,}"
+    rows = scorer.arms()
+    for arm, key in (("6.37", "637"), ("pick", "c1")):
+        wrong = [r for r in rows[arm] if r["kind"] in RECALL_KINDS and not r["item_correct"]]
+        missed = sum(not r["found_fact"] and bool(r["queries"]) for r in wrong)
+        out[f"s3_missed_{key}"] = f"{missed} of {len(wrong)}"
+        out[f"s3_misread_{key}"] = f"{sum(bool(r['found_fact']) for r in wrong)}"
+
+
 def numbers() -> dict[str, str]:
     out: dict[str, str] = {}
     for part in (
@@ -1973,6 +2313,8 @@ def numbers() -> dict[str, str]:
         protocol_numbers,
         ledger_numbers,
         toolkit_numbers,
+        reopened_numbers,
+        s3_numbers,
     ):
         part(out)
     return out
@@ -1985,9 +2327,10 @@ def main() -> None:
         missing = sorted(set(re.findall(r"\{\{(\w+)\}\}", text)) - set(values))
         if missing:
             raise SystemExit(f"unfilled in {template.name}: {missing}")
-        out.write_text(
-            re.sub(r"\{\{(\w+)\}\}", lambda m: values[m.group(1)], text), encoding="utf-8"
-        )
+        filled = re.sub(r"\{\{(\w+)\}\}", lambda m: values[m.group(1)], text)
+        if out.name == "ABSTRACT.md" and len(filled.split()) > ABSTRACT_WORDS:
+            raise SystemExit(f"the abstract is {len(filled.split())} words, over {ABSTRACT_WORDS}")
+        out.write_text(filled, encoding="utf-8")
         print(f"wrote {out.relative_to(REPO_ROOT)}")
 
 

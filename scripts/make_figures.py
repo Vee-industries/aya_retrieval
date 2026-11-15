@@ -5,7 +5,9 @@ Usage:
 
 Every value plotted comes from files under ``results/``: the whole-chat control (R-164, R-165),
 the outside-writer sets (R-146, R-157), the sealed final run (R-162, R-163) and the training-memory
-comparison (R-029, R-032). The model shown is the shipped one, 6.37 (``fix17cs37``).
+comparison (R-029, R-032), the sealed S3 test of the reopened work (R-287, through ``score_s3.py``'s
+own functions), the hard_dev runs of the on-policy stages (R-261, R-269, R-272) and the demo
+contamination check (R-254). The shipped model is 6.37 (``fix17cs37``).
 """
 
 from __future__ import annotations
@@ -19,7 +21,13 @@ import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.lines import Line2D  # noqa: E402
 
 from aya_retrieval.provenance import REPO_ROOT  # noqa: E402
-from aya_retrieval.report_data import RECALL_KINDS, eval_rows, train_report, weights_gib  # noqa: E402
+from aya_retrieval.report_data import (  # noqa: E402
+    RECALL_KINDS,
+    eval_rows,
+    records_script,
+    train_report,
+    weights_gib,
+)
 
 OUT = REPO_ROOT / "figures"
 ANALYSIS = REPO_ROOT / "results" / "analysis"
@@ -267,7 +275,214 @@ def fig_memory() -> None:
     save(fig, "training_memory")
 
 
+# --- The reopened work: S3, the on-policy stages, the demos (R-254, R-272, R-287) ----------------
+
+S3 = records_script("score_s3")
+ARM_COLOURS = {"always_search": MUTED, "whole_chat": MUTED, "base_tool": INK_2, "6.37": BASE_C}
+ARM_COLOURS |= {"pick": TUNED_C}
+STAGES = (  # hard_dev seed 82: K1.3, then OP's stage once, twice (C1) and three times (C2)
+    ("K1.3, the start", "k1_3_r200"),
+    ("OP: one stage", "k13op_r253"),
+    ("C1: two stages", "k13opc1_r263"),
+    ("C2: three stages", "k13opc2_r271"),
+)
+NEVER_TOLD_GATE = 44  # R-191: hard_dev never_told at least 44 of 48
+DEMOS = {2: "demo2/contamination_demo2.txt", 3: "demo2/contamination_demo3.txt"}
+DEMOS |= {4: "demo4/contamination.txt", 5: "demo5/contamination.txt"}
+
+
+def wilson(hits: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """The Wilson 95% interval of a share."""
+    p = hits / n
+    centre = (p + z * z / (2 * n)) / (1 + z * z / n)
+    half = z * (p * (1 - p) / n + z * z / (4 * n * n)) ** 0.5 / (1 + z * z / n)
+    return centre - half, centre + half
+
+
+def arm_points(ax, measure: str, names: list[str], tables: dict, chats: list[str]) -> None:
+    """One row an arm: the pooled rate and its chat-resampled 95% interval; base's as a band."""
+    ys = list(range(len(names)))[::-1]
+    lo, hi = S3.interval(tables["base_tool"][measure], chats)
+    ax.axvspan(100 * lo, 100 * hi, color=GRID, alpha=0.7, lw=0, zorder=0)
+    for y, name in zip(ys, names, strict=True):
+        table = tables[name][measure]
+        rate, (lo, hi) = S3.rate(table), S3.interval(table, chats)
+        hits, n = sum(c[0] for c in table.values()), sum(c[1] for c in table.values())
+        colour = ARM_COLOURS.get(name, SEED_C)
+        ax.plot([100 * lo, 100 * hi], [y, y], color=colour, lw=2.2, solid_capstyle="round")
+        ax.scatter([100 * rate], [y], s=90, color=colour, edgecolor=SURFACE, linewidth=2, zorder=3)
+        ax.text(100 * hi + 1.5, y, f"{hits}/{n}", va="center", color=INK_2, fontsize=9)
+    ax.set_yticks(ys, [S3.ARM_NAMES[n] for n in names])
+    ax.tick_params(axis="y", length=0, labelsize=10)
+    ax.set_ylim(-0.6, len(names) - 0.4)
+    ax.grid(axis="y", visible=False)
+    ax.spines["left"].set_visible(False)
+
+
+def fig_s3_recall() -> None:
+    """S3 recall by arm, with chat-resampled intervals."""
+    chats, tables = S3.measure_tables()
+    names = list(tables)
+    fig, ax = plt.subplots(figsize=(8, 0.42 * len(names) + 1.9))
+    fig.subplots_adjust(left=0.29, right=0.93, top=1 - 1.05 / fig.get_figheight(), bottom=0.16)
+    arm_points(ax, "recall", names, tables, chats)
+    ax.set_xlim(0, 80)
+    ax.set_xticks(range(0, 81, 20), [f"{t}%" for t in range(0, 81, 20)])
+    ax.set_xlabel("Recall (older and confirm questions), both views")
+    titled(
+        fig,
+        "The sealed S3 test: recall by arm",
+        f"{len(chats)} chats; 95% intervals resample chats; grey band: base with the tool. "
+        "6.37 and C1 pool seeds 82, 83, 94 (R-287).",
+    )
+    save(fig, "s3_recall")
+
+
+def fig_s3_faults() -> None:
+    """The two faults the reopening targeted, by arm on S3."""
+    chats, tables = S3.measure_tables()
+    names = list(tables)
+    fig, axes = plt.subplots(1, 2, figsize=(9.6, 0.42 * len(names) + 2.4), sharey=True)
+    fig.subplots_adjust(
+        left=0.22, right=0.93, top=1 - 0.95 / fig.get_figheight(), bottom=0.22, wspace=0.3
+    )
+    panels = (
+        ("copy", "Copies the wrong answer in view"),
+        ("n_hit_false_answer", "Names a value when never told,\nthe search having returned text"),
+    )
+    for ax, (measure, label) in zip(axes, panels, strict=True):
+        arm_points(ax, measure, names, tables, chats)
+        ax.set_xlim(0, 75)
+        ax.set_xticks(range(0, 61, 20), [f"{t}%" for t in range(0, 61, 20)])
+        ax.set_xlabel(label, fontsize=9.5)
+    axes[1].tick_params(axis="y", labelleft=False)
+    titled(
+        fig,
+        "C1 removes most of 6.37's two faults; its false answers stay above base's",
+        "Lower is better. Grey band: base with the tool, the line C1 had to be under on the right "
+        "(R-178 (c)). 95% intervals resample chats.",
+    )
+    save(fig, "s3_faults")
+
+
+def fig_s3_misses() -> None:
+    """Where recall is lost on S3: right, fact found and misread, searched and missed, no search."""
+    rows = S3.arms()
+    names = [n for n in rows if n != "whole_chat"]
+    parts = (
+        ("Right", TUNED_C),
+        ("Fact in its own search output, answered wrong", BASE_C),
+        ("Searched, fact not found", CARD_C),
+        ("No search", AXIS),
+    )
+    fig, ax = plt.subplots(figsize=(8.6, 0.42 * len(names) + 2.2))
+    fig.subplots_adjust(left=0.27, right=0.97, top=1 - 1.45 / fig.get_figheight(), bottom=0.13)
+    ys = list(range(len(names)))[::-1]
+    for y, name in zip(ys, names, strict=True):
+        asked = [r for r in rows[name] if r["kind"] in RECALL_KINDS]
+        wrong = [r for r in asked if not r["item_correct"]]
+        counts = [
+            len(asked) - len(wrong),
+            sum(bool(r["found_fact"]) for r in wrong),
+            sum(not r["found_fact"] and bool(r["queries"]) for r in wrong),
+            sum(not r["found_fact"] and not r["queries"] for r in wrong),
+        ]
+        left = 0.0
+        for count, (_, colour) in zip(counts, parts, strict=True):
+            width = 100 * count / len(asked)
+            ax.barh(y, width, left=left, height=0.6, color=colour, edgecolor=SURFACE, lw=1.5)
+            left += width
+        lo, hi = wilson(counts[0], len(asked))
+        ax.plot([100 * lo, 100 * hi], [y + 0.36, y + 0.36], color=INK, lw=1.2)
+        ax.text(101, y, f"n = {len(asked)}", va="center", color=INK_2, fontsize=9)
+    ax.set_yticks(ys, [S3.ARM_NAMES[n] for n in names])
+    ax.tick_params(axis="y", length=0, labelsize=10)
+    ax.set_xlim(0, 110)
+    ax.set_xticks(range(0, 101, 25), [f"{t}%" for t in range(0, 101, 25)])
+    ax.set_xlabel("Share of S3's recall questions (older and confirm, both views)")
+    ax.grid(axis="y", visible=False)
+    ax.spines["left"].set_visible(False)
+    handles = [Line2D([], [], marker="s", ls="", ms=9, mfc=c, mec=c, label=t) for t, c in parts]
+    ax.legend(
+        handles=handles,
+        loc="lower left",
+        bbox_to_anchor=(-0.3, 1.0),
+        ncol=2,
+        frameon=False,
+        fontsize=9,
+        labelcolor=INK_2,
+    )
+    titled(
+        fig,
+        "Where recall is lost on S3",
+        "Black line: 95% Wilson interval of the right share (rows, not chats). R-287.",
+    )
+    save(fig, "s3_misses")
+
+
+def fig_never_told_slide() -> None:
+    """hard_dev never_told at seed 82 as OP's stage is repeated (R-261, R-269, R-272)."""
+    fig, ax = plt.subplots(figsize=(8, 3.4))
+    fig.subplots_adjust(left=0.1, right=0.97, top=0.72, bottom=0.2)
+    ax.axhspan(NEVER_TOLD_GATE - 0.5, 48.5, color=GRID, alpha=0.7, lw=0, zorder=0)
+    for x, (_, run) in enumerate(STAGES):
+        asked = [r for r in eval_rows(f"hd_{run}_82", 73157) if r["kind"] == "never_told"]
+        hits = sum(bool(r["correct"]) for r in asked)
+        lo, hi = wilson(hits, len(asked))
+        ax.plot([x, x], [lo * len(asked), hi * len(asked)], color=TUNED_C, lw=2.2)
+        ax.scatter([x], [hits], s=100, color=TUNED_C, edgecolor=SURFACE, linewidth=2, zorder=3)
+        ax.text(x + 0.08, hits, f"{hits} of {len(asked)}", va="center", color=INK, fontsize=10)
+    ax.set_xticks(range(len(STAGES)), [s[0] for s in STAGES])
+    ax.set_xlim(-0.4, len(STAGES) - 0.4)
+    ax.set_ylim(34, 49)
+    ax.set_yticks(range(35, 49, 3))
+    ax.set_ylabel("Never-told questions declined", fontsize=9.5)
+    ax.grid(axis="x", visible=False)
+    ax.text(0.1, 43.3, "the gate: at least 44", va="top", color=INK_2, fontsize=9)
+    titled(
+        fig,
+        "Each repeat of the same stage declined fewer never-told questions",
+        "hard_dev, training seed 82, 48 questions a run; Wilson 95% intervals; "
+        "grey: passes the gate.",
+    )
+    save(fig, "never_told_slide")
+
+
+def fig_demo_contamination() -> None:
+    """Demo answer keys that are training fact values (R-254)."""
+    results = REPO_ROOT / "results"
+    fig, ax = plt.subplots(figsize=(8, 3.0))
+    fig.subplots_adjust(left=0.14, right=0.97, top=0.7, bottom=0.2)
+    for y, (n, path) in zip(range(len(DEMOS))[::-1], DEMOS.items(), strict=True):
+        questions = load(REPO_ROOT / f"demo{n}" / "questions.json")["questions"]
+        keys = sum(q["kind"] != "never_told" for q in questions)
+        text = (results / path).read_text(encoding="utf-8").splitlines()
+        line = next(t for t in text if "fact value" in t)
+        hits = len(json.loads(line.split(":", 1)[1]))
+        ax.barh(y, keys, height=0.55, color=GRID, edgecolor=SURFACE)
+        ax.barh(y, hits, height=0.55, color=CARD_C, edgecolor=SURFACE)
+        ax.text(keys + 0.15, y, f"{hits} of {keys}", va="center", color=INK, fontsize=10)
+    ax.set_yticks(range(len(DEMOS))[::-1], [f"Demo{n}" for n in DEMOS])
+    ax.tick_params(axis="y", length=0)
+    ax.set_xlim(0, 9.5)
+    ax.set_xlabel("Answer keys that are fact values in the training data (red)")
+    ax.grid(axis="y", visible=False)
+    ax.spines["left"].set_visible(False)
+    titled(
+        fig,
+        "Two demos held answers the candidates had trained on",
+        "Every training set and writer chat checked; "
+        "Demo4 and Demo5 rewritten until clean (R-254).",
+    )
+    save(fig, "demo_contamination")
+
+
 if __name__ == "__main__":
     fig_whole_chat_or_search()
     fig_recall_out_of_view()
     fig_memory()
+    fig_s3_recall()
+    fig_s3_faults()
+    fig_s3_misses()
+    fig_never_told_slide()
+    fig_demo_contamination()

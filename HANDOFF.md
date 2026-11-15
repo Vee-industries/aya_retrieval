@@ -1,6 +1,6 @@
 # Handoff
 
-Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 18:50 ET (R-287, session e01413cc). Read this, then
+Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 (R-288, session 3892334a). Read this, then
 `docs/PROJECT_MAP.md`, then `RECORDS.md` from R-227 (the stage tries) and closely R-273 to R-287.
 
 ## State
@@ -9,20 +9,22 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-14 18:50 ET (R-287, session
   and (b) and two of (c)'s three parts; its N-hit false-answer rate, 51 of 708 (7.2%), is above base's 14 of 236
   (5.9%). Against 6.37 on S3: copies 195 to 5 of 894, N-hit false answers 286 to 51 of 708, plain never-told 238 to 344
   of 360, recall 347 to 364 of 1,242. Scored by `scripts/records/score_s3.py` (registered R-281, tested R-282);
-  coherence by three judges (R-286). The queue (`qs3.sh`, scratchpad of session 77d169a0, log `qs3.log`) still runs
-  the report arms K1, K1.3, K2.1 at 82 and 83 until about 21:30; after it ends, rerun `score_s3.py rule` and record
-  their counts (they enter no line). Nothing pushed (public repo: no push without Kevin's yes).
-- **Next: the write-up**, by Kevin's requirements (16:45, sent to the audit session `local_62a27534`): two papers,
-  extremely complementary; the short one (`docs/submission/HF_ARTICLE.md`, about 8,400 words now) tells the story in
-  about 5 pages and points to the long one (`docs/ARTICLE.md`, about 20,800 words now; "50 pages is way too long");
-  "I want cohesion. Data put together in places it belongs"; a chronology section, or methods told in order; "the dash
-  to try to get a replacement" told well, why it happened and how (R-177 on); every STANDARD v3 section (hypotheses and
-  deviations tables, leakage and flow tables, limits under the fixed headings, confirmatory or exploratory labels, every
-  number from results files), kv_voice_v2; figures from `scripts/make_figures.py` (S3 recall by arm with intervals; the
-  two fault rates; the never_told slide 48, 46, 43 across stages; reading errors against search misses; the
-  contamination finding). Disclose: the demo rule changed after both demo readings existed (R-276, R-278, Kevin's
-  reason R-283); Demo5 read twice and partly seen (R-277); S3 replies partly seen through judge reports (R-286); every
-  judge and lane is the author's model family. Then the audit session checks the drafts. Form due 16 November 07:59 ET.
+  coherence by three judges (R-286). The queue (`qs3.sh`, scratchpad of session 77d169a0, log `qs3.log`) stopped
+  after K1 seed 82 (R-288); restarting it (`qs3_lock.py C1`, under the card lock; it skips results already written)
+  waits for Kevin's word. Then K1 seed 83, K1.3 and K2.1 at 82 and 83 run (about 41 minutes each); after it ends,
+  rerun `score_s3.py rule` and `make_article.py` and record their counts (they enter no line). Nothing pushed (public repo: no push without Kevin's yes).
+- **Write-up rebuilt (R-288), with the audit session `local_62a27534` checking it against the submit checklist.**
+  Four documents now come from templates filled by `scripts/make_article.py` from results files: the long paper
+  `docs/ARTICLE.md` (about 11,500 words, from about 20,800), the short paper `docs/submission/HF_ARTICLE.md` (about
+  2,300 words, from about 8,400; template `docs/submission/hf_article_template.md`), the form abstract
+  `docs/submission/ABSTRACT.md` (template `abstract_template.md`, refused over 500 words) and the model card. The long
+  paper has a dated chronology (section 2), the reopening (7), the push to replace 6.37 then K1.3 with every candidate
+  (8), S3 (9), and hypotheses, deviations, leakage, flow and limits tables. `scripts/make_figures.py` draws five new
+  figures: S3 recall by arm, the two faults, S3 misses, the never-told slide and the demo contamination. Kevin's
+  requirements (16:45): two complementary papers, the short one about 5 pages pointing to the long one, a chronology,
+  "the dash to try to get a replacement" told well, every STANDARD v3 section, kv_voice_v2, figures from results.
+  **Left:** when the queue ends, `score_s3.py rule`, then `make_article.py` (it fills the report arms into section 9)
+  and the report-arm record entry; then any audit findings. Form due 16 November 07:59 ET.
 - **Pick before S3: C1** (`k13opc1_r263`; `decide_r191.py` 0 FAIL of 20, pick recall 775 against K1.3's 742, R-279).
   C1 is OP's stage run twice from K1.3 (1e-4 x 1 on OP's set, twice). It beat K1.3 by Kevin's rulings: a candidate must
   beat K1.3 (R-276), with the demos judged on their totals over Demo4 and Demo5 (R-278): older 5 of 12 against 4,

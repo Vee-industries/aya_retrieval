@@ -25,6 +25,9 @@ questions from unrelated passages, copying wrong answers).
 | `scripts/records/demo2_judges.py` | Blind judge sheet and tally for a Demo2 run |
 | `scripts/records/validate_k3_writers.py` | Structure check of K3-brief writer files |
 | `scripts/records/build_onpolicy_items.py`, `build_onpolicy_rows.py` | On-policy tries (R-253 to R-270): K4.8's training chats as 375 eval items (`data/onpolicy/items/`), then one seed's stage set from a model's own mistakes on them (start `k13`, `t6` or `op`; `op4` builds second-search rows from OP's eval, R-267); `build_onpolicy_template.py SEED [c1|op]` builds rows from a model's own turns on the training template pool (OPT, R-271, never run; OPO, R-273, stopped at its row floor, R-275) |
+| `scripts/records/score_s3.py` | S3's scorer: the coherence sheet, the judges' tally and R-281's ship rule (`results/s3/ship_rule.json`); its `measure_tables` and `interval` also serve the write-up |
+| `scripts/make_article.py` | Fills four templates from results files: `docs/article_template.md` (the long paper), `docs/submission/hf_article_template.md` (the short one), `docs/submission/abstract_template.md` (the form abstract, at most 500 words) and `docs/model_card_template.md`; stops on any unfilled number or a result that no longer matches the text |
+| `scripts/make_figures.py` | Draws every figure in `figures/` from results files (R-288 added the S3, never-told and demo figures) |
 | `scripts/records/demo_contamination.py` | Checks a demo's answer keys against every training value and six-word run (R-254); Demo4 and Demo5 replaced Demo2 and Demo3 |
 | `docs/k3/`, `docs/k4/`, `docs/k4_4/`, `docs/k4_9/` | Writer briefs for the natural training chats and questions |
 | `data/screens/` | Training sets and writer files; `k4_5/`, `k4_6/`, `k4_7/` hold each chain's stripped writer copies and intermediates |

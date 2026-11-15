@@ -114,8 +114,8 @@ answer, or decline when the chat never held the fact.
   code searches every turn.
 - Where it fails: on LongMemEval-S it declines 233 of 470 answerable questions; on the scripted demo it gave an
   unrelated stored fact on 2 of 4 questions and repeated its own wrong answer on 6 of 8 (R-175, R-176).
-- State: the project was reopened on 12 November to fix those two demo failures. 6.37 is still the shipped model;
-  later candidates are screened, and a new sealed test (S3) opens once, on 14 November (see "Reopened").
+- State: the project was reopened on 12 November to fix those two demo failures. The pick, C1, failed one clause of
+  the S3 ship rule (R-287), so 6.37 is still the shipped model (see "Reopened").
 - Where to look: `RECORDS.md` (every decision and number), the README (reproduction), and the two Hugging Face
   collections.
 
@@ -497,9 +497,9 @@ revision `af89d219b53ed9b13b8a4645f9c8028973510324`.
 5. LongMemEval-S: `scripts/run_longmemeval.py` (one arm a call; its data file is not in the repository, its SHA-256 is
    in R-170), then `scripts/records/score_r170.py` and, for judged accuracy, `judge_sheets_r170.py` and
    `score_judged_r170.py`.
-6. The write-ups and figures: `PYTHONPATH=src python scripts/make_article.py` and `scripts/make_figures.py`; the result tables
-   in `docs/ARTICLE.md` and `docs/MODEL_CARD.md` are filled from results files, and their "Reopened" sections and the
-   compute paragraph quote records and are written by hand.
+6. The write-ups and figures: `PYTHONPATH=src python scripts/make_article.py` and `scripts/make_figures.py`; the long and short
+   write-ups (`docs/ARTICLE.md`, `docs/submission/HF_ARTICLE.md`), the form abstract and `docs/MODEL_CARD.md` are filled
+   from results files by their templates; the few numbers quoted from records are listed in the article's section 15.
 
 ## Checks
 

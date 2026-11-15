@@ -42,44 +42,18 @@ model `CohereLabs/tiny-aya-global` is gated: accept its licence on Hugging Face 
 
 {{status_line}}
 
-## Reopened, 12 November
+## Reopened, 12 to 14 November
 
-After the freeze (9 November) and the sealed result, the scripted demo was run for 6.37 for the first time on
-12 November (R-175). It answered 2 of 4 questions; on the other two it searched with queries copied from its
-training set and gave an unrelated stored fact. Eight more questions, written by an agent that saw only the demo
-script and registered before they ran, gave the untrained model 2 and 6.37 0: 6.37 repeated its own wrong answer,
-still in view, on 6 of 8 (R-176). I reopened the project (R-177). A new test, written by six writer agents that
-never see the training data, the demo or these records, is sealed before any new training row exists (R-178). Candidates built to address the weaknesses (unrelated passages given as answers, and repeating a wrong answer in view)
-compete for one place on the new test. The pick replaces 6.37 only if it passes the rule registered before the sealed
-run (R-178, R-191 to R-194). The third weakness (queries learned from a few fact templates, and no facts about the
-speaker in training) was left untrained at first; the natural-chat rows from R-205 on target it. Every result about the frozen 6.37 below stands unchanged. This section will carry the new test's result,
-whatever it shows.
-
-Since then (R-179 to R-215, 12 and 13 November). S3, the new test, was written by six writer agents and sealed before
-any training row (R-179). It stays closed until Saturday 14 November, and the pick for it is fixed by 18:00 Eastern
-that day (R-202). Seventeen candidate sets were registered, K1 to K4.7 (R-194 asks that the count be stated; every
-candidate chosen among on reused development sets makes the winner's development numbers more optimistic). Nine
-finished training at seed 82 or more seeds, K4.7 is training, and four reached every screening line: K1, K2.1, K1.3
-and K4.1.
-
-K1 answered all 4 of the scripted demo's questions and 3 of the 8 registered ones (R-184). Against 6.37's gates it
-failed three recall lines and passed both failure-mode targets (R-183); against the untrained model with the tool, the
-standard adopted in R-191, it passed all 20 screening lines at both screening seeds (R-198). K2 and K1.1 failed their
-training-set checks and never trained (R-186, R-197), K2.1 trained and failed one screening line (R-195), and K1.2
-failed its check on an uneven random draw (R-200). K1.3 is K1 with each fact restated in other wordings in fixed
-shares. It passed all 20 screening lines and leads the pick on pooled recall over three seeds, 742 against K1's 720
-(R-203); the lead is about one seed's spread, so the pick is provisional. On Demo2, a chat and 12 questions written by
-a fresh agent and read by nobody before the run (R-201), K1 and K1.3 each recalled 0 of the 6 facts told earlier, as
-many as declining everything, and 6.37 recalled 2 (R-204).
-
-From R-205 the candidates add natural training chats written by fresh writer agents. K3, K3.1 and K4 failed their
-training-set checks and did not train (R-205, R-206, R-208). K3.2, K4.2, K4.4, K4.5 and K4.6 trained at seed 82 and
-failed Demo2's registered rule (at least 3 of 6 older facts and 3 of 4 never-told questions), so their later seeds
-were not trained (R-208, R-210, R-212, R-213, R-214). K4.1 passed Demo2 and failed 4 screening lines (R-210). K4.3 did
-not train (R-211). On the two outside-writer sets K4.6 recalled 132 older and confirm questions at seed 82 (a
-diagnostic, not eligible for the pick), against K1.3's 89 and K4.1's 122 (R-214). K4.7, K4.6 plus 64 natural chats
-from 8 new writers, passed its check and is training (R-215). The shipped model stays 6.37 unless a candidate passes
-the registered rule on S3, which runs once, by 19:00 Eastern on 14 November (R-194, R-202).
+A scripted demo, run for 6.37 on 12 November, showed two faults: it answered questions it was never told with
+unrelated stored facts, and it repeated its own wrong answer while that answer was still in view (R-175, R-176). With
+the deadline extended, the project was reopened (R-177). A second sealed test, S3, was written by {{s3_writers}} blind
+writer agents and sealed before any new training row, and its ship rule was fixed before it opened (R-178, R-179,
+R-191). {{reopened_n}} candidates were listed for screening; C1 became the pick (R-279). On S3, against 6.37, C1's
+copies of a wrong answer in view went from {{s3_copy_637}} to {{s3_copy_c1}} and its false answers to never-told
+questions whose search returned text from {{s3_nhit_637}} to {{s3_nhit_c1}}. Those false answers had to be no higher
+than the untrained model's, {{s3_nhit_base}}, so C1 failed the rule on one clause and **this adapter, 6.37 seed 82,
+stays shipped** (R-287). S3's numbers on 6.37 are its measured weakness. The full account is in the write-up,
+sections 7 to 9.
 
 ## Results at a glance
 

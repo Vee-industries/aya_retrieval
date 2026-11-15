@@ -10274,3 +10274,63 @@ without a hand-off): this entry, the HANDOFF update and the hand-off follow now.
 (the 16:30 commit for R-283 ran `git status --short | head -3` inside its chain, and the record append was a separate
 line before the lint chain): every commit from here runs only lint, format, tests, add and commit in one chain.
 Weekly usage at the end of this stage: 95% (all models, 18:49; 90% at its start, R-273).
+
+## R-288 · 2026-11-14 · REOPENED · The write-up rebuilt as two complementary papers, every number from results files
+
+Session 3892334a takes over from e01413cc (R-287), on its hand-off brief. Weekly usage at the start of this stage: 95%
+(all models; `get_usage` at session start, before 19:33). No agents were started. Every edit was drafted in a
+throwaway clone in this session's scratchpad and copied in for this commit.
+
+**The S3 queue stopped.** `qs3.sh` wrote K1 seed 82's result at 19:30 (`results/s3/s3_k1_r178_82.json`, 834 rows,
+2,488 s) and did not commit it; at 19:45 no `qs3.sh`, `qs3_lock.py` or eval process was running and the card held
+518 MiB. It most likely ended with session e01413cc's processes. The file is complete and is committed here unread
+(it enters no line). Restarting the queue (it skips results already written) was refused by this session's permission
+check, so the remaining report arms (K1 seed 83, K1.3 and K2.1 at 82 and 83) wait for Kevin's word; the old log is
+`qs3.log` in session 77d169a0's scratchpad.
+
+**What Kevin asked** (16:45, HANDOFF): two papers, extremely complementary; the short one tells the story in about 5
+pages and points to the long one, which was too long at 50 pages; "I want cohesion. Data put together in places it
+belongs"; a chronology section or methods told in order; "the dash to try to get a replacement" told well, why and how,
+from R-177 on; every STANDARD v3 section; kv_voice_v2; figures from `scripts/make_figures.py`; and the disclosures
+HANDOFF lists.
+
+**What changed and where.**
+- `docs/article_template.md` rewritten; `docs/ARTICLE.md` from 20,838 to 11,484 words. Order: abstract, submission
+  summary, introduction, a dated chronology (section 2), task and data with S3's flow table and a leakage table by
+  Kapoor and Narayanan's types (3), 6.37's method (4), protocol with a hypotheses-and-outcomes table (5), 6.37's
+  results labelled confirmatory or exploratory (6), the faults and the reopening (7), the push to replace 6.37 then
+  K1.3 with every candidate of R-279's screening (8), S3 (9), cost and toolkits (10), a deviations table of 15 rows
+  (11), limits under rule 22's headings (12), errors (13), future work (14), reproduce (15). Cut from the long paper,
+  kept in its git history and the records: the per-kind and per-seed sealed tables, R-016's three-seed table, the
+  writer, tag-claim and prompt tables, the whole-chat per-kind table, the LongMemEval-S mechanical detail and the two
+  pre-freeze candidate ledgers.
+- `docs/submission/hf_article_template.md` (new): `HF_ARTICLE.md` is now built from it, 8,363 to 2,340 words, the
+  same story in order with the four disclosures listed together; it links to the long paper for every table.
+- `docs/submission/abstract_template.md` (new): the form abstract is now built, 425 words; `make_article.py` refuses
+  it over 500. `docs/model_card_template.md`: its "Reopened" section, which still said K4.7 was training, replaced by
+  a generated paragraph with S3's result.
+- `scripts/make_article.py`: `reopened_numbers` (the ledger from `results/panels/R-279/decide_r191.txt`, `hard_dev`
+  seed 82 files, the Demo4 and Demo5 judge tallies for K1.3 and C1, R2c's pick recall from R-247's output) and
+  `s3_numbers` (`results/s3/ship_rule.json`, intervals and miss counts through `score_s3.py`'s own functions, the flow
+  counts from `s3_base_tool.json`, and R-179's 140 of 42,561 shared four-word runs recomputed through
+  `overlap_s3_training.py`'s functions). It stops if the ship rule no longer fails on (c) alone, or if the screening
+  output and the ledger list different candidates. The status line now says 6.37 stays shipped.
+- `scripts/make_figures.py`: five new figures from results files: `s3_recall`, `s3_faults` (chat-resampled 95%
+  intervals, base as a band), `s3_misses`, `never_told_slide` (Wilson intervals, the gate as a band) and
+  `demo_contamination`.
+- `scripts/records/score_s3.py`: `interval`, `measure_tables` and `ARM_NAMES` added; `rule` now builds its tables
+  through `measure_tables`. No panel, because `score_s3.py rule` rerun in the clone writes `results/s3/ship_rule.json`
+  byte for byte as committed in R-287. `src/aya_retrieval/report_data.py`: `records_script` loads a records script
+  as a module.
+- README state lines, HANDOFF and `docs/PROJECT_MAP.md` updated.
+
+**Numbers typed, not generated** (named in the long paper's section 15): the scripted demo's counts (R-175, R-176),
+Demo2's counts for K1 and K1.3 (R-204), R2cf's 10 rows and 4 items (R-249), the GPU hours to 13 November (R-217), and
+the dates. Every table and every other result number is filled from results files.
+
+**Read with this.** No panel for the text: it reports registered results and adds no claim beyond the records; the
+audit session `local_62a27534` checks the drafts against the submit checklist next. New in the write-up, from the
+committed S3 files: on S3, base with the whole chat recalls 274 of 414 and code 161 of 414, both above 6.37 (347 of
+1,242) and C1 (364 of 1,242); of C1's wrong recall answers, 661 of 878 are searches that did not find the fact. The
+report arms are not yet in section 9; the next entry adds them. Checks: `ruff check`, `ruff format --check`, pytest
+1,790 passed. Weekly usage at the end of this stage: 96% (all models, read just after the clock showed 19:44). Nothing pushed.

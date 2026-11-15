@@ -18,6 +18,18 @@ RECALL_KINDS = ("older", "confirm")
 SIZES = (58, 419)
 
 
+def records_script(name: str):
+    """Import ``scripts/records/NAME.py`` as a module, so the write-up uses a scorer's own code."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        name, REPO_ROOT / "scripts" / "records" / f"{name}.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
 def eval_rows(label: str, probe_seed: int, arm: str = "tool_loop") -> list[dict]:
     """Return one results file's rows for one arm; files from before arms existed are tool loop."""
     path = EVAL_DIR / f"{label}_seed_{probe_seed}.json"

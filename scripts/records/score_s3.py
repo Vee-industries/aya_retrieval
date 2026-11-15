@@ -45,6 +45,16 @@ OLD = "fix17cs37"  # 6.37, the shipped model
 PICK = "k13opc1_r263"  # C1, the pick (R-279)
 SHIPPED_SEED = 82  # R-178: seed 82 is the shipped seed
 REPORT = ("k1_r178", "k1_3_r200", "k2_1_r187")  # report arms at 82 and 83 (qs3.sh)
+ARM_NAMES = {  # the write-up's names for the arms, baselines first (R-281's order)
+    "always_search": "Code, searches every turn",
+    "whole_chat": "Base, whole chat",
+    "base_tool": "Base, tool",
+    "6.37": "6.37, shipped",
+    "pick": "C1, the pick",
+    "k1_r178": "K1 (report)",
+    "k1_3_r200": "K1.3 (report)",
+    "k2_1_r187": "K2.1 (report)",
+}
 N_RESAMPLES, BOOT_SEED = 10_000, 0  # stats.bootstrap_gain_interval's defaults (R-281)
 POINTS = 0.05  # R-191 (a): no more than 5 points below base
 GAP = 0.10  # R-178 (b), (c): at least 10 points lower than 6.37
@@ -116,6 +126,28 @@ def lower_bound(
     return diffs[int(0.025 * len(diffs))] if diffs else float("nan")
 
 
+def interval(
+    table: dict[str, list[int]],
+    chats: list[str],
+    n_resamples: int = N_RESAMPLES,
+    seed: int = BOOT_SEED,
+) -> tuple[float, float]:
+    """Return the 2.5th and 97.5th percentiles of one arm's rate, chats drawn with replacement."""
+    rng = random.Random(seed)
+    rates = (rate(table, [rng.choice(chats) for _ in chats]) for _ in range(n_resamples))
+    drawn = sorted(r for r in rates if r == r)
+    return drawn[int(0.025 * len(drawn))], drawn[min(int(0.975 * len(drawn)), len(drawn) - 1)]
+
+
+def measure_tables(folder: Path = S3_DIR) -> tuple[list[str], dict[str, dict]]:
+    """Return S3's chat ids and, for every arm, each measure's chat table."""
+    rows = arms(folder)
+    chats = sorted({r["chat"] for r in rows["base_tool"]})
+    return chats, {
+        name: {m: by_chat(rs, f) for m, f in MEASURES.items()} for name, rs in rows.items()
+    }
+
+
 def arms(folder: Path = S3_DIR) -> dict[str, list[dict]]:
     """Return every arm's rows, seeds pooled, under the names the rule uses."""
     out = {
@@ -134,9 +166,7 @@ def arms(folder: Path = S3_DIR) -> dict[str, list[dict]]:
 
 def rule(folder: Path = S3_DIR, coherence: dict | None = None) -> dict:
     """Return every arm's measures and the ship rule's lines, each PASS or FAIL."""
-    rows = arms(folder)
-    chats = sorted({r["chat"] for r in rows["base_tool"]})
-    tables = {name: {m: by_chat(rs, f) for m, f in MEASURES.items()} for name, rs in rows.items()}
+    chats, tables = measure_tables(folder)
     report = {
         name: {
             m: {"hits": sum(c[0] for c in t.values()), "n": sum(c[1] for c in t.values())}
