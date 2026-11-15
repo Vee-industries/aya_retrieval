@@ -4,7 +4,9 @@
 
 **Claim.** On a sealed test of chats from its training generator, 6.37 makes Tiny Aya Global recall
 91 to 107 of 120 out-of-view facts, against the untrained model's
-13 to 32; on chats from outside writers (Claude agents) it does not beat the strongest simple baselines.
+13 to 32. On chats from outside writers (Claude agents) it does not beat the strongest simple baselines,
+and on S3 it repeats its own wrong answers and names listed values on never-told questions more often than the
+untrained model.
 
 **Result first.** 6.37, a LoRA adapter trained with Lexsi's AgentTune, lets Tiny Aya Global (3.35B) search the part
 of a chat it can no longer see. On two sets of chats from outside writers it recalls 39 and
@@ -21,7 +23,7 @@ rule, not because it passed S3. C1 is published beside it, labelled.
   *Whole chat*: base with every message in view, no tool.
 - *Recall*: right `older` and `confirm` answers (section 1), "of 120" in a run. *Never told*: the chat
   never held the fact; right when the reply names no listed value. *N-hit* (S3): a never-told question whose fixed
-  keyword search returns passages; an N-hit false answer names a value listed for the chat. *Copy* (S3): naming its
+  keyword search returns passages; an N-hit false answer names a value of the asked category listed for the chat. *Copy* (S3): naming its
   own in-view wrong value when answering another question.
 - *K1, K1.3, C1*: reopened candidates, each built on the last; C1 trains on corrections of its own errors. *Demo2 to
   Demo5*: one-chat screening demos.
@@ -91,7 +93,7 @@ AuditKIT was a development scorer. S3 shares 140 of 42,561 four-word runs with 6
 | 12 Nov | Demo shows two faults; reopened; S3 written and sealed | R-173 to R-179 |
 | 12 to 14 Nov | 24 candidates listed; K1.3 the pick, then C1 | R-180 to R-279 |
 | 14 Nov | S3 opened once; C1 misses one clause; 6.37 stays shipped | R-280 to R-293 |
-| 15 Nov | Review panels and audits; C1 published beside 6.37 | R-294 to R-305 |
+| 15 Nov | Review panels and audits; C1 published beside 6.37 | R-294 to R-309 |
 
 R-304: two private names that a sweep record had named were removed from the whole history; every commit from 10
 November on has a new id (map in `results/scrub/`).
@@ -121,7 +123,9 @@ reverses:
 
 **LongMemEval-S (exploratory)**, histories past the window: judged right (Claude judges, not the official GPT-4o), 6.37 53, base with the tool 34, code 40 of a stratified 248.
 Registered H2 (R-170): code's first search finds more evidence, 372 against 333 of 476, with no measured difference on
-answers. 6.37 declines 233 of 470 answerable questions.
+answers. Split after reading that result: on the 233 answerable questions of the
+248, 6.37 ties code (40 against 40; 23 right only for 6.37 and 23 only for code that always searches, p = 1.0); its lead over code comes from the 15
+unanswerable ones. 6.37 declines 233 of 470 answerable questions.
 
 ## 4. The faults, and S3
 
@@ -172,12 +176,17 @@ against 742 of 1,296 (R-279), inside the seed spread.
 | Never told, plain: names no listed value | 111 of 120 (92.5%) | 238 of 360 (66.1%) | 76 of 120 (63.3%) | 344 of 360 (95.6%) | (a) pass |
 | False claim in a tag question: corrected | 1 of 28 | 0 of 84 | 0 of 28 | 32 of 84 | none |
 
+`older` alone, with no answer cue in the question (exploratory): base 30 of 356 (8.4%), 6.37 285 of 1,068 (26.7%), C1
+292 of 1,068 (27.3%).
+
 ![6.37 above base on both faults](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/s3_faults.png)
 
 *Figure 3. The two faults on S3 by arm, lower is better; 95% intervals resample chats; grey band: base's interval;
 thin line (right): base's rate, clause (c)'s line. Report arms: seeds 82 and 83.*
 
 C1 missed (c) by 1.3 points (Figure 3); the chat-resampled 95% interval of C1 minus base is -3.1 to +5.7 points.
+Counting every stored value the chat holds, not only listed values of the asked category, N-hit questions answered
+with a value (exploratory, R-298): base 17 of 236 (7.2%), 6.37 402 of 708 (56.8%), C1 99 of 708 (14.0%).
 The rule requires every clause, so 6.37 stays
 shipped; R-294 records my position that the aggregate should have decided. The published C1, seed 82, is under base
 on (c) but fails (a)'s statement line: it left 50 of 60 (83.3%) plain statements unsearched, -13.3 points, 95% interval -23.3 to -3.3 against
@@ -193,15 +202,14 @@ the fact where seed 82's queries did not on 88 recall questions, the reverse on
 11). Report
 arms K1 and K2.1 (two seeds, no coherence judging) meet every measured line,
 naming a listed value on 12 of 472 (2.5%) and 14 of 472 (3.0%); K1.3, the pick before C1, fails (c) on
-37 of 472 (7.8%). Exploratory; none swapped in.
+37 of 472 (7.8%). Exploratory; none swapped in. I picked on development recall, under a development false-answer gate
+that compared with 6.37, not with base (R-191); the development screen and the demos did not predict S3 on that line.
 
 ## 7. Limits and disclosures
 
 - **What S3's flags count.** Only values of the asked category listed for the chat; an invented value or another
   category's stored fact passes, so the plain never-told rates of base, 6.37 and C1 are ceilings: replies with no
-  value at all can be fewer. Counting other
-  stored facts too, N-hit questions answered with a value (exploratory, R-298): base 17 of 236 (7.2%), 6.37
-  402 of 708 (56.8%), C1 99 of 708 (14.0%). S3 was scored on the never-told rubric's model-free part only (deviation 20).
+  value at all can be fewer (section 6 counts the other stored facts). S3 was scored on the never-told rubric's model-free part only (deviation 20).
 - **Rules set after readings** (deviations table, long paper): base replaced 6.37 as the standard of (a) after
   K1's development results (R-191); the demo test, twice (section 5); Demo5 was read twice, partly through a judge's
   marks (R-277); judges' quotes showed parts of S3 replies after the marks were final (R-286).

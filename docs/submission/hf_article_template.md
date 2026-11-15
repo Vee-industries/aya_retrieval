@@ -4,7 +4,9 @@
 
 **Claim.** On a sealed test of chats from its training generator, 6.37 makes Tiny Aya Global recall
 {{sealed_ship_range}} of {{sealed_recall_n}} out-of-view facts, against the untrained model's
-{{sealed_shipbase_range}}; on chats from outside writers (Claude agents) it does not beat the strongest simple baselines.
+{{sealed_shipbase_range}}. On chats from outside writers (Claude agents) it does not beat the strongest simple baselines,
+and on S3 it repeats its own wrong answers and names listed values on never-told questions more often than the
+untrained model.
 
 **Result first.** 6.37, a LoRA adapter trained with Lexsi's AgentTune, lets Tiny Aya Global (3.35B) search the part
 of a chat it can no longer see. On two sets of chats from outside writers it recalls {{ow_82_recall_1}} and
@@ -21,7 +23,7 @@ rule, not because it passed S3. C1 is published beside it, labelled.
   *Whole chat*: base with every message in view, no tool.
 - *Recall*: right `older` and `confirm` answers (section 1), "of {{sealed_recall_n}}" in a run. *Never told*: the chat
   never held the fact; right when the reply names no listed value. *N-hit* (S3): a never-told question whose fixed
-  keyword search returns passages; an N-hit false answer names a value listed for the chat. *Copy* (S3): naming its
+  keyword search returns passages; an N-hit false answer names a value of the asked category listed for the chat. *Copy* (S3): naming its
   own in-view wrong value when answering another question.
 - *K1, K1.3, C1*: reopened candidates, each built on the last; C1 trains on corrections of its own errors. *Demo2 to
   Demo5*: one-chat screening demos.
@@ -91,7 +93,7 @@ AuditKIT was a development scorer. S3 shares {{s3_runs_shared}} four-word runs w
 | 12 Nov | Demo shows two faults; reopened; S3 written and sealed | R-173 to R-179 |
 | 12 to 14 Nov | {{reopened_n}} candidates listed; K1.3 the pick, then C1 | R-180 to R-279 |
 | 14 Nov | S3 opened once; C1 misses one clause; 6.37 stays shipped | R-280 to R-293 |
-| 15 Nov | Review panels and audits; C1 published beside 6.37 | R-294 to R-305 |
+| 15 Nov | Review panels and audits; C1 published beside 6.37 | R-294 to R-309 |
 
 R-304: two private names that a sweep record had named were removed from the whole history; every commit from 10
 November on has a new id (map in `results/scrub/`).
@@ -121,7 +123,9 @@ reverses:
 
 **LongMemEval-S (exploratory)**, histories past the window: judged right (Claude judges, not the official GPT-4o), 6.37 {{lme_j_ship}}, base with the tool {{lme_j_base}}, code {{lme_j_code}} of a stratified {{lme_judged_n}}.
 Registered H2 (R-170): code's first search finds more evidence, {{lme_h2_code}}, with no measured difference on
-answers. 6.37 declines {{lme_refuse_ship}} of {{lme_answerable_n}} answerable questions.
+answers. Split after reading that result: on the {{lme_judged_answerable_n}} answerable questions of the
+{{lme_judged_n}}, 6.37 ties code ({{lme_split_vs_code}}); its lead over code comes from the {{lme_unanswerable_n}}
+unanswerable ones. 6.37 declines {{lme_refuse_ship}} of {{lme_answerable_n}} answerable questions.
 
 ## 4. The faults, and S3
 
@@ -172,12 +176,17 @@ against {{pick_recall_k13}} of {{pick_recall_n}} (R-279), inside the seed spread
 | Never told, plain: names no listed value | {{s3_ntp_base}} | {{s3_ntp_637}} | {{s3_ship82_ntp}} | {{s3_ntp_c1}} | (a) pass |
 | False claim in a tag question: corrected | {{s3_fc_base}} | {{s3_fc_637}} | {{s3_fc_ship82}} | {{s3_fc_c1}} | none |
 
+`older` alone, with no answer cue in the question (exploratory): base {{s3_older_base}}, 6.37 {{s3_older_637}}, C1
+{{s3_older_c1}}.
+
 ![6.37 above base on both faults](https://raw.githubusercontent.com/Vee-industries/aya_retrieval/main/figures/s3_faults.png)
 
 *Figure 3. The two faults on S3 by arm, lower is better; 95% intervals resample chats; grey band: base's interval;
 thin line (right): base's rate, clause (c)'s line. Report arms: seeds 82 and 83.*
 
 C1 missed (c) by {{s3_gap_points}} points (Figure 3); the chat-resampled 95% interval of C1 minus base is {{c1_gap_interval}}.
+Counting every stored value the chat holds, not only listed values of the asked category, N-hit questions answered
+with a value (exploratory, R-298): base {{s3_off_base}}, 6.37 {{s3_off_637}}, C1 {{s3_off_c1}}.
 The rule requires every clause, so 6.37 stays
 shipped; R-294 records my position that the aggregate should have decided. The published C1, seed 82, is under base
 on (c) but fails (a)'s statement line: it left {{c1s82_st}} plain statements unsearched, {{c1s82_st_gap}} against
@@ -193,15 +202,14 @@ the fact where seed 82's queries did not on {{s3_qw_code_only_637}} recall quest
 {{s3_qw_unsearched_c1}}). Report
 arms K1 and K2.1 (two seeds, no coherence judging) meet every measured line,
 naming a listed value on {{s3_nhit_k1}} and {{s3_nhit_k21}}; K1.3, the pick before C1, fails (c) on
-{{s3_nhit_k13}}. Exploratory; none swapped in.
+{{s3_nhit_k13}}. Exploratory; none swapped in. I picked on development recall, under a development false-answer gate
+that compared with 6.37, not with base (R-191); the development screen and the demos did not predict S3 on that line.
 
 ## 7. Limits and disclosures
 
 - **What S3's flags count.** Only values of the asked category listed for the chat; an invented value or another
   category's stored fact passes, so the plain never-told rates of base, 6.37 and C1 are ceilings: replies with no
-  value at all can be fewer. Counting other
-  stored facts too, N-hit questions answered with a value (exploratory, R-298): base {{s3_off_base}}, 6.37
-  {{s3_off_637}}, C1 {{s3_off_c1}}. S3 was scored on the never-told rubric's model-free part only (deviation 20).
+  value at all can be fewer (section 6 counts the other stored facts). S3 was scored on the never-told rubric's model-free part only (deviation 20).
 - **Rules set after readings** (deviations table, long paper): base replaced 6.37 as the standard of (a) after
   K1's development results (R-191); the demo test, twice (section 5); Demo5 was read twice, partly through a judge's
   marks (R-277); judges' quotes showed parts of S3 replies after the marks were final (R-286).

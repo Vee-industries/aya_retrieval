@@ -10843,3 +10843,35 @@ compared): `aya-retrieval-eval-logs` got its card, `panels/R-307/` and `scrub/gi
 dataset and C1's repo already matched. After: all 37 links in the seven public documents open logged out; the five
 live cards and the short paper match the repository byte for byte; `figures/s3_misses.png` on GitHub matches. The
 abstract (`docs/submission/ABSTRACT.md`) did not change in R-307, so the text given to Kevin for the form stands.
+
+## R-309 · 2026-11-15 · REOPENED · An editorial review of both papers; the checked fixes applied
+
+Kevin pasted an editorial and research review brief for `docs/ARTICLE.md` and `docs/submission/HF_ARTICLE.md` (prefer
+narrative, emphasis, cross-document consistency and claims stronger than evidence; proposals only). One Opus reviewer
+agent of session 3fe62a52 wrote the review (`results/panels/R-309/review.md`, finished about 11:38). Checked by the
+orchestrator (successor session) against the papers, `ship_rule.json`, RECORDS, Appendix C and the S3 scorer
+(`heldout3.py`, `false_answer`): every cited number matched; eight proposals held as written, three held after a fix,
+the rest were not applied (`results/panels/R-309/checked.md`). Kevin, in chat, to "Apply the eight that hold and the
+three fixed ones?": "yeah cool"; and of the abstract, "i'd prefer not to" change it. No panel, because the brief asked
+for an editorial pass of claims already made, every fix narrows or corrects a sentence to its existing number, and no
+number, rule or shipped model changes.
+
+Changed, in the templates (built files rebuilt by `scripts/make_article.py`):
+- Long paper: the whole chat named as beaten only at 58 messages (it never ran at 419, R-166, R-168), in the
+  one-minute summary, section 9 and External validity; the N-hit term names the asked category, as the scorer does;
+  statements no longer counted as a gain over code (code searches every one by construction); K1.3's demo-change
+  sentence now says a third seed was not run, so it is not shown that what ships did not depend on the change; a new
+  section 9 paragraph reads 6.37 and C1 against the same S3 lines (corrected from the review: 6.37 is worse than C1 on
+  copies and N-hit false answers, and recall shows no measured change); Future work points to Appendix C instead of
+  repeating its query-writing counts; the changelog gains a line for R-307 and R-309; the last stage's records run to
+  R-309.
+- Short paper: the claim names the two S3 faults; the N-hit term names the asked category; the LongMemEval-S split
+  (233 answerable questions, 40 against 40, labelled as split after reading the registered result); `older` alone on
+  S3; the R-298 wider N-hit count moved beside the 1.3-point miss; why C1 failed (c) (the development gate compared with
+  6.37, not base); the stage table's records run to R-309. 2,783 to 2,927 words.
+- README: the changelog line.
+Not changed: `docs/submission/ABSTRACT.md` (SHA-256 the same before and after every rebuild), the long paper's
+Abstract, both model cards (rebuilt byte for byte). Not applied: cutting the short paper's stage table, a conclusion
+section, reordering Future work (Kevin's research order), the derived 62 `confirm` count.
+
+Usage at the start of this stage: weekly, all models, 8% (11:41).

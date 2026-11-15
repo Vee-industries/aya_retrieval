@@ -5,6 +5,8 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-306, session 3fe62a52
 
 ## State
 
+- **State, 15 November (R-309): an editorial review's checked fixes applied** (both papers; the form abstract
+  unchanged, Kevin: "i'd prefer not to" change it).
 - **State, 15 November (R-308): published, last audit fixed.** R-307 fixed a last audit of the published version
   (0 high, 3 medium, 6 low, no wrong count); R-308 pushed it and re-uploaded the changed Hugging Face files.
 - **State, 15 November (R-306): published.** GitHub `main` holds the final write-up; the four Hugging Face repos hold
