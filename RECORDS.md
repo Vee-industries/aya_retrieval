@@ -10832,3 +10832,14 @@ Fixed by the orchestrator (no builder; each change checked by rebuild and the ch
 
 Words: long paper Abstract 450 by whitespace, 494 by `\w+`; ABSTRACT.md 465 and 495; the short paper 2,783 (22 more, the
 search-count sentence). Next: the checks, the privacy sweep, the push, and Hugging Face uploads of the changed files.
+
+## R-308 · 2026-11-15 · REOPENED · R-307 published
+
+Privacy sweep of the one new commit (`privacy_check.py`, `--history origin/main..main`): planted checks passed; 3,343
+tracked files, 0 hits; 1 commit, 3,157 blobs, 0 hits; the saved GitHub activity file holds no email address. Pushed
+at 11:14: `main` a39473f to df8f383. Hugging Face, uploading only files missing or different (git blob or LFS SHA-256
+compared): `aya-retrieval-eval-logs` got its card, `panels/R-307/` and `scrub/github_activity_2026-11-15.json`
+(commit c977ad9); `aya-retrieval-6.37` got README (`docs/MODEL_CARD.md`) and `ARTICLE.md` (84c0870); the chats
+dataset and C1's repo already matched. After: all 37 links in the seven public documents open logged out; the five
+live cards and the short paper match the repository byte for byte; `figures/s3_misses.png` on GitHub matches. The
+abstract (`docs/submission/ABSTRACT.md`) did not change in R-307, so the text given to Kevin for the form stands.

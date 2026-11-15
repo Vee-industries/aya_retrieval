@@ -5,6 +5,8 @@ Created 2026-11-13 12:46 ET (R-216); updated 2026-11-15 (R-306, session 3fe62a52
 
 ## State
 
+- **State, 15 November (R-308): published, last audit fixed.** R-307 fixed a last audit of the published version
+  (0 high, 3 medium, 6 low, no wrong count); R-308 pushed it and re-uploaded the changed Hugging Face files.
 - **State, 15 November (R-306): published.** GitHub `main` holds the final write-up; the four Hugging Face repos hold
   the current cards, the short paper (6.37's `ARTICLE.md`), S3's run files and the reopened training sets; every link
   in the seven public documents opened logged out (R-306). Before it: two thirteen-lane review rounds (R-301, R-303),
