@@ -10875,3 +10875,27 @@ Abstract, both model cards (rebuilt byte for byte). Not applied: cutting the sho
 section, reordering Future work (Kevin's research order), the derived 62 `confirm` count.
 
 Usage at the start of this stage: weekly, all models, 8% (11:41).
+
+## R-310 · 2026-11-15 · REOPENED · R-309 published; the desktop copy refreshed; sent to the audit session
+
+Kevin, in chat, to "Push main to GitHub and upload the short paper to Hugging Face?": "Yes, push and upload"; then
+"update the files on the desktop and send it to the audit bot too".
+1. **Sweep** (before the push): `privacy_check.py` with the private names list, `--history origin/main..main`: planted
+   checks passed; 3,345 tracked files, 0 hits; 1 commit, 3,159 blobs, 0 hits. The 265 added lines were also searched
+   for the email address and a private word list kept outside the repository: 0 hits.
+2. **Push** (11:49): `main` ca1af5d to b08ec7f, a fast-forward. (A first push was held by the session's permission
+   check until Kevin's direct yes; the brief's earlier yes covered the write-up, and the push waited for his word.)
+3. **Hugging Face** (11:50, uploading only files missing or different by SHA-256 of the bytes; the live copies use CRLF
+   like the working files): `aya-retrieval-6.37` `ARTICLE.md` = `docs/submission/HF_ARTICLE.md` (91ab08f);
+   `aya-retrieval-eval-logs` `panels/R-309/review.md` (9e1088b) and `panels/R-309/checked.md` (0fbc276). Both model
+   cards already matched; the chats dataset holds no changed file. After: all five compared files match.
+4. **Links**, logged out: 21 absolute links in README, ARTICLE, HF_ARTICLE, both model cards and both dataset cards,
+   and 17 relative links of README, ARTICLE and both model cards resolved on GitHub `main`: 38, each 200.
+5. **Desktop copy:** the reading copy `Desktop\Lexsi write-up 2026-11-15 (ca1af5d)` (30 files: README, the five built
+   documents, the figures) refreshed from the repository and renamed `... (b08ec7f)`, since its name states the
+   commit; every file matches the repository byte for byte.
+6. **Audit:** the scope (`git diff ca1af5d b08ec7f`, R-309, `results/panels/R-309/`, the live Hugging Face copies) sent
+   to the audit session at 11:51; its findings will be recorded as a new entry.
+
+The form abstract (`docs/submission/ABSTRACT.md`) did not change, so the text Kevin has for the form stands. Usage at
+the end of this stage: weekly, all models, 8% (11:52).
